@@ -1,5 +1,6 @@
 About the Project
-ClearWords helps expats, diaspora Nigerians and professionals communicate effectively in Nigeriaby understanding the real meaning behind words and cultural context.
+
+ClearWords helps expats, diaspora Nigerians and professionals communicate effectively in Nigeria by understanding the real meaning behind words and cultural context.
 
 Features
 - Insant Nigerian languages phrase translations
