@@ -1,25 +1,7 @@
-const CACHE_NAME = 'clearwords-v1';
-const urlsToCache = [
-  '/',
-  '/index.html',
-  'logo.png'
-  // Add any other important files
-];
-
-self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then((cache) => cache.addAll(urlsToCache))
-  );
+self.addEventListener('install', e => {
+  console.log('ClearWords installed');
 });
 
-self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    caches.match(event.request)
-      .then((response) => {
-        // Return cached version or fetch from network
-        return response || fetch(event.request);
-      }
-    )
-  );
+self.addEventListener('fetch', e => {
+  // Let browser handle network requests
 });
