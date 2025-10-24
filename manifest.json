@@ -4,7 +4,6 @@
   "description": "Your Nigerian Cultural Guide",
   "start_url": "/",
   "display": "standalone",
-  "scope": "/"
   "background_color": "#228B22",
   "theme_color": "#228B22",
   "icons": [
