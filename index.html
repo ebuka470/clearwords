@@ -3276,54 +3276,86 @@
             return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         }
 
-        // Enhanced matching function
-        function getResponse(query) {
-            const lowerQuery = query.toLowerCase().trim();
-            console.log("User asked:", lowerQuery);
-            
-            // PRECISE KEYWORD MATCHING WITH PRIORITY
-            const matches = [];
-            
-            for (const tip of culturalTips.tips) {
-                const keywords = tip.keyword.toLowerCase().split(' ');
-                let matchScore = 0;
-                let matchedKeywords = [];
-                
-                // Check each keyword against the query
-                for (const keyword of keywords) {
-                    // Exact word matching (not just substring)
-                    const words = lowerQuery.split(/\s+/);
-                    if (words.includes(keyword)) {
-                        matchScore++;
-                        matchedKeywords.push(keyword);
-                    }
-                }
-                
-                if (matchScore > 0) {
-                    matches.push({
-                        tip: tip,
-                        score: matchScore,
-                        keywords: matchedKeywords,
-                        isExact: matchedKeywords.length === keywords.length
-                    });
-                }
+        // REPLACE YOUR CURRENT getResponse FUNCTION WITH THIS:
+
+function getResponse(query) {
+    const lowerQuery = query.toLowerCase().trim();
+    console.log("User asked:", lowerQuery);
+    
+    // QUICK LANGUAGE DETECTION
+    const lang = lowerQuery.includes('urhobo') ? 'urhobo' :
+                lowerQuery.includes('itsekiri') ? 'itsekiri' :
+                lowerQuery.includes('ijaw') ? 'ijaw' :
+                lowerQuery.includes('edo') ? 'edo' :
+                lowerQuery.includes('yoruba') ? 'yoruba' :
+                lowerQuery.includes('igbo') ? 'igbo' :
+                lowerQuery.includes('hausa') ? 'hausa' :
+                lowerQuery.includes('ibibio') ? 'ibibio' : null;
+    
+    const matches = [];
+    
+    for (const tip of culturalTips.tips) {
+        const keywords = tip.keyword.toLowerCase().split(',');
+        let matchScore = 0;
+        let matchedKeywords = [];
+        
+        // Check each keyword against the query
+        for (const keyword of keywords) {
+            const cleanKeyword = keyword.trim();
+            const words = lowerQuery.split(/\s+/);
+            if (words.includes(cleanKeyword)) {
+                matchScore++;
+                matchedKeywords.push(cleanKeyword);
+            }
+        }
+        
+        if (matchScore > 0) {
+            // BIG BOOST if language matches
+            let priorityScore = matchScore;
+            if (lang && tip.keyword.includes(lang)) {
+                priorityScore += 20; // Big boost for correct language
             }
             
-            // Sort by: exact matches first, then highest score
-            matches.sort((a, b) => {
-                if (a.isExact && !b.isExact) return -1;
-                if (!a.isExact && b.isExact) return 1;
-                return b.score - a.score;
+            // Small boost for exact matches
+            const isExact = matchedKeywords.length === keywords.length;
+            if (isExact) {
+                priorityScore += 5;
+            }
+            
+            matches.push({
+                tip: tip,
+                score: priorityScore,
+                keywords: matchedKeywords,
+                isExact: isExact,
+                hasLanguage: lang && tip.keyword.includes(lang)
             });
-            
-            console.log("Matches found:", matches);
-            
-            // Return the best match
-            if (matches.length > 0) {
-                const bestMatch = matches[0];
-                console.log("Best match:", bestMatch.tip.keyword, "Score:", bestMatch.score);
-                return bestMatch.tip.response;
-            }
+        }
+    }
+    
+    // Sort by priority score (highest first)
+    matches.sort((a, b) => b.score - a.score);
+    
+    console.log("Matches found:", matches.map(m => ({
+        keyword: m.tip.keyword,
+        score: m.score,
+        hasLanguage: m.hasLanguage
+    })));
+    
+    // Return the best match
+    if (matches.length > 0) {
+        const bestMatch = matches[0];
+        console.log("Best match:", bestMatch.tip.keyword, "Score:", bestMatch.score);
+        return bestMatch.tip.response;
+    }
+    
+    // SMART FALLBACK WITH LANGUAGE CONTEXT
+    if (lang) {
+        return `I found ${matches.length} matches for "${query}" but none were perfect. Try being more specific like "good morning in Yoruba" or "Hausa thank you".`;
+    }
+    
+    // GENERAL FALLBACK
+    return `I specialize in Nigerian cultural tips. Try asking about greetings, basic phrases, or etiquette in specific languages like Urhobo, Itsekiri, Ijaw, or Edo.`;
+}
             
             // CONTEXT-AWARE FALLBACKS
             if (lowerQuery.includes('morning') && (lowerQuery.includes('igbo') || lowerQuery.includes('yoruba') || lowerQuery.includes('hausa'))) {
@@ -3343,15 +3375,7 @@
                 if (lowerQuery.includes('yoruba')) return "Ẹ kúùrọ̀lẹ́ - Good evening (Yoruba)";
                 if (lowerQuery.includes('hausa')) return "Barka da yamma - Good evening (Hausa)";
             }
-            
-            // SMART FALLBACK
-            const language = lowerQuery.includes('igbo') ? 'Igbo' : 
-                            lowerQuery.includes('yoruba') ? 'Yoruba' : 
-                            lowerQuery.includes('hausa') ? 'Hausa' : 'Nigerian';
-                            
-            return `I specialize in ${language} cultural tips. Try asking about greetings, basic phrases, or etiquette. Be specific like "good morning in Igbo" or "Hausa thank you".`;
-        }
-
+ 
         // UI Functions
         function toggleTheme() {
             const body = document.body;
