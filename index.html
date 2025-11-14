@@ -3174,6 +3174,15 @@
 
         function renderCurrentChat() {
             const container = document.getElementById('messagesContainer');
+            const welcomeMessage = document.getElementById('welcomeMessage');
+            
+            // Hide welcome message if chat has content
+            if (currentChatId && chats[currentChatId] && chats[currentChatId].messages.length > 0) {
+                welcomeMessage.style.display = 'none';
+            } else {
+                welcomeMessage.style.display = 'block';
+            }
+            
             container.innerHTML = '';
             
             if (currentChatId && chats[currentChatId]) {
@@ -3213,32 +3222,39 @@
             
             if (message === '') return;
             
-            // Add user message
-            const userMessage = {
-                id: Date.now(),
-                text: message,
-                isUser: true,
-                timestamp: new Date()
-            };
-            
-            addMessageToCurrentChat(userMessage);
-            renderMessage(userMessage);
-            updateChatTitle(userMessage);
-            input.value = '';
-            
-            // Process and get bot response
-            setTimeout(() => {
-                const response = getResponse(message);
-                const botMessage = {
-                    id: Date.now() + 1,
-                    text: response,
-                    isUser: false,
+            try {
+                // Add user message
+                const userMessage = {
+                    id: Date.now(),
+                    text: message,
+                    isUser: true,
                     timestamp: new Date()
                 };
                 
-                addMessageToCurrentChat(botMessage);
-                renderMessage(botMessage);
-            }, 500);
+                addMessageToCurrentChat(userMessage);
+                renderMessage(userMessage);
+                updateChatTitle(userMessage);
+                input.value = '';
+                
+                // Hide welcome message when user sends first message
+                document.getElementById('welcomeMessage').style.display = 'none';
+                
+                // Process and get bot response
+                setTimeout(() => {
+                    const response = getResponse(message);
+                    const botMessage = {
+                        id: Date.now() + 1,
+                        text: response,
+                        isUser: false,
+                        timestamp: new Date()
+                    };
+                    
+                    addMessageToCurrentChat(botMessage);
+                    renderMessage(botMessage);
+                }, 500);
+            } catch (error) {
+                console.error('Error sending message:', error);
+            }
         }
 
         function addMessageToCurrentChat(message) {
@@ -3324,9 +3340,10 @@
                 console.log("Best match:", bestMatch.tip.keyword, "Score:", bestMatch.score);
                 return bestMatch.tip.response;
             }
+            
             // CONTEXT-AWARE FALLBACKS
             if (lowerQuery.includes('morning') && (lowerQuery.includes('igbo') || lowerQuery.includes('yoruba') || lowerQuery.includes('hausa'))) {
-                if (lowerQuery.includes('igbo')) return "Ụtụtụ ọma (modern) - Good morning\nỊ bọọla chi? (native greeting) - Have you opened the day?";
+                if (lowerQuery.includes('igbo')) return "Ụtụtụ ọma (modern) - Good morning<br>Ị bọọla chi? (native greeting) - Have you opened the day?";
                 if (lowerQuery.includes('yoruba')) return "Ẹ káàrọ̀ - Good morning (Yoruba)";
                 if (lowerQuery.includes('hausa')) return "Barka da safe - Good morning (Hausa)";
             }
@@ -3342,7 +3359,11 @@
                 if (lowerQuery.includes('yoruba')) return "Ẹ kúùrọ̀lẹ́ - Good evening (Yoruba)";
                 if (lowerQuery.includes('hausa')) return "Barka da yamma - Good evening (Hausa)";
             }
- 
+            
+            // DEFAULT RESPONSE
+            return "I'm still learning about Nigerian culture. Could you try asking about greetings, business etiquette, cultural tips, or specific phrases in languages like Yoruba, Igbo, or Hausa?";
+        }
+
         // UI Functions
         function toggleTheme() {
             const body = document.body;
