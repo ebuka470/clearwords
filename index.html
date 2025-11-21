@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- PWA Tags -->
+    <!-- PWA Tags -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#228B22">
     <link rel="icon" href="logo.png">
@@ -146,6 +146,283 @@
         .dark-theme .chat-item.active {
             background-color: var(--dark-accent);
             border-color: var(--dark-accent);
+        }
+
+        /* Settings Button in Sidebar */
+        .sidebar-footer {
+            padding: 20px;
+            border-top: 1px solid #ddd;
+        }
+
+        .dark-theme .sidebar-footer {
+            border-top-color: #444;
+        }
+
+        .settings-btn {
+            width: 100%;
+            padding: 12px 16px;
+            background-color: transparent;
+            color: var(--light-text);
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .dark-theme .settings-btn {
+            color: var(--dark-text);
+            border-color: #444;
+        }
+
+        .settings-btn:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .dark-theme .settings-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .made-by {
+            flex: 1;
+            text-align: center;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        /* Settings Page */
+        .settings-page {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--light-bg);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .dark-theme .settings-page {
+            background-color: var(--dark-bg);
+        }
+
+        .settings-header {
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--light-accent);
+            color: white;
+        }
+
+        .dark-theme .settings-header {
+            background-color: var(--dark-accent);
+            border-bottom-color: #444;
+        }
+
+        .settings-content {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .settings-section {
+            margin-bottom: 30px;
+        }
+
+        .settings-section h3 {
+            margin-bottom: 15px;
+            color: var(--light-accent);
+            font-size: 18px;
+        }
+
+        .dark-theme .settings-section h3 {
+            color: var(--dark-accent);
+        }
+
+        .settings-option {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .dark-theme .settings-option {
+            border-color: #444;
+        }
+
+        .settings-option:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            transform: translateY(-1px);
+        }
+
+        .dark-theme .settings-option:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .theme-toggle-settings {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .theme-toggle-settings span {
+            flex: 1;
+        }
+
+        .back-to-chat-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--light-accent);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: all 0.2s;
+        }
+
+        .dark-theme .back-to-chat-btn {
+            background-color: var(--dark-accent);
+        }
+
+        .back-to-chat-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 3000;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: var(--light-bg);
+            color: var(--light-text);
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 1px solid #ddd;
+        }
+
+        .dark-theme .modal-content {
+            background: var(--dark-bg);
+            border-color: #444;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--light-accent);
+        }
+
+        .dark-theme .modal-header {
+            border-bottom-color: var(--dark-accent);
+        }
+
+        .modal-header h3 {
+            margin: 0;
+            color: var(--light-accent);
+            font-size: 24px;
+        }
+
+        .dark-theme .modal-header h3 {
+            color: var(--dark-accent);
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+            padding: 5px;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .dark-theme .close-modal {
+            color: #999;
+        }
+
+        .close-modal:hover {
+            background-color: rgba(0,0,0,0.1);
+        }
+
+        .modal-body {
+            line-height: 1.6;
+        }
+
+        .modal-body h4 {
+            margin: 20px 0 10px 0;
+            color: var(--light-accent);
+            font-size: 18px;
+        }
+
+        .dark-theme .modal-body h4 {
+            color: var(--dark-accent);
+        }
+
+        .modal-body p {
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .dark-theme .modal-body p{
+            color:var(--dark-text);
+        }
+        
+        .modal-body ul {
+            margin: 10px 0 20px 20px;
+        }
+
+        .modal-body li {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        .dark-theme .modal-body li{
+            color: var(--dark-text)
+        }
+
+        .effective-date {
+            background: linear-gradient(135deg, var(--light-accent), #32CD32);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .dark-theme .effective-date {
+            background: linear-gradient(135deg, var(--dark-accent), #228B22);
         }
 
         /* Main Chat Area */
@@ -339,6 +616,15 @@
             .close-sidebar {
                 display: block;
             }
+
+            .modal-content {
+                padding: 20px;
+                margin: 10px;
+            }
+
+            .settings-content {
+                padding: 15px;
+            }
         }
     </style>
 </head>
@@ -355,6 +641,12 @@
             <div class="chat-history" id="chatHistory">
                 <!-- Chat history will be loaded here -->
             </div>
+            <div class="sidebar-footer">
+                <button class="settings-btn" onclick="openSettings()">
+                    <span>⚙️</span>
+                    <span class="made-by"><h3><strong>Settings</strong></h3></span>
+                </button>
+            </div>
         </div>
 
         <!-- Main Content -->
@@ -362,7 +654,7 @@
             <div class="header">
                 <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
                 ClearWords
-                <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+                <button class="theme-toggle" onclick="createNewChat()">+</button>
             </div>
             
             <div class="chat-container" id="chatContainer">
@@ -388,8 +680,52 @@
         </div>
     </div>
 
+    <!-- Settings Page -->
+    <div class="settings-page" id="settingsPage">
+        <div class="settings-header">
+            <h2>Settings</h2>
+            <button class="theme-toggle" onclick="closeSettings()">✕</button>
+        </div>
+        <div class="settings-content">
+            <div class="settings-section">
+                <h3>Appearance</h3>
+                <div class="settings-option theme-toggle-settings" onclick="toggleTheme()">
+                    <span>Theme</span>
+                    <span id="themeStatus">🌓 Light Mode</span>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h3>Legal</h3>
+                <div class="settings-option" onclick="showPrivacyPolicy()">
+                    <strong>Privacy Policy</strong>
+                    <p style="margin-top: 5px; font-size: 12px; opacity: 0.8;">How we handle your data</p>
+                </div>
+                <div class="settings-option" onclick="showTermsOfService()">
+                    <strong>Terms of Service</strong>
+                    <p style="margin-top: 5px; font-size: 12px; opacity: 0.8;">Usage guidelines and rules</p>
+                </div>
+                <div class="settings-option" onclick="showAboutUs()">
+                    <strong>About Us</strong>
+                    <p style="margin-top: 5px; font-size: 12px; opacity: 0.8;">Learn about ClearWords</p>
+                </div>
+            </div>
+ <p style="text-align: center;"><strong>Made with ❤️ by Mediate NG</strong></p>
+            <button class="back-to-chat-btn" onclick="closeSettings()">
+                ← Back to Chat
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content" id="modalContent">
+            <!-- Modal content will be inserted here -->
+        </div>
+    </div>
+
     <script>
-        // Cultural tips data
+          // Cultural tips data
         const culturalTips = {
             "tips": [
         {
@@ -562,7 +898,7 @@
     "response": "<b>Ọmwan mwẹn ẹmẹ</b><br><br>💡 <b>Tip:</b> Water is always offered to guests. Accept it graciously as a sign of respect."
 },
 {
-    "keyword": "i am tired edo, fatigue edo, exhausted edo",
+    "keyword": "i am tired edo, fatigue edo, exhausted edo",       
     "response": "<b>Ọmwan khẹ khẹn</b><br><br>💡 <b>Tip:</b> Rest is respected. Don't hesitate to say you need to rest when visiting."
 },
 {
@@ -1509,11 +1845,11 @@
                 
         // HAUSA Phrases & Tips
         {
-            "keyword": "how do i to can should say i'm learning hausa",
+            "keyword": "how say i'm learning hausa",
             "response": "I'm learning Hausa:<br><br>• 'Ina koyon Hausa' (I'm learning Hausa)<br>• Response: 'Yaya kake?' (How are you doing?)<br><br>💡 Tip: Hausa speakers love when foreigners try their language. Start with greetings - they'll be excited to teach you more!"
         },
         {
-            "keyword": "how do i to can should say where hotel hausa",
+            "keyword": "how say where hotel hausa",
             "response": "Where is the hotel?:<br><br>• 'Ina otal din?' (Where is the hotel?)<br>• 'Ina za a iya samun otal?' (Where can I find a hotel?)<br><br>💡 Tip: In Northern Nigeria, ask for 'gidan masu zama' (guest house) for more affordable local options than international hotels."
         },
         {
@@ -1521,61 +1857,61 @@
             "response": "This food is spicy:<br><br>• 'Wannan abinci yana da yaji' (This food has pepper)<br>• 'Yaji yana da yawa' (There's too much pepper)<br><br>💡 Tip: Hausa cuisine uses mild spices. If food is too spicy, say 'Yaji yayi yawa' gently - the cook might adjust for you."
         },
         {
-            "keyword": "how do I to say call police hausa",
+            "keyword": "how say call police hausa",
             "response": "Call the police:<br><br>• 'Kira 'yan sanda' (Call police)<br>• Emergency: 'Na bukata taimako!' (I need help!)<br><br>💡 Tip: In Hausa communities, elders often resolve disputes before police involvement. Seek community leaders first for minor issues."
         },
         {
-            "keyword": "how do i to say i need doctor, im sick hausa",
+            "keyword": "how say i need doctor hausa",
             "response": "I need a doctor:<br><br>• 'Ina bukatan likita' (I need a doctor)<br>• 'Likita, don Allah!' (Doctor, please!)<br><br>💡 Tip: Traditional healers ('masu magani') are respected in Hausa culture. For minor ailments, locals might suggest visiting one."
         },
         {
-            "keyword": "how do i to say take photo hausa",
+            "keyword": "how say take photo hausa",
             "response": "Take a photo:<br><br>• 'Dauki hoto' (Take photo)<br>• 'Zan iya daukan hoto?' (Can I take a photo?)<br><br>💡 Tip: Always ask permission before photographing Hausa people, especially women and religious sites. Some consider it disrespectful."
         },
         {
-            "keyword": "how do i to say i'm lost hausa",
+            "keyword": "how say i'm lost hausa",
             "response": "I'm lost:<br><br>• 'Na bata' (I'm lost)<br>• 'Ban san inda nake ba' (I don't know where I am)<br><br>💡 Tip: If lost in Hausa areas, approach families or shopkeepers rather than individuals. They're more likely to help safely."
         },
         {
-            "keyword": "how do i to say how old are you hausa",
+            "keyword": "how say how old are you hausa",
             "response": "How old are you?:<br><br>• 'Shekara nawa kake da su?' (How many years do you have?)<br>• 'Mi shekarunka?' (What are your years?)<br><br>💡 Tip: Asking age is common in Hausa culture. Elders are proud of their age - it signifies wisdom and respect."
         },
         {
-            "keyword": "how do i to say what this called hausa",
+            "keyword": "how say what this called hausa",
             "response": "What is this called?:<br><br>• 'Menene wannan ake cewa?' (What is this called?)<br>• 'Sunan wannan menene?' (What's the name of this?)<br><br>💡 Tip: Hausa has many words borrowed from Arabic. Don't be surprised if some terms sound familiar from Islamic contexts."
         },
         {
-            "keyword": "how do i to say i don't eat meat hausa",
+            "keyword": "how say i don't eat meat hausa",
             "response": "I don't eat meat:<br><br>• 'Ba na cin nama' (I don't eat meat)<br>• 'Ban ci nama ba' (I didn't eat meat)<br><br>💡 Tip: Hausa cuisine is meat-heavy. Vegetarians should specify 'Ba na son nama' (I don't want meat) clearly when ordering."
         },
 
         // IGBO Phrases & Tips
         {
-            "keyword": "how do i to say i'm learning igbo",
+            "keyword": "how say i'm learning igbo",
             "response": "I'm learning Igbo:<br><br>• 'A na m amu Igbo' (I'm learning Igbo)<br>• Response: 'O di mma!' (That's good!)<br><br>💡 Tip: Igbo people appreciate effort with their language. They might test you with tongue twisters - take it as friendly banter!"
         },
         {
-            "keyword": "how do i to say where hotel igbo",
+            "keyword": "how say where hotel igbo",
             "response": "Where is the hotel?:<br><br>• 'Ebee ka ulo nnabanye di?' (Where is the hotel?)<br>• 'Ebee ka hotel di?' (Where is hotel?)<br><br>💡 Tip: In Igbo land, many family compounds operate as guest houses. Ask for 'ulo obia' (visitor's house) for authentic stays."
         },
         {
-            "keyword": "how do i to say this food spicy igbo",
+            "keyword": "how say this food spicy igbo",
             "response": "This food is spicy:<br><br>• 'Nri a na-egbu oku' (This food is hot)<br>• 'Ose di n'ime nri a' (There's pepper in this food)<br><br>💡 Tip: Igbo cuisine is famously spicy! If it's too much, ask for 'mmiri oku' (hot water) to help cool your palate."
         },
         {
-            "keyword": "how do i to say call police igbo",
+            "keyword": "how say call police igbo",
             "response": "Call the police:<br><br>• 'Kpoo ndi uwe ojii' (Call police)<br>• Emergency: 'Enyemaka!' (Help!)<br><br>💡 Tip: In Igbo communities, the 'Umunna' (extended family) often handles disputes. Involving police is usually a last resort."
         },
         {
-            "keyword": "how do i to say i need doctor igbo",
+            "keyword": "how say i need doctor igbo",
             "response": "I need a doctor:<br><br>• 'Achoro m dibia' (I need doctor)<br>• 'Onye ogwu, biko!' (Doctor, please!)<br><br>💡 Tip: Traditional medicine is respected in Igbo culture. 'Dibia' refers to both traditional and Western doctors."
         },
         {
-            "keyword": "how do i to say take photo igbo",
+            "keyword": "how say take photo igbo",
             "response": "Take a photo:<br><br>• 'Were foto' (Take photo)<br>• 'Enwere m ike were foto?' (Can I take photo?)<br><br>💡 Tip: Igbo people generally love photographs! At events, expect many posed group shots and requests to see the pictures immediately."
         },
         {
-            "keyword": "how do i to say i'm lost igbo",
+            "keyword": "how say i'm lost igbo",
             "response": "I'm lost:<br><br>• 'E furu m uzo' (I lost the way)<br>• 'A maghi m ebe m no' (I don't know where I am)<br><br>💡 Tip: If lost in Igbo villages, mention any prominent family name - most communities are interconnected through marriage."
         },
         {
@@ -1583,17 +1919,17 @@
             "response": "How old are you?:<br><br>• 'I bu afo ole?' (You are years how many?)<br>• 'Onye afo ole ka I bu?' (Person of how many years are you?)<br><br>💡 Tip: Age determines respect in Igbo culture. Older people are addressed as 'Dee' (men) or 'Daa' (women) as signs of honor."
         },
         {
-            "keyword": "how do i to say what this called igbo",
+            "keyword": "how say what this called igbo",
             "response": "What is this called?:<br><br>• 'Gini ka a na-akpo ihe a?' (What do they call this thing?)<br>• 'Kedu aha ihe a?' (What's the name of this thing?)<br><br>💡 Tip: Igbo has many dialects. The same item might have different names across communities - don't be confused!"
         },
         {
-            "keyword": "how do i to say i don't eat meat igbo",
+            "keyword": "how say i don't eat meat igbo",
             "response": "I don't eat meat:<br><br>• 'Anaghi m eri anu' (I don't eat meat)<br>• 'Achoghi m anu' (I don't want meat)<br><br>💡 Tip: Igbo cuisine offers great vegetarian options like 'Ugba' and 'Abacha'. Specify 'Naani nri osikapa' (only rice food) for plant-based meals."
         },
 
         // YORUBA Phrases & Tips
         {
-            "keyword": "how do i to can should say i'm learning yoruba",
+            "keyword": "how say i'm learning yoruba",
             "response": "I'm learning Yoruba:<br><br>• 'Mo n kọ ẹdè Yorùbá' (I'm learning Yoruba language)<br>• Response: 'Ẹ ku iṣẹ́!' (Well done!)<br><br>💡 Tip: Yoruba has tones that change word meanings. Don't worry about perfect tones - locals will appreciate your effort and help correct you gently!"
         },
         {
@@ -1760,12 +2096,10 @@
         }
             ]
         };
-
         // Chat management
         let currentChatId = null;
         let chats = {};
         let isDarkTheme = false;
-
         // Initialize the app
         document.addEventListener('DOMContentLoaded', function() {
             loadChatHistory();
@@ -1785,9 +2119,179 @@
             if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
                 toggleTheme();
             }
+            
+            updateThemeStatus();
         });
 
-        // Chat management functions
+        // Settings functions
+        function openSettings() {
+            document.getElementById('settingsPage').style.display = 'block';
+            closeSidebar();
+        }
+
+        function closeSettings() {
+            document.getElementById('settingsPage').style.display = 'none';
+        }
+
+        function updateThemeStatus() {
+            const themeStatus = document.getElementById('themeStatus');
+            themeStatus.textContent = isDarkTheme ? '🌓 Dark Mode' : '🌓 Light Mode';
+        }
+
+        function showPrivacyPolicy() {
+            const content = `
+                <div class="modal-header">
+                    <h3>Privacy Policy</h3>
+                    <button class="close-modal" onclick="closeModal()">✕</button>
+                </div>
+                <div class="modal-body">
+                    <div class="effective-date">Effective from 29 November, 2025</div>
+                    
+                    <h4>1. Information We Collect</h4>
+                    <p>ClearWords is designed with your privacy in mind. We collect minimal data necessary for app functionality:</p>
+                    <ul>
+                        <li>Chat conversations stored locally on your device</li>
+                        <li>App preferences and settings</li>
+                        <li>Anonymous usage analytics for app improvement</li>
+                    </ul>
+
+                    <h4>2. How We Use Your Information</h4>
+                    <p>Your data is used solely to enhance your experience:</p>
+                    <ul>
+                        <li>Provide accurate cultural translation services</li>
+                        <li>Maintain your chat history for continuity</li>
+                        <li>Improve app performance and user experience</li>
+                        <li>Understand feature usage to guide development</li>
+                    </ul>
+
+                    <h4>3. Data Storage & Security</h4>
+                    <p>All your personal data is stored locally on your device using browser localStorage. We don't transmit or store your conversations on external servers. Your cultural queries remain private and secure.</p>
+
+                    <h4>4. Your Rights & Control</h4>
+                    <p>You have complete control over your data:</p>
+                    <ul>
+                        <li>Clear all data by clearing browser storage</li>
+                        <li>Delete individual chats within the app</li>
+                        <li>Use incognito mode for temporary sessions</li>
+                    </ul>
+
+                    <h4>5. Third-Party Services</h4>
+                    <p>ClearWords doesn't use third-party analytics or tracking services. We believe in keeping your cultural exploration private.</p>
+
+                    <h4>6. Contact Us</h4>
+                    <p>For privacy concerns or questions, contact our team:<br>
+                    <strong>Email:</strong> mediateng001@gmail.com<br>
+                    We typically respond within 24-48 hours.</p>
+                </div>
+            `;
+            showModal(content);
+        }
+
+        function showTermsOfService() {
+            const content = `
+                <div class="modal-header">
+                    <h3>Terms of Service</h3>
+                    <button class="close-modal" onclick="closeModal()">✕</button>
+                </div>
+                <div class="modal-body">
+                    <div class="effective-date">Effective from 29 November, 2025</div>
+                    
+                    <h4>1. Acceptance of Terms</h4>
+                    <p>By using ClearWords, you agree to these terms and our Privacy Policy. These terms constitute a legal agreement between you and Mediate NG.</p>
+
+                    <h4>2. Service Description</h4>
+                    <p>ClearWords provides Nigerian cultural tips, language translations, and cultural guidance as an informational tool. We aim to bridge cultural gaps through technology.</p>
+
+                    <h4>3. User Responsibilities</h4>
+                    <p>As a user, you agree to:</p>
+                    <ul>
+                        <li>Use the app for lawful, educational purposes only</li>
+                        <li>Respect cultural diversity and sensitivities</li>
+                        <li>Not misuse cultural information provided</li>
+                        <li>Understand that cultural context may vary by region</li>
+                        <li>Verify critical information through multiple sources</li>
+                    </ul>
+
+                    <h4>4. Intellectual Property</h4>
+                    <p>All cultural content, app design, and proprietary algorithms are intellectual property of Mediate NG. You may not reproduce, distribute, or create derivative works without permission.</p>
+
+                    <h4>5. Limitation of Liability</h4>
+                    <p>ClearWords is provided "as is" for educational purposes. We're not liable for:</p>
+                    <ul>
+                        <li>Cultural misunderstandings or misinterpretations</li>
+                        <li>Accuracy of regional dialect variations</li>
+                        <li>Misuse of cultural information</li>
+                        <li>Technical issues beyond our control</li>
+                    </ul>
+
+                    <h4>6. Changes to Terms</h4>
+                    <p>We may update these terms to reflect service improvements. Continued use after changes means acceptance of updated terms.</p>
+
+                    <h4>7. Termination</h4>
+                    <p>We reserve the right to terminate access for violations of these terms or misuse of the service.</p>
+                </div>
+            `;
+            showModal(content);
+        }
+
+        function showAboutUs() {
+            const content = `
+                <div class="modal-header">
+                    <h3>About ClearWords</h3>
+                    <button class="close-modal" onclick="closeModal()">✕</button>
+                </div>
+                <div class="modal-body">
+                    <div class="effective-date">Effective from 29 November, 2025</div>
+                    
+                    <h4>Our Mission</h4>
+                    <p>ClearWords bridges cultural gaps by providing accurate Nigerian cultural insights, language translations, and etiquette guidance. We believe understanding fosters connection.</p>
+
+                    <h4>What We Do</h4>
+                    <p>ClearWords helps you navigate Nigerian cultural landscapes through:</p>
+                    <ul>
+                        <li>Accurate language translations with cultural context</li>
+                        <li>Etiquette tips for different Nigerian cultures</li>
+                        <li>Regional variations and local nuances</li>
+                        <li>Practical guidance for real-world situations</li>
+                        <li>Preservation of Nigerian cultural heritage</li>
+                    </ul>
+
+                    <h4>Our Vision</h4>
+                    <p>To become the most trusted platform for Nigerian cultural education, making cultural understanding accessible to everyone worldwide.</p>
+
+                    <h4>Our Team</h4>
+                    <p>ClearWords is developed by Mediate NG, a team passionate about cultural preservation, digital innovation, and creating tools that bring people closer together.</p>
+
+                    <h4>Contact Information</h4>
+                    <p><strong>Email:</strong> mediateng001@gmail.com<br>
+                    <strong>Websites:</strong> clearwords.vercel.app &nbsp &nbsp mediateng.godaddysites.com<br>
+                    <strong>Location:</strong> Nigeria</p>
+
+                    <h4>Version Information</h4>
+                    <p><strong>ClearWords v1.0</strong><br>
+                    Built with ❤️ for cultural explorers everywhere</p>
+                </div>
+            `;
+            showModal(content);
+        }
+
+        function showModal(content) {
+            document.getElementById('modalContent').innerHTML = content;
+            document.getElementById('modalOverlay').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modalOverlay').style.display = 'none';
+        }
+
+        // Close modal when clicking outside content
+        document.getElementById('modalOverlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Chat management functions (your existing functions)
         function createNewChat() {
             const chatId = 'chat_' + Date.now();
             currentChatId = chatId;
@@ -1802,17 +2306,13 @@
             saveChatHistory();
             loadChatHistory();
             renderCurrentChat();
-            closeSidebar(); // Close sidebar on mobile after creating new chat
-            
-            // Hide welcome message when chat has content
-            
+            closeSidebar();
         }
 
         function loadChatHistory() {
             const savedChats = localStorage.getItem('clearWordsChats');
             if (savedChats) {
                 const parsedChats = JSON.parse(savedChats);
-                // Convert date strings back to Date objects
                 for (let id in parsedChats) {
                     parsedChats[id].createdAt = new Date(parsedChats[id].createdAt);
                     parsedChats[id].messages.forEach(msg => {
@@ -1855,7 +2355,6 @@
             renderCurrentChat();
             renderChatHistory();
             closeSidebar();
-            
         }
 
         function renderCurrentChat() {
@@ -1869,7 +2368,6 @@
                     renderMessage(message);
                 });
                 
-                // Scroll to bottom
                 setTimeout(() => {
                     document.getElementById('chatContainer').scrollTop = document.getElementById('chatContainer').scrollHeight;
                 }, 100);
@@ -1878,7 +2376,6 @@
 
         function updateChatTitle(message) {
             if (chats[currentChatId] && chats[currentChatId].title === 'New Chat' && message.isUser) {
-                // Use first user message as title (max 30 chars)
                 const title = message.text.slice(0, 30) + (message.text.length > 30 ? '...' : '');
                 chats[currentChatId].title = title;
                 saveChatHistory();
@@ -1886,7 +2383,7 @@
             }
         }
 
-        // Message handling
+        // Message handling (your existing functions)
         function handleKeyPress(event) {
             if (event.key === 'Enter') {
                 sendMessage();
@@ -1899,7 +2396,6 @@
             
             if (message === '') return;
             
-            // Add user message
             const userMessage = {
                 id: Date.now(),
                 text: message,
@@ -1912,7 +2408,6 @@
             updateChatTitle(userMessage);
             input.value = '';
             
-            // Process and get bot response
             setTimeout(() => {
                 const response = getResponse(message);
                 const botMessage = {
@@ -1952,22 +2447,17 @@
             messageDiv.appendChild(timestamp);
             container.appendChild(messageDiv);
             
-            // Scroll to bottom
             document.getElementById('chatContainer').scrollTop = document.getElementById('chatContainer').scrollHeight;
-          
         }
 
-            
         function formatTime(date) {
             return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         }
 
-        // Enhanced matching function
         function getResponse(query) {
             const lowerQuery = query.toLowerCase().trim();
             console.log("User asked:", lowerQuery);
             
-            // PRECISE KEYWORD MATCHING WITH PRIORITY
             const matches = [];
             
             for (const tip of culturalTips.tips) {
@@ -1975,9 +2465,7 @@
                 let matchScore = 0;
                 let matchedKeywords = [];
                 
-                // Check each keyword against the query
                 for (const keyword of keywords) {
-                    // Exact word matching (not just substring)
                     const words = lowerQuery.split(/\s+/);
                     if (words.includes(keyword)) {
                         matchScore++;
@@ -1995,7 +2483,6 @@
                 }
             }
             
-            // Sort by: exact matches first, then highest score
             matches.sort((a, b) => {
                 if (a.isExact && !b.isExact) return -1;
                 if (!a.isExact && b.isExact) return 1;
@@ -2004,33 +2491,12 @@
             
             console.log("Matches found:", matches);
             
-            // Return the best match
             if (matches.length > 0) {
                 const bestMatch = matches[0];
                 console.log("Best match:", bestMatch.tip.keyword, "Score:", bestMatch.score);
                 return bestMatch.tip.response;
             }
             
-            // CONTEXT-AWARE FALLBACKS
-            if (lowerQuery.includes('morning') && (lowerQuery.includes('igbo') || lowerQuery.includes('yoruba') || lowerQuery.includes('hausa'))) {
-                if (lowerQuery.includes('igbo')) return "Ụtụtụ ọma (modern) - Good morning\nỊ bọọla chi? (native greeting) - Have you opened the day?";
-                if (lowerQuery.includes('yoruba')) return "Ẹ káàrọ̀ - Good morning (Yoruba)";
-                if (lowerQuery.includes('hausa')) return "Barka da safe - Good morning (Hausa)";
-            }
-            
-            if (lowerQuery.includes('afternoon') && (lowerQuery.includes('igbo') || lowerQuery.includes('yoruba') || lowerQuery.includes('hausa'))) {
-                if (lowerQuery.includes('igbo')) return "Ehihie ọma - Good afternoon";
-                if (lowerQuery.includes('yoruba')) return "Ẹ káàsán - Good afternoon (Yoruba)";
-                if (lowerQuery.includes('hausa')) return "Barka da rana - Good afternoon (Hausa)";
-            }
-            
-            if (lowerQuery.includes('evening') && (lowerQuery.includes('igbo') || lowerQuery.includes('yoruba') || lowerQuery.includes('hausa'))) {
-                if (lowerQuery.includes('igbo')) return "Mgbede ọma - Good evening";
-                if (lowerQuery.includes('yoruba')) return "Ẹ kúùrọ̀lẹ́ - Good evening (Yoruba)";
-                if (lowerQuery.includes('hausa')) return "Barka da yamma - Good evening (Hausa)";
-            }
-            
-            // SMART FALLBACK
             const language = lowerQuery.includes('igbo') ? 'Igbo' : 
                             lowerQuery.includes('yoruba') ? 'Yoruba' : 
                             lowerQuery.includes('hausa') ? 'Hausa' : 'Nigerian';
@@ -2050,6 +2516,9 @@
                 body.classList.remove('dark-theme');
                 body.classList.add('light-theme');
             }
+            
+            updateThemeStatus();
+            saveChatHistory();
         }
 
         function toggleSidebar() {
@@ -2062,10 +2531,10 @@
             sidebar.classList.remove('open');
         }
         
-           // PWA Registration
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('sw.js');
-    }
+        // PWA Registration
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
     </script>
 </body>
 </html>
