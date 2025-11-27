@@ -725,1674 +725,35 @@
     </div>
 
     <script>
-          // Cultural tips data
-        const culturalTips = {
-            "tips": [
-        {
-            "keyword": "greeting yoruba, greetings, how are you yoruba",
-            "response": "In Yoruba culture (Southwest Nigeria), use 'Bawo ni?' for 'How are you?' in formal settings. It's polite and shows respect."
-        },
-        {
-            "keyword": "greeting igbo",
-            "response": "In Igbo culture (Southeast Nigeria), say 'Kedu?' for 'How are you?'. Add 'Nna' or 'Nne' for elders to show honor."
-        },
-        {
-            "keyword": "good morning igbo",
-            "response": "Ụtụtụ ọma (modern) - Good morning\nỊ bọọla chi? (native greeting) - Have you opened the day?"
-        },
-        {
-            "keyword": "good afternoon igbo", 
-            "response": "Ehihie ọma - Good afternoon"
-        },
-        {
-            "keyword": "good evening igbo",
-            "response": "Mgbede ọma - Good evening"
-        },
-        {
-            "keyword": "what is your name igbo",
-            "response": "Kedu aha gị? or Gịnị bụ aha gị - What is your name?"
-        },
-        {
-            "keyword": "my name is igbo",
-            "response": "Aha m bụ … - My name is …"
-        },
-        {
-            "keyword": "how are you igbo",
-            "response": "Kedu? - How are you?\nKedu ka ị mere? - How are you doing?"
-        },
-        {
-            "keyword": "i am fine igbo", 
-            "response": "Adị m mma - I am fine"
-        },
-        {
-            "keyword": "thank you igbo",
-            "response": "Daalụ - Thanks"
-        },
-        {
-            "keyword": "you're welcome igbo",
-            "response": "Nnọọ - Welcome\nỌ dị mma - It's okay"
-        },
-        {
-            "keyword": "please igbo",
-            "response": "Biko - Please"
-        },
-        {
-            "keyword": "greeting hausa, how are you hausa",
-            "response": "In Hausa culture (Northern Nigeria), 'Sannu' means 'Hello'. Use 'Ina kwana?' for 'How did you sleep?' to start conversations warmly."
-        },
-        {
-            "keyword": "business yoruba",
-            "response": "In Yoruba business meetings, build rapport first—avoid rushing to deals. Use proverbs like 'A kì í fi ọwọ́ osì gba èbùn' (Also, don't receive gifts with left hand) to show respect."
-        },
-        {
-            "keyword": "business igbo",
-            "response": "Igbo business etiquette emphasizes titles and hierarchy. Greet elders first and offer kola nuts if possible—it's a sign of hospitality."
-        },
-        {
-            "keyword": "business hausa",
-            "response": "In Hausa culture, avoid direct 'no' to maintain harmony. Use indirect phrases and respect Islamic customs, like not shaking hands with opposite gender unless offered."
-        },
-        {
-            "keyword": "phrase thank yoruba",
-            "response": "Thank you in Yoruba: 'Ẹ ṣé' or 'O ṣé' for informal. Use it generously to build trust."
-        },
-        {
-            "keyword": "phrase thank igbo",
-            "response": "Thank you in Igbo: 'Daalụ' or 'Imeela'. It's key for non-natives to show appreciation in social settings."
-        },
-        {
-            "keyword": "phrase thank hausa",
-            "response": "Thank you in Hausa: 'Na gode'. Pair it with a smile for better rapport in professional interactions."
-        },
-        {
-            "keyword": "dont nigeria",
-            "response": "General don'ts in Nigeria: Avoid pointing with your finger (use chin or lips), don't eat with left hand, and respect elders by not interrupting."
-        },
-// ==================== ITSEKIRI PHRASES (70 pairs) ====================
-{
-    "keyword": "good morning itsekiri, greet morning itsekiri",
-    "response": "<b>Ere owuro</b><br><br>💡 <b>Tip:</b> Use this from dawn until noon. Itsekiri people value proper greetings as a sign of respect for elders."
-},
-{
-    "keyword": "good afternoon itsekiri, afternoon itsekiri, greet afternoon itsekiri",
-    "response": "<b>Ere oson</b><br><br>💡 <b>Tip:</b> Use this from 12 PM to 4 PM. Always maintain eye contact and smile when greeting people."
-},
-{
-    "keyword": "good evening itsekiri, evening itsekiri, greet evening itsekiri",
-    "response": "<b>Ere ale</b><br><br>💡 <b>Tip:</b> Use this after 4 PM. Itsekiri people are known for their elaborate evening social gatherings and storytelling."
-},
-{
-    "keyword": "how are you itsekiri, how you dey itsekiri, how body itsekiri",
-    "response": "<b>Mene ma we?</b> or <b>Mene ma ye?</b><br><br>💡 <b>Tip:</b> The proper response is 'Ma de' (I'm fine). Always ask about the person's family after they respond."
-},
-{
-    "keyword": "what is your name itsekiri, your name itsekiri, who are you itsekiri",
-    "response": "<b>Ina re e?</b><br><br>💡 <b>Tip:</b> Itsekiri names often reflect circumstances of birth or family history. Be prepared to share your name's meaning."
-},
-{
-    "keyword": "my name is itsekiri, i am called itsekiri, call me itsekiri",
-    "response": "<b>Ortomi re ...</b><br><br>💡 <b>Tip:</b> Itsekiri people take pride in their names. Many names have Portuguese influences due to historical trade relationships."
-},
-{
-    "keyword": "thank you itsekiri, thanks itsekiri, gratitude itsekiri",
-    "response": "<b>O ma se/Modope</b><br><br>💡 <b>Tip:</b> Itsekiri people are very polite. Use this frequently to show appreciation for even small gestures."
-},
-{
-    "keyword": "you're welcome itsekiri, welcome itsekiri, reply thank you itsekiri",
-    "response": "<b>Kare</b><br><br>💡 <b>Tip:</b> Hospitality is central to Itsekiri culture. Guests are treated with great respect and generosity."
-},
-{
-    "keyword": "please itsekiri, polite request itsekiri, abeg itsekiri",
-    "response": "<b>Jo o</b><br><br>💡 <b>Tip:</b> Use this generously when making requests, especially with elders. Politeness is highly valued."
-},
-{
-    "keyword": "sorry itsekiri, apology itsekiri, excuse me itsekiri",
-    "response": "<b>Ma binu</b><br><br>💡 <b>Tip:</b> Use this for both apologies and to get attention. Itsekiri people appreciate humility in communication."
-},
-{
-    "keyword": "i don't understand itsekiri, not understand itsekiri, confuse itsekiri",
-    "response": "<b>Mi gboro</b><br><br>💡 <b>Tip:</b> Itsekiri people are patient teachers. Don't hesitate to ask for clarification or repetition."
-},
-{
-    "keyword": "where is toilet itsekiri, bathroom itsekiri, restroom itsekiri",
-    "response": "<b>Keri ne sala gba?</b><br><br>💡 <b>Tip:</b> In riverine areas, facilities might be basic. Always ask for guidance to the appropriate place."
-},
-{
-    "keyword": "where is market itsekiri, market place itsekiri, buy things itsekiri",
-    "response": "<b>Keri ne feja gba?</b><br><br>💡 <b>Tip:</b> Itsekiri markets are famous for seafood. Early morning visits offer the freshest catch from the rivers."
-},
-{
-    "keyword": "where is hospital itsekiri, clinic itsekiri, doctor itsekiri",
-    "response": "<b>Keri ne ile iwosan gba?</b><br><br>💡 <b>Tip:</b> Traditional medicine is still practiced alongside modern healthcare. Respect both systems."
-},
-{
-    "keyword": "where is house itsekiri, home itsekiri, my house itsekiri",
-    "response": "<b>Keri ne ile mi gba?</b><br><br>💡 <b>Tip:</b> Itsekiri homes often have welcoming courtyards. Remove your shoes before entering if you see others doing so."
-},
-{
-    "keyword": "where is water itsekiri, drinking water itsekiri, get water itsekiri",
-    "response": "<b>Keri ne omi gba?</b><br><br>💡 <b>Tip:</b> In riverine communities, water sources are sacred. Follow local guidance about drinking water safety."
-},
-{
-    "keyword": "where is food itsekiri, eating place itsekiri, restaurant itsekiri",
-    "response": "<b>Keri ne ounje gba?</b><br><br>💡 <b>Tip:</b> Itsekiri cuisine features excellent seafood dishes. Don't miss trying 'starch' with various soups."
-},
-{
-    "keyword": "where is road itsekiri, street itsekiri, path itsekiri",
-    "response": "<b>Keri ne opopona gba?</b><br><br>💡 <b>Tip:</b> In riverine areas, waterways are the main 'roads'. Boat transport is common and efficient."
-},
-{
-    "keyword": "where is school itsekiri, learn place itsekiri, education itsekiri",
-    "response": "<b>Keri ne ile iwe gba?</b><br><br>💡 <b>Tip:</b> Education is highly valued. Itsekiri people have a strong tradition of scholarship and learning."
-},
-{
-    "keyword": "where is church itsekiri, worship place itsekiri, mosque itsekiri",
-    "response": "<b>Keri ne ile adura gba?</b><br><br>💡 <b>Tip:</b> Christianity is widespread, but traditional spiritual practices are still respected in some communities."
-},
-{
-    "keyword": "i am hungry itsekiri, hunger itsekiri, want food itsekiri",
-    "response": "<b>Ebi n pa mi</b><br><br>💡 <b>Tip:</b> Itsekiri people are generous with food. If you're visiting, you'll likely be offered something to eat."
-},
-{
-    "keyword": "i am thirsty itsekiri, thirst itsekiri, want water itsekiri",
-    "response": "<b>Omi n mi mi</b><br><br>💡 <b>Tip:</b> Always accept water when offered. Refusing might be seen as rejecting hospitality."
-},
-{
-    "keyword": "i am tired itsekiri, fatigue itsekiri, exhausted itsekiri",
-    "response": "<b>Ma re lara</b><br><br>💡 <b>Tip:</b> Rest is respected. Don't hesitate to excuse yourself if you need to rest during visits."
-},
-{
-    "keyword": "i am sick itsekiri, ill itsekiri, not feeling well itsekiri",
-    "response": "<b>Aisan n pa mi</b><br><br>💡 <b>Tip:</b> People will show genuine concern and offer both modern and traditional remedies."
-},
-{
-    "keyword": "i am happy itsekiri, happiness itsekiri, joy itsekiri",
-    "response": "<b>Inu mi dun</b><br><br>💡 <b>Tip:</b> Itsekiri celebrations are vibrant with music, dance, and colorful traditional attire."
-},
-{
-    "keyword": "i am sad itsekiri, sadness itsekiri, unhappy itsekiri",
-    "response": "<b>Inu mi baje</b><br><br>💡 <b>Tip:</b> Community support is strong. People will comfort you and try to lift your spirits."
-},
-{
-    "keyword": "i want to go home itsekiri, go home itsekiri, return home itsekiri",
-    "response": "<b>Mo fe lo ile</b><br><br>💡 <b>Tip:</b> Always say proper goodbyes and thank your hosts before leaving gatherings."
-},
-{
-    "keyword": "i want to sleep itsekiri, sleep itsekiri, rest itsekiri",
-    "response": "<b>Mo fe sun</b><br><br>💡 <b>Tip:</b> Sleeping arrangements might be communal in traditional settings. Be respectful of household routines."
-},
-{
-    "keyword": "i want to eat itsekiri, eat food itsekiri, hunger itsekiri",
-    "response": "<b>Mo fe jeun</b><br><br>💡 <b>Tip:</b> Wait to be invited to eat or served. Don't start eating before elders or hosts."
-},
-{
-    "keyword": "i want to drink itsekiri, drink water itsekiri, thirst itsekiri",
-    "response": "<b>Mo fe mu</b><br><br>💡 <b>Tip:</b> Use your right hand when receiving drinks. Always say 'o ma se' (thank you) afterwards."
-},
-{
-    "keyword": "how much is this itsekiri, price itsekiri, cost itsekiri",
-    "response": "<b>Elo ni eyi?</b><br><br>💡 <b>Tip:</b> Bargain respectfully. Itsekiri traders appreciate good-natured negotiation."
-},
-{
-    "keyword": "it is expensive itsekiri, costly itsekiri, too much money itsekiri",
-    "response": "<b>O won ju</b><br><br>💡 <b>Tip:</b> Say this with a smile. The seller might be more willing to reduce the price if you're polite."
-},
-{
-    "keyword": "give me discount itsekiri, reduce price itsekiri, cheaper itsekiri",
-    "response": "<b>Fun mi ni idaduro</b><br><br>💡 <b>Tip:</b> Building rapport helps. Show genuine interest in the items before bargaining."
-},
-{
-    "keyword": "i don't have money itsekiri, no money itsekiri, broke itsekiri",
-    "response": "<b>Ko si owo mi</b><br><br>💡 <b>Tip:</b> Be honest about your budget. Traders appreciate straightforward customers."
-},
-{
-    "keyword": "where are you going itsekiri, you go where itsekiri, destination itsekiri",
-    "response": "<b>Ilo wo?</b><br><br>💡 <b>Tip:</b> This is often a casual greeting. A simple response about your general direction is sufficient."
-},
-{
-    "keyword": "i am going home itsekiri, going home itsekiri, return home itsekiri",
-    "response": "<b>Mo nlo ile</b><br><br>💡 <b>Tip:</b> Always inform your host before leaving. Sudden departures are considered impolite."
-},
-{
-    "keyword": "come here itsekiri, come itsekiri, approach itsekiri",
-    "response": "<b>Wa ibi</b><br><br>💡 <b>Tip:</b> Use a welcoming tone. For elders, add 'jo o' (please) to show respect."
-},
-{
-    "keyword": "go there itsekiri, go itsekiri, leave itsekiri",
-    "response": "<b>Lo ibe</b><br><br>💡 <b>Tip:</b> Be specific about directions. People will often give detailed guidance."
-},
-{
-    "keyword": "wait itsekiri, wait for me itsekiri, hold on itsekiri",
-    "response": "<b>Duro</b> or <b>Duro fun mi</b><br><br>💡 <b>Tip:</b> Patience is valued. Don't rush people, especially in social situations."
-},
-{
-    "keyword": "hurry up itsekiri, fast itsekiri, quickly itsekiri",
-    "response": "<b>Ya ara</b><br><br>💡 <b>Tip:</b> Use this carefully. Rushing is generally not appreciated in social contexts."
-},
-{
-    "keyword": "stop itsekiri, cease itsekiri, halt itsekiri",
-    "response": "<b>Duro</b><br><br>💡 <b>Tip:</b> Can be used for stopping actions or getting attention. Use appropriate tone for the situation."
-},
-{
-    "keyword": "look itsekiri, see itsekiri, watch itsekiri",
-    "response": "<b>Wo</b><br><br>💡 <b>Tip:</b> Direct but respectful eye contact is appreciated during conversations."
-},
-{
-    "keyword": "listen itsekiri, hear itsekiri, pay attention itsekiri",
-    "response": "<b>Gbo</b><br><br>💡 <b>Tip:</b> Active listening shows respect. Nod occasionally to indicate understanding."
-},
-{
-    "keyword": "speak itsekiri, talk itsekiri, say itsekiri",
-    "response": "<b>So</b><br><br>💡 <b>Tip:</b> Don't interrupt speakers. Wait for natural pauses before contributing to conversations."
-},
-{
-    "keyword": "help me itsekiri, assistance itsekiri, support itsekiri",
-    "response": "<b>Ran mi lowo</b><br><br>💡 <b>Tip:</b> Community support is strong. People are generally willing to help those in need."
-},
-{
-    "keyword": "i need help itsekiri, require assistance itsekiri, support needed itsekiri",
-    "response": "<b>Mo nilo iranlowo</b><br><br>💡 <b>Tip:</b> Be specific about the help you need. People will make effort to assist you properly."
-},
-{
-    "keyword": "be careful itsekiri, careful itsekiri, caution itsekiri",
-    "response": "<b>So ara re</b><br><br>💡 <b>Tip:</b> This shows genuine concern for someone's wellbeing. Take such advice seriously."
-},
-{
-    "keyword": "danger itsekiri, dangerous itsekiri, risk itsekiri",
-    "response": "<b>Ewu</b><br><br>💡 <b>Tip:</b> Take safety warnings seriously, especially around water bodies which are central to Itsekiri life."
-},
-{
-    "keyword": "good itsekiri, nice itsekiri, excellent itsekiri",
-    "response": "<b>Daada</b><br><br>💡 <b>Tip:</b> Use this to express approval. Itsekiri people appreciate positive and encouraging words."
-},
-{
-    "keyword": "bad itsekiri, not good itsekiri, poor itsekiri",
-    "response": "<b>Kodaru</b><br><br>💡 <b>Tip:</b> Be diplomatic when expressing dissatisfaction. Indirect communication is often preferred."
-},
-{
-    "keyword": "beautiful itsekiri, pretty itsekiri, handsome itsekiri",
-    "response": "<b>Dara</b><br><br>💡 <b>Tip:</b> Compliments are appreciated but should be respectful, especially between genders."
-},
-{
-    "keyword": "ugly itsekiri, not beautiful itsekiri, unattractive itsekiri",
-    "response": "<b>Ailera</b><br><br>💡 <b>Tip:</b> Avoid direct negative comments about appearance. Focus on positive qualities instead."
-},
-{
-    "keyword": "big itsekiri, large itsekiri, huge itsekiri",
-    "response": "<b>Nla</b><br><br>💡 <b>Tip:</b> Size often correlates with importance in traditional contexts and celebrations."
-},
-{
-    "keyword": "small itsekiri, little itsekiri, tiny itsekiri",
-    "response": "<b>Kekere</b><br><br>💡 <b>Tip:</b> Don't underestimate small things. Many Itsekiri proverbs emphasize the value of small beginnings."
-},
-{
-    "keyword": "hot itsekiri, heat itsekiri, warm itsekiri",
-    "response": "<b>Gbona</b><br><br>💡 <b>Tip:</b> The riverine climate can be hot and humid. Light clothing and staying hydrated are important."
-},
-{
-    "keyword": "cold itsekiri, cool itsekiri, chill itsekiri",
-    "response": "<b>Tutu</b><br><br>💡 <b>Tip:</b> Evenings near water can be cool. Carry light covering if you'll be out after dark."
-},
-{
-    "keyword": "today itsekiri, this day itsekiri, present day itsekiri",
-    "response": "<b>Loni</b><br><br>💡 <b>Tip:</b> Time is often viewed flexibly. 'African time' is common in social settings."
-},
-{
-    "keyword": "tomorrow itsekiri, next day itsekiri, future day itsekiri",
-    "response": "<b>Ola</b><br><br>💡 <b>Tip:</b> Plans for tomorrow might be tentative. Confirmation on the day itself is common."
-},
-{
-    "keyword": "yesterday itsekiri, past day itsekiri, previous day itsekiri",
-    "response": "<b>Ana</b><br><br>💡 <b>Tip:</b> Elders often share historical stories and family lore. Listening shows respect for tradition."
-},
-{
-    "keyword": "now itsekiri, immediately itsekiri, right now itsekiri",
-    "response": "<b>Bayi</b><br><br>💡 <b>Tip:</b> Urgency is relative. What's 'now' might not be as immediate as in Western contexts."
-},
-{
-    "keyword": "later itsekiri, after itsekiri, not now itsekiri",
-    "response": "<b>Lẹhinna</b><br><br>💡 <b>Tip:</b> Be patient if told 'later'. It might mean in a few hours or when convenient."
-},
-{
-    "keyword": "always itsekiri, forever itsekiri, constantly itsekiri",
-    "response": "<b>Nigbagbogbo</b><br><br>💡 <b>Tip:</b> Consistency and reliability are valued in relationships and commitments."
-},
-{
-    "keyword": "never itsekiri, not ever itsekiri, at no time itsekiri",
-    "response": "<b>Kosi igba</b><br><br>💡 <b>Tip:</b> Use absolute statements carefully as they can be seen as too definitive."
-},
-{
-    "keyword": "sometimes itsekiri, occasionally itsekiri, at times itsekiri",
-    "response": "<b>Nigba miiran</b><br><br>💡 <b>Tip:</b> Flexibility and adaptability are part of the cultural approach to life."
-},
-{
-    "keyword": "father itsekiri, dad itsekiri, papa itsekiri",
-    "response": "<b>Baba</b><br><br>💡 <b>Tip:</b> Fathers command great respect. Always greet them properly and seek their guidance."
-},
-{
-    "keyword": "mother itsekiri, mom itsekiri, mama itsekiri",
-    "response": "<b>Iya</b><br><br>💡 <b>Tip:</b> Mothers are highly revered as the foundation of the family and home."
-},
-{
-    "keyword": "brother itsekiri, sibling male itsekiri, blood brother itsekiri",
-    "response": "<b>Aburo okunrin</b> (younger) or <b>Egbon okunrin</b> (elder)<br><br>💡 <b>Tip:</b> Age hierarchy is important. Elder brothers have authority and responsibility for younger siblings."
-},
-{
-    "keyword": "sister itsekiri, sibling female itsekiri, blood sister itsekiri",
-    "response": "<b>Aburo obinrin</b> (younger) or <b>Egbon obinrin</b> (elder)<br><br>💡 <b>Tip:</b> Sisters often take on caregiving roles. Elder sisters are particularly respected."
-},
-{
-    "keyword": "child itsekiri, children itsekiri, kid itsekiri",
-    "response": "<b>Omo</b><br><br>💡 <b>Tip:</b> Children are cherished but expected to show respect to all adults in the community."
-},
-{
-    "keyword": "friend itsekiri, companion itsekiri, pal itsekiri",
-    "response": "<b>Ore</b><br><br>💡 <b>Tip:</b> Friendship implies deep loyalty and mutual support. Friends are treated like family."
-},
-{
-    "keyword": "husband itsekiri, spouse male itsekiri, married man itsekiri",
-    "response": "<b>Oko</b><br><br>💡 <b>Tip:</b> Traditional gender roles are observed, with husbands as providers and protectors."
-},
-{
-    "keyword": "wife itsekiri, spouse female itsekiri, married woman itsekiri",
-    "response": "<b>Aya</b><br><br>💡 <b>Tip:</b> Wives are highly respected as homemakers and managers of household affairs."
-},
-{
-    "keyword": "family itsekiri, relatives itsekiri, kin itsekiri",
-    "response": "<b>Ebi</b><br><br>💡 <b>Tip:</b> Family includes extended relatives. There's a strong sense of collective identity and responsibility."
-},
-{
-    "keyword": "numbers 1-30 itsekiri, counting itsekiri, numerals itsekiri",
-    "response": "Numbers 1-30 in Itsekiri:<br>1-Ọkan, 2-Meji, 3-Mẹta, 4-Mẹrin, 5-Marun, 6-Mẹfa, 7-Meje, 8-Mẹjọ, 9-Mẹsan, 10-Mẹwa, 11-Mọkanla, 12-Mejila, 13-Mẹtala, 14-Mẹrinla, 15-Mẹẹdogun, 16-Mẹrindinlogun, 17-Mẹtadinlogun, 18-Mejidinlogun, 19-Mọkandinlogun, 20-Ogun, 21-Mọkanlelogun, 22-Mejilelogun, 23-Mẹtalelogun, 24-Mẹrinlelogun, 25-Mẹẹdọgbọn, 26-Mẹrindinlogbon, 27-Mẹtadinlogbon, 28-Mejidinlogbon, 29-Mọkandinlogbon, 30-Ọgbọn<br><br>💡 <b>Tip:</b> The Itsekiri counting system shows Yoruba influences. Practice with market transactions and age inquiries."
-},
-        // ==================== EDO PHRASES (70 pairs) ====================
-{
-    "keyword": "good morning edo, greet morning edo",
-    "response": "<b>Ób'ówie</b><br><br>💡 <b>Tip:</b> Use this from dawn until noon. In traditional settings, women curtsy and men bow slightly when greeting elders."
-},
-{
-    "keyword": "good afternoon edo, afternoon edo, greet afternoon edo",
-    "response": "<b>Ób'ávàn</b><br><br>💡 <b>Tip:</b> Use this from 12 PM to 4 PM. Edo people are proud of their Benin Kingdom heritage."
-},
-{
-    "keyword": "good evening edo, evening edo, greet evening edo",
-    "response": "<b>Ób'ótá</b><br><br>💡 <b>Tip:</b> Use this after 4 PM. Evening greetings are especially important when visiting homes around this time."
-},
-{
-    "keyword": "how are you edo, how you dey edo, how body edo, how far edo, afa edo",
-    "response": "<b>Vbè óyè?</b><br><br>💡 <b>Tip:</b> The proper response is 'Ọyè khin mwen' (I'm fine). Always ask about the person's family after greeting."
-},
-{
-    "keyword": "what is your name edo, your name edo, who are you edo",
-    "response": "<b>Kẹ ẹrrie wẹ?</b><br><br>💡 <b>Tip:</b> Edo names often have deep cultural meanings related to royalty, deities, or circumstances of birth."
-},
-{
-    "keyword": "my name is edo, i am called edo, call me edo",
-    "response": "<b>Ọmwan nẹ ...</b><br><br>💡 <b>Tip:</b> Edo people value proper introductions. State your full name and family background when appropriate."
-},
-{
-    "keyword": "thank you edo, thanks edo, gratitude edo",
-    "response": "<b>Ọb'óluwẹ</b><br><br>💡 <b>Tip:</b> Use this frequently. Edo culture emphasizes respect and gratitude, especially towards elders."
-},
-{
-    "keyword": "you're welcome edo, welcome edo, reply thank you edo",
-    "response": "<b>Bhẹ ọrriẹ</b><br><br>💡 <b>Tip:</b> Hospitality is a cornerstone of Edo culture. Guests are treated with royal respect."
-},
-{
-    "keyword": "please edo, polite request edo, abeg edo",
-    "response": "<b>Mẹ wẹ</b><br><br>💡 <b>Tip:</b> Use this generously. Politeness shows good upbringing in Edo society."
-},
-{
-    "keyword": "sorry edo, apology edo, excuse me edo",
-    "response": "<b>Mẹ sẹ</b><br><br>💡 <b>Tip:</b> Use this for both apologies and to get attention. Edo people value harmony and respect."
-},
-{
-    "keyword": "i don't understand edo, not understand edo, confuse edo",
-    "response": "<b>Mié gbẹ</b><br><br>💡 <b>Tip:</b> Edo people are patient with learners. Don't hesitate to ask for clarification."
-},
-{
-    "keyword": "where is toilet edo, bathroom edo, restroom edo",
-    "response": "<b>Kaa yẹ ẹwẹ rẹ?</b><br><br>💡 <b>Tip:</b> In traditional settings, facilities might be located separately from main living areas."
-},
-{
-    "keyword": "where is market edo, market place edo, buy things edo",
-    "response": "<b>Kaa yẹ ẹkié rẹ?</b><br><br>💡 <b>Tip:</b> Edo markets are vibrant with traditional crafts and food. Look for bronze works and coral beads."
-},
-{
-    "keyword": "where is hospital edo, clinic edo, doctor edo",
-    "response": "<b>Kaa yẹ ẹwẹmwẹ rẹ?</b><br><br>💡 <b>Tip:</b> Traditional healing is highly respected. Many still consult native doctors for certain conditions."
-},
-{
-    "keyword": "where is house edo, home edo, my house edo",
-    "response": "<b>Kaa yẹ ẹwà rẹ?</b><br><br>💡 <b>Tip:</b> Edo homes often have extended family compounds. Always greet the head of the household first."
-},
-{
-    "keyword": "where is water edo, drinking water edo, get water edo",
-    "response": "<b>Kaa yẹ ẹmẹ rẹ?</b><br><br>💡 <b>Tip:</b> Water sources are respected. Follow local customs for fetching and usage."
-},
-{
-    "keyword": "where is food edo, eating place edo, restaurant edo",
-    "response": "<b>Kaa yẹ ẹrhuẹ rẹ?</b><br><br>💡 <b>Tip:</b> Edo cuisine is rich and diverse. Don't miss traditional dishes like pounded yam with egusi soup."
-},
-{
-    "keyword": "where is road edo, street edo, path edo",
-    "response": "<b>Kaa yẹ ẹmwẹn rẹ?</b><br><br>💡 <b>Tip:</b> Benin City has both modern roads and traditional paths. Ask for landmarks when getting directions."
-},
-{
-    "keyword": "where is school edo, learn place edo, education edo",
-    "response": "<b>Kaa yẹ isikuru rẹ?</b><br><br>💡 <b>Tip:</b> Education is highly valued. Edo people have a long history of formal education."
-},
-{
-    "keyword": "where is church edo, worship place edo, mosque edo",
-    "response": "<b>Kaa yẹ usẹn Ọsa rẹ?</b><br><br>💡 <b>Tip:</b> Christianity is predominant, but traditional worship of deities like Ọgún is still practiced."
-},
-{
-    "keyword": "i am hungry edo, hunger edo, want food edo",
-    "response": "<b>Ọmwan mwẹn ẹrhuẹ</b><br><br>💡 <b>Tip:</b> Edo people are generous with food. You'll likely be offered a meal when visiting."
-},
-{
-    "keyword": "i am thirsty edo, thirst edo, want water edo",
-    "response": "<b>Ọmwan mwẹn ẹmẹ</b><br><br>💡 <b>Tip:</b> Water is always offered to guests. Accept it graciously as a sign of respect."
-},
-{
-    "keyword": "i am tired edo, fatigue edo, exhausted edo",       
-    "response": "<b>Ọmwan khẹ khẹn</b><br><br>💡 <b>Tip:</b> Rest is respected. Don't hesitate to say you need to rest when visiting."
-},
-{
-    "keyword": "i am sick edo, ill edo, not feeling well edo",
-    "response": "<b>Arhẹn mwẹn ẹmwen</b><br><br>💡 <b>Tip:</b> People will show genuine concern and may suggest traditional remedies."
-},
-{
-    "keyword": "i am happy edo, happiness edo, joy edo",
-    "response": "<b>Ọmwan yẹ egbe</b><br><br>💡 <b>Tip:</b> Edo celebrations are elaborate with traditional music and dance. Join in when invited."
-},
-{
-    "keyword": "i am sad edo, sadness edo, unhappy edo",
-    "response": "<b>Ọmwan rrie egbe</b><br><br>💡 <b>Tip:</b> Community support is strong. Elders will offer wisdom and comfort."
-},
-{
-    "keyword": "i want to go home edo, go home edo, return home edo",
-    "response": "<b>Mwen cha rhuẹ ewà</b><br><br>💡 <b>Tip:</b> Always inform your hosts before leaving. Proper farewells are important."
-},
-{
-    "keyword": "i want to sleep edo, sleep edo, rest edo",
-    "response": "<b>Mwen cha rhunmwẹn</b><br><br>💡 <b>Tip:</b> Sleeping arrangements respect age hierarchy. Elders get the most comfortable spaces."
-},
-{
-    "keyword": "i want to eat edo, eat food edo, hunger edo",
-    "response": "<b>Mwen cha muẹ ẹrhuẹ</b><br><br>💡 <b>Tip:</b> Wait to be invited to eat. Edo meals often begin with prayers or libations."
-},
-{
-    "keyword": "i want to drink edo, drink water edo, thirst edo",
-    "response": "<b>Mwen cha muẹ ẹmẹ</b><br><br>💡 <b>Tip:</b> Always use your right hand when receiving drinks. Shows respect for the host."
-},
-{
-    "keyword": "how much is this edo, price edo, cost edo",
-    "response": "<b>Egbe yẹ ewa?</b><br><br>💡 <b>Tip:</b> Bargain respectfully. Edo traders appreciate friendly negotiation."
-},
-{
-    "keyword": "it is expensive edo, costly edo, too much money edo",
-    "response": "<b>Ọ rrie vbe egbe</b><br><br>💡 <b>Tip:</b> Express this politely. The seller might offer a better price."
-},
-{
-    "keyword": "give me discount edo, reduce price edo, cheaper edo",
-    "response": "<b>Gbe egbe rhuẹ nẹ</b><br><br>💡 <b>Tip:</b> Building rapport helps. Chat about family or the Benin Kingdom first."
-},
-{
-    "keyword": "i don't have money edo, no money edo, broke edo",
-    "response": "<b>Egbe ọ khẹn mwen</b><br><br>💡 <b>Tip:</b> Be honest about your budget. Edo people understand financial constraints."
-},
-{
-    "keyword": "where are you going edo, you go where edo, destination edo",
-    "response": "<b>Wẹ cha kaa?</b><br><br>💡 <b>Tip:</b> This is often a casual greeting. A simple response is sufficient."
-},
-{
-    "keyword": "i am going home edo, going home edo, return home edo",
-    "response": "<b>Mwen cha rhuẹ ewà</b><br><br>💡 <b>Tip:</b> Always say proper goodbyes. It's considered rude to leave without informing your host."
-},
-{
-    "keyword": "come here edo, come edo, approach edo",
-    "response": "<b>Wa kẹ</b><br><br>💡 <b>Tip:</b> Use a respectful tone. For elders, approach with humility."
-},
-{
-    "keyword": "go there edo, go edo, leave edo",
-    "response": "<b>Rhie kẹ</b><br><br>💡 <b>Tip:</b> Be clear with directions. People will help you find your way."
-},
-{
-    "keyword": "wait edo, wait for me edo, hold on edo",
-    "response": "<b>Re khẹn</b> or <b>Re khẹn mwen</b><br><br>💡 <b>Tip:</b> Patience is valued. Don't rush people, especially elders."
-},
-{
-    "keyword": "hurry up edo, fast edo, quickly edo",
-    "response": "<b>Dẹdẹ</b><br><br>💡 <b>Tip:</b> Use this sparingly. Rushing can be seen as disrespectful."
-},
-{
-    "keyword": "stop edo, cease edo, halt edo",
-    "response": "<b>Gban</b><br><br>💡 <b>Tip:</b> Can be used for stopping actions. Use firm but respectful tone."
-},
-{
-    "keyword": "look edo, see edo, watch edo",
-    "response": "<b>Rrien</b><br><br>💡 <b>Tip:</b> Maintain appropriate eye contact. Don't stare intensely at elders."
-},
-{
-    "keyword": "listen edo, hear edo, pay attention edo",
-    "response": "<b>Ghẹ mwẹn</b><br><br>💡 <b>Tip:</b> Active listening shows respect. Nod to indicate understanding."
-},
-{
-    "keyword": "speak edo, talk edo, say edo",
-    "response": "<b>Ta mwẹn</b><br><br>💡 <b>Tip:</b> Don't interrupt speakers, especially elders. Wait for your turn."
-},
-{
-    "keyword": "help me edo, assistance edo, support edo",
-    "response": "<b>Re mwen ẹmwen</b><br><br>💡 <b>Tip:</b> Community support is strong. People are generally willing to help."
-},
-{
-    "keyword": "i need help edo, require assistance edo, support needed edo",
-    "response": "<b>Mwen mwẹn ẹmwen rrie mwen</b><br><br>💡 <b>Tip:</b> Be specific about your needs. Help will be offered generously."
-},
-{
-    "keyword": "be careful edo, careful edo, caution edo",
-    "response": "<b>Yẹ egbe</b><br><br>💡 <b>Tip:</b> This shows genuine concern for someone's safety."
-},
-{
-    "keyword": "danger edo, dangerous edo, risk edo",
-    "response": "<b>Ekuẹ</b><br><br>💡 <b>Tip:</b> Take local warnings seriously. People know their environment best."
-},
-{
-    "keyword": "good edo, nice edo, excellent edo",
-    "response": "<b>Ye</b><br><br>💡 <b>Tip:</b> Use this to express approval. Positive feedback is appreciated."
-},
-{
-    "keyword": "bad edo, not good edo, poor edo",
-    "response": "<b>Gbe</b><br><br>💡 <b>Tip:</b> Be diplomatic with criticism. Focus on constructive feedback."
-},
-{
-    "keyword": "beautiful edo, pretty edo, handsome edo",
-    "response": "<b>Lolo</b><br><br>💡 <b>Tip:</b> Compliments are welcome, but be respectful in delivery."
-},
-{
-    "keyword": "ugly edo, not beautiful edo, unattractive edo",
-    "response": "<b>Gbe vbe ẹdin</b><br><br>💡 <b>Tip:</b> Avoid negative comments about appearance. Focus on positive attributes."
-},
-{
-    "keyword": "big edo, large edo, huge edo",
-    "response": "<b>Lolo</b><br><br>💡 <b>Tip:</b> Size often correlates with importance in cultural contexts."
-},
-{
-    "keyword": "small edo, little edo, tiny edo",
-    "response": "<b>Kekere</b><br><br>💡 <b>Tip:</b> Don't underestimate small things. They can be significant."
-},
-{
-    "keyword": "hot edo, heat edo, warm edo",
-    "response": "<b>Ghẹghẹ</b><br><br>💡 <b>Tip:</b> The climate can be hot and humid. Stay hydrated."
-},
-{
-    "keyword": "cold edo, cool edo, chill edo",
-    "response": "<b>Fiẹn</b><br><br>💡 <b>Tip:</b> Evenings can be cool. Dress appropriately."
-},
-{
-    "keyword": "today edo, this day edo, present day edo",
-    "response": "<b>Ọne</b><br><br>💡 <b>Tip:</b> Time is viewed flexibly. Be patient with scheduling."
-},
-{
-    "keyword": "tomorrow edo, next day edo, future day edo",
-    "response": "<b>Ọla</b><br><br>💡 <b>Tip:</b> Plans may be fluid. Confirmation is helpful."
-},
-{
-    "keyword": "yesterday edo, past day edo, previous day edo",
-    "response": "<b>Ikpẹkpa</b><br><br>💡 <b>Tip:</b> Elders value historical knowledge. Listening to stories shows respect."
-},
-{
-    "keyword": "now edo, immediately edo, right now edo",
-    "response": "<b>Vbe vbe nọ</b><br><br>💡 <b>Tip:</b> Urgency is relative. What's 'now' might have some flexibility."
-},
-{
-    "keyword": "later edo, after edo, not now edo",
-    "response": "<b>Vbe egbe nọ</b><br><br>💡 <b>Tip:</b> Be patient if told 'later'. Time management differs from Western norms."
-},
-{
-    "keyword": "always edo, forever edo, constantly edo",
-    "response": "<b>Vbe egbe vbe egbe</b><br><br>💡 <b>Tip:</b> Consistency and reliability are valued traits."
-},
-{
-    "keyword": "never edo, not ever edo, at no time edo",
-    "response": "<b>Vbe ẹbẹ ẹbẹ</b><br><br>💡 <b>Tip:</b> Use absolute statements carefully as they can seem too strong."
-},
-{
-    "keyword": "sometimes edo, occasionally edo, at times edo",
-    "response": "<b>Vbe egbe miẹn</b><br><br>💡 <b>Tip:</b> Flexibility is part of the culture. Adaptability is appreciated."
-},
-{
-    "keyword": "father edo, dad edo, papa edo",
-    "response": "<b>Dada</b><br><br>💡 <b>Tip:</b> Fathers command great respect. Always greet them properly."
-},
-{
-    "keyword": "mother edo, mom edo, mama edo",
-    "response": "<b>Mama</b><br><br>💡 <b>Tip:</b> Mothers are highly revered. They're often the heart of the family."
-},
-{
-    "keyword": "brother edo, sibling male edo, blood brother edo",
-    "response": "<b>Omọta</b> (younger) or <b>Okpia</b> (elder)<br><br>💡 <b>Tip:</b> Age hierarchy is important. Respect elder siblings."
-},
-{
-    "keyword": "sister edo, sibling female edo, blood sister edo",
-    "response": "<b>Omọta</b> (younger) or <b>Okhuo</b> (elder)<br><br>💡 <b>Tip:</b> Sisters often play nurturing roles in the family."
-},
-{
-    "keyword": "child edo, children edo, kid edo",
-    "response": "<b>Omọ</b><br><br>💡 <b>Tip:</b> Children are cherished but expected to show respect to all adults."
-},
-{
-    "keyword": "friend edo, companion edo, pal edo",
-    "response": "<b>Ẹmwen</b><br><br>💡 <b>Tip:</b> Friendship implies loyalty and mutual support. Friends are like family."
-},
-{
-    "keyword": "husband edo, spouse male edo, married man edo",
-    "response": "<b>Okpia</b><br><br>💡 <b>Tip:</b> Traditional gender roles are often observed in marriages."
-},
-{
-    "keyword": "wife edo, spouse female edo, married woman edo",
-    "response": "<b>Okhuo</b><br><br>💡 <b>Tip:</b> Wives are respected for their role in maintaining the family."
-},
-{
-    "keyword": "family edo, relatives edo, kin edo",
-    "response": "<b>Ugbẹ</b><br><br>💡 <b>Tip:</b> Family includes extended relatives. Strong collective responsibility."
-},
-{
-    "keyword": "numbers 1-30 edo, counting edo, numerals edo",
-    "response": "1-Ọkpá, 2-Ẹvà, 3-Ẹha, 4-Ẹnẹ, 5-Isẹn, 6-Ẹhan, 7-Ihrin, 8-Ẹnrẹn, 9-Ihrin, 10-Igbe, 11-Ọkpá wo ọkpá, 12-Ọkpá wo ẹvà, 13-Ọkpá wo ẹha, 14-Ọkpá wo ẹnẹ, 15-Ọkpá wo isẹn, 16-Ọkpá wo ẹhan, 17-Ọkpá wo ihrin, 18-Ọkpá wo ẹnrẹn, 19-Ọkpá wo ihrin, 20-Ọgban, 21-Ọgban wo ọkpá, 22-Ọgban wo ẹvà, 23-Ọgban wo ẹha, 24-Ọgban wo ẹnẹ, 25-Ọgban wo isẹn, 26-Ọgban wo ẹhan, 27-Ọgban wo ihrin, 28-Ọgban wo ẹnrẹn, 29-Ọgban wo ihrin, 30-Ọgba<br><br>💡 <b>Tip:</b> Edo counting follows unique patterns. Practice with market transactions for fluency."
-},
-        // ==================== IJAW PHRASES (70 pairs) ====================
-{
-    "keyword": "good morning ijaw, greet morning ijaw",
-    "response": "<b>Doo bo</b><br><br>💡 <b>Tip:</b> Use this from dawn until noon. Ijaw greetings often include inquiries about the river or sea."
-},
-{
-    "keyword": "good afternoon ijaw, afternoon ijaw, greet afternoon ijaw",
-    "response": "<b>Doo la</b><br><br>💡 <b>Tip:</b> Use this from 12 PM to 4 PM. Ijaw people are known for their warm hospitality."
-},
-{
-    "keyword": "good evening ijaw, evening ijaw, greet evening ijaw",
-    "response": "<b>Doo su</b><br><br>💡 <b>Tip:</b> Use this after 4 PM. Evening is often family time in Ijaw communities."
-},
-{
-    "keyword": "how are you ijaw, how you dey ijaw, how body ijaw, how far ijaw, afa ijaw",
-    "response": "<b>Peri oye?</b><br><br>💡 <b>Tip:</b> The proper response is 'Bara oye' (I'm fine). Ijaw people value community wellbeing."
-},
-{
-    "keyword": "what is your name ijaw, your name ijaw, who are you ijaw",
-    "response": "<b>Ere mini mi?</b><br><br>💡 <b>Tip:</b> Ijaw names often reflect water, nature, or circumstances of birth. Share your name's meaning."
-},
-{
-    "keyword": "my name is ijaw, i am called ijaw, call me ijaw",
-    "response": "<b>Ere mi ye ...</b><br><br>💡 <b>Tip:</b> Ijaw people take pride in their names. Always state your full name clearly."
-},
-{
-    "keyword": "thank you ijaw, thanks ijaw, gratitude ijaw",
-    "response": "<b>Osuo</b><br><br>💡 <b>Tip:</b> Use this frequently. Ijaw culture emphasizes gratitude and reciprocity."
-},
-{
-    "keyword": "you're welcome ijaw, welcome ijaw, reply thank you ijaw",
-    "response": "<b>Kiri bo</b><br><br>💡 <b>Tip:</b> Hospitality is central to Ijaw culture. Guests are treated with great respect."
-},
-{
-    "keyword": "please ijaw, polite request ijaw, abeg ijaw",
-    "response": "<b>Jo bo</b><br><br>💡 <b>Tip:</b> Use this generously. Politeness is highly valued in Ijaw society."
-},
-{
-    "keyword": "sorry ijaw, apology ijaw, excuse me ijaw",
-    "response": "<b>Bokou bo</b><br><br>💡 <b>Tip:</b> Use this for both apologies and to get attention. Ijaw people value harmony."
-},
-{
-    "keyword": "i don't understand ijaw, not understand ijaw, confuse ijaw",
-    "response": "<b>Mi ye bere</b><br><br>💡 <b>Tip:</b> Ijaw people are patient teachers. Don't hesitate to ask for clarification."
-},
-{
-    "keyword": "where is toilet ijaw, bathroom ijaw, restroom ijaw",
-    "response": "<b>Tolo tie wei?</b><br><br>💡 <b>Tip:</b> In riverine communities, facilities may be basic. Follow local customs."
-},
-{
-    "keyword": "where is market ijaw, market place ijaw, buy things ijaw",
-    "response": "<b>Efe tie wei?</b><br><br>💡 <b>Tip:</b> Ijaw markets are famous for fresh fish and seafood. Early morning offers best selection."
-},
-{
-    "keyword": "where is hospital ijaw, clinic ijaw, doctor ijaw",
-    "response": "<b>Dokita tie wei?</b><br><br>💡 <b>Tip:</b> Traditional healing is respected alongside modern medicine. Listen to local advice."
-},
-{
-    "keyword": "where is house ijaw, home ijaw, my house ijaw",
-    "response": "<b>Wari tie wei?</b><br><br>💡 <b>Tip:</b> Ijaw homes often feature extended family. Always greet everyone present."
-},
-{
-    "keyword": "where is water ijaw, drinking water ijaw, get water ijaw",
-    "response": "<b>Mingi tie wei?</b><br><br>💡 <b>Tip:</b> Water is sacred in Ijaw culture. Follow local guidelines for usage."
-},
-{
-    "keyword": "where is food ijaw, eating place ijaw, restaurant ijaw",
-    "response": "<b>Koro tie wei?</b><br><br>💡 <b>Tip:</b> Ijaw cuisine features excellent seafood. Don't miss traditional dishes like banga soup."
-},
-{
-    "keyword": "where is road ijaw, street ijaw, path ijaw",
-    "response": "<b>Eri tie wei?</b><br><br>💡 <b>Tip:</b> In riverine areas, waterways are the main routes. Boat transport is essential."
-},
-{
-    "keyword": "where is school ijaw, learn place ijaw, education ijaw",
-    "response": "<b>Suku tie wei?</b><br><br>💡 <b>Tip:</b> Education is valued. Many Ijaw people are multilingual."
-},
-{
-    "keyword": "where is church ijaw, worship place ijaw, mosque ijaw",
-    "response": "<b>Church tie wei?</b><br><br>💡 <b>Tip:</b> Christianity is predominant, but traditional water spirits are still respected."
-},
-{
-    "keyword": "i am hungry ijaw, hunger ijaw, want food ijaw",
-    "response": "<b>Koro bein mi</b><br><br>💡 <b>Tip:</b> Ijaw people are generous with food. You'll likely be offered a meal."
-},
-{
-    "keyword": "i am thirsty ijaw, thirst ijaw, want water ijaw",
-    "response": "<b>Mingi bein mi</b><br><br>💡 <b>Tip:</b> Clean drinking water is essential. Always confirm if water is safe."
-},
-{
-    "keyword": "i am tired ijaw, fatigue ijaw, exhausted ijaw",
-    "response": "<b>Bebee bein mi</b><br><br>💡 <b>Tip:</b> Rest is respected. The humid climate can be draining."
-},
-{
-    "keyword": "i am sick ijaw, ill ijaw, not feeling well ijaw",
-    "response": "<b>Aya bein mi</b><br><br>💡 <b>Tip:</b> People will show genuine concern. Don't hesitate to seek medical help."
-},
-{
-    "keyword": "i am happy ijaw, happiness ijaw, joy ijaw",
-    "response": "<b>Bara ba mi</b><br><br>💡 <b>Tip:</b> Ijaw celebrations are vibrant with music and dance. Join in when invited."
-},
-{
-    "keyword": "i am sad ijaw, sadness ijaw, unhappy ijaw",
-    "response": "<b>Bara tu mi</b><br><br>💡 <b>Tip:</b> Community support is strong. People will comfort you during hard times."
-},
-{
-    "keyword": "i want to go home ijaw, go home ijaw, return home ijaw",
-    "response": "<b>Mi ye wari fie</b><br><br>💡 <b>Tip:</b> Always inform your hosts before leaving. Proper farewells are important."
-},
-{
-    "keyword": "i want to sleep ijaw, sleep ijaw, rest ijaw",
-    "response": "<b>Mi ye ina fie</b><br><br>💡 <b>Tip:</b> Sleeping arrangements may be communal. Respect household routines."
-},
-{
-    "keyword": "i want to eat ijaw, eat food ijaw, hunger ijaw",
-    "response": "<b>Mi ye koro die</b><br><br>💡 <b>Tip:</b> Wait to be invited to eat. Ijaw meals are often communal."
-},
-{
-    "keyword": "i want to drink ijaw, drink water ijaw, thirst ijaw",
-    "response": "<b>Mi ye mingi die</b><br><br>💡 <b>Tip:</b> Always use your right hand when receiving drinks. Shows respect."
-},
-{
-    "keyword": "how much is this ijaw, price ijaw, cost ijaw",
-    "response": "<b>Ere efa ye?</b><br><br>💡 <b>Tip:</b> Bargain politely. Ijaw traders appreciate friendly negotiation."
-},
-{
-    "keyword": "it is expensive ijaw, costly ijaw, too much money ijaw",
-    "response": "<b>Ere e kpo ye</b><br><br>💡 <b>Tip:</b> Express this with a smile. Seller might offer better price."
-},
-{
-    "keyword": "give me discount ijaw, reduce price ijaw, cheaper ijaw",
-    "response": "<b>Fi ere tu mi</b><br><br>💡 <b>Tip:</b> Building rapport helps. Chat about family or fishing first."
-},
-{
-    "keyword": "i don't have money ijaw, no money ijaw, broke ijaw",
-    "response": "<b>Ere ko mi</b><br><br>💡 <b>Tip:</b> Be honest about your budget. Ijaw people understand constraints."
-},
-{
-    "keyword": "where are you going ijaw, you go where ijaw, destination ijaw",
-    "response": "<b>Wo fie tie?</b><br><br>💡 <b>Tip:</b> This is often a casual greeting. Simple response is sufficient."
-},
-{
-    "keyword": "i am going home ijaw, going home ijaw, return home ijaw",
-    "response": "<b>Mi ye wari fie</b><br><br>💡 <b>Tip:</b> Always say proper goodbyes. Rude to leave without informing host."
-},
-{
-    "keyword": "come here ijaw, come ijaw, approach ijaw",
-    "response": "<b>Bara ye</b><br><br>💡 <b>Tip:</b> Use friendly tone. Show extra respect for elders."
-},
-{
-    "keyword": "go there ijaw, go ijaw, leave ijaw",
-    "response": "<b>Fie tie</b><br><br>💡 <b>Tip:</b> Be clear with directions. People will help you find your way."
-},
-{
-    "keyword": "wait ijaw, wait for me ijaw, hold on ijaw",
-    "response": "<b>Dede</b> or <b>Dede mi</b><br><br>💡 <b>Tip:</b> Patience is valued. Don't rush people, especially elders."
-},
-{
-    "keyword": "hurry up ijaw, fast ijaw, quickly ijaw",
-    "response": "<b>Koro koro</b><br><br>💡 <b>Tip:</b> Use this sparingly. Rushing can be seen as disrespectful."
-},
-{
-    "keyword": "stop ijaw, cease ijaw, halt ijaw",
-    "response": "<b>Dede</b><br><br>💡 <b>Tip:</b> Can be used for stopping actions. Use firm but respectful tone."
-},
-{
-    "keyword": "look ijaw, see ijaw, watch ijaw",
-    "response": "<b>Biri</b><br><br>💡 <b>Tip:</b> Maintain appropriate eye contact. Don't stare intensely."
-},
-{
-    "keyword": "listen ijaw, hear ijaw, pay attention ijaw",
-    "response": "<b>Bara be</b><br><br>💡 <b>Tip:</b> Active listening shows respect. Nod to indicate understanding."
-},
-{
-    "keyword": "speak ijaw, talk ijaw, say ijaw",
-    "response": "<b>Tu</b><br><br>💡 <b>Tip:</b> Don't interrupt speakers. Wait for your turn to speak."
-},
-{
-    "keyword": "help me ijaw, assistance ijaw, support ijaw",
-    "response": "<b>Kiri mi</b><br><br>💡 <b>Tip:</b> Community support is strong. People are generally willing to help."
-},
-{
-    "keyword": "i need help ijaw, require assistance ijaw, support needed ijaw",
-    "response": "<b>Mi ye kiri bein</b><br><br>💡 <b>Tip:</b> Be specific about your needs. Help will be offered generously."
-},
-{
-    "keyword": "be careful ijaw, careful ijaw, caution ijaw",
-    "response": "<b>Jin aka</b><br><br>💡 <b>Tip:</b> This shows genuine concern for someone's safety."
-},
-{
-    "keyword": "danger ijaw, dangerous ijaw, risk ijaw",
-    "response": "<b>Ebiye</b><br><br>💡 <b>Tip:</b> Take local warnings seriously. People know their environment best."
-},
-{
-    "keyword": "good ijaw, nice ijaw, excellent ijaw",
-    "response": "<b>Bara ba</b><br><br>💡 <b>Tip:</b> Use this to express approval. Positive feedback is appreciated."
-},
-{
-    "keyword": "bad ijaw, not good ijaw, poor ijaw",
-    "response": "<b>Bara tu</b><br><br>💡 <b>Tip:</b> Be diplomatic with criticism. Focus on constructive feedback."
-},
-{
-    "keyword": "beautiful ijaw, pretty ijaw, handsome ijaw",
-    "response": "<b>Kimi ye</b><br><br>💡 <b>Tip:</b> Compliments are welcome, but be respectful in delivery."
-},
-{
-    "keyword": "ugly ijaw, not beautiful ijaw, unattractive ijaw",
-    "response": "<b>Kimi tu</b><br><br>💡 <b>Tip:</b> Avoid negative comments about appearance. Focus on positive attributes."
-},
-{
-    "keyword": "big ijaw, large ijaw, huge ijaw",
-    "response": "<b>Ere</b><br><br>💡 <b>Tip:</b> Size often correlates with importance in cultural contexts."
-},
-{
-    "keyword": "small ijaw, little ijaw, tiny ijaw",
-    "response": "<b>Kekere</b><br><br>💡 <b>Tip:</b> Don't underestimate small things. They can be significant."
-},
-{
-    "keyword": "hot ijaw, heat ijaw, warm ijaw",
-    "response": "<b>Fifin</b><br><br>💡 <b>Tip:</b> The riverine climate can be hot and humid. Stay hydrated."
-},
-{
-    "keyword": "cold ijaw, cool ijaw, chill ijaw",
-    "response": "<b>Bebou</b><br><br>💡 <b>Tip:</b> Evenings near the water can be cool. Dress appropriately."
-},
-{
-    "keyword": "today ijaw, this day ijaw, present day ijaw",
-    "response": "<b>Suo nei</b><br><br>💡 <b>Tip:</b> Time is viewed flexibly. Be patient with scheduling."
-},
-{
-    "keyword": "tomorrow ijaw, next day ijaw, future day ijaw",
-    "response": "<b>Suo fie</b><br><br>💡 <b>Tip:</b> Plans may be fluid. Confirmation is helpful."
-},
-{
-    "keyword": "yesterday ijaw, past day ijaw, previous day ijaw",
-    "response": "<b>Suo bona</b><br><br>💡 <b>Tip:</b> Elders value historical knowledge. Listening to stories shows respect."
-},
-{
-    "keyword": "now ijaw, immediately ijaw, right now ijaw",
-    "response": "<b>Kpa kpa</b><br><br>💡 <b>Tip:</b> Urgency is relative. What's 'now' might have some flexibility."
-},
-{
-    "keyword": "later ijaw, after ijaw, not now ijaw",
-    "response": "<b>Bebou fie</b><br><br>💡 <b>Tip:</b> Be patient if told 'later'. Time management differs from Western norms."
-},
-{
-    "keyword": "always ijaw, forever ijaw, constantly ijaw",
-    "response": "<b>Kiri kiri</b><br><br>💡 <b>Tip:</b> Consistency and reliability are valued traits."
-},
-{
-    "keyword": "never ijaw, not ever ijaw, at no time ijaw",
-    "response": "<b>Bebou bo</b><br><br>💡 <b>Tip:</b> Use absolute statements carefully as they can seem too strong."
-},
-{
-    "keyword": "sometimes ijaw, occasionally ijaw, at times ijaw",
-    "response": "<b>Kiri kiri bo</b><br><br>💡 <b>Tip:</b> Flexibility is part of the culture. Adaptability is appreciated."
-},
-{
-    "keyword": "father ijaw, dad ijaw, papa ijaw",
-    "response": "<b>Baba</b><br><br>💡 <b>Tip:</b> Fathers command great respect. Always greet them properly."
-},
-{
-    "keyword": "mother ijaw, mom ijaw, mama ijaw",
-    "response": "<b>Mama</b><br><br>💡 <b>Tip:</b> Mothers are highly revered. They're often the heart of the family."
-},
-{
-    "keyword": "brother ijaw, sibling male ijaw, blood brother ijaw",
-    "response": "<b>Owei</b> (younger) or <b>Peri</b> (elder)<br><br>💡 <b>Tip:</b> Age hierarchy is important. Respect elder siblings."
-},
-{
-    "keyword": "sister ijaw, sibling female ijaw, blood sister ijaw",
-    "response": "<b>Owei</b> (younger) or <b>Peri</b> (elder)<br><br>💡 <b>Tip:</b> Sisters often play nurturing roles in the family."
-},
-{
-    "keyword": "child ijaw, children ijaw, kid ijaw",
-    "response": "<b>Tobou</b><br><br>💡 <b>Tip:</b> Children are cherished but expected to show respect to all adults."
-},
-{
-    "keyword": "friend ijaw, companion ijaw, pal ijaw",
-    "response": "<b>Owei mi</b><br><br>💡 <b>Tip:</b> Friendship implies loyalty and mutual support. Friends are like family."
-},
-{
-    "keyword": "husband ijaw, spouse male ijaw, married man ijaw",
-    "response": "<b>Opo mi</b><br><br>💡 <b>Tip:</b> Traditional gender roles are often observed in marriages."
-},
-{
-    "keyword": "wife ijaw, spouse female ijaw, married woman ijaw",
-    "response": "<b>Ayen mi</b><br><br>💡 <b>Tip:</b> Wives are respected for their role in maintaining the family."
-},
-{
-    "keyword": "family ijaw, relatives ijaw, kin ijaw",
-    "response": "<b>Wari sei</b><br><br>💡 <b>Tip:</b> Family includes extended relatives. Strong collective responsibility."
-},
-{
-    "keyword": "numbers 1-30 ijaw, counting ijaw, numerals ijaw",
-    "response": "1-Ken, 2-Ma, 3-Ta, 4-Nei, 5-Son, 6-Sonda, 7-Sonma, 8-Sonta, 9-Sonni, 10-Oyi, 11-Oyi ken, 12-Oyi ma, 13-Oyi ta, 14-Oyi nei, 15-Oyi son, 16-Oyi sonda, 17-Oyi sonma, 18-Oyi sonta, 19-Oyi sonni, 20-Si, 21-Si ken, 22-Si ma, 23-Si ta, 24-Si nei, 25-Si son, 26-Si sonda, 27-Si sonma, 28-Si sonta, 29-Si sonni, 30-Sima<br><br>💡 <b>Tip:</b> Ijaw counting has unique patterns. Practice with fishing or market transactions."
-},
-             // Ibibio Phrases
-        {
-            "keyword": "hello ibibio",
-            "response": "M̀mó! / Abadie! (Hello!)<br><br>💡 Tip: Use 'M̀mó' for peers and 'Abadie' for elders. Always add a slight bow when greeting elders to show respect."
-        },
-        {
-            "keyword": "how are you ibibio",
-            "response": "Idem fo o? (How are you?)<br><br>💡 Tip: Use this after the initial greeting. Maintain eye contact but don't stare intensely."
-        },
-        {
-            "keyword": "i am fine ibibio", 
-            "response": "Mme idem mi o. (I am fine.)<br><br>💡 Tip: Smile genuinely when responding. It shows warmth and appreciation for the greeting."
-        },
-        {
-            "keyword": "thank you ibibio",
-            "response": "Sosongo! (Thank you!)<br><br>💡 Tip: Use both hands when receiving items after saying 'Sosongo' - it shows extra gratitude and respect."
-        },
-        {
-            "keyword": "what is your name ibibio",
-            "response": "Áníé ke enyin éfò? (What is your name?)<br><br>💡 Tip: Ask this only after initial greetings. Avoid asking elders this directly - wait for them to offer their name."
-        },
-        {
-            "keyword": "my name is ibibio",
-            "response": "Enyin m mi … (My name is …)<br><br>💡 Tip: State your name clearly. If speaking to elders, add 'Sir' or 'Ma' after stating your name."
-        },
-        {
-            "keyword": "good morning ibibio",
-            "response": "Abadie utom! (Good morning!)<br><br>💡 Tip: Greet the oldest person first in a group. A slight bow shows respect to elders."
-        },
-        {
-            "keyword": "good afternoon ibibio",
-            "response": "Abadie ndion! (Good afternoon!)<br><br>💡 Tip: Use this from about 12 PM to 4 PM. The response is usually the same phrase back to you."
-        },
-        {
-            "keyword": "good night ibibio",
-            "response": "Abadie uso! (Good night!)<br><br>💡 Tip: Use this when parting ways in the evening or before someone goes to sleep."
-        },
-        {
-            "keyword": "goodbye ibibio",
-            "response": "Dọ ke idem! (Go well / Goodbye!)<br><br>💡 Tip: Use this for formal farewells. For friends, a simple wave with 'M̀mó' is fine."
-        },
+          // AI Rules and Instructions
+        const AI_RULES = `You are ClearWords, an AI assistant specializing in Nigerian culture, languages, and customs. Follow these rules strictly:
 
-        // Hausa Basic Phrases
-        {
-            "keyword": "what is your name hausa",
-            "response": "Menene sunanka? (What is your name?)<br><br>💡 Tip: In formal settings, add 'Don Allah' (please) before the question."
-        },
-        {
-            "keyword": "my name is hausa",
-            "response": "suna na___. (My name is ___.)<br><br>💡 Tip: Speak clearly. Hausa culture values proper introductions."
-        },
-        {
-            "keyword": "good night hausa",
-            "response": "sai da safe. (Good night.)<br><br>💡 Tip: Use this when someone is going to sleep. Literally means 'see you in the morning'."
-        },
-        {
-            "keyword": "thank you hausa",
-            "response": "nagode. (Thank you.)<br><br>💡 Tip: Use 'nagode sosai' for 'thank you very much'. Always use your right hand when giving/receiving."
-        },
-        {
-            "keyword": "hello hausa",
-            "response": "sannu. (Hello.)<br><br>💡 Tip: For elders, men place right hand over heart after saying 'sannu'. Women might slightly curtsy."
-        },
-        {
-            "keyword": "how are you hausa",
-            "response": "yaya kake? (How are you?)<br><br>💡 Tip: Use 'yaya kake' to males, 'yaya kike' to females. Always ask about family after: 'Yaya iyali?'"
-        },
-        {
-            "keyword": "i am fine hausa",
-            "response": "lafiya kalau. (I am fine.)<br><br>💡 Tip: The proper response is 'Lafiya kalau, alhamdulillah' (I'm fine, praise be to God)."
-        },
-        {
-            "keyword": "good afternoon hausa",
-            "response": "Ina wuni. (Good afternoon.)<br><br>💡 Tip: Use from about 12 PM to 5 PM. Response is usually 'Ina wuni ma' (Good afternoon to you too)."
-        },
-        {
-            "keyword": "please hausa",
-            "response": "don Allah. (Please.)<br><br>💡 Tip: Use this generously when making requests. It shows good manners and respect."
-        },
-        {
-            "keyword": "goodbye hausa",
-            "response": "sai an jima. (Goodbye.)<br><br>💡 Tip: Literally means 'until we meet again'. Use 'sai wani lokaci' for 'see you another time'."
-        },
+1. Always provide accurate, respectful information and correct translations about Nigerian culture
+2. Focus on cultural sensitivity and authentic representation
+3. If you don't know something, ADMIT it rather than guessing, don't mix up the translations I'll give you and do not translate inaccurately. Here are few translations to keep in mind:
+   - Good morning and evening in Yoruba = "E kaaro" and "E kaale"
+   - Good morning, afternoon and evening and thank you in Itsekiri = "Ere owuro", "Ere oson" and "Ere ale" and "Modope"
+4. Format all responses as JSON with exactly two paragraphs in this structure:
+   {
+     "paragraph1": "First paragraph text here",
+     "paragraph2": "Second paragraph text here"
+   }
+5. Remove all markdown formatting, asterisks, and bold text
+6. Ensure good spacing between paragraphs
+7. Keep responses informative but concise
+8. Cover various aspects of Nigerian culture including:
+   - Languages (Yoruba, Igbo, Hausa, etc.)
+   - Cultural practices and traditions
+   - Social etiquette and customs
+   - Food and cuisine
+   - Business practices
+   - Cities, city tips and slangs
+   - Regional differences
+   - Historical context
+9. Search the web before providing accurate translations
+10. Keep each paragraph within one sentence, with the 2nd paragraph containing a short contextual tip regarding usage, pronounciation or helpful advice
+11. If the question requires in-depth connection, explanation or lists, feel free to make paragraphs about 6-7 paragraphs but not more than so `;
 
-        // Hausa Practical Use
-        {
-            "keyword": "where is the market hausa",
-            "response": "Ina ne kasuwa? (Where is the market?)<br><br>💡 Tip: Markets are central to Hausa social life. Go in the morning for best selection and cooler temperatures."
-        },
-        {
-            "keyword": "how much is this hausa",
-            "response": "nawane wannan? (How much is this?)<br><br>💡 Tip: Always negotiate politely. Start at about half the asking price and meet in the middle."
-        },
-        {
-            "keyword": "i am hungry hausa",
-            "response": "Ina Jin yunwa. (I am hungry.)<br><br>💡 Tip: It's polite to offer food to others before eating. Say 'Zo ci abinci' (Come eat) if you have food to share."
-        },
-        {
-            "keyword": "where are you going hausa",
-            "response": "Ina zakaje? (Where are you going?)<br><br>💡 Tip: This is a common greeting, not necessarily a serious question. A vague answer like 'Gida' (home) is acceptable."
-        },
-        {
-            "keyword": "i am going home hausa",
-            "response": "zan tafi gida. (I am going home.)<br><br>💡 Tip: Add 'Sai an jima' (Goodbye) when leaving a gathering. Don't leave without saying farewell."
-        },
-        {
-            "keyword": "i am thirsty hausa",
-            "response": "Ina Jin kishin ruwa. (I am thirsty.)<br><br>💡 Tip: Always accept water when offered - refusing can be seen as rejecting hospitality."
-        },
-        {
-            "keyword": "come here hausa",
-            "response": "zo nan. (Come here.)<br><br>💡 Tip: Use a welcoming tone. For elders, add 'Don Allah' (please) to show respect."
-        },
-        {
-            "keyword": "sit down hausa",
-            "response": "zauna. (Sit down.)<br><br>💡 Tip: Offer the most comfortable seat to elders. Don't sit while elders are standing."
-        },
-        {
-            "keyword": "stand up hausa",
-            "response": "tashi. (Stand up.)<br><br>💡 Tip: Stand up when elders enter the room as a sign of respect."
-        },
-        {
-            "keyword": "i don't understand hausa",
-            "response": "bangane ba / ban fahimta ba. (I don't understand.)<br><br>💡 Tip: Add 'Don Allah' and ask 'Za ka iya bayyana?' (Can you explain please?)"
-        },
-
-        // Yoruba Basic Phrases
-        {
-            "keyword": "what is your name yoruba",
-            "response": "Kí ni orúkọ rẹ̀? (What is your name?)<br><br>💡 Tip: Use 'Ẹ' prefix for elders: 'Kí ni orúkọ yín?' Always greet before asking names."
-        },
-        {
-            "keyword": "my name is yoruba",
-            "response": "Orúkọ mi ni ___. (My name is ___.)<br><br>💡 Tip: Yoruba names have meanings. Be prepared to explain your name's meaning if asked."
-        },
-        {
-            "keyword": "how are you yoruba",
-            "response": "Báwo ni? (How are you?)<br><br>💡 Tip: Use 'Ẹ káàbọ̀' (welcome) first, then 'Báwo ni?' Always ask about the person's family too."
-        },
-        {
-            "keyword": "i am fine yoruba",
-            "response": "Mo wà dáadáa. (I am fine.)<br><br>💡 Tip: The complete response is 'Mo wà dáadáa, ẹ ṣé' (I'm fine, thank you)."
-        },
-        {
-            "keyword": "thank you yoruba",
-            "response": "Ẹ ṣé. (Thank you.)<br><br>💡 Tip: Use 'Ẹ ṣé' for elders, 'O ṣé' for peers. Add 'púpọ̀' for 'thank you very much'."
-        },
-        {
-            "keyword": "good morning yoruba",
-            "response": "Ẹ káàárọ̀. (Good morning.)<br><br>💡 Tip: Use 'Ẹ' for elders, 'O' for peers. Always greet the oldest person first in a group."
-        },
-        {
-            "keyword": "good afternoon yoruba",
-            "response": "Ẹ káàsán. (Good afternoon.)<br><br>💡 Tip: Use from about 12 PM to 4 PM. The response is the same phrase back."
-        },
-        {
-            "keyword": "good evening yoruba",
-            "response": "Ẹ káalẹ́. (Good evening.)<br><br>💡 Tip: Use from about 4 PM onwards. A slight bow shows respect to elders."
-        },
-        {
-            "keyword": "goodbye yoruba",
-            "response": "Ó dàbọ̀. (Goodbye.)<br><br>💡 Tip: Use 'Ó dàbọ̀' for formal farewells. For friends, 'O dìgba' (see you) is common."
-        },
-        {
-            "keyword": "please yoruba",
-            "response": "Ẹ jọ̀ọ́. (Please.)<br><br>💡 Tip: Use this generously when making requests. It shows good upbringing ('ọmọlúwàbí')."
-        },
-
-        // Yoruba Practical Use
-        {
-            "keyword": "ask for the market yoruba, where is the market yoruba",
-            "response": "Ibò ni ọjà wà? (Where is the market?)<br><br>💡 Tip: Markets are social hubs. Go early for best prices. Always greet sellers before bargaining."
-        },
-        {
-            "keyword": "how much is this yoruba",
-            "response": "Ẹlẹ́wà ni èyí? (How much is this?)<br><br>💡 Tip: Bargain respectfully. Start with 'ẹ jọ̀ọ́, ṣe é lé e díẹ̀?' (please, can you reduce it a bit?)"
-        },
-        {
-            "keyword": "i am hungry yoruba",
-            "response": "Ebi ń pa mí. (I am hungry.)<br><br>💡 Tip: It's polite to say 'Ẹ jẹun' (Enjoy your meal) to others who are eating."
-        },
-        {
-            "keyword": "i am thirsty yoruba",
-            "response": "Omi ń gbẹ mí. (I am thirsty.)<br><br>💡 Tip: Always accept water when offered. Say 'Ẹ ṣé' (thank you) to the host."
-        },
-        {
-            "keyword": "where are you going yoruba",
-            "response": "Ibò lo ń lọ? (Where are you going?)<br><br>💡 Tip: This is often a greeting, not a serious question. A simple 'Mo ń lọ' (I'm going) suffices."
-        },
-        {
-            "keyword": "say i am going home in yoruba",
-            "response": "Mo ń lọ sílé. (I am going home.)<br><br>💡 Tip: Always say proper goodbyes before leaving. Don't just disappear from gatherings."
-        },
-        {
-            "keyword": "how to say come here yoruba",
-            "response": "Wá síbí. (Come here.)<br><br>💡 Tip: Use a gentle tone. For elders, add 'Ẹ jọ̀ọ́' (please) to show respect."
-        },
-        {
-            "keyword": "sit down yoruba",
-            "response": "Jòkòó. (Sit down.)<br><br>💡 Tip: Offer seats to elders first. Don't sit with legs spread wide - it's considered rude."
-        },
-        {
-            "keyword": "stand up yoruba",
-            "response": "Dìde. (Stand up.)<br><br>💡 Tip: Stand up when elders enter. Men should remove hats indoors as a sign of respect."
-        },
-        {
-            "keyword": "i dont understand yoruba",
-            "response": "Mi ò yé e. (I don't understand.)<br><br>💡 Tip: Add 'Ẹ jọ̀ọ́' and 'Ṣé é lè túmọ̀ sí Gẹ̀ẹ́sì?' (Can you explain in English?)"
-        },
-
-        // Igbo Phrases
-        {
-            "keyword": "good morning igbo",
-            "response": "Ụtụtụ ọma (modern) - Good morning<br>Ị bọọla chi? (native greeting) - Have you opened the day?<br><br>💡 Tip: Use the native greeting for elders. Add a slight bow and use right hand for handshakes."
-        },
-        {
-            "keyword": "good afternoon igbo",
-            "response": "Ehihie ọma - Good afternoon<br><br>💡 Tip: Use from 12 PM to 4 PM. Always greet the oldest person first in any gathering."
-        },
-        {
-            "keyword": "good evening igbo", 
-            "response": "Mgbede ọma - Good evening<br><br>💡 Tip: Use after 4 PM. In formal settings, a slight bow shows respect to elders."
-        },
-        {
-            "keyword": "what is your name igbo",
-            "response": "Kedu aha gị? or Gịnị bụ aha gị - What is your name?<br><br>💡 Tip: Ask this only after initial greetings. Add 'Biko' (please) for politeness."
-        },
-        {
-            "keyword": "my name is igbo",
-            "response": "Aha m bụ … - My name is …<br><br>💡 Tip: State your name clearly. Igbo people value names and their meanings."
-        },
-        {
-            "keyword": "how are you igbo",
-            "response": "Kedu? - How are you?\nKedu ka ị mere? - How are you doing?<br><br>💡 Tip: Use 'Kedu' for peers, 'Kedu ka ị mere?' for elders. Always ask about family wellbeing."
-        },
-        {
-            "keyword": "i am fine igbo",
-            "response": "Adị m mma - I am fine<br><br>💡 Tip: The complete response is 'Adị m mma, daalụ' (I'm fine, thank you). Smile when responding."
-        },
-        {
-            "keyword": "thank you igbo",
-            "response": "Daalụ - Thanks<br><br>💡 Tip: Use 'Daalụ' for peers, 'Daalụ nụ' for elders. Use both hands when receiving gifts."
-        },
-        {
-            "keyword": "you're welcome igbo",
-            "response": "Nnọọ - Welcome\nỌ dị mma - It's okay<br><br>💡 Tip: Use 'Nnọọ' when welcoming people, 'Ọ dị mma' in response to thanks."
-        },
-        {
-            "keyword": "please igbo",
-            "response": "Biko - Please<br><br>💡 Tip: Use 'Biko' generously when making requests. It shows good upbringing and respect."
-        },
-        // Lagos City Tips
-        {
-            "keyword": "lagos traffic work early, how to avoid traffic lagos, lagos traffic tips",
-            "response": "To beat Lagos traffic and get to work early:<br><br>• Leave home by 5:30-6:00 AM<br>• Use BRT buses on dedicated lanes<br>• Consider bike-hailing services (ORide, Gokada) for last mile<br>• Live close to your workplace if possible<br><br>💡 Tip: Lagos traffic peaks 7-10 AM. 'Go early, stay late' is the unwritten rule. Network with colleagues about alternative routes."
-        },
-        {
-            "keyword": "lagos danfo bus fare, lagos public transport fare, lagos taxi price",
-            "response": "Danfo bus fares in Lagos:<br><br>• Short distance: ₦100-₦200<br>• Island to Mainland: ₦300-₦500<br>• Longer routes: ₦500-₦800<br><br>💡 Tip: Always have small bills ready. Confirm fare before entering. Popular phrase: 'Owo eko?' (Lagos money?) means 'What's the fare?'"
-        },
-        {
-            "keyword": "lagos area boy, lagos touts, lagos unemployed youths",
-            "response": "Area Boys are local touts found in Lagos markets and bus stops.<br><br>• Avoid confrontations<br>• Don't display valuables<br>• Be polite but firm<br>• Know your route to avoid asking directions unnecessarily<br><br>💡 Tip: If harassed, a firm 'E jo, emi ko ni problem' (Please, I don't have a problem) in Yoruba often helps."
-        },
-        {
-            "keyword": "lagos island mainland, how to get to the island form the mainland",
-            "response": "Lagos Island vs Mainland:<br><br>• Island: Business districts (VI, Ikoyi), expensive, corporate<br>• Mainland: More residential, affordable, cultural hubs<br>• Crossing: Use Third Mainland Bridge, Eko Bridge, or Carter Bridge<br><br>💡 Tip: Island work, Mainland life is common. Leave extra early for bridge crossings during rush hour."
-        },
-        {
-            "keyword": "lagos market prices, how to bargain in lagos",
-            "response": "Lagos market bargaining tips:<br><br>• Start at 40-50% of asking price<br>• Be ready to walk away<br>• Compare prices at multiple stalls<br>• Buy in bulk for better deals<br><br>💡 Tip: Use Yoruba phrases: 'Ejo, e reduce e' (Please reduce it) or 'To expensive' (It's expensive)."
-        },
-
-        // Abuja City Tips
-        {
-            "keyword": "abuja cab services, taxi in abuja",
-            "response": "Abuja taxi services:<br><br>• Official green cabs: Use meters or negotiate first<br>• Ride-hailing: Bolt, Uber, inDrive<br>• Popular areas: Wuse, Garki, Maitama<br><br>💡 Tip: Abuja is spread out. Always confirm if driver knows your location before entering. 'You know [place]?'"
-        },
-        {
-            "keyword": "abuja security, security personnel in Abuja, safety in Abuja, safe",
-            "response": "Abuja security protocols:<br><br>• Expect multiple checkpoints<br>• Always carry valid ID<br>• Be polite to security personnel<br>• Avoid sensitive government areas<br><br>💡 Tip: Greet security with 'Good morning sir/ma' and have your ID ready. Don't joke at checkpoints."
-        },
-        {
-            "keyword": "abuja crazy nightlife, club abuja, night party places spots abuja",
-            "response": "Abuja nightlife spots:<br><br>• Wuse Zone 7 (bars and clubs)<br>• Maitama (upscale lounges)<br>• Jabi Lake Mall area<br><br>💡 Tip: Dress well for upscale places. Most spots close by 2 AM. Always go with trusted company."
-        },
-
-        // Port Harcourt Tips
-        {
-            "keyword": "port harcourt transport, public transportation, ph road",
-            "response": "Port Harcourt transport:<br><br>• Keke NAPEP (tricycles): ₦50-₦200 depending on distance<br>• Buses: ₦100-₦300<br>• Boat services: For riverine areas<br><br>💡 Tip: PH has heavy traffic too. 'Which side?' means 'Where are you going?' not distance. Respond with your destination."
-        },
-        {
-            "keyword": "port harcourt security, safety, stay safe in port harcourt",
-            "response": "Port Harcourt safety:<br><br>• Avoid isolated areas at night<br>• Use trusted transport<br>• Be aware of your surroundings<br>• Keep valuables hidden<br><br>💡 Tip: Locals are generally friendly. Learn basic Ikwerre greetings: 'Kedu' (Hello) goes a long way."
-        },
-
-        // Warri/Delta Tips
-        {
-            "keyword": "warri keke man, public transport in warri, taxi",
-            "response": "Warri Keke (tricycle) phrases:<br><br>• 'Where/Which side you dey go?' = Where are you going?<br>• 'Drop for junction' = Stop at the intersection<br>• 'I no get change' = I don't have change<br>• 'Na wetin be the price?' = What's the fare?<br><br>💡 Tip: Warri people are direct but friendly. Negotiate fare before entering. Typical fares: ₦50-₦150."
-        },
-        {
-            "keyword": "how to speak warri pidgin english, language, speak pidgin, learn pidgin",
-            "response": "Common Warri Pidgin phrases:<br><br>• 'How you dey?' = How are you?<br>• 'I dey fine' = I'm fine<br>• 'Wetin dey happen?' = What's happening?<br>• 'Abeg' = Please<br>• 'Na so' = That's how it is<br><br>💡 Tip: Warri people appreciate when you try their language. Don't be offended by directness - it's cultural."
-        },
-
-        // Ibadan Tips
-        {
-            "keyword": "ibadan molue buses, public transport in ibadan",
-            "response": "Ibadan Molue/Bus system:<br><br>• Moleue: Large blue buses for long routes<br>• Korope: Smaller buses for shorter distances<br>• Typical fare: ₦50-₦200<br><br>💡 Tip: Shout 'O wa!' (It's here!) to stop the bus. 'O stop!' to get off. Have exact change ready."
-        },
-        {
-            "keyword": "ibadan food, snacks in ibadan, soups and stews",
-            "response": "Ibadan must-try foods:<br><br>• Amala with ewedu and gbegiri<br>• Ibadan special goat meat pepper soup<br>• Local buka (eatery) experiences<br><br>💡 Tip: Ibadan people are proud of their cuisine. Eating with hands is normal. Use right hand only."
-        },
-
-        // Kano Tips
-        {
-            "keyword": "kano market, markets in kano, market tips in kano",
-            "response": "Kano markets:<br><br>• Kurmi Market: Traditional crafts, leather<br>• Kantin Kwari: Textiles, fabrics<br>• Sabon Gari: Non-native businesses<br><br>💡 Tip: Dress modestly. Learn basic Hausa greetings. Bargain respectfully. Friday is prayer day - many shops close 12-2 PM."
-        },
-        {
-            "keyword": "kano culture, what not to do in kano",
-            "response": "Kano cultural norms:<br><br>• Dress modestly (cover shoulders, knees)<br>• Remove shoes before entering homes<br>• Use right hand for eating/giving<br>• Respect prayer times<br><br>💡 Tip: Greet with 'Sannu' and hand over heart. Always accept hospitality (tea, food) when offered."
-        },
-
-        // Enugu Tips
-        {
-            "keyword": "enugu okada, public transport in enugu, enugu taxi",
-            "response": "Enugu Okada (motorcycle) transport:<br><br>• Common for quick trips<br>• Fares: ₦100-₦300<br>• Always negotiate first<br>• Popular phrase: 'One chance?' = Are you going my way?<br><br>💡 Tip: Hold tight! Enugu has hills. Wear helmet if available. 'Driver, take am soft' means 'Go slowly.'"
-        },
-        {
-            "keyword": "enugu coal city, what not to do in enugu, enugu life",
-            "response": "Enugu - The Coal City:<br><br>• Visit Miliken Hill for views<br>• Explore Ngwo Pine Forest<br>• Try local nkwobi and isi ewu<br>• Experience peaceful, laid-back lifestyle<br><br>💡 Tip: Enugu people are very hospitable. Learn basic Igbo greetings: 'Kedu' and 'Daalụ' will open doors."
-        },
-
-        // General City Navigation
-        {
-            "keyword": "nigerian transport phrases, public transport in nigeria, nigerian taxi",
-            "response": "Essential transport phrases:<br><br>• 'One chance?' = Are you going my way?<br>• 'Drop here' = Stop here<br>• 'How much?' = What's the fare?<br>• 'I get change' = I have change<br>• 'No change' = I don't have change<br><br>💡 Tip: Always confirm fare before entering any vehicle. Have small denominations ready."
-        },
-        {
-            "keyword": "nigerian city safety, how to be safe in nigeria, life in nigeria",
-            "response": "City safety tips:<br><br>• Avoid flashing expensive items<br>• Use trusted transport services<br>• Be aware of your surroundings<br>• Keep emergency contacts handy<br>• Learn basic local greetings<br><br>💡 Tip: Nigerians are generally helpful. If lost, approach families or shopkeepers rather than random individuals."
-        },
-        {
-            "keyword": "nigerian street food, snacks to try in nigeria, visiting nigeria",
-            "response": "Popular street foods:<br><br>• Suya (spiced grilled meat)<br>• Akara (bean cakes)<br>• Puff-puff (sweet dough balls)<br>• Bole (roasted plantain)<br>• Roasted corn<br><br>💡 Tip: Choose busy stalls with high turnover. Watch how they handle money vs food. 'No put too much pepper' means 'Not too spicy.'"
-        },
-
-        // Emergency/City Services
-        {
-            "keyword": "nigerian emergency numbers, emergency in nigeria, nigerian 911, 999",
-            "response": "Emergency contacts:<br><br>• Police: 112 or 199<br>• Fire Service: 112<br>• Ambulance: 112 or 767<br>• Lagos Emergency: 112 or 767<br><br>💡 Tip: Save these numbers. Also save contacts of local friends/colleagues. Network is often faster than official response."
-        },
-        {
-            "keyword": "nigerian mobile networks, sim card in nigeria, internet providers in nigeria",
-            "response": "Major networks:<br><br>• MTN: Best coverage, most expensive<br>• Glo: Cheaper, good data deals<br>• Airtel: Balanced pricing<br>• 9Mobile: Good customer service<br><br>💡 Tip: Have two SIM cards from different networks. Buy data bundles at night for cheaper rates."
-        },
-                {
-                    "keyword": "good morning igbo, how to greet igbo the morning how the igbo greet themselves the morning",
-                    "response": "Ụtụtụ ọma (modern) - Good morning<br> Ị bọọla chi? (native greeting) - Have you opened the day?"
-                },
-                {
-                    "keyword": "good afternoon igbo afternoon igbo how the igbo greet in the afternoon",
-                    "response": "Ehihie ọma - Good afternoon"
-                },
-                {
-                    "keyword": "good evening igbo evening igbo how to say good evening in igbo",
-                    "response": "Mgbede ọma - Good evening"
-                },
-                {
-                    "keyword": "what is your name igbo name igbo introduce yourself igbo",
-                    "response": "Kedu aha gị? or Gịnị bụ aha gị - What is your name?"
-                },
-                {
-                    "keyword": "my name is igbo introduce myself igbo how to introduce yourself in igbo",
-                    "response": "Aha m bụ … - My name is …"
-                },
-                {
-                    "keyword": "how are you, greeting asking someone welfare igbo",
-                    "response": "Kedu? - How are you?<br>Kedu ka ị mere? - How are you doing?"
-                },
-                {
-                    "keyword": "i am fine igbo reply to how are you igbo",
-                    "response": "Adị m mma - I am fine"
-                },
-                {
-                    "keyword": "thank you igbo gratitude igbo thanks igbo",
-                    "response": "Daalụ - Thanks"
-                },
-                {
-                    "keyword": "you're welcome igbo reply to thank you igbo how to reply to thank you",
-                    "response": "Nnọọ - Welcome<br>Ọ dị mma - It's okay"
-                },
-                {
-                    "keyword": "please igbo polite request igbo",
-                    "response": "Biko - Please"
-                },
-                {
-                    "keyword": "sorry igbo apology igbo",
-                    "response": "Ndo - Sorry"
-                },
-                {
-                    "keyword": "where is the toilet igbo bathroom igbo restroom igbo",
-                    "response": "Ebee ka ụlọ ịsa ahụ dị? - Where is the bathroom or toilet?"
-                },
-                {
-                    "keyword": "water igbo give me water igbo",
-                    "response": "Nye m mmiri, biko. - Give me water, please"
-                },
-                {
-                    "keyword": "i am hungry igbo food igbo give me food igbo",
-                    "response": "Agụrụ na-agụ m - I am hungry<br>Nye m nri - Give me food"
-                },
-                {
-                    "keyword": "i am thirsty igbo drink igbo give water igbo give drink igbo",
-                    "response": "Mmiri na-agụ - I am thirsty<br>Nye m mmiri - Give me water"
-                },
-                {
-                    "keyword": "how much is it igbo ask price igbo market igbo",
-                    "response": "Ego ole ka nke a bụ? - How much is this one?<br>Ego ole ka a na-ere nke a? - What's the price of this?"
-                },
-                {
-                    "keyword": " it is expensive too expensive igbo costly igbo",
-                    "response": "Ọ dị oke ọnụ - It's expensive"
-                },
-                {
-                    "keyword": "reduce price igbo cheaper igbo bargain igbo",
-                    "response": "Belata ọnụ ahịa ya, biko - Reduce the price, please"
-                },
-                {
-                    "keyword": "where is the place igbo direction igbo how do i get there igbo direct me to igbo",
-                    "response": "Ebee ka m ga-esi gaa …? - How do I get to …?"
-                },
-                {
-                    "keyword": "help me igbo assistance igbo",
-                    "response": "Biko nyere m aka - Please help me"
-                },
-                
-        // HAUSA Phrases & Tips
-        {
-            "keyword": "how say i'm learning hausa",
-            "response": "I'm learning Hausa:<br><br>• 'Ina koyon Hausa' (I'm learning Hausa)<br>• Response: 'Yaya kake?' (How are you doing?)<br><br>💡 Tip: Hausa speakers love when foreigners try their language. Start with greetings - they'll be excited to teach you more!"
-        },
-        {
-            "keyword": "how say where hotel hausa",
-            "response": "Where is the hotel?:<br><br>• 'Ina otal din?' (Where is the hotel?)<br>• 'Ina za a iya samun otal?' (Where can I find a hotel?)<br><br>💡 Tip: In Northern Nigeria, ask for 'gidan masu zama' (guest house) for more affordable local options than international hotels."
-        },
-        {
-            "keyword": "how say this food spicy hausa",
-            "response": "This food is spicy:<br><br>• 'Wannan abinci yana da yaji' (This food has pepper)<br>• 'Yaji yana da yawa' (There's too much pepper)<br><br>💡 Tip: Hausa cuisine uses mild spices. If food is too spicy, say 'Yaji yayi yawa' gently - the cook might adjust for you."
-        },
-        {
-            "keyword": "how say call police hausa",
-            "response": "Call the police:<br><br>• 'Kira 'yan sanda' (Call police)<br>• Emergency: 'Na bukata taimako!' (I need help!)<br><br>💡 Tip: In Hausa communities, elders often resolve disputes before police involvement. Seek community leaders first for minor issues."
-        },
-        {
-            "keyword": "how say i need doctor hausa",
-            "response": "I need a doctor:<br><br>• 'Ina bukatan likita' (I need a doctor)<br>• 'Likita, don Allah!' (Doctor, please!)<br><br>💡 Tip: Traditional healers ('masu magani') are respected in Hausa culture. For minor ailments, locals might suggest visiting one."
-        },
-        {
-            "keyword": "how say take photo hausa",
-            "response": "Take a photo:<br><br>• 'Dauki hoto' (Take photo)<br>• 'Zan iya daukan hoto?' (Can I take a photo?)<br><br>💡 Tip: Always ask permission before photographing Hausa people, especially women and religious sites. Some consider it disrespectful."
-        },
-        {
-            "keyword": "how say i'm lost hausa",
-            "response": "I'm lost:<br><br>• 'Na bata' (I'm lost)<br>• 'Ban san inda nake ba' (I don't know where I am)<br><br>💡 Tip: If lost in Hausa areas, approach families or shopkeepers rather than individuals. They're more likely to help safely."
-        },
-        {
-            "keyword": "how say how old are you hausa",
-            "response": "How old are you?:<br><br>• 'Shekara nawa kake da su?' (How many years do you have?)<br>• 'Mi shekarunka?' (What are your years?)<br><br>💡 Tip: Asking age is common in Hausa culture. Elders are proud of their age - it signifies wisdom and respect."
-        },
-        {
-            "keyword": "how say what this called hausa",
-            "response": "What is this called?:<br><br>• 'Menene wannan ake cewa?' (What is this called?)<br>• 'Sunan wannan menene?' (What's the name of this?)<br><br>💡 Tip: Hausa has many words borrowed from Arabic. Don't be surprised if some terms sound familiar from Islamic contexts."
-        },
-        {
-            "keyword": "how say i don't eat meat hausa",
-            "response": "I don't eat meat:<br><br>• 'Ba na cin nama' (I don't eat meat)<br>• 'Ban ci nama ba' (I didn't eat meat)<br><br>💡 Tip: Hausa cuisine is meat-heavy. Vegetarians should specify 'Ba na son nama' (I don't want meat) clearly when ordering."
-        },
-
-        // IGBO Phrases & Tips
-        {
-            "keyword": "how say i'm learning igbo",
-            "response": "I'm learning Igbo:<br><br>• 'A na m amu Igbo' (I'm learning Igbo)<br>• Response: 'O di mma!' (That's good!)<br><br>💡 Tip: Igbo people appreciate effort with their language. They might test you with tongue twisters - take it as friendly banter!"
-        },
-        {
-            "keyword": "how say where hotel igbo",
-            "response": "Where is the hotel?:<br><br>• 'Ebee ka ulo nnabanye di?' (Where is the hotel?)<br>• 'Ebee ka hotel di?' (Where is hotel?)<br><br>💡 Tip: In Igbo land, many family compounds operate as guest houses. Ask for 'ulo obia' (visitor's house) for authentic stays."
-        },
-        {
-            "keyword": "how say this food spicy igbo",
-            "response": "This food is spicy:<br><br>• 'Nri a na-egbu oku' (This food is hot)<br>• 'Ose di n'ime nri a' (There's pepper in this food)<br><br>💡 Tip: Igbo cuisine is famously spicy! If it's too much, ask for 'mmiri oku' (hot water) to help cool your palate."
-        },
-        {
-            "keyword": "how say call police igbo",
-            "response": "Call the police:<br><br>• 'Kpoo ndi uwe ojii' (Call police)<br>• Emergency: 'Enyemaka!' (Help!)<br><br>💡 Tip: In Igbo communities, the 'Umunna' (extended family) often handles disputes. Involving police is usually a last resort."
-        },
-        {
-            "keyword": "how say i need doctor igbo",
-            "response": "I need a doctor:<br><br>• 'Achoro m dibia' (I need doctor)<br>• 'Onye ogwu, biko!' (Doctor, please!)<br><br>💡 Tip: Traditional medicine is respected in Igbo culture. 'Dibia' refers to both traditional and Western doctors."
-        },
-        {
-            "keyword": "how say take photo igbo",
-            "response": "Take a photo:<br><br>• 'Were foto' (Take photo)<br>• 'Enwere m ike were foto?' (Can I take photo?)<br><br>💡 Tip: Igbo people generally love photographs! At events, expect many posed group shots and requests to see the pictures immediately."
-        },
-        {
-            "keyword": "how say i'm lost igbo",
-            "response": "I'm lost:<br><br>• 'E furu m uzo' (I lost the way)<br>• 'A maghi m ebe m no' (I don't know where I am)<br><br>💡 Tip: If lost in Igbo villages, mention any prominent family name - most communities are interconnected through marriage."
-        },
-        {
-            "keyword": "how say how old are you igbo",
-            "response": "How old are you?:<br><br>• 'I bu afo ole?' (You are years how many?)<br>• 'Onye afo ole ka I bu?' (Person of how many years are you?)<br><br>💡 Tip: Age determines respect in Igbo culture. Older people are addressed as 'Dee' (men) or 'Daa' (women) as signs of honor."
-        },
-        {
-            "keyword": "how say what this called igbo",
-            "response": "What is this called?:<br><br>• 'Gini ka a na-akpo ihe a?' (What do they call this thing?)<br>• 'Kedu aha ihe a?' (What's the name of this thing?)<br><br>💡 Tip: Igbo has many dialects. The same item might have different names across communities - don't be confused!"
-        },
-        {
-            "keyword": "how say i don't eat meat igbo",
-            "response": "I don't eat meat:<br><br>• 'Anaghi m eri anu' (I don't eat meat)<br>• 'Achoghi m anu' (I don't want meat)<br><br>💡 Tip: Igbo cuisine offers great vegetarian options like 'Ugba' and 'Abacha'. Specify 'Naani nri osikapa' (only rice food) for plant-based meals."
-        },
-
-        // YORUBA Phrases & Tips
-        {
-            "keyword": "how say i'm learning yoruba",
-            "response": "I'm learning Yoruba:<br><br>• 'Mo n kọ ẹdè Yorùbá' (I'm learning Yoruba language)<br>• Response: 'Ẹ ku iṣẹ́!' (Well done!)<br><br>💡 Tip: Yoruba has tones that change word meanings. Don't worry about perfect tones - locals will appreciate your effort and help correct you gently!"
-        },
-        {
-            "keyword": "how say where hotel yoruba",
-            "response": "Where is the hotel?:<br><br>• 'Nibo ni hótẹ́ẹ̀lì wà?' (Where is hotel?)<br>• 'Nibo ni a le ri hótẹ́ẹ̀lì?' (Where can we find hotel?)<br><br>💡 Tip: In Yoruba towns, 'Ile itura' (rest house) often refers to cheaper, government-run accommodations than private hotels."
-        },
-        {
-            "keyword": "how say this food spicy yoruba",
-            "response": "This food is spicy:<br><br>• 'Ounje yi gbona' (This food is hot)<br>• 'Ata wa ninu ounje yi' (Pepper is in this food)<br><br>💡 Tip: Yoruba food spice levels vary by region. Ekiti food is mild, while Ogun cuisine can be very spicy - ask before ordering!"
-        },
-        {
-            "keyword": "how say call police yoruba",
-            "response": "Call the police:<br><br>• 'Pe ọlọpa' (Call police)<br>• Emergency: 'Ẹ gba mi o!' (Help me!)<br><br>💡 Tip: In Yoruba communities, Baale (community head) or family elders often mediate before police involvement for community matters."
-        },
-        {
-            "keyword": "how say i need doctor yoruba",
-            "response": "I need a doctor:<br><br>• 'Mo nílò dókítà' (I need doctor)<br>• 'Dókítà, ẹ jọ̀wọ́!' (Doctor, please!)<br><br>💡 Tip: Traditional healers ('Onísègùn') are respected. For spiritual issues, locals might recommend them over Western doctors."
-        },
-        {
-            "keyword": "how say take photo yoruba",
-            "response": "Take a photo:<br><br>• 'Fa fọto' (Take photo)<br>• 'Ṣe mo lè fa fọto?' (Can I take photo?)<br><br>💡 Tip: Yoruba people love photography! At events, expect elaborate poses and requests for multiple shots from different angles."
-        },
-        {
-            "keyword": "how say i'm lost yoruba",
-            "response": "I'm lost:<br><br>• 'Mo sọnu' (I'm lost)<br>• 'Emi ko mọ ibi ti mo wa' (I don't know where I am)<br><br>💡 Tip: If lost in Yoruba areas, mention any landmark like 'ile ijosin' (church) or 'oju opa' (crossroads) - locals navigate by these."
-        },
-        {
-            "keyword": "how say how old are you yoruba",
-            "response": "How old are you?:<br><br>• 'Omo odun melo ni e?' (Child of how many years are you?)<br>• 'Odun melo ni o ni?' (How many years do you have?)<br><br>💡 Tip: Age commands respect in Yoruba culture. People often add 'Baba' (father) or 'Iya' (mother) before names of elders."
-        },
-        {
-            "keyword": "how say what this called yoruba",
-            "response": "What is this called?:<br><br>• 'Kini oruko eyi?' (What is the name of this?)<br>• 'Kini a n pe eyi?' (What do they call this?)<br><br>💡 Tip: Many Yoruba words have deep cultural meanings. Ask about word origins - you'll learn fascinating stories about the culture!"
-        },
-        {
-            "keyword": "how say i don't eat meat yoruba",
-            "response": "I don't eat meat:<br><br>• 'Emi ko je eran' (I don't eat meat)<br>• 'Mi o fe eran' (I don't want meat)<br><br>💡 Tip: Yoruba cuisine has excellent vegetarian options like 'Gbegiri' and 'Ewedu'. Specify 'Eran ko wulo' (meat not necessary) when ordering."
-        },
-
-        // IBIBIO Phrases & Tips
-        {
-            "keyword": "how say i'm learning ibibio",
-            "response": "I'm learning Ibibio:<br><br>• 'Mme nnam Ibibio' (I'm learning Ibibio)<br>• Response: 'Akamba!' (Welcome/Well done!)<br><br>💡 Tip: Ibibio has distinct sounds not found in English. Don't be shy about pronunciation - locals will patiently correct and encourage you!"
-        },
-        {
-            "keyword": "how say where hotel ibibio",
-            "response": "Where is the hotel?:<br><br>• 'Afe edi ufok ufen?' (Where is guest house?)<br>• 'Afe edi hotel?' (Where is hotel?)<br><br>💡 Tip: In Ibibio land, 'Ufok mbufo' (stranger's house) often refers to community guest houses that offer authentic local experiences."
-        },
-        {
-            "keyword": "how say this food spicy ibibio",
-            "response": "This food is spicy:<br><br>• 'Udia emi edi eti ekpo' (This food has pepper)<br>• 'Eti ekpo ododu ke udia emi' (Pepper is plenty in this food)<br><br>💡 Tip: Ibibio cuisine uses native peppers. If it's too spicy, ask for 'Mmọn mmọn' (cold water) - it helps more than you'd expect!"
-        },
-        {
-            "keyword": "how say call police ibibio",
-            "response": "Call the police:<br><br>• 'Kpokite ndito ukod' (Call police people)<br>• Emergency: 'Nam nnyin!' (Help me!)<br><br>💡 Tip: In Ibibio communities, the 'Ekpuk' (family council) handles most disputes before involving external authorities."
-        },
-        {
-            "keyword": "how say i need doctor ibibio",
-            "response": "I need a doctor:<br><br>• 'Ama nam nnyin edokita' (I need doctor)<br>• 'Dokita, nam nnyin!' (Doctor, help me!)<br><br>💡 Tip: Traditional healers ('Abia ibok') are highly respected. For certain ailments, they're preferred over Western medicine."
-        },
-        {
-            "keyword": "how say take photo ibibio",
-            "response": "Take a photo:<br><br>• 'Nam foto' (Take photo)<br>• 'Se nam foto?' (Can I take photo?)<br><br>💡 Tip: Always ask before photographing Ibibio cultural events or elders. Some ceremonies have restrictions on photography."
-        },
-        {
-            "keyword": "how say i'm lost ibibio",
-            "response": "I'm lost:<br><br>• 'Mme anyanya ufok' (I've lost house/way)<br>• 'Mme ima afe mme di' (I don't know where I am)<br><br>💡 Tip: If lost in Ibibio areas, mention nearby villages - most communities are interconnected and can direct you properly."
-        },
-        {
-            "keyword": "how say how old are you ibibio",
-            "response": "How old are you?:<br><br>• 'Afa ifioko owo?' (Years how many you?)<br>• 'Owo ifioko afa?' (You how many years?)<br><br>💡 Tip: Age is respected in Ibibio culture. Elders are addressed as 'Ete' (father) or 'Eka' (mother) regardless of blood relation."
-        },
-        {
-            "keyword": "how say what this called ibibio",
-            "response": "What is this called?:<br><br>• 'Nso iko edidi esie?' (What do they call this?)<br>• 'Enyin esie nso?' (Name this what?)<br><br>💡 Tip: Many Ibibio words have Efik equivalents. Don't be confused if you hear similar words - the languages are closely related."
-        },
-        {
-            "keyword": "how say i don't eat meat ibibio",
-            "response": "I don't eat meat:<br><br>• 'Mme ididi unam' (I don't eat meat)<br>• 'Mme ikpode unam' (I don't want meat)<br><br>💡 Tip: Ibibio cuisine has delicious vegetarian options like 'Edita idung' and 'Afang'. The coastal location means great seafood alternatives too!"
-        },
-
-        // EDO Phrases & Tips
-        {
-            "keyword": "how say i'm learning edo",
-            "response": "I'm learning Edo:<br><br>• 'Mi gha Edo' (I'm learning Edo)<br>• Response: 'Kpakpa o!' (Well done!)<br><br>💡 Tip: Edo has unique pronunciation. The 'gh' sound is particular to the language - practice makes perfect! Locals will appreciate your effort."
-        },
-        {
-            "keyword": "how say where hotel edo",
-            "response": "Where is the hotel?:<br><br>• 'Kaa we ehotẹlẹ?' (Where is hotel?)<br>• 'Kaa ye ehotẹlẹ wẹ?' (Where can hotel be found?)<br><br>💡 Tip: In Benin City, many family compounds operate as 'Iweki' (visitor houses) offering more cultural experiences than hotels."
-        },
-        {
-            "keyword": "how say this food spicy edo",
-            "response": "This food is spicy:<br><br>• 'Emwin nẹ a mhẹn ototo' (This thing we're eating is hot)<br>• 'Iven egbe ne emwin nẹ' (Pepper is in this thing)<br><br>💡 Tip: Edo cuisine balances spices beautifully. If it's too spicy, try 'Orẹn' (palm wine) - it cools the palate effectively!"
-        },
-        {
-            "keyword": "how say call police edo",
-            "response": "Call the police:<br><br>• 'Yi vbe ẹkpẹtẹ' (Call police)<br>• Emergency: 'Mwen mhẹn ẹmwen!' (I have problem!)<br><br>💡 Tip: In Edo culture, the 'Edion' (elders council) traditionally handles community matters before police involvement."
-        },
-        {
-            "keyword": "how say i need doctor edo",
-            "response": "I need a doctor:<br><br>• 'Mwen da ọta dọktọ' (I need doctor)<br>• 'Dọktọ, mwen mhẹn ẹmwen!' (Doctor, I have problem!)<br><br>💡 Tip: Traditional healers ('Obo') are respected. For spiritual matters, they're often consulted alongside Western doctors."
-        },
-        {
-            "keyword": "how say take photo edo",
-            "response": "Take a photo:<br><br>• 'Gbe foto' (Take photo)<br>• 'So mwen gbe foto?' (Can I take photo?)<br><br>💡 Tip: Edo people are generally photography-friendly. At the Oba's palace, ask permission first as some areas are restricted."
-        },
-        {
-            "keyword": "how say i'm lost edo",
-            "response": "I'm lost:<br><br>• 'Mwen khinmwen ọrhẹ' (I've lost way)<br>• 'Mwen i mhẹn kaa mwen wẹ' (I don't know where I am)<br><br>💡 Tip: If lost in Benin City, mention landmarks like 'Oba market' or 'Ring road' - locals navigate by these well-known spots."
-        },
-        {
-            "keyword": "how say how old are you edo",
-            "response": "How old are you?:<br><br>• 'Ikpẹkpe eva ne i mhẹn?' (How many years do you have?)<br>• 'I mhẹn ikpẹkpe eva?' (You have years how many?)<br><br>💡 Tip: Age commands great respect in Edo culture. The oldest person in any gathering is served first and speaks first."
-        },
-        {
-            "keyword": "how say what this called edo",
-            "response": "What is this called?:<br><br>• 'Kẹ i mhẹn ẹmwin nẹ?' (What do you call this thing?)<br>• 'Ọta rhuẹ emwin nẹ?' (What name this thing?)<br><br>💡 Tip: Many Edo words relate to the kingdom's rich history. Asking about word origins can lead to fascinating historical lessons!"
-        },
-        {
-            "keyword": "how say i don't eat meat edo",
-            "response": "I don't eat meat:<br><br>• 'Mwen i mhẹn ẹmwin nẹ' (I don't eat this thing)<br>• 'Mwen i da ẹran' (I don't want meat)<br><br>💡 Tip: Edo cuisine offers excellent vegetarian options like 'Black soup' without meat. Specify 'Gha ẹran vbe' (remove meat) when ordering."
-        },
-
-        // URHOBO Phrases & Tips
-        {
-            "keyword": "how say i'm learning urhobo",
-            "response": "I'm learning Urhobo:<br><br>• 'Me vwo gbro Urhobo' (I'm learning Urhobo)<br>• Response: 'Mama!' (Well done!)<br><br>💡 Tip: Urhobo has musical tones that give it a unique rhythm. Don't worry about perfection - the melodic nature makes it fun to learn!"
-        },
-        {
-            "keyword": "how say where hotel urhobo",
-            "response": "Where is the hotel?:<br><br>• 'Mavọ yen ehotẹlẹ?' (Where is hotel?)<br>• 'Dje ehotẹlẹ vwo?' (Where hotel dey?)<br><br>💡 Tip: In Urhobo land, 'Ọdẹ r'ọhẹ' (visitor's house) often refers to community accommodations that offer authentic cultural experiences."
-        },
-        {
-            "keyword": "how say this food spicy urhobo",
-            "response": "This food is spicy:<br><br>• 'Emu rẹ a muẹ ghẹ ghẹrẹ' (This food we're eating is hot)<br>• 'Ẹkpakpa rhie vwẹ emu rẹ' (Pepper is inside this food)<br><br>💡 Tip: Urhobo cuisine uses native spices. If too spicy, ask for 'Udon' (starch) - it helps balance the heat effectively."
-        },
-        {
-            "keyword": "how say call police urhobo",
-            "response": "Call the police:<br><br>• 'Kpokiti ẹkpeti' (Call police)<br>• Emergency: 'Vwo vwẹ ẹmọ rẹ mi!' (Help my matter!)<br><br>💡 Tip: In Urhobo communities, the 'Ẹkpako' (family heads) traditionally mediate disputes before external intervention."
-        },
-        {
-            "keyword": "how say i need doctor urhobo",
-            "response": "I need a doctor:<br><br>• 'Me cha dọktọ' (I need doctor)<br>• 'Dọktọ, vwo vwẹ mi!' (Doctor, help me!)<br><br>💡 Tip: Traditional healers ('Obo') are respected. For certain conditions, they're believed to have special spiritual insights."
-        },
-        {
-            "keyword": "how say take photo urhobo",
-            "response": "Take a photo:<br><br>• 'Vbe foto' (Take photo)<br>• 'Sọ me vbe foto?' (Can I take photo?)<br><br>💡 Tip: Urhobo people generally enjoy photography. During festivals, expect elaborate traditional attire and proud photo poses!"
-        },
-        {
-            "keyword": "how say i'm lost urhobo",
-            "response": "I'm lost:<br><br>• 'Me fẹrẹ uyan' (I've lost road)<br>• 'Me miẹ dje me vwo rẹ' (I don't know where I am)<br><br>💡 Tip: If lost in Urhobo areas, mention nearby towns - the communities are well-connected and can provide accurate directions."
-        },
-        {
-            "keyword": "how say how old are you urhobo",
-            "response": "How old are you?:<br><br>• 'Ikpẹkpe eva wo muẹ rẹ?' (How many years you have?)<br>• 'Wo muẹ ikpẹkpe eva?' (You have years how many?)<br><br>💡 Tip: Age determines social hierarchy in Urhobo culture. Elders are served first and their opinions carry significant weight."
-        },
-        {
-            "keyword": "how say what this called urhobo",
-            "response": "What is this called?:<br><br>• 'Dje ebrẹ rẹ epha rẹ?' (What do they call this?)<br>• 'Ọvẹ rẹ epha rẹ?' (What name this thing?)<br><br>💡 Tip: Many Urhobo words have Isoko equivalents. The languages are closely related, so don't be surprised by similarities."
-        },
-        {
-            "keyword": "how say i don't eat meat urhobo",
-            "response": "I don't eat meat:<br><br>• 'Me re muẹ ẹnan' (I don't eat meat)<br>• 'Me cha ẹnan' (I don't want meat)<br><br>💡 Tip: Urhobo cuisine has wonderful vegetarian options like 'Ugba' and 'Starch' with Banga soup. The riverine location offers great fish alternatives!"
-        }
-            ]
-        };
         // Chat management
         let currentChatId = null;
         let chats = {};
@@ -2477,7 +838,7 @@
 
                     <h4>6. Contact Us</h4>
                     <p>For privacy concerns or questions, contact our team:<br>
-                    <strong>Email:</strong> mediateng001@gmail.com<br>
+                    <strong>Email:</strong> clearwords.ng@gmail.com<br>
                     We typically respond within 24-48 hours.</p>
                 </div>
             `;
@@ -2515,7 +876,7 @@
                     <h4>5. Limitation of Liability</h4>
                     <p>ClearWords is provided "as is" for educational purposes. We're not liable for:</p>
                     <ul>
-                        <li>Cultural misunderstandings or misinterpretations</li>
+                        <li>Cultural misunderstandings, mistranslations or misinterpretations</li>
                         <li>Accuracy of regional dialect variations</li>
                         <li>Misuse of cultural information</li>
                         <li>Technical issues beyond our control</li>
@@ -2560,7 +921,7 @@
                     <p>ClearWords is developed by Mediate NG, a team passionate about cultural preservation, digital innovation, and creating tools that bring people closer together.</p>
 
                     <h4>Contact Information</h4>
-                    <p><strong>Email:</strong> mediateng001@gmail.com<br>
+                    <p><strong>Email:</strong> clearwords.ng@gmail.com<br>
                     <strong>Websites:</strong> clearwords.vercel.app &nbsp &nbsp mediateng.godaddysites.com<br>
                     <strong>Location:</strong> Nigeria</p>
 
@@ -2687,26 +1048,36 @@
             }
         }
 
-        function sendMessage() {
+        async function sendMessage() {
             const input = document.getElementById('messageInput');
             const message = input.value.trim();
             
             if (message === '') return;
             
-            const userMessage = {
-                id: Date.now(),
-                text: message,
-                isUser: true,
-                timestamp: new Date()
-            };
-            
-            addMessageToCurrentChat(userMessage);
-            renderMessage(userMessage);
-            updateChatTitle(userMessage);
-            input.value = '';
-            
-            setTimeout(() => {
-                const response = getResponse(message);
+            try {
+                // Add user message
+                const userMessage = {
+                    id: Date.now(),
+                    text: message,
+                    isUser: true,
+                    timestamp: new Date()
+                };
+                
+                addMessageToCurrentChat(userMessage);
+                renderMessage(userMessage);
+                updateChatTitle(userMessage);
+                input.value = '';
+                
+                // Hide welcome message when user sends first message
+             //   document.getElementById('welcomeMessage').style.display = 'none';
+                
+                // Show typing indicator
+                showTypingIndicator();
+                
+                // Get AI response
+                const response = await getAIResponse(message);
+                removeTypingIndicator();
+                
                 const botMessage = {
                     id: Date.now() + 1,
                     text: response,
@@ -2716,7 +1087,22 @@
                 
                 addMessageToCurrentChat(botMessage);
                 renderMessage(botMessage);
-            }, 500);
+                
+            } catch (error) {
+                console.error('Error sending message:', error);
+                removeTypingIndicator();
+                
+                // Show error message
+                const errorMessage = {
+                    id: Date.now() + 1,
+                    text: 'Sorry, I encountered an error. Please try again.',
+                    isUser: false,
+                    timestamp: new Date()
+                };
+                
+                addMessageToCurrentChat(errorMessage);
+                renderMessage(errorMessage);
+            }
         }
 
         function addMessageToCurrentChat(message) {
@@ -2743,62 +1129,98 @@
             messageDiv.appendChild(bubble);
             messageDiv.appendChild(timestamp);
             container.appendChild(messageDiv);
-            
+            // Scroll to bottom
             document.getElementById('chatContainer').scrollTop = document.getElementById('chatContainer').scrollHeight;
         }
 
+        function showTypingIndicator() {
+            const container = document.getElementById('messagesContainer');
+            
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message bot';
+            messageDiv.id = 'typing-indicator';
+            
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble typing-indicator';
+            bubble.innerHTML = `
+                <div class="typing-dots">
+                    <span>●</span><span>●</span><span>●</span>
+                </div>
+            `;
+            
+            messageDiv.appendChild(bubble);
+            container.appendChild(messageDiv);
+            // Scroll to bottom
+            document.getElementById('chatContainer').scrollTop = document.getElementById('chatContainer').scrollHeight;
+        }
+
+        function removeTypingIndicator() {
+            const typingIndicator = document.getElementById('typing-indicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+            
         function formatTime(date) {
             return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         }
 
-        function getResponse(query) {
-            const lowerQuery = query.toLowerCase().trim();
-            console.log("User asked:", lowerQuery);
-            
-            const matches = [];
-            
-            for (const tip of culturalTips.tips) {
-                const keywords = tip.keyword.toLowerCase().split(' ');
-                let matchScore = 0;
-                let matchedKeywords = [];
-                
-                for (const keyword of keywords) {
-                    const words = lowerQuery.split(/\s+/);
-                    if (words.includes(keyword)) {
-                        matchScore++;
-                        matchedKeywords.push(keyword);
-                    }
+        // Mistral AI Integration
+        async function getAIResponse(query) {
+            try {
+                const response = await fetch(`https://autopost-backend-hbck.onrender.com/clearwordsapi/generate`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                     } ,
+        body: JSON.stringify({ prompt: `${AI_RULES}\n\nUser: ${query}\nAI:` }),
+                });
+
+                if (!response.ok) {
+                    throw new Error(`API request failed with status ${response.status}`);
                 }
-                
-                if (matchScore > 0) {
-                    matches.push({
-                        tip: tip,
-                        score: matchScore,
-                        keywords: matchedKeywords,
-                        isExact: matchedKeywords.length === keywords.length
-                    });
-                }
+
+                const data = await response.json();
+            
+                      let cleaned = data.data.replace(/```json|```/g, '').trim();
+  parsed = JSON.parse(cleaned);
+console.log(parsed.paragraph1)
+
+                    return cleanResponse(parsed);
+             
+            } catch (error) {
+                console.error('Error calling Mistral AI:', error);
+                throw error;
+            }
+        }
+
+        function cleanResponse(text) {
+
+             if (typeof text !== "string") {
+        text2 = `${text.paragraph1} <br><br> ${text.paragraph2}`
+        return text2;
+    }
+            // Remove markdown formatting, asterisks, etc.
+            let cleaned = text
+                .replace(/\*\*(.*?)\*\*/g, '$1') // Remove bold
+                .replace(/\*(.*?)\*/g, '$1')     // Remove italics
+                .replace(/#+\s?/g, '')           // Remove headers
+                .replace(/```[\s\S]*?```/g, '')  // Remove code blocks
+                .replace(/`(.*?)`/g, '$1')       // Remove inline code
+                .replace(/\n\s*\n/g, '</p><p>') // Convert double newlines to paragraph breaks
+                .replace(/```json|```/g, '')  
+                .replace(/\n/g, '<br>');      // Convert single newlines to line breaks
+               
+            
+            // Ensure it's wrapped in paragraph tags
+            if (!cleaned.startsWith('<p>')) {
+                cleaned = '<p>' + cleaned;
+            }
+            if (!cleaned.endsWith('</p>')) {
+                cleaned = cleaned + '</p>';
             }
             
-            matches.sort((a, b) => {
-                if (a.isExact && !b.isExact) return -1;
-                if (!a.isExact && b.isExact) return 1;
-                return b.score - a.score;
-            });
-            
-            console.log("Matches found:", matches);
-            
-            if (matches.length > 0) {
-                const bestMatch = matches[0];
-                console.log("Best match:", bestMatch.tip.keyword, "Score:", bestMatch.score);
-                return bestMatch.tip.response;
-            }
-            
-            const language = lowerQuery.includes('igbo') ? 'Igbo' : 
-                            lowerQuery.includes('yoruba') ? 'Yoruba' : 
-                            lowerQuery.includes('hausa') ? 'Hausa' : 'Nigerian';
-                            
-            return `I specialize in ${language} cultural tips. Try asking about greetings, basic phrases, or etiquette. Be specific like "good morning in Igbo" or "Hausa thank you".`;
+            return cleaned;
         }
 
         // UI Functions
