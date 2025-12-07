@@ -762,40 +762,36 @@
     </div>
 
     <script>
-          // AI Rules and Instructions
-        const AI_RULES = `You are ClearWords, an AI assistant specializing in Nigerian culture, languages, and customs developed by Mediate NG, a translation agency based in Warri, Nigeria. Follow these rules strictly:
+          // AI Rules and Instructions with Context Awareness
+        const AI_RULES = `You are ClearWords, an AI assistant specializing in Nigerian culture, languages, and customs developed by Mediate NG, a translation agency based in Warri, Nigeria.
 
-1. Always provide accurate, respectful information and correct translations about Nigerian culture
-2. Focus on cultural sensitivity and authentic representation
-3. If you don't know something, ADMIT it rather than guessing, don't mix up the translations I'll give you and do not translate inaccurately. Here are few translations to keep in mind:
-   - Good morning and evening in Yoruba = "E kaaro" and "E kaale"
-   - Good morning, afternoon and evening and thank you in Itsekiri = "Ere owuro", "Ere oson" and "Ere ale" and "Modope"
-4. Format all responses as JSON with exactly two paragraphs in this structure:
-   {
-     "paragraph1": "First paragraph text here",
-     "paragraph2": "Second paragraph text here"
-   }
-5. Remove all markdown formatting, asterisks, and bold text
-6. Ensure good spacing between paragraphs
-7. Keep responses informative but concise
-8. Cover various aspects of Nigerian culture including:
-   - Languages (Yoruba, Igbo, Hausa, etc.)
-   - Cultural practices and traditions
-   - Social etiquette and customs
-   - Food and cuisine
-   - Business practices
-   - Cities, city tips and slangs
-   - Regional differences
-   - Historical context
-9. Search the web before providing accurate translations
-10. Keep each paragraph within one sentence, with the 2nd paragraph containing a short contextual tip regarding usage, pronounciation or helpful advice
-11. If the question requires in-depth connection, explanation or lists, feel free to make paragraphs about 6-7 paragraphs but not more than so
-12. Respond meaningfully to questions regarding your well-being and try to keep conversations going `;
+CRITICAL: Use the conversation history to understand context. Remember:
+- If they mentioned being in Lagos earlier, assume they're still in Lagos
+- If they were learning Yoruba, continue with Yoruba context
+- Build on previous lessons and conversations
+- Maintain continuity in relationships mentioned (boss, girlfriend, elder, etc.)
+- Remember regional preferences they've expressed
+
+Format all responses as JSON with exactly two paragraphs in this structure:
+{
+  "paragraph1": "First paragraph text here",
+  "paragraph2": "Second paragraph text here"
+}
+
+Always provide accurate, respectful information and correct translations about Nigerian culture. If you don't know something, ADMIT it rather than guessing. Keep your answers short (must be 1 sentence per paragraph)
+
+CONVERSATION HISTORY FOR CONTEXT:
+{historyContext}
+
+CURRENT USER MESSAGE: {userMessage}
+
+Now respond to the current message while considering the conversation history above. Keep the response relevant and contextual.`;
 
         // Chat management
         let currentChatId = null;
         let chats = {};
         let isDarkTheme = false;
+        
         // Initialize the app
         document.addEventListener('DOMContentLoaded', function() {
             loadChatHistory();
@@ -818,6 +814,31 @@
             
             updateThemeStatus();
         });
+
+        // Get conversation history for context (last 5 messages)
+        function getConversationContext() {
+            if (!currentChatId || !chats[currentChatId]) {
+                return "No previous conversation.";
+            }
+            
+            const currentChat = chats[currentChatId];
+            const messages = currentChat.messages;
+            
+            if (messages.length === 0) {
+                return "New conversation just started.";
+            }
+            
+            // Get last 5 messages (excluding current one being sent)
+            const recentMessages = messages.slice(-5);
+            
+            let context = "";
+            recentMessages.forEach(msg => {
+                const speaker = msg.isUser ? "User" : "ClearWords";
+                context += `${speaker}: ${msg.text}\n`;
+            });
+            
+            return context;
+        }
 
         // Settings functions
         function openSettings() {
@@ -854,7 +875,7 @@
                     <h4>2. How We Use Your Information</h4>
                     <p>Your data is used solely to enhance your experience:</p>
                     <ul>
-                        <li>Provide accurate cultural translation services</li>
+                        <li>Provide cultural translation services</li>
                         <li>Maintain your chat history for continuity</li>
                         <li>Improve app performance and user experience</li>
                         <li>Understand feature usage to guide development</li>
@@ -940,12 +961,12 @@
                     <div class="effective-date">Effective from 29 November, 2025</div>
                     
                     <h4>Our Mission</h4>
-                    <p>ClearWords bridges cultural gaps by providing accurate Nigerian cultural insights, language translations, and etiquette guidance. We believe understanding fosters connection.</p>
+                    <p>ClearWords bridges cultural gaps by providing Nigerian cultural insights, language translations, and etiquette guidance. We believe understanding fosters connection.</p>
 
                     <h4>What We Do</h4>
                     <p>ClearWords helps you navigate Nigerian cultural landscapes through:</p>
                     <ul>
-                        <li>Accurate language translations with cultural context</li>
+                        <li>Language translations with cultural context</li>
                         <li>Etiquette tips for different Nigerian cultures</li>
                         <li>Regional variations and local nuances</li>
                         <li>Practical guidance for real-world situations</li>
@@ -1107,12 +1128,12 @@
                 input.value = '';
                 
                 // Hide welcome message when user sends first message
-             // document.getElementById('welcomeMessage').style.display = 'none';
+                // document.getElementById('welcomeMessage').style.display = 'none';
                 
                 // Show typing indicator
                 showTypingIndicator();
                 
-                // Get AI response
+                // Get AI response with chat history context
                 const response = await getAIResponse(message);
                 removeTypingIndicator();
                 
@@ -1203,15 +1224,23 @@
             return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         }
 
-        // Mistral AI Integration
+        // Mistral AI Integration with Chat History Context
         async function getAIResponse(query) {
             try {
+                // Get conversation context
+                const historyContext = getConversationContext();
+                
+                // Build the prompt with history context
+                const promptWithContext = AI_RULES
+                    .replace('{historyContext}', historyContext)
+                    .replace('{userMessage}', query);
+                
                 const response = await fetch(`https://autopost-backend-hbck.onrender.com/clearwordsapi/generate`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                      } ,
-        body: JSON.stringify({ prompt: `${AI_RULES}\n\nUser: ${query}\nAI:` }),
+        body: JSON.stringify({ prompt: promptWithContext }),
                 });
 
                 if (!response.ok) {
@@ -1233,7 +1262,6 @@ console.log(parsed.paragraph1)
         }
 
         function cleanResponse(text) {
-
              if (typeof text !== "string") {
         text2 = `${text.paragraph1} <br><br> ${text.paragraph2}`
         return text2;
