@@ -36,7 +36,7 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             height: 100vh;
             overflow: hidden;
-            transition: background-color 0.3s, color 0.3s;
+            transition: background-color 0.5s, color 0.5s;
         }
 
         .light-theme {
@@ -502,8 +502,8 @@
             border-radius: 18px;
             word-wrap: break-word;
             line-height: 1.4;
-        }
-
+            }
+            
         .user .bubble {
             background-color: var(--light-bubble);
             color: white;
@@ -576,7 +576,7 @@
         }
 
         .timestamp {
-            font-size: 11px;
+            font-size: 0;
             color: #666;
             margin-top: 5px;
             text-align: right;
@@ -687,7 +687,7 @@
         </div>
 
         <!-- Main Content -->
-        <div class="main-content">
+        <div class="main-content" id="main">
             <div class="header">
                 <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
                 ClearWords
@@ -914,7 +914,7 @@
                     <h4>5. Limitation of Liability</h4>
                     <p>ClearWords is provided "as is" for educational purposes. We're not liable for:</p>
                     <ul>
-                        <li>Cultural misunderstandings, mistranslations or misinterpretations</li>
+                       <li>Cultural misunderstandings, mistranslations or misinterpretations</li>
                         <li>Accuracy of regional dialect variations</li>
                         <li>Misuse of cultural information</li>
                         <li>Technical issues beyond our control</li>
@@ -1107,7 +1107,7 @@
                 input.value = '';
                 
                 // Hide welcome message when user sends first message
-             //   document.getElementById('welcomeMessage').style.display = 'none';
+             // document.getElementById('welcomeMessage').style.display = 'none';
                 
                 // Show typing indicator
                 showTypingIndicator();
@@ -1281,13 +1281,22 @@ console.log(parsed.paragraph1)
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
             sidebar.classList.toggle('open');
+            
+               if(sidebar.classList.toggle){
+             // Close modal when clicking outside content
+        document.getElementById("chatContainer").addEventListener('click', function(e) {
+           
+                closeSidebar();
+         
+            });
+            }
         }
 
         function closeSidebar() {
             const sidebar = document.getElementById('sidebar');
             sidebar.classList.remove('open');
-        }
-        
+              }
+              
         // PWA Registration
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('sw.js');
