@@ -526,7 +526,6 @@
         .input-container {
             padding: 20px;
             background-color: var(--light-bg);
-            border-top: 1px solid #ccc;
         }
 
         .dark-theme .input-container {
@@ -1214,11 +1213,10 @@ function formatChatDate(date) {
         }
 
         function renderMessage(message) {
-            const container = document.getElementById('messagesContainer');
-            
+            const container = document.getElementById('messagesContainer');     
             const messageDiv = document.createElement('div');
             messageDiv.className = `message ${message.isUser ? 'user' : 'bot'}`;
-            
+
             const bubble = document.createElement('div');
             bubble.className = 'bubble';
             bubble.innerHTML = message.text;
