@@ -17,7 +17,7 @@
             --light-bubble: #0000FF;
             --light-user-bubble: #E0E0E0;
             --light-sidebar: #f5f5f5;
-            
+
             --dark-bg: #121212;
             --dark-text: #FFFFFF;
             --dark-accent: #006400;
@@ -398,7 +398,7 @@
         .dark-theme .modal-body p{
             color:var(--dark-text);
         }
-        
+
         .modal-body ul {
             margin: 10px 0 20px 20px;
         }
@@ -502,7 +502,7 @@
             word-wrap: break-word;
             line-height: 1.4;
             }
-            
+
         .user .bubble {
         max-width: 75%;
             background-color: var(--light-bubble);
@@ -596,6 +596,226 @@
             color: #999;
         }
 
+        /* Mode Selection Styles */
+        .mode-selection-container {
+            max-width: 800px;
+            margin: 40px auto 20px;
+            padding: 0 20px;
+        }
+
+        .mode-selection-note {
+            background: linear-gradient(135deg, var(--light-accent) 0%, #32CD32 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .dark-theme .mode-selection-note {
+            background: linear-gradient(135deg, var(--dark-accent) 0%, #228B22 100%);
+        }
+
+        .mode-selection-header {
+            margin-bottom: 20px;
+            font-size: 20px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .mode-selection-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .mode-option {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .dark-theme .mode-option {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .mode-option:hover {
+            transform: translateY(-2px);
+            border-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .mode-checkbox {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            border: 2px solid white;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;            
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .mode-checkbox.checked {
+            background-color: white;
+        }
+
+        .mode-checkbox.checked::after {
+            content: '✓';
+            color: var(--light-accent);
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .dark-theme .mode-checkbox.checked::after {
+            color: var(--dark-accent);
+        }
+
+        .mode-text {
+            flex: 1;
+        }
+
+        .mode-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: var(--light-text);
+        }
+
+        .dark-theme .mode-title {
+            color: var(--dark-text);
+        }
+
+        .mode-description {
+            font-size: 12px;
+            opacity: 0.9;
+            line-height: 1.4;
+            color: var(--light-text);
+        }
+        
+       .dark-theme .mode-description {
+            color: var(--dark-text);
+        }
+
+        .mode-indicator {
+            display: inline-block;
+            padding: 4px 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            font-size: 11px;
+            color: var(--light-text);
+            margin-left: 10px;
+        }
+      
+        /* Mode-specific chat styles */
+        .chat-mode-indicator {
+            max-width: 800px;
+            margin: 10px auto 20px;
+            padding: 0 20px;
+        }
+
+        .mode-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--light-accent);
+            color: white;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .dark-theme .mode-tag {
+            background: var(--dark-accent);
+        }
+
+        .exit-mode-btn {
+            margin-left: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 10px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Scenario Selection Styles */
+        .scenario-selection {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .scenario-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .scenario-card {
+            padding: 20px;
+            background: var(--light-bg);
+            border: 2px solid var(--light-accent);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dark-theme .scenario-card {
+            background: var(--dark-bg);
+            border-color: var(--dark-accent);
+        }
+
+        .scenario-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .scenario-title {
+            font-weight: 600;
+            color: var(--light-accent);
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .dark-theme .scenario-title {
+            color: var(--dark-accent);
+        }
+
+        .scenario-description {
+            font-size: 13px;
+            color: var(--light-text);
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .dark-theme .scenario-description {
+            color: var(--dark-text);
+        }
+
+        .scenario-difficulty {
+            font-size: 11px;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .dark-theme .scenario-difficulty {
+            color: #999;
+        }
+
         /* Typing Indicator */
         .typing-indicator {
             display: inline-block;
@@ -640,15 +860,15 @@
                 z-index: 1000;
                 height: 100%;
             }
-            
+
             .sidebar.open {
                 left: 0;
             }
-            
+
             .menu-toggle {
                 display: block;
             }
-            
+
             .close-sidebar {
                 display: block;
             }
@@ -660,6 +880,14 @@
 
             .settings-content {
                 padding: 15px;
+            }
+
+            .mode-selection-note {
+                padding: 20px;
+            }
+
+            .scenario-options {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -692,15 +920,13 @@
                 ClearWords
                 <button class="theme-toggle" onclick="createNewChat()">+</button>
             </div>
-            
+
             <div class="chat-container" id="chatContainer">
                 <div class="messages-container" id="messagesContainer">
-                    <div class="welcome-message" id="welcomeMessage">
-                        Welcome to ClearWords! Ask me about Nigerian cultural tips, etiquette, or phrases.
-                    </div>
+                    <!-- Mode selection will be inserted here -->
                 </div>
             </div>
-            
+
             <div class="input-container">
                 <div class="input-wrapper">
                     <input 
@@ -761,7 +987,7 @@
     </div>
 
     <script>
-          // AI Rules and Instructions with Context Awareness
+        // AI Rules and Instructions with Context Awareness
         const AI_RULES = `You are ClearWords, an AI assistant specializing in Nigerian culture, languages, and customs developed by Mediate NG, a translation agency based in Warri, Nigeria.
 
 CRITICAL: Use the conversation history to understand context. Remember:
@@ -791,11 +1017,79 @@ Now respond to the current message while considering the conversation history ab
         let currentChatId = null;
         let chats = {};
         let isDarkTheme = false;
-        
+        let currentMode = null; // 'simulation', 'advice', 'research', null for no mode
+        let currentScenario = null;
+        let scenarioStep = 0;
+
+        // Mode-specific AI instructions
+        const MODE_INSTRUCTIONS = {
+            simulation: `You are now in **Scenario Simulation Mode**. You are a Narrator and Cultural Coach. Follow these rules:
+1. Create an interactive, branching story based on the chosen scenario.
+2. Present the user with 2-4 clear choices at each step.
+3. After each user choice, provide immediate feedback as the characters would react.
+4. Then step out of character and provide cultural explanation as the Coach.
+5. Keep the simulation going until a natural conclusion is reached.
+6. Do not break character or answer general questions while in simulation.
+7. Use scene markers: [SCENE] for role-play, [COACH] for explanations.
+
+Current Scenario: {scenario}
+Current Step: {step}`,
+
+            advice: `You are now in **Cultural Advice Mode**. You are a Strategic Cultural Consultant. Follow these rules:
+1. Ask clarifying questions about the user's specific situation.
+2. Provide actionable, structured advice with do's and don'ts.
+3. Create checklists or step-by-step plans.
+4. Warn about potential pitfalls and cultural sensitivities.
+5. Suggest relationship-building strategies.
+6. Focus on practical, real-world application.
+7. Do not role-play or provide historical deep dives.`,
+
+            research: `You are now in **Deep Dive Research Mode**. You are a Cultural Scholar and Storyteller. Follow these rules:
+1. Provide historical context and regional variations.
+2. Explain the "why" behind cultural practices.
+3. Share relevant proverbs, stories, and examples.
+4. Discuss cultural philosophy and underlying values.
+5. Avoid giving personal advice or practical tips.
+6. Focus on education and understanding.
+7. Be detailed but keep explanations accessible.`
+        };
+
+        // Available scenarios for simulation mode
+        const SCENARIOS = [
+            {
+                id: 'market_haggle',
+                title: 'The Market Haggler',
+                description: 'Practice negotiating prices at a Lagos market. Learn to haggle respectfully while building rapport with sellers.',
+                difficulty: 'Beginner',
+                location: 'Lagos'
+            },
+            {
+                id: 'family_gathering',
+                title: 'The Family Gathering',
+                description: 'Navigate a traditional family gathering in Enugu. Learn greetings, respect protocols, and conversational etiquette.',
+                difficulty: 'Intermediate',
+                location: 'Enugu'
+            },
+            {
+                id: 'business_meeting',
+                title: 'The Business Meeting',
+                description: 'Attend a formal business meeting in Abuja. Understand professional etiquette and relationship-building.',
+                difficulty: 'Advanced',
+                location: 'Abuja'
+            },
+            {
+                id: 'wedding_guest',
+                title: 'The Wedding Guest',
+                description: 'Experience a traditional Nigerian wedding in Ibadan. Learn about attire, gifts, and celebration customs.',
+                difficulty: 'Intermediate',
+                location: 'Ibadan'
+            }
+        ];
+
         // Initialize the app
         document.addEventListener('DOMContentLoaded', function() {
             loadChatHistory();
-            
+
             // Only create new chat if no existing chats
             const chatIds = Object.keys(chats);
             if (chatIds.length === 0) {
@@ -804,14 +1098,25 @@ Now respond to the current message while considering the conversation history ab
                 // Load the most recent chat
                 const mostRecentChat = Object.values(chats).sort((a, b) => b.createdAt - a.createdAt)[0];
                 currentChatId = mostRecentChat.id;
-                renderCurrentChat();
+                
+                // Check if there's an active mode in the chat
+                if (chats[currentChatId].mode) {
+                    currentMode = chats[currentChatId].mode;
+                    currentScenario = chats[currentChatId].scenario;
+                    scenarioStep = chats[currentChatId].scenarioStep || 0;
+                    renderCurrentChat();
+                    showModeIndicator();
+                } else {
+                    renderCurrentChat();
+                    showModeSelection();
+                }
             }
-            
+
             // Auto-detect system theme preference
             if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
                 toggleTheme();
             }
-            
+
             updateThemeStatus();
         });
 
@@ -820,24 +1125,270 @@ Now respond to the current message while considering the conversation history ab
             if (!currentChatId || !chats[currentChatId]) {
                 return "No previous conversation.";
             }
-            
+
             const currentChat = chats[currentChatId];
             const messages = currentChat.messages;
-            
+
             if (messages.length === 0) {
                 return "New conversation just started.";
             }
-            
+
             // Get last 5 messages (excluding current one being sent)
             const recentMessages = messages.slice(-5);
-            
+
             let context = "";
             recentMessages.forEach(msg => {
                 const speaker = msg.isUser ? "User" : "ClearWords";
                 context += `${speaker}: ${msg.text}\n`;
             });
-            
+
             return context;
+        }
+
+        // Mode selection functions
+        function showModeSelection() {
+            const container = document.getElementById('messagesContainer');
+            
+            // Clear container but keep mode indicator if in a mode
+            if (!currentMode) {
+                container.innerHTML = '';
+            }
+
+            const modeSelectionHTML = `
+                <div class="mode-selection-container">
+                    <div class="mode-selection-note">
+                        <div class="mode-selection-header">
+                            Choose Your ClearWords Experience
+                        </div>
+                        <div class="mode-selection-options">
+                            <div class="mode-option" onclick="selectMode('simulation')">
+                                <div class="mode-checkbox ${currentMode === 'simulation' ? 'checked' : ''}"></div>
+                                <div class="mode-text">
+                                    <div class="mode-title">🎭 Simulate a Scenario</div>
+                                    <div class="mode-description">Practice real cultural interactions in guided role-play simulations</div>
+                                </div>
+                                <div class="mode-indicator">Interactive</div>
+                            </div>
+                            
+                            <div class="mode-option" onclick="selectMode('advice')">
+                                <div class="mode-checkbox ${currentMode === 'advice' ? 'checked' : ''}"></div>
+                                <div class="mode-text">
+                                    <div class="mode-title">💡 Get Cultural Advice</div>
+                                    <div class="mode-description">Get personalized guidance and actionable plans for specific situations</div>
+                                </div>
+                                <div class="mode-indicator">Practical</div>
+                            </div>
+                            
+                            <div class="mode-option" onclick="selectMode('research')">
+                                <div class="mode-checkbox ${currentMode === 'research' ? 'checked' : ''}"></div>
+                                <div class="mode-text">
+                                    <div class="mode-title">📚 Deep Dive</div>
+                                    <div class="mode-description">Explore historical context and understand the "why" behind cultural practices</div>
+                                </div>
+                                <div class="mode-indicator">Educational</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Only add mode selection if not already in a mode
+            if (!currentMode) {
+                container.innerHTML = modeSelectionHTML;
+            }
+        }
+
+        function selectMode(mode) {
+            currentMode = mode;
+            
+            // Save mode to chat
+            if (currentChatId && chats[currentChatId]) {
+                chats[currentChatId].mode = mode;
+                saveChatHistory();
+            }
+
+            // Show mode indicator
+            showModeIndicator();
+
+            // Handle mode-specific setup
+            if (mode === 'simulation') {
+                showScenarioSelection();
+            } else {
+                // Clear messages container and show welcome message for the mode
+                const container = document.getElementById('messagesContainer');
+                container.innerHTML = '';
+                
+                let welcomeMessage = '';
+                if (mode === 'advice') {
+                    welcomeMessage = "I'm your Cultural Consultant. Tell me about your situation (e.g., 'I'm planning a business trip to Lagos' or 'I want to connect with my Nigerian in-laws') and I'll help you create a plan.";
+                } else if (mode === 'research') {
+                    welcomeMessage = "I'm your Cultural Scholar. Ask me 'why' questions about Nigerian culture (e.g., 'Why is respect for elders so important?' or 'What's the history behind the Igbo apprenticeship system?')";
+                }
+                
+                const botMessage = {
+                    id: Date.now(),
+                    text: welcomeMessage,
+                    isUser: false,
+                    timestamp: new Date()
+                };
+                
+                addMessageToCurrentChat(botMessage);
+                renderMessage(botMessage);
+            }
+        }
+
+        function showScenarioSelection() {
+            const container = document.getElementById('messagesContainer');
+            container.innerHTML = '';
+            
+            let scenariosHTML = `
+                <div class="scenario-selection">
+                    <div class="mode-selection-note">
+                        <div class="mode-selection-header">
+                            🎭 Choose a Scenario to Practice
+                        </div>
+                        <p style="text-align: center; margin-bottom: 15px; font-size: 14px;">
+                            Select a cultural scenario to practice through interactive role-play
+                        </p>
+                    </div>
+                    
+                    <div class="scenario-options">
+            `;
+            
+            SCENARIOS.forEach(scenario => {
+                scenariosHTML += `
+                    <div class="scenario-card" onclick="startScenario('${scenario.id}')">
+                        <div class="scenario-title">${scenario.title}</div>
+                        <div class="scenario-description">${scenario.description}</div>
+                        <div class="scenario-difficulty">
+                            <span>📍 ${scenario.location}</span>
+                            <span>•</span>
+                            <span>📊 ${scenario.difficulty}</span>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            scenariosHTML += `
+                    </div>
+                    <div style="text-align: center; margin-top: 20px;">
+                        <button onclick="exitMode()" style="padding: 10px 20px; background: transparent; border: 1px solid var(--light-accent); border-radius: 20px; color: var(--light-accent); cursor: pointer;">
+                            ← Back to Mode Selection
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            container.innerHTML = scenariosHTML;
+        }
+
+        function startScenario(scenarioId) {
+            const scenario = SCENARIOS.find(s => s.id === scenarioId);
+            if (!scenario) return;
+            
+            currentScenario = scenarioId;
+            scenarioStep = 0;
+            
+            // Save scenario to chat
+            if (currentChatId && chats[currentChatId]) {
+                chats[currentChatId].scenario = scenarioId;
+                chats[currentChatId].scenarioStep = 0;
+                saveChatHistory();
+            }
+            
+            // Clear container and start scenario
+            const container = document.getElementById('messagesContainer');
+            container.innerHTML = '';
+            
+            // Show scenario introduction
+            let introMessage = '';
+            switch(scenarioId) {
+                case 'market_haggle':
+                    introMessage = "[SCENE] You're at the bustling Balogun Market in Lagos. The air is filled with the scent of spices and the sound of vendors calling out. Aunty Bisi, a fabric seller with a bright smile, shows you a beautiful Ankara print. 'My sister! See this quality! For you, 15,000 naira.' What do you do?<br><br>[COACH] Welcome to market haggling! This is expected in Nigerian markets. The first price is usually negotiable. How you respond sets the tone for the interaction.";
+                    break;
+                case 'family_gathering':
+                    introMessage = "[SCENE] You arrive at a family compound in Enugu. Elderly relatives are seated in the main sitting area. Your friend's father, Chief Nnamdi, looks at you expectantly. The room is quiet, waiting for your greeting. What do you do?<br><br>[COACH] In Igbo culture, greeting elders properly is crucial. It shows respect and sets your relationship. Pay attention to gender-specific greetings.";
+                    break;
+                case 'business_meeting':
+                    introMessage = "[SCENE] You're in a conference room in Abuja for a business meeting. Mr. Adekunle, the senior partner, enters 15 minutes after the scheduled time. He warmly greets everyone, asks about families, and offers tea before discussing business. How do you respond?<br><br>[COACH] Nigerian business culture values relationship-building. 'African Time' is common, and personal connection often comes before business.";
+                    break;
+                case 'wedding_guest':
+                    introMessage = "[SCENE] You arrive at a Yoruba wedding in Ibadan. You see the Aso Ebi (uniform attire) group, money being sprayed on the couple, and elaborate traditional ceremonies. The MC announces it's time for guests to greet the couple. What do you do?<br><br>[COACH] Nigerian weddings are vibrant celebrations. Understanding gift-giving, attire, and participation protocols is important.";
+                    break;
+            }
+            
+            const botMessage = {
+                id: Date.now(),
+                text: introMessage,
+                isUser: false,
+                timestamp: new Date()
+            };
+            
+            addMessageToCurrentChat(botMessage);
+            renderMessage(botMessage);
+        }
+
+        function showModeIndicator() {
+            const container = document.getElementById('messagesContainer');
+            const existingIndicator = document.querySelector('.chat-mode-indicator');
+            
+            if (existingIndicator) {
+                existingIndicator.remove();
+            }
+            
+            if (currentMode) {
+                let modeTitle = '';
+                let modeIcon = '';
+                
+                switch(currentMode) {
+                    case 'simulation':
+                        modeTitle = 'Simulating a Scenario';
+                        modeIcon = '🎭';
+                        break;
+                    case 'advice':
+                        modeTitle = 'Getting Cultural Advice';
+                        modeIcon = '💡';
+                        break;
+                    case 'research':
+                        modeTitle = 'Deep Dive Research';
+                        modeIcon = '📚';
+                        break;
+                }
+                
+                const indicatorHTML = `
+                    <div class="chat-mode-indicator">
+                        <div class="mode-tag">
+                            ${modeIcon} ${modeTitle}
+                            <button class="exit-mode-btn" onclick="exitMode()" title="Exit mode">✕</button>
+                        </div>
+                    </div>
+                `;
+                
+                container.insertAdjacentHTML('afterbegin', indicatorHTML);
+            }
+        }
+
+        function exitMode() {
+            currentMode = null;
+            currentScenario = null;
+            scenarioStep = 0;
+            
+            // Clear mode from chat
+            if (currentChatId && chats[currentChatId]) {
+                delete chats[currentChatId].mode;
+                delete chats[currentChatId].scenario;
+                delete chats[currentChatId].scenarioStep;
+                saveChatHistory();
+            }
+            
+            // Clear chat messages
+            if (currentChatId && chats[currentChatId]) {
+                chats[currentChatId].messages = [];
+                saveChatHistory();
+            }
+            
+            renderCurrentChat();
+            showModeSelection();
         }
 
         // Settings functions
@@ -1008,21 +1559,26 @@ Now respond to the current message while considering the conversation history ab
             }
         });
 
-        // Chat management functions (your existing functions)
+        // Chat management functions
         function createNewChat() {
             const chatId = 'chat_' + Date.now();
             currentChatId = chatId;
-            
+            currentMode = null;
+            currentScenario = null;
+            scenarioStep = 0;
+
             chats[chatId] = {
                 id: chatId,
                 title: 'New Chat',
                 messages: [],
-                createdAt: new Date()
+                createdAt: new Date(),
+                mode: null
             };
-            
+
             saveChatHistory();
             loadChatHistory();
             renderCurrentChat();
+            showModeSelection();
             closeSidebar();
         }
 
@@ -1038,7 +1594,7 @@ Now respond to the current message while considering the conversation history ab
                 }
                 chats = parsedChats;
             }
-            
+
             renderChatHistory();
         }
 
@@ -1049,30 +1605,30 @@ Now respond to the current message while considering the conversation history ab
         function renderChatHistory() {
     const container = document.getElementById('chatHistory');
     container.innerHTML = '';
-    
+
     // Sort by most recent activity (last message or creation time)
     const chatList = Object.values(chats).sort((a, b) => {
         // Get last message timestamp for each chat
         const lastMessageA = a.messages.length > 0 
             ? a.messages[a.messages.length - 1].timestamp 
             : a.createdAt;
-            
+
         const lastMessageB = b.messages.length > 0 
             ? b.messages[b.messages.length - 1].timestamp 
             : b.createdAt;
-            
+
         return new Date(lastMessageB) - new Date(lastMessageA); // Newest first
     });
-    
+
     chatList.forEach(chat => {
         const chatItem = document.createElement('div');
         chatItem.className = `chat-item ${chat.id === currentChatId ? 'active' : ''}`;
-        
+
         // Get last message preview
         const lastMessage = chat.messages.length > 0 
             ? chat.messages[chat.messages.length - 1].text.slice(0, 30) + '...'
             : 'No messages yet';
-            
+
         chatItem.innerHTML = `
             <div style="font-weight: 500;">${chat.title}</div>
             <div style="font-size: 11px; color: #666; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
@@ -1082,35 +1638,49 @@ Now respond to the current message while considering the conversation history ab
                 ${formatChatDate(chat.messages.length > 0 ? chat.messages[chat.messages.length - 1].timestamp : chat.createdAt)}
             </div>
         `;
-        
+
         chatItem.onclick = () => switchChat(chat.id);
         container.appendChild(chatItem);
     });
 }
 
-// Helper function for better date display
-function formatChatDate(date) {
-    const now = new Date();
-    const chatDate = new Date(date);
-    const diffMs = now - chatDate;
-    const diffMins = Math.floor(diffMs / (1000 * 60));
-    const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
-    const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-    
-    if (diffMins < 60) {
-        return `${diffMins}m ago`;
-    } else if (diffHours < 24) {
-        return `${diffHours}h ago`;
-    } else if (diffDays < 7) {
-        return `${diffDays}d ago`;
-    } else {
-        return chatDate.toLocaleDateString();
-    }
-}
+        function formatChatDate(date) {
+            const now = new Date();
+            const chatDate = new Date(date);
+            const diffMs = now - chatDate;
+            const diffMins = Math.floor(diffMs / (1000 * 60));
+            const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+            const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+
+            if (diffMins < 60) {
+                return `${diffMins}m ago`;
+            } else if (diffHours < 24) {
+                return `${diffHours}h ago`;
+            } else if (diffDays < 7) {
+                return `${diffDays}d ago`;
+            } else {
+                return chatDate.toLocaleDateString();
+            }
+        }
 
         function switchChat(chatId) {
             currentChatId = chatId;
+            
+            // Load mode from chat
+            if (chats[currentChatId]) {
+                currentMode = chats[currentChatId].mode || null;
+                currentScenario = chats[currentChatId].scenario || null;
+                scenarioStep = chats[currentChatId].scenarioStep || 0;
+            }
+            
             renderCurrentChat();
+            
+            if (currentMode) {
+                showModeIndicator();
+            } else {
+                showModeSelection();
+            }
+            
             renderChatHistory();
             closeSidebar();
         }
@@ -1118,14 +1688,14 @@ function formatChatDate(date) {
         function renderCurrentChat() {
             const container = document.getElementById('messagesContainer');
             container.innerHTML = '';
-            
+
             if (currentChatId && chats[currentChatId]) {
                 const chat = chats[currentChatId];
-                
+
                 chat.messages.forEach(message => {
                     renderMessage(message);
                 });
-                
+
                 setTimeout(() => {
                     document.getElementById('chatContainer').scrollTop = document.getElementById('chatContainer').scrollHeight;
                 }, 100);
@@ -1141,7 +1711,7 @@ function formatChatDate(date) {
             }
         }
 
-        // Message handling (your existing functions)
+        // Message handling
         function handleKeyPress(event) {
             if (event.key === 'Enter') {
                 sendMessage();
@@ -1151,9 +1721,9 @@ function formatChatDate(date) {
         async function sendMessage() {
             const input = document.getElementById('messageInput');
             const message = input.value.trim();
-            
+
             if (message === '') return;
-            
+
             try {
                 // Add user message
                 const userMessage = {
@@ -1162,36 +1732,44 @@ function formatChatDate(date) {
                     isUser: true,
                     timestamp: new Date()
                 };
-                
+
                 addMessageToCurrentChat(userMessage);
                 renderMessage(userMessage);
                 updateChatTitle(userMessage);
                 input.value = '';
-                
-                // Hide welcome message when user sends first message
-                // document.getElementById('welcomeMessage').style.display = 'none';
-                
+
                 // Show typing indicator
                 showTypingIndicator();
+
+                // Get AI response with mode-specific context
+                let response;
+                if (currentMode === 'simulation' && currentScenario) {
+                    scenarioStep++;
+                    if (currentChatId && chats[currentChatId]) {
+                        chats[currentChatId].scenarioStep = scenarioStep;
+                        saveChatHistory();
+                    }
+                    response = await getSimulationResponse(message);
+                } else {
+                    response = await getAIResponse(message, currentMode);
+                }
                 
-                // Get AI response with chat history context
-                const response = await getAIResponse(message);
                 removeTypingIndicator();
-                
+
                 const botMessage = {
                     id: Date.now() + 1,
                     text: response,
                     isUser: false,
                     timestamp: new Date()
                 };
-                
+
                 addMessageToCurrentChat(botMessage);
                 renderMessage(botMessage);
-                
+
             } catch (error) {
                 console.error('Error sending message:', error);
                 removeTypingIndicator();
-                
+
                 // Show error message
                 const errorMessage = {
                     id: Date.now() + 1,
@@ -1199,7 +1777,7 @@ function formatChatDate(date) {
                     isUser: false,
                     timestamp: new Date()
                 };
-                
+
                 addMessageToCurrentChat(errorMessage);
                 renderMessage(errorMessage);
             }
@@ -1219,26 +1797,36 @@ function formatChatDate(date) {
 
             const bubble = document.createElement('div');
             bubble.className = 'bubble';
-            bubble.innerHTML = message.text;
             
+            // Check if the message contains scene markers
+            let text = message.text;
+            if (text.includes('[SCENE]') || text.includes('[COACH]')) {
+                text = text.replace(/\[SCENE\]/g, '<strong>[SCENE]</strong>');
+                text = text.replace(/\[COACH\]/g, '<strong>[COACH]</strong>');
+            }
+            
+            bubble.innerHTML = text;
+
             const timestamp = document.createElement('div');
             timestamp.className = 'timestamp';
             timestamp.textContent = formatTime(message.timestamp);
-            
+
             messageDiv.appendChild(bubble);
             messageDiv.appendChild(timestamp);
             container.appendChild(messageDiv);
+            
             // Scroll to bottom
-            document.getElementById('chatContainer').scrollTop = document.getElementById('chatContainer').scrollHeight;
+            const chatContainer = document.getElementById('chatContainer');
+            chatContainer.scrollTop = chatContainer.scrollHeight;
         }
 
         function showTypingIndicator() {
             const container = document.getElementById('messagesContainer');
-            
+
             const messageDiv = document.createElement('div');
             messageDiv.className = 'message bot';
             messageDiv.id = 'typing-indicator';
-            
+
             const bubble = document.createElement('div');
             bubble.className = 'bubble typing-indicator';
             bubble.innerHTML = `
@@ -1246,11 +1834,13 @@ function formatChatDate(date) {
                     <span>●</span><span>●</span><span>●</span>
                 </div>
             `;
-            
+
             messageDiv.appendChild(bubble);
             container.appendChild(messageDiv);
+            
             // Scroll to bottom
-            document.getElementById('chatContainer').scrollTop = document.getElementById('chatContainer').scrollHeight;
+            const chatContainer = document.getElementById('chatContainer');
+            chatContainer.scrollTop = chatContainer.scrollHeight;
         }
 
         function removeTypingIndicator() {
@@ -1259,28 +1849,34 @@ function formatChatDate(date) {
                 typingIndicator.remove();
             }
         }
-            
+
         function formatTime(date) {
             return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         }
 
-        // Mistral AI Integration with Chat History Context
-        async function getAIResponse(query) {
+        // Enhanced AI Integration with Mode Support
+        async function getAIResponse(query, mode = null) {
             try {
                 // Get conversation context
                 const historyContext = getConversationContext();
-                
-                // Build the prompt with history context
-                const promptWithContext = AI_RULES
+
+                // Build base prompt
+                let prompt = AI_RULES
                     .replace('{historyContext}', historyContext)
                     .replace('{userMessage}', query);
-                
+
+                // Add mode-specific instructions if in a mode
+                if (mode && MODE_INSTRUCTIONS[mode]) {
+                    const modeInstruction = MODE_INSTRUCTIONS[mode];
+                    prompt = modeInstruction + '\n\n' + prompt;
+                }
+
                 const response = await fetch(`https://autopost-backend-hbck.onrender.com/clearwordsapi/generate`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
-                     } ,
-        body: JSON.stringify({ prompt: promptWithContext }),
+                     },
+                    body: JSON.stringify({ prompt: prompt }),
                 });
 
                 if (!response.ok) {
@@ -1288,44 +1884,76 @@ function formatChatDate(date) {
                 }
 
                 const data = await response.json();
-            
-                      let cleaned = data.data.replace(/```json|```/g, '').trim();
-  parsed = JSON.parse(cleaned);
-console.log(parsed.paragraph1)
 
-                    return cleanResponse(parsed);
-             
+                let cleaned = data.data.replace(/```json|```/g, '').trim();
+                parsed = JSON.parse(cleaned);
+                
+                return cleanResponse(parsed);
+
             } catch (error) {
-                console.error('Error calling Mistral AI:', error);
+                console.error('Error calling AI API:', error);
+                throw error;
+            }
+        }
+
+        async function getSimulationResponse(query) {
+            try {
+                // Get conversation context
+                const historyContext = getConversationContext();
+                
+                // Build simulation-specific prompt
+                const scenario = SCENARIOS.find(s => s.id === currentScenario);
+                const scenarioName = scenario ? scenario.title : currentScenario;
+                
+                let prompt = MODE_INSTRUCTIONS.simulation
+                    .replace('{scenario}', scenarioName)
+                    .replace('{step}', scenarioStep) + '\n\n';
+                    
+                prompt += `Previous interaction context:\n${historyContext}\n\n`;
+                prompt += `User's current choice/action: ${query}\n\n`;
+                prompt += `Provide the next part of the simulation. If this seems like a natural ending point, wrap up the scenario. Otherwise, continue with the next step and provide new choices.`;
+
+                const response = await fetch(`https://autopost-backend-hbck.onrender.com/clearwordsapi/generate`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ prompt: prompt }),
+                });
+
+                if (!response.ok) {
+                    throw new Error(`API request failed with status ${response.status}`);
+                }
+
+                const data = await response.json();
+                
+                // For simulation, we want raw response (not JSON parsed)
+                return cleanResponse(data.data);
+
+            } catch (error) {
+                console.error('Error calling AI for simulation:', error);
                 throw error;
             }
         }
 
         function cleanResponse(text) {
-             if (typeof text !== "string") {
-        text2 = `${text.paragraph1} <br><br> ${text.paragraph2} <br><br> ${text.paragraph3}`
-        return text2;
-    }
+            // Handle both JSON-parsed objects and raw strings
+            if (typeof text !== "string") {
+                text2 = `${text.paragraph1} <br><br> ${text.paragraph2} <br><br> ${text.paragraph3}`;
+                return text2;
+            }
+            
             // Remove markdown formatting, asterisks, etc.
             let cleaned = text
-                .replace(/\*\*(.*?)\*\*/g, '$1') // Remove bold
-                .replace(/\*(.*?)\*/g, '$1')     // Remove italics
-                .replace(/#+\s?/g, '')           // Remove headers
-                .replace(/```[\s\S]*?```/g, '')  // Remove code blocks
-                .replace(/`(.*?)`/g, '$1')       // Remove inline code
-                .replace(/\n\s*\n/g, '</p><p>') // Convert double newlines to paragraph breaks
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Convert bold to HTML
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')           // Convert italics to HTML
+                .replace(/#+\s?/g, '')                         // Remove headers
+                .replace(/```[\s\S]*?```/g, '')                // Remove code blocks
+                .replace(/`(.*?)`/g, '<code>$1</code>')       // Convert inline code
+                .replace(/\n\s*\n/g, '<br><br>')              // Convert double newlines to breaks
                 .replace(/```json|```/g, '')  
-                .replace(/\n/g, '<br>');      // Convert single newlines to line breaks
-               
-            
-            // Ensure it's wrapped in paragraph tags
-            if (!cleaned.startsWith('<p>')) {
-                cleaned = '<p>' + cleaned;
-            }
-            if (!cleaned.endsWith('</p>')) {
-                cleaned = cleaned + '</p>';
-            }
-            
+                .replace(/\n/g, '<br>');                      // Convert single newlines to breaks
+
             return cleaned;
         }
 
@@ -1333,7 +1961,7 @@ console.log(parsed.paragraph1)
         function toggleTheme() {
             const body = document.body;
             isDarkTheme = !isDarkTheme;
-            
+
             if (isDarkTheme) {
                 body.classList.remove('light-theme');
                 body.classList.add('dark-theme');
@@ -1341,7 +1969,7 @@ console.log(parsed.paragraph1)
                 body.classList.remove('dark-theme');
                 body.classList.add('light-theme');
             }
-            
+
             updateThemeStatus();
             saveChatHistory();
         }
@@ -1349,22 +1977,19 @@ console.log(parsed.paragraph1)
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
             sidebar.classList.toggle('open');
-            
-               if(sidebar.classList.toggle){
-             // Close modal when clicking outside content
-        document.getElementById("chatContainer").addEventListener('click', function(e) {
-           
-                closeSidebar();
-         
-            });
+
+            if(sidebar.classList.toggle) {
+                document.getElementById("chatContainer").addEventListener('click', function(e) {
+                    closeSidebar();
+                });
             }
         }
 
         function closeSidebar() {
             const sidebar = document.getElementById('sidebar');
             sidebar.classList.remove('open');
-              }
-              
+        }
+
         // PWA Registration
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('sw.js');
