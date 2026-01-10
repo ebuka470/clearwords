@@ -11,7 +11,7 @@
     <title>ClearWords - Cultural Tips</title>
     <style>
         :root {
-            --light-bg: #FFFFFF;
+            --light-bg: #ebebeb;
             --light-text: #000000;
             --light-accent: #228B22;
             --light-bubble: #0000FF;
@@ -45,7 +45,7 @@
         }
 
         .dark-theme {
-            background-color: var(--dark-bg);
+            background-color: black;
             color: var(--dark-text);
         }
 
@@ -217,13 +217,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: var(--light-accent);
-            color: white;
+            background-color: var(--light-bg);
+            color: var(--light-text);
         }
 
         .dark-theme .settings-header {
-            background-color: var(--dark-accent);
+            background-color: var(--dark-bg);
             border-bottom-color: #444;
+            color: var(--dark-text);
         }
 
         .settings-content {
@@ -434,8 +435,8 @@
         }
 
         .header {
-            background-color: var(--light-accent);
-            color: white;
+            background-color: #ebebeb;
+            color: var(--light-text);
             padding: 15px 20px;
             text-align: center;
             font-weight: bold;
@@ -444,7 +445,8 @@
         }
 
         .dark-theme .header {
-            background-color: var(--dark-accent);
+            background-color: black;
+            color: var(--dark-text);
         }
 
         .theme-toggle {
@@ -456,7 +458,11 @@
             border: none;
             font-size: 24px;
             cursor: pointer;
-            color: white;
+            color: var(--light-text);
+        }
+        
+        .dark-theme .theme-toggle{
+            color: var(--dark-text);
         }
 
         .menu-toggle {
@@ -468,8 +474,12 @@
             background: none;
             border: none;
             font-size: 20px;
-            color: white;
+            color: var(--light-text);
             cursor: pointer;
+        }
+        
+        .dark-theme .menu-toggle{
+            color: var(--dark-text);
         }
 
         .chat-container {
@@ -514,22 +524,22 @@
         }
 
         .bot .bubble {
-            background-color: #FFFFFF;
+            background-color: #ebebeb;
             color: var(--light-text);
         }
 
         .dark-theme .bot .bubble {
-            background-color: #121212;
+            background-color: black;
             color: var(--dark-text);
         }
 
         .input-container {
             padding: 20px;
-            background-color: var(--light-bg);
+            background-color: #ebebeb;
         }
 
         .dark-theme .input-container {
-            background-color: var(--dark-bg);
+            background-color: black;
             border-top-color: #444;
         }
 
@@ -546,12 +556,12 @@
             border: 1px solid #ccc;
             border-radius: 25px;
             font-size: 16px;
-            background-color: var(--light-bg);
+            background-color: white;
             color: var(--light-text);
         }
 
         .dark-theme .message-input {
-            background-color: var(--dark-bg);
+            background-color: var(--dark-sidebar);
             color: var(--dark-text);
             border-color: #555;
         }
@@ -709,6 +719,7 @@
             font-size: 11px;
             color: var(--light-text);
             margin-left: 10px;
+            position: relative;
         }
       
         /* Mode-specific chat styles */
@@ -716,6 +727,7 @@
             max-width: 800px;
             margin: 10px auto 20px;
             padding: 0 20px;
+            position: relative;
         }
 
         .mode-tag {
@@ -1023,14 +1035,14 @@ Now respond to the current message while considering the conversation history ab
 
         // Mode-specific AI instructions
         const MODE_INSTRUCTIONS = {
-            simulation: `You are now in **Scenario Simulation Mode**. You are a Narrator and Cultural Coach. Follow these rules:
+            simulation: `You are now in **Scenario Simulation Mode**. You are a Narrator. Follow these rules:
 1. Create an interactive, branching story based on the chosen scenario.
 2. Present the user with 2-4 clear choices at each step.
 3. After each user choice, provide immediate feedback as the characters would react.
-4. Then step out of character and provide cultural explanation as the Coach.
 5. Keep the simulation going until a natural conclusion is reached.
 6. Do not break character or answer general questions while in simulation.
-7. Use scene markers: [SCENE] for role-play, [COACH] for explanations.
+7. Use scene markers: [SCENE] for role-play.
+8. Keep the response within 2 paragraphs, 1st for the scene, and second for the choices.
 
 Current Scenario: {scenario}
 Current Step: {step}`,
@@ -1356,7 +1368,7 @@ Current Step: {step}`,
                 }
                 
                 const indicatorHTML = `
-                    <div class="chat-mode-indicator">
+                    <div class="chat-mode-indicator" >
                         <div class="mode-tag">
                             ${modeIcon} ${modeTitle}
                             <button class="exit-mode-btn" onclick="exitMode()" title="Exit mode">✕</button>
@@ -1800,9 +1812,9 @@ Current Step: {step}`,
             
             // Check if the message contains scene markers
             let text = message.text;
-            if (text.includes('[SCENE]') || text.includes('[COACH]')) {
+            if (text.includes('[SCENE]') || text.includes('[WHAT DO YOU DO?]')) {
                 text = text.replace(/\[SCENE\]/g, '<strong>[SCENE]</strong>');
-                text = text.replace(/\[COACH\]/g, '<strong>[COACH]</strong>');
+                text = text.replace(/\[WHAT DO YOU DO?\]/g, '<strong>What do you do?</strong>');
             }
             
             bubble.innerHTML = text;
