@@ -1,21 +1,63 @@
 {
   "name": "ClearWords",
-  "short_name": "ClearWords", 
-  "description": "Your Nigerian Cultural Guide",
+  "short_name": "ClearWords",
+  "description": "Learn Nigerian Languages through interactive games and AI conversation",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#228B22",
-  "theme_color": "#228B22",
+  "orientation": "portrait",
+  "background_color": "#FFFFFF",
+  "theme_color": "#2E8B57",
+  "categories": ["education", "lifestyle", "productivity"],
+  "lang": "en",
+  "dir": "ltr",
   "icons": [
     {
-      "src": "logo.png",
+      "src": "/logo.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
-      "src": "logo.png",
-      "sizes": "512x512", 
-      "type": "image/png"
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
-  ]
+  ],
+  "shortcuts": [
+    {
+      "name": "Start Learning",
+      "short_name": "Learn",
+      "description": "Continue your language learning",
+      "url": "/?source=shortcut"
+    },
+    {
+      "name": "AI Tutor",
+      "short_name": "Tutor",
+      "description": "Chat with AI language tutor",
+      "url": "/?source=shortcut&page=chat"
+    },
+    {
+      "name": "Daily Challenge",
+      "short_name": "Challenge",
+      "description": "Complete daily challenges",
+      "url": "/?source=shortcut&page=home&action=daily"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot1.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/screenshot2.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "prefer_related_applications": false,
+  "related_applications": []
 }
