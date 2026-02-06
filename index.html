@@ -679,6 +679,7 @@
             border-bottom: 1px solid var(--border);
             position: sticky;
             top: 0;
+            max-height:16%;
             z-index: 10;
         }
 
@@ -719,7 +720,7 @@
         }
 
         .bubble {
-            max-width: 75%;
+            max-width: 90%;
             padding: 14px 18px;
             border-radius: 20px;
             word-wrap: break-word;
@@ -1159,6 +1160,68 @@
             line-height: 1.5;
         }
 
+        /* Timmy AI Specific Styles */
+        .timmy-message {
+            position: relative;
+            padding-left: 50px;
+        }
+
+        .timmy-message::before {
+            content: "🤓";
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+        }
+
+        .typing-indicator {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            padding: 15px;
+            border-radius: 12px;
+            margin: 10px 0;
+        }
+
+        .typing-dots {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .typing-dots span {
+            animation: typing 1.4s infinite;
+            display: inline-block;
+        }
+
+        .typing-dots span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dots span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+            0%, 60%, 100% { opacity: 0.3; }
+            30% { opacity: 1; }
+        }
+
+        /* Nigerian slang highlight */
+        .nigerian-slang {
+            color: var(--accent2);
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        /* Cultural tip highlight */
+        .cultural-tip {
+            background: linear-gradient(135deg, rgba(var(--accent3-rgb), 0.1) 0%, rgba(var(--primary-rgb), 0.1) 100%);
+            border-left: 3px solid var(--accent3);
+            padding: 10px 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .page {
@@ -1512,8 +1575,8 @@
         <!-- Chat Page -->
         <div class="page" id="chat">
             <div class="chat-header">
-                <div style="font-size: 24px;">🤖</div>
-                <div class="chat-title">AI Language Tutor</div>
+                <div style="font-size: 24px;">🤓</div>
+                <div class="chat-title">Timmy - Your AI Language Companion</div>
                 <div style="margin-left: auto; display: flex; gap: 10px;">
                     <button class="btn" style="padding: 8px 12px; font-size: 12px;" onclick="clearChat()">Clear</button>
                     <button class="btn" style="padding: 8px 12px; font-size: 12px;" onclick="exportChat()">Export</button>
@@ -1526,7 +1589,7 @@
             
             <div class="chat-input-container">
                 <div class="chat-input-wrapper">
-                    <input type="text" class="chat-input" id="chat-input" placeholder="Type your question..." onkeypress="handleChatKeyPress(event)">
+                    <input type="text" class="chat-input" id="chat-input" placeholder="Ask Timmy about Nigerian languages, culture, or practice conversation..." onkeypress="handleChatKeyPress(event)">
                     <button class="send-btn" onclick="sendChatMessage()" aria-label="Send message">➤</button>
                 </div>
             </div>
@@ -1577,6 +1640,10 @@
                     <div>Switch Language</div>
                     <div>→</div>
                 </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding: 12px; background: var(--bg); border-radius: 10px; cursor: pointer;" onclick="showTimmyInfo()" role="button" tabindex="0">
+                    <div>Meet Timmy (AI)</div>
+                    <div>🤓</div>
+                </div>
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding: 12px; background: var(--bg); border-radius: 10px; cursor: pointer;" onclick="exportProgress()" role="button" tabindex="0">
                     <div>Export Progress</div>
                     <div>📤</div>
@@ -1624,8 +1691,8 @@
                 <span class="tab-badge" id="lessons-badge" style="display: none;"></span>
             </button>
             <button class="tab" data-page="chat" aria-label="AI Tutor">
-                <span class="icon">💬</span>
-                <span class="label" id="chat-label">AI Tutor</span>
+                <span class="icon">🤓</span>
+                <span class="label" id="chat-label">Timmy AI</span>
             </button>
             <button class="tab" data-page="settings" aria-label="Settings">
                 <span class="icon">⚙️</span>
@@ -1874,6 +1941,13 @@
                 </div>
             </div>
         </div>
+
+        <!-- Timmy AI Modal -->
+        <div class="modal-overlay" id="timmy-modal">
+            <div class="modal">
+                <div id="timmy-modal-content"></div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -1889,7 +1963,7 @@
                 name: "Diaspora Parent",
                 homeLabel: "Home",
                 lessonsLabel: "Lessons",
-                chatLabel: "Tutor",
+                chatLabel: "Timmy AI",
                 settingsLabel: "Settings",
                 description: "Teaching my children our heritage language",
                 preview: "Content focuses on family vocabulary, children's activities, and intergenerational communication. Lessons include parent-child dialogues and cultural traditions.",
@@ -1904,7 +1978,7 @@
                 name: "Young Diaspora",
                 homeLabel: "Feed",
                 lessonsLabel: "Play",
-                chatLabel: "AI",
+                chatLabel: "Timmy AI",
                 settingsLabel: "Profile",
                 description: "Connecting with my roots and culture",
                 preview: "Modern, engaging content with social media integration, youth culture, and contemporary vocabulary. Includes music, movies, and current events.",
@@ -1919,7 +1993,7 @@
                 name: "Professional",
                 homeLabel: "Dashboard",
                 lessonsLabel: "Training",
-                chatLabel: "Consultant",
+                chatLabel: "Timmy AI",
                 settingsLabel: "Settings",
                 description: "Learning for business or career growth",
                 preview: "Business vocabulary, formal communication, workplace scenarios, and professional etiquette. Focus on meetings, negotiations, and email correspondence.",
@@ -1934,7 +2008,7 @@
                 name: "Marriage/Family",
                 homeLabel: "Home",
                 lessonsLabel: "Practice",
-                chatLabel: "Partner",
+                chatLabel: "Timmy AI",
                 settingsLabel: "Settings",
                 description: "Connecting with partner's Nigerian family",
                 preview: "Family relationships, cultural traditions, celebrations, and relationship vocabulary. Focus on in-law communication and cultural integration.",
@@ -1949,7 +2023,7 @@
                 name: "In-Nigeria Learner",
                 homeLabel: "Home",
                 lessonsLabel: "Lessons",
-                chatLabel: "Helper",
+                chatLabel: "Timmy AI",
                 settingsLabel: "Settings",
                 description: "Learning another Nigerian language",
                 preview: "Advanced vocabulary, regional dialects, and cultural nuances. Focus on language comparison and advanced grammar structures.",
@@ -2015,6 +2089,51 @@
                 color: "#FFD700"
             }
         };
+
+        // ======================
+        // TIMMY AI CONFIGURATION
+        // ======================
+
+        // Timmy AI Character Configuration
+        const TIMMY_AI_CONFIG = {
+            name: "Timmy",
+            personality: "witty, culturally-savvy Nigerian language companion",
+            style: "Blends academic expertise with street-smart humor and Nigerian pop-culture references",
+            tone: "Warm sarcasm that never shames, celebrations that feel like family praise",
+            endpoint: "https://autopost-backend-hbck.onrender.com/clearwordsapi/generate"
+        };
+
+        // Timmy AI System Prompt with Language Learning Focus
+        const TIMMY_AI_RULES = `You are Timmy, a witty, culturally-savvy Nigerian language companion—the cool cousin who studied linguistics abroad but came home because he missed proper jollof rice.
+
+ABOUT YOU:
+- You blend academic expertise with street-smart humor
+- You switch seamlessly between explaining grammar rules and dropping relatable Nigerian pop-culture references
+- You use warm sarcasm that never shames and celebrations that feel like family praise
+- You make learning feel like chatting with your smartest, funniest friend who genuinely believes in your potential
+- You adapt to each learner's segment with appropriate tone and content
+
+STUDENT CONTEXT:
+- Learning Segment: {segment}
+- Current Language: {language}
+- Native Name: {nativeName}
+- Completed Levels: {completedLevels}/50
+- Current Level: {currentLevel}
+
+RESPONSE FORMAT: Always respond as JSON with exactly three paragraphs:
+{
+  "paragraph1": "First paragraph with greeting/witty opening",
+  "paragraph2": "Second paragraph with main lesson/explanation",
+  "paragraph3": "Third paragraph with encouragement/cultural tip"
+}
+
+CONVERSATION HISTORY (last 5 messages for context):
+{historyContext}
+
+CURRENT USER MESSAGE:
+{userMessage}
+
+NOW RESPOND AS TIMMY: Keep it conversational, educational, and entertaining. Mix Nigerian slang with proper language instruction. Never be boring!`;
 
         // ======================
         // GLOBAL STATE
@@ -2286,7 +2405,7 @@
             // Setup navigation
             setupNavigation();
             
-            // Setup chat
+            // Setup chat with Timmy
             setupChat();
             
             // Check daily streak
@@ -2297,6 +2416,9 @@
             
             // Load terms of service
             loadTermsOfService();
+            
+            // Load Timmy modal
+            loadTimmyModal();
             
             // Show current page
             showPage('home');
@@ -3169,7 +3291,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                         
                         <button class="btn" onclick="closeLessonFlow()" style="width: 100%; margin-bottom: 15px;">Continue Learning</button>
-                        <button class="btn" onclick="practiceWithAI()" style="background: var(--accent1); width: 100%;">Practice with AI Tutor</button>
+                        <button class="btn" onclick="practiceWithTimmy()" style="background: var(--accent1); width: 100%;">Practice with Timmy</button>
                     ` : `
                         <div style="background: var(--bg); border-radius: 12px; padding: 20px; margin-bottom: 30px; border: 1px solid var(--border);">
                             <div style="font-weight: 600; margin-bottom: 10px; color: var(--text);">Review these areas:</div>
@@ -3200,7 +3322,7 @@ document.addEventListener('DOMContentLoaded', function() {
             showLessonCard(3);
         }
 
-        function practiceWithAI() {
+        function practiceWithTimmy() {
             closeLessonFlow();
             showPage('chat');
             
@@ -3223,6 +3345,466 @@ document.addEventListener('DOMContentLoaded', function() {
                     sendChatMessage();
                 }
             }, 500);
+        }
+
+        // ======================
+        // TIMMY AI FUNCTIONS
+        // ======================
+
+        // Get conversation context from chat history
+        function getChatContext() {
+            if (!appState.chatHistory || appState.chatHistory.length === 0) {
+                return "New conversation just started. Student is beginning their language journey.";
+            }
+            
+            // Get last 5 messages (excluding current one)
+            const recentMessages = appState.chatHistory.slice(-5);
+            let context = "";
+            
+            recentMessages.forEach(msg => {
+                const speaker = msg.sender === 'user' ? 'Student' : 'Timmy';
+                context += `${speaker}: ${msg.text}\n`;
+            });
+            
+            return context;
+        }
+
+        // Generate AI response using Timmy's personality
+        async function generateTimmyAIResponse(userMessage) {
+            try {
+                // Get student context
+                const segment = segmentConfigs[appState.user.segment]?.name || 'Language Learner';
+                const language = languageConfigs[appState.user.language];
+                
+                // Build the prompt with context
+                const prompt = TIMMY_AI_RULES
+                    .replace('{segment}', segment)
+                    .replace('{language}', language.name)
+                    .replace('{nativeName}', language.nativeName || language.name)
+                    .replace('{completedLevels}', appState.user.completedLevels.length)
+                    .replace('{currentLevel}', appState.user.currentLevel)
+                    .replace('{historyContext}', getChatContext())
+                    .replace('{userMessage}', userMessage);
+                
+                // Call AI API
+                const response = await fetch(TIMMY_AI_CONFIG.endpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ prompt: prompt })
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`API request failed: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                // Parse and format the response
+                const cleaned = data.data.replace(/```json|```/g, '').trim();
+                const parsed = JSON.parse(cleaned);
+                
+                // Format for chat display
+                const formattedResponse = `
+                    <div style="margin-bottom: 10px; font-style: italic; color: var(--accent2);">
+                        🤓 <strong>Timmy says:</strong>
+                    </div>
+                    <div style="margin-bottom: 15px; line-height: 1.6;">
+                        ${parsed.paragraph1}
+                    </div>
+                    <div style="margin-bottom: 15px; line-height: 1.6;">
+                        ${parsed.paragraph2}
+                    </div>
+                    <div style="margin-bottom: 10px; line-height: 1.6; color: var(--primary);">
+                        ${parsed.paragraph3}
+                    </div>
+                    <div style="font-size: 12px; color: var(--text-secondary); margin-top: 15px; border-top: 1px dashed var(--border); padding-top: 10px;">
+                        🎯 <strong>Timmy's Tip:</strong> Remember, language is best learned with laughter!
+                    </div>
+                `;
+                
+                return formattedResponse;
+                
+            } catch (error) {
+                console.error("Timmy AI Error:", error);
+                
+                // Fallback responses with Timmy's personality
+                const fallbackResponses = [
+                    `Abeg, my API dey catch cold! But no worry, Timmy is here! ${languageConfigs[appState.user.language]?.greeting || "Hello"}! Let's continue our lesson.`,
+                    `Network wahala! But as your guy Timmy, I go still teach you something small. Today's word: "${getRandomNigerianWord()}"`,
+                    `Jazz don happen to my connection, but Timmy no dey carry last! How about we practice some ${languageConfigs[appState.user.language]?.name || "Nigerian"} phrases?`,
+                    `Even when technology fails, culture prevails! ${languageConfigs[appState.user.language]?.greeting || "Hello"} my friend, let's continue learning!`
+                ];
+                
+                const randomResponse = fallbackResponses[Math.floor(Math.random() * fallbackResponses.length)];
+                
+                return `
+                    <div style="margin-bottom: 10px; font-style: italic; color: var(--accent2);">
+                        🤓 <strong>Timmy says:</strong>
+                    </div>
+                    <div style="margin-bottom: 15px; line-height: 1.6;">
+                        ${randomResponse}
+                    </div>
+                    <div style="margin-bottom: 10px; line-height: 1.6; color: var(--primary);">
+                        <em>PS: My tech dey act up, but my teaching spirit dey kampe!</em>
+                    </div>
+                `;
+            }
+        }
+
+        // Helper function for fallback responses
+        function getRandomNigerianWord() {
+            const words = {
+                yoruba: ["Ẹ káàbọ (Welcome)", "O ṣeun (Thank you)", "Ẹ kú ojúmọ (Good morning)"],
+                hausa: ["Sannu (Hello)", "Na gode (Thank you)", "Ina kwana? (How are you?)"],
+                igbo: ["Nnọọ (Welcome)", "Daalụ (Thank you)", "Kedu ka ị mere? (How are you?)"],
+                urhobo: ["Mavo (Welcome)", "Uvwẹ (Thank you)", "Mẹ rẹ? (How are you?)"],
+                itsekiri: ["Welọ (Welcome)", "Oshe (Thank you)", "Mẹ re? (How are you?)"]
+            };
+            
+            const language = appState.user.language;
+            const languageWords = words[language] || ["Welcome", "Thank you", "How are you?"];
+            return languageWords[Math.floor(Math.random() * languageWords.length)];
+        }
+
+        // Segment-specific Timmy greetings
+        function getTimmyGreeting() {
+            const segment = appState.user.segment;
+            const language = languageConfigs[appState.user.language];
+            
+            const greetings = {
+                parent: `Omo mi! ${language.greeting}! As your parenting partner Timmy, I'm here to help you pass our beautiful ${language.name} to the next generation. Ready to make learning fun for the whole family?`,
+                young: `Wahala for who no sabi! ${language.greeting} G! Timmy dey here to help you connect with your roots in the most lit way. Let's learn ${language.name} like we're chatting on the gram!`,
+                pro: `Professional mode activated! ${language.greeting}, sir/ma. Timmy here to provide you with business-ready ${language.name} skills that will give you the edge in the marketplace.`,
+                marriage: `Love don show! ${language.greeting}, future in-law! Timmy here to help you impress the family with authentic ${language.name} and cultural savvy. Let's make you the favorite!`,
+                nigeria: `Naija to the world! ${language.greeting}, my fellow Naija learner. Timmy here to help you master ${language.name} with all the local flavor and pro tips.`,
+                default: `${language.greeting}! I'm Timmy, your witty Nigerian language companion. Ready to learn ${language.name} with laughter and cultural insight?`
+            };
+            
+            return greetings[segment] || greetings.default;
+        }
+
+        // ======================
+        // UPDATED CHAT FUNCTIONS
+        // ======================
+
+        // Replace the existing generateAIResponse function
+        window.generateAIResponse = async function(userMessage) {
+            // Show typing indicator
+            showTypingIndicator();
+            
+            try {
+                // Get response from Timmy AI
+                const response = await generateTimmyAIResponse(userMessage);
+                
+                // Remove typing indicator
+                removeTypingIndicator();
+                
+                return response;
+                
+            } catch (error) {
+                console.error("Error in AI response:", error);
+                removeTypingIndicator();
+                
+                return `Abeg, Timmy dey rest small! But no worry, I go still help you. ${languageConfigs[appState.user.language]?.greeting || "Hello"}! How can I assist with your ${languageConfigs[appState.user.language]?.name || "language"} learning today?`;
+            }
+        };
+
+        // Enhanced sendChatMessage with Timmy's personality
+        window.sendChatMessage = async function() {
+            const input = document.getElementById('chat-input');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            // Add user message
+            addChatMessage(message, 'user');
+            input.value = '';
+            
+            // Save to state
+            appState.chatHistory.push({
+                text: message,
+                sender: 'user',
+                timestamp: new Date().toISOString()
+            });
+            
+            // Get AI response
+            try {
+                const response = await generateAIResponse(message);
+                addChatMessage(response, 'bot');
+                
+                // Save AI response to state
+                appState.chatHistory.push({
+                    text: response,
+                    sender: 'bot',
+                    timestamp: new Date().toISOString()
+                });
+                
+                // Save to localStorage
+                localStorage.setItem('clearWordsChat', JSON.stringify(appState.chatHistory));
+                
+            } catch (error) {
+                console.error("Chat error:", error);
+                
+                const errorMessage = `Abeg, network wahala! Timmy dey try reach you. ${languageConfigs[appState.user.language]?.greeting || "Hello"}! Let's try that again?`;
+                addChatMessage(errorMessage, 'bot');
+            }
+        };
+
+        // Enhanced chat setup with Timmy
+        window.setupChat = function() {
+            // Load chat history
+            const savedChat = localStorage.getItem('clearWordsChat');
+            if (savedChat) {
+                try {
+                    appState.chatHistory = JSON.parse(savedChat);
+                } catch (e) {
+                    appState.chatHistory = [];
+                }
+            }
+            
+            // Render chat history with Timmy's welcome
+            renderChatHistory();
+        };
+
+        // Updated renderChatHistory with Timmy's personality
+        window.renderChatHistory = function() {
+            const chatContainer = document.getElementById('chat-messages');
+            if (!chatContainer) return;
+            
+            chatContainer.innerHTML = '';
+            
+            // Add Timmy's personalized welcome message
+            const welcomeMessage = getTimmyGreeting();
+            addChatMessage(welcomeMessage, 'bot');
+            
+            // Load history
+            appState.chatHistory.forEach(msg => {
+                addChatMessage(msg.text, msg.sender);
+            });
+        };
+
+        // Typing indicator functions
+        window.showTypingIndicator = function() {
+            const chatContainer = document.getElementById('chat-messages');
+            if (!chatContainer) return;
+            
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message bot';
+            typingDiv.id = 'typing-indicator';
+            
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble typing-indicator';
+            bubble.innerHTML = `
+                <div class="typing-dots">
+                    <span>●</span><span>●</span><span>●</span>
+                </div>
+                <div style="font-size: 12px; color: var(--text-secondary); margin-top: 5px;">
+                    Timmy is typing...
+                </div>
+            `;
+            
+            typingDiv.appendChild(bubble);
+            chatContainer.appendChild(typingDiv);
+            
+            // Scroll to bottom
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        };
+
+        window.removeTypingIndicator = function() {
+            const typingIndicator = document.getElementById('typing-indicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        };
+
+        // Add chat message helper
+        window.addChatMessage = function(text, sender) {
+            const chatContainer = document.getElementById('chat-messages');
+            if (!chatContainer) return;
+            
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+            
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            bubble.innerHTML = text;
+            
+            messageDiv.appendChild(bubble);
+            chatContainer.appendChild(messageDiv);
+            
+            // Scroll to bottom
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        };
+
+        // Practice with Timmy function (after lesson completion)
+        window.practiceWithTimmy = async function() {
+            showPage('chat');
+            
+            const language = languageConfigs[appState.user.language].name;
+            const level = appState.currentLesson || 1;
+            
+            // Clear any existing typing indicator
+            removeTypingIndicator();
+            
+            // Add user message
+            const userMessage = `I just completed level ${level} on ${language}. Can we practice what I learned?`;
+            addChatMessage(userMessage, 'user');
+            
+            // Save to state
+            appState.chatHistory.push({
+                text: userMessage,
+                sender: 'user',
+                timestamp: new Date().toISOString()
+            });
+            
+            // Show typing indicator
+            showTypingIndicator();
+            
+            // Get AI response
+            try {
+                const response = await generateAIResponse(userMessage);
+                removeTypingIndicator();
+                addChatMessage(response, 'bot');
+                
+                // Save AI response to state
+                appState.chatHistory.push({
+                    text: response,
+                    sender: 'bot',
+                    timestamp: new Date().toISOString()
+                });
+                
+                // Save to localStorage
+                localStorage.setItem('clearWordsChat', JSON.stringify(appState.chatHistory));
+                
+            } catch (error) {
+                console.error("Practice error:", error);
+                removeTypingIndicator();
+                
+                const errorMessage = `Omo! Technical difficulty, but no shaking. Let's practice ${language} anyway!`;
+                addChatMessage(errorMessage, 'bot');
+            }
+        };
+
+        // ======================
+        // NEW CHAT FUNCTIONS
+        // ======================
+
+        // Clear chat with Timmy's personality
+        window.clearChat = function() {
+            if (confirm("Abeg, you wan clear all our yarn? Make we start fresh?")) {
+                appState.chatHistory = [];
+                localStorage.setItem('clearWordsChat', JSON.stringify([]));
+                renderChatHistory();
+                
+                // Add Timmy's fresh start message
+                setTimeout(() => {
+                    addChatMessage("Fresh start, fresh energy! Timmy dey here with you. Wetin you wan learn today?", 'bot');
+                }, 300);
+            }
+        };
+
+        // Export chat with custom filename
+        window.exportChat = function() {
+            const exportData = {
+                exportDate: new Date().toISOString(),
+                student: {
+                    segment: appState.user.segment,
+                    language: appState.user.language,
+                    completedLevels: appState.user.completedLevels.length,
+                    totalXP: appState.user.totalXP
+                },
+                chatHistory: appState.chatHistory,
+                aiCompanion: "Timmy - Your witty Nigerian language companion"
+            };
+            
+            const dataStr = JSON.stringify(exportData, null, 2);
+            const dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(dataStr);
+            
+            const exportFileDefaultName = `clearwords-chat-with-timmy-${new Date().toISOString().split('T')[0]}.json`;
+            
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', exportFileDefaultName);
+            linkElement.click();
+            
+            // Show confirmation
+            showToast("Chat exported! Timmy's wisdom saved for later! 📁");
+        };
+
+        // Show Timmy's info in settings
+        window.showTimmyInfo = function() {
+            loadTimmyModalContent();
+            showModal('timmy-modal');
+        };
+
+        // Load Timmy modal content
+        function loadTimmyModal() {
+            const timmyModal = document.getElementById('timmy-modal');
+            if (timmyModal) {
+                const modalContent = document.createElement('div');
+                modalContent.id = 'timmy-modal-content';
+                timmyModal.querySelector('.modal').appendChild(modalContent);
+            }
+        }
+
+        function loadTimmyModalContent() {
+            const content = document.getElementById('timmy-modal-content');
+            if (!content) return;
+            
+            content.innerHTML = `
+                <div class="modal-header">
+                    <div>Meet Timmy 🤓</div>
+                    <button class="modal-close" onclick="closeModal('timmy-modal')" aria-label="Close">×</button>
+                </div>
+                <div class="modal-content">
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <div style="font-size: 48px; margin-bottom: 10px;">🤓</div>
+                        <div style="font-size: 20px; font-weight: 600; margin-bottom: 5px;">Timmy</div>
+                        <div style="color: var(--text-secondary);">Your Nigerian Language Companion</div>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <div style="font-weight: 600; margin-bottom: 10px; color: var(--accent2);">🎭 Personality</div>
+                        <div style="color: var(--text-secondary); line-height: 1.6;">
+                            The cool cousin who studied linguistics abroad but came home because he missed proper jollof rice. 
+                            Blends academic expertise with street-smart humor and Nigerian pop-culture references.
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <div style="font-weight: 600; margin-bottom: 10px; color: var(--accent2);">🎯 Teaching Style</div>
+                        <ul style="color: var(--text-secondary); padding-left: 20px; line-height: 1.6;">
+                            <li>Warm sarcasm that never shames</li>
+                            <li>Celebrations that feel like family praise</li>
+                            <li>Authentic cultural context and pro-tips</li>
+                            <li>Adapts to your learning segment</li>
+                            <li>Makes mistakes become inside jokes</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <div style="font-weight: 600; margin-bottom: 10px; color: var(--accent2);">💬 What to Expect</div>
+                        <div style="color: var(--text-secondary); line-height: 1.6;">
+                            Timmy will mix proper grammar explanations with Nigerian slang, pop culture references, 
+                            and the kind of encouragement that makes you feel like you're chatting with your smartest, 
+                            funniest friend who genuinely believes in your potential.
+                        </div>
+                    </div>
+                    
+                    <div style="padding: 15px; background: var(--bg); border-radius: 10px; border: 1px solid var(--border);">
+                        <div style="font-weight: 600; margin-bottom: 5px; color: var(--primary);">📚 Pro Tip from Timmy:</div>
+                        <div style="color: var(--text-secondary);">
+                            "Language is best learned with laughter and plenty of jollof rice! No be by force, make we enjoy the process together!"
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-outline" onclick="closeModal('timmy-modal')">Close</button>
+                    <button class="btn" onclick="showPage('chat'); closeModal('timmy-modal')">Chat with Timmy</button>
+                </div>
+            `;
         }
 
         // ======================
@@ -3288,7 +3870,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p>All your learning data is stored locally on your device using browser storage (LocalStorage and IndexedDB). We do not transmit your personal learning data to external servers unless you explicitly choose to:</p>
                 <ul>
                     <li>Sync your progress across devices (future feature)</li>
-                    <li>Backup your data to cloud storage (future feature)</li>
+                    <li>Backup your data to cloud storage (future feature</li>
                     <li>Share your achievements on social media (optional)</li>
                 </ul>
                 <p>We implement appropriate technical and organizational security measures to protect your data, including encryption of sensitive information and regular security assessments.</p>
@@ -3840,191 +4422,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // ======================
-        // CHAT FUNCTIONS
-        // ======================
-        
-        function setupChat() {
-            // Load chat history
-            const savedChat = localStorage.getItem('clearWordsChat');
-            if (savedChat) {
-                try {
-                    appState.chatHistory = JSON.parse(savedChat);
-                } catch (e) {
-                    appState.chatHistory = [];
-                }
-            }
-            
-            renderChatHistory();
-        }
-
-        function handleChatKeyPress(event) {
-            if (event.key === 'Enter' && !event.shiftKey) {
-                event.preventDefault();
-                sendChatMessage();
-            }
-        }
-
-        function sendChatMessage() {
-            const input = document.getElementById('chat-input');
-            const message = input.value.trim();
-            
-            if (!message) return;
-            
-            // Add user message
-            addChatMessage(message, 'user');
-            input.value = '';
-            
-            // Show typing indicator
-            showTypingIndicator();
-            
-            // Generate AI response
-            setTimeout(() => {
-                removeTypingIndicator();
-                generateAIResponse(message);
-            }, 1000 + Math.random() * 1000);
-        }
-
-        function generateAIResponse(userMessage) {
-            const language = languageConfigs[appState.user.language];
-            const segment = segmentConfigs[appState.user.segment];
-            const userSegment = segment ? segment.name : "learner";
-            
-            let response = "";
-            const lowerMessage = userMessage.toLowerCase();
-            
-            // Pattern-based responses
-            if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
-                response = `${language.greeting}! I'm your ${language.name} AI tutor. How can I help you practice today, ${userSegment}?`;
-            } else if (lowerMessage.includes('practice') || lowerMessage.includes('conversation')) {
-                response = `Great! Let's practice ${language.name}. I'll help you with pronunciation, grammar, and cultural context. What specific topic would you like to practice?`;
-            } else if (lowerMessage.includes('grammar') || lowerMessage.includes('rule')) {
-                response = `I can help explain ${language.name} grammar rules. Could you tell me which specific grammar concept you're struggling with?`;
-            } else if (lowerMessage.includes('pronunciation') || lowerMessage.includes('speak')) {
-                response = `Pronunciation is key in ${language.name}. I can help with tones, vowel sounds, and word stress. What word or phrase would you like to practice pronouncing?`;
-            } else if (lowerMessage.includes('culture') || lowerMessage.includes('tradition')) {
-                response = `Cultural context is important for understanding ${language.name}. I can share insights about traditions, customs, and social etiquette. What cultural aspect interests you?`;
-            } else if (lowerMessage.includes('thank')) {
-                response = `You're welcome! Keep practicing ${language.name} regularly. Consistency is the key to language mastery.`;
-            } else if (lowerMessage.includes('help') || lowerMessage.includes('confused')) {
-                response = `I'm here to help! Tell me what you're finding difficult in ${language.name}, and I'll explain it in a way that makes sense for you as a ${userSegment}.`;
-            } else {
-                // Generic encouraging responses
-                const responses = [
-                    `That's an interesting question about ${language.name}! Let me help you understand that better.`,
-                    `As a ${userSegment}, you might find this aspect of ${language.name} particularly useful. Would you like me to explain it in more detail?`,
-                    `Great question! Understanding ${language.name} involves both language and culture. Let me break this down for you.`,
-                    `I appreciate your curiosity about ${language.name}! Practice and consistency will help you master this.`,
-                    `That's a common question for ${userSegment}s learning ${language.name}. Here's what you need to know...`
-                ];
-                response = responses[Math.floor(Math.random() * responses.length)];
-            }
-            
-            addChatMessage(response, 'bot');
-        }
-
-        function addChatMessage(text, sender) {
-            const chatContainer = document.getElementById('chat-messages');
-            if (!chatContainer) return;
-            
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${sender}`;
-            
-            const bubble = document.createElement('div');
-            bubble.className = 'bubble';
-            bubble.textContent = text;
-            
-            messageDiv.appendChild(bubble);
-            chatContainer.appendChild(messageDiv);
-            
-            // Scroll to bottom
-            chatContainer.scrollTop = chatContainer.scrollHeight;
-            
-            // Save to history
-            appState.chatHistory.push({
-                text: text,
-                sender: sender,
-                timestamp: new Date().toISOString()
-            });
-            
-            // Keep only last 100 messages
-            if (appState.chatHistory.length > 100) {
-                appState.chatHistory = appState.chatHistory.slice(-100);
-            }
-            
-            localStorage.setItem('clearWordsChat', JSON.stringify(appState.chatHistory));
-        }
-
-        function renderChatHistory() {
-            const chatContainer = document.getElementById('chat-messages');
-            if (!chatContainer) return;
-            
-            chatContainer.innerHTML = '';
-            
-            // Add welcome message
-            const language = languageConfigs[appState.user.language];
-            const segment = segmentConfigs[appState.user.segment];
-            
-            const welcomeMessage = `👋 ${language.greeting}! I'm your AI ${language.name} tutor. I'm here to help you practice conversations, explain grammar, and share cultural insights. How can I assist you with your ${language.name} learning journey${segment ? ` as a ${segment.name.toLowerCase()}` : ''}?`;
-            
-            addChatMessage(welcomeMessage, 'bot');
-            
-            // Load history
-            appState.chatHistory.forEach(msg => {
-                addChatMessage(msg.text, msg.sender);
-            });
-        }
-
-        function showTypingIndicator() {
-            const chatContainer = document.getElementById('chat-messages');
-            if (!chatContainer) return;
-            
-            const typingDiv = document.createElement('div');
-            typingDiv.className = 'message bot';
-            typingDiv.id = 'typing-indicator';
-            
-            const bubble = document.createElement('div');
-            bubble.className = 'bubble';
-            bubble.innerHTML = '<div class="typing-dots"><span>●</span><span>●</span><span>●</span></div>';
-            
-            typingDiv.appendChild(bubble);
-            chatContainer.appendChild(typingDiv);
-            chatContainer.scrollTop = chatContainer.scrollHeight;
-        }
-
-        function removeTypingIndicator() {
-            const typingIndicator = document.getElementById('typing-indicator');
-            if (typingIndicator) {
-                typingIndicator.remove();
-            }
-        }
-
-        function clearChat() {
-            if (confirm("Clear all chat history?")) {
-                appState.chatHistory = [];
-                localStorage.setItem('clearWordsChat', JSON.stringify([]));
-                renderChatHistory();
-            }
-        }
-
-        function exportChat() {
-            const exportData = {
-                exportDate: new Date().toISOString(),
-                language: appState.user.language,
-                chatHistory: appState.chatHistory
-            };
-            
-            const dataStr = JSON.stringify(exportData, null, 2);
-            const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
-            
-            const exportFileDefaultName = `clearwords-chat-${new Date().toISOString().split('T')[0]}.json`;
-            
-            const linkElement = document.createElement('a');
-            linkElement.setAttribute('href', dataUri);
-            linkElement.setAttribute('download', exportFileDefaultName);
-            linkElement.click();
-        }
-
-        // ======================
         // UTILITY FUNCTIONS
         // ======================
         
@@ -4212,7 +4609,7 @@ document.addEventListener('DOMContentLoaded', function() {
         window.selectTestAnswer = selectTestAnswer;
         window.submitTest = submitTest;
         window.closeLessonFlow = closeLessonFlow;
-        window.practiceWithAI = practiceWithAI;
+        window.practiceWithTimmy = practiceWithTimmy;
         window.practiceWithPartner = practiceWithPartner;
         window.retryTest = retryTest;
         window.playWordAudio = playWordAudio;
@@ -4228,8 +4625,54 @@ document.addEventListener('DOMContentLoaded', function() {
         window.selectSegmentInModal = selectSegmentInModal;
         window.confirmSegmentSwitch = confirmSegmentSwitch;
         window.printPrivacyPolicy = printPrivacyPolicy;
+        window.showTimmyInfo = showTimmyInfo;
 
-        console.log("ClearWords app initialized successfully!");
+        // Helper function for toast notifications
+        function showToast(message) {
+            // Create toast element
+            const toast = document.createElement('div');
+            toast.style.cssText = `
+                position: fixed;
+                bottom: 100px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: var(--primary);
+                color: white;
+                padding: 12px 24px;
+                border-radius: 25px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 10000;
+                font-size: 14px;
+                animation: slideUp 0.3s ease;
+            `;
+            
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                toast.style.animation = 'slideDown 0.3s ease';
+                setTimeout(() => {
+                    document.body.removeChild(toast);
+                }, 300);
+            }, 3000);
+        }
+
+        // Add keyframes for toast animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideUp {
+                from { transform: translateX(-50%) translateY(100px); opacity: 0; }
+                to { transform: translateX(-50%) translateY(0); opacity: 1; }
+            }
+            @keyframes slideDown {
+                from { transform: translateX(-50%) translateY(0); opacity: 1; }
+                to { transform: translateX(-50%) translateY(100px); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        console.log("ClearWords app initialized with Timmy AI! 🤓");
     </script>
 </body>
 </html>
