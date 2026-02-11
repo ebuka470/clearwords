@@ -25,7 +25,7 @@
     <title>ClearWords - Learn Nigerian Languages</title>
     <link rel="stylesheet" href="app.css">
     <style>
-        /* Critical above-the-fold styles only */
+        /* Critical above-the-fold styles only (unchanged) */
         :root {
             /* Light theme */
             --primary-light: #2E8B57;
@@ -1501,6 +1501,13 @@
                     <div class="language-stats">1M+ speakers</div>
                 </div>
                 
+                <!-- NEW: Nigerian Pidgin language option -->
+                <div class="language-option" onclick="selectLanguage('pidgin', event)" role="button" tabindex="0" aria-label="Pidgin - 75 million+ speakers">
+                    <div class="language-emoji">🗣️</div>
+                    <div class="language-name">Pidgin</div>
+                    <div class="language-stats">75M+ speakers</div>
+                </div>
+                
                 <div style="margin-top: 30px; display: flex; gap: 10px; justify-content: center;">
                     <button class="btn" onclick="prevStep()" style="background: var(--border);">Back</button>
                     <button class="btn" onclick="completeOnboarding()" id="step3-next" disabled>Start Learning</button>
@@ -1904,7 +1911,7 @@
                     <div style="margin-bottom: 20px;">
                         <div style="font-weight: 600; margin-bottom: 10px;">Features</div>
                         <ul style="color: var(--text-secondary); padding-left: 20px; line-height: 1.6;">
-                            <li>Comprehensive 50-level curriculum for 5 languages</li>
+                            <li>Comprehensive 50-level curriculum for 6 languages</li>
                             <li>AI-powered language tutor</li>
                             <li>Interactive games and exercises</li>
                             <li>Cultural context and notes</li>
@@ -2036,7 +2043,7 @@
             }
         };
 
-        // Language configurations
+        // Language configurations (UPDATED: added Nigerian Pidgin)
         const languageConfigs = {
             yoruba: {
                 name: "Yoruba",
@@ -2087,6 +2094,17 @@
                 jsonFile: "data/itsekiri.json",
                 levels: 50,
                 color: "#FFD700"
+            },
+            // NEW: Nigerian Pidgin
+            pidgin: {
+                name: "Pidgin",
+                nativeName: "Naija Pidgin",
+                emoji: "🗣️",
+                speakers: "75M+",
+                greeting: "How far?",
+                jsonFile: "data/pidgin.json",
+                levels: 50,
+                color: "#8A2BE2"
             }
         };
 
@@ -2563,170 +2581,252 @@ document.addEventListener('DOMContentLoaded', function() {
                 .catch(error => {
                     console.error("Error loading curriculum:", error);
                     
-                    // Create fallback curriculum
+                    // Create NEW custom fallback curriculum (50-level exact specification)
                     createFallbackCurriculum(language);
                     
                     if (callback) callback();
                 });
         }
 
+        // ======================
+        // NEW CUSTOM FALLBACK CURRICULUM (50-level exact specification)
+        // ======================
+        
         function createFallbackCurriculum(language) {
-            const languageConfig = languageConfigs[language];
-            const fallbackCurriculum = {
-                language: language,
-                name: languageConfig.name,
-                levels: []
-            };
+            const langConfig = languageConfigs[language] || languageConfigs.yoruba;
+            const greeting = langConfig.greeting;
+            const languageName = langConfig.name;
             
-            // Create 50 fallback levels
-            for (let i = 1; i <= 50; i++) {
-                let topic, subTopic, title, description;
+            // ----- Block 1: The Survival Shell (Levels 1–10) -----
+            const block1 = [
+                { level: 1,  topic: "Greetings",   synopsis: "Learn the specific greetings for Morning, Afternoon, and Evening (E kaaro, E kaasan, E ku irole). Cultural focus: Why you must greet before asking for anything." },
+                { level: 2,  topic: "Responses",   synopsis: "The expected call-and-response: 'How far?' / 'No gree for anybody!'; 'M bodi?' / 'M di o!'." },
+                { level: 3,  topic: "Titles",      synopsis: "Introducing yourself – but core lesson is titles: Brother, Sister, Aunty, Uncle, Sir/Ma, Alhaji." },
+                { level: 4,  topic: "Empathy",     synopsis: "The non-apology 'Sorry': 'Mbem', 'Ndo'. Differentiate from 'Forgive me.'" },
+                { level: 5,  topic: "Airtime",     synopsis: "Buying data/airtime, transferring small amounts ('Send me 200 naira'), asking 'How much?' Cultural note: 'Dash' (tip/extra)." },
+                { level: 6,  topic: "Food",        synopsis: "Ordering street food (Yam and Egg, Boli, Suya). Key phrases: 'I want small small,' 'Add pepper,' 'Pack for me take away.'" },
+                { level: 7,  topic: "Directions",  synopsis: "Asking for directions: 'Where is...' and understanding 'Straight,' 'Turn at the big mango tree,' 'It is facing the road.'" },
+                { level: 8,  topic: "Haggling",    synopsis: "Market negotiations: 'Reduce it for me,' 'Last price?' 'Na you be the boss.'" },
+                { level: 9,  topic: "Exit",        synopsis: "Polite disengagement: 'I am in a hurry,' 'Let me go small,' 'I will come back.'" },
+                { level: 10, topic: "Test 1",      synopsis: "Assessment: Simulated scenario – bump into a neighbour, greet, ask about family, apologise for noise, say goodbye." }
+            ];
+            
+            // ----- Block 2: Daily Rhythms (Levels 11–20) -----
+            const block2 = [
+                { level: 11, topic: "Home",      synopsis: "Vocabulary for the Nigerian household: Verandah, Parlour, 'Go and bring the kettle.'" },
+                { level: 12, topic: "Family",    synopsis: "Specific terms for 'My mother’s sibling' vs. 'Father’s sibling.' Cultural focus: Why you cannot date someone you call 'Sister.'" },
+                { level: 13, topic: "Body",      synopsis: "Parts of the body – practical usage: 'My head is spinning' (illness), 'Open your mouth' (at the clinic)." },
+                { level: 14, topic: "Colours",   synopsis: "Describing clothing: 'I am wearing blue,' Ankara, George wrapper. Cultural focus: Colour symbolism in weddings/funerals." },
+                { level: 15, topic: "Morning",   synopsis: "Morning routine – simple past tense: 'I bathed,' 'I ate,' 'I left the house.'" },
+                { level: 16, topic: "Scenarios", synopsis: "Unique Nigerian situations: 'The light has gone' (power outage), 'Stop here!' (Okada), 'Hold your change.'" },
+                { level: 17, topic: "Work",      synopsis: "Professions, especially informal economy: 'I sell clothes,' 'I run a canteen,' 'I am a student.'" },
+                { level: 18, topic: "Time",      synopsis: "Nigerian time concepts: 'Now now' (immediate), 'Small time' (soon), 'Morning' (anytime before noon). Confirming appointments." },
+                { level: 19, topic: "Weather",   synopsis: "Harmattan, Rainy season, Dry season. 'The sun is hot today,' 'I am cold.' Weather as social lubricant." },
+                { level: 20, topic: "Test 2",    synopsis: "Assessment: Tell a story about your day – waking up, leaving, a problem you solved, and returning home." }
+            ];
+            
+            // ----- Block 3: Relationships & Emotions (Levels 21–30) -----
+            const block3 = [
+                { level: 21, topic: "Health",         synopsis: "Asking after someone’s health: 'How is your body?' 'I am tired,' 'I am coughing.' Empathy: 'Sorry for the pain.'" },
+                { level: 22, topic: "Questions",      synopsis: "Answering personal questions ('Are you married?' 'How many children?' 'Why are you not fat?'). Polite deflections and humour." },
+                { level: 23, topic: "Preferences",    synopsis: "Expressing likes/dislikes: 'I love this,' 'I hate pepper,' 'I don’t like wahala.'" },
+                { level: 24, topic: "Gossip",         synopsis: "Small talk vocabulary: 'Did you hear?' 'Who told you?' 'Keep it between us.' Etiquette of secret‑keeping." },
+                { level: 25, topic: "Mood",           synopsis: "Emotions: happiness, anger, sadness, confusion. 'I am annoyed,' 'Don’t worry me,' 'I am just laughing.'" },
+                { level: 26, topic: "Invitation",     synopsis: "Inviting to parties, weddings, burials. Stating location, date, and the phrase 'Your presence is requested.'" },
+                { level: 27, topic: "Accept/Decline", synopsis: "Saying 'Yes' enthusiastically. Saying 'No' without burning bridges: 'I will try,' 'God willing,' 'I am not around.'" },
+                { level: 28, topic: "Compliments",    synopsis: "'You look beautiful,' 'You are shining!' 'I love your fit.' Cultural note: avoid praising babies/objects without 'God bless.'" },
+                { level: 29, topic: "Condolences",    synopsis: "High‑stakes phrases: 'Be strong,' 'It is well,' 'Long life to you.'" },
+                { level: 30, topic: "Test 3",         synopsis: "Assessment: Role‑play – a friend is sad. Ask what’s wrong, listen, and offer appropriate comfort." }
+            ];
+            
+            // ----- Block 4: The Wider World (Levels 31–40) -----
+            const block4 = [
+                { level: 31, topic: "Travel",      synopsis: "Shared taxi / bus: 'Driver, drop me at the junction,' 'Let me enter,' 'I am going to the main market.'" },
+                { level: 32, topic: "Mechanic",    synopsis: "Basic car issues: 'The tyre is flat,' 'It is making noise,' 'How long will it take?'" },
+                { level: 33, topic: "Pharmacy",    synopsis: "Symptoms: 'I have a fever,' 'I am vomiting,' 'Do you have something for malaria?'" },
+                { level: 34, topic: "Now",         synopsis: "Present continuous: 'They are dancing,' 'It is raining,' 'The food is burning!'" },
+                { level: 35, topic: "Weekend",     synopsis: "Past events: 'I went to the village,' 'We attended a naming ceremony.'" },
+                { level: 36, topic: "Future",      synopsis: "'I will call you,' 'I will pay you on Friday,' 'We shall get there.' Cultural weight of promises." },
+                { level: 37, topic: "Instructions", synopsis: "'Cut it small small,' 'Add water gradually,' 'Turn it off.'" },
+                { level: 38, topic: "Advice",      synopsis: "'Don’t touch that,' 'Be careful,' 'If I were you...'" },
+                { level: 39, topic: "Formal",      synopsis: "Code‑switching: speaking 'High' Nigerian English / formal vernacular in professional settings." },
+                { level: 40, topic: "Test 4",      synopsis: "Assessment: You are helping a foreign visitor navigate Lagos/Abuja/Kano – give directions, negotiate a price, and order lunch." }
+            ];
+            
+            // ----- Block 5: Fluency & Cultural Mastery (Levels 41–50) -----
+            const block5 = [
+                { level: 41, topic: "Proverbs",    synopsis: "'A child who washes his hands...' and 'The sun that shines...' – context, not just memorisation." },
+                { level: 42, topic: "Complaint",   synopsis: "Express dissatisfaction without shouting: 'This thing is not correct,' 'I paid for service but...' Assertive, not aggressive." },
+                { level: 43, topic: "Slang",       synopsis: "Current youth slang: 'Ajebo,' 'Omo,' 'Gbese,' 'Jaiye.' Warning: when not to use these." },
+                { level: 44, topic: "Humor",       synopsis: "Simple jokes, wordplay, and how to laugh at yourself." },
+                { level: 45, topic: "Celebration", synopsis: "Vocabulary for weddings, birthdays, title‑taking: 'I bring lafun,' 'Join the spray,' 'Mama, dance!'" },
+                { level: 46, topic: "Tradition",   synopsis: "Explaining cultural norms: 'In the past we did X, but now we do Y.'" },
+                { level: 47, topic: "Phone",       synopsis: "Bad networks: 'Hello, can you hear me?' 'Cut the call and call me back,' 'I am on the line.'" },
+                { level: 48, topic: "Opinion",     synopsis: "Stating views without starting a fight: 'In my opinion,' 'I beg to differ.'" },
+                { level: 49, topic: "Story",       synopsis: "Narrative structure: setting, problem, climax, resolution. 'Let me tell you what happened...'" },
+                { level: 50, topic: "Test 5",      synopsis: "Final Assessment: Full, unstructured conversation – meet a stranger at an event, introduce yourself, discuss where you’re from, current affairs, family, joke, and exchange contact info seamlessly." }
+            ];
+            
+            const allLevels = [...block1, ...block2, ...block3, ...block4, ...block5];
+            const levels = [];
+            
+            for (let i = 0; i < allLevels.length; i++) {
+                const lvl = allLevels[i];
+                const level = lvl.level;
+                const topic = lvl.topic;
+                const synopsis = lvl.synopsis;
+                const isTest = topic.startsWith("Test");
                 
-                // Level grouping logic
-                if (i <= 10) {
-                    topic = "Greetings & Basics";
-                    subTopic = i === 1 ? "Basic Greetings" : 
-                              i === 2 ? "Time-Based Greetings" :
-                              i === 3 ? "Introductions" :
-                              i === 4 ? "Family & Relationships" :
-                              i === 5 ? "Numbers & Counting" :
-                              i === 6 ? "Colors & Shapes" :
-                              i === 7 ? "Days & Months" :
-                              i === 8 ? "Common Phrases" :
-                              i === 9 ? "Polite Expressions" :
-                              "Asking Questions";
-                    title = `Level ${i}: ${subTopic}`;
-                    description = `Learn essential ${subTopic.toLowerCase()} in ${languageConfig.name}`;
-                } else if (i <= 20) {
-                    topic = "Daily Life";
-                    subTopic = i === 11 ? "Food & Drinks" :
-                              i === 12 ? "Shopping & Market" :
-                              i === 13 ? "Home & Family" :
-                              i === 14 ? "Work & School" :
-                              i === 15 ? "Transportation" :
-                              i === 16 ? "Health & Body" :
-                              i === 17 ? "Weather & Seasons" :
-                              i === 18 ? "Hobbies & Activities" :
-                              i === 19 ? "Travel & Directions" :
-                              "Emergency Situations";
-                    title = `Level ${i}: ${subTopic}`;
-                    description = `Master ${subTopic.toLowerCase()} vocabulary for daily conversations`;
-                } else if (i <= 30) {
-                    topic = "Parts of Speech";
-                    subTopic = i <= 22 ? "Nouns & Articles" :
-                              i <= 24 ? "Verbs & Tenses" :
-                              i <= 26 ? "Adjectives" :
-                              i <= 28 ? "Adverbs" :
-                              "Pronouns";
-                    title = `Level ${i}: ${subTopic}`;
-                    description = `Understand ${subTopic.toLowerCase()} in ${languageConfig.name}`;
-                } else if (i <= 40) {
-                    topic = "Advanced Grammar";
-                    subTopic = i === 31 ? "Sentence Structure" :
-                              i === 32 ? "Questions & Negation" :
-                              i === 33 ? "Comparatives & Superlatives" :
-                              i === 34 ? "Conditional Sentences" :
-                              i === 35 ? "Reported Speech" :
-                              i === 36 ? "Passive Voice" :
-                              i === 37 ? "Modal Verbs" :
-                              i === 38 ? "Prepositions" :
-                              i === 39 ? "Conjunctions" :
-                              "Complex Sentences";
-                    title = `Level ${i}: ${subTopic}`;
-                    description = `Advanced grammar concepts for fluent communication`;
-                } else {
-                    topic = "Specialized Topics";
-                    subTopic = i === 41 ? "Business & Work" :
-                              i === 42 ? "Culture & Traditions" :
-                              i === 43 ? "Media & Entertainment" :
-                              i === 44 ? "Technology" :
-                              i === 45 ? "Health & Medicine" :
-                              i === 46 ? "Education" :
-                              i === 47 ? "Politics & Society" :
-                              i === 48 ? "Religion & Beliefs" :
-                              i === 49 ? "Arts & Literature" :
-                              "Mastery & Review";
-                    title = `Level ${i}: ${subTopic}`;
-                    description = `Specialized vocabulary for ${subTopic.toLowerCase()}`;
-                }
+                // Difficulty based on level
+                let difficulty;
+                if (level <= 10) difficulty = "Beginner";
+                else if (level <= 20) difficulty = "Elementary";
+                else if (level <= 30) difficulty = "Intermediate";
+                else if (level <= 40) difficulty = "Upper Intermediate";
+                else difficulty = "Advanced";
                 
-                fallbackCurriculum.levels.push({
-                    level: i,
-                    topic: topic,
-                    subTopic: subTopic,
-                    title: title,
-                    description: description,
-                    learningObjectives: [
-                        `Learn 10 new ${languageConfig.name} words`,
-                        "Understand basic grammar concepts",
-                        "Practice pronunciation",
-                        "Complete exercises"
-                    ],
-                    vocabulary: [
-                        {
-                            word: languageConfig.greeting,
-                            translation: "Hello",
-                            pronunciation: languageConfig.greeting.toLowerCase(),
-                            example: `${languageConfig.greeting}, how are you?`,
-                            culturalNote: "Basic greeting in " + languageConfig.name
-                        }
-                    ],
-                    grammarPoints: [
-                        {
-                            concept: "Basic Sentence Structure",
-                            explanation: "Subject-Verb-Object order",
-                            examples: ["I eat food", "She reads book"],
-                            pattern: "S + V + O"
-                        }
-                    ],
-                    dialogue: [
-                        {
-                            speaker: "Person A",
-                            text: languageConfig.greeting,
-                            translation: "Hello",
-                            audioContext: "Greeting"
-                        },
-                        {
-                            speaker: "Person B",
-                            text: "How are you?",
-                            translation: "Response",
-                            audioContext: "Response"
-                        }
-                    ],
-                    culturalNotes: [
-                        {
-                            title: "Cultural Context",
-                            content: "Greetings are important in " + languageConfig.name + " culture."
-                        }
-                    ],
-                    practiceExercises: [
-                        {
+                if (isTest) {
+                    // ----- TEST LEVELS -----
+                    const testExercises = [];
+                    for (let q = 1; q <= 4; q++) {
+                        testExercises.push({
                             type: "multipleChoice",
-                            question: `What is "Hello" in ${languageConfig.name}?`,
-                            options: [languageConfig.greeting, "Thank you", "Goodbye", "Please"],
+                            question: `Question ${q}: Choose the correct answer for this scenario.`,
+                            options: ["Option A", "Option B", "Option C", "Option D"],
                             correctAnswer: 0,
-                            explanation: `"${languageConfig.greeting}" is the standard greeting.`
-                        }
-                    ],
-                    segmentCustomizations: {
-                        parent: { tips: ["Practice with children"] },
-                        young: { tips: ["Use in social media"] },
-                        pro: { tips: ["Business applications"] },
-                        marriage: { tips: ["Family conversations"] },
-                        nigeria: { tips: ["Regional variations"] }
-                    },
-                    tips: ["Practice daily", "Repeat aloud", "Use in context"],
-                    prerequisites: i > 1 ? [`Complete Level ${i-1}`] : [],
-                    unlocks: i < 50 ? [`Access to Level ${i+1}`] : ["Certificate of Completion"],
-                    estimatedTime: "15-20 minutes",
-                    xpReward: 25,
-                    difficulty: i <= 10 ? "Beginner" : i <= 30 ? "Intermediate" : "Advanced",
-                    tags: [topic.toLowerCase(), subTopic.toLowerCase().replace(/ /g, '-')]
-                });
+                            explanation: "This is a placeholder question. The real assessment will test your practical skills."
+                        });
+                    }
+                    
+                    levels.push({
+                        level: level,
+                        topic: topic,               // "Test 1", "Test 2", etc.
+                        subTopic: topic,
+                        title: topic,              // exact title from spec
+                        description: synopsis,
+                        learningObjectives: [
+                            "Demonstrate comprehension",
+                            "Apply vocabulary in context",
+                            "Navigate real‑life scenario"
+                        ],
+                        vocabulary: [],             // no new vocab in tests
+                        grammarPoints: [],
+                        dialogue: [],
+                        culturalNotes: [],          // optional
+                        practiceExercises: testExercises,
+                        segmentCustomizations: {},
+                        tips: [
+                            "Take your time",
+                            "Read each question carefully",
+                            "Review your answers",
+                            "You can retry if needed"
+                        ],
+                        prerequisites: level > 1 ? [`Complete Level ${level-1}`] : [],
+                        unlocks: level < 50 ? [`Access to Level ${level+1}`] : ["Certificate of Completion"],
+                        estimatedTime: "10-15 minutes",
+                        xpReward: 50,
+                        difficulty: difficulty,
+                        tags: ["test", `level-${level}`]
+                    });
+                    
+                } else {
+                    // ----- REGULAR LESSONS -----
+                    // Vocabulary: at least one item – use the language's greeting for level 1, otherwise placeholder
+                    let vocabulary = [];
+                    if (level === 1) {
+                        vocabulary = [{
+                            word: greeting,
+                            translation: "Hello",
+                            pronunciation: greeting.toLowerCase(),
+                            example: `${greeting}, how are you?`,
+                            culturalNote: `Basic greeting in ${languageName}`
+                        }];
+                    } else {
+                        vocabulary = [{
+                            word: `[${topic} word]`,
+                            translation: `Translation of a ${topic} word`,
+                            pronunciation: "[pronunciation]",
+                            example: `Example sentence with ${topic} word.`,
+                            culturalNote: `Cultural context for ${topic}`
+                        }];
+                    }
+                    
+                    // Grammar: at least one basic grammar point
+                    const grammarPoints = [{
+                        concept: "Basic Sentence Structure",
+                        explanation: "Subject-Verb-Object order",
+                        examples: ["I eat food", "She reads book"],
+                        pattern: "S + V + O"
+                    }];
+                    
+                    // Dialogue: two simple lines using greeting
+                    const dialogue = [
+                        { speaker: "Person A", text: greeting, translation: "Hello", audioContext: "Greeting" },
+                        { speaker: "Person B", text: "How are you?", translation: "Response", audioContext: "Response" }
+                    ];
+                    
+                    // Cultural notes: generic but relevant
+                    const culturalNotes = [{
+                        title: "Cultural Context",
+                        content: `Greetings are important in ${languageName} culture.`
+                    }];
+                    
+                    // Practice exercise: one multiple‑choice question about the greeting
+                    const practiceExercises = [{
+                        type: "multipleChoice",
+                        question: `What is "Hello" in ${languageName}?`,
+                        options: [greeting, "Thank you", "Goodbye", "Please"],
+                        correctAnswer: 0,
+                        explanation: `"${greeting}" is the standard greeting.`
+                    }];
+                    
+                    // Segment customizations – generic placeholder tips
+                    const segmentCustomizations = {
+                        parent: { tips: [`Practice ${topic} with children`] },
+                        young: { tips: [`Use ${topic} in social media`] },
+                        pro: { tips: [`Business applications of ${topic}`] },
+                        marriage: { tips: [`Family conversations about ${topic}`] },
+                        nigeria: { tips: [`Regional variations in ${topic}`] }
+                    };
+                    
+                    levels.push({
+                        level: level,
+                        topic: topic,
+                        subTopic: topic,
+                        title: `Level ${level}: ${topic}`,
+                        description: synopsis,
+                        learningObjectives: [
+                            `Learn 10 new ${languageName} words related to ${topic}`,
+                            "Understand basic grammar concepts",
+                            "Practice pronunciation",
+                            "Complete exercises"
+                        ],
+                        vocabulary: vocabulary,
+                        grammarPoints: grammarPoints,
+                        dialogue: dialogue,
+                        culturalNotes: culturalNotes,
+                        practiceExercises: practiceExercises,
+                        segmentCustomizations: segmentCustomizations,
+                        tips: ["Practice daily", "Repeat aloud", "Use in context"],
+                        prerequisites: level > 1 ? [`Complete Level ${level-1}`] : [],
+                        unlocks: level < 50 ? [`Access to Level ${level+1}`] : ["Certificate of Completion"],
+                        estimatedTime: "15-20 minutes",
+                        xpReward: 25,
+                        difficulty: difficulty,
+                        tags: [topic.toLowerCase(), `level-${level}`]
+                    });
+                }
             }
             
+            // Build the final curriculum object
+            const fallbackCurriculum = {
+                language: language,
+                name: languageName,
+                levels: levels
+            };
+            
             appState.curriculumData[language] = fallbackCurriculum;
-            console.log(`Created fallback curriculum for ${language} with 50 levels`);
+            console.log(`Created new 50-level custom fallback curriculum for ${languageName} (${language})`);
         }
 
         // ======================
@@ -2778,8 +2878,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     level.title.toLowerCase().includes(query) ||
                     level.description.toLowerCase().includes(query) ||
                     level.topic.toLowerCase().includes(query) ||
-                    level.subTopic.toLowerCase().includes(query) ||
-                    level.tags.some(tag => tag.includes(query))
+                    (level.subTopic && level.subTopic.toLowerCase().includes(query)) ||
+                    (level.tags && level.tags.some(tag => tag.includes(query)))
                 );
             }
             
@@ -2806,7 +2906,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     levelDiv.innerHTML = `
                         <div class="level-status">✅</div>
                         <div class="level-number">${level}</div>
-                        <div class="level-title">${levelData.subTopic}</div>
+                        <div class="level-title">${levelData.subTopic || levelData.topic}</div>
                     `;
                     levelDiv.onclick = () => reviewLesson(level);
                 } else if (level <= currentLevel) {
@@ -2814,7 +2914,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     levelDiv.innerHTML = `
                         <div class="level-status">🔓</div>
                         <div class="level-number">${level}</div>
-                        <div class="level-title">${levelData.subTopic}</div>
+                        <div class="level-title">${levelData.subTopic || levelData.topic}</div>
                     `;
                     levelDiv.onclick = () => startLesson(level);
                 } else {
@@ -2822,7 +2922,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     levelDiv.innerHTML = `
                         <div class="level-status">🔒</div>
                         <div class="level-number">${level}</div>
-                        <div class="level-title">${levelData.subTopic}</div>
+                        <div class="level-title">${levelData.subTopic || levelData.topic}</div>
                     `;
                 }
                 
@@ -2900,14 +3000,15 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (!curriculum || !curriculum.levels) {
                 console.error("Curriculum not loaded for:", language);
-                createFallbackLesson(level);
+                // This should never happen because we have fallback, but just in case:
+                createFallbackCurriculum(language);
+                setTimeout(() => loadLessonData(level), 100);
                 return;
             }
             
             const lessonData = curriculum.levels.find(l => l.level === level);
             if (!lessonData) {
                 console.error("Lesson not found:", level);
-                createFallbackLesson(level);
                 return;
             }
             
@@ -2915,66 +3016,7 @@ document.addEventListener('DOMContentLoaded', function() {
             populateLessonCards(lessonData);
         }
 
-        function createFallbackLesson(level) {
-            const language = languageConfigs[appState.user.language];
-            const segment = segmentConfigs[appState.user.segment];
-            
-            appState.currentLessonData = {
-                level: level,
-                title: `Level ${level}: Basic Greetings`,
-                description: `Learn how to greet people in ${language.name}`,
-                vocabulary: [
-                    {
-                        word: language.greeting,
-                        translation: "Hello",
-                        pronunciation: language.greeting.toLowerCase(),
-                        example: `${language.greeting}, how are you?`,
-                        culturalNote: "Basic greeting in " + language.name
-                    }
-                ],
-                grammarPoints: [
-                    {
-                        concept: "Basic Sentence Structure",
-                        explanation: "Subject-Verb-Object order",
-                        examples: ["I eat food", "She reads book"],
-                        pattern: "S + V + O"
-                    }
-                ],
-                dialogue: [
-                    {
-                        speaker: "Person A",
-                        text: language.greeting,
-                        translation: "Hello",
-                        audioContext: "Greeting"
-                    },
-                    {
-                        speaker: "Person B",
-                        text: "How are you?",
-                        translation: "Response",
-                        audioContext: "Response"
-                    }
-                ],
-                culturalNotes: [
-                    {
-                        title: "Cultural Context",
-                        content: "Greetings are important in " + language.name + " culture. Always greet elders first."
-                    }
-                ],
-                practiceExercises: [
-                    {
-                        type: "multipleChoice",
-                        question: `What is "Hello" in ${language.name}?`,
-                        options: [language.greeting, "Thank you", "Goodbye", "Please"],
-                        correctAnswer: 0,
-                        explanation: `"${language.greeting}" is the standard greeting.`
-                    }
-                ],
-                segmentCustomizations: segment ? segment.preview : "General learning content"
-            };
-            
-            populateLessonCards(appState.currentLessonData);
-        }
-
+        // populateLessonCards and all other lesson flow functions remain EXACTLY as in original
         function populateLessonCards(lessonData) {
             const segment = appState.user.segment;
             const segmentCustom = lessonData.segmentCustomizations?.[segment] || {};
@@ -3348,7 +3390,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // ======================
-        // TIMMY AI FUNCTIONS
+        // TIMMY AI FUNCTIONS (UPDATED with Pidgin support)
         // ======================
 
         // Get conversation context from chat history
@@ -3429,7 +3471,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } catch (error) {
                 console.error("Timmy AI Error:", error);
                 
-                // Fallback responses with Timmy's personality
+                // Fallback responses with Timmy's personality (UPDATED: includes Pidgin words)
                 const fallbackResponses = [
                     `Abeg, my API dey catch cold! But no worry, Timmy is here! ${languageConfigs[appState.user.language]?.greeting || "Hello"}! Let's continue our lesson.`,
                     `Network wahala! But as your guy Timmy, I go still teach you something small. Today's word: "${getRandomNigerianWord()}"`,
@@ -3453,14 +3495,15 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        // Helper function for fallback responses
+        // Helper function for fallback responses (UPDATED: added Pidgin)
         function getRandomNigerianWord() {
             const words = {
                 yoruba: ["Ẹ káàbọ (Welcome)", "O ṣeun (Thank you)", "Ẹ kú ojúmọ (Good morning)"],
                 hausa: ["Sannu (Hello)", "Na gode (Thank you)", "Ina kwana? (How are you?)"],
                 igbo: ["Nnọọ (Welcome)", "Daalụ (Thank you)", "Kedu ka ị mere? (How are you?)"],
                 urhobo: ["Mavo (Welcome)", "Uvwẹ (Thank you)", "Mẹ rẹ? (How are you?)"],
-                itsekiri: ["Welọ (Welcome)", "Oshe (Thank you)", "Mẹ re? (How are you?)"]
+                itsekiri: ["Welọ (Welcome)", "Oshe (Thank you)", "Mẹ re? (How are you?)"],
+                pidgin: ["How far? (Hello)", "Abeg (Please)", "Wahala (Trouble)", "Oya (Let's go)"]
             };
             
             const language = appState.user.language;
@@ -3468,7 +3511,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return languageWords[Math.floor(Math.random() * languageWords.length)];
         }
 
-        // Segment-specific Timmy greetings
+        // Segment-specific Timmy greetings (UPDATED: added pidgin case)
         function getTimmyGreeting() {
             const segment = appState.user.segment;
             const language = languageConfigs[appState.user.language];
@@ -3479,6 +3522,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 pro: `Professional mode activated! ${language.greeting}, sir/ma. Timmy here to provide you with business-ready ${language.name} skills that will give you the edge in the marketplace.`,
                 marriage: `Love don show! ${language.greeting}, future in-law! Timmy here to help you impress the family with authentic ${language.name} and cultural savvy. Let's make you the favorite!`,
                 nigeria: `Naija to the world! ${language.greeting}, my fellow Naija learner. Timmy here to help you master ${language.name} with all the local flavor and pro tips.`,
+                pidgin: `${language.greeting}! Abeg, make we learn Naija Pidgin well well! Timmy here to help you speak like true bonafide Naija person!`,
                 default: `${language.greeting}! I'm Timmy, your witty Nigerian language companion. Ready to learn ${language.name} with laughter and cultural insight?`
             };
             
@@ -3808,7 +3852,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // ======================
-        // MODAL FUNCTIONS
+        // MODAL FUNCTIONS (unchanged)
         // ======================
         
         function showModal(modalId) {
@@ -3991,7 +4035,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <h3>2. Description of Service</h3>
                 <p>ClearWords provides interactive Nigerian language learning through lessons, exercises, and AI-powered conversation practice. The service includes:</p>
                 <ul>
-                    <li>50-level curriculum for 5 Nigerian languages</li>
+                    <li>50-level curriculum for 6 Nigerian languages</li>
                     <li>AI language tutor for conversation practice</li>
                     <li>Progress tracking and achievements</li>
                     <li>Offline learning capability</li>
@@ -4057,7 +4101,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // ======================
-        // LANGUAGE SWITCHING
+        // LANGUAGE SWITCHING (now automatically includes Pidgin)
         // ======================
         
         function showLanguageSelector() {
@@ -4206,7 +4250,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // ======================
-        // SEGMENT SWITCHING
+        // SEGMENT SWITCHING (unchanged)
         // ======================
         
         function showSegmentSelector() {
@@ -4281,7 +4325,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // ======================
-        // RESET PROGRESS
+        // RESET PROGRESS (unchanged)
         // ======================
         
         function showResetModal() {
@@ -4313,7 +4357,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // ======================
-        // PROGRESS IMPORT/EXPORT
+        // PROGRESS IMPORT/EXPORT (unchanged)
         // ======================
         
         function exportProgress() {
@@ -4422,7 +4466,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // ======================
-        // UTILITY FUNCTIONS
+        // UTILITY FUNCTIONS (unchanged)
         // ======================
         
         function setupNavigation() {
@@ -4550,7 +4594,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // ======================
-        // MEDIA FUNCTIONS
+        // MEDIA FUNCTIONS (unchanged)
         // ======================
         
         function playWordAudio(word, language) {
@@ -4672,7 +4716,7 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         document.head.appendChild(style);
 
-        console.log("ClearWords app initialized with Timmy AI! 🤓");
+        console.log("ClearWords app initialized with Timmy AI and 6 languages (including Pidgin)! 🤓");
     </script>
 </body>
 </html>
