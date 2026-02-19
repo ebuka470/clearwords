@@ -1715,16 +1715,16 @@
             <div class="lesson-card" id="lesson-card-2"></div>
             <div class="lesson-card" id="lesson-card-3"></div>
             <div class="lesson-card" id="lesson-card-4"></div>
+            <div class="lesson-card" id="lesson-card-5"></div>
             
             <div class="lesson-nav">
                 <button class="btn" onclick="prevLessonCard()" id="prev-btn" style="background: var(--border); color: var(--text);">← Back</button>
-                <div style="font-size: 14px; color: var(--text-secondary);" id="card-counter">1/4</div>
+                <div style="font-size: 14px; color: var(--text-secondary);" id="card-counter">1/5</div>
                 <button class="btn" onclick="nextLessonCard()" id="next-btn">Next →</button>
             </div>
         </div>
 
-        <!-- Enhanced Modals -->
-        
+        <!-- Enhanced Modals (unchanged) -->
         <!-- Privacy Policy Modal -->
         <div class="modal-overlay" id="privacy-modal">
             <div class="modal">
@@ -2116,7 +2116,7 @@
         const TIMMY_AI_CONFIG = {
             name: "Timmy",
             personality: "witty, culturally-savvy Nigerian language companion",
-            style: "Blends academic expertise with street-smart humor and Nigerian slangs",
+            style: "Blends academic expertise with street-smart humor and Nigerian pop-culture references",
             tone: "Warm sarcasm that never shames, celebrations that feel like family praise",
             endpoint: "https://autopost-backend-hbck.onrender.com/clearwordsapi/generate"
         };
@@ -2126,9 +2126,8 @@
 
 ABOUT YOU:
 - You blend academic expertise with street-smart humor
-- You switch seamlessly between explaining grammar rules and dropping relatable Nigerian slangs
+- You switch seamlessly between explaining grammar rules and dropping relatable Nigerian pop-culture references
 - You use warm sarcasm that never shames and celebrations that feel like family praise
-- You never overuse metaphors, similes or comparison, just go straight to the point
 - You make learning feel like chatting with your smartest, funniest friend who genuinely believes in your potential
 - You adapt to each learner's segment with appropriate tone and content
 
@@ -2141,7 +2140,7 @@ STUDENT CONTEXT:
 
 RESPONSE FORMAT: Always respond as JSON with exactly three paragraphs:
 {
-  "paragraph1": "First paragraph with greeting/opening",
+  "paragraph1": "First paragraph with greeting/witty opening",
   "paragraph2": "Second paragraph with main lesson/explanation",
   "paragraph3": "Third paragraph with encouragement/cultural tip"
 }
@@ -2790,6 +2789,12 @@ document.addEventListener('DOMContentLoaded', function() {
                         nigeria: { tips: [`Regional variations in ${topic}`] }
                     };
                     
+                    // NEW: Create a story for each regular lesson
+                    const story = {
+                        target: `${greeting}! My name is Ada. Today I am learning about ${topic}. I will practice with my friend.`,
+                        translation: `Hello! My name is Ada. Today I am learning about ${topic}. I will practice with my friend.`
+                    };
+                    
                     levels.push({
                         level: level,
                         topic: topic,
@@ -2806,6 +2811,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         grammarPoints: grammarPoints,
                         dialogue: dialogue,
                         culturalNotes: culturalNotes,
+                        story: story,   // <-- NEW story field
                         practiceExercises: practiceExercises,
                         segmentCustomizations: segmentCustomizations,
                         tips: ["Practice daily", "Repeat aloud", "Use in context"],
@@ -2962,7 +2968,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // ======================
-        // LESSON FLOW FUNCTIONS
+        // LESSON FLOW FUNCTIONS (UPDATED for 5 cards)
         // ======================
         
         function startLesson(level) {
@@ -3001,7 +3007,6 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (!curriculum || !curriculum.levels) {
                 console.error("Curriculum not loaded for:", language);
-                // This should never happen because we have fallback, but just in case:
                 createFallbackCurriculum(language);
                 setTimeout(() => loadLessonData(level), 100);
                 return;
@@ -3017,12 +3022,12 @@ document.addEventListener('DOMContentLoaded', function() {
             populateLessonCards(lessonData);
         }
 
-        // populateLessonCards and all other lesson flow functions remain EXACTLY as in original
+        // populateLessonCards (UPDATED for 5 cards: vocab, grammar, dialogue, story, test)
         function populateLessonCards(lessonData) {
             const segment = appState.user.segment;
             const segmentCustom = lessonData.segmentCustomizations?.[segment] || {};
             
-            // Card 1: Main Content
+            // Card 1: Main Content (Vocabulary)
             document.getElementById('lesson-card-1').innerHTML = `
                 <div style="text-align: center; margin-bottom: 20px;">
                     <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: 5px;">LEVEL ${lessonData.level} • ${lessonData.topic || 'General'}</div>
@@ -3144,8 +3149,46 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             `;
             
-            // Card 4: Test
-            document.getElementById('lesson-card-4').innerHTML = `
+            // Card 4: Story (NEW)
+            if (lessonData.story) {
+                document.getElementById('lesson-card-4').innerHTML = `
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: 5px;">STORY</div>
+                        <div style="font-size: 24px; font-weight: 700; color: var(--primary); margin-bottom: 10px;">Read & Listen</div>
+                    </div>
+                    
+                    <div style="background: var(--bg); border-radius: 12px; padding: 20px; margin-bottom: 20px; border: 1px solid var(--border);">
+                        <div style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: var(--primary);">📖 ${lessonData.title} - Story</div>
+                        <div style="font-size: 16px; line-height: 1.6; margin-bottom: 20px; font-style: italic; color: var(--text);">
+                            ${lessonData.story.target}
+                        </div>
+                        <div style="border-top: 1px solid var(--border); margin: 20px 0;"></div>
+                        <div style="font-size: 15px; color: var(--text-secondary); line-height: 1.6;">
+                            <strong>English:</strong> ${lessonData.story.translation}
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: center; margin-top: 20px;">
+                        <button class="btn" onclick="playStoryAudio('${lessonData.story.target.replace(/'/g, "\\'")}', '${appState.user.language}')" style="width: 200px;">
+                            🔊 Listen to Story
+                        </button>
+                    </div>
+                `;
+            } else {
+                document.getElementById('lesson-card-4').innerHTML = `
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: 5px;">STORY</div>
+                        <div style="font-size: 24px; font-weight: 700; color: var(--primary); margin-bottom: 10px;">Read & Listen</div>
+                    </div>
+                    <div style="text-align: center; padding: 40px;">
+                        <div style="font-size: 48px; margin-bottom: 20px;">📚</div>
+                        <div style="font-size: 18px; color: var(--text-secondary);">No story available for this lesson.</div>
+                    </div>
+                `;
+            }
+            
+            // Card 5: Test (moved from original card 4)
+            document.getElementById('lesson-card-5').innerHTML = `
                 <div style="text-align: center; margin-bottom: 20px;">
                     <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: 5px;">KNOWLEDGE CHECK</div>
                     <div style="font-size: 24px; font-weight: 700; color: var(--primary); margin-bottom: 5px;">Test Your Understanding</div>
@@ -3194,11 +3237,11 @@ document.addEventListener('DOMContentLoaded', function() {
             
             appState.lessonCardIndex = index;
             
-            // Update progress dots
+            // Update progress dots (5 dots)
             updateLessonProgress();
             
             // Update card counter
-            document.getElementById('card-counter').textContent = `${index + 1}/4`;
+            document.getElementById('card-counter').textContent = `${index + 1}/5`;
             
             // Update navigation buttons
             updateLessonNavigation();
@@ -3209,7 +3252,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!progressContainer) return;
             
             progressContainer.innerHTML = '';
-            for (let i = 0; i < 4; i++) {
+            for (let i = 0; i < 5; i++) {
                 const dot = document.createElement('div');
                 dot.className = 'progress-dot';
                 if (i === appState.lessonCardIndex) {
@@ -3230,7 +3273,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             if (nextBtn) {
-                if (appState.lessonCardIndex === 3) {
+                if (appState.lessonCardIndex === 4) { // test is last card (index 4)
                     nextBtn.textContent = 'Submit Test';
                     nextBtn.onclick = submitTest;
                 } else {
@@ -3241,7 +3284,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         function nextLessonCard() {
-            if (appState.lessonCardIndex < 3) {
+            if (appState.lessonCardIndex < 4) {
                 showLessonCard(appState.lessonCardIndex + 1);
             }
         }
@@ -3309,7 +3352,7 @@ document.addEventListener('DOMContentLoaded', function() {
         function showTestResults(passed, score, total) {
             const lessonData = appState.currentLessonData;
             
-            document.getElementById('lesson-card-4').innerHTML = `
+            document.getElementById('lesson-card-5').innerHTML = `
                 <div style="text-align: center; padding: 40px 20px;">
                     <div style="font-size: 64px; margin-bottom: 20px;">${passed ? '🎉' : '📝'}</div>
                     <div style="font-size: 28px; font-weight: 700; color: ${passed ? 'var(--primary)' : '#F44336'}; margin-bottom: 10px;">
@@ -3362,7 +3405,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         function retryTest() {
             appState.testAnswers = [];
-            showLessonCard(3);
+            showLessonCard(4); // test is now at index 4
         }
 
         function practiceWithTimmy() {
@@ -4036,7 +4079,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <h3>2. Description of Service</h3>
                 <p>ClearWords provides interactive Nigerian language learning through lessons, exercises, and AI-powered conversation practice. The service includes:</p>
                 <ul>
-                    <li>50-level curriculum for 6 Nigerian languages</li>
+                    <li>50-level curriculum for 6 languages</li>
                     <li>AI language tutor for conversation practice</li>
                     <li>Progress tracking and achievements</li>
                     <li>Offline learning capability</li>
@@ -4619,6 +4662,39 @@ document.addEventListener('DOMContentLoaded', function() {
             alert("Playing full dialogue...");
         }
 
+        // NEW: Play story audio using Web Speech API
+        function playStoryAudio(text, language) {
+            if (!('speechSynthesis' in window)) {
+                alert('Text-to-speech is not supported in this browser.');
+                return;
+            }
+            
+            // Map language codes for better TTS support
+            const langMap = {
+                yoruba: 'yo',
+                hausa: 'ha',
+                igbo: 'ig',
+                urhobo: 'urh', // may not be supported
+                itsekiri: 'its', // may not be supported
+                pidgin: 'en'     // fallback to English for Pidgin
+            };
+            const langCode = langMap[language] || 'en';
+            
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = langCode;
+            utterance.rate = 0.9; // slightly slower for learners
+            utterance.pitch = 1;
+            
+            // Optional: try to select a voice that matches the language
+            const voices = window.speechSynthesis.getVoices();
+            const matchingVoice = voices.find(voice => voice.lang.startsWith(langCode));
+            if (matchingVoice) {
+                utterance.voice = matchingVoice;
+            }
+            
+            window.speechSynthesis.speak(utterance);
+        }
+
         // ======================
         // GLOBAL FUNCTION EXPORTS
         // ======================
@@ -4660,6 +4736,7 @@ document.addEventListener('DOMContentLoaded', function() {
         window.playWordAudio = playWordAudio;
         window.playDialogueLine = playDialogueLine;
         window.playFullDialogue = playFullDialogue;
+        window.playStoryAudio = playStoryAudio; // <-- NEW
         window.reviewLesson = reviewLesson;
         window.closeModal = closeModal;
         window.filterLanguages = filterLanguages;
@@ -4717,7 +4794,7 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         document.head.appendChild(style);
 
-        console.log("ClearWords app initialized with Timmy AI and 6 languages (including Pidgin)! 🤓");
+        console.log("ClearWords app initialized with Timmy AI, 6 languages, and Story card! 🤓");
     </script>
 </body>
 </html>
