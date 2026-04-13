@@ -2,7 +2,7 @@
   "name": "ClearWords",
   "short_name": "ClearWords",
   "description": "Learn Nigerian Languages through interactive games and AI conversation",
-  "start_url": "/",
+  "start_url": "/language.html",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#FFFFFF",
