@@ -7,6 +7,7 @@ const DATA_CACHE = 'clearwords-data-v1.0.0';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
+  '/language.html',
   '/app.css',
   '/app.js',
   '/logo.png',
