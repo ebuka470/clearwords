@@ -1258,6 +1258,31 @@
             border-radius: 0 8px 8px 0;
         }
 
+        /* Audio button styles */
+        .audio-btn {
+            background: var(--accent1);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .audio-btn:hover {
+            background: var(--primary);
+            transform: scale(1.05);
+        }
+
+        .audio-btn.playing {
+            background: var(--accent2);
+            animation: pulse 1s infinite;
+        }
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .page {
@@ -1714,7 +1739,7 @@
                 <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: var(--bg); border-radius: 10px; cursor: pointer;" onclick="showAbout()" role="button" tabindex="0">
                     <div>About ClearWords</div>
                     <div>→</div>
-                </div>&nbsp &nbsp
+                </div>&nbsp 
                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding: 12px; background: var(--bg); border-radius: 10px; cursor: pointer;" role="button" tabindex="0" onclick="window.location.href='index.html'">
     <div>Visit Website</div>
     <div>→</div>
@@ -2007,6 +2032,218 @@
         
         console.log("ClearWords app loading...");
         
+        // ======================
+        // TTS (TEXT-TO-SPEECH) CONFIGURATION
+        // ======================
+        
+        // Language code mapping for Web Speech API
+        const TTS_LANG_MAP = {
+            'yoruba': 'yo-NG',    // Yoruba (Nigeria)
+            'hausa': 'ha-NG',     // Hausa (Nigeria)
+            'igbo': 'ig-NG',      // Igbo (Nigeria)
+            'urhobo': 'en-NG',    // Fallback to Nigerian English
+            'itsekiri': 'en-NG',  // Fallback to Nigerian English
+            'pidgin': 'en-NG'     // Fallback to Nigerian English
+        };
+        
+        // TTS state management
+        let ttsState = {
+            isSpeaking: false,
+            currentUtterance: null,
+            queue: []
+        };
+        
+        // Check if TTS is supported
+        function isTTSSupported() {
+            return 'speechSynthesis' in window;
+        }
+        
+        // Stop any ongoing speech
+        function stopTTS() {
+            if (ttsState.isSpeaking) {
+                window.speechSynthesis.cancel();
+                ttsState.isSpeaking = false;
+                ttsState.currentUtterance = null;
+            }
+        }
+        
+        // Get language code for TTS
+        function getTTSLangCode(language) {
+            return TTS_LANG_MAP[language] || 'en-NG';
+        }
+        
+        // Play word audio using Web Speech API
+        function playWordAudio(word, language) {
+            if (!isTTSSupported()) {
+                showToast('Text-to-speech not supported in your browser');
+                return;
+            }
+            
+            // Stop any currently playing audio
+            stopTTS();
+            
+            const utterance = new SpeechSynthesisUtterance(word);
+            utterance.lang = getTTSLangCode(language);
+            utterance.rate = 0.85;  // Slightly slower for clarity
+            utterance.pitch = 1.0;
+            utterance.volume = 1.0;
+            
+            // Add voice selection for better quality
+            const voices = window.speechSynthesis.getVoices();
+            const preferredVoice = voices.find(voice => 
+                voice.lang.includes(utterance.lang.split('-')[0]) || 
+                voice.lang === utterance.lang
+            );
+            if (preferredVoice) {
+                utterance.voice = preferredVoice;
+            }
+            
+            // Event handlers
+            utterance.onstart = () => {
+                ttsState.isSpeaking = true;
+                ttsState.currentUtterance = utterance;
+            };
+            
+            utterance.onend = () => {
+                ttsState.isSpeaking = false;
+                ttsState.currentUtterance = null;
+            };
+            
+            utterance.onerror = (event) => {
+                console.warn('TTS Error:', event);
+                ttsState.isSpeaking = false;
+                ttsState.currentUtterance = null;
+                // Only show error for non-interruption errors
+                if (event.error !== 'interrupted') {
+                    showToast('Unable to play audio. Trying again might help!');
+                }
+            };
+            
+            window.speechSynthesis.speak(utterance);
+        }
+        
+        // Play dialogue line
+        function playDialogueLine(index) {
+            const lessonData = appState.currentLessonData;
+            if (!lessonData || !lessonData.dialogue || !lessonData.dialogue[index]) {
+                showToast('No dialogue available');
+                return;
+            }
+            
+            const line = lessonData.dialogue[index];
+            const language = appState.user.language;
+            
+            if (!isTTSSupported()) {
+                showToast('Text-to-speech not supported in your browser');
+                return;
+            }
+            
+            // Stop any currently playing audio
+            stopTTS();
+            
+            const utterance = new SpeechSynthesisUtterance(line.text);
+            utterance.lang = getTTSLangCode(language);
+            utterance.rate = 0.8;  // Slower for dialogue clarity
+            utterance.pitch = 1.0;
+            
+            const voices = window.speechSynthesis.getVoices();
+            const preferredVoice = voices.find(voice => 
+                voice.lang.includes(utterance.lang.split('-')[0])
+            );
+            if (preferredVoice) {
+                utterance.voice = preferredVoice;
+            }
+            
+            utterance.onstart = () => {
+                ttsState.isSpeaking = true;
+                ttsState.currentUtterance = utterance;
+            };
+            
+            utterance.onend = () => {
+                ttsState.isSpeaking = false;
+                ttsState.currentUtterance = null;
+            };
+            
+            utterance.onerror = (event) => {
+                if (event.error !== 'interrupted') {
+                    console.warn('TTS Error:', event);
+                }
+                ttsState.isSpeaking = false;
+                ttsState.currentUtterance = null;
+            };
+            
+            window.speechSynthesis.speak(utterance);
+        }
+        
+        // Play full dialogue
+        function playFullDialogue() {
+            const lessonData = appState.currentLessonData;
+            if (!lessonData || !lessonData.dialogue || lessonData.dialogue.length === 0) {
+                showToast('No dialogue available');
+                return;
+            }
+            
+            const language = appState.user.language;
+            
+            if (!isTTSSupported()) {
+                showToast('Text-to-speech not supported in your browser');
+                return;
+            }
+            
+            // Stop any currently playing audio
+            stopTTS();
+            
+            // Build the full dialogue text with pauses
+            const dialogueText = lessonData.dialogue
+                .map(line => `${line.speaker}: ${line.text}`)
+                .join('. ... ');
+            
+            const utterance = new SpeechSynthesisUtterance(dialogueText);
+            utterance.lang = getTTSLangCode(language);
+            utterance.rate = 0.75;  // Slower for full dialogue
+            utterance.pitch = 1.0;
+            
+            const voices = window.speechSynthesis.getVoices();
+            const preferredVoice = voices.find(voice => 
+                voice.lang.includes(utterance.lang.split('-')[0])
+            );
+            if (preferredVoice) {
+                utterance.voice = preferredVoice;
+            }
+            
+            utterance.onstart = () => {
+                ttsState.isSpeaking = true;
+                ttsState.currentUtterance = utterance;
+                showToast('Playing full dialogue...');
+            };
+            
+            utterance.onend = () => {
+                ttsState.isSpeaking = false;
+                ttsState.currentUtterance = null;
+            };
+            
+            utterance.onerror = (event) => {
+                if (event.error !== 'interrupted') {
+                    console.warn('TTS Error:', event);
+                }
+                ttsState.isSpeaking = false;
+                ttsState.currentUtterance = null;
+            };
+            
+            window.speechSynthesis.speak(utterance);
+        }
+        
+        // Initialize voices (call this early)
+        function initTTSVoices() {
+            if (isTTSSupported()) {
+                // Pre-load voices
+                window.speechSynthesis.getVoices();
+            }
+        }
+        
+        // Call voice initialization
+        setTimeout(initTTSVoices, 100);
+        
         // Segment-specific configurations
         const segmentConfigs = {
             parent: {
@@ -2086,7 +2323,7 @@
             }
         };
 
-        // Language configurations (UPDATED: added Nigerian Pidgin)
+        // Language configurations
         const languageConfigs = {
             yoruba: {
                 name: "Yoruba",
@@ -2138,7 +2375,6 @@
                 levels: 50,
                 color: "#FFD700"
             },
-            // NEW: Nigerian Pidgin
             pidgin: {
                 name: "Pidgin",
                 nativeName: "Naija Pidgin",
@@ -2155,7 +2391,6 @@
         // TIMMY AI CONFIGURATION
         // ======================
 
-        // Timmy AI Character Configuration
         const TIMMY_AI_CONFIG = {
             name: "Timmy",
             personality: "witty, culturally-savvy Nigerian language companion",
@@ -2164,7 +2399,6 @@
             endpoint: "https://autopost-backend-hbck.onrender.com/clearwordsapi/generate"
         };
 
-        // Timmy AI System Prompt with Language Learning Focus
         const TIMMY_AI_RULES = `You are Timmy, a witty, culturally-savvy Nigerian language companion—the cool cousin who studied linguistics abroad but came home because he missed proper jollof rice.
 
 ABOUT YOU:
@@ -2276,6 +2510,11 @@ NOW RESPOND AS TIMMY: Keep it conversational, educational, and entertaining. Mix
             const savedState = localStorage.getItem('clearWordsState');
             const userId = localStorage.getItem('clearWordsUserId');
             
+            // Check for URL parameters (for marketing page deep linking)
+            const urlParams = new URLSearchParams(window.location.search);
+            const presetLang = urlParams.get('lang');
+            const presetSegment = urlParams.get('segment');
+            
             if (savedState && userId) {
                 try {
                     const parsed = JSON.parse(savedState);
@@ -2283,7 +2522,6 @@ NOW RESPOND AS TIMMY: Keep it conversational, educational, and entertaining. Mix
                         console.log("Loading saved state...");
                         appState = parsed;
                         
-                        // Check if state belongs to current user
                         if (parsed.user.id === userId) {
                             showMainApp();
                             return;
@@ -2294,7 +2532,14 @@ NOW RESPOND AS TIMMY: Keep it conversational, educational, and entertaining. Mix
                 }
             }
             
-            // Show onboarding
+            // If URL has preset language, we can pre-select it (optional enhancement)
+            if (presetLang && languageConfigs[presetLang]) {
+                console.log(`URL preset language: ${presetLang}`);
+                // Store for later use in onboarding
+                window.presetLanguage = presetLang;
+                window.presetSegment = presetSegment;
+            }
+            
             console.log("Showing onboarding...");
             showOnboarding();
         }
@@ -2305,10 +2550,10 @@ NOW RESPOND AS TIMMY: Keep it conversational, educational, and entertaining. Mix
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('onboarding').style.display = 'block';
                 
-                // Initialize step 1
                 currentStep = 1;
-                selectedSegment = null;
-                selectedLanguage = null;
+                selectedSegment = window.presetSegment || null;
+                selectedLanguage = window.presetLanguage || null;
+                
                 document.getElementById('step1').classList.add('active');
                 document.getElementById('step2').classList.remove('active');
                 document.getElementById('step3').classList.remove('active');
@@ -2376,11 +2621,9 @@ NOW RESPOND AS TIMMY: Keep it conversational, educational, and entertaining. Mix
                 return;
             }
             
-            // Generate new user ID
             const userId = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
             localStorage.setItem('clearWordsUserId', userId);
             
-            // Initialize app state
             appState = {
                 user: {
                     id: userId,
@@ -2414,9 +2657,7 @@ NOW RESPOND AS TIMMY: Keep it conversational, educational, and entertaining. Mix
             
             saveState();
             
-            // Load curriculum for selected language
             loadCurriculum(selectedLanguage, () => {
-                // Hide onboarding and show app
                 document.getElementById('onboarding').style.display = 'none';
                 initializeApp();
                 document.getElementById('app').style.display = 'block';
@@ -2443,89 +2684,68 @@ NOW RESPOND AS TIMMY: Keep it conversational, educational, and entertaining. Mix
         function initializeApp() {
             console.log("initializeApp called");
             
-            // Apply segment theme
             applySegmentTheme();
             
-            // Apply theme from state
             if (appState.isDarkTheme) {
                 document.body.classList.add('dark-theme');
                 document.getElementById('theme-toggle').textContent = '🌓 Dark Mode';
             }
             
-            // Load curriculum if not loaded
             if (!appState.curriculumData[appState.user.language]) {
                 loadCurriculum(appState.user.language);
             }
             
-            // Update UI with user data
             updateUserUI();
-            
-            // Load levels
             generateLevels();
-            
-            // Setup navigation
             setupNavigation();
-            
-            // Setup chat with Timmy
             setupChat();
-            
-            // Check daily streak
             checkDailyStreak();
-            
-            // Load privacy policy
             loadPrivacyPolicy();
-            
-            // Load terms of service
             loadTermsOfService();
-            
-            // Load Timmy modal
             loadTimmyModal();
             
-            // Show current page
             showPage('home');
         }
 
         function checkPWAStatus() {
-    const isPWA = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
-    const statusEl = document.getElementById('pwa-status');
-    
-    if (isPWA) {
-        statusEl.innerHTML = '✅ Installed';
-        statusEl.style.color = 'var(--primary)';
-        showToast('ClearWords is running as a standalone app! 🎉');
-    } else if (window.deferredPrompt) {
-        statusEl.innerHTML = '📱 Available';
-        statusEl.style.color = 'var(--accent2)';
-        if (window.showInstallPrompt) {
-            showInstallPrompt();
-        }
-    } else {
-        statusEl.innerHTML = '🌐 Browser';
-        statusEl.style.color = 'var(--text-secondary)';
-        showToast('Installation prompt will appear when available.');
-    }
-}
-
-// Initialize PWA status check on settings page load
-document.addEventListener('DOMContentLoaded', function() {
-    // This will run after the main app loads
-    setTimeout(() => {
-        const pwaStatusEl = document.getElementById('pwa-status');
-        if (pwaStatusEl) {
             const isPWA = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+            const statusEl = document.getElementById('pwa-status');
+            
             if (isPWA) {
-                pwaStatusEl.innerHTML = '✅ Installed';
-                pwaStatusEl.style.color = 'var(--primary)';
+                statusEl.innerHTML = '✅ Installed';
+                statusEl.style.color = 'var(--primary)';
+                showToast('ClearWords is running as a standalone app! 🎉');
             } else if (window.deferredPrompt) {
-                pwaStatusEl.innerHTML = '📱 Available';
-                pwaStatusEl.style.color = 'var(--accent2)';
+                statusEl.innerHTML = '📱 Available';
+                statusEl.style.color = 'var(--accent2)';
+                if (window.showInstallPrompt) {
+                    showInstallPrompt();
+                }
             } else {
-                pwaStatusEl.innerHTML = '🌐 Browser';
-                pwaStatusEl.style.color = 'var(--text-secondary)';
+                statusEl.innerHTML = '🌐 Browser';
+                statusEl.style.color = 'var(--text-secondary)';
+                showToast('Installation prompt will appear when available.');
             }
         }
-    }, 1000);
-});
+
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                const pwaStatusEl = document.getElementById('pwa-status');
+                if (pwaStatusEl) {
+                    const isPWA = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+                    if (isPWA) {
+                        pwaStatusEl.innerHTML = '✅ Installed';
+                        pwaStatusEl.style.color = 'var(--primary)';
+                    } else if (window.deferredPrompt) {
+                        pwaStatusEl.innerHTML = '📱 Available';
+                        pwaStatusEl.style.color = 'var(--accent2)';
+                    } else {
+                        pwaStatusEl.innerHTML = '🌐 Browser';
+                        pwaStatusEl.style.color = 'var(--text-secondary)';
+                    }
+                }
+            }, 1000);
+        });
 
         function applySegmentTheme() {
             const segment = appState.user.segment;
@@ -2533,7 +2753,6 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const config = segmentConfigs[segment];
             
-            // Update navigation labels
             document.getElementById('home-label').textContent = config.homeLabel;
             document.getElementById('lessons-label').textContent = config.lessonsLabel;
             document.getElementById('chat-label').textContent = config.chatLabel;
@@ -2545,29 +2764,22 @@ document.addEventListener('DOMContentLoaded', function() {
             const segment = segmentConfigs[user.segment]?.name || 'Not set';
             const language = languageConfigs[user.language]?.name || 'Not set';
             
-            // Update home page
             document.getElementById('home-title').textContent = `Learning ${language}`;
             document.getElementById('home-subtitle').textContent = `${segment} | Day ${user.streak}`;
             document.getElementById('streak-count').textContent = user.streak;
             document.getElementById('daily-progress').textContent = `${user.dailyCompleted}/${user.dailyGoal}`;
             
-            // Update lessons page
             document.getElementById('lessons-title').textContent = `${language} Lessons`;
             document.getElementById('lessons-subtitle').textContent = `${user.completedLevels.length}/50 levels completed`;
             
-            // Update settings page
             document.getElementById('current-segment').textContent = segment;
             document.getElementById('current-language').textContent = language;
             document.getElementById('total-xp').textContent = `${user.totalXP} XP`;
             
-            // Update progress bar
             const progress = (user.dailyCompleted / user.dailyGoal) * 100;
             document.getElementById('daily-progress-bar').style.width = `${progress}%`;
             
-            // Update continue lesson
             updateHomeContent();
-            
-            // Update lessons badge
             updateLessonsBadge();
         }
 
@@ -2595,14 +2807,12 @@ document.addEventListener('DOMContentLoaded', function() {
             
             console.log(`Loading curriculum for ${language}...`);
             
-            // Check if already loaded
             if (appState.curriculumData[language]) {
                 console.log("Curriculum already loaded");
                 if (callback) callback();
                 return;
             }
             
-            // Load from JSON file
             fetch(languageConfig.jsonFile)
                 .then(response => {
                     if (!response.ok) {
@@ -2614,7 +2824,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     console.log(`Successfully loaded ${language} curriculum with ${data.levels?.length || 0} levels`);
                     appState.curriculumData[language] = data;
                     
-                    // Generate levels if on lessons page
                     if (appState.user.language === language) {
                         generateLevels();
                     }
@@ -2623,8 +2832,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 })
                 .catch(error => {
                     console.error("Error loading curriculum:", error);
-                    
-                    // Create NEW custom fallback curriculum (50-level exact specification)
                     createFallbackCurriculum(language);
                     
                     if (callback) callback();
@@ -2632,7 +2839,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // ======================
-        // NEW CUSTOM FALLBACK CURRICULUM (50-level exact specification)
+        // FALLBACK CURRICULUM
         // ======================
         
         function createFallbackCurriculum(language) {
@@ -2640,74 +2847,69 @@ document.addEventListener('DOMContentLoaded', function() {
             const greeting = langConfig.greeting;
             const languageName = langConfig.name;
             
-            // ----- Block 1: The Survival Shell (Levels 1–10) -----
             const block1 = [
-                { level: 1,  topic: "Greetings",   synopsis: "Learn the specific greetings for Morning, Afternoon, and Evening (E kaaro, E kaasan, E ku irole). Cultural focus: Why you must greet before asking for anything." },
-                { level: 2,  topic: "Expressions",   synopsis: "Asking about well-being, responding 'Hello', 'How are you?', 'Where are you from?', 'What is your name?'" },
-                { level: 3,  topic: "Introduction",      synopsis: "Introducing yourself." },
-                { level: 4,  topic: "Empathy",     synopsis: "The non-apology 'Sorry': 'Mbem', 'Ndo'. Differentiate from 'Forgive me.'" },
-                { level: 5,  topic: "Basic Needs",     synopsis: "Asking for basic necessities and identifying them." },
-                { level: 6,  topic: "Food",        synopsis: "Ordering street food (Yam and Egg, Boli, Suya). Key phrases: 'I want small small,' 'Add pepper,' 'Pack for me take away.'" },
-                { level: 7,  topic: "Directions",  synopsis: "Asking for directions: 'Where is...' and understanding 'Straight,' 'Turn at the big mango tree,' 'It is facing the road.'" },
-                { level: 8,  topic: "Haggling",    synopsis: "Market negotiations: 'Reduce it for me,' 'Last price?' 'Na you be the boss.' 'How much?'" },
-                { level: 9,  topic: "Exiting",        synopsis: "Polite disengagement: 'I am in a hurry,' 'Let me go small,' 'I will come back.'" },
-                { level: 10, topic: "Test 1",      synopsis: "Assessment: Simulated scenario – bump into a neighbour, greet, ask about family, apologise for noise, say goodbye." }
+                { level: 1, topic: "Greetings", synopsis: "Learn the specific greetings for Morning, Afternoon, and Evening." },
+                { level: 2, topic: "Expressions", synopsis: "Asking about well-being, responding 'Hello', 'How are you?'" },
+                { level: 3, topic: "Introduction", synopsis: "Introducing yourself." },
+                { level: 4, topic: "Empathy", synopsis: "The non-apology 'Sorry': 'Ndo'. Differentiate from 'Forgive me.'" },
+                { level: 5, topic: "Basic Needs", synopsis: "Asking for basic necessities." },
+                { level: 6, topic: "Food", synopsis: "Ordering street food." },
+                { level: 7, topic: "Directions", synopsis: "Asking for directions." },
+                { level: 8, topic: "Haggling", synopsis: "Market negotiations." },
+                { level: 9, topic: "Exiting", synopsis: "Polite disengagement." },
+                { level: 10, topic: "Test 1", synopsis: "Assessment: Simulated scenario." }
             ];
             
-            // ----- Block 2: Daily Rhythms (Levels 11–20) -----
             const block2 = [
-                { level: 11, topic: "Home",      synopsis: "Vocabulary for the Nigerian household: Verandah, Parlour, 'Go and bring the kettle.'" },
-                { level: 12, topic: "Family",    synopsis: "Specific terms for 'My mother’s sibling' vs. 'Father’s sibling.' Grandparents, Siblings. Cultural focus: Why you cannot date someone you call 'Sister.'" },
-                { level: 13, topic: "Body",      synopsis: "Parts of the body – practical usage: 'My head is spinning' (illness), 'Open your mouth' (at the clinic)." },
-                { level: 14, topic: "Colours",   synopsis: "Describing clothing: 'I am wearing blue,' Ankara, George wrapper. Cultural focus: Colour symbolism in weddings/funerals." },
-                { level: 15, topic: "Morning Routine",   synopsis: "Morning routine – simple past tense: 'I bathed,' 'I ate,' 'I left the house.'" },
-                { level: 16, topic: "Scenarios", synopsis: "Unique Nigerian situations: 'The light has gone' (power outage), 'Stop here!' (Okada), 'Hold your change.'" },
-                { level: 17, topic: "Work",      synopsis: "Professions, especially informal economy: 'I sell clothes,' 'I run a canteen,' 'I am a student.'" },
-                { level: 18, topic: "Time",      synopsis: "Nigerian time concepts: 'Now now' (immediate), 'Small time' (soon), 'Morning' (anytime before noon). Confirming appointments." },
-                { level: 19, topic: "Weather",   synopsis: "Harmattan, Rainy season, Dry season. 'The sun is hot today,' 'I am cold.' Weather as social lubricant." },
-                { level: 20, topic: "Test 2",    synopsis: "Assessment: Tell a story about your day – waking up, leaving, a problem you solved, and returning home." }
+                { level: 11, topic: "Home", synopsis: "Vocabulary for the Nigerian household." },
+                { level: 12, topic: "Family", synopsis: "Specific terms for family members." },
+                { level: 13, topic: "Body", synopsis: "Parts of the body." },
+                { level: 14, topic: "Colours", synopsis: "Describing clothing." },
+                { level: 15, topic: "Morning Routine", synopsis: "Morning routine." },
+                { level: 16, topic: "Scenarios", synopsis: "Unique Nigerian situations." },
+                { level: 17, topic: "Work", synopsis: "Professions." },
+                { level: 18, topic: "Time", synopsis: "Nigerian time concepts." },
+                { level: 19, topic: "Weather", synopsis: "Harmattan, Rainy season." },
+                { level: 20, topic: "Test 2", synopsis: "Assessment: Tell a story." }
             ];
             
-            // ----- Block 3: Relationships & Emotions (Levels 21–30) -----
             const block3 = [
-                { level: 21, topic: "Health",         synopsis: "Asking after someone’s health: 'How is your body?' 'I am tired,' 'I am coughing.' Empathy: 'Sorry for the pain.'" },
-                { level: 22, topic: "Questions",      synopsis: "Answering personal questions ('Are you married?' 'How many children?' 'Why are you not fat?'). Polite deflections and humour." },
-                { level: 23, topic: "Preferences",    synopsis: "Expressing likes/dislikes: 'I love this,' 'I hate pepper,' 'I don’t like wahala.'" },
-                { level: 24, topic: "Gossip",         synopsis: "Small talk vocabulary: 'Did you hear?' 'Who told you?' 'Keep it between us.' Etiquette of secret‑keeping." },
-                { level: 25, topic: "Mood",           synopsis: "Emotions: happiness, anger, sadness, confusion. 'I am annoyed,' 'Don’t worry me,' 'I am just laughing.'" },
-                { level: 26, topic: "Invitation",     synopsis: "Inviting to parties, weddings, burials. Stating location, date, and the phrase 'Your presence is requested.'" },
-                { level: 27, topic: "Accept/Decline", synopsis: "Saying 'Yes' enthusiastically. Saying 'No' without burning bridges: 'I will try,' 'God willing,' 'I am not around.'" },
-                { level: 28, topic: "Compliments",    synopsis: "'You look beautiful,' 'You are shining!' 'I love your fit.' Cultural note: avoid praising babies/objects without 'God bless.'" },
-                { level: 29, topic: "Condolences",    synopsis: "High‑stakes phrases: 'Be strong,' 'It is well,' 'Long life to you.'" },
-                { level: 30, topic: "Test 3",         synopsis: "Assessment: Role‑play – a friend is sad. Ask what’s wrong, listen, and offer appropriate comfort." }
+                { level: 21, topic: "Health", synopsis: "Asking after someone's health." },
+                { level: 22, topic: "Questions", synopsis: "Answering personal questions." },
+                { level: 23, topic: "Preferences", synopsis: "Expressing likes/dislikes." },
+                { level: 24, topic: "Gossip", synopsis: "Small talk vocabulary." },
+                { level: 25, topic: "Mood", synopsis: "Emotions." },
+                { level: 26, topic: "Invitation", synopsis: "Inviting to parties." },
+                { level: 27, topic: "Accept/Decline", synopsis: "Saying 'Yes' and 'No'." },
+                { level: 28, topic: "Compliments", synopsis: "Giving compliments." },
+                { level: 29, topic: "Condolences", synopsis: "High-stakes phrases." },
+                { level: 30, topic: "Test 3", synopsis: "Assessment: Role-play." }
             ];
             
-            // ----- Block 4: The Wider World (Levels 31–40) -----
             const block4 = [
-                { level: 31, topic: "Travel",      synopsis: "Shared taxi / bus: 'Driver, drop me at the junction,' 'Let me enter,' 'I am going to the main market.'" },
-                { level: 32, topic: "Mechanic",    synopsis: "Basic car issues: 'The tyre is flat,' 'It is making noise,' 'How long will it take?'" },
-                { level: 33, topic: "Pharmacy",    synopsis: "Symptoms: 'I have a fever,' 'I am vomiting,' 'Do you have something for malaria?'" },
-                { level: 34, topic: "Now",         synopsis: "Present continuous: 'They are dancing,' 'It is raining,' 'The food is burning!'" },
-                { level: 35, topic: "Weekend",     synopsis: "Past events: 'I went to the village,' 'We attended a naming ceremony.'" },
-                { level: 36, topic: "Future",      synopsis: "'I will call you,' 'I will pay you on Friday,' 'We shall get there.' Cultural weight of promises." },
-                { level: 37, topic: "Instructions", synopsis: "'Cut it small small,' 'Add water gradually,' 'Turn it off.'" },
-                { level: 38, topic: "Advice",      synopsis: "'Don’t touch that,' 'Be careful,' 'If I were you...'" },
-                { level: 39, topic: "Formal",      synopsis: "Code‑switching: speaking 'High' Nigerian English / formal vernacular in professional settings." },
-                { level: 40, topic: "Test 4",      synopsis: "Assessment: You are helping a foreign visitor navigate Lagos/Abuja/Kano – give directions, negotiate a price, and order lunch." }
+                { level: 31, topic: "Travel", synopsis: "Shared taxi / bus." },
+                { level: 32, topic: "Mechanic", synopsis: "Basic car issues." },
+                { level: 33, topic: "Pharmacy", synopsis: "Symptoms." },
+                { level: 34, topic: "Now", synopsis: "Present continuous." },
+                { level: 35, topic: "Weekend", synopsis: "Past events." },
+                { level: 36, topic: "Future", synopsis: "Future tense." },
+                { level: 37, topic: "Instructions", synopsis: "Giving instructions." },
+                { level: 38, topic: "Advice", synopsis: "Giving advice." },
+                { level: 39, topic: "Formal", synopsis: "Code-switching." },
+                { level: 40, topic: "Test 4", synopsis: "Assessment: Navigate a visitor." }
             ];
             
-            // ----- Block 5: Fluency & Cultural Mastery (Levels 41–50) -----
             const block5 = [
-                { level: 41, topic: "Proverbs",    synopsis: "'A child who washes his hands...' and 'The sun that shines...' – context, not just memorisation." },
-                { level: 42, topic: "Complaint",   synopsis: "Express dissatisfaction without shouting: 'This thing is not correct,' 'I paid for service but...' Assertive, not aggressive." },
-                { level: 43, topic: "Slang",       synopsis: "Current youth slang: 'Ajebo,' 'Omo,' 'Gbese,' 'Jaiye.' Warning: when not to use these." },
-                { level: 44, topic: "Humor",       synopsis: "Simple jokes, wordplay, and how to laugh at yourself." },
-                { level: 45, topic: "Celebration", synopsis: "Vocabulary for weddings, birthdays, title‑taking: 'I bring lafun,' 'Join the spray,' 'Mama, dance!'" },
-                { level: 46, topic: "Tradition",   synopsis: "Explaining cultural norms: 'In the past we did X, but now we do Y.'" },
-                { level: 47, topic: "Phone",       synopsis: "Bad networks: 'Hello, can you hear me?' 'Cut the call and call me back,' 'I am on the line.'" },
-                { level: 48, topic: "Opinion",     synopsis: "Stating views without starting a fight: 'In my opinion,' 'I beg to differ.'" },
-                { level: 49, topic: "Story",       synopsis: "Narrative structure: setting, problem, climax, resolution. 'Let me tell you what happened...'" },
-                { level: 50, topic: "Test 5",      synopsis: "Final Assessment: Full, unstructured conversation – meet a stranger at an event, introduce yourself, discuss where you’re from, current affairs, family, joke, and exchange contact info seamlessly." }
+                { level: 41, topic: "Proverbs", synopsis: "Context, not just memorisation." },
+                { level: 42, topic: "Complaint", synopsis: "Express dissatisfaction." },
+                { level: 43, topic: "Slang", synopsis: "Current youth slang." },
+                { level: 44, topic: "Humor", synopsis: "Simple jokes." },
+                { level: 45, topic: "Celebration", synopsis: "Vocabulary for weddings." },
+                { level: 46, topic: "Tradition", synopsis: "Explaining cultural norms." },
+                { level: 47, topic: "Phone", synopsis: "Bad networks." },
+                { level: 48, topic: "Opinion", synopsis: "Stating views." },
+                { level: 49, topic: "Story", synopsis: "Narrative structure." },
+                { level: 50, topic: "Test 5", synopsis: "Final Assessment." }
             ];
             
             const allLevels = [...block1, ...block2, ...block3, ...block4, ...block5];
@@ -2720,7 +2922,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 const synopsis = lvl.synopsis;
                 const isTest = topic.startsWith("Test");
                 
-                // Difficulty based on level
                 let difficulty;
                 if (level <= 10) difficulty = "Beginner";
                 else if (level <= 20) difficulty = "Elementary";
@@ -2729,7 +2930,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 else difficulty = "Advanced";
                 
                 if (isTest) {
-                    // ----- TEST LEVELS -----
                     const testExercises = [];
                     for (let q = 1; q <= 4; q++) {
                         testExercises.push({
@@ -2737,33 +2937,24 @@ document.addEventListener('DOMContentLoaded', function() {
                             question: `Question ${q}: Choose the correct answer for this scenario.`,
                             options: ["Option A", "Option B", "Option C", "Option D"],
                             correctAnswer: 0,
-                            explanation: "This is a placeholder question. The real assessment will test your practical skills."
+                            explanation: "This is a placeholder question."
                         });
                     }
                     
                     levels.push({
                         level: level,
-                        topic: topic,               // "Test 1", "Test 2", etc.
+                        topic: topic,
                         subTopic: topic,
-                        title: topic,              // exact title from spec
+                        title: topic,
                         description: synopsis,
-                        learningObjectives: [
-                            "Demonstrate comprehension",
-                            "Apply vocabulary in context",
-                            "Navigate real‑life scenario"
-                        ],
-                        vocabulary: [],             // no new vocab in tests
+                        learningObjectives: ["Demonstrate comprehension", "Apply vocabulary in context"],
+                        vocabulary: [],
                         grammarPoints: [],
                         dialogue: [],
-                        culturalNotes: [],          // optional
+                        culturalNotes: [],
                         practiceExercises: testExercises,
                         segmentCustomizations: {},
-                        tips: [
-                            "Take your time",
-                            "Read each question carefully",
-                            "Review your answers",
-                            "You can retry if needed"
-                        ],
+                        tips: ["Take your time", "Read carefully"],
                         prerequisites: level > 1 ? [`Complete Level ${level-1}`] : [],
                         unlocks: level < 50 ? [`Access to Level ${level+1}`] : ["Certificate of Completion"],
                         estimatedTime: "10-15 minutes",
@@ -2773,8 +2964,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                     
                 } else {
-                    // ----- REGULAR LESSONS -----
-                    // Vocabulary: at least one item – use the language's greeting for level 1, otherwise placeholder
                     let vocabulary = [];
                     if (level === 1) {
                         vocabulary = [{
@@ -2787,14 +2976,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     } else {
                         vocabulary = [{
                             word: `[${topic} word]`,
-                            translation: `Translation of a ${topic} word`,
+                            translation: `Translation`,
                             pronunciation: "[pronunciation]",
-                            example: `Example sentence with ${topic} word.`,
-                            culturalNote: `Cultural context for ${topic}`
+                            example: `Example.`,
+                            culturalNote: `Cultural context`
                         }];
                     }
                     
-                    // Grammar: at least one basic grammar point
                     const grammarPoints = [{
                         concept: "Basic Sentence Structure",
                         explanation: "Subject-Verb-Object order",
@@ -2802,19 +2990,16 @@ document.addEventListener('DOMContentLoaded', function() {
                         pattern: "S + V + O"
                     }];
                     
-                    // Dialogue: two simple lines using greeting
                     const dialogue = [
                         { speaker: "Person A", text: greeting, translation: "Hello", audioContext: "Greeting" },
                         { speaker: "Person B", text: "How are you?", translation: "Response", audioContext: "Response" }
                     ];
                     
-                    // Cultural notes: generic but relevant
                     const culturalNotes = [{
                         title: "Cultural Context",
                         content: `Greetings are important in ${languageName} culture.`
                     }];
                     
-                    // Practice exercise: one multiple‑choice question about the greeting
                     const practiceExercises = [{
                         type: "multipleChoice",
                         question: `What is "Hello" in ${languageName}?`,
@@ -2823,7 +3008,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         explanation: `"${greeting}" is the standard greeting.`
                     }];
                     
-                    // Segment customizations – generic placeholder tips
                     const segmentCustomizations = {
                         parent: { tips: [`Practice ${topic} with children`] },
                         young: { tips: [`Use ${topic} in social media`] },
@@ -2838,19 +3022,14 @@ document.addEventListener('DOMContentLoaded', function() {
                         subTopic: topic,
                         title: `Level ${level}: ${topic}`,
                         description: synopsis,
-                        learningObjectives: [
-                            `Learn 10 new ${languageName} words related to ${topic}`,
-                            "Understand basic grammar concepts",
-                            "Practice pronunciation",
-                            "Complete exercises"
-                        ],
+                        learningObjectives: [`Learn 10 new ${languageName} words`, "Practice pronunciation"],
                         vocabulary: vocabulary,
                         grammarPoints: grammarPoints,
                         dialogue: dialogue,
                         culturalNotes: culturalNotes,
                         practiceExercises: practiceExercises,
                         segmentCustomizations: segmentCustomizations,
-                        tips: ["Practice daily", "Repeat aloud", "Use in context"],
+                        tips: ["Practice daily", "Repeat aloud"],
                         prerequisites: level > 1 ? [`Complete Level ${level-1}`] : [],
                         unlocks: level < 50 ? [`Access to Level ${level+1}`] : ["Certificate of Completion"],
                         estimatedTime: "15-20 minutes",
@@ -2861,7 +3040,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
             
-            // Build the final curriculum object
             const fallbackCurriculum = {
                 language: language,
                 name: languageName,
@@ -2869,7 +3047,7 @@ document.addEventListener('DOMContentLoaded', function() {
             };
             
             appState.curriculumData[language] = fallbackCurriculum;
-            console.log(`Created new 50-level custom fallback curriculum for ${languageName} (${language})`);
+            console.log(`Created fallback curriculum for ${languageName}`);
         }
 
         // ======================
@@ -2878,10 +3056,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         function generateLevels() {
             const container = document.getElementById('levels-container');
-            if (!container) {
-                console.error("Levels container not found!");
-                return;
-            }
+            if (!container) return;
             
             container.innerHTML = '';
             
@@ -2894,14 +3069,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 container.innerHTML = `
                     <div style="text-align: center; padding: 40px; grid-column: 1 / -1;">
                         <div style="font-size: 48px; margin-bottom: 20px;">📚</div>
-                        <div style="font-size: 18px; font-weight: 600; margin-bottom: 10px;">Loading lessons...</div>
-                        <div style="color: var(--text-secondary);">Curriculum data is being loaded</div>
+                        <div style="font-size: 18px; font-weight: 600;">Loading lessons...</div>
                     </div>
                 `;
                 return;
             }
             
-            // Filter levels based on current filter
             let levelsToShow = curriculum.levels;
             
             if (appState.filteredLevels === 'completed') {
@@ -2914,15 +3087,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 levelsToShow = levelsToShow.filter(level => appState.user.favorites.includes(level.level));
             }
             
-            // Apply search filter
             if (appState.searchQuery) {
                 const query = appState.searchQuery.toLowerCase();
                 levelsToShow = levelsToShow.filter(level => 
                     level.title.toLowerCase().includes(query) ||
-                    level.description.toLowerCase().includes(query) ||
-                    level.topic.toLowerCase().includes(query) ||
-                    (level.subTopic && level.subTopic.toLowerCase().includes(query)) ||
-                    (level.tags && level.tags.some(tag => tag.includes(query)))
+                    level.description.toLowerCase().includes(query)
                 );
             }
             
@@ -2930,20 +3099,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 container.innerHTML = `
                     <div style="text-align: center; padding: 40px; grid-column: 1 / -1;">
                         <div style="font-size: 48px; margin-bottom: 20px;">🔍</div>
-                        <div style="font-size: 18px; font-weight: 600; margin-bottom: 10px;">No lessons found</div>
-                        <div style="color: var(--text-secondary);">Try changing your filters or search query</div>
+                        <div style="font-size: 18px; font-weight: 600;">No lessons found</div>
                     </div>
                 `;
                 return;
             }
             
-            // Generate level cards
             levelsToShow.forEach(levelData => {
                 const level = levelData.level;
                 const levelDiv = document.createElement('div');
                 levelDiv.className = 'level-card';
                 
-                // Determine level status
                 if (completedLevels.includes(level)) {
                     levelDiv.classList.add('completed');
                     levelDiv.innerHTML = `
@@ -2969,7 +3135,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     `;
                 }
                 
-                // Add favorite indicator
                 if (appState.user.favorites.includes(level)) {
                     const favoriteStar = document.createElement('div');
                     favoriteStar.style.position = 'absolute';
@@ -2988,7 +3153,6 @@ document.addEventListener('DOMContentLoaded', function() {
         function filterLevels(filter) {
             appState.filteredLevels = filter;
             
-            // Update active filter button
             document.querySelectorAll('.filter-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
@@ -3013,13 +3177,10 @@ document.addEventListener('DOMContentLoaded', function() {
             appState.lessonCardIndex = 0;
             appState.testAnswers = [];
             
-            // Load lesson data
             loadLessonData(level);
             
-            // Show lesson flow
             document.getElementById('lesson-flow').classList.add('active');
             
-            // Show first card
             showLessonCard(0);
         }
 
@@ -3027,13 +3188,10 @@ document.addEventListener('DOMContentLoaded', function() {
             appState.currentLesson = level;
             appState.lessonCardIndex = 0;
             
-            // Load lesson data
             loadLessonData(level);
             
-            // Show lesson flow
             document.getElementById('lesson-flow').classList.add('active');
             
-            // Show first card
             showLessonCard(0);
         }
 
@@ -3042,8 +3200,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const curriculum = appState.curriculumData[language];
             
             if (!curriculum || !curriculum.levels) {
-                console.error("Curriculum not loaded for:", language);
-                // This should never happen because we have fallback, but just in case:
                 createFallbackCurriculum(language);
                 setTimeout(() => loadLessonData(level), 100);
                 return;
@@ -3059,7 +3215,6 @@ document.addEventListener('DOMContentLoaded', function() {
             populateLessonCards(lessonData);
         }
 
-        // populateLessonCards and all other lesson flow functions remain EXACTLY as in original
         function populateLessonCards(lessonData) {
             const segment = appState.user.segment;
             const segmentCustom = lessonData.segmentCustomizations?.[segment] || {};
@@ -3095,13 +3250,13 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <div style="font-size: 13px; color: var(--text-secondary); margin-bottom: 8px;">"${word.example}"</div>
                                 ${word.culturalNote ? `<div style="font-size: 12px; color: var(--accent1); font-style: italic;">💡 ${word.culturalNote}</div>` : ''}
                             </div>
-                            <button class="btn" style="padding: 8px 12px; font-size: 12px; min-width: 60px;" onclick="playWordAudio('${word.word}', '${lessonData.language || appState.user.language}')">🔊 Hear</button>
+                            <button class="audio-btn" onclick="playWordAudio('${word.word.replace(/'/g, "\\'")}', '${appState.user.language}')">🔊 Hear</button>
                         </div>
                     </div>
                 `).join('')}
                 
                 ${segmentCustom.tips ? `
-                    <div style="margin-top: 20px; padding: 15px; background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1) 0%, rgba(var(--accent1-rgb), 0.1) 100%); border-radius: 12px;">
+                    <div style="margin-top: 20px; padding: 15px; background: linear-gradient(135deg, rgba(46,139,87,0.1) 0%, rgba(65,105,225,0.1) 100%); border-radius: 12px;">
                         <div style="font-size: 14px; font-weight: 600; color: var(--primary); margin-bottom: 5px;">🎯 Segment Tip</div>
                         <div style="font-size: 13px; color: var(--text-secondary);">${segmentCustom.tips[0] || ''}</div>
                     </div>
@@ -3118,7 +3273,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 ${lessonData.grammarPoints && lessonData.grammarPoints.length > 0 ? `
                     <div style="margin-bottom: 25px;">
                         <div style="font-size: 16px; font-weight: 600; margin-bottom: 15px; color: var(--accent1);">Grammar Points</div>
-                        ${lessonData.grammarPoints.map((grammar, index) => `
+                        ${lessonData.grammarPoints.map((grammar) => `
                             <div style="margin-bottom: 20px; padding: 16px; background: var(--bg); border-radius: 12px; border: 1px solid var(--border);">
                                 <div style="font-weight: 600; margin-bottom: 8px; color: var(--text);">${grammar.concept}</div>
                                 <div style="color: var(--text-secondary); margin-bottom: 10px; line-height: 1.5;">${grammar.explanation}</div>
@@ -3139,7 +3294,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 ${lessonData.culturalNotes && lessonData.culturalNotes.length > 0 ? `
                     <div style="margin-bottom: 20px;">
                         <div style="font-size: 16px; font-weight: 600; margin-bottom: 15px; color: var(--accent2);">Cultural Insights</div>
-                        ${lessonData.culturalNotes.map((note, index) => `
+                        ${lessonData.culturalNotes.map((note) => `
                             <div style="margin-bottom: 15px; padding: 16px; background: var(--bg); border-radius: 12px; border: 1px solid var(--border);">
                                 <div style="font-weight: 600; margin-bottom: 8px; color: var(--text);">${note.title}</div>
                                 <div style="color: var(--text-secondary); line-height: 1.6;">${note.content}</div>
@@ -3166,7 +3321,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <div style="flex: 1;">
                                     <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 5px;">
                                         <div style="font-weight: 600; color: var(--text);">${line.speaker}</div>
-                                        ${line.audioContext ? `<button class="btn" style="padding: 4px 8px; font-size: 11px;" onclick="playDialogueLine(${index})">🔊</button>` : ''}
+                                        <button class="audio-btn" onclick="playDialogueLine(${index})">🔊</button>
                                     </div>
                                     <div style="font-size: 16px; margin-bottom: 3px; color: var(--text);">${line.text}</div>
                                     <div style="font-size: 13px; color: var(--text-secondary); font-style: italic;">"${line.translation}"</div>
@@ -3181,7 +3336,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         🔊 Play Full Dialogue
                     </button>
                     <button class="btn" onclick="practiceWithPartner()" style="flex: 1; background: var(--accent1);">
-                        👥 Practice with Partner
+                        👥 Practice with Timmy
                     </button>
                 </div>
             `;
@@ -3222,12 +3377,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         function showLessonCard(index) {
-            // Hide all cards
             document.querySelectorAll('.lesson-card').forEach(card => {
                 card.classList.remove('active');
             });
             
-            // Show selected card
             const cardId = `lesson-card-${index + 1}`;
             const card = document.getElementById(cardId);
             if (card) {
@@ -3236,13 +3389,10 @@ document.addEventListener('DOMContentLoaded', function() {
             
             appState.lessonCardIndex = index;
             
-            // Update progress dots
             updateLessonProgress();
             
-            // Update card counter
             document.getElementById('card-counter').textContent = `${index + 1}/4`;
             
-            // Update navigation buttons
             updateLessonNavigation();
         }
 
@@ -3384,7 +3534,6 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <li>Vocabulary pronunciation</li>
                                 <li>Grammar concepts</li>
                                 <li>Cultural context</li>
-                                <li>Dialogue patterns</li>
                             </ul>
                         </div>
                         
@@ -3398,15 +3547,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         function closeLessonFlow() {
+            // Stop any playing TTS when closing lesson
+            stopTTS();
             document.getElementById('lesson-flow').classList.remove('active');
             showPage('lessons');
         }
 
-        // New function to exit lesson and go to home
         function exitLessonToHome() {
-            closeLessonFlow();      // Hide lesson flow
-            showPage('home');       // Show home page
-            // Update active tab
+            stopTTS();
+            closeLessonFlow();
+            showPage('home');
             document.querySelectorAll('.tab').forEach(tab => {
                 tab.classList.remove('active');
                 if (tab.getAttribute('data-page') === 'home') {
@@ -3416,11 +3566,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         function retryTest() {
-            // Reload lesson data to reset test card
             loadLessonData(appState.currentLesson);
-            // Clear test answers
             appState.testAnswers = [];
-            // Show test card
             showLessonCard(3);
         }
 
@@ -3428,7 +3575,6 @@ document.addEventListener('DOMContentLoaded', function() {
             closeLessonFlow();
             showPage('chat');
             
-            // Small delay to ensure chat page is ready
             setTimeout(() => {
                 const language = languageConfigs[appState.user.language].name;
                 const input = document.getElementById('chat-input');
@@ -3451,16 +3597,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // ======================
-        // TIMMY AI FUNCTIONS (UPDATED with Pidgin support)
+        // TIMMY AI FUNCTIONS
         // ======================
 
-        // Get conversation context from chat history
         function getChatContext() {
             if (!appState.chatHistory || appState.chatHistory.length === 0) {
-                return "New conversation just started. Student is beginning their language journey.";
+                return "New conversation just started.";
             }
             
-            // Get last 5 messages (excluding current one)
             const recentMessages = appState.chatHistory.slice(-5);
             let context = "";
             
@@ -3472,14 +3616,11 @@ document.addEventListener('DOMContentLoaded', function() {
             return context;
         }
 
-        // Generate AI response using Timmy's personality
         async function generateTimmyAIResponse(userMessage) {
             try {
-                // Get student context
                 const segment = segmentConfigs[appState.user.segment]?.name || 'Language Learner';
                 const language = languageConfigs[appState.user.language];
                 
-                // Build the prompt with context
                 const prompt = TIMMY_AI_RULES
                     .replace('{segment}', segment)
                     .replace('{language}', language.name)
@@ -3489,7 +3630,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     .replace('{historyContext}', getChatContext())
                     .replace('{userMessage}', userMessage);
                 
-                // Call AI API
                 const response = await fetch(TIMMY_AI_CONFIG.endpoint, {
                     method: 'POST',
                     headers: {
@@ -3504,11 +3644,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 const data = await response.json();
                 
-                // Parse and format the response
                 const cleaned = data.data.replace(/```json|```/g, '').trim();
                 const parsed = JSON.parse(cleaned);
                 
-                // Format for chat display
                 const formattedResponse = `
                     <div style="margin-bottom: 10px; font-style: italic; color: var(--accent2);">
                         🤓 <strong>Timmy says:</strong>
@@ -3532,12 +3670,11 @@ document.addEventListener('DOMContentLoaded', function() {
             } catch (error) {
                 console.error("Timmy AI Error:", error);
                 
-                // Fallback responses with Timmy's personality (UPDATED: includes Pidgin words)
                 const fallbackResponses = [
                     `Abeg, my API dey catch cold! But no worry, Timmy is here! ${languageConfigs[appState.user.language]?.greeting || "Hello"}! Let's continue our lesson.`,
-                    `Network wahala! But as your guy Timmy, I go still teach you something small. Today's word: "${getRandomNigerianWord()}"`,
-                    `Jazz don happen to my connection, but Timmy no dey carry last! How about we practice some ${languageConfigs[appState.user.language]?.name || "Nigerian"} phrases?`,
-                    `Even when technology fails, culture prevails! ${languageConfigs[appState.user.language]?.greeting || "Hello"} my friend, let's continue learning!`
+                    `Network wahala! But as your guy Timmy, I go still teach you something small.`,
+                    `Jazz don happen to my connection, but Timmy no dey carry last!`,
+                    `Even when technology fails, culture prevails! ${languageConfigs[appState.user.language]?.greeting || "Hello"} my friend!`
                 ];
                 
                 const randomResponse = fallbackResponses[Math.floor(Math.random() * fallbackResponses.length)];
@@ -3556,110 +3693,83 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        // Helper function for fallback responses (UPDATED: added Pidgin)
-        function getRandomNigerianWord() {
-            const words = {
-                yoruba: ["Ẹ káàbọ (Welcome)", "O ṣeun (Thank you)", "Ẹ kú ojúmọ (Good morning)"],
-                hausa: ["Sannu (Hello)", "Na gode (Thank you)", "Ina kwana? (How are you?)"],
-                igbo: ["Nnọọ (Welcome)", "Daalụ (Thank you)", "Kedu ka ị mere? (How are you?)"],
-                urhobo: ["Mavo (Welcome)", "Uvwẹ (Thank you)", "Mẹ rẹ? (How are you?)"],
-                itsekiri: ["Welọ (Welcome)", "Oshe (Thank you)", "Mẹ re? (How are you?)"],
-                pidgin: ["How far? (Hello)", "Abeg (Please)", "Wahala (Trouble)", "Oya (Let's go)"]
-            };
-            
-            const language = appState.user.language;
-            const languageWords = words[language] || ["Welcome", "Thank you", "How are you?"];
-            return languageWords[Math.floor(Math.random() * languageWords.length)];
-        }
-
-        // Segment-specific Timmy greetings (UPDATED: added pidgin case)
         function getTimmyGreeting() {
             const segment = appState.user.segment;
             const language = languageConfigs[appState.user.language];
             
             const greetings = {
-                parent: `Omo mi! ${language.greeting}! As your parenting partner Timmy, I'm here to help you pass our beautiful ${language.name} to the next generation. Ready to make learning fun for the whole family?`,
-                young: `Wahala for who no sabi! ${language.greeting} G! Timmy dey here to help you connect with your roots in the most lit way. Let's learn ${language.name} like we're chatting on the gram!`,
-                pro: `Professional mode activated! ${language.greeting}, sir/ma. Timmy here to provide you with business-ready ${language.name} skills that will give you the edge in the marketplace.`,
-                marriage: `Love don show! ${language.greeting}, future in-law! Timmy here to help you impress the family with authentic ${language.name} and cultural savvy. Let's make you the favorite!`,
-                nigeria: `Naija to the world! ${language.greeting}, my fellow Naija learner. Timmy here to help you master ${language.name} with all the local flavor and pro tips.`,
-                pidgin: `${language.greeting}! Abeg, make we learn Naija Pidgin well well! Timmy here to help you speak like true bonafide Naija person!`,
-                default: `${language.greeting}! I'm Timmy, your witty Nigerian language companion. Ready to learn ${language.name} with laughter and cultural insight?`
+                parent: `Omo mi! ${language.greeting}! As your parenting partner Timmy, I'm here to help you pass our beautiful ${language.name} to the next generation.`,
+                young: `Wahala for who no sabi! ${language.greeting} G! Timmy dey here to help you connect with your roots in the most lit way.`,
+                pro: `Professional mode activated! ${language.greeting}, sir/ma. Timmy here to provide business-ready ${language.name} skills.`,
+                marriage: `Love don show! ${language.greeting}, future in-law! Timmy here to help you impress the family.`,
+                nigeria: `Naija to the world! ${language.greeting}, my fellow Naija learner. Timmy here to help you master ${language.name}.`,
+                pidgin: `${language.greeting}! Abeg, make we learn Naija Pidgin well well!`,
+                default: `${language.greeting}! I'm Timmy, your witty Nigerian language companion. Ready to learn?`
             };
             
             return greetings[segment] || greetings.default;
         }
 
         // ======================
-        // UPDATED CHAT FUNCTIONS
+        // CHAT FUNCTIONS
         // ======================
 
-        // Replace the existing generateAIResponse function
         window.generateAIResponse = async function(userMessage) {
-            // Show typing indicator
             showTypingIndicator();
             
             try {
-                // Get response from Timmy AI
                 const response = await generateTimmyAIResponse(userMessage);
-                
-                // Remove typing indicator
                 removeTypingIndicator();
-                
                 return response;
-                
             } catch (error) {
                 console.error("Error in AI response:", error);
                 removeTypingIndicator();
-                
-                return `Abeg, Timmy dey rest small! But no worry, I go still help you. ${languageConfigs[appState.user.language]?.greeting || "Hello"}! How can I assist with your ${languageConfigs[appState.user.language]?.name || "language"} learning today?`;
+                return `Abeg, Timmy dey rest small! ${languageConfigs[appState.user.language]?.greeting || "Hello"}! How can I assist you?`;
             }
         };
 
-        // Enhanced sendChatMessage with Timmy's personality
         window.sendChatMessage = async function() {
             const input = document.getElementById('chat-input');
             const message = input.value.trim();
             
             if (!message) return;
             
-            // Add user message
             addChatMessage(message, 'user');
             input.value = '';
             
-            // Save to state
             appState.chatHistory.push({
                 text: message,
                 sender: 'user',
                 timestamp: new Date().toISOString()
             });
             
-            // Get AI response
             try {
                 const response = await generateAIResponse(message);
                 addChatMessage(response, 'bot');
                 
-                // Save AI response to state
                 appState.chatHistory.push({
                     text: response,
                     sender: 'bot',
                     timestamp: new Date().toISOString()
                 });
                 
-                // Save to localStorage
                 localStorage.setItem('clearWordsChat', JSON.stringify(appState.chatHistory));
                 
             } catch (error) {
                 console.error("Chat error:", error);
-                
-                const errorMessage = `Abeg, network wahala! Timmy dey try reach you. ${languageConfigs[appState.user.language]?.greeting || "Hello"}! Let's try that again?`;
+                const errorMessage = `Abeg, network wahala! Let's try that again?`;
                 addChatMessage(errorMessage, 'bot');
             }
         };
 
-        // Enhanced chat setup with Timmy
+        window.handleChatKeyPress = function(event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault();
+                sendChatMessage();
+            }
+        };
+
         window.setupChat = function() {
-            // Load chat history
             const savedChat = localStorage.getItem('clearWordsChat');
             if (savedChat) {
                 try {
@@ -3669,28 +3779,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
             
-            // Render chat history with Timmy's welcome
             renderChatHistory();
         };
 
-        // Updated renderChatHistory with Timmy's personality
         window.renderChatHistory = function() {
             const chatContainer = document.getElementById('chat-messages');
             if (!chatContainer) return;
             
             chatContainer.innerHTML = '';
             
-            // Add Timmy's personalized welcome message
             const welcomeMessage = getTimmyGreeting();
             addChatMessage(welcomeMessage, 'bot');
             
-            // Load history
             appState.chatHistory.forEach(msg => {
                 addChatMessage(msg.text, msg.sender);
             });
         };
 
-        // Typing indicator functions
         window.showTypingIndicator = function() {
             const chatContainer = document.getElementById('chat-messages');
             if (!chatContainer) return;
@@ -3712,8 +3817,6 @@ document.addEventListener('DOMContentLoaded', function() {
             
             typingDiv.appendChild(bubble);
             chatContainer.appendChild(typingDiv);
-            
-            // Scroll to bottom
             chatContainer.scrollTop = chatContainer.scrollHeight;
         };
 
@@ -3724,7 +3827,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         };
 
-        // Add chat message helper
         window.addChatMessage = function(text, sender) {
             const chatContainer = document.getElementById('chat-messages');
             if (!chatContainer) return;
@@ -3738,79 +3840,21 @@ document.addEventListener('DOMContentLoaded', function() {
             
             messageDiv.appendChild(bubble);
             chatContainer.appendChild(messageDiv);
-            
-            // Scroll to bottom
             chatContainer.scrollTop = chatContainer.scrollHeight;
         };
 
-        // Practice with Timmy function (after lesson completion)
-        window.practiceWithTimmy = async function() {
-            showPage('chat');
-            
-            const language = languageConfigs[appState.user.language].name;
-            const level = appState.currentLesson || 1;
-            
-            // Clear any existing typing indicator
-            removeTypingIndicator();
-            
-            // Add user message
-            const userMessage = `I just completed level ${level} on ${language}. Can we practice what I learned?`;
-            addChatMessage(userMessage, 'user');
-            
-            // Save to state
-            appState.chatHistory.push({
-                text: userMessage,
-                sender: 'user',
-                timestamp: new Date().toISOString()
-            });
-            
-            // Show typing indicator
-            showTypingIndicator();
-            
-            // Get AI response
-            try {
-                const response = await generateAIResponse(userMessage);
-                removeTypingIndicator();
-                addChatMessage(response, 'bot');
-                
-                // Save AI response to state
-                appState.chatHistory.push({
-                    text: response,
-                    sender: 'bot',
-                    timestamp: new Date().toISOString()
-                });
-                
-                // Save to localStorage
-                localStorage.setItem('clearWordsChat', JSON.stringify(appState.chatHistory));
-                
-            } catch (error) {
-                console.error("Practice error:", error);
-                removeTypingIndicator();
-                
-                const errorMessage = `Omo! Technical difficulty, but no shaking. Let's practice ${language} anyway!`;
-                addChatMessage(errorMessage, 'bot');
-            }
-        };
-
-        // ======================
-        // NEW CHAT FUNCTIONS
-        // ======================
-
-        // Clear chat with Timmy's personality
         window.clearChat = function() {
             if (confirm("Abeg, you wan clear all our yarn? Make we start fresh?")) {
                 appState.chatHistory = [];
                 localStorage.setItem('clearWordsChat', JSON.stringify([]));
                 renderChatHistory();
                 
-                // Add Timmy's fresh start message
                 setTimeout(() => {
                     addChatMessage("Fresh start, fresh energy! Timmy dey here with you. Wetin you wan learn today?", 'bot');
                 }, 300);
             }
         };
 
-        // Export chat with custom filename
         window.exportChat = function() {
             const exportData = {
                 exportDate: new Date().toISOString(),
@@ -3827,24 +3871,21 @@ document.addEventListener('DOMContentLoaded', function() {
             const dataStr = JSON.stringify(exportData, null, 2);
             const dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(dataStr);
             
-            const exportFileDefaultName = `clearwords-chat-with-timmy-${new Date().toISOString().split('T')[0]}.json`;
+            const exportFileDefaultName = `clearwords-chat-${new Date().toISOString().split('T')[0]}.json`;
             
             const linkElement = document.createElement('a');
             linkElement.setAttribute('href', dataUri);
             linkElement.setAttribute('download', exportFileDefaultName);
             linkElement.click();
             
-            // Show confirmation
-            showToast("Chat exported! Timmy's wisdom saved for later! 📁");
+            showToast("Chat exported! 📁");
         };
 
-        // Show Timmy's info in settings
         window.showTimmyInfo = function() {
             loadTimmyModalContent();
             showModal('timmy-modal');
         };
 
-        // Load Timmy modal content
         function loadTimmyModal() {
             const timmyModal = document.getElementById('timmy-modal');
             if (timmyModal) {
@@ -3874,34 +3915,14 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div style="font-weight: 600; margin-bottom: 10px; color: var(--accent2);">🎭 Personality</div>
                         <div style="color: var(--text-secondary); line-height: 1.6;">
                             The cool cousin who studied linguistics abroad but came home because he missed proper jollof rice. 
-                            Blends academic expertise with street-smart humor and Nigerian pop-culture references.
-                        </div>
-                    </div>
-                    
-                    <div style="margin-bottom: 20px;">
-                        <div style="font-weight: 600; margin-bottom: 10px; color: var(--accent2);">🎯 Teaching Style</div>
-                        <ul style="color: var(--text-secondary); padding-left: 20px; line-height: 1.6;">
-                            <li>Warm sarcasm that never shames</li>
-                            <li>Celebrations that feel like family praise</li>
-                            <li>Authentic cultural context and pro-tips</li>
-                            <li>Adapts to your learning segment</li>
-                            <li>Makes mistakes become inside jokes</li>
-                        </ul>
-                    </div>
-                    
-                    <div style="margin-bottom: 20px;">
-                        <div style="font-weight: 600; margin-bottom: 10px; color: var(--accent2);">💬 What to Expect</div>
-                        <div style="color: var(--text-secondary); line-height: 1.6;">
-                            Timmy will mix proper grammar explanations with Nigerian slang, pop culture references, 
-                            and the kind of encouragement that makes you feel like you're chatting with your smartest, 
-                            funniest friend who genuinely believes in your potential.
+                            Blends academic expertise with street-smart humor.
                         </div>
                     </div>
                     
                     <div style="padding: 15px; background: var(--bg); border-radius: 10px; border: 1px solid var(--border);">
                         <div style="font-weight: 600; margin-bottom: 5px; color: var(--primary);">📚 Pro Tip from Timmy:</div>
                         <div style="color: var(--text-secondary);">
-                            "Language is best learned with laughter and plenty of jollof rice! No be by force, make we enjoy the process together!"
+                            "Language is best learned with laughter and plenty of jollof rice!"
                         </div>
                     </div>
                 </div>
@@ -3913,7 +3934,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // ======================
-        // MODAL FUNCTIONS (unchanged)
+        // MODAL FUNCTIONS
         // ======================
         
         function showModal(modalId) {
@@ -3925,7 +3946,6 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById(modalId).classList.remove('active');
             document.body.style.overflow = '';
             
-            // Reset modal states
             if (modalId === 'language-modal') {
                 appState.languageToSwitch = null;
                 document.getElementById('confirm-language-btn').disabled = true;
@@ -3951,7 +3971,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <h3>Privacy Policy</h3>
                 <p><strong>Last Updated:</strong> ${new Date().toLocaleDateString()}</p>
                 
-                <h3>1. Information We Collect</h3>
+                 <h3>1. Information We Collect</h3>
                 <p>ClearWords collects the following information to provide and improve our language learning service:</p>
                 <ul>
                     <li><strong>Learning Data:</strong> Your progress, completed lessons, test scores, learning preferences, and study patterns</li>
@@ -4038,9 +4058,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 <h3>11. Contact Us</h3>
                 <p>If you have questions, concerns, or requests about this privacy policy or your data:</p>
                 <ul>
-                    <li>Email: privacy@clearwords.app</li>
+                    <li>Email: clearwords.ng@gmail.com</li>
                     <li>In-app: Use the chat feature to contact support</li>
-                    <li>Mail: ClearWords Privacy Team, Lagos, Nigeria</li>
+                    <li>Mail: ClearWords Privacy Team, Warri, Nigeria</li>
                 </ul>
                 <p>We will respond to all inquiries within 30 days.</p>
                 
@@ -4073,7 +4093,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     ${content}
                 </body>
                 </html>
-            `);
+                `);
             printWindow.document.close();
             printWindow.print();
         }
@@ -4089,8 +4109,7 @@ document.addEventListener('DOMContentLoaded', function() {
             content.innerHTML = `
                 <h3>Terms of Service</h3>
                 <p><strong>Last Updated:</strong> ${new Date().toLocaleDateString()}</p>
-                
-                <h3>1. Acceptance of Terms</h3>
+               <h3>1. Acceptance of Terms</h3>
                 <p>By accessing and using ClearWords, you accept and agree to be bound by these Terms of Service. If you do not agree, please do not use the app.</p>
                 
                 <h3>2. Description of Service</h3>
@@ -4153,7 +4172,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p>These terms are governed by the laws of Nigeria.</p>
                 
                 <h3>11. Contact</h3>
-                <p>Questions about these terms? Contact: legal@clearwords.app</p>
+                <p>Questions about these terms? Contact: clearwords.ng@gmail.com</p>
             `;
         }
 
@@ -4162,7 +4181,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // ======================
-        // LANGUAGE SWITCHING (now automatically includes Pidgin)
+        // LANGUAGE SWITCHING
         // ======================
         
         function showLanguageSelector() {
@@ -4196,7 +4215,6 @@ document.addEventListener('DOMContentLoaded', function() {
             
             appState.languageToSwitch = language;
             
-            // Update selection
             document.querySelectorAll('#language-modal .language-option').forEach(el => {
                 el.classList.remove('selected');
             });
@@ -4220,10 +4238,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!appState.languageToSwitch) return;
             
             if (appState.user.completedLevels.length > 0 || appState.user.totalXP > 0) {
-                // Show warning modal for progress reset
                 showModal('language-warning-modal');
             } else {
-                // No progress to reset, switch directly
                 switchLanguage(appState.languageToSwitch, 'preserve');
             }
         }
@@ -4231,7 +4247,6 @@ document.addEventListener('DOMContentLoaded', function() {
         function selectSwitchOption(option, event) {
             appState.switchOption = option;
             
-            // Update selection
             document.querySelectorAll('.confirmation-option').forEach(el => {
                 el.classList.remove('selected');
             });
@@ -4251,7 +4266,6 @@ document.addEventListener('DOMContentLoaded', function() {
         function switchLanguage(newLanguage, option) {
             const oldLanguage = appState.user.language;
             
-            // Save current progress for old language
             if (option === 'preserve' || option === 'duplicate') {
                 if (!appState.user.progress[oldLanguage]) {
                     appState.user.progress[oldLanguage] = {};
@@ -4259,59 +4273,40 @@ document.addEventListener('DOMContentLoaded', function() {
                 appState.user.progress[oldLanguage].completedLevels = [...appState.user.completedLevels];
                 appState.user.progress[oldLanguage].currentLevel = appState.user.currentLevel;
                 appState.user.progress[oldLanguage].totalXP = appState.user.totalXP;
-                appState.user.progress[oldLanguage].lastActive = appState.user.lastActive;
             }
             
-            // Reset or load progress for new language
-            if (option === 'reset') {
-                // Fresh start
-                appState.user.completedLevels = [];
-                appState.user.currentLevel = 1;
-                appState.user.totalXP = 0;
-                appState.user.dailyCompleted = 0;
-            } else if (option === 'duplicate') {
-                // Duplicate current progress
-                // Keep as is for fresh start in new language
+            if (option === 'reset' || option === 'duplicate') {
                 appState.user.completedLevels = [];
                 appState.user.currentLevel = 1;
                 appState.user.totalXP = 0;
                 appState.user.dailyCompleted = 0;
             } else if (option === 'preserve') {
-                // Try to load previous progress for this language
                 if (appState.user.progress[newLanguage]) {
                     appState.user.completedLevels = appState.user.progress[newLanguage].completedLevels || [];
                     appState.user.currentLevel = appState.user.progress[newLanguage].currentLevel || 1;
                     appState.user.totalXP = appState.user.progress[newLanguage].totalXP || 0;
-                    appState.user.dailyCompleted = 0;
                 } else {
-                    // No previous progress, fresh start
                     appState.user.completedLevels = [];
                     appState.user.currentLevel = 1;
                     appState.user.totalXP = 0;
-                    appState.user.dailyCompleted = 0;
                 }
+                appState.user.dailyCompleted = 0;
             }
             
-            // Update language
             appState.user.language = newLanguage;
             
-            // Load curriculum for new language
             loadCurriculum(newLanguage, () => {
-                // Save state
                 saveState();
-                
-                // Update UI
                 updateUserUI();
                 generateLevels();
                 
-                // Show confirmation
                 const languageName = languageConfigs[newLanguage].name;
-                alert(`Language switched to ${languageName}! ${option === 'preserve' ? 'Your previous progress has been loaded.' : 'Starting fresh with this language.'}`);
+                alert(`Language switched to ${languageName}!`);
             });
         }
 
         // ======================
-        // SEGMENT SWITCHING (unchanged)
+        // SEGMENT SWITCHING
         // ======================
         
         function showSegmentSelector() {
@@ -4332,7 +4327,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                             config.name === "Marriage/Family" ? "💕" : "🇳🇬"}</div>
                     <div class="segment-title">${config.name}</div>
                     <div class="segment-description">${config.description}</div>
-                    ${isCurrent ? '<div style="color: var(--primary); font-size: 12px; font-weight: 600; margin-top: 5px;">Current</div>' : ''}
+                    ${isCurrent ? '<div style="color: var(--primary); font-size: 12px; font-weight: 600;">Current</div>' : ''}
                 `;
                 container.appendChild(option);
             });
@@ -4348,13 +4343,11 @@ document.addEventListener('DOMContentLoaded', function() {
             
             appState.segmentToSwitch = segment;
             
-            // Update selection
             document.querySelectorAll('#segment-modal .segment-option').forEach(el => {
                 el.classList.remove('selected');
             });
             event.currentTarget.classList.add('selected');
             
-            // Show preview
             const config = segmentConfigs[segment];
             document.getElementById('preview-title').textContent = `Preview: ${config.name}`;
             document.getElementById('preview-content').textContent = config.preview;
@@ -4368,31 +4361,23 @@ document.addEventListener('DOMContentLoaded', function() {
             
             appState.user.segment = appState.segmentToSwitch;
             
-            // Save state
             saveState();
-            
-            // Apply new theme
             applySegmentTheme();
-            
-            // Update UI
             updateUserUI();
             
-            // Close modal
             closeModal('segment-modal');
             
-            // Show confirmation
             const segmentName = segmentConfigs[appState.segmentToSwitch].name;
-            alert(`Learning style switched to ${segmentName}! Content will now be customized for your needs.`);
+            alert(`Learning style switched to ${segmentName}!`);
         }
 
         // ======================
-        // RESET PROGRESS (unchanged)
+        // RESET PROGRESS
         // ======================
         
         function showResetModal() {
             showModal('reset-modal');
             
-            // Enable reset button when checkbox is checked
             document.getElementById('reset-confirm').addEventListener('change', function() {
                 document.getElementById('reset-btn').disabled = !this.checked;
             });
@@ -4414,11 +4399,11 @@ document.addEventListener('DOMContentLoaded', function() {
             generateLevels();
             
             closeModal('reset-modal');
-            alert("Progress reset successfully! You're starting fresh.");
+            alert("Progress reset successfully!");
         }
 
         // ======================
-        // PROGRESS IMPORT/EXPORT (unchanged)
+        // PROGRESS IMPORT/EXPORT
         // ======================
         
         function exportProgress() {
@@ -4454,7 +4439,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     try {
                         const importedData = JSON.parse(event.target.result);
                         
-                        // Validate imported data
                         if (!importedData.user || !importedData.user.id) {
                             throw new Error("Invalid progress file");
                         }
@@ -4475,39 +4459,29 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('progress-modal-content').innerHTML = `
                 <div style="text-align: center; margin-bottom: 20px;">
                     <div style="font-size: 48px; margin-bottom: 10px;">📥</div>
-                    <div style="font-size: 18px; font-weight: 600; margin-bottom: 10px;">Import Progress Data</div>
+                    <div style="font-size: 18px; font-weight: 600;">Import Progress Data</div>
                 </div>
                 
-                <div style="background: var(--bg); border-radius: 12px; padding: 15px; margin-bottom: 20px; border: 1px solid var(--border);">
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                <div style="background: var(--bg); border-radius: 12px; padding: 15px; margin-bottom: 20px;">
+                    <div style="display: flex; justify-content: space-between;">
                         <div>Language:</div>
                         <div style="font-weight: 600;">${languageConfigs[importedData.user.language]?.name || 'Unknown'}</div>
                     </div>
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <div style="display: flex; justify-content: space-between;">
                         <div>Completed Levels:</div>
                         <div style="font-weight: 600;">${importedData.user.completedLevels?.length || 0}/50</div>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                        <div>Total XP:</div>
-                        <div style="font-weight: 600;">${importedData.user.totalXP || 0} XP</div>
-                    </div>
-                    <div style="display: flex; justify-content: space-between;">
-                        <div>Export Date:</div>
-                        <div style="font-weight: 600;">${new Date(importedData.exportDate).toLocaleDateString()}</div>
                     </div>
                 </div>
                 
                 <div style="padding: 15px; background: #FFF5F5; border-radius: 12px;">
                     <div style="font-weight: 600; margin-bottom: 10px; color: #F44336;">⚠️ Warning</div>
-                    <div style="color: var(--text-secondary); line-height: 1.5;">
-                        Importing will replace your current progress. This action cannot be undone.
-                    </div>
+                    <div>Importing will replace your current progress.</div>
                 </div>
             `;
             
             document.getElementById('progress-modal-footer').innerHTML = `
                 <button class="btn btn-outline" onclick="closeModal('progress-modal')">Cancel</button>
-                <button class="btn" style="background: #4CAF50;" onclick="confirmImport(${JSON.stringify(importedData).replace(/"/g, '&quot;')})">Import Progress</button>
+                <button class="btn" style="background: #4CAF50;" onclick="confirmImport(${JSON.stringify(importedData).replace(/"/g, '&quot;')})">Import</button>
             `;
             
             showModal('progress-modal');
@@ -4527,7 +4501,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // ======================
-        // UTILITY FUNCTIONS (unchanged)
+        // UTILITY FUNCTIONS
         // ======================
         
         function setupNavigation() {
@@ -4536,7 +4510,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     const page = this.getAttribute('data-page');
                     showPage(page);
                     
-                    // Update active tab
                     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
                     this.classList.add('active');
                 });
@@ -4544,18 +4517,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         function showPage(pageId) {
-            // Hide all pages
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
             });
             
-            // Show selected page
             const pageElement = document.getElementById(pageId);
             if (pageElement) {
                 pageElement.classList.add('active');
                 appState.currentPage = pageId;
                 
-                // Update page-specific content
                 if (pageId === 'home') {
                     updateHomeContent();
                 } else if (pageId === 'lessons') {
@@ -4599,9 +4569,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const today = new Date().toISOString().split('T')[0];
             const lastActive = appState.user.lastActive;
             
-            if (lastActive === today) {
-                return;
-            }
+            if (lastActive === today) return;
             
             const yesterday = new Date();
             yesterday.setDate(yesterday.getDate() - 1);
@@ -4635,7 +4603,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         function startSpeedRound() {
             alert("Speed round starting! Complete 3 lessons in 10 minutes for bonus XP!");
-            // Implementation would start a timer and track completion
         }
 
         function toggleTheme() {
@@ -4654,36 +4621,34 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.setItem('clearWordsState', JSON.stringify(appState));
         }
 
-        // ======================
-        // MEDIA FUNCTIONS (unchanged)
-        // ======================
-        
-        function playWordAudio(word, language) {
-            // This would integrate with a text-to-speech API
-            console.log("Playing audio for:", word, "in", language);
-            alert(`Playing pronunciation: ${word}`);
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.style.cssText = `
+                position: fixed;
+                bottom: 100px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: var(--primary);
+                color: white;
+                padding: 12px 24px;
+                border-radius: 25px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 10000;
+                font-size: 14px;
+            `;
             
-            // In a real implementation:
-            // 1. Use Web Speech API for basic TTS
-            // 2. Integrate with language-specific TTS service
-            // 3. Use pre-recorded audio files
-        }
-
-        function playDialogueLine(index) {
-            console.log("Playing dialogue line:", index);
-            alert("Playing dialogue line...");
-        }
-
-        function playFullDialogue() {
-            console.log("Playing full dialogue");
-            alert("Playing full dialogue...");
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
         }
 
         // ======================
         // GLOBAL FUNCTION EXPORTS
         // ======================
         
-        // Make all functions available globally
         window.nextStep = nextStep;
         window.prevStep = prevStep;
         window.selectSegment = selectSegment;
@@ -4714,7 +4679,7 @@ document.addEventListener('DOMContentLoaded', function() {
         window.selectTestAnswer = selectTestAnswer;
         window.submitTest = submitTest;
         window.closeLessonFlow = closeLessonFlow;
-        window.exitLessonToHome = exitLessonToHome;      // new function
+        window.exitLessonToHome = exitLessonToHome;
         window.practiceWithTimmy = practiceWithTimmy;
         window.practiceWithPartner = practiceWithPartner;
         window.retryTest = retryTest;
@@ -4732,53 +4697,9 @@ document.addEventListener('DOMContentLoaded', function() {
         window.confirmSegmentSwitch = confirmSegmentSwitch;
         window.printPrivacyPolicy = printPrivacyPolicy;
         window.showTimmyInfo = showTimmyInfo;
+        window.checkPWAStatus = checkPWAStatus;
 
-        // Helper function for toast notifications
-        function showToast(message) {
-            // Create toast element
-            const toast = document.createElement('div');
-            toast.style.cssText = `
-                position: fixed;
-                bottom: 100px;
-                left: 50%;
-                transform: translateX(-50%);
-                background: var(--primary);
-                color: white;
-                padding: 12px 24px;
-                border-radius: 25px;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-                z-index: 10000;
-                font-size: 14px;
-                animation: slideUp 0.3s ease;
-            `;
-            
-            toast.textContent = message;
-            document.body.appendChild(toast);
-            
-            // Remove after 3 seconds
-            setTimeout(() => {
-                toast.style.animation = 'slideDown 0.3s ease';
-                setTimeout(() => {
-                    document.body.removeChild(toast);
-                }, 300);
-            }, 3000);
-        }
-
-        // Add keyframes for toast animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideUp {
-                from { transform: translateX(-50%) translateY(100px); opacity: 0; }
-                to { transform: translateX(-50%) translateY(0); opacity: 1; }
-            }
-            @keyframes slideDown {
-                from { transform: translateX(-50%) translateY(0); opacity: 1; }
-                to { transform: translateX(-50%) translateY(100px); opacity: 0; }
-            }
-        `;
-        document.head.appendChild(style);
-
-        console.log("ClearWords app initialized with Timmy AI and 6 languages (including Pidgin)! 🤓");
+        console.log("ClearWords app initialized with TTS support! 🤓🔊");
     </script>
 </body>
 </html>
