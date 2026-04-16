@@ -16,21 +16,21 @@
     <meta property="og:url" content="https://clearwords.vercel.app/">
     <meta property="og:title" content="ClearWords - Speak Your Heritage with Timmy">
     <meta property="og:description" content="Learn Nigerian languages with Timmy, your witty AI companion who blends academic expertise with street-smart humor.">
-    <meta property="og:image" content="https://clearwords.vercel.app/logo.png">
+    <meta property="og:image" content="https://clearwords.vercel.app/logo.jpg">
     
     <!-- Twitter Card -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://clearwords.vercel.app/">
     <meta property="twitter:title" content="ClearWords - Speak Your Heritage">
     <meta property="twitter:description" content="Learn Nigerian languages with Timmy—the cool cousin who studied linguistics abroad but came home for jollof rice.">
-    <meta property="twitter:image" content="https://clearwords.vercel.app/logo.png">
+    <meta property="twitter:image" content="https://clearwords.vercel.app/og-image.jpg">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://clearwords.vercel.app/">
     
     <!-- PWA / App Icons -->
-    <link rel="icon" type="image/png" href="logo.png">
-    <link rel="apple-touch-icon" href="logo.png">
+    <link rel="icon" type="image/jpg" href="logo.jpg">
+    <link rel="apple-touch-icon" href="logo.jpg">
     <meta name="theme-color" content="#1E3A5F">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -1504,15 +1504,15 @@
     
     <nav class="navbar">
         <div class="container">
-            <a href="#" class="logo" data-page="home">
+            <a href="/" class="logo" data-page="home">
                 <span class="logo-icon">🗣️</span>
                 <span class="logo-text">ClearWords</span>
             </a>
             <div class="nav-links" id="navLinks">
-                <button class="nav-link" data-page="home">Home</button>
-                <button class="nav-link" data-page="languages">Languages</button>
-                <button class="nav-link" data-page="blog">Blog</button>
-                <button class="nav-link" data-page="about">About</button>
+                <a href="/" class="nav-link" data-page="home">Home</a>
+                <a href="/languages" class="nav-link" data-page="languages">Languages</a>
+                <a href="/blog" class="nav-link" data-page="blog">Blog</a>
+                <a href="/about" class="nav-link" data-page="about">About</a>
                 <a href="language.html" class="nav-cta">Launch App</a>
             </div>
             <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
@@ -1934,47 +1934,47 @@
                 </div>
                 
                 <div class="blog-grid">
-                    <div class="blog-card" onclick="navigateToBlogPost('yoruba-greetings')">
+                    <a href="/blog/yoruba-greetings" class="blog-card router-link" data-slug="yoruba-greetings">
                         <div class="blog-category">Yoruba • Culture</div>
                         <h4>5 Yoruba Greetings for Meeting Your In-Laws (Timmy's Guide)</h4>
                         <p class="blog-excerpt">Master the proper greetings and show respect. Timmy's personal tips from his own awkward experiences.</p>
                         <span class="blog-read-more">Read article →</span>
-                    </div>
+                    </a>
                     
-                    <div class="blog-card" onclick="navigateToBlogPost('igbo-wedding')">
+                    <a href="/blog/igbo-wedding" class="blog-card router-link" data-slug="igbo-wedding">
                         <div class="blog-category">Igbo • Culture</div>
                         <h4>Igbo Wedding Traditions: Phrases That Will Make You the Favorite In-Law</h4>
                         <p class="blog-excerpt">Understand the key phrases and customs for Igba Nkwu. Timmy's been to enough weddings to know what works.</p>
                         <span class="blog-read-more">Read article →</span>
-                    </div>
+                    </a>
                     
-                    <div class="blog-card" onclick="navigateToBlogPost('hausa-travel')">
+                    <a href="/blog/hausa-travel" class="blog-card router-link" data-slug="hausa-travel">
                         <div class="blog-category">Hausa • Travel</div>
                         <h4>Essential Hausa Phrases for Travelers (No Wahala Edition)</h4>
                         <p class="blog-excerpt">Navigate markets, greet elders, and bargain like a local in Northern Nigeria.</p>
                         <span class="blog-read-more">Read article →</span>
-                    </div>
+                    </a>
                     
-                    <div class="blog-card" onclick="navigateToBlogPost('tone-guide')">
+                    <a href="/blog/tone-guide" class="blog-card router-link" data-slug="tone-guide">
                         <div class="blog-category">Yoruba • Tips</div>
                         <h4>Mastering Yoruba Tones: Timmy's "Don't Overthink It" Guide</h4>
                         <p class="blog-excerpt">The three tones that can completely change word meanings—explained with humor.</p>
                         <span class="blog-read-more">Read article →</span>
-                    </div>
+                    </a>
                     
-                    <div class="blog-card" onclick="navigateToBlogPost('pidgin-guide')">
+                    <a href="/blog/pidgin-guide" class="blog-card router-link" data-slug="pidgin-guide">
                         <div class="blog-category">Culture • Tips</div>
                         <h4>Nigerian Pidgin 101: How to Sound Like You Never Left</h4>
                         <p class="blog-excerpt">Timmy's favorite pidgin phrases and when to use them (and when NOT to).</p>
                         <span class="blog-read-more">Read article →</span>
-                    </div>
+                    </a>
                     
-                    <div class="blog-card" onclick="navigateToBlogPost('diaspora-kids')">
+                    <a href="/blog/diaspora-kids" class="blog-card router-link" data-slug="diaspora-kids">
                         <div class="blog-category">Family • Tips</div>
                         <h4>Teaching Your Diaspora Kids Nigerian Languages (Without the Tears)</h4>
                         <p class="blog-excerpt">Practical strategies from parents who've been there—plus Timmy's encouragement.</p>
                         <span class="blog-read-more">Read article →</span>
-                    </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -2074,7 +2074,7 @@
                     <a href="language.html?lang=yoruba" class="btn btn-primary">Start Learning Yoruba →</a>
                 </div>
                 
-                <button class="back-to-blog" data-page="blog">← Back to Blog</button>
+                <a href="/blog" class="back-to-blog router-link" data-page="blog">← Back to Blog</a>
             </div>
         </div>
     </div>
@@ -2203,7 +2203,7 @@
                     <a href="language.html?lang=igbo" class="btn btn-primary">Start Learning Igbo →</a>
                 </div>
                 
-                <button class="back-to-blog" data-page="blog">← Back to Blog</button>
+                <a href="/blog" class="back-to-blog router-link" data-page="blog">← Back to Blog</a>
             </div>
         </div>
     </div>
@@ -2318,7 +2318,7 @@
                     <a href="language.html?lang=hausa" class="btn btn-primary">Start Learning Hausa →</a>
                 </div>
                 
-                <button class="back-to-blog" data-page="blog">← Back to Blog</button>
+                <a href="/blog" class="back-to-blog router-link" data-page="blog">← Back to Blog</a>
             </div>
         </div>
     </div>
@@ -2421,7 +2421,7 @@
                     <a href="language.html?lang=yoruba" class="btn btn-primary">Start Learning Yoruba →</a>
                 </div>
                 
-                <button class="back-to-blog" data-page="blog">← Back to Blog</button>
+                <a href="/blog" class="back-to-blog router-link" data-page="blog">← Back to Blog</a>
             </div>
         </div>
     </div>
@@ -2543,7 +2543,7 @@
                     <a href="language.html" class="btn btn-primary">Start Learning →</a>
                 </div>
                 
-                <button class="back-to-blog" data-page="blog">← Back to Blog</button>
+                <a href="/blog" class="back-to-blog router-link" data-page="blog">← Back to Blog</a>
             </div>
         </div>
     </div>
@@ -2606,7 +2606,7 @@
                     <a href="language.html" class="btn btn-primary">Start Learning →</a>
                 </div>
                 
-                <button class="back-to-blog" data-page="blog">← Back to Blog</button>
+                <a href="/blog" class="back-to-blog router-link" data-page="blog">← Back to Blog</a>
             </div>
         </div>
     </div>
@@ -2696,7 +2696,7 @@
                     <p>Questions? Email: clearwords.ng@gmail.com</p>
                 </div>
                 
-                <button class="back-home" data-page="home">← Back to Home</button>
+                <a href="/" class="back-home router-link" data-page="home">← Back to Home</a>
             </div>
         </div>
     </div>
@@ -2730,7 +2730,7 @@
                     <p>Questions? Email: clearwords.ng@gmail.com</p>
                 </div>
                 
-                <button class="back-home" data-page="home">← Back to Home</button>
+                <a href="/" class="back-home router-link" data-page="home">← Back to Home</a>
             </div>
         </div>
     </div>
@@ -2744,7 +2744,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="logo">
-                        <span class="logo-icon">🗣️</span>
+                        <span class="logo-icon"><img src="logo.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;"></span>
                         <span class="logo-text">ClearWords</span>
                     </div>
                     <p>Learn Nigerian languages with Timmy—your witty companion who studied abroad but came back for the culture.</p>
@@ -2752,8 +2752,8 @@
                 <div>
                     <h4>Product</h4>
                     <ul class="footer-links">
-                        <li><button class="footer-link-btn" data-page="languages">Languages</button></li>
-                        <li><button class="footer-link-btn" data-page="home">Features</button></li>
+                        <li><a href="/languages" class="footer-link-btn router-link" data-page="languages">Languages</a></li>
+                        <li><a href="/" class="footer-link-btn router-link" data-page="home">Features</a></li>
                         <li><a href="language.html">Launch App</a></li>
                         <li><button class="footer-link-btn" id="footer-install">Install App</button></li>
                     </ul>
@@ -2761,25 +2761,25 @@
                 <div>
                     <h4>Resources</h4>
                     <ul class="footer-links">
-                        <li><button class="footer-link-btn" data-page="blog">Blog</button></li>
-                        <li><button class="footer-link-btn" data-page="home">Help Center</button></li>
-                        <li><button class="footer-link-btn" data-page="languages">Language Guide</button></li>
+                        <li><a href="/blog" class="footer-link-btn router-link" data-page="blog">Blog</a></li>
+                        <li><a href="/" class="footer-link-btn router-link" data-page="home">Help Center</a></li>
+                        <li><a href="/languages" class="footer-link-btn router-link" data-page="languages">Language Guide</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4>Company</h4>
                     <ul class="footer-links">
-                        <li><button class="footer-link-btn" data-page="about">About Us</button></li>
-                        <li><button class="footer-link-btn" data-page="privacy">Privacy Policy</button></li>
-                        <li><button class="footer-link-btn" data-page="terms">Terms of Service</button></li>
+                        <li><a href="/about" class="footer-link-btn router-link" data-page="about">About Us</a></li>
+                        <li><a href="/privacy" class="footer-link-btn router-link" data-page="privacy">Privacy Policy</a></li>
+                        <li><a href="/terms" class="footer-link-btn router-link" data-page="terms">Terms of Service</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <div>© 2026 ClearWords. Made with ❤️ in Warri & the Diaspora. Timmy sends his regards 🤓</div>
+                <div>© 2026 ClearWords. Made with ♥️ in Warri & the Diaspora. Timmy sends his regards 🤓</div>
                 <div class="footer-social">
                     <a href="#" aria-label="Twitter">𝕏</a>
-                    <a href="www.instagram.com/@clearwords_app" aria-label="Instagram">📷</a>
+                    <a href="https://www.instagram.com/clearwords_app" aria-label="Instagram">📷</a>
                     <a href="#" aria-label="LinkedIn">🔗</a>
                     <a href="#" aria-label="TikTok">🎵</a>
                 </div>
@@ -2789,114 +2789,210 @@
     
     <script>
         // ======================
-        // PAGE ROUTING SYSTEM
+        // SEO-FRIENDLY ROUTER (NO HASH, CLEAN URLS)
         // ======================
         
-        const pages = {
-            home: 'home-page',
-            languages: 'languages-page',
-            blog: 'blog-page',
-            about: 'about-page',
-            privacy: 'privacy-page',
-            terms: 'terms-page'
-        };
-        
-        const blogPosts = {
-            'yoruba-greetings': 'blog-post-yoruba-greetings',
-            'igbo-wedding': 'blog-post-igbo-wedding',
-            'hausa-travel': 'blog-post-hausa-travel',
-            'tone-guide': 'blog-post-tone-guide',
-            'pidgin-guide': 'blog-post-pidgin-guide',
-            'diaspora-kids': 'blog-post-diaspora-kids'
-        };
-        
-        let currentPage = 'home';
-        
-        function navigateTo(page) {
+        (function() {
+            'use strict';
+            
+            // Page mapping for the SPA
+            const pages = {
+                home: 'home-page',
+                languages: 'languages-page',
+                blog: 'blog-page',
+                about: 'about-page',
+                privacy: 'privacy-page',
+                terms: 'terms-page'
+            };
+            
+            const blogPosts = {
+                'yoruba-greetings': 'blog-post-yoruba-greetings',
+                'igbo-wedding': 'blog-post-igbo-wedding',
+                'hausa-travel': 'blog-post-hausa-travel',
+                'tone-guide': 'blog-post-tone-guide',
+                'pidgin-guide': 'blog-post-pidgin-guide',
+                'diaspora-kids': 'blog-post-diaspora-kids'
+            };
+            
+            // Blog post titles for SEO
+            const blogTitles = {
+                'yoruba-greetings': '5 Yoruba Greetings for Meeting Your In-Laws | ClearWords Blog',
+                'igbo-wedding': 'Igbo Wedding Traditions: Essential Phrases | ClearWords Blog',
+                'hausa-travel': 'Essential Hausa Phrases for Travelers | ClearWords Blog',
+                'tone-guide': 'Mastering Yoruba Tones: A Simple Guide | ClearWords Blog',
+                'pidgin-guide': 'Nigerian Pidgin 101: Sound Like a Local | ClearWords Blog',
+                'diaspora-kids': 'Teaching Diaspora Kids Nigerian Languages | ClearWords Blog'
+            };
+            
+            const blogDescriptions = {
+                'yoruba-greetings': 'Master proper Yoruba greetings for meeting your in-laws. Timmy\'s personal guide to showing respect and making a great first impression.',
+                'igbo-wedding': 'Navigate Igba Nkwu with confidence. Essential Igbo phrases and cultural tips for traditional Igbo weddings.',
+                'hausa-travel': 'Essential Hausa phrases for travelers in Northern Nigeria. Greet elders, navigate markets, and bargain like a local.',
+                'tone-guide': 'Master Yoruba tones without the stress. Timmy\'s simple, humorous guide to understanding high, mid, and low tones.',
+                'pidgin-guide': 'Learn Nigerian Pidgin like a pro. Essential phrases, when to use them, and when NOT to use them.',
+                'diaspora-kids': 'Practical strategies for teaching Nigerian languages to diaspora kids—without the tears. Tips from parents who\'ve been there.'
+            };
+            
+            let currentPage = 'home';
+            
             // Hide all pages
-            Object.values(pages).forEach(pageId => {
-                const pageEl = document.getElementById(pageId);
-                if (pageEl) pageEl.classList.remove('active');
-            });
-            
-            // Hide all blog posts
-            Object.values(blogPosts).forEach(postId => {
-                const postEl = document.getElementById(postId);
-                if (postEl) postEl.classList.remove('active');
-            });
-            
-            // Show selected page
-            const targetPage = document.getElementById(pages[page]);
-            if (targetPage) {
-                targetPage.classList.add('active');
-                currentPage = page;
-                window.scrollTo(0, 0);
-                window.location.hash = page;
-            }
-        }
-        
-        function navigateToBlogPost(postId) {
-            // Hide all pages
-            Object.values(pages).forEach(pageId => {
-                const pageEl = document.getElementById(pageId);
-                if (pageEl) pageEl.classList.remove('active');
-            });
-            
-            // Hide all blog posts
-            Object.values(blogPosts).forEach(id => {
-                const postEl = document.getElementById(id);
-                if (postEl) postEl.classList.remove('active');
-            });
-            
-            // Show selected blog post
-            const targetPost = document.getElementById(blogPosts[postId]);
-            if (targetPost) {
-                targetPost.classList.add('active');
-                window.scrollTo(0, 0);
-                window.location.hash = `blog/${postId}`;
-            }
-        }
-        
-        // Handle navigation clicks
-        document.querySelectorAll('[data-page]').forEach(el => {
-            el.addEventListener('click', (e) => {
-                e.preventDefault();
-                const page = el.getAttribute('data-page');
-                navigateTo(page);
+            function hideAllPages() {
+                Object.values(pages).forEach(pageId => {
+                    const pageEl = document.getElementById(pageId);
+                    if (pageEl) pageEl.classList.remove('active');
+                });
                 
-                if (window.innerWidth <= 768) {
-                    document.getElementById('navLinks').classList.remove('active');
+                Object.values(blogPosts).forEach(postId => {
+                    const postEl = document.getElementById(postId);
+                    if (postEl) postEl.classList.remove('active');
+                });
+            }
+            
+            // Show a specific page
+            function showPage(pageId) {
+                hideAllPages();
+                
+                const targetPage = document.getElementById(pages[pageId]);
+                if (targetPage) {
+                    targetPage.classList.add('active');
+                    currentPage = pageId;
+                    window.scrollTo(0, 0);
+                    
+                    // Update document title
+                    const titles = {
+                        home: 'ClearWords - Learn Yoruba, Igbo & Hausa with Timmy',
+                        languages: 'Languages | ClearWords',
+                        blog: 'Blog | ClearWords',
+                        about: 'About | ClearWords',
+                        privacy: 'Privacy Policy | ClearWords',
+                        terms: 'Terms of Service | ClearWords'
+                    };
+                    document.title = titles[pageId] || 'ClearWords';
+                }
+            }
+            
+            // Show a blog post
+            function showBlogPost(slug) {
+                hideAllPages();
+                
+                const targetPost = document.getElementById(blogPosts[slug]);
+                if (targetPost) {
+                    targetPost.classList.add('active');
+                    window.scrollTo(0, 0);
+                    
+                    // Update document title and meta for SEO
+                    document.title = blogTitles[slug] || 'Blog Post | ClearWords';
+                    
+                    const metaDescription = document.querySelector('meta[name="description"]');
+                    if (metaDescription) {
+                        metaDescription.setAttribute('content', blogDescriptions[slug] || 'ClearWords language learning blog');
+                    }
+                } else {
+                    // 404 fallback - show home
+                    showPage('home');
+                }
+            }
+            
+            // Parse path and navigate
+            function handleRoute(path) {
+                // Remove trailing slash
+                path = path.replace(/\/$/, '');
+                
+                // Check if it's a blog post
+                if (path.startsWith('/blog/')) {
+                    const slug = path.replace('/blog/', '');
+                    if (blogPosts[slug]) {
+                        showBlogPost(slug);
+                        return;
+                    }
+                }
+                
+                // Handle page routes
+                if (path === '/' || path === '') {
+                    showPage('home');
+                } else if (path === '/languages') {
+                    showPage('languages');
+                } else if (path === '/blog') {
+                    showPage('blog');
+                } else if (path === '/about') {
+                    showPage('about');
+                } else if (path === '/privacy') {
+                    showPage('privacy');
+                } else if (path === '/terms') {
+                    showPage('terms');
+                } else {
+                    // 404 - show home
+                    showPage('home');
+                }
+            }
+            
+            // Intercept link clicks for client-side navigation
+            document.addEventListener('click', function(e) {
+                const link = e.target.closest('.router-link');
+                if (!link) return;
+                
+                const href = link.getAttribute('href');
+                if (!href) return;
+                
+                // Only handle internal links
+                if (href.startsWith('/') && !href.startsWith('//')) {
+                    e.preventDefault();
+                    
+                    // Update URL without page reload
+                    window.history.pushState({}, '', href);
+                    
+                    // Navigate to the route
+                    handleRoute(href);
+                    
+                    // Close mobile menu if open
+                    if (window.innerWidth <= 768) {
+                        document.getElementById('navLinks').classList.remove('active');
+                    }
                 }
             });
-        });
-        
-        // Handle hash changes
-        window.addEventListener('hashchange', () => {
-            const hash = window.location.hash.slice(1);
             
-            if (hash.startsWith('blog/')) {
-                const postId = hash.replace('blog/', '');
-                if (blogPosts[postId]) {
-                    navigateToBlogPost(postId);
-                }
-            } else if (pages[hash]) {
-                navigateTo(hash);
-            }
-        });
-        
-        // Load initial page from hash
-        if (window.location.hash) {
-            const hash = window.location.hash.slice(1);
+            // Handle back/forward buttons
+            window.addEventListener('popstate', function() {
+                handleRoute(window.location.pathname);
+            });
             
-            if (hash.startsWith('blog/')) {
-                const postId = hash.replace('blog/', '');
-                if (blogPosts[postId]) {
-                    navigateToBlogPost(postId);
-                }
-            } else if (pages[hash]) {
-                navigateTo(hash);
-            }
-        }
+            // Initial page load
+            handleRoute(window.location.pathname);
+            
+            // Also handle data-page links (legacy support)
+            document.querySelectorAll('[data-page]').forEach(el => {
+                el.addEventListener('click', function(e) {
+                    const page = this.getAttribute('data-page');
+                    const href = this.getAttribute('href');
+                    
+                    // Only handle if it's not already a router-link with href
+                    if (!href || href === '#') {
+                        e.preventDefault();
+                        const path = page === 'home' ? '/' : '/' + page;
+                        window.history.pushState({}, '', path);
+                        handleRoute(path);
+                        
+                        if (window.innerWidth <= 768) {
+                            document.getElementById('navLinks').classList.remove('active');
+                        }
+                    }
+                });
+            });
+            
+            // Expose navigation functions globally
+            window.navigateTo = function(page) {
+                const path = page === 'home' ? '/' : '/' + page;
+                window.history.pushState({}, '', path);
+                handleRoute(path);
+            };
+            
+            window.navigateToBlogPost = function(slug) {
+                const path = '/blog/' + slug;
+                window.history.pushState({}, '', path);
+                handleRoute(path);
+            };
+            
+        })();
         
         // ======================
         // MOBILE MENU
@@ -2905,9 +3001,11 @@
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navLinks = document.getElementById('navLinks');
         
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
         
         // ======================
         // FAQ ACCORDION
@@ -2970,7 +3068,7 @@
             }
         });
         
-        console.log('ClearWords Marketing Page Loaded with Timmy\'s Personality! 🤓');
+        console.log('ClearWords Marketing Page Loaded with SEO-Friendly Routing! 🤓');
     </script>
 </body>
 </html>
