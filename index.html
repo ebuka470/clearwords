@@ -35,6 +35,9 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
     {
@@ -1378,6 +1381,202 @@
         }
         
         /* ====================== */
+        /* CUSTOM INSTALL PROMPT  */
+        /* ====================== */
+        
+        .custom-install-prompt {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .custom-install-prompt.active {
+            display: flex;
+        }
+        
+        .prompt-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            animation: fadeIn 0.2s ease;
+        }
+        
+        .prompt-modal {
+            position: relative;
+            background: white;
+            border-radius: var(--radius-xl);
+            max-width: 450px;
+            width: 100%;
+            box-shadow: var(--shadow-xl);
+            animation: slideUp 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .prompt-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--gray-400);
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.2s;
+            z-index: 1;
+        }
+        
+        .prompt-close:hover {
+            background: var(--gray-100);
+            color: var(--gray-800);
+        }
+        
+        .prompt-content {
+            padding: 40px 32px 32px;
+            text-align: center;
+        }
+        
+        .prompt-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+            animation: bounce 1s ease infinite;
+        }
+        
+        .prompt-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: var(--gray-900);
+        }
+        
+        .prompt-content p {
+            color: var(--gray-600);
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+        
+        .prompt-instructions {
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            margin-bottom: 24px;
+            text-align: left;
+        }
+        
+        .instruction-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .instruction-step:last-child {
+            margin-bottom: 0;
+        }
+        
+        .step-number {
+            width: 24px;
+            height: 24px;
+            background: var(--gradient-brand);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        
+        .step-content {
+            flex: 1;
+            color: var(--gray-800);
+            font-size: 0.95rem;
+        }
+        
+        .step-content strong {
+            color: var(--primary-blue);
+        }
+        
+        .prompt-actions {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .prompt-actions .btn {
+            flex: 1;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* ====================== */
+        /* FLOATING INSTALL BUTTON */
+        /* ====================== */
+        
+        .floating-install-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+            background: var(--gradient-brand);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            box-shadow: var(--shadow-lg);
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+        
+        .floating-install-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .floating-install-btn.visible {
+            display: flex;
+        }
+        
+        /* ====================== */
         /* RESPONSIVE DESIGN      */
         /* ====================== */
         
@@ -1473,6 +1672,25 @@
                 flex-direction: column;
                 align-items: center;
             }
+            
+            .prompt-content {
+                padding: 32px 20px 24px;
+            }
+            
+            .prompt-actions {
+                flex-direction: column;
+            }
+            
+            .prompt-icon {
+                font-size: 48px;
+            }
+            
+            .floating-install-btn {
+                bottom: 20px;
+                right: 20px;
+                left: 20px;
+                justify-content: center;
+            }
         }
         
         /* ====================== */
@@ -1485,18 +1703,53 @@
         
         #install-button,
         #install-button-card,
-        #install-button-footer {
+        #install-button-footer,
+        #footer-install {
             display: none;
         }
         
         #install-button.visible,
         #install-button-card.visible,
-        #install-button-footer.visible {
+        #install-button-footer.visible,
+        #footer-install.visible {
             display: inline-block;
         }
     </style>
 </head>
 <body>
+    
+    <!-- ====================== -->
+    <!-- FLOATING INSTALL BUTTON -->
+    <!-- ====================== -->
+    
+    <button class="floating-install-btn" id="floatingInstallBtn" title="Install ClearWords App">
+        📱 Install App
+    </button>
+    
+    <!-- ====================== -->
+    <!-- CUSTOM INSTALL PROMPT  -->
+    <!-- ====================== -->
+    
+    <div class="custom-install-prompt" id="customInstallPrompt">
+        <div class="prompt-overlay"></div>
+        <div class="prompt-modal">
+            <button class="prompt-close" id="closePromptBtn">&times;</button>
+            <div class="prompt-content">
+                <div class="prompt-icon">📱</div>
+                <h3>Install ClearWords App</h3>
+                <p>Get the full experience with Timmy! Learn offline, track your streak, and practice anytime.</p>
+                
+                <div class="prompt-instructions" id="installInstructions">
+                    <!-- Dynamic instructions will be inserted here -->
+                </div>
+                
+                <div class="prompt-actions">
+                    <button class="btn btn-secondary" id="maybeLaterBtn">Maybe Later</button>
+                    <button class="btn btn-primary" id="confirmInstallBtn">Install App →</button>
+                </div>
+            </div>
+        </div>
+    </div>
     
     <!-- ====================== -->
     <!-- NAVIGATION BAR         -->
@@ -3019,56 +3272,420 @@
         });
         
         // ======================
-        // PWA INSTALL HANDLING
+        // ENHANCED PWA WITH CUSTOM PROMPT
         // ======================
         
-        let deferredPrompt;
-        const installButtons = [
-            document.getElementById('install-button'),
-            document.getElementById('install-button-card'),
-            document.getElementById('install-button-footer'),
-            document.getElementById('footer-install')
-        ].filter(Boolean);
-        
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
+        (function() {
+            'use strict';
             
-            installButtons.forEach(btn => {
-                if (btn) {
-                    btn.classList.add('visible');
-                    btn.style.display = 'inline-block';
+            let deferredPrompt;
+            let pendingRedirect = false;
+            let targetUrl = 'language.html';
+            
+            // Custom prompt elements
+            const customPrompt = document.getElementById('customInstallPrompt');
+            const closePromptBtn = document.getElementById('closePromptBtn');
+            const maybeLaterBtn = document.getElementById('maybeLaterBtn');
+            const confirmInstallBtn = document.getElementById('confirmInstallBtn');
+            const installInstructions = document.getElementById('installInstructions');
+            const floatingBtn = document.getElementById('floatingInstallBtn');
+            
+            // Install buttons
+            const installButtons = [
+                document.getElementById('install-button'),
+                document.getElementById('install-button-card'),
+                document.getElementById('install-button-footer'),
+                document.getElementById('footer-install')
+            ].filter(Boolean);
+            
+            // ======================
+            // DEVICE DETECTION
+            // ======================
+            
+            function detectDevice() {
+                const ua = navigator.userAgent;
+                return {
+                    isIOS: /iPad|iPhone|iPod/.test(ua) && !window.MSStream,
+                    isAndroid: /Android/.test(ua),
+                    isDesktop: !/Mobile|Tablet/.test(ua),
+                    isSafari: /Safari/.test(ua) && !/Chrome/.test(ua),
+                    isChrome: /Chrome/.test(ua) && !/Edge/.test(ua),
+                    isStandalone: window.matchMedia('(display-mode: standalone)').matches || 
+                                  window.navigator.standalone === true
+                };
+            }
+            
+            // ======================
+            // GET INSTALL INSTRUCTIONS
+            // ======================
+            
+            function getInstallInstructions() {
+                const device = detectDevice();
+                let html = '';
+                
+                if (device.isStandalone) {
+                    html = '<p style="text-align: center; color: var(--primary-green);">✓ App is already installed!</p>';
+                } else if (device.isIOS && device.isSafari) {
+                    html = `
+                        <div class="instruction-step">
+                            <span class="step-number">1</span>
+                            <span class="step-content">Tap the <strong>Share</strong> button <span style="font-size: 1.2rem;">⎙</span> in Safari</span>
+                        </div>
+                        <div class="instruction-step">
+                            <span class="step-number">2</span>
+                            <span class="step-content">Scroll down and tap <strong>"Add to Home Screen"</strong> <span style="font-size: 1.2rem;">➕</span></span>
+                        </div>
+                        <div class="instruction-step">
+                            <span class="step-number">3</span>
+                            <span class="step-content">Tap <strong>"Add"</strong> to install ClearWords</span>
+                        </div>
+                    `;
+                } else if (device.isAndroid && device.isChrome) {
+                    html = `
+                        <div class="instruction-step">
+                            <span class="step-number">1</span>
+                            <span class="step-content">Tap the <strong>⋮ Menu</strong> button in Chrome</span>
+                        </div>
+                        <div class="instruction-step">
+                            <span class="step-number">2</span>
+                            <span class="step-content">Select <strong>"Install App"</strong> or <strong>"Add to Home Screen"</strong></span>
+                        </div>
+                        <div class="instruction-step">
+                            <span class="step-number">3</span>
+                            <span class="step-content">Tap <strong>"Install"</strong> to add ClearWords</span>
+                        </div>
+                    `;
+                } else if (device.isAndroid) {
+                    html = `
+                        <div class="instruction-step">
+                            <span class="step-number">1</span>
+                            <span class="step-content">Open this page in <strong>Chrome browser</strong></span>
+                        </div>
+                        <div class="instruction-step">
+                            <span class="step-number">2</span>
+                            <span class="step-content">Tap <strong>⋮ Menu → Install App</strong></span>
+                        </div>
+                        <div class="instruction-step">
+                            <span class="step-number">3</span>
+                            <span class="step-content">Follow the prompts to install</span>
+                        </div>
+                    `;
+                } else if (device.isDesktop && device.isChrome) {
+                    html = `
+                        <div class="instruction-step">
+                            <span class="step-number">1</span>
+                            <span class="step-content">Click the <strong>Install icon</strong> <span style="font-size: 1.2rem;">⬇️</span> in the address bar</span>
+                        </div>
+                        <div class="instruction-step">
+                            <span class="step-number">2</span>
+                            <span class="step-content">Click <strong>"Install"</strong> in the popup</span>
+                        </div>
+                        <div class="instruction-step">
+                            <span class="step-number">3</span>
+                            <span class="step-content">ClearWords will open as a desktop app</span>
+                        </div>
+                    `;
+                } else {
+                    html = `
+                        <div class="instruction-step">
+                            <span class="step-number">1</span>
+                            <span class="step-content">Open your browser's <strong>menu</strong></span>
+                        </div>
+                        <div class="instruction-step">
+                            <span class="step-number">2</span>
+                            <span class="step-content">Look for <strong>"Install App"</strong> or <strong>"Add to Home Screen"</strong></span>
+                        </div>
+                        <div class="instruction-step">
+                            <span class="step-number">3</span>
+                            <span class="step-content">Follow the prompts to install ClearWords</span>
+                        </div>
+                    `;
+                }
+                
+                return html;
+            }
+            
+            // ======================
+            // SHOW CUSTOM PROMPT
+            // ======================
+            
+            function showCustomPrompt(redirectAfter = true, url = 'language.html') {
+                const device = detectDevice();
+                
+                // Don't show if already installed as PWA
+                if (device.isStandalone) {
+                    if (redirectAfter) {
+                        window.location.href = url;
+                    }
+                    return;
+                }
+                
+                // Update instructions
+                if (installInstructions) {
+                    installInstructions.innerHTML = getInstallInstructions();
+                }
+                
+                // Set pending redirect
+                pendingRedirect = redirectAfter;
+                targetUrl = url;
+                
+                // Show prompt
+                if (customPrompt) {
+                    customPrompt.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+                
+                // Track that we showed our prompt
+                localStorage.setItem('customPromptShown', Date.now());
+            }
+            
+            // ======================
+            // HIDE CUSTOM PROMPT
+            // ======================
+            
+            function hideCustomPrompt() {
+                if (customPrompt) {
+                    customPrompt.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }
+            
+            // ======================
+            // HANDLE INSTALL
+            // ======================
+            
+            async function handleInstall() {
+                const device = detectDevice();
+                
+                // Hide our custom prompt
+                hideCustomPrompt();
+                
+                if (device.isStandalone) {
+                    // Already installed, just redirect
+                    if (pendingRedirect) {
+                        window.location.href = targetUrl;
+                    }
+                    return;
+                }
+                
+                // Try native prompt first (Chrome/Edge on Android/Desktop)
+                if (deferredPrompt) {
+                    deferredPrompt.prompt();
+                    
+                    const choiceResult = await deferredPrompt.userChoice;
+                    
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted native install prompt');
+                        deferredPrompt = null;
+                        // The 'appinstalled' event will handle the redirect
+                    } else {
+                        console.log('User dismissed native install prompt');
+                        // Show instructions instead (already shown, but we can redirect if they want)
+                        if (pendingRedirect) {
+                            // Give them a moment to read instructions before redirecting
+                            setTimeout(() => {
+                                if (confirm('Ready to continue to the app?')) {
+                                    window.location.href = targetUrl;
+                                }
+                            }, 1000);
+                        }
+                    }
+                    
+                    deferredPrompt = null;
+                } else {
+                    // No native prompt available, just show instructions
+                    // The instructions are already visible, so we just wait
+                    
+                    // For iOS, we can't trigger install programmatically
+                    if (device.isIOS) {
+                        // Show a small toast with reminder
+                        setTimeout(() => {
+                            const proceed = confirm('After adding to Home Screen, tap OK to open the app.');
+                            if (proceed && pendingRedirect) {
+                                window.location.href = targetUrl;
+                            }
+                        }, 500);
+                    } else {
+                        // For other browsers, offer to continue to web version
+                        setTimeout(() => {
+                            const proceed = confirm('Continue to the web version of ClearWords?');
+                            if (proceed && pendingRedirect) {
+                                window.location.href = targetUrl;
+                            }
+                        }, 500);
+                    }
+                }
+            }
+            
+            // ======================
+            // HANDLE GET STARTED CLICKS
+            // ======================
+            
+            function handleGetStartedClick(e) {
+                const device = detectDevice();
+                
+                // If already installed as PWA, just go to app
+                if (device.isStandalone) {
+                    return; // Let normal link behavior happen
+                }
+                
+                // Check if we should show custom prompt
+                const lastShown = localStorage.getItem('customPromptShown');
+                const shouldShowPrompt = !lastShown || (Date.now() - parseInt(lastShown)) > 86400000; // 24 hours
+                
+                if (shouldShowPrompt) {
+                    e.preventDefault();
+                    showCustomPrompt(true, this.href || 'language.html');
+                }
+                // If we've shown recently, let the normal link behavior happen
+            }
+            
+            // ======================
+            // EVENT LISTENERS
+            // ======================
+            
+            // Native install prompt available
+            window.addEventListener('beforeinstallprompt', (e) => {
+                e.preventDefault();
+                deferredPrompt = e;
+                
+                // Show our install buttons
+                installButtons.forEach(btn => {
+                    if (btn) {
+                        btn.classList.add('visible');
+                        btn.style.display = 'inline-block';
+                    }
+                });
+                
+                // Show floating button
+                if (floatingBtn) {
+                    floatingBtn.classList.add('visible');
                 }
             });
-        });
-        
-        function installPWA() {
-            if (deferredPrompt) {
-                deferredPrompt.prompt();
+            
+            // App successfully installed
+            window.addEventListener('appinstalled', () => {
+                console.log('ClearWords PWA installed successfully!');
                 
-                deferredPrompt.userChoice.then((choiceResult) => {
-                    if (choiceResult.outcome === 'accepted') {
-                        installButtons.forEach(btn => {
-                            if (btn) btn.style.display = 'none';
-                        });
-                    }
-                    deferredPrompt = null;
+                deferredPrompt = null;
+                
+                installButtons.forEach(btn => {
+                    if (btn) btn.style.display = 'none';
                 });
-            } else {
-                alert('To install ClearWords:\n\n' + 
-                      'iPhone/iPad: Tap Share → Add to Home Screen\n' +
-                      'Android: Tap Menu → Install App or Add to Home Screen\n' +
-                      'Desktop: Look for the install icon in the address bar');
+                
+                if (floatingBtn) {
+                    floatingBtn.classList.remove('visible');
+                }
+                
+                // Hide custom prompt if open
+                hideCustomPrompt();
+                
+                // Redirect if pending
+                if (pendingRedirect) {
+                    pendingRedirect = false;
+                    setTimeout(() => {
+                        window.location.href = targetUrl;
+                    }, 100);
+                }
+            });
+            
+            // Custom prompt event listeners
+            if (closePromptBtn) {
+                closePromptBtn.addEventListener('click', () => {
+                    hideCustomPrompt();
+                    // If there was a pending redirect, ask if they want to continue
+                    if (pendingRedirect) {
+                        if (confirm('Continue to ClearWords in your browser?')) {
+                            window.location.href = targetUrl;
+                        }
+                        pendingRedirect = false;
+                    }
+                });
             }
-        }
-        
-        installButtons.forEach(btn => {
-            if (btn) {
-                btn.addEventListener('click', installPWA);
+            
+            if (maybeLaterBtn) {
+                maybeLaterBtn.addEventListener('click', () => {
+                    hideCustomPrompt();
+                    // Just go to the web app
+                    if (pendingRedirect) {
+                        window.location.href = targetUrl;
+                    }
+                    pendingRedirect = false;
+                });
             }
-        });
-        
-        console.log('ClearWords Marketing Page Loaded with SEO-Friendly Routing! 🤓');
+            
+            if (confirmInstallBtn) {
+                confirmInstallBtn.addEventListener('click', handleInstall);
+            }
+            
+            // Close prompt when clicking overlay
+            const overlay = document.querySelector('.prompt-overlay');
+            if (overlay) {
+                overlay.addEventListener('click', () => {
+                    hideCustomPrompt();
+                    if (pendingRedirect) {
+                        if (confirm('Continue to ClearWords in your browser?')) {
+                            window.location.href = targetUrl;
+                        }
+                        pendingRedirect = false;
+                    }
+                });
+            }
+            
+            // Attach to install buttons (show instructions, not native prompt)
+            installButtons.forEach(btn => {
+                if (btn) {
+                    btn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        showCustomPrompt(false);
+                    });
+                }
+            });
+            
+            // Floating install button
+            if (floatingBtn) {
+                floatingBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showCustomPrompt(false);
+                });
+            }
+            
+            // Intercept all "Get Started" / "Launch App" links
+            function attachGetStartedHandlers() {
+                document.querySelectorAll('a[href="language.html"]:not([data-install-handler]), a[href*="language.html"]:not([data-install-handler])').forEach(link => {
+                    link.setAttribute('data-install-handler', 'true');
+                    link.addEventListener('click', handleGetStartedClick);
+                });
+            }
+            
+            // Initial attachment
+            attachGetStartedHandlers();
+            
+            // Watch for dynamically added links (for SPA)
+            const observer = new MutationObserver(attachGetStartedHandlers);
+            observer.observe(document.body, { childList: true, subtree: true });
+            
+            // Hide install buttons if already installed
+            if (detectDevice().isStandalone) {
+                installButtons.forEach(btn => {
+                    if (btn) btn.style.display = 'none';
+                });
+                if (floatingBtn) {
+                    floatingBtn.classList.remove('visible');
+                }
+            }
+            
+            // Expose functions globally
+            window.showInstallPrompt = () => showCustomPrompt(false);
+            window.navigateToApp = () => {
+                if (pendingRedirect) {
+                    window.location.href = targetUrl;
+                }
+            };
+            
+            console.log('ClearWords Custom Install Prompt Ready! 🤓');
+            
+        })();
     </script>
 </body>
 </html>
