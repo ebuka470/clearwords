@@ -211,213 +211,264 @@
     },
     {
       "level": 2,
-      "topic": "Expressions",
-      "subTopic": "Common Expressions",
-      "title": "Level 2: Common Expressions",
-      "description": "Learn how to ask about well‑being, say 'Hello', 'How are you?', 'Where are you from?', and 'What is your name?'.",
+      "topic": "Numbers",
+      "subTopic": "Òǹkà",
+      "title": "Level 2: Numbers (Òǹkà)",
+      "description": "Learn to count from 1-20 in Yoruba and master the unique base-20 counting system used in everyday communication.",
       "learningObjectives": [
-        "Ask and answer simple personal questions",
-        "Use common expressions in daily conversation",
-        "Understand responses about well‑being"
+        "Master counting from 1-20 in Yoruba",
+        "Understand the base-20 (vigesimal) counting system",
+        "Use numbers in common expressions and market scenarios",
+        "Practice proper tone pronunciation for numbers"
       ],
       "vocabulary": [
         {
-          "word": "Ṣé dáadáa ni?",
-          "translation": "Are you well?",
-          "pronunciation": "shay dah-dah nee",
-          "example": "Ṣé dáadáa ni? – Bẹ́ẹ̀ ni, mo dúpẹ́.",
-          "culturalNote": "A polite inquiry about health."
+          "word": "Oókan",
+          "translation": "One",
+          "pronunciation": "oh-OH-kahn",
+          "example": "Oókan ènìyàn dé. (One person arrived.)",
+          "culturalNote": "Yoruba numbers are deeply tonal. 'Oókan' with different tones changes meaning. The rising tone is crucial here."
         },
         {
-          "word": "Nítorí pé",
-          "translation": "Because",
-          "pronunciation": "nee-toh-ree peh",
-          "example": "Kí nìdí? Nítorí pé mo fẹ́ kọ́.",
-          "culturalNote": "Used to give reasons."
+          "word": "Èjì",
+          "translation": "Two",
+          "pronunciation": "eh-JEE",
+          "example": "Èjì ọmọ wà níbí. (Two children are here.)",
+          "culturalNote": "Twins are highly revered in Yoruba culture. The word 'Èjì' connects to 'Ìbejì' (twins), showing the cultural importance of the number two."
         },
         {
-          "word": "Kí lórúkọ rẹ?",
-          "translation": "What is your name?",
-          "pronunciation": "kee loh-roo-koh reh",
-          "example": "Kí lórúkọ rẹ? – Orúkọ mi ni Adé.",
-          "culturalNote": "Informal; for peers."
+          "word": "Ẹ̀ta",
+          "translation": "Three",
+          "pronunciation": "eh-TAH",
+          "example": "Ẹ̀ta ọjọ́ ti kọjá. (Three days passed.)",
+          "culturalNote": "Three is significant in Yoruba cosmology, representing heaven, earth, and the underworld."
         },
         {
-          "word": "Orúkọ mi ni …",
-          "translation": "My name is …",
-          "pronunciation": "oh-roo-koh mee nee",
-          "example": "Orúkọ mi ni Adé.",
-          "culturalNote": "Introducing yourself."
+          "word": "Ẹ̀rin",
+          "translation": "Four",
+          "pronunciation": "eh-REEN",
+          "example": "Ẹ̀rin ẹsẹ̀ àga. (Four legs of the chair.)",
+          "culturalNote": "The traditional Yoruba week has four days, each dedicated to a different Òrìṣà (deity)."
         },
         {
-          "word": "Níbòó lò ńgbé?",
-          "translation": "Where do you live?",
-          "pronunciation": "nee-boh-oh loh n-gbeh",
-          "example": "Níbòó lò ńgbé? – Mo ńgbé ní Ìbàdàn.",
-          "culturalNote": "Asking about residence."
+          "word": "Àrún",
+          "translation": "Five",
+          "pronunciation": "ah-ROON",
+          "example": "Àrún ènìyàn. (Five people.)",
+          "culturalNote": "Five is associated with the five senses and is often used in traditional medicine and rituals."
         },
         {
-          "word": "Mo ńgbé ní …",
-          "translation": "I live in …",
-          "pronunciation": "moh n-gbeh nee",
-          "example": "Mo ńgbé ní Èkó.",
-          "culturalNote": "Stating your city."
+          "word": "Ẹ̀fà",
+          "translation": "Six",
+          "pronunciation": "eh-FAH",
+          "example": "Ẹ̀fà oṣù. (Six months.)",
+          "culturalNote": "The Yoruba counting system uses subtraction for some higher numbers. For example, 16 is 'ẹẹ́rìndínlógún' (four less than twenty)."
         },
         {
-          "word": "Báwo lọ́rẹ ń ṣe?",
-          "translation": "How is your friend?",
-          "pronunciation": "bah-woh loh-reh n shay",
-          "example": "Báwo lọ́rẹ ń ṣe? – Ó wà dáadáa.",
-          "culturalNote": "Showing concern for others."
+          "word": "Èje",
+          "translation": "Seven",
+          "pronunciation": "eh-JEH",
+          "example": "Èje ọjọ́ nínú ọ̀sẹ̀. (Seven days in a week.)",
+          "culturalNote": "Seven is considered a powerful mystical number in Yoruba spirituality and Ifá divination."
         },
         {
-          "word": "Ó wà dáadáa",
-          "translation": "He/She is fine",
-          "pronunciation": "oh wah dah-dah",
-          "example": "Ó wà dáadáa, ẹ ṣé.",
-          "culturalNote": "Response about a third person."
+          "word": "Ẹ̀jọ",
+          "translation": "Eight",
+          "pronunciation": "eh-JOH",
+          "example": "Ẹ̀jọ aago. (Eight o'clock.)",
+          "culturalNote": "'Ẹ̀jọ' also means 'case' or 'lawsuit' in Yoruba. Context distinguishes between the number and the legal term."
         },
         {
-          "word": "Ẹ jọ̀wọ́",
-          "translation": "Please",
-          "pronunciation": "eh joh-woh",
-          "example": "Ẹ jọ̀wọ́, ẹ sọ fún mi.",
-          "culturalNote": "Polite request form."
+          "word": "Ẹ̀sán",
+          "translation": "Nine",
+          "pronunciation": "eh-SAHN",
+          "example": "Ẹ̀sán oṣù oyún. (Nine months of pregnancy.)",
+          "culturalNote": "'Ẹ̀sán' also means 'revenge' in Yoruba, but tone and context make the meaning clear."
         },
         {
-          "word": "Kí ló ń ṣẹlẹ̀?",
-          "translation": "What's happening?",
-          "pronunciation": "kee loh n sheh-leh",
-          "example": "Kí ló ń ṣẹlẹ̀? – Kò sí nkankan.",
-          "culturalNote": "Casual greeting like 'What's up?'"
+          "word": "Ẹ̀wá",
+          "translation": "Ten",
+          "pronunciation": "eh-WAH",
+          "example": "Ẹ̀wá ènìyàn. (Ten people.)",
+          "culturalNote": "'Ẹ̀wá' is also an exclamation meaning 'come look!' or 'it's beautiful!' The tone pattern distinguishes the meanings."
         }
       ],
       "grammarPoints": [
         {
-          "concept": "Yes/No Questions with 'Ṣé'",
-          "explanation": "In Yoruba, yes/no questions are often formed by starting with 'Ṣé' (like 'is it that...') and then the statement.",
+          "concept": "Tonal Nature of Yoruba Numbers",
+          "explanation": "Yoruba is a tonal language with three basic tones: high ( ́), mid ( ̄), and low ( ̀). Numbers have specific tone patterns that must be mastered to be understood correctly.",
           "examples": [
-            "Ṣé ó wà nílé? – Is he at home?",
-            "Ṣé o lọ sí ọjà? – Did you go to the market?"
+            "oókan (one) - rising tone pattern",
+            "ẹ̀ta (three) - low-high tone pattern",
+            "àrún (five) - low-high tone pattern",
+            "Wrong tones can change 'ẹ̀wá' (ten) to 'ẹwà' (beans) or 'ẹwá' (beauty)"
           ],
-          "pattern": "Ṣé + statement?"
+          "pattern": "Each number has a fixed tone pattern that must be memorized"
         },
         {
-          "concept": "Possessive Pronouns",
-          "explanation": "Possessive pronouns come after the noun: 'orúkọ mi' (my name), 'ilé rẹ' (your house), 'bàbá wa' (our father).",
+          "concept": "The Vigesimal (Base-20) System",
+          "explanation": "Yoruba uses a base-20 counting system. Numbers above 20 are expressed in relation to 20, using multiplication, addition, and subtraction. Understanding 1-20 is essential for higher numbers.",
           "examples": [
-            "Orúkọ mi ni Túndé.",
-            "Ilé wọn tóbi."
+            "21 = ọkànlélógún (one on twenty)",
+            "25 = àrúnlélógún (five on twenty)",
+            "30 = ọgbọ̀n (a special word derived from the base-20 system)",
+            "35 = àrúndínlógójì (five less than forty)"
           ],
-          "pattern": "Noun + pronoun (mi, rẹ, rẹ̀, wa, yín, wọn)"
+          "pattern": "Base-20 system: Numbers relate to multiples of 20 (ogún, ogójì, ọgọ́ta...)"
+        },
+        {
+          "concept": "Noun-Number Order in Yoruba",
+          "explanation": "In Yoruba, numbers follow the noun they modify. The noun doesn't change form for plural, making the number essential for indicating quantity.",
+          "examples": [
+            "ènìyàn oókan (one person)",
+            "ilé èjì (two houses)",
+            "ìwé ẹ̀ta (three books)",
+            "Notice: ènìyàn stays the same regardless of number"
+          ],
+          "pattern": "Noun + Number"
         }
       ],
       "dialogue": [
         {
-          "speaker": "Adé",
-          "text": "Báwo ni, Bolú? Ṣé dáadáa ni?",
-          "translation": "How are you, Bolu? Are you well?",
-          "audioContext": "Friend greeting friend"
+          "speaker": "Folake",
+          "text": "Ẹ káàárọ̀! Kí lẹ ń tà?",
+          "translation": "Good morning! What are you selling?",
+          "audioContext": "Market morning greeting"
         },
         {
-          "speaker": "Bolú",
-          "text": "Mo wà dáadáa, ẹ ṣé. Ìwọ ńkọ́?",
-          "translation": "I am fine, thank you. And you?",
-          "audioContext": "Reciprocal inquiry"
+          "speaker": "Tunde",
+          "text": "Mò ń ta ọsàn. Mélo ló fẹ́?",
+          "translation": "I'm selling oranges. How many do you want?",
+          "audioContext": "Market interaction"
         },
         {
-          "speaker": "Adé",
-          "text": "Dáadáa ni. Kí lórúkọ ọ̀rẹ́ rẹ?",
-          "translation": "Fine. What is your friend's name?",
-          "audioContext": "Asking about someone else"
+          "speaker": "Folake",
+          "text": "Èló ni ọ̀kan?",
+          "translation": "How much is one?",
+          "audioContext": "Price inquiry"
         },
         {
-          "speaker": "Bolú",
-          "text": "Orúkọ rẹ̀ ni Kúnlé. Ó ńgbé ní Ìbàdàn.",
-          "translation": "His name is Kunle. He lives in Ibadan.",
-          "audioContext": "Introducing a friend"
+          "speaker": "Tunde",
+          "text": "Ó jẹ́ àádọ́ta náírà.",
+          "translation": "It's fifty naira.",
+          "audioContext": "Price response"
         },
         {
-          "speaker": "Adé",
-          "text": "Kí ló ń ṣe níbẹ̀?",
-          "translation": "What does he do there?",
-          "audioContext": "Asking about occupation"
+          "speaker": "Folake",
+          "text": "Fún mi ní àrún. Èló ni màá san?",
+          "translation": "Give me five. How much will I pay?",
+          "audioContext": "Ordering quantity"
         },
         {
-          "speaker": "Bolú",
-          "text": "Ó jẹ́ olùkọ́.",
-          "translation": "He is a teacher.",
-          "audioContext": "Answering"
+          "speaker": "Tunde",
+          "text": "Wàá san igba ó lé àádọ́ta náírà.",
+          "translation": "You'll pay two hundred and fifty naira.",
+          "audioContext": "Calculating total"
         }
       ],
       "culturalNotes": [
         {
-          "title": "Respect in Addressing Others",
-          "content": "Yoruba people often use titles or kinship terms (e.g., Ẹ̀gbọ́n – elder sibling) rather than first names when addressing someone older. It's a sign of respect."
+          "title": "The Yoruba Market Tradition",
+          "content": "Yoruba markets (ọjà) are central to community life. Women traditionally dominate the marketplace. Learning numbers is essential for participation in this vibrant economic tradition where bargaining (ẹ̀díjà) is an art form based entirely on number manipulation."
         },
         {
-          "title": "Asking About Family",
-          "content": "It's common to ask about someone's family after greetings – 'Báwo ni àwọn ọmọ?' (How are the children?). This shows genuine interest."
+          "title": "Numbers in Yoruba Religion",
+          "content": "In Ifá divination and Yoruba spirituality, numbers carry deep significance. The 16 principal Odù, 256 chapters, and the sacred number 4 (representing the cardinal directions and market days) all demonstrate the spiritual importance of numbers."
+        },
+        {
+          "title": "Twins and the Number Two",
+          "content": "The Yoruba have the highest rate of twin births in the world. The reverence for twins (Ìbejì) makes the number two culturally significant. Special names are given based on birth order: Táíwò (first twin to 'taste the world') and Kẹ́hìndé (the one who comes behind)."
         }
       ],
       "practiceExercises": [
         {
           "type": "multipleChoice",
-          "question": "How do you ask 'What is your name?' informally?",
-          "options": ["Kí lórúkọ rẹ?", "Orúkọ mi ni?", "Báwo ni rẹ?", "Ṣé o jẹ́?"],
-          "correctAnswer": 0,
-          "explanation": "'Kí lórúkọ rẹ?' is the informal way to ask someone's name."
+          "question": "How do you say 'Five people' in Yoruba?",
+          "options": [
+            "Ènìyàn àrún",
+            "Ènìyàn ẹ̀ta",
+            "Ènìyàn ẹ̀wá",
+            "Ènìyàn oókan"
+          ],
+          "correctAnswer": 0
         },
         {
           "type": "multipleChoice",
-          "question": "What does 'Ṣé dáadáa ni?' mean?",
-          "options": ["Are you well?", "What is your name?", "Where do you live?", "Thank you"],
-          "correctAnswer": 0,
-          "explanation": "'Ṣé dáadáa ni?' asks about someone's well-being."
+          "question": "What does 'ẹ̀rìnlá' (4+10) mean in English?",
+          "options": [
+            "Eight",
+            "Ten",
+            "Fourteen",
+            "Forty"
+          ],
+          "correctAnswer": 2
         },
         {
           "type": "multipleChoice",
-          "question": "How do you say 'I live in Lagos'?",
-          "options": ["Mo ńgbé ní Èkó", "Mo wá láti Èkó", "Èkó ni ilé mi", "Mo lọ sí Èkó"],
-          "correctAnswer": 0,
-          "explanation": "'Mo ńgbé ní Èkó' correctly states 'I live in Lagos'."
+          "question": "How do you say 'I want four oranges' in Yoruba?",
+          "options": [
+            "Mo fẹ́ ọsàn ẹ̀rin",
+            "Mo fẹ́ ọsàn àrún",
+            "Mo fẹ́ ọsàn ẹ̀wá",
+            "Mo fẹ́ ọsàn èje"
+          ],
+          "correctAnswer": 0
         },
         {
           "type": "multipleChoice",
-          "question": "Which phrase means 'What's happening?'",
-          "options": ["Kí ló ń ṣẹlẹ̀?", "Kí lórúkọ rẹ?", "Nítorí pé", "Ó dàbọ̀"],
-          "correctAnswer": 0,
-          "explanation": "'Kí ló ń ṣẹlẹ̀?' is a casual way to ask what's going on."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "What is the possessive pronoun for 'my' in Yoruba?",
-          "options": ["rẹ", "mi", "wa", "rẹ̀"],
-          "correctAnswer": 1,
-          "explanation": "'mi' means 'my' as in 'orúkọ mi' – my name."
+          "question": "What does 'Èló ni ọ̀kan?' mean?",
+          "options": [
+            "Where is the market?",
+            "How much is one?",
+            "What is your name?",
+            "How are you?"
+          ],
+          "correctAnswer": 1
         }
       ],
       "segmentCustomizations": {
         "parent": {
-          "tips": ["Ask your children 'Kí lórúkọ ọ̀rẹ́ rẹ?' to encourage them to introduce friends."]
+          "tips": [
+            "Practice counting with your children using Yoruba number songs and rhymes",
+            "Create a number chart with Yoruba words and display it prominently",
+            "Play counting games during family activities - count steps, toys, and food items"
+          ]
         },
         "young": {
-          "tips": ["Use 'Kí ló ń ṣẹlẹ̀?' when sliding into DMs – it's smooth."]
+          "tips": [
+            "Use Yoruba numbers in your social media handles and hashtags",
+            "Create fun counting challenges with friends on social platforms",
+            "Practice with Yoruba music - count beats, verses, and chorus repetitions"
+          ]
         },
         "pro": {
-          "tips": ["In networking, start with 'Orúkọ mi ni ...' and ask 'Níbòó lò ńgbé?' to build rapport."]
+          "tips": [
+            "Master the base-20 system for professional business calculations",
+            "Practice using numbers in formal presentations and reports",
+            "Learn the specific counting terms used in professional contexts"
+          ]
         },
         "marriage": {
-          "tips": ["Practice asking your in-laws about their well‑being with 'Báwo ni?' – it's essential."]
+          "tips": [
+            "Practice counting with your spouse during household activities",
+            "Learn the numbers relevant to Yoruba wedding and engagement customs",
+            "Count family members, gifts, and ceremonial items during celebrations"
+          ]
         },
         "nigeria": {
-          "tips": ["When meeting someone new in Nigeria, these questions will help you connect."]
+          "tips": [
+            "Practice the local dialect variations of Yoruba numbers",
+            "Use numbers actively when visiting Yoruba-speaking markets",
+            "Learn the modern numerical expressions used in contemporary Yoruba"
+          ]
         }
       },
       "tips": [
-        "Use 'Ẹ jọ̀wọ́' frequently to sound polite.",
-        "Listen for the tone – Yoruba is tonal, so practice pronunciation.",
-        "Combine these expressions with greetings from Level 1."
+        "Master the tones early - they completely change word meanings",
+        "Practice the base-20 patterns - they're essential for higher numbers",
+        "Record yourself counting and compare with native Yoruba speakers",
+        "Learn the number songs - 'Orin Òǹkà' helps memorize through melody",
+        "Practice counting everyday objects around you throughout the day"
       ],
       "prerequisites": [
         "Complete Level 1: Greetings"
@@ -428,7 +479,13 @@
       "estimatedTime": "15-20 minutes",
       "xpReward": 25,
       "difficulty": "Beginner",
-      "tags": ["expressions", "questions", "level-2"]
+      "tags": [
+        "numbers",
+        "level-2",
+        "counting",
+        "market",
+        "yoruba-numbers"
+      ]
     },
     {
       "level": 3,
