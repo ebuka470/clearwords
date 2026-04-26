@@ -204,201 +204,278 @@
     },
     {
       "level": 2,
-      "topic": "Expressions",
-      "subTopic": "Basic Expressions",
-      "title": "Level 2: Basic Expressions",
-      "description": "Asking about well-being, responding 'Hello', 'How are you?', 'Where are you from?', 'What is your name?'",
+      "topic": "Numbers",
+      "subTopic": "Ọnụ Ọgụgụ",
+      "title": "Level 2: Numbers (Ọnụ Ọgụgụ)",
+      "description": "Learn to count from 1-20 in Igbo and use numbers in everyday situations like shopping and telling time.",
       "learningObjectives": [
-        "Learn how to ask and answer 'Where are you from?'",
-        "Learn how to ask and answer 'What is your name?'",
-        "Practice asking about well-being",
-        "Complete exercises"
+        "Master counting from 1-20 in Igbo",
+        "Use numbers to ask about prices in the market",
+        "Understand the pattern for forming compound numbers",
+        "Practice number pronunciation with correct tone"
       ],
       "vocabulary": [
         {
-          "word": "Kedu ka ị mere?",
-          "translation": "How are you? (detailed)",
-          "pronunciation": "keh-doo ka ee meh-reh",
-          "example": "Kedu ka ị mere taa?",
-          "culturalNote": "More formal than 'Kedu?'."
+          "word": "Otu",
+          "translation": "One",
+          "pronunciation": "oh-TOO",
+          "example": "Otu mmadụ bịara. (One person came.)",
+          "culturalNote": "The Igbo counting system is based on 20 (vigesimal system), reflecting the ancient trade heritage of the Igbo people."
         },
         {
-          "word": "Ọ na-aga",
-          "translation": "It's going",
-          "pronunciation": "aw na-ah-gah",
-          "example": "Ọ na-aga, daalụ.",
-          "culturalNote": "Casual response about well-being."
+          "word": "Abụọ",
+          "translation": "Two",
+          "pronunciation": "ah-BWUH",
+          "example": "Abụọ ụmụaka nọ ebe a. (Two children are here.)",
+          "culturalNote": "Numbers in Igbo are often used in proverbs. 'Abụọ abụọ' means 'two by two'."
         },
         {
-          "word": "Ị si ebe?",
-          "translation": "Where are you from?",
-          "pronunciation": "ee see eh-beh",
-          "example": "Ị si ebe, nwanne m?",
-          "culturalNote": "Literal: 'You come from where?'"
+          "word": "Atọ",
+          "translation": "Three",
+          "pronunciation": "ah-TOH",
+          "example": "Atọ ụbọchị gara aga. (Three days passed.)",
+          "culturalNote": "The number three is considered sacred in Igbo cosmology, representing the three worlds: the living, the ancestors, and the unborn."
         },
         {
-          "word": "Esi m ...",
-          "translation": "I am from ...",
-          "pronunciation": "eh-see m ...",
-          "example": "Esi m Lagos.",
-          "culturalNote": "State your origin."
+          "word": "Anọ",
+          "translation": "Four",
+          "pronunciation": "ah-NOH",
+          "example": "Anọ ụkwụ oche. (Four legs of the chair.)",
+          "culturalNote": "Four market days (Eke, Orie, Afọ, Nkwọ) form the traditional Igbo week."
         },
         {
-          "word": "Gịnị bụ aha gị?",
-          "translation": "What is your name?",
-          "pronunciation": "gee-nee boo ah-hah gee",
-          "example": "Gịnị bụ aha gị?",
-          "culturalNote": "Formal way to ask name."
+          "word": "Ise",
+          "translation": "Five",
+          "pronunciation": "ee-SEH",
+          "example": "Ise mmadụ. (Five people.)",
+          "culturalNote": "'Ise' is also used as a response of affirmation in Igbo, similar to 'amen'."
         },
         {
-          "word": "Aha m bụ ...",
-          "translation": "My name is ...",
-          "pronunciation": "ah-hah m boo ...",
-          "example": "Aha m bụ Chuka.",
-          "culturalNote": "Introduce yourself."
+          "word": "Isii",
+          "translation": "Six",
+          "pronunciation": "ee-SEE",
+          "example": "Isii ọnwa. (Six months.)",
+          "culturalNote": "Compound numbers in Igbo follow a base-10 addition pattern after 10."
         },
         {
-          "word": "Ọ dịghị ihe",
-          "translation": "You're welcome / It's nothing",
-          "pronunciation": "aw dee-hee ee-heh",
-          "example": "Daalụ! - Ọ dịghị ihe.",
-          "culturalNote": "Response to 'Daalụ'."
+          "word": "Asaa",
+          "translation": "Seven",
+          "pronunciation": "ah-SAH-ah",
+          "example": "Asaa ụbọchị n'izu. (Seven days in a week.)",
+          "culturalNote": "Seven is often associated with completeness in Igbo tradition."
         },
         {
-          "word": "Ọ bụ gị?",
-          "translation": "Is it you?",
-          "pronunciation": "aw boo gee",
-          "example": "Ọ bụ gị ka m hụrụ?",
-          "culturalNote": "Used when recognizing someone."
+          "word": "Asatọ",
+          "translation": "Eight",
+          "pronunciation": "ah-sah-TOH",
+          "example": "Asatọ elekere. (Eight o'clock.)",
+          "culturalNote": "The word 'asatọ' literally relates to 'atọ' (three) in its formation pattern."
+        },
+        {
+          "word": "Itoolu",
+          "translation": "Nine",
+          "pronunciation": "ee-TOH-loo",
+          "example": "Itoolu ọnwa ime. (Nine months of pregnancy.)",
+          "culturalNote": "Nine is the final single-digit number before the base-10 system begins."
+        },
+        {
+          "word": "Iri",
+          "translation": "Ten",
+          "pronunciation": "ee-REE",
+          "example": "Iri mmadụ. (Ten people.)",
+          "culturalNote": "'Iri' also means 'to eat' in Igbo, but context distinguishes the meaning. Ten forms the foundation for all higher numbers."
         }
       ],
       "grammarPoints": [
         {
-          "concept": "Asking Questions",
-          "explanation": "Yes/no questions often start with 'Ọ bụ...' or use rising intonation. 'Kedu' is used for open-ended questions.",
-          "examples": ["Ị si ebe?", "Kedu ka ị mere?"],
-          "pattern": "Question word + subject + verb"
+          "concept": "Basic Number Word Order",
+          "explanation": "In Igbo, numbers typically come after the noun they modify. The noun doesn't change form (no plural marking).",
+          "examples": [
+            "mmadụ ise (five people)",
+            "ụlọ abụọ (two houses)",
+            "akwụkwọ atọ (three books)"
+          ],
+          "pattern": "Noun + Number"
         },
         {
-          "concept": "Subject Pronouns",
-          "explanation": "Pronouns: m (I), ị (you), ọ (he/she), anyị (we), unu (you pl.), ha (they). They attach to verbs.",
-          "examples": ["Esi m", "Ị si", "Ọ si"],
-          "pattern": "Verb + pronoun"
+          "concept": "Forming Numbers 11-20",
+          "explanation": "Numbers 11-19 are formed by combining 'iri' (ten) with the unit number, using 'na' (and) as a connector. Number 20 is 'iri abụọ' (ten two).",
+          "examples": [
+            "iri na otu (11 - ten and one)",
+            "iri na ise (15 - ten and five)",
+            "iri abụọ (20 - ten two)",
+            "iri na itoolu (19 - ten and nine)"
+          ],
+          "pattern": "Iri + na + unit number (for 11-19)"
+        },
+        {
+          "concept": "Counting Objects with Classifiers",
+          "explanation": "Igbo uses specific counting markers for different types of nouns. 'Otu' becomes a prefix for counting various items.",
+          "examples": [
+            "otu mkpụrụ (one seed/one piece)",
+            "otu onye (one person - uses 'onye' classifier)",
+            "otu ihe (one thing - uses 'ihe' classifier)"
+          ],
+          "pattern": "Otu + classifier + noun"
         }
       ],
       "dialogue": [
         {
-          "speaker": "Ngozi",
-          "text": "Kedu ka ị mere?",
-          "translation": "How are you?",
-          "audioContext": "Asking well-being"
+          "speaker": "Adaobi",
+          "text": "Ndewo! Kedu ihe ị na-ere?",
+          "translation": "Hello! What are you selling?",
+          "audioContext": "Market greeting"
         },
         {
-          "speaker": "Chinedu",
-          "text": "Ọ na-aga, daalụ. Kedu ka ị mere?",
-          "translation": "It's going, thank you. How are you?",
-          "audioContext": "Response"
+          "speaker": "Chidi",
+          "text": "M na-ere mkpụrụ osisi oroma. Otu ole ka ị chọrọ?",
+          "translation": "I'm selling oranges. How many do you want?",
+          "audioContext": "Market interaction"
         },
         {
-          "speaker": "Ngozi",
-          "text": "Ọ dị mma. Ị si ebe?",
-          "translation": "I'm fine. Where are you from?",
-          "audioContext": "Asking origin"
+          "speaker": "Adaobi",
+          "text": "Ego ole ka ọ bụ otu?",
+          "translation": "How much is one?",
+          "audioContext": "Price inquiry"
         },
         {
-          "speaker": "Chinedu",
-          "text": "Esi m Enugu. Gịnị bụ aha gị?",
-          "translation": "I'm from Enugu. What is your name?",
-          "audioContext": "Asking name"
+          "speaker": "Chidi",
+          "text": "Ọ bụ naira iri ise.",
+          "translation": "It's fifty naira.",
+          "audioContext": "Price response"
         },
         {
-          "speaker": "Ngozi",
-          "text": "Aha m bụ Ngozi. Ọ dị mma ịhụ gị!",
-          "translation": "My name is Ngozi. Nice to meet you!",
-          "audioContext": "Introduction"
+          "speaker": "Adaobi",
+          "text": "Nye m ise. Ego ole ka m ga-akwụ?",
+          "translation": "Give me five. How much will I pay?",
+          "audioContext": "Ordering quantity"
         },
         {
-          "speaker": "Chinedu",
-          "text": "Ọ dị mma ịhụ gị, Ngozi.",
-          "translation": "Nice to meet you, Ngozi.",
-          "audioContext": "Reply"
+          "speaker": "Chidi",
+          "text": "Ị ga-akwụ naira narị abụọ na iri ise.",
+          "translation": "You'll pay two hundred and fifty naira.",
+          "audioContext": "Calculating price"
         }
       ],
       "culturalNotes": [
         {
-          "title": "Asking About Origin",
-          "content": "Asking 'Ị si ebe?' is common and not considered intrusive. It shows interest in a person's background and often leads to discussions about village, family, and dialect."
+          "title": "The Igbo Market Day System",
+          "content": "The traditional Igbo calendar revolves around four market days: Eke, Orie, Afọ, and Nkwọ. Each is a four-day cycle, so 'izu anọ' (four weeks) in the market calendar equals 16 days. This system affects how numbers and time are understood."
         },
         {
-          "title": "Names and Meaning",
-          "content": "Igbo names often have meanings related to circumstances of birth, God, or family history. E.g., 'Chinedu' means 'God leads', 'Ngozi' means 'blessing'."
+          "title": "Counting with Kolanuts",
+          "content": "Kolanuts (ọjị) are traditionally counted in a specific way during ceremonies. Breaking and counting kola nuts in odd numbers (especially 3, 5, and 7) is considered auspicious for prayers and offerings to ancestors."
+        },
+        {
+          "title": "Numbers in Igbo Names",
+          "content": "Many Igbo names incorporate numbers, reflecting birth order or circumstances: 'Nkechi' (the one to keep), 'Chukwudi' (God exists), or market-day names like 'Nwakaego' (child is worth more than money). Understanding numbers helps understand name meanings."
         }
       ],
       "practiceExercises": [
         {
           "type": "multipleChoice",
-          "question": "How do you ask 'Where are you from?' in Igbo?",
-          "options": ["Kedu ka ị mere?", "Gịnị bụ aha gị?", "Ị si ebe?", "Kedu?"],
-          "correctAnswer": 2,
-          "explanation": "'Ị si ebe?' means 'Where are you from?'."
+          "question": "How do you say 'Three people' in Igbo?",
+          "options": [
+            "Mmadụ atọ",
+            "Mmadụ abụọ",
+            "Mmadụ ise",
+            "Mmadụ iri"
+          ],
+          "correctAnswer": 0
         },
         {
           "type": "multipleChoice",
-          "question": "What does 'Esi m Aba' mean?",
-          "options": ["I am from Aba", "My name is Aba", "I live in Aba", "I like Aba"],
-          "correctAnswer": 0,
-          "explanation": "'Esi m' + place = 'I am from'."
+          "question": "What is 'iri na abụọ' in English?",
+          "options": [
+            "Eight",
+            "Ten",
+            "Twelve",
+            "Twenty"
+          ],
+          "correctAnswer": 2
         },
         {
           "type": "multipleChoice",
-          "question": "Choose the correct response to 'Daalụ'.",
-          "options": ["Nnọọ", "Kedu", "Ọ dịghị ihe", "Ka ọ dị"],
-          "correctAnswer": 2,
-          "explanation": "'Ọ dịghị ihe' means 'You're welcome'."
+          "question": "How do you say 'I want five oranges' in Igbo?",
+          "options": [
+            "Achọrọ m oroma ise",
+            "Achọrọ m oroma atọ",
+            "Achọrọ m oroma iri",
+            "Achọrọ m oroma asaa"
+          ],
+          "correctAnswer": 0
         },
         {
           "type": "multipleChoice",
-          "question": "How do you say 'My name is Emeka'?",
-          "options": ["Aha gị bụ Emeka", "Aha m bụ Emeka", "Ọ bụ Emeka", "Emeka bụ aha"],
-          "correctAnswer": 1,
-          "explanation": "'Aha m bụ' + name = 'My name is'."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "What does 'Kedu ka ị mere?' mean?",
-          "options": ["What is your name?", "Where are you from?", "How are you?", "Good morning"],
-          "correctAnswer": 2,
-          "explanation": "It is a more detailed way to ask 'How are you?'."
+          "question": "What does 'Ego ole ka ọ bụ otu?' mean?",
+          "options": [
+            "Where is the market?",
+            "How much is one?",
+            "What is your name?",
+            "How are you?"
+          ],
+          "correctAnswer": 1
         }
       ],
       "segmentCustomizations": {
         "parent": {
-          "tips": ["Teach your children to ask relatives 'Ị si ebe?' to learn their roots."]
+          "tips": [
+            "Practice counting with your children using household items like plates, cups, and spoons",
+            "Create number flashcards with Igbo words on one side and English on the other",
+            "Play counting games during meal preparation - count the pieces of meat or vegetables"
+          ]
         },
         "young": {
-          "tips": ["Use 'Ị si ebe?' as an icebreaker with other young Nigerians."]
+          "tips": [
+            "Use numbers in your social media captions - post photos with Igbo number captions",
+            "Practice counting in Igbo with your playlist - count songs, albums, and artists",
+            "Text your friends using Igbo numbers instead of digits"
+          ]
         },
         "pro": {
-          "tips": ["In networking events, asking 'Ị si ebe?' can create personal connections."]
+          "tips": [
+            "Practice using numbers in business contexts - pricing, quantities, and negotiations",
+            "Learn to count currency denominations in Igbo for market transactions",
+            "Use number vocabulary in formal correspondence and reports"
+          ]
         },
         "marriage": {
-          "tips": ["Learn your partner's hometown and practice saying 'Esi m [town]' with pride."]
+          "tips": [
+            "Practice counting with your in-laws during family gatherings",
+            "Learn the numbers for bride price discussions and ceremonies",
+            "Count family members, gifts, and traditional items at celebrations"
+          ]
         },
         "nigeria": {
-          "tips": ["Explore how different Igbo communities answer 'Ị si ebe?' (some say 'Esi m', others 'M si')."]
+          "tips": [
+            "Practice the local market counting system in your region",
+            "Learn the regional variations in number pronunciation",
+            "Use numbers when visiting local shops and interacting with traders"
+          ]
         }
       },
       "tips": [
-        "Repeat names and places out loud",
-        "Create flashcards for question words",
-        "Practice with a friend"
+        "Practice counting backwards from 10 to 1 to strengthen memory",
+        "Use your fingers while counting to create a physical memory association",
+        "Listen to Igbo market recordings to hear numbers used naturally",
+        "Practice the tones carefully - 'iri' (ten) vs 'iri' (to eat) shows why tone matters"
       ],
-      "prerequisites": ["Complete Level 1"],
-      "unlocks": ["Access to Level 3"],
+      "prerequisites": [
+        "Complete Level 1: Greetings"
+      ],
+      "unlocks": [
+        "Access to Level 3: Introduction"
+      ],
       "estimatedTime": "15-20 minutes",
       "xpReward": 25,
       "difficulty": "Beginner",
-      "tags": ["expressions", "introduction", "level-2"]
+      "tags": [
+        "numbers",
+        "level-2",
+        "counting",
+        "market",
+        "igbo-numbers"
+      ]
     },
     {
       "level": 3,
