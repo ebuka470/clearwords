@@ -24,8 +24,9 @@
     <title>ClearWords - Learn Nigerian Languages</title>
     <link rel="stylesheet" href="app.css">
     <style>
-        /* ====================== COMPLETE STYLES ====================== */
+        /* ====================== COMPLETE STYLES (THEMED LIKE language3.html) ====================== */
         :root {
+            /* Light theme raw colors */
             --primary-light: #2E8B57;
             --accent1-light: #4169E1;
             --accent2-light: #FF7F50;
@@ -36,11 +37,8 @@
             --text-secondary-light: #666666;
             --border-light: #E0E0E0;
             --shadow-light: rgba(0, 0, 0, 0.1);
-            --primary-rgb: 46, 139, 87;
-            --accent1-rgb: 65, 105, 225;
-            --accent2-rgb: 255, 127, 80;
-            --accent3-rgb: 255, 215, 0;
             
+            /* Dark theme raw colors */
             --primary-dark: #4CAF50;
             --accent1-dark: #2196F3;
             --accent2-dark: #FF9800;
@@ -51,6 +49,24 @@
             --text-secondary-dark: #B0B0B0;
             --border-dark: #424242;
             --shadow-dark: rgba(0, 0, 0, 0.3);
+        }
+
+        /* Default light theme */
+        .light-theme, :root {
+            --primary: var(--primary-light);
+            --accent1: var(--accent1-light);
+            --accent2: var(--accent2-light);
+            --accent3: var(--accent3-light);
+            --bg: var(--bg-light);
+            --card-bg: var(--card-bg-light);
+            --text: var(--text-light);
+            --text-secondary: var(--text-secondary-light);
+            --border: var(--border-light);
+            --shadow: var(--shadow-light);
+            --primary-rgb: 46, 139, 87;
+            --accent1-rgb: 65, 105, 225;
+            --accent2-rgb: 255, 127, 80;
+            --accent3-rgb: 255, 215, 0;
         }
 
         .dark-theme {
@@ -68,19 +84,6 @@
             --accent1-rgb: 33, 150, 243;
             --accent2-rgb: 255, 152, 0;
             --accent3-rgb: 255, 235, 59;
-        }
-
-        .light-theme, :root {
-            --primary: var(--primary-light);
-            --accent1: var(--accent1-light);
-            --accent2: var(--accent2-light);
-            --accent3: var(--accent3-light);
-            --bg: var(--bg-light);
-            --card-bg: var(--card-bg-light);
-            --text: var(--text-light);
-            --text-secondary: var(--text-secondary-light);
-            --border: var(--border-light);
-            --shadow: var(--shadow-light);
         }
 
         * {
@@ -1324,7 +1327,7 @@
         </nav>
         
         <div class="lesson-flow" id="lesson-flow">
-            <button class="lesson-exit-btn" onclick="exitLessonToHome()">✕</button>
+            
             <div class="lesson-progress" id="lesson-progress"></div>
             <div class="lesson-card active" id="lesson-card-1"></div>
             <div class="lesson-card" id="lesson-card-2"></div>
@@ -1637,13 +1640,9 @@
                         showPage('lessons');
                     } else {
                         showPage(event.state.page);
-                        if (event.state.subpage && event.state.page === 'lessons') {
-                            // Could scroll to specific level
-                        }
                     }
                 }
             } else {
-                // No state, go to last known page or home
                 const lastPage = appState.navigationHistory.length > 0 ? 
                     appState.navigationHistory[appState.navigationHistory.length - 1].page : 'home';
                 showPage(lastPage);
@@ -1676,7 +1675,6 @@
             const savedState = localStorage.getItem('clearWordsState');
             const userId = localStorage.getItem('clearWordsUserId');
             
-            // Check URL for initial page
             const path = window.location.pathname;
             let initialPage = 'home';
             let initialSubpage = null;
@@ -1725,6 +1723,16 @@
             document.getElementById('loading').style.opacity = '0';
             setTimeout(() => {
                 document.getElementById('loading').style.display = 'none';
+                
+                // FIXED: Apply theme BEFORE showing the app to prevent flash
+                if (appState.isDarkTheme) {
+                    document.body.classList.remove('light-theme');
+                    document.body.classList.add('dark-theme');
+                } else {
+                    document.body.classList.remove('dark-theme');
+                    document.body.classList.add('light-theme');
+                }
+                
                 document.getElementById('app').style.display = 'block';
                 initializeApp();
                 
@@ -1831,11 +1839,8 @@
             const today = new Date().toISOString().split('T')[0];
             const lastGen = appState.user.lastChallengeGen;
             
-            // Regenerate if never generated, or if it's a new day
             if (!lastGen) return true;
             if (lastGen !== today) return true;
-            
-            // Also regenerate if challenges array is empty
             if (!appState.user.dailyChallenges || appState.user.dailyChallenges.length === 0) return true;
             
             return false;
@@ -1865,7 +1870,6 @@
             const completedContainer = document.getElementById('daily-goal-completed');
             if (!container) return;
             
-            // Always regenerate if needed
             generateDailyChallenges();
             
             const challenges = appState.user.dailyChallenges || [];
@@ -1915,7 +1919,6 @@
         }
 
         function updateChallengeProgress(type, value = 1) {
-            // Always ensure challenges are current
             generateDailyChallenges();
             
             const challenges = appState.user.dailyChallenges || [];
@@ -1964,9 +1967,10 @@
             
             applySegmentTheme();
             
-            if (appState.isDarkTheme) {
-                document.body.classList.add('dark-theme');
-                document.getElementById('theme-toggle').textContent = '🌓 Dark Mode';
+            // FIXED: Theme already applied in showMainApp, just update the toggle text
+            const themeToggle = document.getElementById('theme-toggle');
+            if (themeToggle) {
+                themeToggle.textContent = appState.isDarkTheme ? '🌓 Dark Mode' : '🌓 Light Mode';
             }
             
             if (!appState.curriculumData[appState.user.language]) {
@@ -2031,7 +2035,6 @@
             document.getElementById('home-subtitle').textContent = `${segment} | Day ${user.streak}`;
             document.getElementById('streak-count').textContent = user.streak;
             
-            // Don't limit daily progress - show actual count
             document.getElementById('daily-progress').textContent = `${user.dailyCompleted} lessons today`;
             
             document.getElementById('lessons-title').textContent = `${language} Lessons`;
@@ -2043,7 +2046,6 @@
             document.getElementById('current-language').textContent = language;
             document.getElementById('total-xp').textContent = `${user.totalXP} XP`;
             
-            // Show unlimited progress bar
             const dailyGoal = user.dailyGoal || 5;
             const progress = Math.min((user.dailyCompleted / dailyGoal) * 100, 100);
             document.getElementById('daily-progress-bar').style.width = `${progress}%`;
@@ -2089,7 +2091,6 @@
             const languageName = langConfig.name;
             const greeting = langConfig.greeting;
             
-            // Complete 50 levels with all blocks
             const block1 = [
                 { level: 1, topic: "Greetings", synopsis: "Learn morning, afternoon, and evening greetings." },
                 { level: 2, topic: "Numbers", synopsis: "Counting from 1-20 in " + languageName + "." },
@@ -2314,17 +2315,11 @@
             appState.lessonCardIndex = 0;
             appState.testAnswers = [];
             
-    // *** ADD THESE LINES TO RESET BUTTONS ***
-    const prevBtn = document.getElementById('prev-btn');
-    const nextBtn = document.getElementById('next-btn');
-    if (prevBtn) prevBtn.style.display = 'block';
-    if (nextBtn) nextBtn.style.display = 'block';
-    
-    loadLessonData(level);
-    document.getElementById('lesson-flow').classList.add('active');
-    showLessonCard(0);
-    updateURL('lesson-flow', level);
-
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            if (prevBtn) prevBtn.style.display = 'block';
+            if (nextBtn) nextBtn.style.display = 'block';
+            
             loadLessonData(level);
             document.getElementById('lesson-flow').classList.add('active');
             showLessonCard(0);
@@ -3133,7 +3128,7 @@
                 <p>All your learning data is stored locally on your device using browser storage (LocalStorage and IndexedDB). We do not transmit your personal learning data to external servers unless you explicitly choose to:</p>
                 <ul>
                     <li>Sync your progress across devices (future feature)</li>
-                    <li>Backup your data to cloud storage (future feature</li>
+                    <li>Backup your data to cloud storage (future feature)</li>
                     <li>Share your achievements on social media (optional)</li>
                 </ul>
                 <p>We implement appropriate technical and organizational security measures to protect your data, including encryption of sensitive information and regular security assessments.</p>
@@ -3349,7 +3344,6 @@
                 pageElement.classList.add('active');
                 appState.currentPage = pageId;
                 
-                // Update nav tabs
                 document.querySelectorAll('.tab').forEach(tab => {
                     tab.classList.remove('active');
                     if (tab.getAttribute('data-page') === pageId) {
@@ -3424,11 +3418,18 @@
             showToast("Speed round starting! Complete 3 lessons quickly for bonus XP!");
         }
 
+        // FIXED: toggleTheme now properly swaps classes
         function toggleTheme() {
             appState.isDarkTheme = !appState.isDarkTheme;
-            document.body.classList.toggle('dark-theme', appState.isDarkTheme);
-            document.body.classList.toggle('light-theme', !appState.isDarkTheme);
-            document.getElementById('theme-toggle').textContent = appState.isDarkTheme ? '🌓 Dark Mode' : '🌓 Light Mode';
+            if (appState.isDarkTheme) {
+                document.body.classList.remove('light-theme');
+                document.body.classList.add('dark-theme');
+                document.getElementById('theme-toggle').textContent = '🌓 Dark Mode';
+            } else {
+                document.body.classList.remove('dark-theme');
+                document.body.classList.add('light-theme');
+                document.getElementById('theme-toggle').textContent = '🌓 Light Mode';
+            }
             saveState();
         }
 
