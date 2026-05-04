@@ -1,16 +1,23 @@
-About the Project
+🗣️ ClearWords
 
-ClearWords helps expats, diaspora Nigerians, NYSC members and professionals communicate effectively in Nigeria by understanding the real meaning behind words and cultural context.
+Learn Nigerian languages through lessons and AI conversation.
 
-Features
+Languages:
+Yoruba
+Hausa 
+Igbo 
+Urhobo 
+Itsekiri
+Pidgin
 
-Insant Nigerian languages phrase translations
-Cultural context and usage tips
-Progressive Web App
-Clean, modern interface
-Built With
+Features:
+50-level curriculum 
+Timmy AI chat 
+XP & streaks 
+PWA 
+Offline capabilities 
+Dark mode
 
-HTML, CSS, JavaScript
-PWA capabilities
-Static JSON knowedge base
-Installation git clone https://github.com/ebuka470/clearwords.git
+Privacy: All data stored locally. No accounts.
+
+Contact: clearwords.ng@gmail.com
