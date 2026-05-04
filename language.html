@@ -24,8 +24,9 @@
     <title>ClearWords - Learn Nigerian Languages</title>
     <link rel="stylesheet" href="app.css">
     <style>
-        /* ====================== COMPLETE STYLES (INTEGRATED FROM language.html) ====================== */
+        /* ====================== COMPLETE STYLES (THEMED LIKE language3.html) ====================== */
         :root {
+            /* Light theme raw colors */
             --primary-light: #2E8B57;
             --accent1-light: #4169E1;
             --accent2-light: #FF7F50;
@@ -37,6 +38,7 @@
             --border-light: #E0E0E0;
             --shadow-light: rgba(0, 0, 0, 0.1);
             
+            /* Dark theme raw colors */
             --primary-dark: #4CAF50;
             --accent1-dark: #2196F3;
             --accent2-dark: #FF9800;
@@ -49,6 +51,7 @@
             --shadow-dark: rgba(0, 0, 0, 0.3);
         }
 
+        /* Default light theme */
         .light-theme, :root {
             --primary: var(--primary-light);
             --accent1: var(--accent1-light);
@@ -197,20 +200,20 @@
         }
 
         .bottom-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 70px;
-    background: var(--card-bg);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    box-shadow: 0 -2px 10px var(--shadow);
-    z-index: 100;
-    border-top: 1px solid var(--border);
-    backdrop-filter: blur(10px);
-}
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background: var(--card-bg);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            box-shadow: 0 -2px 10px var(--shadow);
+            z-index: 100;
+            border-top: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+        }
 
         .tab {
             display: flex;
@@ -684,7 +687,6 @@
         .audio-btn:hover { background: var(--primary); transform: scale(1.05); }
         .audio-btn.playing { background: var(--accent2); animation: pulse 1s infinite; }
 
-        /* Lesson Flow Design from language.html */
         .lesson-flow {
             position: fixed;
             top: 0;
@@ -943,465 +945,14 @@
         .claim-title { font-size: 24px; font-weight: 700; margin-bottom: 10px; color: var(--primary); }
         .claim-xp { font-size: 36px; font-weight: 700; color: var(--accent3); margin: 20px 0; }
 
-        /* ====================== TIMMY AI WHATSAPP-LIKE INTERFACE ====================== */
-        .timmy-wa-container {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    background: var(--bg);
-}
-
-/* Only when in chat or new chat view, make it full screen */
-.timmy-wa-container.fullscreen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 200;
-}
-
-        .timmy-chat-page {
+        .timmy-message { position: relative; padding-left: 50px; }
+        .timmy-message::before {
+            content: "🤓";
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 200;
-        }
-
-        .timmy-wa-header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent1) 100%);
-            color: white;
-            padding: 16px 20px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            position: sticky;
-            top: 0;
-            z-index: 20;
-            box-shadow: 0 2px 8px var(--shadow);
-            min-height: 60px;
-        }
-
-        .timmy-wa-header-title {
-            font-size: 20px;
-            font-weight: 700;
-            flex: 1;
-        }
-
-        /* Floating new chat button (WhatsApp style) */
-        .timmy-floating-new-chat {
-            position: fixed;
-            bottom: 85px;
-            right: 20px;
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: white;
-            border: none;
-            font-size: 28px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-            z-index: 300;
-            transition: all 0.2s;
-        }
-
-        .timmy-floating-new-chat:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-        }
-
-        .timmy-floating-new-chat.hidden {
-            display: none;
-        }
-
-        .timmy-search-container {
-            padding: 10px 15px;
-            background: var(--bg);
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 60px;
-            z-index: 15;
-        }
-
-        .timmy-search-input {
-            width: 100%;
-            padding: 12px 16px;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 25px;
-            font-size: 15px;
-            color: var(--text);
-        }
-
-        .timmy-search-input:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-
-        .timmy-chat-list {
-            flex: 1;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .timmy-chat-item {
-            display: flex;
-            align-items: center;
-            padding: 14px 16px;
-            cursor: pointer;
-            transition: all 0.2s;
-            border-bottom: 1px solid var(--border);
-            position: relative;
-        }
-
-        .timmy-chat-item:hover {
-            background: rgba(var(--primary-rgb), 0.05);
-        }
-
-        .timmy-chat-item:active {
-            background: rgba(var(--primary-rgb), 0.1);
-        }
-
-        .timmy-chat-avatar {
-            width: 52px;
-            height: 52px;
-            border-radius: 50%;
-            background: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
             font-size: 24px;
-            margin-right: 14px;
-            flex-shrink: 0;
-            color: white;
-        }
-
-        .timmy-chat-info {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .timmy-chat-name {
-            font-size: 17px;
-            font-weight: 600;
-            color: var(--text);
-            margin-bottom: 4px;
-        }
-
-        .timmy-chat-preview {
-            font-size: 14px;
-            color: var(--text-secondary);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            max-width: 250px;
-        }
-
-        .timmy-chat-meta {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 6px;
-            margin-left: 8px;
-            flex-shrink: 0;
-        }
-
-        .timmy-chat-time {
-            font-size: 12px;
-            color: var(--text-secondary);
-        }
-
-        .timmy-unread-badge {
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: white;
-            font-size: 12px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .timmy-chat-view {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            background: var(--bg);
-        }
-
-        .timmy-chat-header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent1) 100%);
-            color: white;
-            padding: 10px 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            position: sticky;
-            top: 0;
-            z-index: 20;
-            box-shadow: 0 2px 8px var(--shadow);
-            min-height: 60px;
-        }
-
-        .timmy-back-btn {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 22px;
-            cursor: pointer;
-            padding: 5px;
-            border-radius: 50%;
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-        }
-
-        .timmy-back-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .timmy-chat-avatar-small {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            flex-shrink: 0;
-        }
-
-        .timmy-chat-name-header {
-            font-size: 18px;
-            font-weight: 600;
-            flex: 1;
-        }
-
-        .timmy-menu-btn {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 22px;
-            cursor: pointer;
-            padding: 5px;
-            border-radius: 50%;
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-            position: relative;
-        }
-
-        .timmy-menu-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .timmy-dropdown-menu {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            box-shadow: 0 4px 16px var(--shadow);
-            min-width: 180px;
-            z-index: 30;
-            display: none;
-            overflow: hidden;
-        }
-
-        .timmy-dropdown-menu.show {
-            display: block;
-        }
-
-        .timmy-dropdown-item {
-            padding: 14px 18px;
-            cursor: pointer;
-            font-size: 15px;
-            color: var(--text);
-            transition: all 0.2s;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .timmy-dropdown-item:last-child {
-            border-bottom: none;
-        }
-
-        .timmy-dropdown-item:hover {
-            background: rgba(var(--primary-rgb), 0.1);
-        }
-
-        .timmy-dropdown-item.danger {
-            color: #F44336;
-        }
-
-        .timmy-messages-container {
-            flex: 1;
-            overflow-y: auto;
-            padding: 16px;
-            background: var(--bg);
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .timmy-message {
-            margin-bottom: 8px;
-            display: flex;
-            flex-direction: column;
-            animation: fadeIn 0.2s ease;
-            max-width: 80%;
-        }
-
-        .timmy-message.user {
-            align-items: flex-end;
-            margin-left: auto;
-        }
-
-        .timmy-message.bot {
-            align-items: flex-start;
-        }
-
-        .timmy-message-bubble {
-            padding: 8px 14px;
-            border-radius: 12px;
-            position: relative;
-            word-wrap: break-word;
-            line-height: 1.4;
-        }
-
-        .timmy-message.user .timmy-message-bubble {
-            background: var(--primary);
-            color: white;
-            border-bottom-right-radius: 4px;
-        }
-
-        .timmy-message.bot .timmy-message-bubble {
-            background: var(--card-bg);
-            color: var(--text);
-            border: 1px solid var(--border);
-            border-bottom-left-radius: 4px;
-        }
-
-        .timmy-message-time {
-            font-size: 11px;
-            color: var(--text-secondary);
-            margin-top: 4px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .timmy-message.user .timmy-message-time {
-            justify-content: flex-end;
-        }
-
-        .timmy-read-indicator {
-            font-size: 10px;
-            color: var(--accent1);
-        }
-
-        .timmy-input-container {
-            padding: 12px 16px;
-            background: var(--card-bg);
-            border-top: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .timmy-message-input {
-            flex: 1;
-            padding: 12px 18px;
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 25px;
-            font-size: 16px;
-            color: var(--text);
-            outline: none;
-        }
-
-        .timmy-message-input:focus {
-            border-color: var(--primary);
-        }
-
-        .timmy-send-btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 44px;
-            height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 18px;
-            transition: all 0.2s;
-            flex-shrink: 0;
-        }
-
-        .timmy-send-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-
-        .timmy-mode-selector {
-            padding: 15px;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .timmy-mode-option {
-            display: flex;
-            align-items: center;
-            padding: 16px;
-            margin: 10px 0;
-            background: var(--card-bg);
-            border: 2px solid var(--border);
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.2s;
-            gap: 15px;
-        }
-
-        .timmy-mode-option:hover {
-            transform: translateY(-2px);
-            border-color: var(--primary);
-            box-shadow: 0 4px 12px var(--shadow);
-        }
-
-        .timmy-mode-emoji {
-            font-size: 32px;
-            flex-shrink: 0;
-        }
-
-        .timmy-mode-info {
-            flex: 1;
-        }
-
-        .timmy-mode-name {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--text);
-            margin-bottom: 4px;
-        }
-
-        .timmy-mode-desc {
-            font-size: 13px;
-            color: var(--text-secondary);
         }
 
         @media (max-width: 768px) {
@@ -1421,7 +972,6 @@
             .modal-content { padding: 20px; }
             .modal-footer { padding: 16px 20px; }
             .tab .label { font-size: 10px; }
-            .timmy-floating-new-chat { bottom: 80px; right: 16px; width: 52px; height: 52px; font-size: 26px; }
         }
 
         @media (max-width: 480px) {
@@ -1580,7 +1130,6 @@
 
     <!-- Main App -->
     <div id="app">
-        <!-- Home Page -->
         <div class="page active" id="home">
             <div class="page-header">
                 <div class="page-title" id="home-title">Welcome!</div>
@@ -1632,7 +1181,6 @@
             </div>
         </div>
         
-        <!-- Lessons Page -->
         <div class="page" id="lessons">
             <div class="page-header">
                 <div class="page-title" id="lessons-title">Lessons</div>
@@ -1653,98 +1201,24 @@
             <div class="level-grid" id="levels-container"></div>
         </div>
         
-        <!-- Timmy AI WhatsApp-like Interface -->
         <div class="page" id="chat">
-            <div class="timmy-wa-container" id="timmy-wa-container">
-                <!-- Chat List View -->
-                <div id="timmy-chat-list-view" style="display: flex; flex-direction: column; height: 100%;">
-                    <div class="timmy-wa-header">
-                        <div class="timmy-wa-header-title">Timmy AI</div>
-                    </div>
-                    <div class="timmy-search-container">
-                        <input type="text" class="timmy-search-input" id="timmy-search-input" placeholder="Search chats..." oninput="searchTimmyChats()">
-                    </div>
-                    <div class="timmy-chat-list" id="timmy-chat-list">
-                        <!-- Chat items loaded dynamically -->
-                    </div>
-                    <!-- Floating new chat button -->
-                    <button class="timmy-floating-new-chat" id="timmy-floating-new-chat" onclick="showTimmyNewChat()" title="New Chat">+</button>
+            <div class="chat-header">
+                <div style="font-size: 24px;">🤓</div>
+                <div class="chat-title">Timmy - Your AI Language Companion</div>
+                <div style="margin-left: auto; display: flex; gap: 10px;">
+                    <button class="btn" style="padding: 8px 12px; font-size: 12px;" onclick="clearChat()">Clear</button>
+                    <button class="btn" style="padding: 8px 12px; font-size: 12px;" onclick="exportChat()">Export</button>
                 </div>
-                
-                <!-- Chat View (full screen, no bottom nav) -->
-                <div class="timmy-chat-view" id="timmy-chat-view" style="display: none;">
-                    <div class="timmy-chat-header">
-                        <button class="timmy-back-btn" onclick="goBackToChatList()">←</button>
-                        <div class="timmy-chat-avatar-small" id="timmy-chat-dp">🤓</div>
-                        <div class="timmy-chat-name-header" id="timmy-chat-title">Timmy</div>
-                        <div class="timmy-menu-btn" onclick="toggleTimmyMenu(event)" style="position: relative;">
-                            ⋮
-                            <div class="timmy-dropdown-menu" id="timmy-dropdown-menu">
-                                <div class="timmy-dropdown-item" onclick="exportTimmyChat()">📤 Export Chat</div>
-                                <div class="timmy-dropdown-item danger" onclick="deleteTimmyChat()">🗑️ Delete Chat</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="timmy-messages-container" id="timmy-messages-container">
-                        <!-- Messages rendered here -->
-                    </div>
-                    <div class="timmy-input-container">
-                        <input type="text" class="timmy-message-input" id="timmy-message-input" placeholder="Message Timmy..." onkeypress="handleTimmyKeyPress(event)">
-                        <button class="timmy-send-btn" onclick="sendTimmyMessage()">➤</button>
-                    </div>
-                </div>
-                
-                <!-- New Chat / Mode Selector (full screen, no bottom nav) -->
-                <div id="timmy-new-chat-view" style="display: none; flex-direction: column; height: 100%;">
-                    <div class="timmy-chat-header">
-                        <button class="timmy-back-btn" onclick="goBackToChatList()">←</button>
-                        <div class="timmy-chat-name-header">New Chat</div>
-                    </div>
-                    <div style="flex: 1; overflow-y: auto;">
-                        <div class="timmy-mode-selector" id="timmy-mode-selector">
-                            <h3 style="margin-bottom: 15px; color: var(--text);">Select Chat Mode</h3>
-                            <div class="timmy-mode-option" onclick="startTimmyPracticeMode()">
-                                <div class="timmy-mode-emoji">📝</div>
-                                <div class="timmy-mode-info">
-                                    <div class="timmy-mode-name">Practice with Timmy</div>
-                                    <div class="timmy-mode-desc">Practice your latest lesson content with Timmy</div>
-                                </div>
-                            </div>
-                            <div class="timmy-mode-option" onclick="startTimmyModeChat('cultural')">
-                                <div class="timmy-mode-emoji">🎭</div>
-                                <div class="timmy-mode-info">
-                                    <div class="timmy-mode-name">Get Cultural Advice</div>
-                                    <div class="timmy-mode-desc">Get insights on Nigerian cultures, traditions, and etiquette</div>
-                                </div>
-                            </div>
-                            <div class="timmy-mode-option" onclick="startTimmyModeChat('deepdive')">
-                                <div class="timmy-mode-emoji">🔍</div>
-                                <div class="timmy-mode-info">
-                                    <div class="timmy-mode-name">Deep Dive</div>
-                                    <div class="timmy-mode-desc">In-depth exploration of Nigerian language and cultural topics</div>
-                                </div>
-                            </div>
-                            <div class="timmy-mode-option" onclick="startTimmyModeChat('scenario')">
-                                <div class="timmy-mode-emoji">🎬</div>
-                                <div class="timmy-mode-info">
-                                    <div class="timmy-mode-name">Scenario Practice</div>
-                                    <div class="timmy-mode-desc">Practice real-life scenarios in Nigerian contexts</div>
-                                </div>
-                            </div>
-                            <div class="timmy-mode-option" onclick="startTimmyModeChat('quick')">
-                                <div class="timmy-mode-emoji">⚡</div>
-                                <div class="timmy-mode-info">
-                                    <div class="timmy-mode-name">Quick Translations</div>
-                                    <div class="timmy-mode-desc">Fast translations and phrase explanations</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            </div>
+            <div class="chat-container" id="chat-messages"></div>
+            <div class="chat-input-container">
+                <div class="chat-input-wrapper">
+                    <input type="text" class="chat-input" id="chat-input" placeholder="Ask Timmy about Nigerian languages..." onkeypress="handleChatKeyPress(event)">
+                    <button class="send-btn" onclick="sendChatMessage()">➤</button>
                 </div>
             </div>
         </div>
         
-        <!-- Settings Page -->
         <div class="page" id="settings">
             <div class="page-header">
                 <div class="page-title">Settings</div>
@@ -1845,16 +1319,15 @@
             </div>
         </div>
         
-        <!-- Bottom Navigation -->
-        <nav class="bottom-nav" id="bottom-nav">
+        <nav class="bottom-nav">
             <button class="tab active" data-page="home"><span class="icon">🏠</span><span class="label" id="home-label">Home</span></button>
             <button class="tab" data-page="lessons"><span class="icon">📚</span><span class="label" id="lessons-label">Lessons</span><span class="tab-badge" id="lessons-badge" style="display: none;"></span></button>
             <button class="tab" data-page="chat"><span class="icon">🤓</span><span class="label" id="chat-label">Timmy AI</span></button>
             <button class="tab" data-page="settings"><span class="icon">⚙️</span><span class="label" id="settings-label">Settings</span></button>
         </nav>
         
-        <!-- Lesson Flow -->
         <div class="lesson-flow" id="lesson-flow">
+            
             <div class="lesson-progress" id="lesson-progress"></div>
             <div class="lesson-card active" id="lesson-card-1"></div>
             <div class="lesson-card" id="lesson-card-2"></div>
@@ -2000,9 +1473,9 @@
                         <div style="font-size: 20px; font-weight: 600;">ClearWords</div>
                         <div style="color: var(--text-secondary);">Learn Nigerian Languages</div>
                     </div>
-                    <div style="margin-bottom: 20px;"><strong>Version</strong><br>2.1.0</div>
+                    <div style="margin-bottom: 20px;"><strong>Version</strong><br>2.0.0</div>
                     <div style="margin-bottom: 20px;"><strong>Mission</strong><br>To make Nigerian language learning accessible and engaging for everyone.</div>
-                    <div><strong>Contact</strong><br>clearwords.ng@gmail.com</div>
+                    <div><strong>Contact</strong><br>support@clearwords.app</div>
                 </div>
                 <div class="modal-footer"><button class="btn btn-outline" onclick="closeModal('about-modal')">Close</button></div>
             </div>
@@ -2082,11 +1555,11 @@
         setTimeout(() => { if (isTTSSupported()) window.speechSynthesis.getVoices(); }, 100);
 
         const segmentConfigs = {
-            parent: { name: "Diaspora Parent", emoji: "👨‍👩‍👧‍👦", homeLabel: "Home", lessonsLabel: "Lessons", chatLabel: "Timmy AI", settingsLabel: "Settings", description: "Teaching my children our heritage language", preview: "Content focuses on family vocabulary, children's activities, and intergenerational communication.", colors: { primary: "#2E8B57", accent1: "#4169E1", accent2: "#FF7F50", accent3: "#FFD700" } },
-            young: { name: "Young Diaspora", emoji: "🌟", homeLabel: "Feed", lessonsLabel: "Play", chatLabel: "Timmy AI", settingsLabel: "Profile", description: "Connecting with my roots and culture", preview: "Modern, engaging content with social media integration and youth culture.", colors: { primary: "#4169E1", accent1: "#FF7F50", accent2: "#FFD700", accent3: "#2E8B57" } },
-            pro: { name: "Professional", emoji: "💼", homeLabel: "Dashboard", lessonsLabel: "Training", chatLabel: "Timmy AI", settingsLabel: "Settings", description: "Learning for business or career growth", preview: "Business vocabulary, formal communication, and professional etiquette.", colors: { primary: "#343A40", accent1: "#2E8B57", accent2: "#4169E1", accent3: "#FFD700" } },
-            marriage: { name: "Marriage/Family", emoji: "💕", homeLabel: "Home", lessonsLabel: "Practice", chatLabel: "Timmy AI", settingsLabel: "Settings", description: "Connecting with partner's Nigerian family", preview: "Family relationships, cultural traditions, and celebrations.", colors: { primary: "#FF7F50", accent1: "#2E8B57", accent2: "#4169E1", accent3: "#FFD700" } },
-            nigeria: { name: "In-Nigeria Learner", emoji: "🇳🇬", homeLabel: "Home", lessonsLabel: "Lessons", chatLabel: "Timmy AI", settingsLabel: "Settings", description: "Learning another Nigerian language", preview: "Advanced vocabulary, regional dialects, and cultural nuances.", colors: { primary: "#2E8B57", accent1: "#4169E1", accent2: "#FF7F50", accent3: "#FFD700" } }
+            parent: { name: "Diaspora Parent", homeLabel: "Home", lessonsLabel: "Lessons", chatLabel: "Timmy AI", settingsLabel: "Settings", description: "Teaching my children our heritage language", preview: "Content focuses on family vocabulary, children's activities, and intergenerational communication.", colors: { primary: "#2E8B57", accent1: "#4169E1", accent2: "#FF7F50", accent3: "#FFD700" } },
+            young: { name: "Young Diaspora", homeLabel: "Feed", lessonsLabel: "Play", chatLabel: "Timmy AI", settingsLabel: "Profile", description: "Connecting with my roots and culture", preview: "Modern, engaging content with social media integration and youth culture.", colors: { primary: "#4169E1", accent1: "#FF7F50", accent2: "#FFD700", accent3: "#2E8B57" } },
+            pro: { name: "Professional", homeLabel: "Dashboard", lessonsLabel: "Training", chatLabel: "Timmy AI", settingsLabel: "Settings", description: "Learning for business or career growth", preview: "Business vocabulary, formal communication, and professional etiquette.", colors: { primary: "#343A40", accent1: "#2E8B57", accent2: "#4169E1", accent3: "#FFD700" } },
+            marriage: { name: "Marriage/Family", homeLabel: "Home", lessonsLabel: "Practice", chatLabel: "Timmy AI", settingsLabel: "Settings", description: "Connecting with partner's Nigerian family", preview: "Family relationships, cultural traditions, and celebrations.", colors: { primary: "#FF7F50", accent1: "#2E8B57", accent2: "#4169E1", accent3: "#FFD700" } },
+            nigeria: { name: "In-Nigeria Learner", homeLabel: "Home", lessonsLabel: "Lessons", chatLabel: "Timmy AI", settingsLabel: "Settings", description: "Learning another Nigerian language", preview: "Advanced vocabulary, regional dialects, and cultural nuances.", colors: { primary: "#2E8B57", accent1: "#4169E1", accent2: "#FF7F50", accent3: "#FFD700" } }
         };
 
         const languageConfigs = {
@@ -2099,10 +1572,10 @@
         };
 
         const TIMMY_AI_CONFIG = {
-            endpoint: "https://autopost-backend-hbck.onrender.com/clearwordsapi/generate"
+            endpoint: "/api/timmy.js"
         };
 
-        const TIMMY_AI_RULES = `You are Timmy, a witty Nigerian language companion. Student: {firstName} (Learning {language} - {nativeName}). Segment: {segment}. Progress: {completedLevels}/50. Current Level: {currentLevel}. Use their name occasionally. Be fun and educational. Respond as JSON with three paragraphs: {"paragraph1": "...", "paragraph2": "..."}. History: {historyContext}. Message: {userMessage}`;
+        const TIMMY_AI_RULES = `You are Timmy, a witty Nigerian language companion. Student: {firstName} (Learning {language} - {nativeName}). Segment: {segment}. Progress: {completedLevels}/50. Current Level: {currentLevel}. Use their name occasionally. Be fun and educational. Respond as JSON with three paragraphs: {"paragraph1": "...", "paragraph2": "...", "paragraph3": "..."}. History: {historyContext}. Message: {userMessage}`;
 
         const challengeTemplates = [
             { title: "Complete 1 Lesson", icon: "📚", xp: 20, requirement: { type: 'lessons', count: 1 } },
@@ -2112,15 +1585,6 @@
             { title: "2 Lessons", icon: "📖", xp: 40, requirement: { type: 'lessons', count: 2 } },
             { title: "Streak Day", icon: "🔥", xp: 50, requirement: { type: 'streak', count: 1 } }
         ];
-
-        // Timmy AI chat modes (from clearwords-ai.html)
-        const timmyModes = {
-            cultural: { name: "Get Cultural Advice", emoji: "🎭", description: "Get insights on Nigerian cultures, traditions, and etiquette" },
-            deepdive: { name: "Deep Dive", emoji: "🔍", description: "In-depth exploration of Nigerian language and cultural topics" },
-            scenario: { name: "Scenario Practice", emoji: "🎬", description: "Practice real-life scenarios in Nigerian contexts" },
-            quick: { name: "Quick Translations", emoji: "⚡", description: "Fast translations and phrase explanations" },
-            practice: { name: "Practice with Timmy", emoji: "📝", description: "Practice your latest lesson content with Timmy" }
-        };
 
         let appState = {
             user: {
@@ -2134,16 +1598,14 @@
             testAnswers: [], isDarkTheme: false, chatHistory: [], currentLessonData: null,
             curriculumData: {}, filteredLevels: 'all', searchQuery: '',
             languageToSwitch: null, switchOption: null, segmentToSwitch: null,
-            navigationHistory: [],
-            timmyChats: {}, currentTimmyChatId: null, timmyView: 'list',
-            timmyPracticeMode: false, timmyInChatView: false
+            navigationHistory: []
         };
 
         let currentStep = 1;
         let selectedSegment = null;
         let selectedLanguage = null;
 
-        // ====================== URL ROUTING (FROM language.html) ======================
+        // ====================== URL ROUTING ======================
         
         function updateURL(page, subpage = null) {
             let url = window.location.pathname;
@@ -2210,44 +1672,41 @@
         }
 
         function loadAppState() {
-    const savedState = localStorage.getItem('clearWordsState');
-    const userId = localStorage.getItem('clearWordsUserId');
-    
-    const path = window.location.pathname;
-    let initialPage = 'home';
-    let initialSubpage = null;
-    
-    if (path.includes('/lessons')) {
-        initialPage = 'lessons';
-        const match = path.match(/level-(\d+)/);
-        if (match) initialSubpage = parseInt(match[1]);
-    } else if (path.includes('/chat')) {
-        initialPage = 'chat';
-    } else if (path.includes('/settings')) {
-        initialPage = 'settings';
-    } else if (path.includes('/lesson')) {
-        initialPage = 'lessons';
-        const match = path.match(/lesson\/(\d+)/);
-        if (match) initialSubpage = parseInt(match[1]);
-    }
-    
-    if (savedState && userId) {
-        try {
-            const parsed = JSON.parse(savedState);
-            if (parsed.user?.segment && parsed.user?.language) {
-                // FIX: Preserve timmyChats from parsed state if available, otherwise keep empty object
-                const existingChats = parsed.timmyChats || {};
-                appState = { ...appState, ...parsed };
-                appState.timmyChats = existingChats; // Force keep chats
-                if (parsed.user.id === userId) {
-                    showMainApp(initialPage, initialSubpage);
-                    return;
-                }
+            const savedState = localStorage.getItem('clearWordsState');
+            const userId = localStorage.getItem('clearWordsUserId');
+            
+            const path = window.location.pathname;
+            let initialPage = 'home';
+            let initialSubpage = null;
+            
+            if (path.includes('/lessons')) {
+                initialPage = 'lessons';
+                const match = path.match(/level-(\d+)/);
+                if (match) initialSubpage = parseInt(match[1]);
+            } else if (path.includes('/chat')) {
+                initialPage = 'chat';
+            } else if (path.includes('/settings')) {
+                initialPage = 'settings';
+            } else if (path.includes('/lesson')) {
+                initialPage = 'lessons';
+                const match = path.match(/lesson\/(\d+)/);
+                if (match) initialSubpage = parseInt(match[1]);
             }
-        } catch (e) { console.error("Error loading state:", e); }
-    }
-    showOnboarding();
-}
+            
+            if (savedState && userId) {
+                try {
+                    const parsed = JSON.parse(savedState);
+                    if (parsed.user?.segment && parsed.user?.language) {
+                        appState = { ...appState, ...parsed };
+                        if (parsed.user.id === userId) {
+                            showMainApp(initialPage, initialSubpage);
+                            return;
+                        }
+                    }
+                } catch (e) { console.error("Error loading state:", e); }
+            }
+            showOnboarding();
+        }
 
         function showOnboarding() {
             document.getElementById('loading').style.opacity = '0';
@@ -2265,7 +1724,7 @@
             setTimeout(() => {
                 document.getElementById('loading').style.display = 'none';
                 
-                // Apply theme before showing app
+                // FIXED: Apply theme BEFORE showing the app to prevent flash
                 if (appState.isDarkTheme) {
                     document.body.classList.remove('light-theme');
                     document.body.classList.add('dark-theme');
@@ -2374,7 +1833,7 @@
             }
         }
 
-        // ====================== DAILY CHALLENGES ======================
+        // ====================== DAILY CHALLENGES (FIXED) ======================
         
         function shouldRegenerateChallenges() {
             const today = new Date().toISOString().split('T')[0];
@@ -2508,7 +1967,7 @@
             
             applySegmentTheme();
             
-            // Theme already applied in showMainApp, just update the toggle text
+            // FIXED: Theme already applied in showMainApp, just update the toggle text
             const themeToggle = document.getElementById('theme-toggle');
             if (themeToggle) {
                 themeToggle.textContent = appState.isDarkTheme ? '🌓 Dark Mode' : '🌓 Light Mode';
@@ -2518,15 +1977,11 @@
                 loadCurriculum(appState.user.language);
             }
             
-           // if (!appState.timmyChats) {
-            //    appState.timmyChats = {};
-         //   }
-            
             generateDailyChallenges();
             updateUserUI();
             generateLevels();
             setupNavigation();
-            setupTimmyUI();
+            setupChat();
             setupLevelBlurEffect();
             checkDailyStreak();
             loadPrivacyPolicy();
@@ -2598,10 +2053,6 @@
             updateHomeContent();
             updateDailyChallenges();
             updateLessonsBadge();
-            
-            if (!appState.timmyInChatView) {
-                renderTimmyChatList();
-            }
         }
 
         function updateLessonsBadge() {
@@ -2857,7 +2308,7 @@
             generateLevels();
         }
 
-        // ====================== LESSON FLOW (INTEGRATED FROM language.html) ======================
+        // ====================== LESSON FLOW (MULTIPLE CHOICE ONLY) ======================
         
         function startLesson(level) {
             appState.currentLesson = level;
@@ -3148,18 +2599,23 @@
         }
 
         function practiceWithPartner() {
-            appState.timmyPracticeMode = true;
             showPage('chat');
-            hideBottomNav();
-            startTimmyPracticeMode();
+            updateURL('chat');
+            setTimeout(() => {
+                document.getElementById('chat-input').value = "Can we practice the dialogue together?";
+                sendChatMessage();
+            }, 500);
         }
 
         function practiceWithTimmy() {
             closeLessonFlow();
-            appState.timmyPracticeMode = true;
             showPage('chat');
-            hideBottomNav();
-            startTimmyPracticeMode();
+            updateURL('chat');
+            setTimeout(() => {
+                const language = languageConfigs[appState.user.language].name;
+                document.getElementById('chat-input').value = `I just completed level ${appState.currentLesson} on ${language}. Can we practice?`;
+                sendChatMessage();
+            }, 500);
         }
 
         function retryTest() {
@@ -3168,247 +2624,11 @@
             showLessonCard(3);
         }
 
-        // ====================== TIMMY AI WHATSAPP-LIKE INTERFACE ======================
+        // ====================== TIMMY AI ======================
         
-        function hideBottomNav() {
-            const nav = document.getElementById('bottom-nav');
-            if (nav) nav.style.display = 'none';
-            appState.timmyInChatView = true;
-        }
-
-        function showBottomNav() {
-            const nav = document.getElementById('bottom-nav');
-            if (nav) nav.style.display = 'flex';
-            appState.timmyInChatView = false;
-        }
-
-        function setupTimmyUI() { 
-            renderTimmyChatList(); 
-            setupTimmyNavigation(); 
-        }
-
-        function setupTimmyNavigation() {
-            document.querySelectorAll('.tab').forEach(tab => {
-                tab.addEventListener('click', function() {
-                    const page = this.getAttribute('data-page');
-                    if (page === 'chat') {
-                        appState.timmyView = 'list';
-                        appState.currentTimmyChatId = null;
-                        showTimmyView('list');
-                    } else {
-                        showBottomNav();
-                    }
-                });
-            });
-        }
-
-        function showTimmyView(view) {
-            const listView = document.getElementById('timmy-chat-list-view');
-            const chatView = document.getElementById('timmy-chat-view');
-            const newChatView = document.getElementById('timmy-new-chat-view');
-            const floatingBtn = document.getElementById('timmy-floating-new-chat');
-            const container = document.getElementById('timmy-wa-container');
-            const bottomNav = document.getElementById('bottom-nav');
-            
-            if (listView) listView.style.display = view === 'list' ? 'flex' : 'none';
-            if (chatView) chatView.style.display = view === 'chat' ? 'flex' : 'none';
-            if (newChatView) newChatView.style.display = view === 'new' ? 'flex' : 'none';
-            if (floatingBtn) floatingBtn.style.display = view === 'list' ? 'flex' : 'none';
-            
-            appState.timmyView = view;
-            
-            if (view === 'chat' || view === 'new') {
-                if (container) container.classList.add('fullscreen');
-                if (bottomNav) bottomNav.style.display = 'none';
-                updateURL('chat');
-            } else {
-                if (container) container.classList.remove('fullscreen');
-                if (bottomNav) bottomNav.style.display = 'flex';
-            }
-            
-            if (view === 'list') {
-                renderTimmyChatList();
-                showBottomNav();
-            }
-        }
-
-        function renderTimmyChatList() {
-            const container = document.getElementById('timmy-chat-list');
-            if (!container) return;
-            container.innerHTML = '';
-            const chats = Object.values(appState.timmyChats || {});
-            if (chats.length === 0) {
-                container.innerHTML = `<div style="text-align:center;padding:60px 20px;color:var(--text-secondary);"><div style="font-size:48px;margin-bottom:15px;">💬</div><div style="font-size:16px;margin-bottom:10px;">No chats yet</div><div style="font-size:14px;">Tap + to start a new conversation with Timmy</div></div>`;
-                return;
-            }
-            chats.sort((a, b) => {
-                const lastA = a.messages.length > 0 ? a.messages[a.messages.length - 1].timestamp : a.createdAt;
-                const lastB = b.messages.length > 0 ? b.messages[b.messages.length - 1].timestamp : b.createdAt;
-                return new Date(lastB) - new Date(lastA);
-            });
-            chats.forEach(chat => {
-                const modeConfig = timmyModes[chat.mode] || { emoji: '🤓', name: chat.mode || 'Chat' };
-                const lastMessage = chat.messages.length > 0 ? chat.messages[chat.messages.length - 1] : null;
-                const lastText = lastMessage ? (lastMessage.text.length > 40 ? lastMessage.text.substring(0, 40) + '...' : lastMessage.text) : 'No messages yet';
-                const lastTime = lastMessage ? formatTimmyTime(lastMessage.timestamp) : '';
-                const unreadCount = chat.unreadCount || 0;
-                const item = document.createElement('div');
-                item.className = 'timmy-chat-item';
-                item.onclick = () => openTimmyChat(chat.id);
-                item.innerHTML = `<div class="timmy-chat-avatar">${modeConfig.emoji}</div><div class="timmy-chat-info"><div class="timmy-chat-name">${modeConfig.name}</div><div class="timmy-chat-preview">${lastText}</div></div><div class="timmy-chat-meta"><div class="timmy-chat-time">${lastTime}</div>${unreadCount > 0 ? `<div class="timmy-unread-badge">${unreadCount}</div>` : ''}</div>`;
-                container.appendChild(item);
-            });
-        }
-
-        function searchTimmyChats() {
-            const query = document.getElementById('timmy-search-input')?.value.toLowerCase() || '';
-            document.querySelectorAll('#timmy-chat-list .timmy-chat-item').forEach(item => {
-                const name = item.querySelector('.timmy-chat-name')?.textContent.toLowerCase() || '';
-                const preview = item.querySelector('.timmy-chat-preview')?.textContent.toLowerCase() || '';
-                item.style.display = name.includes(query) || preview.includes(query) ? 'flex' : 'none';
-            });
-        }
-
-        function showTimmyNewChat() { showTimmyView('new'); }
-
-        function startTimmyModeChat(mode) {
-            if (!timmyModes[mode]) return;
-            const chatId = 'timmy_' + Date.now();
-            appState.timmyChats[chatId] = { id: chatId, mode, messages: [], createdAt: new Date().toISOString(), unreadCount: 0 };
-            appState.currentTimmyChatId = chatId;
-            const greeting = `Hey ${appState.user.firstName || 'friend'}! I'm Timmy in ${timmyModes[mode].name} mode. How can I help you today?`;
-            appState.timmyChats[chatId].messages.push({ id: Date.now(), text: greeting, sender: 'bot', timestamp: new Date().toISOString() });
-            saveState();
-            openTimmyChat(chatId);
-        }
-
-        function startTimmyPracticeMode() {
-            const chatId = 'timmy_practice_' + Date.now();
-            appState.timmyChats[chatId] = { id: chatId, mode: 'practice', messages: [], createdAt: new Date().toISOString(), unreadCount: 0 };
-            appState.currentTimmyChatId = chatId;
-            const language = languageConfigs[appState.user.language];
-            const lessonData = appState.currentLessonData;
-            const greeting = lessonData ? `${language.greeting} ${appState.user.firstName}! Ready to practice ${lessonData.topic}? Let's go!` : `${language.greeting} ${appState.user.firstName}! Let's practice your ${language.name}. What would you like to work on?`;
-            appState.timmyChats[chatId].messages.push({ id: Date.now(), text: greeting, sender: 'bot', timestamp: new Date().toISOString() });
-            saveState();
-            openTimmyChat(chatId);
-        }
-
-        function openTimmyChat(chatId) {
-            if (!appState.timmyChats[chatId]) return;
-            appState.currentTimmyChatId = chatId;
-            appState.timmyChats[chatId].unreadCount = 0;
-            const chat = appState.timmyChats[chatId];
-            const modeConfig = timmyModes[chat.mode] || { emoji: '🤓', name: chat.mode || 'Chat' };
-            document.getElementById('timmy-chat-dp').textContent = modeConfig.emoji;
-            document.getElementById('timmy-chat-title').textContent = modeConfig.name;
-            renderTimmyMessages();
-            showTimmyView('chat');
-            hideBottomNav();
-            saveState();
-        }
-
-        function goBackToChatList() {
-            appState.currentTimmyChatId = null;
-            document.getElementById('timmy-dropdown-menu')?.classList.remove('show');
-            showTimmyView('list');
-            updateURL('chat');
-        }
-
-        function toggleTimmyMenu(event) {
-            event.stopPropagation();
-            const menu = document.getElementById('timmy-dropdown-menu');
-            menu.classList.toggle('show');
-            document.addEventListener('click', function closeMenu(e) { if (!menu.contains(e.target)) { menu.classList.remove('show'); document.removeEventListener('click', closeMenu); } });
-        }
-
-        function exportTimmyChat() {
-            const chatId = appState.currentTimmyChatId;
-            if (!chatId || !appState.timmyChats[chatId]) return;
-            const chat = appState.timmyChats[chatId];
-            const data = { exportDate: new Date().toISOString(), mode: chat.mode, messages: chat.messages };
-            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-            const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `timmy-chat-${new Date().toISOString().split('T')[0]}.json`; a.click();
-            document.getElementById('timmy-dropdown-menu')?.classList.remove('show');
-            showToast('Chat exported! 📤');
-        }
-
-        function deleteTimmyChat() {
-            if (!confirm('Delete this chat?')) return;
-            const chatId = appState.currentTimmyChatId;
-            if (chatId && appState.timmyChats[chatId]) { delete appState.timmyChats[chatId]; appState.currentTimmyChatId = null; saveState(); goBackToChatList(); }
-            document.getElementById('timmy-dropdown-menu')?.classList.remove('show');
-        }
-
-        function renderTimmyMessages() {
-            const container = document.getElementById('timmy-messages-container');
-            if (!container) return;
-            container.innerHTML = '';
-            const chatId = appState.currentTimmyChatId;
-            if (!chatId || !appState.timmyChats[chatId]) return;
-            appState.timmyChats[chatId].messages.forEach(msg => renderTimmyMessage(msg, container));
-            container.scrollTop = container.scrollHeight;
-        }
-
-        function renderTimmyMessage(msg, container) {
-            const div = document.createElement('div');
-            div.className = `timmy-message ${msg.sender}`;
-            const bubble = document.createElement('div'); bubble.className = 'timmy-message-bubble'; bubble.innerHTML = msg.text.replace(/\n/g, '<br>');
-            const time = document.createElement('div'); time.className = 'timmy-message-time'; time.innerHTML = `${formatTimmyTime(msg.timestamp)}${msg.sender === 'user' ? '<span class="timmy-read-indicator">✓✓</span>' : ''}`;
-            div.appendChild(bubble); div.appendChild(time);
-            container.appendChild(div);
-        }
-
-        function showTimmyTyping() {
-            const container = document.getElementById('timmy-messages-container');
-            if (!container) return;
-            const div = document.createElement('div'); div.className = 'timmy-message bot'; div.id = 'timmy-typing-indicator';
-            div.innerHTML = '<div class="typing-indicator"><div class="typing-dots"><span>●</span><span>●</span><span>●</span></div>Timmy is typing...</div>';
-            container.appendChild(div); container.scrollTop = container.scrollHeight;
-        }
-
-        function removeTimmyTyping() { document.getElementById('timmy-typing-indicator')?.remove(); }
-
-        async function sendTimmyMessage() {
-    const input = document.getElementById('timmy-message-input');
-    const message = input.value.trim();
-    if (!message) return;
-    if (!appState.currentTimmyChatId) { alert('Please select or create a chat first.'); return; }
-    const chat = appState.timmyChats[appState.currentTimmyChatId];
-    if (!chat) return;
-    const userMsg = { id: Date.now(), text: message, sender: 'user', timestamp: new Date().toISOString() };
-    chat.messages.push(userMsg); input.value = ''; renderTimmyMessages();
-    updateChallengeProgress('chat_messages', 1);
-    
-    // FORCE SAVE immediately after sending
-    saveState();
-    console.log('Chat saved! Messages:', chat.messages.length); // Debug line
-    
-    showTimmyTyping();
-    try {
-        const response = await generateTimmyAIResponse(message);
-        removeTimmyTyping();
-        const botMsg = { id: Date.now() + 1, text: response, sender: 'bot', timestamp: new Date().toISOString() };
-        chat.messages.push(botMsg); chat.unreadCount = (chat.unreadCount || 0) + 1;
-        renderTimmyMessages();
-        
-        // FORCE SAVE after bot response too
-        saveState();
-        console.log('Chat updated with bot response!'); // Debug line
-    } catch (error) {
-        removeTimmyTyping();
-        chat.messages.push({ id: Date.now() + 1, text: "Abeg, network wahala! Try again?", sender: 'bot', timestamp: new Date().toISOString() });
-        renderTimmyMessages();
-        saveState(); // Save even on error
-    }
-}
-
-        function handleTimmyKeyPress(event) { if (event.key === 'Enter' && !event.shiftKey) { event.preventDefault(); sendTimmyMessage(); } }
-
         function getChatContext() {
-            const chatId = appState.currentTimmyChatId;
-            if (!chatId || !appState.timmyChats[chatId]?.messages?.length) return "New conversation";
-            return appState.timmyChats[chatId].messages.slice(-5).map(m => `${m.sender}: ${m.text}`).join('\n');
+            if (!appState.chatHistory?.length) return "New conversation";
+            return appState.chatHistory.slice(-5).map(m => `${m.sender}: ${m.text}`).join('\n');
         }
 
         async function generateTimmyAIResponse(userMessage) {
@@ -3442,42 +2662,137 @@
                     <div style="margin-bottom:10px;color:var(--accent2);">🤓 <strong>Timmy:</strong></div>
                     <div style="margin-bottom:15px;">${parsed.paragraph1}</div>
                     <div style="margin-bottom:15px;">${parsed.paragraph2}</div>
-                      `;
+                    <div style="color:var(--primary);">${parsed.paragraph3}</div>
+                `;
             } catch (error) {
                 console.error("Timmy AI Error:", error);
                 const greeting = languageConfigs[appState.user.language]?.greeting || "Hello";
                 const name = appState.user.firstName || 'friend';
-                
+         
                 const fallbackResponses = [
-                    `Abeg, my API dey catch cold! But no worry, Timmy is here! ${greeting}! Let's continue our lesson.`,
+                    `Abeg, my API dey catch cold! But no worry, Timmy is here! ${languageConfigs[appState.user.language]?.greeting || "Hello"}! Let's continue our lesson.`,
                     `Network wahala! But as your guy Timmy, I go still teach you something small.`,
                     `Jazz don happen to my connection, but Timmy no dey carry last!`,
-                    `Even when technology fails, culture prevails! ${greeting} my friend!`
+                    `Even when technology fails, culture prevails! ${languageConfigs[appState.user.language]?.greeting || "Hello"} my friend!`
                 ];
                 
                 const randomResponse = fallbackResponses[Math.floor(Math.random() * fallbackResponses.length)];
                 
                 return `
-                     <div style="margin-bottom: 15px; line-height: 1.5;">
+                    <div style="margin-bottom: 10px; font-style: italic; color: var(--accent2);">
+                        🤓 <strong>Timmy says:</strong>
+                    </div>
+                    <div style="margin-bottom: 15px; line-height: 1.6;">
                       ${greeting} ${name}! ${randomResponse}
                     </div>
-                    <div style="margin-bottom: 10px; line-height: 1.5; color: var(--primary);">
+                    <div style="margin-bottom: 10px; line-height: 1.6; color: var(--primary);">
                         <em>PS: My tech dey act up, but my teaching spirit dey kampe!</em>
                     </div>
                 `;
             }
         }
 
-        function formatTimmyTime(timestamp) {
-            const date = new Date(timestamp); const now = new Date();
-            const diffMins = Math.floor((now - date) / 60000);
-            const diffHours = Math.floor((now - date) / 3600000);
-            const diffDays = Math.floor((now - date) / 86400000);
-            if (diffMins < 1) return 'Just now';
-            if (diffMins < 60) return `${diffMins}m ago`;
-            if (diffHours < 24) return `${diffHours}h ago`;
-            if (diffDays < 7) return `${diffDays}d ago`;
-            return date.toLocaleDateString();
+        function getTimmyGreeting() {
+            const name = appState.user.firstName || 'there';
+            const language = languageConfigs[appState.user.language];
+            const greetings = {
+                parent: `${language.greeting} ${name}! Ready to teach the next generation?`,
+                young: `Wahala! ${name}, make we connect with your roots!`,
+                pro: `Professional mode activated! ${language.greeting}, ${name}.`,
+                marriage: `Love don show! ${language.greeting}, ${name}!`,
+                nigeria: `Naija to the world! ${language.greeting}, ${name}!`,
+                default: `${language.greeting} ${name}! I'm Timmy, your language companion.`
+            };
+            return greetings[appState.user.segment] || greetings.default;
+        }
+
+        // ====================== CHAT FUNCTIONS ======================
+        
+        async function sendChatMessage() {
+            const input = document.getElementById('chat-input');
+            const message = input.value.trim();
+            if (!message) return;
+            
+            addChatMessage(message, 'user');
+            input.value = '';
+            
+            appState.chatHistory.push({ text: message, sender: 'user', timestamp: new Date().toISOString() });
+            updateChallengeProgress('chat_messages', 1);
+            
+            showTypingIndicator();
+            try {
+                const response = await generateTimmyAIResponse(message);
+                removeTypingIndicator();
+                addChatMessage(response, 'bot');
+                appState.chatHistory.push({ text: response, sender: 'bot', timestamp: new Date().toISOString() });
+                localStorage.setItem('clearWordsChat', JSON.stringify(appState.chatHistory));
+            } catch (error) {
+                removeTypingIndicator();
+                addChatMessage("Abeg, network wahala! Try again?", 'bot');
+            }
+        }
+
+        function handleChatKeyPress(event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault();
+                sendChatMessage();
+            }
+        }
+
+        function setupChat() {
+            const savedChat = localStorage.getItem('clearWordsChat');
+            if (savedChat) {
+                try { appState.chatHistory = JSON.parse(savedChat); } catch { appState.chatHistory = []; }
+            }
+            renderChatHistory();
+        }
+
+        function renderChatHistory() {
+            const container = document.getElementById('chat-messages');
+            if (!container) return;
+            container.innerHTML = '';
+            addChatMessage(getTimmyGreeting(), 'bot');
+            appState.chatHistory.forEach(m => addChatMessage(m.text, m.sender));
+        }
+
+        function showTypingIndicator() {
+            const container = document.getElementById('chat-messages');
+            const div = document.createElement('div');
+            div.className = 'message bot';
+            div.id = 'typing-indicator';
+            div.innerHTML = '<div class="bubble typing-indicator"><div class="typing-dots"><span>●</span><span>●</span><span>●</span></div>Timmy is typing...</div>';
+            container.appendChild(div);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function removeTypingIndicator() {
+            document.getElementById('typing-indicator')?.remove();
+        }
+
+        function addChatMessage(text, sender) {
+            const container = document.getElementById('chat-messages');
+            const div = document.createElement('div');
+            div.className = `message ${sender}`;
+            div.innerHTML = `<div class="bubble">${text}</div>`;
+            container.appendChild(div);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function clearChat() {
+            if (confirm("Clear chat history?")) {
+                appState.chatHistory = [];
+                localStorage.setItem('clearWordsChat', '[]');
+                renderChatHistory();
+            }
+        }
+
+        function exportChat() {
+            const data = { exportDate: new Date().toISOString(), chatHistory: appState.chatHistory };
+            const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = `chat-${new Date().toISOString().split('T')[0]}.json`;
+            a.click();
         }
 
         // ====================== LANGUAGE SWITCHING ======================
@@ -3595,7 +2910,7 @@
                 option.className = `segment-option ${isCurrent ? 'selected' : ''}`;
                 option.onclick = (e) => selectSegmentInModal(key, e);
                 option.innerHTML = `
-                    <div class="segment-icon">${config.emoji}</div>
+                    <div class="segment-icon">${config.name === "Diaspora Parent" ? "👨‍👩‍👧‍👦" : config.name === "Young Diaspora" ? "🌟" : config.name === "Professional" ? "💼" : config.name === "Marriage/Family" ? "💕" : "🇳🇬"}</div>
                     <div class="segment-title">${config.name}</div>
                     <div class="segment-description">${config.description}</div>
                     ${isCurrent ? '<div style="color:var(--primary);font-size:12px;">Current</div>' : ''}
@@ -3653,12 +2968,10 @@
             appState.user.dailyCompleted = 0;
             appState.user.favorites = [];
             appState.user.progress = {};
-            appState.timmyChats = {};
             
             saveState();
             updateUserUI();
             generateLevels();
-            renderTimmyChatList();
             closeModal('reset-modal');
             alert("Progress reset successfully!");
         }
@@ -3716,7 +3029,7 @@
         }
 
         function exportProgress() {
-            const exportData = { version: '2.1.0', exportDate: new Date().toISOString(), user: appState.user, appState: appState };
+            const exportData = { version: '2.0.0', exportDate: new Date().toISOString(), user: appState.user, appState: appState };
             const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
             const a = document.createElement('a');
             a.href = URL.createObjectURL(blob);
@@ -3771,24 +3084,17 @@
         }
 
         function confirmImport(importedData) {
-    appState.user = { ...importedData.user, id: localStorage.getItem('clearWordsUserId'), lastActive: new Date().toISOString().split('T')[0] };
-    if (importedData.appState) {
-        const preservedChats = appState.timmyChats; // Preserve current chats
-        appState = { ...appState, ...importedData.appState, user: appState.user };
-        // Only use imported chats if they exist, otherwise keep current ones
-        if (importedData.appState.timmyChats) {
-            appState.timmyChats = importedData.appState.timmyChats;
-        } else {
-            appState.timmyChats = preservedChats;
+            appState.user = { ...importedData.user, id: localStorage.getItem('clearWordsUserId'), lastActive: new Date().toISOString().split('T')[0] };
+            if (importedData.appState) {
+                appState = { ...appState, ...importedData.appState, user: appState.user };
+            }
+            saveState();
+            updateUserUI();
+            generateLevels();
+            loadCurriculum(appState.user.language);
+            closeModal('progress-modal');
+            alert("Progress imported successfully!");
         }
-    }
-    saveState();
-    updateUserUI();
-    generateLevels();
-    loadCurriculum(appState.user.language);
-    closeModal('progress-modal');
-    alert("Progress imported successfully!");
-}
 
         // ====================== MODAL CONTENT ======================
         
@@ -4003,7 +3309,7 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-outline" onclick="closeModal('timmy-modal')">Close</button>
-                    <button class="btn" onclick="showPage('chat');closeModal('timmy-modal');showBottomNav();updateURL('chat');">Chat with Timmy</button>
+                    <button class="btn" onclick="showPage('chat');closeModal('timmy-modal');updateURL('chat');">Chat with Timmy</button>
                 </div>
             `;
             showModal('timmy-modal');
@@ -4027,10 +3333,6 @@
                     updateURL(page);
                     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
                     this.classList.add('active');
-                    
-                    if (page === 'chat') {
-                        showBottomNav();
-                    }
                 });
             });
         }
@@ -4053,14 +3355,6 @@
                 else if (pageId === 'lessons') {
                     generateLevels();
                     updateURL('lessons');
-                }
-                else if (pageId === 'chat') {
-                    showTimmyView('list');
-                    showBottomNav();
-                }
-                
-                if (pageId !== 'chat' || !appState.timmyInChatView) {
-                    showBottomNav();
                 }
             }
         }
@@ -4124,6 +3418,7 @@
             showToast("Speed round starting! Complete 3 lessons quickly for bonus XP!");
         }
 
+        // FIXED: toggleTheme now properly swaps classes
         function toggleTheme() {
             appState.isDarkTheme = !appState.isDarkTheme;
             if (appState.isDarkTheme) {
@@ -4139,13 +3434,8 @@
         }
 
         function saveState() {
-    // Ensure timmyChats is included before saving
-    const stateToSave = JSON.stringify(appState);
-    localStorage.setItem('clearWordsState', stateToSave);
-    
-    // DEBUG: Uncomment this to verify chats are being saved
-    // console.log('Saved state with chats:', Object.keys(appState.timmyChats).length, 'chats');
-}
+            localStorage.setItem('clearWordsState', JSON.stringify(appState));
+        }
 
         function showToast(message) {
             const toast = document.createElement('div');
@@ -4193,10 +3483,10 @@
         window.startSpeedRound = startSpeedRound;
         window.filterLevels = filterLevels;
         window.searchLessons = searchLessons;
-        window.sendChatMessage = sendTimmyMessage;
-        window.handleChatKeyPress = handleTimmyKeyPress;
-        window.clearChat = function() { /* Deprecated in WA style, use delete instead */ };
-        window.exportChat = exportTimmyChat;
+        window.sendChatMessage = sendChatMessage;
+        window.handleChatKeyPress = handleChatKeyPress;
+        window.clearChat = clearChat;
+        window.exportChat = exportChat;
         window.toggleTheme = toggleTheme;
         window.showSegmentSelector = showSegmentSelector;
         window.showLanguageSelector = showLanguageSelector;
@@ -4235,18 +3525,8 @@
         window.claimDailyReward = claimDailyReward;
         window.collectDailyReward = collectDailyReward;
         window.updateURL = updateURL;
-        window.showTimmyNewChat = showTimmyNewChat;
-        window.goBackToChatList = goBackToChatList;
-        window.toggleTimmyMenu = toggleTimmyMenu;
-        window.exportTimmyChat = exportTimmyChat;
-        window.deleteTimmyChat = deleteTimmyChat;
-        window.sendTimmyMessage = sendTimmyMessage;
-        window.handleTimmyKeyPress = handleTimmyKeyPress;
-        window.startTimmyModeChat = startTimmyModeChat;
-        window.startTimmyPracticeMode = startTimmyPracticeMode;
-        window.searchTimmyChats = searchTimmyChats;
 
-        console.log("ClearWords v2.1 fully loaded with URL routing and integrated lesson design! 🎉");
+        console.log("ClearWords v2.0 fully loaded with all features! 🎉");
     </script>
 </body>
 </html>
