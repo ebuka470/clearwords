@@ -20,70 +20,80 @@
           "translation": "Hello / What's up?",
           "pronunciation": "how far",
           "example": "How far, my brother?",
-          "culturalNote": "The most common informal greeting."
+          "culturalNote": "The most common informal greeting.",
+          "audioId": "how_far"
         },
         {
           "word": "Wetin dey happen?",
           "translation": "What's happening?",
           "pronunciation": "we-tin dey hap-pen",
           "example": "Wetin dey happen for your side?",
-          "culturalNote": "Another way to say 'What's up?'"
+          "culturalNote": "Another way to say 'What's up?'",
+          "audioId": "wetin_dey_happen"
         },
         {
           "word": "Morning",
           "translation": "Good morning",
           "pronunciation": "morn-ing",
           "example": "Morning, oga.",
-          "culturalNote": "Used from dawn until around 10am."
+          "culturalNote": "Used from dawn until around 10am.",
+          "audioId": "morning"
         },
         {
           "word": "Afternoon",
           "translation": "Good afternoon",
           "pronunciation": "af-ta-noon",
           "example": "Afternoon, ma.",
-          "culturalNote": "Used from around 10am until 4pm."
+          "culturalNote": "Used from around 10am until 4pm.",
+          "audioId": "afternoon"
         },
         {
           "word": "Evening",
           "translation": "Good evening",
           "pronunciation": "eve-ning",
           "example": "Evening, sir.",
-          "culturalNote": "Used after 4pm until dark."
+          "culturalNote": "Used after 4pm until dark.",
+          "audioId": "evening"
         },
         {
           "word": "How body?",
           "translation": "How are you? (lit. How body?)",
           "pronunciation": "how bo-dee",
           "example": "How body? I dey fine.",
-          "culturalNote": "Very common, expects 'I dey fine'."
+          "culturalNote": "Very common, expects 'I dey fine'.",
+          "audioId": "how_body"
         },
         {
           "word": "I dey fine",
           "translation": "I'm fine",
           "pronunciation": "I dey fine",
           "example": "How far? I dey fine.",
-          "culturalNote": "Standard response."
+          "culturalNote": "Standard response.",
+          "audioId": "i_dey_fine"
         },
         {
           "word": "Wetin be your name?",
           "translation": "What is your name?",
           "pronunciation": "we-tin be your name",
           "example": "Wetin be your name?",
-          "culturalNote": "Direct but polite."
+          "culturalNote": "Direct but polite.",
+          "audioId": "wetin_be_your_name"
         },
         {
           "word": "My name be...",
           "translation": "My name is...",
           "pronunciation": "my name be",
           "example": "My name be Chidi.",
-          "culturalNote": "Introducing yourself."
+          "culturalNote": "Introducing yourself.",
+          "audioId": "my_name_be"
         },
         {
           "word": "You dey?",
           "translation": "Are you there? (Are you okay?)",
           "pronunciation": "you dey",
           "example": "You dey? I dey o.",
-          "culturalNote": "Casual check-in."
+          "culturalNote": "Casual check-in.",
+          "audioId": "you_dey"
         }
       ],
       "grammarPoints": [
@@ -255,63 +265,72 @@
           "translation": "Who are you?",
           "pronunciation": "who you be",
           "example": "Who you be? I be Chidi.",
-          "culturalNote": "Direct but commonly used."
+          "culturalNote": "Direct but commonly used.",
+          "audioId": "who_you_be"
         },
         {
           "word": "I be",
           "translation": "I am",
           "pronunciation": "I be",
           "example": "I be teacher.",
-          "culturalNote": "Used to state identity or profession."
+          "culturalNote": "Used to state identity or profession.",
+          "audioId": "i_be"
         },
         {
           "word": "Wey you come from?",
           "translation": "Where are you from?",
           "pronunciation": "way you come from",
           "example": "Wey you come from? I come from Lagos.",
-          "culturalNote": "Asking about origin."
+          "culturalNote": "Asking about origin.",
+          "audioId": "wey_you_come_from"
         },
         {
           "word": "I come from",
           "translation": "I am from",
           "pronunciation": "I come from",
           "example": "I come from Nigeria.",
-          "culturalNote": "Saying your origin."
+          "culturalNote": "Saying your origin.",
+          "audioId": "i_come_from"
         },
         {
           "word": "Naija",
           "translation": "Nigeria",
           "pronunciation": "nai-ja",
           "example": "I be Naija boy.",
-          "culturalNote": "Common nickname for Nigeria."
+          "culturalNote": "Common nickname for Nigeria.",
+          "audioId": "naija"
         },
         {
           "word": "Yoruba",
           "translation": "Yoruba (ethnic group)",
           "pronunciation": "yo-ru-ba",
           "example": "I be Yoruba man.",
-          "culturalNote": "Major ethnic group."
+          "culturalNote": "Major ethnic group.",
+          "audioId": "yoruba"
         },
         {
           "word": "Igbo",
           "translation": "Igbo",
           "pronunciation": "ig-bo",
           "example": "I be Igbo girl.",
-          "culturalNote": "Major ethnic group."
+          "culturalNote": "Major ethnic group.",
+          "audioId": "igbo"
         },
         {
           "word": "Hausa",
           "translation": "Hausa",
           "pronunciation": "how-sa",
           "example": "I be Hausa.",
-          "culturalNote": "Major ethnic group."
+          "culturalNote": "Major ethnic group.",
+          "audioId": "hausa"
         },
         {
           "word": "Wey you dey stay?",
           "translation": "Where do you live?",
           "pronunciation": "way you dey stay",
           "example": "Wey you dey stay? I dey stay Abuja.",
-          "culturalNote": "Asking about current residence."
+          "culturalNote": "Asking about current residence.",
+          "audioId": "wey_you_dey_stay"
         }
       ],
       "grammarPoints": [
@@ -490,70 +509,80 @@
           "translation": "Please",
           "pronunciation": "a-beg",
           "example": "Abeg, give me water.",
-          "culturalNote": "Derived from 'I beg', very common."
+          "culturalNote": "Derived from 'I beg', very common.",
+          "audioId": "abeg"
         },
         {
           "word": "Thank you",
           "translation": "Thank you",
           "pronunciation": "thank you",
           "example": "Thank you, my friend.",
-          "culturalNote": "Same as English but often with 'o'."
+          "culturalNote": "Same as English but often with 'o'.",
+          "audioId": "thank_you"
         },
         {
           "word": "Sorry",
           "translation": "Sorry / Excuse me",
           "pronunciation": "so-ree",
           "example": "Sorry, I no mean am.",
-          "culturalNote": "Used for apology or sympathy."
+          "culturalNote": "Used for apology or sympathy.",
+          "audioId": "sorry"
         },
         {
           "word": "No wahala",
           "translation": "No problem",
           "pronunciation": "no wa-ha-la",
           "example": "Abeg, help me. – No wahala.",
-          "culturalNote": "Very common; wahala means trouble."
+          "culturalNote": "Very common; wahala means trouble.",
+          "audioId": "no_wahala"
         },
         {
           "word": "Oya",
           "translation": "Let's go / Come on / Alright",
           "pronunciation": "o-ya",
           "example": "Oya, make we go.",
-          "culturalNote": "Versatile word to urge action."
+          "culturalNote": "Versatile word to urge action.",
+          "audioId": "oya"
         },
         {
           "word": "Sha",
           "translation": "Anyway / Just / Nevertheless",
           "pronunciation": "sha",
           "example": "I no go, sha.",
-          "culturalNote": "Adds emphasis or finality."
+          "culturalNote": "Adds emphasis or finality.",
+          "audioId": "sha"
         },
         {
           "word": "Wahala",
           "translation": "Trouble / Problem",
           "pronunciation": "wa-ha-la",
           "example": "Wetin be the wahala?",
-          "culturalNote": "Often used in 'no wahala'."
+          "culturalNote": "Often used in 'no wahala'.",
+          "audioId": "wahala"
         },
         {
           "word": "Omo",
           "translation": "Oh my! / Wow / Man!",
           "pronunciation": "o-mo",
           "example": "Omo, that food sweet!",
-          "culturalNote": "Expression of surprise or emphasis."
+          "culturalNote": "Expression of surprise or emphasis.",
+          "audioId": "omo"
         },
         {
           "word": "Chai",
           "translation": "Oh dear! / Ouch!",
           "pronunciation": "chai",
           "example": "Chai, I fall down.",
-          "culturalNote": "Exclamation of pain or dismay."
+          "culturalNote": "Exclamation of pain or dismay.",
+          "audioId": "chai"
         },
         {
           "word": "O ti",
           "translation": "It is finished / Done",
           "pronunciation": "o tee",
           "example": "The food o ti.",
-          "culturalNote": "Borrowed from Yoruba, common."
+          "culturalNote": "Borrowed from Yoruba, common.",
+          "audioId": "o_ti"
         }
       ],
       "grammarPoints": [
@@ -732,84 +761,96 @@
           "translation": "One",
           "pronunciation": "wan",
           "example": "I want wan bottle.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "wan"
         },
         {
           "word": "Tu",
           "translation": "Two",
           "pronunciation": "tu",
           "example": "Give me tu.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "tu"
         },
         {
           "word": "Tri",
           "translation": "Three",
           "pronunciation": "tri",
           "example": "Tri people dey come.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "tri"
         },
         {
           "word": "Fo",
           "translation": "Four",
           "pronunciation": "fo",
           "example": "I get fo children.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "fo"
         },
         {
           "word": "Fai",
           "translation": "Five",
           "pronunciation": "fai",
           "example": "Fai naira.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "fai"
         },
         {
           "word": "Six",
           "translation": "Six",
           "pronunciation": "six",
           "example": "Six o'clock.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "six"
         },
         {
           "word": "Seven",
           "translation": "Seven",
           "pronunciation": "seven",
           "example": "Seven days.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "seven"
         },
         {
           "word": "Eight",
           "translation": "Eight",
           "pronunciation": "eight",
           "example": "Eight people.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "eight"
         },
         {
           "word": "Nine",
           "translation": "Nine",
           "pronunciation": "nine",
           "example": "Nine naira?",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "nine"
         },
         {
           "word": "Ten",
           "translation": "Ten",
           "pronunciation": "ten",
           "example": "Ten thousand.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "ten"
         },
         {
           "word": "How much?",
           "translation": "How much? / How many?",
           "pronunciation": "how much",
           "example": "How much be this?",
-          "culturalNote": "For price or quantity."
+          "culturalNote": "For price or quantity.",
+          "audioId": "how_much"
         },
         {
           "word": "Naira",
           "translation": "Naira (Nigerian currency)",
           "pronunciation": "nai-ra",
           "example": "Two hundred naira.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "naira"
         }
       ],
       "grammarPoints": [
@@ -988,77 +1029,88 @@
           "translation": "Father",
           "pronunciation": "pa-pa / da-ddy",
           "example": "My papa be teacher.",
-          "culturalNote": "Both are common."
+          "culturalNote": "Both are common.",
+          "audioId": "papa_daddy"
         },
         {
           "word": "Mama / Mommy",
           "translation": "Mother",
           "pronunciation": "ma-ma / mo-mmy",
           "example": "My mama dey cook.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "mama_mommy"
         },
         {
           "word": "Broda",
           "translation": "Brother",
           "pronunciation": "bro-da",
           "example": "My broda big pass me.",
-          "culturalNote": "Also used for close male friends."
+          "culturalNote": "Also used for close male friends.",
+          "audioId": "broda"
         },
         {
           "word": "Sista",
           "translation": "Sister",
           "pronunciation": "sis-ta",
           "example": "My sista fine well.",
-          "culturalNote": "Also used for female friends."
+          "culturalNote": "Also used for female friends.",
+          "audioId": "sista"
         },
         {
           "word": "Pikin",
           "translation": "Child",
           "pronunciation": "pi-kin",
           "example": "She get three pikin.",
-          "culturalNote": "From Portuguese 'pequeno'."
+          "culturalNote": "From Portuguese 'pequeno'.",
+          "audioId": "pikin"
         },
         {
           "word": "Wife",
           "translation": "Wife",
           "pronunciation": "wife",
           "example": "My wife dey work.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "wife"
         },
         {
           "word": "Husband",
           "translation": "Husband",
           "pronunciation": "hus-band",
           "example": "Her husband be driver.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "husband"
         },
         {
           "word": "Grandpapa",
           "translation": "Grandfather",
           "pronunciation": "grand-pa-pa",
           "example": "My grandpapa dey village.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "grandpapa"
         },
         {
           "word": "Grandmama",
           "translation": "Grandmother",
           "pronunciation": "grand-ma-ma",
           "example": "Grandmama dey tell story.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "grandmama"
         },
         {
           "word": "Uncle",
           "translation": "Uncle",
           "pronunciation": "un-cle",
           "example": "Uncle, you dey go?",
-          "culturalNote": "Often used for any older male."
+          "culturalNote": "Often used for any older male.",
+          "audioId": "uncle"
         },
         {
           "word": "Aunty",
           "translation": "Aunt",
           "pronunciation": "aun-ty",
           "example": "Aunty, good evening.",
-          "culturalNote": "Used for any older female."
+          "culturalNote": "Used for any older female.",
+          "audioId": "aunty"
         }
       ],
       "grammarPoints": [
@@ -1231,70 +1283,80 @@
           "translation": "Food / to eat",
           "pronunciation": "chop",
           "example": "I wan chop.",
-          "culturalNote": "Can be noun (food) or verb (eat)."
+          "culturalNote": "Can be noun (food) or verb (eat).",
+          "audioId": "chop"
         },
         {
           "word": "Jollof rice",
           "translation": "Jollof rice",
           "pronunciation": "jol-lof rice",
           "example": "Jollof rice sweet well.",
-          "culturalNote": "Popular West African dish."
+          "culturalNote": "Popular West African dish.",
+          "audioId": "jollof_rice"
         },
         {
           "word": "Suya",
           "translation": "Spicy grilled meat",
           "pronunciation": "su-ya",
           "example": "I like suya with onions.",
-          "culturalNote": "Street food favorite."
+          "culturalNote": "Street food favorite.",
+          "audioId": "suya"
         },
         {
           "word": "Eba",
           "translation": "Cassava flour dough",
           "pronunciation": "e-ba",
           "example": "Eba and egusi soup.",
-          "culturalNote": "Staple swallow food."
+          "culturalNote": "Staple swallow food.",
+          "audioId": "eba"
         },
         {
           "word": "Fufu",
           "translation": "Fermented cassava dough",
           "pronunciation": "fu-fu",
           "example": "We go eat fufu tonight.",
-          "culturalNote": "Similar to eba, from different process."
+          "culturalNote": "Similar to eba, from different process.",
+          "audioId": "fufu"
         },
         {
           "word": "Egusi",
           "translation": "Melon seed soup",
           "pronunciation": "e-gu-si",
           "example": "Egusi soup with meat.",
-          "culturalNote": "Thick, savory soup."
+          "culturalNote": "Thick, savory soup.",
+          "audioId": "egusi"
         },
         {
           "word": "Indomie",
           "translation": "Instant noodles",
           "pronunciation": "in-do-mie",
           "example": "I go cook Indomie.",
-          "culturalNote": "Very popular quick meal."
+          "culturalNote": "Very popular quick meal.",
+          "audioId": "indomie"
         },
         {
           "word": "Pepper",
           "translation": "Spicy pepper sauce",
           "pronunciation": "pep-per",
           "example": "Add pepper make am sweet.",
-          "culturalNote": "Nigerians love pepper."
+          "culturalNote": "Nigerians love pepper.",
+          "audioId": "pepper"
         },
         {
           "word": "Water",
           "translation": "Water",
           "pronunciation": "wa-ter",
           "example": "Give me water.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "water"
         },
         {
           "word": "Zobo",
           "translation": "Hibiscus drink",
           "pronunciation": "zo-bo",
           "example": "I dey drink zobo.",
-          "culturalNote": "Refreshing local drink."
+          "culturalNote": "Refreshing local drink.",
+          "audioId": "zobo"
         }
       ],
       "grammarPoints": [
@@ -1473,63 +1535,72 @@
           "translation": "How much is this?",
           "pronunciation": "how much be this",
           "example": "How much be this shirt?",
-          "culturalNote": "Direct way to ask price."
+          "culturalNote": "Direct way to ask price.",
+          "audioId": "how_much_be_this"
         },
         {
           "word": "Too much",
           "translation": "Too expensive",
           "pronunciation": "too much",
           "example": "This price too much o.",
-          "culturalNote": "Used in bargaining."
+          "culturalNote": "Used in bargaining.",
+          "audioId": "too_much"
         },
         {
           "word": "Reduce",
           "translation": "Lower the price",
           "pronunciation": "re-duce",
           "example": "Abeg reduce small.",
-          "culturalNote": "Key bargaining word."
+          "culturalNote": "Key bargaining word.",
+          "audioId": "reduce"
         },
         {
           "word": "Last price",
           "translation": "Final price",
           "pronunciation": "last price",
           "example": "Wetin be your last price?",
-          "culturalNote": "Ask for the lowest they can go."
+          "culturalNote": "Ask for the lowest they can go.",
+          "audioId": "last_price"
         },
         {
           "word": "I no get money",
           "translation": "I don't have money",
           "pronunciation": "I no get money",
           "example": "I no get money for that.",
-          "culturalNote": "Used to show you can't afford it."
+          "culturalNote": "Used to show you can't afford it.",
+          "audioId": "i_no_get_money"
         },
         {
           "word": "Na you be boss",
           "translation": "You're the boss (flattery)",
           "pronunciation": "na you be boss",
           "example": "Na you be boss, abeg make I pay small.",
-          "culturalNote": "Flattery helps in bargaining."
+          "culturalNote": "Flattery helps in bargaining.",
+          "audioId": "na_you_be_boss"
         },
         {
           "word": "Throway",
           "translation": "Add something extra for free",
           "pronunciation": "throw-way",
           "example": "Abeg throway one for me.",
-          "culturalNote": "Asking for a bonus item."
+          "culturalNote": "Asking for a bonus item.",
+          "audioId": "throway"
         },
         {
           "word": "Buy",
           "translation": "Buy",
           "pronunciation": "buy",
           "example": "I wan buy this.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "buy"
         },
         {
           "word": "Sell",
           "translation": "Sell",
           "pronunciation": "sell",
           "example": "You dey sell shoe?",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "sell"
         }
       ],
       "grammarPoints": [
@@ -1715,77 +1786,88 @@
           "translation": "Where is?",
           "pronunciation": "where dey",
           "example": "Where market dey?",
-          "culturalNote": "Basic way to ask location."
+          "culturalNote": "Basic way to ask location.",
+          "audioId": "where_dey"
         },
         {
           "word": "Wey be road to...",
           "translation": "Which is the road to...",
           "pronunciation": "way be road to",
           "example": "Wey be road to Ikeja?",
-          "culturalNote": "More specific."
+          "culturalNote": "More specific.",
+          "audioId": "wey_be_road_to"
         },
         {
           "word": "Straight",
           "translation": "Straight ahead",
           "pronunciation": "straight",
           "example": "Go straight, you go see am.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "straight"
         },
         {
           "word": "Turn",
           "translation": "Turn",
           "pronunciation": "turn",
           "example": "Turn left for junction.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "turn"
         },
         {
           "word": "Left",
           "translation": "Left",
           "pronunciation": "left",
           "example": "Make you take left.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "left"
         },
         {
           "word": "Right",
           "translation": "Right",
           "pronunciation": "right",
           "example": "Turn right.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "right"
         },
         {
           "word": "Junction",
           "translation": "Intersection / Corner",
           "pronunciation": "junc-tion",
           "example": "Stop at the junction.",
-          "culturalNote": "Common reference point."
+          "culturalNote": "Common reference point.",
+          "audioId": "junction"
         },
         {
           "word": "Bus stop",
           "translation": "Bus stop",
           "pronunciation": "bus stop",
           "example": "Wey de nearest bus stop?",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "bus_stop"
         },
         {
           "word": "Okada",
           "translation": "Motorcycle taxi",
           "pronunciation": "o-ka-da",
           "example": "I go take okada.",
-          "culturalNote": "Common in cities."
+          "culturalNote": "Common in cities.",
+          "audioId": "okada"
         },
         {
           "word": "Danfo",
           "translation": "Yellow minibus",
           "pronunciation": "dan-fo",
           "example": "Danfo dey come.",
-          "culturalNote": "Lagos buses."
+          "culturalNote": "Lagos buses.",
+          "audioId": "danfo"
         },
         {
           "word": "Drop me here",
           "translation": "Let me off here",
           "pronunciation": "drop me here",
           "example": "Driver, drop me here.",
-          "culturalNote": "Essential for taxis/buses."
+          "culturalNote": "Essential for taxis/buses.",
+          "audioId": "drop_me_here"
         }
       ],
       "grammarPoints": [
@@ -1964,77 +2046,88 @@
           "translation": "What time is it?",
           "pronunciation": "we-tin be time",
           "example": "Wetin be time now?",
-          "culturalNote": "Common way to ask."
+          "culturalNote": "Common way to ask.",
+          "audioId": "wetin_be_time"
         },
         {
           "word": "Now now",
           "translation": "Right now / immediately",
           "pronunciation": "now now",
           "example": "I wan come now now.",
-          "culturalNote": "Emphasizes immediacy."
+          "culturalNote": "Emphasizes immediacy.",
+          "audioId": "now_now"
         },
         {
           "word": "Small time",
           "translation": "Soon / in a little while",
           "pronunciation": "small time",
           "example": "I go come small time.",
-          "culturalNote": "Vague but common."
+          "culturalNote": "Vague but common.",
+          "audioId": "small_time"
         },
         {
           "word": "Morning",
           "translation": "Morning (broadly before noon)",
           "pronunciation": "morn-ing",
           "example": "We go meet for morning.",
-          "culturalNote": "Can mean anytime before noon."
+          "culturalNote": "Can mean anytime before noon.",
+          "audioId": "morning"
         },
         {
           "word": "Afternoon",
           "translation": "Afternoon (noon to late afternoon)",
           "pronunciation": "af-ta-noon",
           "example": "Afternoon time.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "afternoon"
         },
         {
           "word": "Night",
           "translation": "Night / evening",
           "pronunciation": "night",
           "example": "I go see you for night.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "night"
         },
         {
           "word": "Today",
           "translation": "Today",
           "pronunciation": "to-day",
           "example": "Today I dey busy.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "today"
         },
         {
           "word": "Tomorrow",
           "translation": "Tomorrow",
           "pronunciation": "to-mor-row",
           "example": "Tomorrow morning.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "tomorrow"
         },
         {
           "word": "Yesterday",
           "translation": "Yesterday",
           "pronunciation": "yes-ter-day",
           "example": "Yesterday I go market.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "yesterday"
         },
         {
           "word": "Monday",
           "translation": "Monday",
           "pronunciation": "mon-day",
           "example": "Monday dey come.",
-          "culturalNote": "Days are same as English."
+          "culturalNote": "Days are same as English.",
+          "audioId": "monday"
         },
         {
           "word": "Sunday",
           "translation": "Sunday",
           "pronunciation": "sun-day",
           "example": "Sunday we go church.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "sunday"
         }
       ],
       "grammarPoints": [
@@ -2207,70 +2300,80 @@
           "translation": "Hello",
           "pronunciation": "how far",
           "example": "How far, my friend.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "how_far"
         },
         {
           "word": "I dey fine",
           "translation": "I'm fine",
           "pronunciation": "I dey fine",
           "example": "I dey fine, thank you.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "i_dey_fine"
         },
         {
           "word": "Abeg",
           "translation": "Please",
           "pronunciation": "a-beg",
           "example": "Abeg give me water.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "abeg"
         },
         {
           "word": "No wahala",
           "translation": "No problem",
           "pronunciation": "no wa-ha-la",
           "example": "No wahala, I go help you.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "no_wahala"
         },
         {
           "word": "How much?",
           "translation": "How much?",
           "pronunciation": "how much",
           "example": "How much be this?",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "how_much"
         },
         {
           "word": "My broda",
           "translation": "My brother",
           "pronunciation": "my bro-da",
           "example": "My broda dey come.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "my_broda"
         },
         {
           "word": "Wetin you chop?",
           "translation": "What did you eat?",
           "pronunciation": "we-tin you chop",
           "example": "Wetin you chop for afternoon?",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "wetin_you_chop"
         },
         {
           "word": "Where dey?",
           "translation": "Where is?",
           "pronunciation": "where dey",
           "example": "Where toilet dey?",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "where_dey"
         },
         {
           "word": "Drop me here",
           "translation": "Let me off here",
           "pronunciation": "drop me here",
           "example": "Driver, drop me here.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "drop_me_here"
         },
         {
           "word": "Wetin be time?",
           "translation": "What time is it?",
           "pronunciation": "we-tin be time",
           "example": "Wetin be time now?",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "wetin_be_time"
         }
       ],
       "grammarPoints": [
@@ -2479,7 +2582,7 @@
         "level-10"
       ]
     },
-   {
+    {
       "level": 11,
       "topic": "Home and Household",
       "subTopic": "Around the House",
@@ -2497,70 +2600,80 @@
           "translation": "House / home",
           "pronunciation": "house",
           "example": "My house dey for Lagos.",
-          "culturalNote": "Often means the entire building."
+          "culturalNote": "Often means the entire building.",
+          "audioId": "house"
         },
         {
           "word": "Room",
           "translation": "Room",
           "pronunciation": "room",
           "example": "I get three room for my house.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "room"
         },
         {
           "word": "Parlour",
           "translation": "Living room",
           "pronunciation": "par-lour",
           "example": "Make we sit for parlour.",
-          "culturalNote": "Common term for living room."
+          "culturalNote": "Common term for living room.",
+          "audioId": "parlour"
         },
         {
           "word": "Kitchen",
           "translation": "Kitchen",
           "pronunciation": "kit-chen",
           "example": "Mama dey kitchen cook.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "kitchen"
         },
         {
           "word": "Toilet",
           "translation": "Toilet / bathroom",
           "pronunciation": "toi-let",
           "example": "Where toilet dey?",
-          "culturalNote": "Often includes bathroom."
+          "culturalNote": "Often includes bathroom.",
+          "audioId": "toilet"
         },
         {
           "word": "Bed",
           "translation": "Bed",
           "pronunciation": "bed",
           "example": "I sleep for my bed.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "bed"
         },
         {
           "word": "Table",
           "translation": "Table",
           "pronunciation": "ta-ble",
           "example": "Put the food for table.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "table"
         },
         {
           "word": "Chair",
           "translation": "Chair",
           "pronunciation": "chair",
           "example": "Sit down for chair.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "chair"
         },
         {
           "word": "Fridge",
           "translation": "Refrigerator",
           "pronunciation": "fridge",
           "example": "Put drink for fridge.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "fridge"
         },
         {
           "word": "Fan",
           "translation": "Electric fan",
           "pronunciation": "fan",
           "example": "Switch on fan make cold.",
-          "culturalNote": "Essential in hot weather."
+          "culturalNote": "Essential in hot weather.",
+          "audioId": "fan"
         }
       ],
       "grammarPoints": [
@@ -2745,70 +2858,80 @@
           "translation": "Head",
           "pronunciation": "head",
           "example": "My head dey hurt me.",
-          "culturalNote": "Headache is very common."
+          "culturalNote": "Headache is very common.",
+          "audioId": "head"
         },
         {
           "word": "Eye",
           "translation": "Eye",
           "pronunciation": "eye",
           "example": "I get sand for my eye.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "eye"
         },
         {
           "word": "Nose",
           "translation": "Nose",
           "pronunciation": "nose",
           "example": "My nose dey run.",
-          "culturalNote": "Runny nose."
+          "culturalNote": "Runny nose.",
+          "audioId": "nose"
         },
         {
           "word": "Mouth",
           "translation": "Mouth",
           "pronunciation": "mouth",
           "example": "Open your mouth make I see.",
-          "culturalNote": "At the doctor."
+          "culturalNote": "At the doctor.",
+          "audioId": "mouth"
         },
         {
           "word": "Teeth",
           "translation": "Teeth",
           "pronunciation": "teeth",
           "example": "I dey brush my teeth.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "teeth"
         },
         {
           "word": "Belly",
           "translation": "Stomach / belly",
           "pronunciation": "bel-ly",
           "example": "My belly dey pain me.",
-          "culturalNote": "Stomach ache."
+          "culturalNote": "Stomach ache.",
+          "audioId": "belly"
         },
         {
           "word": "Hand",
           "translation": "Hand / arm",
           "pronunciation": "hand",
           "example": "Wash your hand before you chop.",
-          "culturalNote": "Often includes arm."
+          "culturalNote": "Often includes arm.",
+          "audioId": "hand"
         },
         {
           "word": "Leg",
           "translation": "Leg / foot",
           "pronunciation": "leg",
           "example": "My leg dey swell.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "leg"
         },
         {
           "word": "Back",
           "translation": "Back",
           "pronunciation": "back",
           "example": "My back dey pain me.",
-          "culturalNote": "Backache."
+          "culturalNote": "Backache.",
+          "audioId": "back"
         },
         {
           "word": "Skin",
           "translation": "Skin",
           "pronunciation": "skin",
           "example": "My skin dey itch.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "skin"
         }
       ],
       "grammarPoints": [
@@ -2987,56 +3110,64 @@
           "translation": "Red",
           "pronunciation": "red",
           "example": "I like red cloth.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "red"
         },
         {
           "word": "Blue",
           "translation": "Blue",
           "pronunciation": "blue",
           "example": "My car be blue.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "blue"
         },
         {
           "word": "Yellow",
           "translation": "Yellow",
           "pronunciation": "yel-low",
           "example": "Yellow taxi dey come.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "yellow"
         },
         {
           "word": "Green",
           "translation": "Green",
           "pronunciation": "green",
           "example": "Green tree.",
-          "culturalNote": "Colour of nature."
+          "culturalNote": "Colour of nature.",
+          "audioId": "green"
         },
         {
           "word": "Black",
           "translation": "Black",
           "pronunciation": "black",
           "example": "I wear black shoe.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "black"
         },
         {
           "word": "White",
           "translation": "White",
           "pronunciation": "white",
           "example": "White cloth for wedding.",
-          "culturalNote": "Often worn for special occasions."
+          "culturalNote": "Often worn for special occasions.",
+          "audioId": "white"
         },
         {
           "word": "Brown",
           "translation": "Brown",
           "pronunciation": "brown",
           "example": "Brown wood.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "brown"
         },
         {
           "word": "Ankara",
           "translation": "Colorful African print fabric",
           "pronunciation": "an-ka-ra",
           "example": "She wear fine Ankara.",
-          "culturalNote": "Very popular; any bright pattern."
+          "culturalNote": "Very popular; any bright pattern.",
+          "audioId": "ankara"
         }
       ],
       "grammarPoints": [
@@ -3209,63 +3340,72 @@
           "translation": "Wake up",
           "pronunciation": "wake up",
           "example": "I wake up by six o'clock.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "wake_up"
         },
         {
           "word": "Bath",
           "translation": "Take a bath/shower",
           "pronunciation": "bath",
           "example": "I bath before I chop morning.",
-          "culturalNote": "Bathing is often twice daily."
+          "culturalNote": "Bathing is often twice daily.",
+          "audioId": "bath"
         },
         {
           "word": "Brush teeth",
           "translation": "Brush teeth",
           "pronunciation": "brush teeth",
           "example": "I brush my teeth.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "brush_teeth"
         },
         {
           "word": "Dress",
           "translation": "Get dressed",
           "pronunciation": "dress",
           "example": "I dress quick quick.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "dress"
         },
         {
           "word": "Chop morning",
           "translation": "Eat breakfast",
           "pronunciation": "chop morn-ing",
           "example": "I chop morning before I go work.",
-          "culturalNote": "Breakfast can be light."
+          "culturalNote": "Breakfast can be light.",
+          "audioId": "chop_morning"
         },
         {
           "word": "Go work",
           "translation": "Go to work",
           "pronunciation": "go work",
           "example": "I go work by bus.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "go_work"
         },
         {
           "word": "Come back",
           "translation": "Return home",
           "pronunciation": "come back",
           "example": "I come back for evening.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "come_back"
         },
         {
           "word": "Cook",
           "translation": "Cook",
           "pronunciation": "cook",
           "example": "My wife dey cook.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "cook"
         },
         {
           "word": "Sleep",
           "translation": "Sleep",
           "pronunciation": "sleep",
           "example": "I sleep by ten o'clock.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "sleep"
         }
       ],
       "grammarPoints": [
@@ -3450,63 +3590,72 @@
           "translation": "Work / job",
           "pronunciation": "work",
           "example": "I dey go work every day.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "work"
         },
         {
           "word": "Teacher",
           "translation": "Teacher",
           "pronunciation": "teach-er",
           "example": "My mama be teacher.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "teacher"
         },
         {
           "word": "Driver",
           "translation": "Driver",
           "pronunciation": "dri-ver",
           "example": "He be danfo driver.",
-          "culturalNote": "Common job."
+          "culturalNote": "Common job.",
+          "audioId": "driver"
         },
         {
           "word": "Trader",
           "translation": "Trader / market seller",
           "pronunciation": "trad-er",
           "example": "I be trader for market.",
-          "culturalNote": "Very common informal job."
+          "culturalNote": "Very common informal job.",
+          "audioId": "trader"
         },
         {
           "word": "Nurse",
           "translation": "Nurse",
           "pronunciation": "nurse",
           "example": "She dey work as nurse.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "nurse"
         },
         {
           "word": "Engineer",
           "translation": "Engineer",
           "pronunciation": "en-gi-neer",
           "example": "My broda be engineer.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "engineer"
         },
         {
           "word": "Business",
           "translation": "Business (owner)",
           "pronunciation": "busi-ness",
           "example": "I dey do my own business.",
-          "culturalNote": "Many are self-employed."
+          "culturalNote": "Many are self-employed.",
+          "audioId": "business"
         },
         {
           "word": "Office",
           "translation": "Office",
           "pronunciation": "off-ice",
           "example": "I dey work for office.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "office"
         },
         {
           "word": "Salary",
           "translation": "Salary / pay",
           "pronunciation": "sa-la-ry",
           "example": "I collect salary today.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "salary"
         }
       ],
       "grammarPoints": [
@@ -3685,63 +3834,72 @@
           "translation": "Sun",
           "pronunciation": "sun",
           "example": "Sun dey shine hot today.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "sun"
         },
         {
           "word": "Rain",
           "translation": "Rain",
           "pronunciation": "rain",
           "example": "Rain dey fall.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "rain"
         },
         {
           "word": "Cloud",
           "translation": "Cloud",
           "pronunciation": "cloud",
           "example": "Cloud cover sky.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "cloud"
         },
         {
           "word": "Wind",
           "translation": "Wind",
           "pronunciation": "wind",
           "example": "Wind dey blow.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "wind"
         },
         {
           "word": "Cold",
           "translation": "Cold",
           "pronunciation": "cold",
           "example": "Today weather cold.",
-          "culturalNote": "Can refer to temperature or illness."
+          "culturalNote": "Can refer to temperature or illness.",
+          "audioId": "cold"
         },
         {
           "word": "Hot",
           "translation": "Hot",
           "pronunciation": "hot",
           "example": "The sun dey hot.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "hot"
         },
         {
           "word": "Harmattan",
           "translation": "Harmattan (dry, dusty season)",
           "pronunciation": "har-ma-tan",
           "example": "Harmattan dey, make you cover yourself.",
-          "culturalNote": "Season with dry wind and dust, usually Dec–Feb."
+          "culturalNote": "Season with dry wind and dust, usually Dec–Feb.",
+          "audioId": "harmattan"
         },
         {
           "word": "Rainy season",
           "translation": "Rainy season",
           "pronunciation": "rain-y sea-son",
           "example": "Rainy season don start.",
-          "culturalNote": "April to October."
+          "culturalNote": "April to October.",
+          "audioId": "rainy_season"
         },
         {
           "word": "Dry season",
           "translation": "Dry season",
           "pronunciation": "dry sea-son",
           "example": "Dry season, sun too much.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "dry_season"
         }
       ],
       "grammarPoints": [
@@ -3920,70 +4078,80 @@
           "translation": "Sick / ill",
           "pronunciation": "sick",
           "example": "I dey sick today.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "sick"
         },
         {
           "word": "Fever",
           "translation": "Fever",
           "pronunciation": "fe-ver",
           "example": "I get fever.",
-          "culturalNote": "Often means malaria."
+          "culturalNote": "Often means malaria.",
+          "audioId": "fever"
         },
         {
           "word": "Cough",
           "translation": "Cough",
           "pronunciation": "cough",
           "example": "I dey cough.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "cough"
         },
         {
           "word": "Malaria",
           "translation": "Malaria",
           "pronunciation": "ma-la-ria",
           "example": "Malaria don catch me.",
-          "culturalNote": "Very common illness."
+          "culturalNote": "Very common illness.",
+          "audioId": "malaria"
         },
         {
           "word": "Headache",
           "translation": "Headache",
           "pronunciation": "head-ache",
           "example": "Headache dey worry me.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "headache"
         },
         {
           "word": "Stomach ache",
           "translation": "Stomach ache",
           "pronunciation": "sto-mach ache",
           "example": "Stomach ache dey pain me.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "stomach_ache"
         },
         {
           "word": "Medicine",
           "translation": "Medicine",
           "pronunciation": "med-i-cine",
           "example": "I take medicine.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "medicine"
         },
         {
           "word": "Hospital",
           "translation": "Hospital",
           "pronunciation": "hos-pi-tal",
           "example": "I go hospital.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "hospital"
         },
         {
           "word": "Doctor",
           "translation": "Doctor",
           "pronunciation": "doc-tor",
           "example": "Doctor give me injection.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "doctor"
         },
         {
           "word": "Rest",
           "translation": "Rest",
           "pronunciation": "rest",
           "example": "You need to rest.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "rest"
         }
       ],
       "grammarPoints": [
@@ -4162,63 +4330,72 @@
           "translation": "Happy",
           "pronunciation": "hap-py",
           "example": "I dey happy today.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "happy"
         },
         {
           "word": "Sad",
           "translation": "Sad",
           "pronunciation": "sad",
           "example": "Why you dey sad?",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "sad"
         },
         {
           "word": "Angry",
           "translation": "Angry",
           "pronunciation": "an-gry",
           "example": "My oga dey angry.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "angry"
         },
         {
           "word": "Tired",
           "translation": "Tired",
           "pronunciation": "tired",
           "example": "I dey tired after work.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "tired"
         },
         {
           "word": "Worried",
           "translation": "Worried",
           "pronunciation": "wor-ried",
           "example": "Mama dey worried for me.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "worried"
         },
         {
           "word": "Surprised",
           "translation": "Surprised",
           "pronunciation": "sur-prised",
           "example": "I dey surprised to see you.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "surprised"
         },
         {
           "word": "Scared",
           "translation": "Afraid",
           "pronunciation": "scared",
           "example": "Pikin dey scared of dog.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "scared"
         },
         {
           "word": "Proud",
           "translation": "Proud",
           "pronunciation": "proud",
           "example": "I dey proud of my pikin.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "proud"
         },
         {
           "word": "Jealous",
           "translation": "Jealous",
           "pronunciation": "jeal-ous",
           "example": "Why you dey jealous?",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "jealous"
         }
       ],
       "grammarPoints": [
@@ -4397,63 +4574,72 @@
           "translation": "Weekend",
           "pronunciation": "week-end",
           "example": "Weekend don come!",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "weekend"
         },
         {
           "word": "Rest",
           "translation": "Rest",
           "pronunciation": "rest",
           "example": "I go rest for weekend.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "rest"
         },
         {
           "word": "Party",
           "translation": "Party",
           "pronunciation": "par-ty",
           "example": "We go party for Saturday.",
-          "culturalNote": "Nigerians love parties."
+          "culturalNote": "Nigerians love parties.",
+          "audioId": "party"
         },
         {
           "word": "Church",
           "translation": "Church",
           "pronunciation": "church",
           "example": "Sunday we go church.",
-          "culturalNote": "Many attend church on Sunday."
+          "culturalNote": "Many attend church on Sunday.",
+          "audioId": "church"
         },
         {
           "word": "Visit",
           "translation": "Visit",
           "pronunciation": "vi-sit",
           "example": "I go visit my grandma.",
-          "culturalNote": "Visiting family is common."
+          "culturalNote": "Visiting family is common.",
+          "audioId": "visit"
         },
         {
           "word": "Football",
           "translation": "Football (soccer)",
           "pronunciation": "foot-ball",
           "example": "Make we play football.",
-          "culturalNote": "Very popular."
+          "culturalNote": "Very popular.",
+          "audioId": "football"
         },
         {
           "word": "Movie",
           "translation": "Movie / film",
           "pronunciation": "mo-vie",
           "example": "I watch movie for night.",
-          "culturalNote": "Nollywood is huge."
+          "culturalNote": "Nollywood is huge.",
+          "audioId": "movie"
         },
         {
           "word": "Market",
           "translation": "Market",
           "pronunciation": "mar-ket",
           "example": "Saturday I go market.",
-          "culturalNote": "Many shop on weekends."
+          "culturalNote": "Many shop on weekends.",
+          "audioId": "market"
         },
         {
           "word": "Sleep",
           "translation": "Sleep",
           "pronunciation": "sleep",
           "example": "I go sleep till noon.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "sleep"
         }
       ],
       "grammarPoints": [
@@ -4631,63 +4817,72 @@
           "translation": "Living room",
           "pronunciation": "par-lour",
           "example": "We sit for parlour.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "parlour"
         },
         {
           "word": "Belly",
           "translation": "Stomach",
           "pronunciation": "bel-ly",
           "example": "My belly dey pain me.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "belly"
         },
         {
           "word": "Ankara",
           "translation": "African print fabric",
           "pronunciation": "an-ka-ra",
           "example": "She wear Ankara.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "ankara"
         },
         {
           "word": "Chop morning",
           "translation": "Eat breakfast",
           "pronunciation": "chop morn-ing",
           "example": "I chop morning.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "chop_morning"
         },
         {
           "word": "Trader",
           "translation": "Market seller",
           "pronunciation": "trad-er",
           "example": "She be trader.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "trader"
         },
         {
           "word": "Harmattan",
           "translation": "Dry dusty season",
           "pronunciation": "har-ma-tan",
           "example": "Harmattan dey.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "harmattan"
         },
         {
           "word": "Malaria",
           "translation": "Malaria",
           "pronunciation": "ma-la-ria",
           "example": "Malaria don catch me.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "malaria"
         },
         {
           "word": "Jealous",
           "translation": "Jealous",
           "pronunciation": "jeal-ous",
           "example": "Why you dey jealous?",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "jealous"
         },
         {
           "word": "Weekend",
           "translation": "Weekend",
           "pronunciation": "week-end",
           "example": "Weekend don come.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "weekend"
         }
       ],
       "grammarPoints": [
@@ -4904,70 +5099,80 @@
           "translation": "House / home",
           "pronunciation": "house",
           "example": "My house dey for Lagos.",
-          "culturalNote": "Often means the entire building."
+          "culturalNote": "Often means the entire building.",
+          "audioId": "house"
         },
         {
           "word": "Room",
           "translation": "Room",
           "pronunciation": "room",
           "example": "I get three room for my house.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "room"
         },
         {
           "word": "Parlour",
           "translation": "Living room",
           "pronunciation": "par-lour",
           "example": "Make we sit for parlour.",
-          "culturalNote": "Common term for living room."
+          "culturalNote": "Common term for living room.",
+          "audioId": "parlour"
         },
         {
           "word": "Kitchen",
           "translation": "Kitchen",
           "pronunciation": "kit-chen",
           "example": "Mama dey kitchen cook.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "kitchen"
         },
         {
           "word": "Toilet",
           "translation": "Toilet / bathroom",
           "pronunciation": "toi-let",
           "example": "Where toilet dey?",
-          "culturalNote": "Often includes bathroom."
+          "culturalNote": "Often includes bathroom.",
+          "audioId": "toilet"
         },
         {
           "word": "Bed",
           "translation": "Bed",
           "pronunciation": "bed",
           "example": "I sleep for my bed.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "bed"
         },
         {
           "word": "Table",
           "translation": "Table",
           "pronunciation": "ta-ble",
           "example": "Put the food for table.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "table"
         },
         {
           "word": "Chair",
           "translation": "Chair",
           "pronunciation": "chair",
           "example": "Sit down for chair.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "chair"
         },
         {
           "word": "Fridge",
           "translation": "Refrigerator",
           "pronunciation": "fridge",
           "example": "Put drink for fridge.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "fridge"
         },
         {
           "word": "Fan",
           "translation": "Electric fan",
           "pronunciation": "fan",
           "example": "Switch on fan make cold.",
-          "culturalNote": "Essential in hot weather."
+          "culturalNote": "Essential in hot weather.",
+          "audioId": "fan"
         }
       ],
       "grammarPoints": [
@@ -5152,70 +5357,80 @@
           "translation": "Head",
           "pronunciation": "head",
           "example": "My head dey hurt me.",
-          "culturalNote": "Headache is very common."
+          "culturalNote": "Headache is very common.",
+          "audioId": "head"
         },
         {
           "word": "Eye",
           "translation": "Eye",
           "pronunciation": "eye",
           "example": "I get sand for my eye.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "eye"
         },
         {
           "word": "Nose",
           "translation": "Nose",
           "pronunciation": "nose",
           "example": "My nose dey run.",
-          "culturalNote": "Runny nose."
+          "culturalNote": "Runny nose.",
+          "audioId": "nose"
         },
         {
           "word": "Mouth",
           "translation": "Mouth",
           "pronunciation": "mouth",
           "example": "Open your mouth make I see.",
-          "culturalNote": "At the doctor."
+          "culturalNote": "At the doctor.",
+          "audioId": "mouth"
         },
         {
           "word": "Teeth",
           "translation": "Teeth",
           "pronunciation": "teeth",
           "example": "I dey brush my teeth.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "teeth"
         },
         {
           "word": "Belly",
           "translation": "Stomach / belly",
           "pronunciation": "bel-ly",
           "example": "My belly dey pain me.",
-          "culturalNote": "Stomach ache."
+          "culturalNote": "Stomach ache.",
+          "audioId": "belly"
         },
         {
           "word": "Hand",
           "translation": "Hand / arm",
           "pronunciation": "hand",
           "example": "Wash your hand before you chop.",
-          "culturalNote": "Often includes arm."
+          "culturalNote": "Often includes arm.",
+          "audioId": "hand"
         },
         {
           "word": "Leg",
           "translation": "Leg / foot",
           "pronunciation": "leg",
           "example": "My leg dey swell.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "leg"
         },
         {
           "word": "Back",
           "translation": "Back",
           "pronunciation": "back",
           "example": "My back dey pain me.",
-          "culturalNote": "Backache."
+          "culturalNote": "Backache.",
+          "audioId": "back"
         },
         {
           "word": "Skin",
           "translation": "Skin",
           "pronunciation": "skin",
           "example": "My skin dey itch.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "skin"
         }
       ],
       "grammarPoints": [
@@ -5394,56 +5609,64 @@
           "translation": "Red",
           "pronunciation": "red",
           "example": "I like red cloth.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "red"
         },
         {
           "word": "Blue",
           "translation": "Blue",
           "pronunciation": "blue",
           "example": "My car be blue.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "blue"
         },
         {
           "word": "Yellow",
           "translation": "Yellow",
           "pronunciation": "yel-low",
           "example": "Yellow taxi dey come.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "yellow"
         },
         {
           "word": "Green",
           "translation": "Green",
           "pronunciation": "green",
           "example": "Green tree.",
-          "culturalNote": "Colour of nature."
+          "culturalNote": "Colour of nature.",
+          "audioId": "green"
         },
         {
           "word": "Black",
           "translation": "Black",
           "pronunciation": "black",
           "example": "I wear black shoe.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "black"
         },
         {
           "word": "White",
           "translation": "White",
           "pronunciation": "white",
           "example": "White cloth for wedding.",
-          "culturalNote": "Often worn for special occasions."
+          "culturalNote": "Often worn for special occasions.",
+          "audioId": "white"
         },
         {
           "word": "Brown",
           "translation": "Brown",
           "pronunciation": "brown",
           "example": "Brown wood.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "brown"
         },
         {
           "word": "Ankara",
           "translation": "Colorful African print fabric",
           "pronunciation": "an-ka-ra",
           "example": "She wear fine Ankara.",
-          "culturalNote": "Very popular; any bright pattern."
+          "culturalNote": "Very popular; any bright pattern.",
+          "audioId": "ankara"
         }
       ],
       "grammarPoints": [
@@ -5616,63 +5839,72 @@
           "translation": "Wake up",
           "pronunciation": "wake up",
           "example": "I wake up by six o'clock.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "wake_up"
         },
         {
           "word": "Bath",
           "translation": "Take a bath/shower",
           "pronunciation": "bath",
           "example": "I bath before I chop morning.",
-          "culturalNote": "Bathing is often twice daily."
+          "culturalNote": "Bathing is often twice daily.",
+          "audioId": "bath"
         },
         {
           "word": "Brush teeth",
           "translation": "Brush teeth",
           "pronunciation": "brush teeth",
           "example": "I brush my teeth.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "brush_teeth"
         },
         {
           "word": "Dress",
           "translation": "Get dressed",
           "pronunciation": "dress",
           "example": "I dress quick quick.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "dress"
         },
         {
           "word": "Chop morning",
           "translation": "Eat breakfast",
           "pronunciation": "chop morn-ing",
           "example": "I chop morning before I go work.",
-          "culturalNote": "Breakfast can be light."
+          "culturalNote": "Breakfast can be light.",
+          "audioId": "chop_morning"
         },
         {
           "word": "Go work",
           "translation": "Go to work",
           "pronunciation": "go work",
           "example": "I go work by bus.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "go_work"
         },
         {
           "word": "Come back",
           "translation": "Return home",
           "pronunciation": "come back",
           "example": "I come back for evening.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "come_back"
         },
         {
           "word": "Cook",
           "translation": "Cook",
           "pronunciation": "cook",
           "example": "My wife dey cook.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "cook"
         },
         {
           "word": "Sleep",
           "translation": "Sleep",
           "pronunciation": "sleep",
           "example": "I sleep by ten o'clock.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "sleep"
         }
       ],
       "grammarPoints": [
@@ -5857,63 +6089,72 @@
           "translation": "Work / job",
           "pronunciation": "work",
           "example": "I dey go work every day.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "work"
         },
         {
           "word": "Teacher",
           "translation": "Teacher",
           "pronunciation": "teach-er",
           "example": "My mama be teacher.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "teacher"
         },
         {
           "word": "Driver",
           "translation": "Driver",
           "pronunciation": "dri-ver",
           "example": "He be danfo driver.",
-          "culturalNote": "Common job."
+          "culturalNote": "Common job.",
+          "audioId": "driver"
         },
         {
           "word": "Trader",
           "translation": "Trader / market seller",
           "pronunciation": "trad-er",
           "example": "I be trader for market.",
-          "culturalNote": "Very common informal job."
+          "culturalNote": "Very common informal job.",
+          "audioId": "trader"
         },
         {
           "word": "Nurse",
           "translation": "Nurse",
           "pronunciation": "nurse",
           "example": "She dey work as nurse.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "nurse"
         },
         {
           "word": "Engineer",
           "translation": "Engineer",
           "pronunciation": "en-gi-neer",
           "example": "My broda be engineer.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "engineer"
         },
         {
           "word": "Business",
           "translation": "Business (owner)",
           "pronunciation": "busi-ness",
           "example": "I dey do my own business.",
-          "culturalNote": "Many are self-employed."
+          "culturalNote": "Many are self-employed.",
+          "audioId": "business"
         },
         {
           "word": "Office",
           "translation": "Office",
           "pronunciation": "off-ice",
           "example": "I dey work for office.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "office"
         },
         {
           "word": "Salary",
           "translation": "Salary / pay",
           "pronunciation": "sa-la-ry",
           "example": "I collect salary today.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "salary"
         }
       ],
       "grammarPoints": [
@@ -6092,63 +6333,72 @@
           "translation": "Sun",
           "pronunciation": "sun",
           "example": "Sun dey shine hot today.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "sun"
         },
         {
           "word": "Rain",
           "translation": "Rain",
           "pronunciation": "rain",
           "example": "Rain dey fall.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "rain"
         },
         {
           "word": "Cloud",
           "translation": "Cloud",
           "pronunciation": "cloud",
           "example": "Cloud cover sky.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "cloud"
         },
         {
           "word": "Wind",
           "translation": "Wind",
           "pronunciation": "wind",
           "example": "Wind dey blow.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "wind"
         },
         {
           "word": "Cold",
           "translation": "Cold",
           "pronunciation": "cold",
           "example": "Today weather cold.",
-          "culturalNote": "Can refer to temperature or illness."
+          "culturalNote": "Can refer to temperature or illness.",
+          "audioId": "cold"
         },
         {
           "word": "Hot",
           "translation": "Hot",
           "pronunciation": "hot",
           "example": "The sun dey hot.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "hot"
         },
         {
           "word": "Harmattan",
           "translation": "Harmattan (dry, dusty season)",
           "pronunciation": "har-ma-tan",
           "example": "Harmattan dey, make you cover yourself.",
-          "culturalNote": "Season with dry wind and dust, usually Dec–Feb."
+          "culturalNote": "Season with dry wind and dust, usually Dec–Feb.",
+          "audioId": "harmattan"
         },
         {
           "word": "Rainy season",
           "translation": "Rainy season",
           "pronunciation": "rain-y sea-son",
           "example": "Rainy season don start.",
-          "culturalNote": "April to October."
+          "culturalNote": "April to October.",
+          "audioId": "rainy_season"
         },
         {
           "word": "Dry season",
           "translation": "Dry season",
           "pronunciation": "dry sea-son",
           "example": "Dry season, sun too much.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "dry_season"
         }
       ],
       "grammarPoints": [
@@ -6327,70 +6577,80 @@
           "translation": "Sick / ill",
           "pronunciation": "sick",
           "example": "I dey sick today.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "sick"
         },
         {
           "word": "Fever",
           "translation": "Fever",
           "pronunciation": "fe-ver",
           "example": "I get fever.",
-          "culturalNote": "Often means malaria."
+          "culturalNote": "Often means malaria.",
+          "audioId": "fever"
         },
         {
           "word": "Cough",
           "translation": "Cough",
           "pronunciation": "cough",
           "example": "I dey cough.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "cough"
         },
         {
           "word": "Malaria",
           "translation": "Malaria",
           "pronunciation": "ma-la-ria",
           "example": "Malaria don catch me.",
-          "culturalNote": "Very common illness."
+          "culturalNote": "Very common illness.",
+          "audioId": "malaria"
         },
         {
           "word": "Headache",
           "translation": "Headache",
           "pronunciation": "head-ache",
           "example": "Headache dey worry me.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "headache"
         },
         {
           "word": "Stomach ache",
           "translation": "Stomach ache",
           "pronunciation": "sto-mach ache",
           "example": "Stomach ache dey pain me.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "stomach_ache"
         },
         {
           "word": "Medicine",
           "translation": "Medicine",
           "pronunciation": "med-i-cine",
           "example": "I take medicine.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "medicine"
         },
         {
           "word": "Hospital",
           "translation": "Hospital",
           "pronunciation": "hos-pi-tal",
           "example": "I go hospital.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "hospital"
         },
         {
           "word": "Doctor",
           "translation": "Doctor",
           "pronunciation": "doc-tor",
           "example": "Doctor give me injection.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "doctor"
         },
         {
           "word": "Rest",
           "translation": "Rest",
           "pronunciation": "rest",
           "example": "You need to rest.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "rest"
         }
       ],
       "grammarPoints": [
@@ -6569,63 +6829,72 @@
           "translation": "Happy",
           "pronunciation": "hap-py",
           "example": "I dey happy today.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "happy"
         },
         {
           "word": "Sad",
           "translation": "Sad",
           "pronunciation": "sad",
           "example": "Why you dey sad?",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "sad"
         },
         {
           "word": "Angry",
           "translation": "Angry",
           "pronunciation": "an-gry",
           "example": "My oga dey angry.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "angry"
         },
         {
           "word": "Tired",
           "translation": "Tired",
           "pronunciation": "tired",
           "example": "I dey tired after work.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "tired"
         },
         {
           "word": "Worried",
           "translation": "Worried",
           "pronunciation": "wor-ried",
           "example": "Mama dey worried for me.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "worried"
         },
         {
           "word": "Surprised",
           "translation": "Surprised",
           "pronunciation": "sur-prised",
           "example": "I dey surprised to see you.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "surprised"
         },
         {
           "word": "Scared",
           "translation": "Afraid",
           "pronunciation": "scared",
           "example": "Pikin dey scared of dog.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "scared"
         },
         {
           "word": "Proud",
           "translation": "Proud",
           "pronunciation": "proud",
           "example": "I dey proud of my pikin.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "proud"
         },
         {
           "word": "Jealous",
           "translation": "Jealous",
           "pronunciation": "jeal-ous",
           "example": "Why you dey jealous?",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "jealous"
         }
       ],
       "grammarPoints": [
@@ -6804,63 +7073,72 @@
           "translation": "Weekend",
           "pronunciation": "week-end",
           "example": "Weekend don come!",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "weekend"
         },
         {
           "word": "Rest",
           "translation": "Rest",
           "pronunciation": "rest",
           "example": "I go rest for weekend.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "rest"
         },
         {
           "word": "Party",
           "translation": "Party",
           "pronunciation": "par-ty",
           "example": "We go party for Saturday.",
-          "culturalNote": "Nigerians love parties."
+          "culturalNote": "Nigerians love parties.",
+          "audioId": "party"
         },
         {
           "word": "Church",
           "translation": "Church",
           "pronunciation": "church",
           "example": "Sunday we go church.",
-          "culturalNote": "Many attend church on Sunday."
+          "culturalNote": "Many attend church on Sunday.",
+          "audioId": "church"
         },
         {
           "word": "Visit",
           "translation": "Visit",
           "pronunciation": "vi-sit",
           "example": "I go visit my grandma.",
-          "culturalNote": "Visiting family is common."
+          "culturalNote": "Visiting family is common.",
+          "audioId": "visit"
         },
         {
           "word": "Football",
           "translation": "Football (soccer)",
           "pronunciation": "foot-ball",
           "example": "Make we play football.",
-          "culturalNote": "Very popular."
+          "culturalNote": "Very popular.",
+          "audioId": "football"
         },
         {
           "word": "Movie",
           "translation": "Movie / film",
           "pronunciation": "mo-vie",
           "example": "I watch movie for night.",
-          "culturalNote": "Nollywood is huge."
+          "culturalNote": "Nollywood is huge.",
+          "audioId": "movie"
         },
         {
           "word": "Market",
           "translation": "Market",
           "pronunciation": "mar-ket",
           "example": "Saturday I go market.",
-          "culturalNote": "Many shop on weekends."
+          "culturalNote": "Many shop on weekends.",
+          "audioId": "market"
         },
         {
           "word": "Sleep",
           "translation": "Sleep",
           "pronunciation": "sleep",
           "example": "I go sleep till noon.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "sleep"
         }
       ],
       "grammarPoints": [
@@ -7038,63 +7316,72 @@
           "translation": "Living room",
           "pronunciation": "par-lour",
           "example": "We sit for parlour.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "parlour"
         },
         {
           "word": "Belly",
           "translation": "Stomach",
           "pronunciation": "bel-ly",
           "example": "My belly dey pain me.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "belly"
         },
         {
           "word": "Ankara",
           "translation": "African print fabric",
           "pronunciation": "an-ka-ra",
           "example": "She wear Ankara.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "ankara"
         },
         {
           "word": "Chop morning",
           "translation": "Eat breakfast",
           "pronunciation": "chop morn-ing",
           "example": "I chop morning.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "chop_morning"
         },
         {
           "word": "Trader",
           "translation": "Market seller",
           "pronunciation": "trad-er",
           "example": "She be trader.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "trader"
         },
         {
           "word": "Harmattan",
           "translation": "Dry dusty season",
           "pronunciation": "har-ma-tan",
           "example": "Harmattan dey.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "harmattan"
         },
         {
           "word": "Malaria",
           "translation": "Malaria",
           "pronunciation": "ma-la-ria",
           "example": "Malaria don catch me.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "malaria"
         },
         {
           "word": "Jealous",
           "translation": "Jealous",
           "pronunciation": "jeal-ous",
           "example": "Why you dey jealous?",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "jealous"
         },
         {
           "word": "Weekend",
           "translation": "Weekend",
           "pronunciation": "week-end",
           "example": "Weekend don come.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "weekend"
         }
       ],
       "grammarPoints": [
@@ -7293,7 +7580,7 @@
         "level-20"
       ]
     },
-     {
+    {
       "level": 21,
       "topic": "Relationships",
       "subTopic": "Friends and Family",
@@ -7311,63 +7598,72 @@
           "translation": "Friend",
           "pronunciation": "friend",
           "example": "He be my best friend.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "friend"
         },
         {
           "word": "Padi",
           "translation": "Friend / buddy",
           "pronunciation": "pa-di",
           "example": "My padi, how far?",
-          "culturalNote": "Very common slang for friend."
+          "culturalNote": "Very common slang for friend.",
+          "audioId": "padi"
         },
         {
           "word": "Area father",
           "translation": "Local leader / respected elder",
           "pronunciation": "ar-e-a fa-ther",
           "example": "That man na area father for here.",
-          "culturalNote": "Refers to someone with influence."
+          "culturalNote": "Refers to someone with influence.",
+          "audioId": "area_father"
         },
         {
           "word": "In-law",
           "translation": "In-law",
           "pronunciation": "in-law",
           "example": "My in-law dey come for weekend.",
-          "culturalNote": "Can refer to any relative by marriage."
+          "culturalNote": "Can refer to any relative by marriage.",
+          "audioId": "in_law"
         },
         {
           "word": "Wife material",
           "translation": "Girlfriend with wife qualities",
           "pronunciation": "wife ma-te-ri-al",
           "example": "That girl na wife material.",
-          "culturalNote": "Compliment."
+          "culturalNote": "Compliment.",
+          "audioId": "wife_material"
         },
         {
           "word": "Husband material",
           "translation": "Boyfriend with husband qualities",
           "pronunciation": "hus-band ma-te-ri-al",
           "example": "He get job, e be husband material.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "husband_material"
         },
         {
           "word": "My better half",
           "translation": "My spouse / partner",
           "pronunciation": "my bet-ter half",
           "example": "My better half dey work.",
-          "culturalNote": "Term of endearment."
+          "culturalNote": "Term of endearment.",
+          "audioId": "my_better_half"
         },
         {
           "word": "Neighbor",
           "translation": "Neighbor",
           "pronunciation": "neigh-bor",
           "example": "My neighbor dey make noise.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "neighbor"
         },
         {
           "word": "Colleague",
           "translation": "Work colleague",
           "pronunciation": "col-league",
           "example": "My colleague from office.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "colleague"
         }
       ],
       "grammarPoints": [
@@ -7540,70 +7836,80 @@
           "translation": "Phone / mobile",
           "pronunciation": "phone",
           "example": "My phone battery don finish.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "phone"
         },
         {
           "word": "Laptop",
           "translation": "Laptop",
           "pronunciation": "lap-top",
           "example": "I use laptop for work.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "laptop"
         },
         {
           "word": "Charge",
           "translation": "Charge (battery)",
           "pronunciation": "charge",
           "example": "I need to charge my phone.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "charge"
         },
         {
           "word": "Battery low",
           "translation": "Low battery",
           "pronunciation": "bat-te-ry low",
           "example": "Battery low, I go call you later.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "battery_low"
         },
         {
           "word": "Network",
           "translation": "Network / signal",
           "pronunciation": "net-work",
           "example": "Network dey bad here.",
-          "culturalNote": "Common complaint."
+          "culturalNote": "Common complaint.",
+          "audioId": "network"
         },
         {
           "word": "Data",
           "translation": "Mobile data",
           "pronunciation": "da-ta",
           "example": "I don finish my data.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "data"
         },
         {
           "word": "Airplane mode",
           "translation": "Airplane mode",
           "pronunciation": "air-plane mode",
           "example": "Make you put your phone for airplane mode.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "airplane_mode"
         },
         {
           "word": "Selfie",
           "translation": "Selfie",
           "pronunciation": "self-ie",
           "example": "Make we take selfie.",
-          "culturalNote": "Very popular."
+          "culturalNote": "Very popular.",
+          "audioId": "selfie"
         },
         {
           "word": "App",
           "translation": "App / application",
           "pronunciation": "app",
           "example": "I download new app.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "app"
         },
         {
           "word": "Wifi",
           "translation": "Wi-Fi",
           "pronunciation": "wi-fi",
           "example": "Wifi dey work?",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "wifi"
         }
       ],
       "grammarPoints": [
@@ -7776,70 +8082,80 @@
           "translation": "Money",
           "pronunciation": "mo-ney",
           "example": "I no get money.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "money"
         },
         {
           "word": "Cash",
           "translation": "Cash",
           "pronunciation": "cash",
           "example": "Make I pay with cash.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "cash"
         },
         {
           "word": "Bank",
           "translation": "Bank",
           "pronunciation": "bank",
           "example": "I dey go bank.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "bank"
         },
         {
           "word": "ATM",
           "translation": "ATM",
           "pronunciation": "A-T-M",
           "example": "ATM no get money.",
-          "culturalNote": "Common issue."
+          "culturalNote": "Common issue.",
+          "audioId": "atm"
         },
         {
           "word": "Transfer",
           "translation": "Bank transfer",
           "pronunciation": "trans-fer",
           "example": "I go transfer money to you.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "transfer"
         },
         {
           "word": "Account",
           "translation": "Bank account",
           "pronunciation": "ac-count",
           "example": "I open account.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "account"
         },
         {
           "word": "Save",
           "translation": "Save money",
           "pronunciation": "save",
           "example": "I dey save for future.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "save"
         },
         {
           "word": "Borrow",
           "translation": "Borrow",
           "pronunciation": "bor-row",
           "example": "Abeg, make I borrow money?",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "borrow"
         },
         {
           "word": "Lend",
           "translation": "Lend",
           "pronunciation": "lend",
           "example": "You fit lend me something?",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "lend"
         },
         {
           "word": "Debt",
           "translation": "Debt",
           "pronunciation": "debt",
           "example": "I get debt to pay.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "debt"
         }
       ],
       "grammarPoints": [
@@ -8012,63 +8328,72 @@
           "translation": "Bus",
           "pronunciation": "bus",
           "example": "Bus don pass.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "bus"
         },
         {
           "word": "Danfo",
           "translation": "Yellow minibus (Lagos)",
           "pronunciation": "dan-fo",
           "example": "Danfo driver dey rush.",
-          "culturalNote": "Common in Lagos."
+          "culturalNote": "Common in Lagos.",
+          "audioId": "danfo"
         },
         {
           "word": "Okada",
           "translation": "Motorcycle taxi",
           "pronunciation": "o-ka-da",
           "example": "Okada fast pass car for traffic.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "okada"
         },
         {
           "word": "Keke",
           "translation": "Tricycle (Keke NAPEP)",
           "pronunciation": "ke-ke",
           "example": "Keke dey carry three people.",
-          "culturalNote": "Common in many cities."
+          "culturalNote": "Common in many cities.",
+          "audioId": "keke"
         },
         {
           "word": "Taxi",
           "translation": "Taxi",
           "pronunciation": "tax-i",
           "example": "Call taxi make I go airport.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "taxi"
         },
         {
           "word": "Train",
           "translation": "Train",
           "pronunciation": "train",
           "example": "Train dey come slowly.",
-          "culturalNote": "Limited but growing."
+          "culturalNote": "Limited but growing.",
+          "audioId": "train"
         },
         {
           "word": "Fare",
           "translation": "Transport fare",
           "pronunciation": "fare",
           "example": "How much be fare to Mile 2?",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "fare"
         },
         {
           "word": "Drop",
           "translation": "Let off / stop",
           "pronunciation": "drop",
           "example": "Driver, drop me for junction.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "drop"
         },
         {
           "word": "Conductor",
           "translation": "Bus conductor",
           "pronunciation": "con-duc-tor",
           "example": "Conductor dey collect money.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "conductor"
         }
       ],
       "grammarPoints": [
@@ -8241,70 +8566,80 @@
           "translation": "School",
           "pronunciation": "school",
           "example": "I dey go school.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "school"
         },
         {
           "word": "Teacher",
           "translation": "Teacher",
           "pronunciation": "teach-er",
           "example": "Teacher dey teach.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "teacher"
         },
         {
           "word": "Student",
           "translation": "Student",
           "pronunciation": "stu-dent",
           "example": "I be student.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "student"
         },
         {
           "word": "Class",
           "translation": "Classroom / grade",
           "pronunciation": "class",
           "example": "Which class you dey?",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "class"
         },
         {
           "word": "Book",
           "translation": "Book",
           "pronunciation": "book",
           "example": "Open your book.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "book"
         },
         {
           "word": "Pen",
           "translation": "Pen",
           "pronunciation": "pen",
           "example": "I forget my pen.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "pen"
         },
         {
           "word": "Exam",
           "translation": "Examination",
           "pronunciation": "ex-am",
           "example": "Exam dey come next week.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "exam"
         },
         {
           "word": "Homework",
           "translation": "Homework",
           "pronunciation": "home-work",
           "example": "I don finish my homework.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "homework"
         },
         {
           "word": "Mathematics",
           "translation": "Mathematics",
           "pronunciation": "maths",
           "example": "Mathematics hard.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "mathematics"
         },
         {
           "word": "English",
           "translation": "English language",
           "pronunciation": "Eng-lish",
           "example": "We speak English for class.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "english"
         }
       ],
       "grammarPoints": [
@@ -8483,70 +8818,80 @@
           "translation": "Football (soccer)",
           "pronunciation": "foot-ball",
           "example": "I love to watch football.",
-          "culturalNote": "Very popular."
+          "culturalNote": "Very popular.",
+          "audioId": "football"
         },
         {
           "word": "Play",
           "translation": "Play",
           "pronunciation": "play",
           "example": "Make we go play football.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "play"
         },
         {
           "word": "Match",
           "translation": "Match / game",
           "pronunciation": "match",
           "example": "Match dey today for TV.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "match"
         },
         {
           "word": "Goal",
           "translation": "Goal",
           "pronunciation": "goal",
           "example": "E score goal!",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "goal"
         },
         {
           "word": "Win",
           "translation": "Win",
           "pronunciation": "win",
           "example": "Which team go win?",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "win"
         },
         {
           "word": "Lose",
           "translation": "Lose",
           "pronunciation": "lose",
           "example": "My team lose.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "lose"
         },
         {
           "word": "Team",
           "translation": "Team",
           "pronunciation": "team",
           "example": "I support Super Eagles.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "team"
         },
         {
           "word": "Player",
           "translation": "Player",
           "pronunciation": "play-er",
           "example": "Messi na good player.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "player"
         },
         {
           "word": "Stadium",
           "translation": "Stadium",
           "pronunciation": "sta-di-um",
           "example": "We go stadium.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "stadium"
         },
         {
           "word": "Referee",
           "translation": "Referee",
           "pronunciation": "ref-e-ree",
           "example": "Referee dey cheat!",
-          "culturalNote": "Common complaint."
+          "culturalNote": "Common complaint.",
+          "audioId": "referee"
         }
       ],
       "grammarPoints": [
@@ -8725,70 +9070,80 @@
           "translation": "Music",
           "pronunciation": "mu-sic",
           "example": "Music dey sweet me.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "music"
         },
         {
           "word": "Song",
           "translation": "Song",
           "pronunciation": "song",
           "example": "This song dey trend.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "song"
         },
         {
           "word": "Dance",
           "translation": "Dance",
           "pronunciation": "dance",
           "example": "Make we dance.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "dance"
         },
         {
           "word": "Afrobeats",
           "translation": "Afrobeats (music genre)",
           "pronunciation": "Af-ro-beats",
           "example": "I love Afrobeats.",
-          "culturalNote": "Popular worldwide."
+          "culturalNote": "Popular worldwide.",
+          "audioId": "afrobeats"
         },
         {
           "word": "Highlife",
           "translation": "Highlife music",
           "pronunciation": "high-life",
           "example": "My papa like highlife.",
-          "culturalNote": "Older genre."
+          "culturalNote": "Older genre.",
+          "audioId": "highlife"
         },
         {
           "word": "Naija music",
           "translation": "Nigerian music",
           "pronunciation": "Nai-ja mu-sic",
           "example": "Naija music dey blow.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "naija_music"
         },
         {
           "word": "Singer",
           "translation": "Singer",
           "pronunciation": "sing-er",
           "example": "Burna Boy na singer.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "singer"
         },
         {
           "word": "Playlist",
           "translation": "Playlist",
           "pronunciation": "play-list",
           "example": "I create new playlist.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "playlist"
         },
         {
           "word": "Party",
           "translation": "Party",
           "pronunciation": "par-ty",
           "example": "Party dey tonight!",
-          "culturalNote": "Music is essential."
+          "culturalNote": "Music is essential.",
+          "audioId": "party"
         },
         {
           "word": "Shuffle",
           "translation": "Dance move / to dance",
           "pronunciation": "shuf-fle",
           "example": "E dey shuffle well.",
-          "culturalNote": "Popular dance."
+          "culturalNote": "Popular dance.",
+          "audioId": "shuffle"
         }
       ],
       "grammarPoints": [
@@ -8967,70 +9322,80 @@
           "translation": "Wedding",
           "pronunciation": "wed-ding",
           "example": "I go attend wedding.",
-          "culturalNote": "Often big events."
+          "culturalNote": "Often big events.",
+          "audioId": "wedding"
         },
         {
           "word": "Birthday",
           "translation": "Birthday",
           "pronunciation": "birth-day",
           "example": "Happy birthday to you!",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "birthday"
         },
         {
           "word": "Naming ceremony",
           "translation": "Naming ceremony (for babies)",
           "pronunciation": "nam-ing cer-e-mo-ny",
           "example": "We go naming ceremony for Sunday.",
-          "culturalNote": "Traditional event."
+          "culturalNote": "Traditional event.",
+          "audioId": "naming_ceremony"
         },
         {
           "word": "Burial",
           "translation": "Funeral / burial",
           "pronunciation": "bur-i-al",
           "example": "Burial dey for village.",
-          "culturalNote": "Important community event."
+          "culturalNote": "Important community event.",
+          "audioId": "burial"
         },
         {
           "word": "Owambe",
           "translation": "Big party / social gathering",
           "pronunciation": "o-wam-be",
           "example": "Owambe dey happen for Lagos.",
-          "culturalNote": "Yoruba term for lavish party."
+          "culturalNote": "Yoruba term for lavish party.",
+          "audioId": "owambe"
         },
         {
           "word": "Spray",
           "translation": "To throw money at celebrants",
           "pronunciation": "spray",
           "example": "People dey spray money for wedding.",
-          "culturalNote": "Common at parties."
+          "culturalNote": "Common at parties.",
+          "audioId": "spray"
         },
         {
           "word": "Celebrate",
           "translation": "Celebrate",
           "pronunciation": "cel-e-brate",
           "example": "Make we celebrate.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "celebrate"
         },
         {
           "word": "Gift",
           "translation": "Gift",
           "pronunciation": "gift",
           "example": "I buy gift for the couple.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "gift"
         },
         {
           "word": "Music",
           "translation": "Music",
           "pronunciation": "mu-sic",
           "example": "Music dey play for party.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "music"
         },
         {
           "word": "Food",
           "translation": "Food",
           "pronunciation": "food",
           "example": "Party food sweet.",
-          "culturalNote": "Always plentiful."
+          "culturalNote": "Always plentiful.",
+          "audioId": "food"
         }
       ],
       "grammarPoints": [
@@ -9203,63 +9568,72 @@
           "translation": "Proverb",
           "pronunciation": "prov-erb",
           "example": "My grandmama like to use proverb.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "proverb"
         },
         {
           "word": "Wise",
           "translation": "Wise",
           "pronunciation": "wise",
           "example": "Old people wise.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "wise"
         },
         {
           "word": "Know",
           "translation": "Know",
           "pronunciation": "know",
           "example": "You know book?",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "know"
         },
         {
           "word": "Hear",
           "translation": "Hear / understand",
           "pronunciation": "hear",
           "example": "You hear wetin I talk?",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "hear"
         },
         {
           "word": "Proverb 1: Monkey dey work, baboon dey chop",
           "translation": "One person works, another enjoys the fruits",
           "pronunciation": "mon-ke dey work, ba-boon dey chop",
           "example": "For that office, monkey dey work, baboon dey chop.",
-          "culturalNote": "About unfairness."
+          "culturalNote": "About unfairness.",
+          "audioId": "proverb_1_monkey_dey_work_baboon_dey_chop"
         },
         {
           "word": "Proverb 2: When a king dey dance, everybody must dance",
           "translation": "When a leader does something, everyone follows",
           "pronunciation": "when a king dey dance, eve-ry-bo-dy must dance",
           "example": "When oga come, everybody must smile – when a king dey dance, everybody must dance.",
-          "culturalNote": "About influence."
+          "culturalNote": "About influence.",
+          "audioId": "proverb_2_when_a_king_dey_dance_everybody_must_dance"
         },
         {
           "word": "Proverb 3: Water wey don pass, cannot grind pepper",
           "translation": "What is done is done / you can't change the past",
           "pronunciation": "wa-ter wey don pass, can-not grind pep-per",
           "example": "No cry for wetin happen – water wey don pass, cannot grind pepper.",
-          "culturalNote": "About letting go."
+          "culturalNote": "About letting go.",
+          "audioId": "proverb_3_water_wey_don_pass_cannot_grind_pepper"
         },
         {
           "word": "Proverb 4: Na who get head dey wear crown",
           "translation": "Only those worthy lead",
           "pronunciation": "na who get head dey wear crown",
           "example": "You must qualify – na who get head dey wear crown.",
-          "culturalNote": "About merit."
+          "culturalNote": "About merit.",
+          "audioId": "proverb_4_na_who_get_head_dey_wear_crown"
         },
         {
           "word": "Proverb 5: Chicken wey run go market, no fit run go church",
           "translation": "You can't be everywhere at once",
           "pronunciation": "chi-cken wey run go mar-ket, no fit run go church",
           "example": "You go choose – chicken wey run go market, no fit run go church.",
-          "culturalNote": "About priorities."
+          "culturalNote": "About priorities.",
+          "audioId": "proverb_5_chicken_wey_run_go_market_no_fit_run_go_church"
         }
       ],
       "grammarPoints": [
@@ -9430,70 +9804,80 @@
           "translation": "Friend",
           "pronunciation": "pa-di",
           "example": "My padi, how far?",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "padi"
         },
         {
           "word": "Network",
           "translation": "Mobile signal",
           "pronunciation": "net-work",
           "example": "Network dey bad.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "network"
         },
         {
           "word": "Transfer",
           "translation": "Bank transfer",
           "pronunciation": "trans-fer",
           "example": "I go transfer money.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "transfer"
         },
         {
           "word": "Danfo",
           "translation": "Yellow bus",
           "pronunciation": "dan-fo",
           "example": "Danfo dey come.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "danfo"
         },
         {
           "word": "Exam",
           "translation": "Examination",
           "pronunciation": "ex-am",
           "example": "Exam dey come.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "exam"
         },
         {
           "word": "Football",
           "translation": "Football",
           "pronunciation": "foot-ball",
           "example": "I like football.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "football"
         },
         {
           "word": "Afrobeats",
           "translation": "Afrobeats music",
           "pronunciation": "af-ro-beats",
           "example": "Afrobeats dey sweet me.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "afrobeats"
         },
         {
           "word": "Owambe",
           "translation": "Big party",
           "pronunciation": "o-wam-be",
           "example": "Owambe dey happen.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "owambe"
         },
         {
           "word": "Proverb",
           "translation": "Proverb",
           "pronunciation": "prov-erb",
           "example": "Grandmama like proverb.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "proverb"
         },
         {
           "word": "Spray",
           "translation": "Throw money at parties",
           "pronunciation": "spray",
           "example": "Make we spray for wedding.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "spray"
         }
       ],
       "grammarPoints": [
@@ -9712,70 +10096,80 @@
           "translation": "Hospital",
           "pronunciation": "hos-pi-tal",
           "example": "I go hospital because I sick.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "hospital"
         },
         {
           "word": "Doctor",
           "translation": "Doctor",
           "pronunciation": "doc-tor",
           "example": "Doctor check me.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "doctor"
         },
         {
           "word": "Nurse",
           "translation": "Nurse",
           "pronunciation": "nurse",
           "example": "Nurse give me injection.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "nurse"
         },
         {
           "word": "Pain",
           "translation": "Pain",
           "pronunciation": "pain",
           "example": "I get pain for chest.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "pain"
         },
         {
           "word": "Fever",
           "translation": "Fever",
           "pronunciation": "fe-ver",
           "example": "Fever dey hot my body.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "fever"
         },
         {
           "word": "Cough",
           "translation": "Cough",
           "pronunciation": "cough",
           "example": "I dey cough since morning.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "cough"
         },
         {
           "word": "Malaria",
           "translation": "Malaria",
           "pronunciation": "ma-la-ria",
           "example": "Dem say na malaria.",
-          "culturalNote": "Very common diagnosis."
+          "culturalNote": "Very common diagnosis.",
+          "audioId": "malaria"
         },
         {
           "word": "Injection",
           "translation": "Injection",
           "pronunciation": "in-jec-tion",
           "example": "I fear injection.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "injection"
         },
         {
           "word": "Medicine",
           "translation": "Medicine",
           "pronunciation": "med-i-cine",
           "example": "Doctor give me medicine.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "medicine"
         },
         {
           "word": "Rest",
           "translation": "Rest",
           "pronunciation": "rest",
           "example": "You need to rest well.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "rest"
         }
       ],
       "grammarPoints": [
@@ -9966,70 +10360,80 @@
           "translation": "Government",
           "pronunciation": "gov-ern-ment",
           "example": "Government no dey care for poor.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "government"
         },
         {
           "word": "President",
           "translation": "President",
           "pronunciation": "pres-i-dent",
           "example": "President don talk about fuel price.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "president"
         },
         {
           "word": "Governor",
           "translation": "State governor",
           "pronunciation": "gov-er-nor",
           "example": "Our governor dey do road.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "governor"
         },
         {
           "word": "Election",
           "translation": "Election",
           "pronunciation": "e-lec-tion",
           "example": "Election dey come next year.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "election"
         },
         {
           "word": "Vote",
           "translation": "Vote",
           "pronunciation": "vote",
           "example": "Make we go vote.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "vote"
         },
         {
           "word": "Party",
           "translation": "Political party",
           "pronunciation": "par-ty",
           "example": "Which party you support?",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "party"
         },
         {
           "word": "Politician",
           "translation": "Politician",
           "pronunciation": "pol-i-ti-cian",
           "example": "Politician dey promise but no do.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "politician"
         },
         {
           "word": "Corruption",
           "translation": "Corruption",
           "pronunciation": "cor-rup-tion",
           "example": "Corruption too much for Naija.",
-          "culturalNote": "Common topic."
+          "culturalNote": "Common topic.",
+          "audioId": "corruption"
         },
         {
           "word": "Fuel subsidy",
           "translation": "Fuel subsidy",
           "pronunciation": "fuel sub-si-dy",
           "example": "Dem remove fuel subsidy.",
-          "culturalNote": "Often in news."
+          "culturalNote": "Often in news.",
+          "audioId": "fuel_subsidy"
         },
         {
           "word": "News",
           "translation": "News",
           "pronunciation": "news",
           "example": "You hear the news today?",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "news"
         }
       ],
       "grammarPoints": [
@@ -10220,70 +10624,80 @@
           "translation": "Animal",
           "pronunciation": "a-ni-mal",
           "example": "I like animal.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "animal"
         },
         {
           "word": "Dog",
           "translation": "Dog",
           "pronunciation": "dog",
           "example": "Dog dey bark.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "dog"
         },
         {
           "word": "Cat",
           "translation": "Cat",
           "pronunciation": "cat",
           "example": "Cat dey chase rat.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "cat"
         },
         {
           "word": "Cow",
           "translation": "Cow",
           "pronunciation": "cow",
           "example": "Fulani man dey rear cow.",
-          "culturalNote": "Important in northern Nigeria."
+          "culturalNote": "Important in northern Nigeria.",
+          "audioId": "cow"
         },
         {
           "word": "Goat",
           "translation": "Goat",
           "pronunciation": "goat",
           "example": "Goat dey eat grass.",
-          "culturalNote": "Common livestock."
+          "culturalNote": "Common livestock.",
+          "audioId": "goat"
         },
         {
           "word": "Chicken",
           "translation": "Chicken",
           "pronunciation": "chi-cken",
           "example": "Chicken dey lay egg.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "chicken"
         },
         {
           "word": "Snake",
           "translation": "Snake",
           "pronunciation": "snake",
           "example": "Snake dangerous.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "snake"
         },
         {
           "word": "Monkey",
           "translation": "Monkey",
           "pronunciation": "mon-key",
           "example": "Monkey dey jump for tree.",
-          "culturalNote": "Common in folktales."
+          "culturalNote": "Common in folktales.",
+          "audioId": "monkey"
         },
         {
           "word": "Lion",
           "translation": "Lion",
           "pronunciation": "li-on",
           "example": "Lion strong.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "lion"
         },
         {
           "word": "Elephant",
           "translation": "Elephant",
           "pronunciation": "el-e-phant",
           "example": "Elephant big.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "elephant"
         }
       ],
       "grammarPoints": [
@@ -10474,70 +10888,80 @@
           "translation": "Clothing / fabric",
           "pronunciation": "cloth",
           "example": "I buy new cloth.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "cloth"
         },
         {
           "word": "Shirt",
           "translation": "Shirt",
           "pronunciation": "shirt",
           "example": "Your shirt fine.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "shirt"
         },
         {
           "word": "Trousers",
           "translation": "Trousers / pants",
           "pronunciation": "trou-sers",
           "example": "I need new trousers.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "trousers"
         },
         {
           "word": "Shoe",
           "translation": "Shoe",
           "pronunciation": "shoe",
           "example": "Your shoe shine.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "shoe"
         },
         {
           "word": "Cap",
           "translation": "Cap / hat",
           "pronunciation": "cap",
           "example": "He wear cap.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "cap"
         },
         {
           "word": "Agbada",
           "translation": "Traditional flowing gown (Yoruba)",
           "pronunciation": "ag-ba-da",
           "example": "He wear agbada for wedding.",
-          "culturalNote": "Formal attire."
+          "culturalNote": "Formal attire.",
+          "audioId": "agbada"
         },
         {
           "word": "Buba",
           "translation": "Traditional blouse (Yoruba)",
           "pronunciation": "bu-ba",
           "example": "She sew buba and iro.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "buba"
         },
         {
           "word": "Senator wear",
           "translation": "Traditional outfit with embroidery",
           "pronunciation": "sen-a-tor wear",
           "example": "Senator wear dey trend.",
-          "culturalNote": "Popular men's style."
+          "culturalNote": "Popular men's style.",
+          "audioId": "senator_wear"
         },
         {
           "word": "Ankara",
           "translation": "African print fabric",
           "pronunciation": "an-ka-ra",
           "example": "Ankara dress colorful.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "ankara"
         },
         {
           "word": "Style",
           "translation": "Style / fashion sense",
           "pronunciation": "style",
           "example": "Your style dey bang.",
-          "culturalNote": "Compliment."
+          "culturalNote": "Compliment.",
+          "audioId": "style"
         }
       ],
       "grammarPoints": [
@@ -10728,70 +11152,80 @@
           "translation": "Striker / forward",
           "pronunciation": "stri-ker",
           "example": "Osimhen na good striker.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "striker"
         },
         {
           "word": "Goalkeeper",
           "translation": "Goalkeeper",
           "pronunciation": "goal-keep-er",
           "example": "Goalkeeper save the ball.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "goalkeeper"
         },
         {
           "word": "Defender",
           "translation": "Defender",
           "pronunciation": "de-fend-er",
           "example": "Defender strong.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "defender"
         },
         {
           "word": "Midfielder",
           "translation": "Midfielder",
           "pronunciation": "mid-field-er",
           "example": "Midfielder dey control game.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "midfielder"
         },
         {
           "word": "Penalty",
           "translation": "Penalty kick",
           "pronunciation": "pen-al-ty",
           "example": "Dem give penalty.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "penalty"
         },
         {
           "word": "Free kick",
           "translation": "Free kick",
           "pronunciation": "free kick",
           "example": "Messi score free kick.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "free_kick"
         },
         {
           "word": "Offside",
           "translation": "Offside",
           "pronunciation": "off-side",
           "example": "Referee say na offside.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "offside"
         },
         {
           "word": "World Cup",
           "translation": "World Cup",
           "pronunciation": "world cup",
           "example": "World Cup dey sweet.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "world_cup"
         },
         {
           "word": "League",
           "translation": "League",
           "pronunciation": "league",
           "example": "EPL na my favorite league.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "league"
         },
         {
           "word": "Transfer",
           "translation": "Player transfer",
           "pronunciation": "trans-fer",
           "example": "Osimhen go transfer to Chelsea.",
-          "culturalNote": "Rumors are common."
+          "culturalNote": "Rumors are common.",
+          "audioId": "transfer"
         }
       ],
       "grammarPoints": [
@@ -10982,70 +11416,80 @@
           "translation": "Social media",
           "pronunciation": "so-cial me-dia",
           "example": "I dey social media too much.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "social_media"
         },
         {
           "word": "WhatsApp",
           "translation": "WhatsApp",
           "pronunciation": "whats-app",
           "example": "Send am for WhatsApp.",
-          "culturalNote": "Very popular."
+          "culturalNote": "Very popular.",
+          "audioId": "whatsapp"
         },
         {
           "word": "Instagram",
           "translation": "Instagram",
           "pronunciation": "insta-gram",
           "example": "I post for Instagram.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "instagram"
         },
         {
           "word": "Facebook",
           "translation": "Facebook",
           "pronunciation": "face-book",
           "example": "Facebook dey old now.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "facebook"
         },
         {
           "word": "TikTok",
           "translation": "TikTok",
           "pronunciation": "tik-tok",
           "example": "Young people dey TikTok.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "tiktok"
         },
         {
           "word": "Post",
           "translation": "Post (on social media)",
           "pronunciation": "post",
           "example": "I post video.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "post"
         },
         {
           "word": "Like",
           "translation": "Like (on social media)",
           "pronunciation": "like",
           "example": "My post get many like.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "like"
         },
         {
           "word": "Comment",
           "translation": "Comment",
           "pronunciation": "com-ment",
           "example": "People dey comment.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "comment"
         },
         {
           "word": "Share",
           "translation": "Share",
           "pronunciation": "share",
           "example": "Make you share am.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "share"
         },
         {
           "word": "Trend",
           "translation": "Trend / trending",
           "pronunciation": "trend",
           "example": "That song dey trend.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "trend"
         }
       ],
       "grammarPoints": [
@@ -11236,70 +11680,80 @@
           "translation": "Travel",
           "pronunciation": "trav-el",
           "example": "I want travel to Calabar.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "travel"
         },
         {
           "word": "Hotel",
           "translation": "Hotel",
           "pronunciation": "ho-tel",
           "example": "We book hotel for weekend.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "hotel"
         },
         {
           "word": "Room",
           "translation": "Hotel room",
           "pronunciation": "room",
           "example": "I get room for two people.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "room"
         },
         {
           "word": "Reservation",
           "translation": "Reservation",
           "pronunciation": "res-er-va-tion",
           "example": "I make reservation.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "reservation"
         },
         {
           "word": "Beach",
           "translation": "Beach",
           "pronunciation": "beach",
           "example": "Lagos get many beach.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "beach"
         },
         {
           "word": "Tourist",
           "translation": "Tourist",
           "pronunciation": "tour-ist",
           "example": "Tourist dey visit Obudu.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "tourist"
         },
         {
           "word": "Sightseeing",
           "translation": "Sightseeing",
           "pronunciation": "sight-see-ing",
           "example": "We go sightseeing for Abuja.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "sightseeing"
         },
         {
           "word": "Luggage",
           "translation": "Luggage / bags",
           "pronunciation": "lug-gage",
           "example": "My luggage heavy.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "luggage"
         },
         {
           "word": "Flight",
           "translation": "Flight",
           "pronunciation": "flight",
           "example": "Flight delay again.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "flight"
         },
         {
           "word": "Airport",
           "translation": "Airport",
           "pronunciation": "air-port",
           "example": "I go meet you for airport.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "airport"
         }
       ],
       "grammarPoints": [
@@ -11490,70 +11944,80 @@
           "translation": "Job",
           "pronunciation": "job",
           "example": "I dey find job.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "job"
         },
         {
           "word": "Interview",
           "translation": "Job interview",
           "pronunciation": "in-ter-view",
           "example": "I get interview tomorrow.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "interview"
         },
         {
           "word": "CV",
           "translation": "Resume / CV",
           "pronunciation": "CV",
           "example": "Send your CV.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "cv"
         },
         {
           "word": "Salary",
           "translation": "Salary",
           "pronunciation": "sa-la-ry",
           "example": "Salary no reach.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "salary"
         },
         {
           "word": "Promotion",
           "translation": "Promotion",
           "pronunciation": "pro-mo-tion",
           "example": "I get promotion!",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "promotion"
         },
         {
           "word": "Boss",
           "translation": "Boss / manager",
           "pronunciation": "boss",
           "example": "My boss dey strict.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "boss"
         },
         {
           "word": "Colleague",
           "translation": "Coworker",
           "pronunciation": "col-league",
           "example": "My colleague dey help me.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "colleague"
         },
         {
           "word": "Office",
           "translation": "Office",
           "pronunciation": "off-ice",
           "example": "I dey office now.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "office"
         },
         {
           "word": "Meeting",
           "translation": "Meeting",
           "pronunciation": "meet-ing",
           "example": "Meeting dey by 10.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "meeting"
         },
         {
           "word": "Resign",
           "translation": "Resign / quit",
           "pronunciation": "re-sign",
           "example": "I resign from work.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "resign"
         }
       ],
       "grammarPoints": [
@@ -11744,70 +12208,80 @@
           "translation": "Propose marriage",
           "pronunciation": "pro-pose",
           "example": "He propose to her for church.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "propose"
         },
         {
           "word": "Engagement",
           "translation": "Engagement",
           "pronunciation": "en-gage-ment",
           "example": "Dem do engagement last week.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "engagement"
         },
         {
           "word": "Wedding",
           "translation": "Wedding",
           "pronunciation": "wed-ding",
           "example": "Wedding come up for December.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "wedding"
         },
         {
           "word": "In-law",
           "translation": "In-law",
           "pronunciation": "in-law",
           "example": "My in-law dey come visit.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "in_law"
         },
         {
           "word": "Bride price",
           "translation": "Dowry",
           "pronunciation": "bride price",
           "example": "Dem talk bride price.",
-          "culturalNote": "Traditional payment."
+          "culturalNote": "Traditional payment.",
+          "audioId": "bride_price"
         },
         {
           "word": "Honeymoon",
           "translation": "Honeymoon",
           "pronunciation": "hon-ey-moon",
           "example": "We go honeymoon for Dubai.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "honeymoon"
         },
         {
           "word": "Divorce",
           "translation": "Divorce",
           "pronunciation": "di-vorce",
           "example": "Dem don divorce.",
-          "culturalNote": "Sensitive topic."
+          "culturalNote": "Sensitive topic.",
+          "audioId": "divorce"
         },
         {
           "word": "Trust",
           "translation": "Trust",
           "pronunciation": "trust",
           "example": "Trust dey for relationship.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "trust"
         },
         {
           "word": "Jealous",
           "translation": "Jealous",
           "pronunciation": "jeal-ous",
           "example": "Why you dey jealous?",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "jealous"
         },
         {
           "word": "Forever",
           "translation": "Forever",
           "pronunciation": "for-ev-er",
           "example": "I love you forever.",
-          "culturalNote": "Romantic."
+          "culturalNote": "Romantic.",
+          "audioId": "forever"
         }
       ],
       "grammarPoints": [
@@ -11997,70 +12471,80 @@
           "translation": "Malaria",
           "pronunciation": "ma-la-ria",
           "example": "Dem say na malaria.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "malaria"
         },
         {
           "word": "Government",
           "translation": "Government",
           "pronunciation": "gov-ern-ment",
           "example": "Government no dey try.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "government"
         },
         {
           "word": "Monkey",
           "translation": "Monkey",
           "pronunciation": "mon-key",
           "example": "Monkey dey jump.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "monkey"
         },
         {
           "word": "Agbada",
           "translation": "Traditional gown",
           "pronunciation": "ag-ba-da",
           "example": "He wear agbada.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "agbada"
         },
         {
           "word": "Striker",
           "translation": "Striker",
           "pronunciation": "stri-ker",
           "example": "Osimhen na striker.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "striker"
         },
         {
           "word": "WhatsApp",
           "translation": "WhatsApp",
           "pronunciation": "whats-app",
           "example": "Send am for WhatsApp.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "whatsapp"
         },
         {
           "word": "Hotel",
           "translation": "Hotel",
           "pronunciation": "ho-tel",
           "example": "Book hotel.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "hotel"
         },
         {
           "word": "Promotion",
           "translation": "Promotion",
           "pronunciation": "pro-mo-tion",
           "example": "I get promotion.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "promotion"
         },
         {
           "word": "Bride price",
           "translation": "Dowry",
           "pronunciation": "bride price",
           "example": "Dem talk bride price.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "bride_price"
         },
         {
           "word": "Forever",
           "translation": "Forever",
           "pronunciation": "for-ev-er",
           "example": "I love you forever.",
-          "culturalNote": "Review"
+          "culturalNote": "Review",
+          "audioId": "forever"
         }
       ],
       "grammarPoints": [
@@ -12259,7 +12743,7 @@
         "level-40"
       ]
     },
-     {
+    {
       "level": 41,
       "topic": "Advanced Greetings and Etiquette",
       "subTopic": "Respect and Politeness",
@@ -12277,70 +12761,80 @@
           "translation": "Respectful morning greeting",
           "pronunciation": "good morn-ing sir/ma",
           "example": "Good morning, sir. How you dey?",
-          "culturalNote": "Always add sir/ma for elders."
+          "culturalNote": "Always add sir/ma for elders.",
+          "audioId": "good_morning_sir_ma"
         },
         {
           "word": "Welcome o",
           "translation": "Welcome (emphatic)",
           "pronunciation": "wel-come o",
           "example": "Welcome o, my brother!",
-          "culturalNote": "Adding 'o' makes it warmer."
+          "culturalNote": "Adding 'o' makes it warmer.",
+          "audioId": "welcome_o"
         },
         {
           "word": "I greet you",
           "translation": "I greet you (formal)",
           "pronunciation": "I greet you",
           "example": "I greet you, oga.",
-          "culturalNote": "Used to show deep respect."
+          "culturalNote": "Used to show deep respect.",
+          "audioId": "i_greet_you"
         },
         {
           "word": "How you dey since?",
           "translation": "How have you been?",
           "pronunciation": "how you dey since",
           "example": "How you dey since? I no see you long time.",
-          "culturalNote": "Asking about well-being over time."
+          "culturalNote": "Asking about well-being over time.",
+          "audioId": "how_you_dey_since"
         },
         {
           "word": "E ku ise",
           "translation": "Greetings for workers (Yoruba origin)",
           "pronunciation": "e ku i-se",
           "example": "E ku ise, bricklayer.",
-          "culturalNote": "Used to acknowledge someone working."
+          "culturalNote": "Used to acknowledge someone working.",
+          "audioId": "e_ku_ise"
         },
         {
           "word": "E ku ojumo",
           "translation": "Good morning (Yoruba, used in Pidgin)",
           "pronunciation": "e ku o-ju-mo",
           "example": "E ku ojumo, mama.",
-          "culturalNote": "Respectful morning greeting."
+          "culturalNote": "Respectful morning greeting.",
+          "audioId": "e_ku_ojumo"
         },
         {
           "word": "E ku irole",
           "translation": "Good evening (Yoruba)",
           "pronunciation": "e ku i-ro-le",
           "example": "E ku irole, sir.",
-          "culturalNote": "Evening greeting."
+          "culturalNote": "Evening greeting.",
+          "audioId": "e_ku_irole"
         },
         {
           "word": "Sannu da aiki",
           "translation": "Greetings for workers (Hausa)",
           "pronunciation": "san-nu da ai-ki",
           "example": "Sannu da aiki, driver.",
-          "culturalNote": "Acknowledging work."
+          "culturalNote": "Acknowledging work.",
+          "audioId": "sannu_da_aiki"
         },
         {
           "word": "Ndo",
           "translation": "Sorry / Excuse me (Igbo origin)",
           "pronunciation": "n-do",
           "example": "Ndo, I step on your foot.",
-          "culturalNote": "Soft apology."
+          "culturalNote": "Soft apology.",
+          "audioId": "ndo"
         },
         {
           "word": "I dey feel you",
           "translation": "I understand / I empathize",
           "pronunciation": "I dey feel you",
           "example": "I dey feel you, my broda.",
-          "culturalNote": "Expression of solidarity."
+          "culturalNote": "Expression of solidarity.",
+          "audioId": "i_dey_feel_you"
         }
       ],
       "grammarPoints": [
@@ -12525,70 +13019,80 @@
           "translation": "Business",
           "pronunciation": "busi-ness",
           "example": "I dey do my own business.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "business"
         },
         {
           "word": "Deal",
           "translation": "Deal / agreement",
           "pronunciation": "deal",
           "example": "Make we sign deal.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "deal"
         },
         {
           "word": "Contract",
           "translation": "Contract",
           "pronunciation": "con-tract",
           "example": "We get contract for road.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "contract"
         },
         {
           "word": "Price",
           "translation": "Price",
           "pronunciation": "price",
           "example": "The price too high.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "price"
         },
         {
           "word": "Discount",
           "translation": "Discount",
           "pronunciation": "dis-count",
           "example": "You fit give discount?",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "discount"
         },
         {
           "word": "Profit",
           "translation": "Profit",
           "pronunciation": "prof-it",
           "example": "Profit dey sweet.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "profit"
         },
         {
           "word": "Loss",
           "translation": "Loss",
           "pronunciation": "loss",
           "example": "We run at loss.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "loss"
         },
         {
           "word": "Investor",
           "translation": "Investor",
           "pronunciation": "in-ves-tor",
           "example": "I get investor for my business.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "investor"
         },
         {
           "word": "Partnership",
           "translation": "Partnership",
           "pronunciation": "part-ner-ship",
           "example": "We dey work for partnership.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "partnership"
         },
         {
           "word": "Meeting",
           "translation": "Meeting",
           "pronunciation": "meet-ing",
           "example": "We go meet for meeting.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "meeting"
         }
       ],
       "grammarPoints": [
@@ -12785,70 +13289,80 @@
           "translation": "Democracy",
           "pronunciation": "de-moc-ra-cy",
           "example": "Naija be democracy.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "democracy"
         },
         {
           "word": "Election",
           "translation": "Election",
           "pronunciation": "e-lec-tion",
           "example": "Election dey come.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "election"
         },
         {
           "word": "Vote",
           "translation": "Vote",
           "pronunciation": "vote",
           "example": "Make we vote wisely.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "vote"
         },
         {
           "word": "INEC",
           "translation": "Independent National Electoral Commission",
           "pronunciation": "I-N-E-C",
           "example": "INEC dey arrange election.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "inec"
         },
         {
           "word": "APC",
           "translation": "All Progressives Congress (party)",
           "pronunciation": "A-P-C",
           "example": "APC get president now.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "apc"
         },
         {
           "word": "PDP",
           "translation": "People's Democratic Party",
           "pronunciation": "P-D-P",
           "example": "PDP dey strong for some states.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "pdp"
         },
         {
           "word": "Governor",
           "translation": "Governor",
           "pronunciation": "gov-er-nor",
           "example": "Governor don commission road.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "governor"
         },
         {
           "word": "Senator",
           "translation": "Senator",
           "pronunciation": "sen-a-tor",
           "example": "Senator represent people.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "senator"
         },
         {
           "word": "Corruption",
           "translation": "Corruption",
           "pronunciation": "cor-rup-tion",
           "example": "Corruption dey spoil everything.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "corruption"
         },
         {
           "word": "Anti-corruption",
           "translation": "Anti-corruption",
           "pronunciation": "an-ti cor-rup-tion",
           "example": "EFCC dey fight anti-corruption.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "anti_corruption"
         }
       ],
       "grammarPoints": [
@@ -13039,70 +13553,80 @@
           "translation": "Artificial Intelligence",
           "pronunciation": "A-I",
           "example": "AI dey take over work.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "ai"
         },
         {
           "word": "Cryptocurrency",
           "translation": "Cryptocurrency",
           "pronunciation": "cryp-to-cur-ren-cy",
           "example": "I dey invest for crypto.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "cryptocurrency"
         },
         {
           "word": "Bitcoin",
           "translation": "Bitcoin",
           "pronunciation": "bit-coin",
           "example": "Bitcoin price dey up and down.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "bitcoin"
         },
         {
           "word": "Blockchain",
           "translation": "Blockchain",
           "pronunciation": "block-chain",
           "example": "Blockchain dey secure.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "blockchain"
         },
         {
           "word": "Fintech",
           "translation": "Financial technology",
           "pronunciation": "fin-tech",
           "example": "Fintech companies dey grow for Naija.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "fintech"
         },
         {
           "word": "App",
           "translation": "Application",
           "pronunciation": "app",
           "example": "I download new app.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "app"
         },
         {
           "word": "Startup",
           "translation": "Startup company",
           "pronunciation": "start-up",
           "example": "My friend get tech startup.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "startup"
         },
         {
           "word": "Influencer",
           "translation": "Social media influencer",
           "pronunciation": "in-flu-en-cer",
           "example": "Influencer dey promote products.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "influencer"
         },
         {
           "word": "Viral",
           "translation": "Viral",
           "pronunciation": "vi-ral",
           "example": "His video go viral.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "viral"
         },
         {
           "word": "Cloud",
           "translation": "Cloud computing",
           "pronunciation": "cloud",
           "example": "My data dey for cloud.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "cloud"
         }
       ],
       "grammarPoints": [
@@ -13293,70 +13817,80 @@
           "translation": "University",
           "pronunciation": "u-ni-ver-si-ty",
           "example": "I dey go university.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "university"
         },
         {
           "word": "Course",
           "translation": "Course / subject",
           "pronunciation": "course",
           "example": "Which course you dey study?",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "course"
         },
         {
           "word": "Lecturer",
           "translation": "Lecturer",
           "pronunciation": "lec-tur-er",
           "example": "Lecturer dey teach.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "lecturer"
         },
         {
           "word": "Research",
           "translation": "Research",
           "pronunciation": "re-search",
           "example": "I dey do research for my project.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "research"
         },
         {
           "word": "Thesis",
           "translation": "Thesis / dissertation",
           "pronunciation": "the-sis",
           "example": "I don finish my thesis.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "thesis"
         },
         {
           "word": "Library",
           "translation": "Library",
           "pronunciation": "li-bra-ry",
           "example": "I go library to read.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "library"
         },
         {
           "word": "Exam",
           "translation": "Examination",
           "pronunciation": "ex-am",
           "example": "Exam dey stress me.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "exam"
         },
         {
           "word": "Degree",
           "translation": "Degree",
           "pronunciation": "de-gree",
           "example": "I get degree in engineering.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "degree"
         },
         {
           "word": "Graduate",
           "translation": "Graduate",
           "pronunciation": "grad-u-ate",
           "example": "I graduate next year.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "graduate"
         },
         {
           "word": "Scholarship",
           "translation": "Scholarship",
           "pronunciation": "scholar-ship",
           "example": "I get scholarship to study abroad.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "scholarship"
         }
       ],
       "grammarPoints": [
@@ -13547,70 +14081,80 @@
           "translation": "Exercise",
           "pronunciation": "ex-er-cise",
           "example": "I dey exercise every morning.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "exercise"
         },
         {
           "word": "Gym",
           "translation": "Gym",
           "pronunciation": "gym",
           "example": "I go gym three times a week.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "gym"
         },
         {
           "word": "Run",
           "translation": "Run / jog",
           "pronunciation": "run",
           "example": "I dey run for morning.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "run"
         },
         {
           "word": "Diet",
           "translation": "Diet",
           "pronunciation": "di-et",
           "example": "I dey watch my diet.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "diet"
         },
         {
           "word": "Vegetables",
           "translation": "Vegetables",
           "pronunciation": "veg-ta-bles",
           "example": "Eat plenty vegetables.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "vegetables"
         },
         {
           "word": "Protein",
           "translation": "Protein",
           "pronunciation": "pro-tein",
           "example": "Fish get protein.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "protein"
         },
         {
           "word": "Stress",
           "translation": "Stress",
           "pronunciation": "stress",
           "example": "Stress too much for work.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "stress"
         },
         {
           "word": "Rest",
           "translation": "Rest",
           "pronunciation": "rest",
           "example": "You need to rest.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "rest"
         },
         {
           "word": "Sleep",
           "translation": "Sleep",
           "pronunciation": "sleep",
           "example": "I no get enough sleep.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "sleep"
         },
         {
           "word": "Wellness",
           "translation": "Wellness",
           "pronunciation": "well-ness",
           "example": "Wellness na important thing.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "wellness"
         }
       ],
       "grammarPoints": [
@@ -13801,70 +14345,80 @@
           "translation": "Police",
           "pronunciation": "po-lice",
           "example": "Police don come.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "police"
         },
         {
           "word": "Court",
           "translation": "Court",
           "pronunciation": "court",
           "example": "The matter go court.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "court"
         },
         {
           "word": "Judge",
           "translation": "Judge",
           "pronunciation": "judge",
           "example": "Judge give judgment.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "judge"
         },
         {
           "word": "Lawyer",
           "translation": "Lawyer",
           "pronunciation": "law-yer",
           "example": "I get lawyer.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "lawyer"
         },
         {
           "word": "Crime",
           "translation": "Crime",
           "pronunciation": "crime",
           "example": "Crime dey increase.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "crime"
         },
         {
           "word": "Thief",
           "translation": "Thief",
           "pronunciation": "thief",
           "example": "Dem catch the thief.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "thief"
         },
         {
           "word": "Arrest",
           "translation": "Arrest",
           "pronunciation": "ar-rest",
           "example": "Police arrest am.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "arrest"
         },
         {
           "word": "Prison",
           "translation": "Prison",
           "pronunciation": "pris-on",
           "example": "E dey prison.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "prison"
         },
         {
           "word": "Fine",
           "translation": "Monetary penalty",
           "pronunciation": "fine",
           "example": "Dem fine me 10,000.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "fine"
         },
         {
           "word": "Evidence",
           "translation": "Evidence",
           "pronunciation": "ev-i-dence",
           "example": "Dem get evidence.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "evidence"
         }
       ],
       "grammarPoints": [
@@ -14055,70 +14609,80 @@
           "translation": "Church",
           "pronunciation": "church",
           "example": "I go church every Sunday.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "church"
         },
         {
           "word": "Mosque",
           "translation": "Mosque",
           "pronunciation": "mosque",
           "example": "Muslims go mosque on Friday.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "mosque"
         },
         {
           "word": "Pray",
           "translation": "Pray",
           "pronunciation": "pray",
           "example": "I dey pray every day.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "pray"
         },
         {
           "word": "God",
           "translation": "God",
           "pronunciation": "God",
           "example": "God dey control everything.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "god"
         },
         {
           "word": "Jesus",
           "translation": "Jesus",
           "pronunciation": "Je-sus",
           "example": "Christians believe for Jesus.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "jesus"
         },
         {
           "word": "Allah",
           "translation": "Allah",
           "pronunciation": "Al-lah",
           "example": "Muslims worship Allah.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "allah"
         },
         {
           "word": "Pastor",
           "translation": "Pastor",
           "pronunciation": "pas-tor",
           "example": "Pastor preach today.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "pastor"
         },
         {
           "word": "Imam",
           "translation": "Imam",
           "pronunciation": "i-mam",
           "example": "Imam lead prayer.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "imam"
         },
         {
           "word": "Bible",
           "translation": "Bible",
           "pronunciation": "bi-ble",
           "example": "I read Bible every night.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "bible"
         },
         {
           "word": "Quran",
           "translation": "Quran",
           "pronunciation": "Qu-ran",
           "example": "He dey recite Quran.",
-          "culturalNote": ""
+          "culturalNote": "",
+          "audioId": "quran"
         }
       ],
       "grammarPoints": [
@@ -14309,56 +14873,64 @@
           "translation": "Don't mock elders; they have more experience",
           "pronunciation": "no dey laugh old man, na him sabi road pass you",
           "example": "As dem dey say, no dey laugh old man, na him sabi road pass you.",
-          "culturalNote": "Respect elders."
+          "culturalNote": "Respect elders.",
+          "audioId": "proverb_1_no_dey_laugh_old_man_na_him_sabi_road_pass_you"
         },
         {
           "word": "Proverb 2: Wetin eye no see, heart no fit cry",
           "translation": "What you don't see won't hurt you",
           "pronunciation": "we-tin eye no see, heart no fit cry",
           "example": "If you no know, you go dey fine. Wetin eye no see, heart no fit cry.",
-          "culturalNote": "Ignorance is bliss."
+          "culturalNote": "Ignorance is bliss.",
+          "audioId": "proverb_2_wetin_eye_no_see_heart_no_fit_cry"
         },
         {
           "word": "Proverb 3: The axe wey dey cut tree, na im dey sharpen",
           "translation": "Challenges strengthen you",
           "pronunciation": "the axe wey dey cut tree, na im dey sharpen",
           "example": "Suffering dey sharpen you. The axe wey dey cut tree, na im dey sharpen.",
-          "culturalNote": "Hardship builds character."
+          "culturalNote": "Hardship builds character.",
+          "audioId": "proverb_3_the_axe_wey_dey_cut_tree_na_im_dey_sharpen"
         },
         {
           "word": "Proverb 4: No be who get head dey wear crown, but who sabi wear am",
           "translation": "Leadership requires wisdom, not just position",
           "pronunciation": "no be who get head dey wear crown, but who sabi wear am",
           "example": "You fit get title, but you need sense. No be who get head dey wear crown, but who sabi wear am.",
-          "culturalNote": "Skill matters."
+          "culturalNote": "Skill matters.",
+          "audioId": "proverb_4_no_be_who_get_head_dey_wear_crown_but_who_sabi_wear_am"
         },
         {
           "word": "Proverb 5: When one finger touch oil, e go spread",
           "translation": "Influence spreads",
           "pronunciation": "when one fin-ger touch oil, e go spread",
           "example": "If you get power, e go affect others. When one finger touch oil, e go spread.",
-          "culturalNote": "Interconnectedness."
+          "culturalNote": "Interconnectedness.",
+          "audioId": "proverb_5_when_one_finger_touch_oil_e_go_spread"
         },
         {
           "word": "Proverb 6: Hunger no get friend",
           "translation": "Hunger makes people desperate",
           "pronunciation": "hun-ger no get friend",
           "example": "When person hungry, e fit do anything. Hunger no get friend.",
-          "culturalNote": "Survival instinct."
+          "culturalNote": "Survival instinct.",
+          "audioId": "proverb_6_hunger_no_get_friend"
         },
         {
           "word": "Proverb 7: The chicken wey go chop, na im dey scratch ground",
           "translation": "Those who will eat must work",
           "pronunciation": "the chi-cken wey go chop, na im dey scratch ground",
           "example": "If you want something, you must work for am. The chicken wey go chop, na im dey scratch ground.",
-          "culturalNote": "No work, no food."
+          "culturalNote": "No work, no food.",
+          "audioId": "proverb_7_the_chicken_wey_go_chop_na_im_dey_scratch_ground"
         },
         {
           "word": "Proverb 8: E get why man dey waka, na why him dey stop get reason",
           "translation": "Everything has a reason",
           "pronunciation": "e get why man dey wa-ka, na why him dey stop get rea-son",
           "example": "Maybe e happen for a reason. E get why man dey waka, na why him dey stop get reason.",
-          "culturalNote": "Acceptance."
+          "culturalNote": "Acceptance.",
+          "audioId": "proverb_8_e_get_why_man_dey_waka_na_why_him_dey_stop_get_reason"
         }
       ],
       "grammarPoints": [
@@ -14543,7 +15115,8 @@
           "translation": "Comprehensive review",
           "pronunciation": "",
           "example": "This test covers all vocabulary.",
-          "culturalNote": "You've learned a lot!"
+          "culturalNote": "You've learned a lot!",
+          "audioId": "all_levels_review"
         }
       ],
       "grammarPoints": [
