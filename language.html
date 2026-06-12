@@ -729,17 +729,53 @@
     const TTS_LANG_MAP = { yoruba: 'yo-NG', hausa: 'ha-NG', igbo: 'ig-NG', urhobo: 'en-NG', itsekiri: 'en-NG', pidgin: 'en-NG' };
     let ttsState = { isSpeaking: false };
     function stopTTS() { if (ttsState.isSpeaking) { window.speechSynthesis.cancel(); ttsState.isSpeaking = false; } }
-    function playWordAudio(word, language) {
-      if (!('speechSynthesis' in window)) return;
-      stopTTS();
-      const utterance = new SpeechSynthesisUtterance(word);
-      utterance.lang = TTS_LANG_MAP[language] || 'en-NG';
-      utterance.rate = 0.85;
-      utterance.onstart = () => { ttsState.isSpeaking = true; };
-      utterance.onend = () => { ttsState.isSpeaking = false; };
-      window.speechSynthesis.speak(utterance);
-      updateChallengeProgress('audio_plays', 1);
-    }
+    function playWordAudio(word, language, level, audioId) {
+  if (!('speechSynthesis' in window) && !audioId) return;
+  
+  // If we have an audioId and real audio path, try that first
+  if (audioId && language && level) {
+    const audioPath = `/audio/${language}/level${level}/${audioId}.mp3`;
+    const audio = new Audio(audioPath);
+    
+    audio.oncanplaythrough = () => {
+      audio.play().catch(() => {
+        // Real audio failed, fallback to TTS
+        fallbackTTS(word, language);
+      });
+    };
+    
+    audio.onerror = () => {
+      // Audio file missing or corrupt, fallback to TTS
+      fallbackTTS(word, language);
+    };
+    
+    // Set a timeout in case loading takes too long
+    setTimeout(() => {
+      if (audio.readyState < 2) { // 2 = HAVE_CURRENT_DATA
+        audio.src = ''; // Cancel loading
+        fallbackTTS(word, language);
+      }
+    }, 3000);
+    
+    audio.load();
+  } else {
+    // No audioId provided, use TTS
+    fallbackTTS(word, language);
+  }
+  
+  updateChallengeProgress('audio_plays', 1);
+}
+
+function fallbackTTS(word, language) {
+  if (!('speechSynthesis' in window)) return;
+  stopTTS();
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = TTS_LANG_MAP[language] || 'en-NG';
+  utterance.rate = 0.85;
+  utterance.onstart = () => { ttsState.isSpeaking = true; };
+  utterance.onend = () => { ttsState.isSpeaking = false; };
+  window.speechSynthesis.speak(utterance);
+}
     function playDialogueLine(index) {
       const lessonData = appState.currentLessonData;
       if (!lessonData?.dialogue?.[index]) return;
@@ -954,7 +990,7 @@
       if (appState.currentLessonData) populateLessonCards(appState.currentLessonData);
     }
     function populateLessonCards(ld) {
-      document.getElementById('lesson-card-1').innerHTML = `<div style="text-align:center;margin-bottom:20px;"><div style="font-size:12px;color:var(--text-secondary);">LEVEL ${ld.level}</div><div style="font-size:24px;font-weight:700;color:var(--primary);">${ld.title}</div><div style="font-size:14px;color:var(--text-secondary);">${ld.description}</div></div><div style="font-size:16px;font-weight:600;margin-bottom:15px;">New Words</div>${(ld.vocabulary||[]).map(w => `<div style="margin-bottom:15px;padding:16px;background:var(--bg);border-radius:12px;border:1px solid var(--border);"><div style="display:flex;justify-content:space-between;"><div><div style="font-size:20px;font-weight:600;color:var(--primary);">${w.word}</div><div style="font-size:12px;color:var(--text-secondary);">${w.pronunciation||''}</div><div style="font-size:14px;margin:8px 0;">${w.translation}</div><div style="font-size:13px;color:var(--text-secondary);">"${w.example||''}"</div></div><button class="audio-btn" onclick="playWordAudio('${(w.word||'').replace(/'/g,"\\'")}','${appState.user.language}')">🔊</button></div></div>`).join('')}`;
+      document.getElementById('lesson-card-1').innerHTML = `<div style="text-align:center;margin-bottom:20px;"><div style="font-size:12px;color:var(--text-secondary);">LEVEL ${ld.level}</div><div style="font-size:24px;font-weight:700;color:var(--primary);">${ld.title}</div><div style="font-size:14px;color:var(--text-secondary);">${ld.description}</div></div><div style="font-size:16px;font-weight:600;margin-bottom:15px;">New Words</div>${(ld.vocabulary||[]).map(w => `<div style="margin-bottom:15px;padding:16px;background:var(--bg);border-radius:12px;border:1px solid var(--border);"><div style="display:flex;justify-content:space-between;"><div><div style="font-size:20px;font-weight:600;color:var(--primary);">${w.word}</div><div style="font-size:12px;color:var(--text-secondary);">${w.pronunciation||''}</div><div style="font-size:14px;margin:8px 0;">${w.translation}</div><div style="font-size:13px;color:var(--text-secondary);">"${w.example||''}"</div></div><button class="audio-btn" onclick="playWordAudio('${(w.word||'').replace(/'/g,"\\'")}','${appState.user.language}', ${ld.level}, '${w.audioId || ''}')">🔊</button></div></div>`).join('')}`;
       document.getElementById('lesson-card-2').innerHTML = `<div style="text-align:center;margin-bottom:20px;"><div style="font-size:12px;color:var(--text-secondary);">GRAMMAR & CULTURE</div><div style="font-size:24px;font-weight:700;color:var(--primary);">Grammar & Context</div></div>${(ld.grammarPoints||[]).map(g => `<div style="margin-bottom:20px;padding:16px;background:var(--bg);border-radius:12px;"><div style="font-weight:600;color:var(--accent1);">${g.concept}</div><div style="color:var(--text-secondary);">${g.explanation}</div></div>`).join('')}${(ld.culturalNotes||[]).map(n => `<div style="margin-bottom:15px;padding:16px;background:var(--bg);border-radius:12px;"><div style="font-weight:600;color:var(--accent2);">${n.title}</div><div style="color:var(--text-secondary);">${n.content}</div></div>`).join('')}`;
       document.getElementById('lesson-card-3').innerHTML = `<div style="text-align:center;margin-bottom:20px;"><div style="font-size:12px;color:var(--text-secondary);">CONVERSATION</div><div style="font-size:24px;font-weight:700;color:var(--primary);">Dialogue Practice</div></div><div style="background:var(--bg);border-radius:12px;padding:20px;">${(ld.dialogue||[]).map((l,i) => `<div style="margin-bottom:15px;"><div style="display:flex;align-items:flex-start;gap:12px;"><div style="background:var(--primary);color:white;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;">${l.speaker[0]}</div><div style="flex:1;"><div style="display:flex;justify-content:space-between;"><div style="font-weight:600;">${l.speaker}</div><button class="audio-btn" onclick="playDialogueLine(${i})">🔊</button></div><div style="font-size:16px;">${l.text}</div><div style="font-size:13px;color:var(--text-secondary);font-style:italic;">"${l.translation}"</div></div></div></div>`).join('')}</div><div style="display:flex;gap:10px;margin-top:20px;"><button class="btn" onclick="playFullDialogue()" style="flex:1;">🔊 Play All</button><button class="btn" onclick="practiceWithPartner()" style="flex:1;background:var(--accent1);">👥 Practice</button></div>`;
       document.getElementById('lesson-card-4').innerHTML = `<div style="text-align:center;margin-bottom:20px;"><div style="font-size:12px;color:var(--text-secondary);">KNOWLEDGE CHECK</div><div style="font-size:24px;font-weight:700;color:var(--primary);">Test Your Understanding</div></div>${(ld.practiceExercises||[]).map((ex,i) => ex.type === 'multipleChoice' ? `<div class="question"><div class="question-text">${i+1}. ${ex.question}</div>${ex.options.map((o,oi) => `<div class="option" onclick="selectTestAnswer(${i},${oi})">${o}</div>`).join('')}</div>` : '').join('')}`;
