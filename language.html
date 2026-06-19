@@ -728,53 +728,41 @@
     const TTS_LANG_MAP = { yoruba: 'yo-NG', hausa: 'ha-NG', igbo: 'ig-NG', urhobo: 'en-NG', itsekiri: 'en-NG', pidgin: 'en-NG' };
     let ttsState = { isSpeaking: false };
     function stopTTS() { if (ttsState.isSpeaking) { window.speechSynthesis.cancel(); ttsState.isSpeaking = false; } }
-    function playWordAudio(word, language, level, audioId) {
+   function playWordAudio(word, language, level, audioId) {
   console.log('🔊 playWordAudio called:', { word, language, level, audioId });
   
-  if (!('speechSynthesis' in window) && !audioId) {
-    console.log('❌ No speech synthesis and no audioId');
+  // If no audioId, use TTS
+  if (!audioId) {
+    console.log('🔊 No audioId, using TTS fallback');
+    fallbackTTS(word, language);
     return;
   }
   
-  if (audioId && language && level) {
-    const audioPath = `/audio/${language}/level${level}/${audioId}.mp3`;
-    console.log('🎵 Attempting to load audio:', audioPath);
-    
-    const audio = new Audio(audioPath);
-    
-    audio.oncanplaythrough = () => {
-      console.log('✅ Audio loaded successfully, playing...');
-      audio.play().catch((err) => {
-        console.log('⚠️ Playback error:', err);
-        fallbackTTS(word, language);
-      });
-    };
-    
-    audio.onerror = (err) => {
-      console.log('❌ Audio load error:', err);
-      console.log('📁 Tried to load:', audioPath);
-      fallbackTTS(word, language);
-    };
-    
-    // Set a timeout in case loading takes too long
-    setTimeout(() => {
-      if (audio.readyState < 2) {
-        console.log('⏰ Audio load timeout');
-        audio.src = ''; // Cancel loading
-        fallbackTTS(word, language);
-      }
-    }, 3000);
-    
-    audio.load();
-  } else {
-    console.log('🔊 No audioId, using TTS fallback');
-    fallbackTTS(word, language);
-  }
+  // Try to load the audio file
+  const audioPath = `/audio/${language}/level${level}/${audioId}.mp3`;
+  console.log('🎵 Attempting to load audio:', audioPath);
   
-  // ✅ KEEP THIS - Updates daily challenge progress
+  const audio = new Audio(audioPath);
+  
+  audio.oncanplaythrough = () => {
+    console.log('✅ Audio loaded successfully, playing...');
+    audio.play().catch((err) => {
+      console.log('⚠️ Playback error:', err);
+      fallbackTTS(word, language);
+    });
+  };
+  
+  audio.onerror = (err) => {
+    console.log('❌ Audio load error:', err);
+    console.log('📁 Tried to load:', audioPath);
+    fallbackTTS(word, language);
+  };
+  
+  audio.load();
+  
+  // Update daily challenge progress
   updateChallengeProgress('audio_plays', 1);
 }
-
     function fallbackTTS(word, language) {
       if (!('speechSynthesis' in window)) return;
       stopTTS();
