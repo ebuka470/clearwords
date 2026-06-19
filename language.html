@@ -729,33 +729,41 @@
     let ttsState = { isSpeaking: false };
     function stopTTS() { if (ttsState.isSpeaking) { window.speechSynthesis.cancel(); ttsState.isSpeaking = false; } }
     function playWordAudio(word, language, level, audioId) {
-      if (!('speechSynthesis' in window) && !audioId) return;
-      
-      if (audioId && language && level) {
-        const audioPath = `/audio/${language}/level${level}/${audioId}.mp3`;
-        const audio = new Audio(audioPath);
-        
-        audio.oncanplaythrough = () => {
-          audio.play().catch(() => {
-            fallbackTTS(word, language);
-          });
-        };
-        
-        audio.onerror = () => {
-          fallbackTTS(word, language);
-        };
-        
-        setTimeout(() => {
-          if (audio.readyState < 2) {
-            audio.src = '';
-            fallbackTTS(word, language);
-          }
-        }, 3000);
-        
-        audio.load();
-      } else {
+  console.log('🔊 playWordAudio called:', { word, language, level, audioId });
+  
+  if (!('speechSynthesis' in window) && !audioId) {
+    console.log('❌ No speech synthesis and no audioId');
+    return;
+  }
+  
+  // If audioId is provided, try to play the audio file
+  if (audioId && language && level) {
+    const audioPath = `/audio/${language}/level${level}/${audioId}.mp3`;
+    console.log('🎵 Attempting to load audio:', audioPath);
+    
+    const audio = new Audio(audioPath);
+    
+    audio.oncanplaythrough = () => {
+      console.log('✅ Audio loaded successfully, playing...');
+      audio.play().catch((err) => {
+        console.log('⚠️ Playback error:', err);
         fallbackTTS(word, language);
-      }
+      });
+    };
+    
+    audio.onerror = (err) => {
+      console.log('❌ Audio load error:', err);
+      console.log('📁 Tried to load:', audioPath);
+      console.log('🔊 Falling back to TTS');
+      fallbackTTS(word, language);
+    };
+    
+    audio.load();
+  } else {
+    console.log('🔊 No audioId, using TTS fallback');
+    fallbackTTS(word, language);
+  }
+}
       
       updateChallengeProgress('audio_plays', 1);
     }
