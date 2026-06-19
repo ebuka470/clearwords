@@ -513,11 +513,89 @@
 
     // ==================== GLOBAL STATE ====================
     let appState = {
-      user: { id: null, firstName: '', lastName: '', email: '', phone: '', segment: null, language: null, completedLevels: [], currentLevel: 1, streak: 0, totalXP: 0, dailyGoal: 5, dailyCompleted: 0, dailyChallenges: [], dailyChallengesCompleted: [], lastChallengeGen: null, lastActive: null, createdAt: null, favorites: [], progress: {}, achievements: [], notificationsEnabled: false },
+      user: { id: null, firstName: '', lastName: '', email: '', phone: '', segment: null, language: null, completedLevels: [], currentLevel: 1, streak: 0, totalXP: 0, dailyGoal: 5, dailyCompleted: 0, dailyChallenges: [], dailyChallengesCompleted: [], lastChallengeGen: null, lastActive: null, createdAt: null, favorites: [], progress: {}, achievements: [], notificationsEnabled: false, perfectScores: 0 },
       currentPage: 'home', currentLesson: null, lessonCardIndex: 0, testAnswers: [], isDarkTheme: false,
       currentLessonData: null, curriculumData: {}, filteredLevels: 'all', searchQuery: '',
       languageToSwitch: null, switchOption: null, segmentToSwitch: null, navigationHistory: [],
       timmyChats: {}, currentTimmyChatId: null, timmyView: 'list', feedbackRating: 0
+    };
+
+    // ==================== AUDIO MANAGER ====================
+    const AudioManager = {
+      cache: {},
+      preloadQueue: [],
+      isPreloading: false,
+      
+      loadAudio(language, level, audioId, callback) {
+        const key = `${language}_${level}_${audioId}`;
+        
+        if (this.cache[key]) {
+          if (callback) callback(this.cache[key]);
+          return this.cache[key];
+        }
+        
+        const audioPath = `/audio/${language}/level${level}/${audioId}.mp3`;
+        const audio = new Audio(audioPath);
+        audio.preload = 'metadata';
+        
+        audio.oncanplaythrough = () => {
+          this.cache[key] = audio;
+          if (callback) callback(audio);
+        };
+        
+        audio.onerror = () => {
+          if (callback) callback(null);
+        };
+        
+        audio.load();
+        return audio;
+      },
+      
+      preloadLesson(language, level, vocabulary) {
+        if (!vocabulary || !vocabulary.length) return;
+        const items = vocabulary.filter(v => v.audioId);
+        if (!items.length) return;
+        
+        console.log(`📥 Preloading ${items.length} audio files for level ${level}`);
+        
+        items.forEach(vocab => {
+          const key = `${language}_${level}_${vocab.audioId}`;
+          if (!this.cache[key]) {
+            const audioPath = `/audio/${language}/level${level}/${vocab.audioId}.mp3`;
+            const audio = new Audio(audioPath);
+            audio.preload = 'metadata';
+            audio.load();
+            audio.oncanplaythrough = () => {
+              this.cache[key] = audio;
+            };
+          }
+        });
+      },
+      
+      play(word, language, level, audioId) {
+        if (!audioId) {
+          fallbackTTS(word, language);
+          return;
+        }
+        
+        const key = `${language}_${level}_${audioId}`;
+        
+        if (this.cache[key]) {
+          this.cache[key].currentTime = 0;
+          this.cache[key].play().catch(() => fallbackTTS(word, language));
+          updateChallengeProgress('audio_plays', 1);
+          return;
+        }
+        
+        this.loadAudio(language, level, audioId, (audio) => {
+          if (audio) {
+            audio.play().catch(() => fallbackTTS(word, language));
+          } else {
+            fallbackTTS(word, language);
+          }
+          updateChallengeProgress('audio_plays', 1);
+        });
+      }
     };
 
     // ==================== SIMULATED LEADERBOARD ====================
@@ -727,42 +805,9 @@
     // ==================== TTS ====================
     const TTS_LANG_MAP = { yoruba: 'yo-NG', hausa: 'ha-NG', igbo: 'ig-NG', urhobo: 'en-NG', itsekiri: 'en-NG', pidgin: 'en-NG' };
     let ttsState = { isSpeaking: false };
+    
     function stopTTS() { if (ttsState.isSpeaking) { window.speechSynthesis.cancel(); ttsState.isSpeaking = false; } }
-   function playWordAudio(word, language, level, audioId) {
-  console.log('🔊 playWordAudio called:', { word, language, level, audioId });
-  
-  // If no audioId, use TTS
-  if (!audioId) {
-    console.log('🔊 No audioId, using TTS fallback');
-    fallbackTTS(word, language);
-    return;
-  }
-  
-  // Try to load the audio file
-  const audioPath = `/audio/${language}/level${level}/${audioId}.mp3`;
-  console.log('🎵 Attempting to load audio:', audioPath);
-  
-  const audio = new Audio(audioPath);
-  
-  audio.oncanplaythrough = () => {
-    console.log('✅ Audio loaded successfully, playing...');
-    audio.play().catch((err) => {
-      console.log('⚠️ Playback error:', err);
-      fallbackTTS(word, language);
-    });
-  };
-  
-  audio.onerror = (err) => {
-    console.log('❌ Audio load error:', err);
-    console.log('📁 Tried to load:', audioPath);
-    fallbackTTS(word, language);
-  };
-  
-  audio.load();
-  
-  // Update daily challenge progress
-  updateChallengeProgress('audio_plays', 1);
-}
+    
     function fallbackTTS(word, language) {
       if (!('speechSynthesis' in window)) return;
       stopTTS();
@@ -773,6 +818,13 @@
       utterance.onend = () => { ttsState.isSpeaking = false; };
       window.speechSynthesis.speak(utterance);
     }
+    
+    // Updated playWordAudio function using AudioManager
+    function playWordAudio(word, language, level, audioId) {
+      console.log('🔊 playWordAudio called:', { word, language, level, audioId });
+      AudioManager.play(word, language, level, audioId);
+    }
+    
     function playDialogueLine(index) {
       const lessonData = appState.currentLessonData;
       if (!lessonData?.dialogue?.[index]) return;
@@ -783,6 +835,7 @@
       utterance.rate = 0.8;
       window.speechSynthesis.speak(utterance);
     }
+    
     function playFullDialogue() {
       const lessonData = appState.currentLessonData;
       if (!lessonData?.dialogue?.length) return;
@@ -991,7 +1044,15 @@
     function startLesson(level) {
       appState.currentLesson = level; appState.lessonCardIndex = 0; appState.testAnswers = [];
       document.getElementById('prev-btn').style.display = 'block'; document.getElementById('next-btn').style.display = 'block';
-      loadLessonData(level); document.getElementById('lesson-flow').classList.add('active'); showLessonCard(0); updateURL('lesson-flow', level);
+      loadLessonData(level); 
+      
+      // Preload audio for this lesson
+      const lessonData = appState.currentLessonData;
+      if (lessonData?.vocabulary) {
+        AudioManager.preloadLesson(appState.user.language, level, lessonData.vocabulary);
+      }
+      
+      document.getElementById('lesson-flow').classList.add('active'); showLessonCard(0); updateURL('lesson-flow', level);
     }
     function reviewLesson(l) { startLesson(l); }
     function loadLessonData(level) {
