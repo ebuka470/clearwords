@@ -647,7 +647,6 @@
     function scheduleNotifications() {
       if (!appState.user.notificationsEnabled) return;
       const now = new Date();
-      // Schedule streak reminder at 8 PM if user hasn't practiced today
       const reminderTime = new Date(now);
       reminderTime.setHours(20, 0, 0, 0);
       if (now > reminderTime) reminderTime.setDate(reminderTime.getDate() + 1);
@@ -730,52 +729,47 @@
     let ttsState = { isSpeaking: false };
     function stopTTS() { if (ttsState.isSpeaking) { window.speechSynthesis.cancel(); ttsState.isSpeaking = false; } }
     function playWordAudio(word, language, level, audioId) {
-  if (!('speechSynthesis' in window) && !audioId) return;
-  
-  // If we have an audioId and real audio path, try that first
-  if (audioId && language && level) {
-    const audioPath = `/audio/${language}/level${level}/${audioId}.mp3`;
-    const audio = new Audio(audioPath);
-    
-    audio.oncanplaythrough = () => {
-      audio.play().catch(() => {
-        // Real audio failed, fallback to TTS
-        fallbackTTS(word, language);
-      });
-    };
-    
-    audio.onerror = () => {
-      // Audio file missing or corrupt, fallback to TTS
-      fallbackTTS(word, language);
-    };
-    
-    // Set a timeout in case loading takes too long
-    setTimeout(() => {
-      if (audio.readyState < 2) { // 2 = HAVE_CURRENT_DATA
-        audio.src = ''; // Cancel loading
+      if (!('speechSynthesis' in window) && !audioId) return;
+      
+      if (audioId && language && level) {
+        const audioPath = `/audio/${language}/level${level}/${audioId}.mp3`;
+        const audio = new Audio(audioPath);
+        
+        audio.oncanplaythrough = () => {
+          audio.play().catch(() => {
+            fallbackTTS(word, language);
+          });
+        };
+        
+        audio.onerror = () => {
+          fallbackTTS(word, language);
+        };
+        
+        setTimeout(() => {
+          if (audio.readyState < 2) {
+            audio.src = '';
+            fallbackTTS(word, language);
+          }
+        }, 3000);
+        
+        audio.load();
+      } else {
         fallbackTTS(word, language);
       }
-    }, 3000);
-    
-    audio.load();
-  } else {
-    // No audioId provided, use TTS
-    fallbackTTS(word, language);
-  }
-  
-  updateChallengeProgress('audio_plays', 1);
-}
+      
+      updateChallengeProgress('audio_plays', 1);
+    }
 
-function fallbackTTS(word, language) {
-  if (!('speechSynthesis' in window)) return;
-  stopTTS();
-  const utterance = new SpeechSynthesisUtterance(word);
-  utterance.lang = TTS_LANG_MAP[language] || 'en-NG';
-  utterance.rate = 0.85;
-  utterance.onstart = () => { ttsState.isSpeaking = true; };
-  utterance.onend = () => { ttsState.isSpeaking = false; };
-  window.speechSynthesis.speak(utterance);
-}
+    function fallbackTTS(word, language) {
+      if (!('speechSynthesis' in window)) return;
+      stopTTS();
+      const utterance = new SpeechSynthesisUtterance(word);
+      utterance.lang = TTS_LANG_MAP[language] || 'en-NG';
+      utterance.rate = 0.85;
+      utterance.onstart = () => { ttsState.isSpeaking = true; };
+      utterance.onend = () => { ttsState.isSpeaking = false; };
+      window.speechSynthesis.speak(utterance);
+    }
     function playDialogueLine(index) {
       const lessonData = appState.currentLessonData;
       if (!lessonData?.dialogue?.[index]) return;
@@ -824,6 +818,20 @@ function fallbackTTS(word, language) {
 
     // ==================== ONBOARDING ====================
     let currentStep = 1, selectedSegment = null, selectedLanguage = null;
+    
+    function showOnboarding() {
+      document.getElementById('loading').style.opacity = '0';
+      setTimeout(() => {
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('onboarding').style.display = 'block';
+        document.getElementById('app').style.display = 'none';
+        currentStep = 1;
+        selectedSegment = null;
+        selectedLanguage = null;
+        updateOnboardingSteps();
+      }, 500);
+    }
+    
     function nextStep() {
       if (currentStep === 1) { currentStep = 2; updateOnboardingSteps(); }
       else if (currentStep === 2) {
@@ -1061,7 +1069,7 @@ function fallbackTTS(word, language) {
         const seg = segmentConfigs[appState.user.segment]?.name || 'Learner';
         const lang = languageConfigs[appState.user.language];
         const vocabCtx = getFullVocabularyContext();
-        const prompt = `You are Timmy, a witty Nigerian language tutor. Student: ${appState.user.firstName||'friend'} (Learning ${lang.name} - ${lang.nativeName}). Segment: ${seg}. Progress: ${appState.user.completedLevels.length}/50.\n\nVOCABULARY REFERENCE (use these exact translations):\n${vocabCtx}\n\nCRITICAL: Only use translations from the reference above. Never make up translations.\n\nPlease: Do not respond in ${lang.name}, respond only in English.\n\nDo not us the same message you sent previously, you can just rephrase it or not at all if unnecessary.\n\nHistory: ${getChatContext()}\n\nMessage: ${userMessage}\n\nRespond as JSON: {"paragraph1":"intro to idea/response","paragraph2":"main response with accurate translations if needed"}`;
+        const prompt = `You are Timmy, a witty Nigerian language tutor. Student: ${appState.user.firstName||'friend'} (Learning ${lang.name} - ${lang.nativeName}). Segment: ${seg}. Progress: ${appState.user.completedLevels.length}/50.\n\nVOCABULARY REFERENCE (use these exact translations):\n${vocabCtx}\n\nCRITICAL: Only use translations from the reference above. Never make up translations.\n\nHistory: ${getChatContext()}\n\nMessage: ${userMessage}\n\nRespond as JSON: {"paragraph1":"intro to response","paragraph2":"main response with accurate translations"}`;
         const resp = await fetch("https://autopost-backend-hbck.onrender.com/clearwordsapi/generate", { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ prompt }) });
         if (!resp.ok) throw new Error('API error');
         const data = await resp.json();
