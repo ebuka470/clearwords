@@ -2364,7 +2364,7 @@
         }
 
         // Use relative path - works on any domain
-        const audioPath = `audio/${language}/level${level}/${audioId}.mp3`;
+        const audioPath = `/audio/${language}/level${level}/${audioId}.mp3`;
         const audio = new Audio();
 
         audio.addEventListener('canplaythrough', () => {
@@ -2395,7 +2395,7 @@
         items.forEach(vocab => {
           const key = `${language}_${level}_${vocab.audioId}`;
           if (!this.cache[key]) {
-            const audioPath = `audio/${language}/level${level}/${vocab.audioId}.mp3`;
+            const audioPath = `/audio/${language}/level${level}/${vocab.audioId}.mp3`;
             const audio = new Audio();
             audio.preload = 'metadata';
 
