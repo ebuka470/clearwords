@@ -14,7 +14,7 @@
   <meta name="application-name" content="ClearWords">
   <meta name="msapplication-TileColor" content="#2E8B57">
   <meta name="msapplication-TileImage" content="/logo.png">
-  <link rel="icon" href="logo.png">
+  <link rel="icon" href="/logo.png">
   <title>ClearWords - Learn Nigerian Languages</title>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
   </script>
@@ -2640,7 +2640,7 @@
       } else { requestNotificationPermission(); }
     }
 
-    function sendPushNotification(title, body, icon = 'logo.png') {
+    function sendPushNotification(title, body, icon = '/logo.png') {
       if (!appState.user.notificationsEnabled || !('Notification' in window) || Notification.permission !== 'granted')
         return;
       new Notification(title, { body, icon, badge: icon, tag: 'clearwords' });
