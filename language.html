@@ -2949,7 +2949,7 @@
       showToast('Reward collected!'); }
 
     // ==================== CURRICULUM & LEVELS - FIXED ====================
-    // This function now properly generates a complete curriculum with all 50 levels
+    // Generate a complete 50-level curriculum
     function generateCompleteCurriculum(language) {
       const lc = languageConfigs[language] || languageConfigs.yoruba;
       const langName = lc.name;
@@ -2975,7 +2975,6 @@
         const dialogLines = isTest ? 2 : 4;
         const quizCount = isTest ? 4 : 3;
 
-        // Generate vocabulary for each level
         let vocabulary = [];
         if (isTest) {
           vocabulary = [
@@ -2999,7 +2998,6 @@
           vocabulary = translations.slice(0, vocabCount).map(t => ({ ...t, audioId: '' }));
         }
 
-        // Generate dialogue
         let dialogue = [];
         if (isTest) {
           dialogue = [
@@ -3015,7 +3013,6 @@
           }));
         }
 
-        // Generate quiz questions
         let practiceExercises = [];
         const questionCount = isTest ? 4 : 3;
         for (let q = 0; q < questionCount; q++) {
@@ -3027,20 +3024,17 @@
           });
         }
 
-        // Cultural notes
         let culturalNotes = [
           { title: `About ${topic}`, content: `${topic} is an important aspect of ${langName} culture.` },
           { title: `Cultural Significance`, content: `Understanding ${topic} helps connect with Nigerian heritage.` }
         ];
 
-        // Difficulty based on level
         let difficulty = "Beginner";
         if (level > 10 && level <= 20) difficulty = "Elementary";
         else if (level > 20 && level <= 30) difficulty = "Intermediate";
         else if (level > 30 && level <= 40) difficulty = "Upper Intermediate";
         else if (level > 40) difficulty = "Advanced";
 
-        // XP reward based on difficulty and test
         let xpReward = isTest ? 50 : 25;
         if (difficulty === "Intermediate") xpReward = isTest ? 60 : 30;
         if (difficulty === "Upper Intermediate") xpReward = isTest ? 70 : 35;
@@ -3074,7 +3068,6 @@
         return;
       }
 
-      // Try to fetch the curriculum from JSON
       fetch(languageConfigs[language].jsonFile)
         .then(r => r.ok ? r.json() : Promise.reject())
         .then(d => {
@@ -3086,7 +3079,6 @@
           if (cb) cb();
         })
         .catch(() => {
-          // If fetch fails, generate a complete curriculum with all 50 levels
           const levels = generateCompleteCurriculum(language);
           appState.curriculumData[language] = {
             language: language,
@@ -3101,7 +3093,7 @@
         });
     }
 
-    // ==================== ROADMAP - ENHANCED ====================
+    // ==================== ROADMAP ====================
     function renderRoadmap() {
       const container = document.getElementById('roadmap-container');
       if (!container) return;
@@ -3217,9 +3209,8 @@
 
       try {
         const lang = languageConfigs[appState.user.language];
-        const vocabCtx = getFullVocabularyContext();
 
-        // Generate vocabulary using the API
+        // Generate vocabulary
         const vocabPrompt =
           `Generate 6 unique ${lang.name} vocabulary words related to "${topic}". 
 Use this format: word|translation|pronunciation|example sentence
@@ -3248,7 +3239,6 @@ Keep it short. Only use real ${lang.name} words.`;
           });
         }
 
-        // Fallback vocabulary
         if (vocabulary.length < 4) {
           vocabulary = [
             { word: `${topic.replace(/\s/g, '_')}_1`, translation: `First ${topic} term`, pronunciation: `term-1`,
@@ -3266,7 +3256,6 @@ Keep it short. Only use real ${lang.name} words.`;
           ];
         }
 
-        // Ensure we have exactly 6 unique words
         const uniqueWords = [];
         const seen = new Set();
         vocabulary.forEach(v => {
@@ -3472,7 +3461,7 @@ Keep questions simple and related to the topic.`;
       }
     }
 
-    // ==================== LEVELS GENERATION ====================
+    // ==================== LEVELS GENERATION - FIXED ====================
     function generateLevels() {
       const container = document.getElementById('levels-container');
       if (!container) return;
@@ -3500,19 +3489,29 @@ Keep questions simple and related to the topic.`;
       } else {
         if (curriculum?.levels) {
           let filtered = curriculum.levels;
-          if (appState.filteredLevels === 'completed') filtered = filtered.filter(l => completed.includes(l.level));
-          else if (appState.filteredLevels === 'unlocked') filtered = filtered.filter(l => l.level <= current && !completed
-            .includes(l.level));
-          else if (appState.filteredLevels === 'locked') filtered = filtered.filter(l => l.level > current);
-          else if (appState.filteredLevels === 'favorites') filtered = filtered.filter(l => appState.user.favorites
-            .includes(l.level));
+
+          if (appState.filteredLevels === 'completed') {
+            filtered = filtered.filter(l => completed.includes(l.level));
+          } else if (appState.filteredLevels === 'unlocked') {
+            filtered = filtered.filter(l => l.level <= current && !completed.includes(l.level));
+          } else if (appState.filteredLevels === 'locked') {
+            filtered = filtered.filter(l => l.level > current);
+          } else if (appState.filteredLevels === 'favorites') {
+            filtered = filtered.filter(l => appState.user.favorites.includes(l.level));
+          }
 
           if (appState.searchQuery) {
             const q = appState.searchQuery.toLowerCase();
             filtered = filtered.filter(l => l.title.toLowerCase().includes(q) || l.description.toLowerCase().includes(q));
           }
 
-          levels = filtered.map(l => ({ ...l, isCustom: false }));
+          // CRITICAL FIX: Add completed flag to each level
+          levels = filtered.map(l => ({
+            ...l,
+            isCustom: false,
+            completed: completed.includes(l.level),
+            unlocked: l.level <= current
+          }));
         }
 
         if (appState.filteredLevels !== 'custom') {
@@ -3556,9 +3555,17 @@ Keep questions simple and related to the topic.`;
         if (ld.isCustom) card.classList.add('custom');
 
         let icon = '🔒';
-        if (ld.completed) { card.classList.add('completed');
-          icon = '✅'; } else if (ld.unlocked || ld.isCustom) { card.classList.add('unlocked');
-          icon = '🔓'; } else card.classList.add('locked');
+        let statusClass = 'locked';
+
+        if (ld.completed) {
+          statusClass = 'completed';
+          icon = '✅';
+        } else if (ld.unlocked || ld.isCustom) {
+          statusClass = 'unlocked';
+          icon = '🔓';
+        }
+
+        card.classList.add(statusClass);
 
         const customBadge = ld.isCustom ? `<div class="custom-badge">⚡ Custom</div>` : '';
 
@@ -3638,7 +3645,6 @@ Keep questions simple and related to the topic.`;
       }
       const c = appState.curriculumData[appState.user.language];
       if (!c?.levels) {
-        // Generate curriculum if missing
         const levels = generateCompleteCurriculum(appState.user.language);
         appState.curriculumData[appState.user.language] = {
           language: appState.user.language,
@@ -3805,7 +3811,7 @@ Keep questions simple and related to the topic.`;
 
     function showBottomNav() { document.getElementById('bottom-nav').style.display = 'flex'; }
 
-    // ==================== TIMMY AI - ENHANCED ====================
+    // ==================== TIMMY AI ====================
     function getFullVocabularyContext() {
       const curriculum = appState.curriculumData[appState.user.language];
       if (!curriculum?.levels) return '';
@@ -4366,7 +4372,6 @@ Keep questions simple and related to the topic.`;
         document.body.classList.remove('light-theme');
         document.getElementById('theme-toggle').textContent = '🌓 Dark Mode'; }
 
-      // Ensure curriculum is loaded
       if (!appState.curriculumData[appState.user.language]) {
         loadCurriculum(appState.user.language, () => {
           generateDailyChallenges();
