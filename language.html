@@ -20,6 +20,62 @@
   </script>
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js">
   </script>
+  <script>
+  // Fix for direct navigation to SPA routes
+  (function handleSpaRouting() {
+    // Store the intended route
+    const path = window.location.pathname;
+    
+    // If we're not at the root and not requesting a static file
+    if (path !== '/' && !path.match(/\.(html|js|css|png|jpg|jpeg|gif|svg|ico|json|webmanifest)$/)) {
+      // Save the route to session storage so we can restore it after page load
+      sessionStorage.setItem('spa_route', path);
+      // Redirect to index.html with the route as a hash
+      window.location.href = '/index.html?route=' + encodeURIComponent(path);
+    }
+    
+    // On page load, check if we need to restore a route
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      restoreRoute();
+    } else {
+      document.addEventListener('DOMContentLoaded', restoreRoute);
+    }
+    
+    function restoreRoute() {
+      const savedRoute = sessionStorage.getItem('spa_route');
+      const urlParams = new URLSearchParams(window.location.search);
+      const routeParam = urlParams.get('route');
+      
+      const route = routeParam || savedRoute;
+      
+      if (route && route !== '/') {
+        sessionStorage.removeItem('spa_route');
+        // Clean the URL
+        const cleanPath = route.startsWith('/') ? route : '/' + route;
+        // Navigate using your app's navigation
+        setTimeout(() => {
+          // Assuming your app has a showPage function
+          const pageMap = {
+            '/home': 'home',
+            '/lessons': 'lessons', 
+            '/chat': 'chat',
+            '/settings': 'settings'
+          };
+          
+          const page = pageMap[cleanPath] || 'home';
+          if (typeof showPage === 'function') {
+            showPage(page);
+          }
+          
+          // Update URL cleanly
+          if (window.history && window.history.replaceState) {
+            window.history.replaceState({ page: page }, '', cleanPath);
+          }
+        }, 100);
+      }
+    }
+  })();
+</script>
   <style>
     /* ========== CSS VARIABLES ========== */
     :root {
@@ -2357,7 +2413,7 @@
           if (callback) callback(this.cache[key]);
           return this.cache[key];
         }
-        const audioPath = `/audio/${language}/level${level}/${audioId}.mp3`;
+        const audioPath = `./audio/${language}/level${level}/${audioId}.mp3`;
         const audio = new Audio(audioPath);
         audio.preload = 'metadata';
         audio.oncanplaythrough = () => {
@@ -2378,7 +2434,7 @@
         items.forEach(vocab => {
           const key = `${language}_${level}_${vocab.audioId}`;
           if (!this.cache[key]) {
-            const audioPath = `/audio/${language}/level${level}/${vocab.audioId}.mp3`;
+            const audioPath = `./audio/${language}/level${level}/${vocab.audioId}.mp3`;
             const audio = new Audio(audioPath);
             audio.preload = 'metadata';
             audio.load();
