@@ -2372,7 +2372,7 @@
           console.warn(`Audio load timeout (11s): ${audioPath}`);
           audio.src = '';
           if (callback) callback(null);
-        }, 11000);
+        }, 20000);
 
         audio.addEventListener('canplaythrough', () => {
           clearTimeout(timeoutId);
@@ -2409,9 +2409,9 @@
             audio.preload = 'metadata';
 
             let timeoutId = setTimeout(() => {
-              console.warn(`Preload timeout (11s): ${audioPath}`);
+              console.warn(`Preload timeout (20s): ${audioPath}`);
               audio.src = '';
-            }, 11000);
+            }, 20000);
 
             audio.addEventListener('canplaythrough', () => {
               clearTimeout(timeoutId);
