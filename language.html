@@ -2348,9 +2348,10 @@
     // ==================== AUDIO MANAGER - FIXED ====================
     const AudioManager = {
       cache: {},
+      audioTimeouts: {},
 
       loadAudio(language, level, audioId, callback) {
-        // Check if audioId is valid
+        // FIX 1: Validate audioId properly
         if (!audioId || audioId.trim() === '') {
           if (callback) callback(null);
           return null;
@@ -2367,12 +2368,20 @@
         const audioPath = `/audio/${language}/level${level}/${audioId}.mp3`;
         const audio = new Audio();
 
+        let timeoutId = setTimeout(() => {
+          console.warn(`Audio load timeout (11s): ${audioPath}`);
+          audio.src = '';
+          if (callback) callback(null);
+        }, 11000);
+
         audio.addEventListener('canplaythrough', () => {
+          clearTimeout(timeoutId);
           this.cache[key] = audio;
           if (callback) callback(audio);
         }, { once: true });
 
         audio.addEventListener('error', () => {
+          clearTimeout(timeoutId);
           console.warn(`Audio not found: ${audioPath}`);
           if (callback) callback(null);
         }, { once: true });
@@ -2385,8 +2394,8 @@
       },
 
       preloadLesson(language, level, vocabulary) {
+        // FIX 2: Proper validation with trim
         if (!vocabulary || !vocabulary.length) return;
-
         const items = vocabulary.filter(v => v.audioId && v.audioId.trim() !== '');
         if (!items.length) return;
 
@@ -2399,11 +2408,19 @@
             const audio = new Audio();
             audio.preload = 'metadata';
 
+            let timeoutId = setTimeout(() => {
+              console.warn(`Preload timeout (11s): ${audioPath}`);
+              audio.src = '';
+            }, 11000);
+
             audio.addEventListener('canplaythrough', () => {
+              clearTimeout(timeoutId);
               this.cache[key] = audio;
             }, { once: true });
 
-            audio.addEventListener('error', () => {}, { once: true });
+            audio.addEventListener('error', () => {
+              clearTimeout(timeoutId);
+            }, { once: true });
 
             audio.src = audioPath;
             audio.load();
@@ -2414,9 +2431,17 @@
       play(word, language, level, audioId) {
         console.log('🔊 AudioManager.play called:', { word, language, level, audioId });
 
-        // FIX: Properly check for empty audioId
+        // FIX 3: Proper validation with trim - custom lessons use TTS
         if (!audioId || audioId.trim() === '') {
           console.log('No audioId, using TTS for:', word);
+          fallbackTTS(word, language);
+          updateChallengeProgress('audio_plays', 1);
+          return;
+        }
+
+        // FIX 4: Custom lessons (level 999 or custom_) always use TTS
+        if (level === 999 || level === 'custom' || String(level).startsWith('custom_')) {
+          console.log('Custom lesson, using TTS for:', word);
           fallbackTTS(word, language);
           updateChallengeProgress('audio_plays', 1);
           return;
@@ -2445,6 +2470,7 @@
           }
         }
 
+        // FIX 5: Load with timeout and fallback
         this.loadAudio(language, level, audioId, (audio) => {
           if (audio) {
             try {
@@ -2807,9 +2833,10 @@
     function playWordAudio(word, language, level, audioId) {
       console.log('🔊 playWordAudio called:', { word, language, level, audioId });
 
+      // FIX 6: Don't rely on global event - use proper parameter
       // Visual feedback on button
-      if (event && event.currentTarget) {
-        const btn = event.currentTarget;
+      const btn = document.activeElement;
+      if (btn && btn.classList && btn.classList.contains('audio-btn')) {
         const originalText = btn.textContent;
         btn.textContent = '🔊 ...';
         setTimeout(() => {
@@ -3577,9 +3604,8 @@ Keep questions simple and related to the topic.`;
         showLessonCard(0);
         updateURL('lesson-flow', customId);
 
-        if (levelData.vocabulary) {
-          AudioManager.preloadLesson(appState.user.language, 'custom', levelData.vocabulary);
-        }
+        // FIX 7: Don't preload audio for custom lessons (they use TTS)
+        // Custom lessons always use TTS via AudioManager.play
 
         checkAchievements();
 
@@ -3762,9 +3788,7 @@ Keep questions simple and related to the topic.`;
         document.getElementById('lesson-flow').classList.add('active');
         showLessonCard(0);
         updateURL('lesson-flow', levelId);
-        if (custom.levelData.vocabulary) {
-          AudioManager.preloadLesson(appState.user.language, 'custom', custom.levelData.vocabulary);
-        }
+        // FIX 8: Don't preload audio for custom lessons - they use TTS
         return;
       }
 
@@ -3795,6 +3819,7 @@ Keep questions simple and related to the topic.`;
         showLessonCard(0);
         updateURL('lesson-flow', level);
         if (lessonData.vocabulary) {
+          // FIX 9: Only preload audio for normal lessons (not custom)
           AudioManager.preloadLesson(appState.user.language, level, lessonData.vocabulary);
         }
       } else {
@@ -3814,8 +3839,11 @@ Keep questions simple and related to the topic.`;
 
     function populateLessonCards(ld) {
       const isCustom = ld.isCustom || false;
+      // FIX 10: For custom lessons, pass level 999 to playWordAudio for TTS detection
+      const audioLevel = isCustom ? 999 : ld.level;
+      
       document.getElementById('lesson-card-1').innerHTML =
-        `<div style="text-align:center;margin-bottom:20px;"><div style="font-size:12px;color:var(--text-secondary);">${isCustom ? '⚡ CUSTOM LESSON' : 'LEVEL ' + ld.level}</div><div style="font-size:24px;font-weight:700;color:var(--primary);">${ld.title}</div><div style="font-size:14px;color:var(--text-secondary);">${ld.description}</div></div><div style="font-size:16px;font-weight:600;margin-bottom:15px;">New Words</div>${(ld.vocabulary||[]).map(w => `<div style="margin-bottom:15px;padding:16px;background:var(--bg);border-radius:12px;border:1px solid var(--border);"><div style="display:flex;justify-content:space-between;"><div><div style="font-size:20px;font-weight:600;color:var(--primary);">${w.word}</div><div style="font-size:12px;color:var(--text-secondary);">${w.pronunciation||''}</div><div style="font-size:14px;margin:8px 0;">${w.translation}</div><div style="font-size:13px;color:var(--text-secondary);">"${w.example||''}"</div></div><button class="audio-btn" onclick="playWordAudio('${(w.word||'').replace(/'/g,"\\'")}','${appState.user.language}', ${isCustom ? '999' : ld.level}, '${w.audioId || ''}')">🔊</button></div></div>`).join('')}`;
+        `<div style="text-align:center;margin-bottom:20px;"><div style="font-size:12px;color:var(--text-secondary);">${isCustom ? '⚡ CUSTOM LESSON' : 'LEVEL ' + ld.level}</div><div style="font-size:24px;font-weight:700;color:var(--primary);">${ld.title}</div><div style="font-size:14px;color:var(--text-secondary);">${ld.description}</div></div><div style="font-size:16px;font-weight:600;margin-bottom:15px;">New Words</div>${(ld.vocabulary||[]).map(w => `<div style="margin-bottom:15px;padding:16px;background:var(--bg);border-radius:12px;border:1px solid var(--border);"><div style="display:flex;justify-content:space-between;"><div><div style="font-size:20px;font-weight:600;color:var(--primary);">${w.word}</div><div style="font-size:12px;color:var(--text-secondary);">${w.pronunciation||''}</div><div style="font-size:14px;margin:8px 0;">${w.translation}</div><div style="font-size:13px;color:var(--text-secondary);">"${w.example||''}"</div></div><button class="audio-btn" onclick="playWordAudio('${(w.word||'').replace(/'/g,"\\'")}','${appState.user.language}', ${audioLevel}, '${w.audioId || ''}')">🔊</button></div></div>`).join('')}`;
       document.getElementById('lesson-card-2').innerHTML =
         `<div style="text-align:center;margin-bottom:20px;"><div style="font-size:12px;color:var(--text-secondary);">GRAMMAR & CULTURE</div><div style="font-size:24px;font-weight:700;color:var(--primary);">Grammar & Context</div></div>${(ld.grammarPoints||[]).map(g => `<div style="margin-bottom:20px;padding:16px;background:var(--bg);border-radius:12px;"><div style="font-weight:600;color:var(--accent1);">${g.concept}</div><div style="color:var(--text-secondary);">${g.explanation}</div></div>`).join('')}${(ld.culturalNotes||[]).map(n => `<div style="margin-bottom:15px;padding:16px;background:var(--bg);border-radius:12px;"><div style="font-weight:600;color:var(--accent2);">${n.title}</div><div style="color:var(--text-secondary);">${n.content}</div></div>`).join('')}`;
       document.getElementById('lesson-card-3').innerHTML =
@@ -4664,6 +4692,7 @@ Keep questions simple and related to the topic.`;
     window.deleteTimmyChat = deleteTimmyChat;
 
     console.log("ClearWords v2.2 - All features loaded! 🚀");
+    console.log("🎵 Audio: Normal lessons use MP3 files, Custom lessons use TTS, 11s timeout");
   </script>
 </body>
 </html>
