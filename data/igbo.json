@@ -21,7 +21,7 @@
           "pronunciation": "nnor-wor",
           "example": "Nnọọ, bata!",
           "culturalNote": "Used to welcome guests into your home.",
-          "audioId": "nnoo"
+          "audioId": ""
         },
         {
           "word": "Ụtụtụ ọma",
@@ -29,7 +29,7 @@
           "pronunciation": "oo-too-too or-ma",
           "example": "Ụtụtụ ọma, nne!",
           "culturalNote": "Morning greeting used from dawn until around noon.",
-          "audioId": "ututu_oma"
+          "audioId": ""
         },
         {
           "word": "Ehihie ọma",
@@ -37,7 +37,7 @@
           "pronunciation": "eh-hee-he-ay or-ma",
           "example": "Ehihie ọma, nna m!",
           "culturalNote": "Afternoon greeting.",
-          "audioId": "ehihie_oma"
+          "audioId": ""
         },
         {
           "word": "Mgbede ọma",
@@ -45,7 +45,7 @@
           "pronunciation": "m-gbe-de or-ma",
           "example": "Mgbede ọma, ndị be anyị!",
           "culturalNote": "Evening greeting.",
-          "audioId": "mgbede_oma"
+          "audioId": ""
         },
         {
           "word": "Kedu?",
@@ -53,7 +53,7 @@
           "pronunciation": "keh-doo",
           "example": "Kedu, ibe m?",
           "culturalNote": "General greeting meaning 'how are you?'",
-          "audioId": "kedu"
+          "audioId": ""
         },
         {
           "word": "Ọ dị mma",
@@ -61,7 +61,7 @@
           "pronunciation": "aw dee mmah",
           "example": "Ọ dị mma, daalụ.",
           "culturalNote": "Common response to Kedu.",
-          "audioId": "o_di_mma"
+          "audioId": ""
         },
         {
           "word": "Daalụ",
@@ -69,7 +69,7 @@
           "pronunciation": "dah-loo",
           "example": "Daalụ maka enyemaka gị.",
           "culturalNote": "Polite expression of gratitude.",
-          "audioId": "daalu"
+          "audioId": ""
         },
         {
           "word": "Ọ dịghị nsogbu",
@@ -77,7 +77,7 @@
           "pronunciation": "aw dee-hee n-sog-bu",
           "example": "Ọ dịghị nsogbu, enyi m.",
           "culturalNote": "Used to say 'you're welcome' or 'no worries'.",
-          "audioId": "o_dighi_nsogbu"
+          "audioId": ""
         },
         {
           "word": "Ka ọ dị",
@@ -85,7 +85,7 @@
           "pronunciation": "ka aw dee",
           "example": "Ka ọ dị, echi ga-ahụ gị.",
           "culturalNote": "Common parting phrase.",
-          "audioId": "ka_o_di"
+          "audioId": ""
         },
         {
           "word": "Ọ bụ echi",
@@ -93,7 +93,7 @@
           "pronunciation": "aw boo eh-chee",
           "example": "Ọ bụ echi, jee nke ọma!",
           "culturalNote": "Used when parting with plans to meet next day.",
-          "audioId": "o_bu_echi"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -121,25 +121,29 @@
           "speaker": "Chioma",
           "text": "Nnọọ, Ada!",
           "translation": "Welcome, Ada!",
-          "audioContext": "Greeting"
+          "audioContext": "Greeting",
+          "audioId": ""
         },
         {
           "speaker": "Ada",
           "text": "Nnọọ, Chioma! Kedu?",
           "translation": "Welcome, Chioma! How are you?",
-          "audioContext": "Response"
+          "audioContext": "Response",
+          "audioId": ""
         },
         {
           "speaker": "Chioma",
           "text": "Ọ dị mma, daalụ. Kedu?",
           "translation": "I'm fine, thank you. How are you?",
-          "audioContext": "Response"
+          "audioContext": "Response",
+          "audioId": ""
         },
         {
           "speaker": "Ada",
           "text": "Ọ dị mma. Ka ọ dị!",
           "translation": "I'm fine. Goodbye!",
-          "audioContext": "Farewell"
+          "audioContext": "Farewell",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -279,7 +283,7 @@
           "pronunciation": "oh-TOO",
           "example": "Otu mmadụ bịara. (One person came.)",
           "culturalNote": "The Igbo counting system is based on 20 (vigesimal system), reflecting the ancient trade heritage of the Igbo people.",
-          "audioId": "otu"
+          "audioId": ""
         },
         {
           "word": "Abụọ",
@@ -287,7 +291,7 @@
           "pronunciation": "ah-BWUH",
           "example": "Abụọ ụmụaka nọ ebe a. (Two children are here.)",
           "culturalNote": "Numbers in Igbo are often used in proverbs. 'Abụọ abụọ' means 'two by two'.",
-          "audioId": "abuo"
+          "audioId": ""
         },
         {
           "word": "Atọ",
@@ -295,7 +299,7 @@
           "pronunciation": "ah-TOH",
           "example": "Atọ ụbọchị gara aga. (Three days passed.)",
           "culturalNote": "The number three is considered sacred in Igbo cosmology, representing the three worlds: the living, the ancestors, and the unborn.",
-          "audioId": "ato"
+          "audioId": ""
         },
         {
           "word": "Anọ",
@@ -303,7 +307,7 @@
           "pronunciation": "ah-NOH",
           "example": "Anọ ụkwụ oche. (Four legs of the chair.)",
           "culturalNote": "Four market days (Eke, Orie, Afọ, Nkwọ) form the traditional Igbo week.",
-          "audioId": "ano"
+          "audioId": ""
         },
         {
           "word": "Ise",
@@ -311,7 +315,7 @@
           "pronunciation": "ee-SEH",
           "example": "Ise mmadụ. (Five people.)",
           "culturalNote": "'Ise' is also used as a response of affirmation in Igbo, similar to 'amen'.",
-          "audioId": "ise"
+          "audioId": ""
         },
         {
           "word": "Isii",
@@ -319,7 +323,7 @@
           "pronunciation": "ee-SEE",
           "example": "Isii ọnwa. (Six months.)",
           "culturalNote": "Compound numbers in Igbo follow a base-10 addition pattern after 10.",
-          "audioId": "isii"
+          "audioId": ""
         },
         {
           "word": "Asaa",
@@ -327,7 +331,7 @@
           "pronunciation": "ah-SAH-ah",
           "example": "Asaa ụbọchị n'izu. (Seven days in a week.)",
           "culturalNote": "Seven is often associated with completeness in Igbo tradition.",
-          "audioId": "asaa"
+          "audioId": ""
         },
         {
           "word": "Asatọ",
@@ -335,7 +339,7 @@
           "pronunciation": "ah-sah-TOH",
           "example": "Asatọ elekere. (Eight o'clock.)",
           "culturalNote": "The word 'asatọ' literally relates to 'atọ' (three) in its formation pattern.",
-          "audioId": "asato"
+          "audioId": ""
         },
         {
           "word": "Itoolu",
@@ -343,7 +347,7 @@
           "pronunciation": "ee-TOH-loo",
           "example": "Itoolu ọnwa ime. (Nine months of pregnancy.)",
           "culturalNote": "Nine is the final single-digit number before the base-10 system begins.",
-          "audioId": "itoolu"
+          "audioId": ""
         },
         {
           "word": "Iri",
@@ -351,7 +355,7 @@
           "pronunciation": "ee-REE",
           "example": "Iri mmadụ. (Ten people.)",
           "culturalNote": "'Iri' also means 'to eat' in Igbo, but context distinguishes the meaning. Ten forms the foundation for all higher numbers.",
-          "audioId": "iri"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -392,37 +396,43 @@
           "speaker": "Adaobi",
           "text": "Ndewo! Kedu ihe ị na-ere?",
           "translation": "Hello! What are you selling?",
-          "audioContext": "Market greeting"
+          "audioContext": "Market greeting",
+          "audioId": ""
         },
         {
           "speaker": "Chidi",
           "text": "M na-ere mkpụrụ osisi oroma. Otu ole ka ị chọrọ?",
           "translation": "I'm selling oranges. How many do you want?",
-          "audioContext": "Market interaction"
+          "audioContext": "Market interaction",
+          "audioId": ""
         },
         {
           "speaker": "Adaobi",
           "text": "Ego ole ka ọ bụ otu?",
           "translation": "How much is one?",
-          "audioContext": "Price inquiry"
+          "audioContext": "Price inquiry",
+          "audioId": ""
         },
         {
           "speaker": "Chidi",
           "text": "Ọ bụ naira iri ise.",
           "translation": "It's fifty naira.",
-          "audioContext": "Price response"
+          "audioContext": "Price response",
+          "audioId": ""
         },
         {
           "speaker": "Adaobi",
           "text": "Nye m ise. Ego ole ka m ga-akwụ?",
           "translation": "Give me five. How much will I pay?",
-          "audioContext": "Ordering quantity"
+          "audioContext": "Ordering quantity",
+          "audioId": ""
         },
         {
           "speaker": "Chidi",
           "text": "Ị ga-akwụ naira narị abụọ na iri ise.",
           "translation": "You'll pay two hundred and fifty naira.",
-          "audioContext": "Calculating price"
+          "audioContext": "Calculating price",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -564,7 +574,7 @@
           "pronunciation": "ah-hah m boo",
           "example": "Aha m bụ Adanna.",
           "culturalNote": "Standard self-introduction.",
-          "audioId": "aha_m_bu"
+          "audioId": ""
         },
         {
           "word": "Gịnị bụ aha gị?",
@@ -572,7 +582,7 @@
           "pronunciation": "gee-nee boo ah-hah gee",
           "example": "Gịnị bụ aha gị?",
           "culturalNote": "Formal; for peers you can simply ask 'Aha gị?'",
-          "audioId": "gini_bu_aha_gi"
+          "audioId": ""
         },
         {
           "word": "Ọ dị mma ịhụ gị",
@@ -580,7 +590,7 @@
           "pronunciation": "aw dee mmah ee-hoo gee",
           "example": "Ọ dị mma ịhụ gị, nwanne m.",
           "culturalNote": "Polite phrase upon first meeting.",
-          "audioId": "o_di_mma_ihu_gi"
+          "audioId": ""
         },
         {
           "word": "Ị̀ bụ onye ...?",
@@ -588,7 +598,7 @@
           "pronunciation": "ee boo aw-nyeh ...",
           "example": "Ị̀ bụ onye Igbo?",
           "culturalNote": "Asking if someone is Igbo, Yoruba, etc.",
-          "audioId": "i_bu_onye"
+          "audioId": ""
         },
         {
           "word": "Ee, m bụ onye ...",
@@ -596,7 +606,7 @@
           "pronunciation": "eh-eh, m boo aw-nyeh ...",
           "example": "Ee, m bụ onye Igbo.",
           "culturalNote": "Affirming ethnicity/hometown.",
-          "audioId": "ee_m_bu_onye"
+          "audioId": ""
         },
         {
           "word": "Mba, ọ bụghị",
@@ -604,7 +614,7 @@
           "pronunciation": "m-bah, aw boo-hee",
           "example": "Mba, ọ bụghị eziokwu.",
           "culturalNote": "Polite negation.",
-          "audioId": "mba_o_bughi"
+          "audioId": ""
         },
         {
           "word": "Nwanne m",
@@ -612,7 +622,7 @@
           "pronunciation": "n-wah-neh m",
           "example": "Kedu, nwanne m?",
           "culturalNote": "Friendly term for peer.",
-          "audioId": "nwanne_m"
+          "audioId": ""
         },
         {
           "word": "Onye ọbịa",
@@ -620,7 +630,7 @@
           "pronunciation": "aw-nyeh aw-bee-ah",
           "example": "Nnọọ, onye ọbịa!",
           "culturalNote": "Used to welcome guests.",
-          "audioId": "onye_obia"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -649,31 +659,36 @@
           "speaker": "Chika",
           "text": "Nnọọ! Aha m bụ Chika. Gịnị bụ aha gị?",
           "translation": "Welcome! My name is Chika. What is your name?",
-          "audioContext": "Introduction"
+          "audioContext": "Introduction",
+          "audioId": ""
         },
         {
           "speaker": "Somto",
           "text": "Nnọọ, Chika. Aha m bụ Somto.",
           "translation": "Welcome, Chika. My name is Somto.",
-          "audioContext": "Response"
+          "audioContext": "Response",
+          "audioId": ""
         },
         {
           "speaker": "Chika",
           "text": "Ọ dị mma ịhụ gị, Somto. Ị̀ bụ onye Aba?",
           "translation": "Nice to meet you, Somto. Are you from Aba?",
-          "audioContext": "Asking origin"
+          "audioContext": "Asking origin",
+          "audioId": ""
         },
         {
           "speaker": "Somto",
           "text": "Mba, ọ bụghị. Esi m Owerri.",
           "translation": "No, it's not. I'm from Owerri.",
-          "audioContext": "Correcting"
+          "audioContext": "Correcting",
+          "audioId": ""
         },
         {
           "speaker": "Chika",
           "text": "O Owerri! Ọ dị mma. Nwanne m.",
           "translation": "Oh Owerri! That's nice. My friend.",
-          "audioContext": "Positive reaction"
+          "audioContext": "Positive reaction",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -814,7 +829,7 @@
           "pronunciation": "n-doh",
           "example": "Ndo maka ihe mere.",
           "culturalNote": "Expresses sympathy, not an apology for fault.",
-          "audioId": "ndo"
+          "audioId": ""
         },
         {
           "word": "Biko",
@@ -822,7 +837,7 @@
           "pronunciation": "bee-koh",
           "example": "Biko, nye m mmiri.",
           "culturalNote": "Used for polite requests and also to get attention.",
-          "audioId": "biko"
+          "audioId": ""
         },
         {
           "word": "Ọ dị m nwute",
@@ -830,7 +845,7 @@
           "pronunciation": "aw dee m n-woo-teh",
           "example": "Ọ dị m nwute maka mmejọ m.",
           "culturalNote": "Literal: 'It is pain to me' – used when you've wronged someone.",
-          "audioId": "o_di_m_nwute"
+          "audioId": ""
         },
         {
           "word": "Anụghị m",
@@ -838,7 +853,7 @@
           "pronunciation": "ah-noo-hee m",
           "example": "Biko, anụghị m ihe ị kwuru.",
           "culturalNote": "Polite way to ask someone to repeat.",
-          "audioId": "anughi_m"
+          "audioId": ""
         },
         {
           "word": "Gbaghara m",
@@ -846,7 +861,7 @@
           "pronunciation": "gba-hah-rah m",
           "example": "Gbaghara m maka iwe.",
           "culturalNote": "Stronger apology, asking for forgiveness.",
-          "audioId": "gbaghara_m"
+          "audioId": ""
         },
         {
           "word": "Ọ dị mma",
@@ -854,7 +869,7 @@
           "pronunciation": "aw dee mmah",
           "example": "Ọ dị mma, echegbula onwe gị.",
           "culturalNote": "Reassurance after apology.",
-          "audioId": "o_di_mma"
+          "audioId": ""
         },
         {
           "word": "Echegbula",
@@ -862,7 +877,7 @@
           "pronunciation": "eh-cheh-gboo-lah",
           "example": "Echegbula, anyị ga-edozi ya.",
           "culturalNote": "Comforting phrase.",
-          "audioId": "echegbula"
+          "audioId": ""
         },
         {
           "word": "Iwe",
@@ -870,7 +885,7 @@
           "pronunciation": "ee-weh",
           "example": "Anaghị m ewe iwe.",
           "culturalNote": "Expression of anger/displeasure.",
-          "audioId": "iwe"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -898,25 +913,29 @@
           "speaker": "Ifeanyi",
           "text": "Ọ bụ m kpatara ihe ahụ. Ọ dị m nwute.",
           "translation": "I caused that. I am sorry.",
-          "audioContext": "Apology"
+          "audioContext": "Apology",
+          "audioId": ""
         },
         {
           "speaker": "Adaeze",
           "text": "Ndo, ọ dị mma. Gbaghara m gị.",
           "translation": "Sorry (empathy), it's okay. I forgive you.",
-          "audioContext": "Acceptance"
+          "audioContext": "Acceptance",
+          "audioId": ""
         },
         {
           "speaker": "Ifeanyi",
           "text": "Daalụ, Adaeze. Echegbula m ọzọ.",
           "translation": "Thank you, Adaeze. I won't worry again.",
-          "audioContext": "Thanks"
+          "audioContext": "Thanks",
+          "audioId": ""
         },
         {
           "speaker": "Adaeze",
           "text": "Biko, chefuo ya. Ka anyị gaa n'ihu.",
           "translation": "Please, forget it. Let's move forward.",
-          "audioContext": "Moving on"
+          "audioContext": "Moving on",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -1058,7 +1077,7 @@
           "pronunciation": "m-mee-ree",
           "example": "Biko, nye m mmiri.",
           "culturalNote": "Always offer water to guests.",
-          "audioId": "mmiri"
+          "audioId": ""
         },
         {
           "word": "Nri",
@@ -1066,7 +1085,7 @@
           "pronunciation": "n-ree",
           "example": "Agụụ nri na-agụ m.",
           "culturalNote": "Literal: 'Hunger for food is biting me'.",
-          "audioId": "nri"
+          "audioId": ""
         },
         {
           "word": "Akwa",
@@ -1074,7 +1093,7 @@
           "pronunciation": "ah-kwah",
           "example": "Ọ bụ oge ụra, gaa n'akwa.",
           "culturalNote": "'Akwa' can mean cloth or bed; context clarifies.",
-          "audioId": "akwa"
+          "audioId": ""
         },
         {
           "word": "Ụlọ",
@@ -1082,7 +1101,7 @@
           "pronunciation": "oo-loh",
           "example": "Ụlọ gị mara mma.",
           "culturalNote": "Home is central in Igbo culture.",
-          "audioId": "ulo"
+          "audioId": ""
         },
         {
           "word": "Ụra",
@@ -1090,7 +1109,7 @@
           "pronunciation": "oo-rah",
           "example": "Ụra na-atụ m.",
           "culturalNote": "I'm sleepy.",
-          "audioId": "ura"
+          "audioId": ""
         },
         {
           "word": "Ọ bụ m",
@@ -1098,7 +1117,7 @@
           "pronunciation": "aw boo m",
           "example": "Ọ bụ m, meghere m ụzọ!",
           "culturalNote": "Used when knocking.",
-          "audioId": "o_bu_m"
+          "audioId": ""
         },
         {
           "word": "Ọ dịghị",
@@ -1106,7 +1125,7 @@
           "pronunciation": "aw dee-hee",
           "example": "Ọ dịghị mmiri n'ime iko.",
           "culturalNote": "Common negation.",
-          "audioId": "o_dighi"
+          "audioId": ""
         },
         {
           "word": "Chọrọ",
@@ -1114,7 +1133,7 @@
           "pronunciation": "chor-roh",
           "example": "A chọrọ m ịga ahịa.",
           "culturalNote": "Verb 'chọ' with -rọ suffix.",
-          "audioId": "choro"
+          "audioId": ""
         },
         {
           "word": "Nwee",
@@ -1122,7 +1141,7 @@
           "pronunciation": "n-weh",
           "example": "Ị nwere oge?",
           "culturalNote": "Used to ask if someone has something.",
-          "audioId": "nwee"
+          "audioId": ""
         },
         {
           "word": "Enyemaka",
@@ -1130,7 +1149,7 @@
           "pronunciation": "eh-nyeh-mah-kah",
           "example": "Chọrọ m enyemaka gị.",
           "culturalNote": "Asking for assistance.",
-          "audioId": "enyemaka"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -1160,31 +1179,36 @@
           "speaker": "Obinna",
           "text": "Nnọọ, nne. A chọrọ m mmiri, biko.",
           "translation": "Welcome, mother. I want water, please.",
-          "audioContext": "Request"
+          "audioContext": "Request",
+          "audioId": ""
         },
         {
           "speaker": "Nne",
           "text": "Nọrọ ebe a. M ga-ewetara gị mmiri.",
           "translation": "Stay here. I will bring you water.",
-          "audioContext": "Offer"
+          "audioContext": "Offer",
+          "audioId": ""
         },
         {
           "speaker": "Obinna",
           "text": "Daalụ nne. Ụlọ a dị mma.",
           "translation": "Thank you, mother. This house is nice.",
-          "audioContext": "Gratitude"
+          "audioContext": "Gratitude",
+          "audioId": ""
         },
         {
           "speaker": "Nne",
           "text": "Ọ dịghị nsogbu. Ị chọrọ nri kwa?",
           "translation": "No problem. Do you want food too?",
-          "audioContext": "Further offer"
+          "audioContext": "Further offer",
+          "audioId": ""
         },
         {
           "speaker": "Obinna",
           "text": "Ee, a chọrọ m nri, ma ọ bụrụ na ọ dị.",
           "translation": "Yes, I want food, if there is.",
-          "audioContext": "Accept"
+          "audioContext": "Accept",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -1325,7 +1349,7 @@
           "pronunciation": "n-ree",
           "example": "Nri a dị ụtọ.",
           "culturalNote": "Food is central to hospitality.",
-          "audioId": "nri"
+          "audioId": ""
         },
         {
           "word": "Ji",
@@ -1333,7 +1357,7 @@
           "pronunciation": "jee",
           "example": "Eri m ji na àkwá.",
           "culturalNote": "Yam is a staple; often eaten with egg or oil.",
-          "audioId": "ji"
+          "audioId": ""
         },
         {
           "word": "Àkwá",
@@ -1341,7 +1365,7 @@
           "pronunciation": "ah-kwah",
           "example": "Ji na àkwá bụ nri ụtụtụ.",
           "culturalNote": "Yam and egg is a popular breakfast.",
-          "audioId": "akwa"
+          "audioId": ""
         },
         {
           "word": "Boli",
@@ -1349,7 +1373,7 @@
           "pronunciation": "boh-lee",
           "example": "Boli na groundnut na-aga ofuma.",
           "culturalNote": "Boli is plantain roasted over charcoal, often with groundnut.",
-          "audioId": "boli"
+          "audioId": ""
         },
         {
           "word": "Suya",
@@ -1357,7 +1381,7 @@
           "pronunciation": "soo-yah",
           "example": "Suya na-ekpo ọkụ, ma ọ dị ụtọ.",
           "culturalNote": "Suya originated from Hausa but is loved across Nigeria.",
-          "audioId": "suya"
+          "audioId": ""
         },
         {
           "word": "Ose",
@@ -1365,7 +1389,7 @@
           "pronunciation": "oh-seh",
           "example": "Tinye ose n'ihe m na-eri.",
           "culturalNote": "Nigerians love pepper; 'small small' means a little.",
-          "audioId": "ose"
+          "audioId": ""
         },
         {
           "word": "Ntụkwasị",
@@ -1373,7 +1397,7 @@
           "pronunciation": "n-too-kwa-see",
           "example": "Biko, ntụkwasị ose.",
           "culturalNote": "Used when asking for extra portion.",
-          "audioId": "ntukwasi"
+          "audioId": ""
         },
         {
           "word": "Obere obere",
@@ -1381,7 +1405,7 @@
           "pronunciation": "oh-beh-reh oh-beh-reh",
           "example": "Nye m obere obere suya.",
           "culturalNote": "Igbo often repeats words for emphasis or 'smallness'.",
-          "audioId": "obere_obere"
+          "audioId": ""
         },
         {
           "word": "Kechie",
@@ -1389,7 +1413,7 @@
           "pronunciation": "keh-chee-eh",
           "example": "Biko, kechie m ya were laa.",
           "culturalNote": "Asking for takeaway.",
-          "audioId": "kechie"
+          "audioId": ""
         },
         {
           "word": "Were laa",
@@ -1397,7 +1421,7 @@
           "pronunciation": "weh-reh lah-ah",
           "example": "A chọrọ m ji were laa.",
           "culturalNote": "Phrase for takeout.",
-          "audioId": "were_laa"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -1426,37 +1450,43 @@
           "speaker": "Onye ahịa (Customer)",
           "text": "Nnọọ. Ị nwere boli taa?",
           "translation": "Hello. Do you have boli today?",
-          "audioContext": "Inquiry"
+          "audioContext": "Inquiry",
+          "audioId": ""
         },
         {
           "speaker": "Onye nri (Food seller)",
           "text": "Ee, enwere m boli ọhụrụ. Ole ka ị chọrọ?",
           "translation": "Yes, I have fresh boli. How many do you want?",
-          "audioContext": "Response"
+          "audioContext": "Response",
+          "audioId": ""
         },
         {
           "speaker": "Onye ahịa",
           "text": "Nye m abụọ, ma tinye ose obere obere.",
           "translation": "Give me two, but add pepper small small.",
-          "audioContext": "Order"
+          "audioContext": "Order",
+          "audioId": ""
         },
         {
           "speaker": "Onye nri",
           "text": "Ọ dị mma. Ị chọrọ kechie were laa?",
           "translation": "Okay. Do you want it wrapped to take away?",
-          "audioContext": "Ask takeaway"
+          "audioContext": "Ask takeaway",
+          "audioId": ""
         },
         {
           "speaker": "Onye ahịa",
           "text": "Ee, kechie m ya. Ego ole?",
           "translation": "Yes, wrap it for me. How much?",
-          "audioContext": "Payment"
+          "audioContext": "Payment",
+          "audioId": ""
         },
         {
           "speaker": "Onye nri",
           "text": "Ọ bụ narị ise. Daalụ!",
           "translation": "It's five hundred. Thank you!",
-          "audioContext": "Price"
+          "audioContext": "Price",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -1598,7 +1628,7 @@
           "pronunciation": "eh-beh-eh",
           "example": "Ahịa dị ebee?",
           "culturalNote": "Question word for location.",
-          "audioId": "ebee"
+          "audioId": ""
         },
         {
           "word": "Ebe a",
@@ -1606,7 +1636,7 @@
           "pronunciation": "eh-beh ah",
           "example": "Bịa ebe a.",
           "culturalNote": "Pointing gesture often accompanies.",
-          "audioId": "ebe_a"
+          "audioId": ""
         },
         {
           "word": "Ebe ahụ",
@@ -1614,7 +1644,7 @@
           "pronunciation": "eh-beh ah-hoo",
           "example": "Ụlọ akwụkwọ dị ebe ahụ.",
           "culturalNote": "Indicates a specific place.",
-          "audioId": "ebe_ahu"
+          "audioId": ""
         },
         {
           "word": "Ụzọ",
@@ -1622,7 +1652,7 @@
           "pronunciation": "oo-zor",
           "example": "Gaa n'ụzọ a.",
           "culturalNote": "Can also mean 'way' or 'method'.",
-          "audioId": "uzo"
+          "audioId": ""
         },
         {
           "word": "N'aka ekpe",
@@ -1630,7 +1660,7 @@
           "pronunciation": "n-ah-kah eh-kpeh",
           "example": "Tụgharịa n'aka ekpe.",
           "culturalNote": "Literal: 'on the left hand'.",
-          "audioId": "n_aka_ekpe"
+          "audioId": ""
         },
         {
           "word": "N'aka nri",
@@ -1638,7 +1668,7 @@
           "pronunciation": "n-ah-kah n-ree",
           "example": "Ụlọ ahụ dị n'aka nri.",
           "culturalNote": "Right-hand side.",
-          "audioId": "n_aka_nri"
+          "audioId": ""
         },
         {
           "word": "Gaa n'ihu",
@@ -1646,7 +1676,7 @@
           "pronunciation": "gah-ah n-ee-hoo",
           "example": "Gaa n'ihu ruo n'okporo ụzọ.",
           "culturalNote": "Continue forward.",
-          "audioId": "gaa_n_ihu"
+          "audioId": ""
         },
         {
           "word": "N'azụ",
@@ -1654,7 +1684,7 @@
           "pronunciation": "n-ah-zoo",
           "example": "Ụgbọala dị n'azụ ụlọ.",
           "culturalNote": "Used for objects/people behind.",
-          "audioId": "n_azu"
+          "audioId": ""
         },
         {
           "word": "N'ihu",
@@ -1662,7 +1692,7 @@
           "pronunciation": "n-ee-hoo",
           "example": "Ọ nọdụrụ n'ihu m.",
           "culturalNote": "Also means 'face'.",
-          "audioId": "n_ihu"
+          "audioId": ""
         },
         {
           "word": "Nso",
@@ -1670,7 +1700,7 @@
           "pronunciation": "n-soh",
           "example": "Ụlọ ahịa dị nso ebe a.",
           "culturalNote": "Close proximity.",
-          "audioId": "nso"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -1699,37 +1729,43 @@
           "speaker": "Onye njem (Traveler)",
           "text": "Biko, ụlọ ahịa dị ebee?",
           "translation": "Please, where is the market?",
-          "audioContext": "Asking directions"
+          "audioContext": "Asking directions",
+          "audioId": ""
         },
         {
           "speaker": "Onye obodo (Local)",
           "text": "Gaa n'ihu, wee tụgharịa n'aka ekpe n'osisi mango.",
           "translation": "Go straight, then turn left at the mango tree.",
-          "audioContext": "Giving directions"
+          "audioContext": "Giving directions",
+          "audioId": ""
         },
         {
           "speaker": "Onye njem",
           "text": "Ọ dị nso ebe a?",
           "translation": "Is it near here?",
-          "audioContext": "Asking distance"
+          "audioContext": "Asking distance",
+          "audioId": ""
         },
         {
           "speaker": "Onye obodo",
           "text": "Ee, ihe dịka nkeji ise ije.",
           "translation": "Yes, about five minutes walk.",
-          "audioContext": "Estimate"
+          "audioContext": "Estimate",
+          "audioId": ""
         },
         {
           "speaker": "Onye njem",
           "text": "Daalụ nke ukwuu!",
           "translation": "Thank you very much!",
-          "audioContext": "Gratitude"
+          "audioContext": "Gratitude",
+          "audioId": ""
         },
         {
           "speaker": "Onye obodo",
           "text": "Ọ dịghị nsogbu. Jee nke ọma.",
           "translation": "No problem. Go well.",
-          "audioContext": "Farewell"
+          "audioContext": "Farewell",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -1870,7 +1906,7 @@
           "pronunciation": "eh-goh oh-leh",
           "example": "Akwa a bụ ego ole?",
           "culturalNote": "Essential market phrase.",
-          "audioId": "ego_ole"
+          "audioId": ""
         },
         {
           "word": "Dị ọnụ",
@@ -1878,7 +1914,7 @@
           "pronunciation": "dee o-nu",
           "example": "Nke a dị ọnụ nnukwu!",
           "culturalNote": "Exclaim when price is too high.",
-          "audioId": "di_onu"
+          "audioId": ""
         },
         {
           "word": "Dị ọnụ ala",
@@ -1886,7 +1922,7 @@
           "pronunciation": "dee o-nu ah-lah",
           "example": "Ọ dị ọnụ ala taa.",
           "culturalNote": "Literally 'price down'.",
-          "audioId": "di_onu_ala"
+          "audioId": ""
         },
         {
           "word": "Belata",
@@ -1894,7 +1930,7 @@
           "pronunciation": "beh-lah-tah",
           "example": "Biko, belata ego.",
           "culturalNote": "Ask to lower price.",
-          "audioId": "belata"
+          "audioId": ""
         },
         {
           "word": "Ọ bụ ngwụcha ego?",
@@ -1902,7 +1938,7 @@
           "pronunciation": "aw boo n-gwoo-chah eh-goh",
           "example": "Ọ bụ ngwụcha ego ị ga-ewe?",
           "culturalNote": "Asking if seller can go lower.",
-          "audioId": "o_bu_ngwucha_ego"
+          "audioId": ""
         },
         {
           "word": "M ga-akwụ",
@@ -1910,7 +1946,7 @@
           "pronunciation": "m gah ah-kwoo",
           "example": "M ga-akwụ narị atọ.",
           "culturalNote": "State your offer.",
-          "audioId": "m_ga_akwu"
+          "audioId": ""
         },
         {
           "word": "Zụta",
@@ -1918,7 +1954,7 @@
           "pronunciation": "zoo-tah",
           "example": "Achọrọ m ịzụta akwa.",
           "culturalNote": "Verb for purchasing.",
-          "audioId": "zuta"
+          "audioId": ""
         },
         {
           "word": "Ree",
@@ -1926,7 +1962,7 @@
           "pronunciation": "reh-eh",
           "example": "Ị na-ere ji?",
           "culturalNote": "Common verb for selling.",
-          "audioId": "ree"
+          "audioId": ""
         },
         {
           "word": "Nara",
@@ -1934,7 +1970,7 @@
           "pronunciation": "nah-rah",
           "example": "Nara narị anọ.",
           "culturalNote": "Used when seller accepts offer.",
-          "audioId": "nara"
+          "audioId": ""
         },
         {
           "word": "Ọfọn",
@@ -1942,7 +1978,7 @@
           "pronunciation": "aw-fohn",
           "example": "Tinye m ọfọn.",
           "culturalNote": "Asking for an extra item or discount.",
-          "audioId": "ofon"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -1972,43 +2008,50 @@
           "speaker": "Onye ahịa (Customer)",
           "text": "Nnọọ, nwanne. Akwa a bụ ego ole?",
           "translation": "Hello, my friend. How much is this cloth?",
-          "audioContext": "Asking price"
+          "audioContext": "Asking price",
+          "audioId": ""
         },
         {
           "speaker": "Onye ere (Seller)",
           "text": "Nke a bụ puku ise.",
           "translation": "This is five thousand.",
-          "audioContext": "Initial price"
+          "audioContext": "Initial price",
+          "audioId": ""
         },
         {
           "speaker": "Onye ahịa",
           "text": "Puku ise! Ọ dị ọnụ! Belata m ego.",
           "translation": "Five thousand! It's expensive! Reduce it for me.",
-          "audioContext": "Exclaim expensive"
+          "audioContext": "Exclaim expensive",
+          "audioId": ""
         },
         {
           "speaker": "Onye ere",
           "text": "Ọ dị mma, puku anọ ka m ga-ewe.",
           "translation": "Okay, I will take four thousand.",
-          "audioContext": "First reduction"
+          "audioContext": "First reduction",
+          "audioId": ""
         },
         {
           "speaker": "Onye ahịa",
           "text": "M ga-akwụ puku atọ, ọ bụ ngwụcha ego?",
           "translation": "I will pay three thousand, is that the last price?",
-          "audioContext": "Counter offer"
+          "audioContext": "Counter offer",
+          "audioId": ""
         },
         {
           "speaker": "Onye ere",
           "text": "Nara puku atọ na narị ise. Ọ bụ ngwụcha.",
           "translation": "Take three thousand five hundred. It's final.",
-          "audioContext": "Final price"
+          "audioContext": "Final price",
+          "audioId": ""
         },
         {
           "speaker": "Onye ahịa",
           "text": "Ee, nara m. Daalụ!",
           "translation": "Yes, I accept. Thank you!",
-          "audioContext": "Agreement"
+          "audioContext": "Agreement",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -2150,7 +2193,7 @@
           "pronunciation": "aw boo oh-geh",
           "example": "Ọ bụ oge m ga-ala.",
           "culturalNote": "Polite way to announce departure.",
-          "audioId": "o_bu_oge"
+          "audioId": ""
         },
         {
           "word": "M ga-ala",
@@ -2158,7 +2201,7 @@
           "pronunciation": "m gah ah-lah",
           "example": "M ga-ala ugbu a.",
           "culturalNote": "Simple statement of departure.",
-          "audioId": "m_ga_ala"
+          "audioId": ""
         },
         {
           "word": "Anọ m ọrụ",
@@ -2166,7 +2209,7 @@
           "pronunciation": "ah-noh m or-roo",
           "example": "Anọ m ọrụ, enweghị m oge.",
           "culturalNote": "Excuse to leave or decline.",
-          "audioId": "ano_m_oru"
+          "audioId": ""
         },
         {
           "word": "Echi",
@@ -2174,7 +2217,7 @@
           "pronunciation": "eh-chee",
           "example": "Anyị ga-ahụ echi?",
           "culturalNote": "Often used in parting.",
-          "audioId": "echi"
+          "audioId": ""
         },
         {
           "word": "Ka emechaa",
@@ -2182,7 +2225,7 @@
           "pronunciation": "ka eh-meh-chah-ah",
           "example": "Ka emechaa, enyi m.",
           "culturalNote": "Casual future meeting.",
-          "audioId": "ka_emechaa"
+          "audioId": ""
         },
         {
           "word": "M ga-ezitere gị",
@@ -2190,7 +2233,7 @@
           "pronunciation": "m gah eh-zee-teh-reh gee",
           "example": "M ga-ezitere gị ozi.",
           "culturalNote": "Promise to message or call.",
-          "audioId": "m_ga_ezitere_gi"
+          "audioId": ""
         },
         {
           "word": "Chekwa",
@@ -2198,7 +2241,7 @@
           "pronunciation": "cheh-kwah",
           "example": "Chekwa onwe gị!",
           "culturalNote": "Wishing someone safety.",
-          "audioId": "chekwa"
+          "audioId": ""
         },
         {
           "word": "Gaa nke ọma",
@@ -2206,7 +2249,7 @@
           "pronunciation": "gah-ah n-keh or-mah",
           "example": "Gaa nke ọma, nwanne m.",
           "culturalNote": "Blessing upon departure.",
-          "audioId": "gaa_nke_oma"
+          "audioId": ""
         },
         {
           "word": "Ọ bụ echi",
@@ -2214,7 +2257,7 @@
           "pronunciation": "aw boo eh-chee",
           "example": "Ọ bụ echi ka anyị ga-ahụ.",
           "culturalNote": "Used when plans are set.",
-          "audioId": "o_bu_echi"
+          "audioId": ""
         },
         {
           "word": "Nọrọ nke ọma",
@@ -2222,7 +2265,7 @@
           "pronunciation": "noh-roh n-keh or-mah",
           "example": "Nọrọ nke ọma, anyị ga-ahụ echi.",
           "culturalNote": "Said to those staying behind.",
-          "audioId": "noro_nke_oma"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -2252,31 +2295,36 @@
           "speaker": "Ezinne",
           "text": "Nwanne m, ọ na-akụ m anya? Ọ bụ oge m ga-ala.",
           "translation": "My friend, is it getting late? It's time for me to leave.",
-          "audioContext": "Noticing time"
+          "audioContext": "Noticing time",
+          "audioId": ""
         },
         {
           "speaker": "Uche",
           "text": "Ọ ga-ala ugbu a? Nọrọ obere oge!",
           "translation": "Are you leaving now? Stay a little while!",
-          "audioContext": "Urging to stay"
+          "audioContext": "Urging to stay",
+          "audioId": ""
         },
         {
           "speaker": "Ezinne",
           "text": "Ọ dịghị m aka. Anọ m ọrụ n'ezie. M ga-ezitere gị ozi.",
           "translation": "I can't. I'm really busy. I will send you a message.",
-          "audioContext": "Politely declining"
+          "audioContext": "Politely declining",
+          "audioId": ""
         },
         {
           "speaker": "Uche",
           "text": "Ọ dị mma. Gaa nke ọma, Ezinne. Ka emechaa.",
           "translation": "Okay. Go well, Ezinne. See you later.",
-          "audioContext": "Acceptance"
+          "audioContext": "Acceptance",
+          "audioId": ""
         },
         {
           "speaker": "Ezinne",
           "text": "Nọrọ nke ọma. Anyị ga-ahụ echi.",
           "translation": "Stay well. We'll see tomorrow.",
-          "audioContext": "Farewell"
+          "audioContext": "Farewell",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -2580,7 +2628,7 @@
           "pronunciation": "oo-loh",
           "example": "Ụlọ anyị dị na Enugu.",
           "culturalNote": "The family home is central in Igbo culture.",
-          "audioId": "ulo"
+          "audioId": ""
         },
         {
           "word": "Veranda",
@@ -2588,7 +2636,7 @@
           "pronunciation": "veh-rahn-dah",
           "example": "Anyị na-anọdụ na veranda na mgbede.",
           "culturalNote": "Verandahs are common spaces for relaxation and receiving guests.",
-          "audioId": "veranda"
+          "audioId": ""
         },
         {
           "word": "Parlọ",
@@ -2596,7 +2644,7 @@
           "pronunciation": "pahr-loh",
           "example": "Bata n'ime parlọ, biko.",
           "culturalNote": "The parlour is where formal guests are received.",
-          "audioId": "parlo"
+          "audioId": ""
         },
         {
           "word": "Ime ụlọ",
@@ -2604,7 +2652,7 @@
           "pronunciation": "ee-meh oo-loh",
           "example": "Ime ụlọ m dị n'azụ.",
           "culturalNote": "Literally 'inside house'.",
-          "audioId": "ime_ulo"
+          "audioId": ""
         },
         {
           "word": "Kichin",
@@ -2612,7 +2660,7 @@
           "pronunciation": "kee-chin",
           "example": "Nne m nọ na kichin.",
           "culturalNote": "Borrowed from English, commonly used.",
-          "audioId": "kichin"
+          "audioId": ""
         },
         {
           "word": "Ketulu",
@@ -2620,7 +2668,7 @@
           "pronunciation": "keh-too-loo",
           "example": "Biko, gaa weta ketulu.",
           "culturalNote": "Electric kettle for boiling water for tea or instant drinks.",
-          "audioId": "ketulu"
+          "audioId": ""
         },
         {
           "word": "Efere",
@@ -2628,7 +2676,7 @@
           "pronunciation": "eh-feh-reh",
           "example": "Weta efere maka nri.",
           "culturalNote": "Traditional wooden plates are still used in villages.",
-          "audioId": "efere"
+          "audioId": ""
         },
         {
           "word": "Iko",
@@ -2636,7 +2684,7 @@
           "pronunciation": "ee-koh",
           "example": "Nye m iko mmiri.",
           "culturalNote": "Used for both cup and drinking glass.",
-          "audioId": "iko"
+          "audioId": ""
         },
         {
           "word": "Oche",
@@ -2644,7 +2692,7 @@
           "pronunciation": "oh-cheh",
           "example": "Nọdụ ala n'oche.",
           "culturalNote": "Offering a chair to a visitor is mandatory.",
-          "audioId": "oche"
+          "audioId": ""
         },
         {
           "word": "Tebụl",
@@ -2652,7 +2700,7 @@
           "pronunciation": "teh-bool",
           "example": "Tinye nri na tebụl.",
           "culturalNote": "Borrowed from English 'table'.",
-          "audioId": "tebul"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -2682,37 +2730,43 @@
           "speaker": "Nne",
           "text": "Ada, ị nọ ebee?",
           "translation": "Ada, where are you?",
-          "audioContext": "Calling"
+          "audioContext": "Calling",
+          "audioId": ""
         },
         {
           "speaker": "Ada",
           "text": "Anọ m na parlọ, nne.",
           "translation": "I am in the parlour, mother.",
-          "audioContext": "Response"
+          "audioContext": "Response",
+          "audioId": ""
         },
         {
           "speaker": "Nne",
           "text": "Biko, gaa weta ketulu na kichin.",
           "translation": "Please, go and bring the kettle from the kitchen.",
-          "audioContext": "Command"
+          "audioContext": "Command",
+          "audioId": ""
         },
         {
           "speaker": "Ada",
           "text": "Ọ dị mma. Ebee ka ketulu dị?",
           "translation": "Okay. Where is the kettle?",
-          "audioContext": "Asking location"
+          "audioContext": "Asking location",
+          "audioId": ""
         },
         {
           "speaker": "Nne",
           "text": "Ọ dị n'ime tebụl.",
           "translation": "It is on the table.",
-          "audioContext": "Specifying"
+          "audioContext": "Specifying",
+          "audioId": ""
         },
         {
           "speaker": "Ada",
           "text": "Ahụrụ m ya. M ga-eweta ya ugbu a.",
           "translation": "I see it. I will bring it now.",
-          "audioContext": "Confirmation"
+          "audioContext": "Confirmation",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -2854,7 +2908,7 @@
           "pronunciation": "n-nah",
           "example": "Nna m bụ onye nkụzi.",
           "culturalNote": "Also used as a respectful term for elder men.",
-          "audioId": "nna"
+          "audioId": ""
         },
         {
           "word": "Nne",
@@ -2862,7 +2916,7 @@
           "pronunciation": "n-neh",
           "example": "Nne m na-esi nri.",
           "culturalNote": "Also a title of respect for women.",
-          "audioId": "nne"
+          "audioId": ""
         },
         {
           "word": "Nwanne nwoke",
@@ -2870,7 +2924,7 @@
           "pronunciation": "n-wah-neh n-wo-keh",
           "example": "Nwanne m nwoke bụ Emeka.",
           "culturalNote": "Literally 'sibling male'.",
-          "audioId": "nwanne_nwoke"
+          "audioId": ""
         },
         {
           "word": "Nwanne nwanyị",
@@ -2878,7 +2932,7 @@
           "pronunciation": "n-wah-neh n-wah-nyee",
           "example": "Ada bụ nwanne m nwanyị.",
           "culturalNote": "Literally 'sibling female'.",
-          "audioId": "nwanne_nwanyi"
+          "audioId": ""
         },
         {
           "word": "Nne nna",
@@ -2886,7 +2940,7 @@
           "pronunciation": "n-neh n-nah",
           "example": "Nne nna m dị iri itoolu.",
           "culturalNote": "Literally 'mother of father'.",
-          "audioId": "nne_nna"
+          "audioId": ""
         },
         {
           "word": "Nna nna",
@@ -2894,7 +2948,7 @@
           "pronunciation": "n-nah n-nah",
           "example": "Nna nna m bụ onye ọrụ ugbo.",
           "culturalNote": "Literally 'father of father'.",
-          "audioId": "nna_nna"
+          "audioId": ""
         },
         {
           "word": "Nne nne",
@@ -2902,7 +2956,7 @@
           "pronunciation": "n-neh n-neh",
           "example": "Nne nne m bi n'Obosi.",
           "culturalNote": "Literally 'mother of mother'.",
-          "audioId": "nne_nne"
+          "audioId": ""
         },
         {
           "word": "Nna nne",
@@ -2910,7 +2964,7 @@
           "pronunciation": "n-nah n-neh",
           "example": "Nna nne m nwụrụ anwụ.",
           "culturalNote": "Literally 'father of mother'.",
-          "audioId": "nna_nne"
+          "audioId": ""
         },
         {
           "word": "Nwanne nna",
@@ -2918,7 +2972,7 @@
           "pronunciation": "n-wah-neh n-nah",
           "example": "Nwanne nna m bụ dọkịta.",
           "culturalNote": "Gender context determines; often specified as nwoke/nwanyị.",
-          "audioId": "nwanne_nna"
+          "audioId": ""
         },
         {
           "word": "Nwanne nne",
@@ -2926,7 +2980,7 @@
           "pronunciation": "n-wah-neh n-neh",
           "example": "Nwanne nne m si n'Ọstịrịa lọta.",
           "culturalNote": "Similarly gender-specified.",
-          "audioId": "nwanne_nne"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -2957,25 +3011,29 @@
           "speaker": "Chidi",
           "text": "Onye bụ nwoke ahụ na-akpọ gị nwanne?",
           "translation": "Who is that man calling you sibling?",
-          "audioContext": "Asking about relation"
+          "audioContext": "Asking about relation",
+          "audioId": ""
         },
         {
           "speaker": "Ifeanyi",
           "text": "Ọ bụ nwanne nna m. Ọ si n'Enugwu Ukwu.",
           "translation": "He is my father's brother. He is from Enugwu Ukwu.",
-          "audioContext": "Explanation"
+          "audioContext": "Explanation",
+          "audioId": ""
         },
         {
           "speaker": "Chidi",
           "text": "Ọ bụ nwanne nna gị. Ị nwere nwanne nne kwa?",
           "translation": "He is your paternal uncle. Do you have a maternal aunt/uncle too?",
-          "audioContext": "Follow-up"
+          "audioContext": "Follow-up",
+          "audioId": ""
         },
         {
           "speaker": "Ifeanyi",
           "text": "Ee, nwanne nne m bụ nwanyị. Ọ bi n'Ọnịcha.",
           "translation": "Yes, my mother's sibling is female. She lives in Onitsha.",
-          "audioContext": "Clarifying"
+          "audioContext": "Clarifying",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -3117,7 +3175,7 @@
           "pronunciation": "ee-see",
           "example": "Isi m na-awụ.",
           "culturalNote": "Literal: 'My head is spinning' – means dizzy or headache.",
-          "audioId": "isi"
+          "audioId": ""
         },
         {
           "word": "Anya",
@@ -3125,7 +3183,7 @@
           "pronunciation": "ah-nyah",
           "example": "Anya m na-afụ ụfụ.",
           "culturalNote": "Eye pain is common during Harmattan.",
-          "audioId": "anya"
+          "audioId": ""
         },
         {
           "word": "Ọnụ",
@@ -3133,7 +3191,7 @@
           "pronunciation": "or-noo",
           "example": "Meghee ọnụ gị.",
           "culturalNote": "Dentists or doctors say this.",
-          "audioId": "onu"
+          "audioId": ""
         },
         {
           "word": "Ahụ",
@@ -3141,7 +3199,7 @@
           "pronunciation": "ah-hoo",
           "example": "Ahụ ọkụ na-agba m.",
           "culturalNote": "I have a fever (body is hot).",
-          "audioId": "ahu"
+          "audioId": ""
         },
         {
           "word": "Aka",
@@ -3149,7 +3207,7 @@
           "pronunciation": "ah-kah",
           "example": "Aka m na-egbu m mgbu.",
           "culturalNote": "Can refer to entire arm or hand.",
-          "audioId": "aka"
+          "audioId": ""
         },
         {
           "word": "Ụkwụ",
@@ -3157,7 +3215,7 @@
           "pronunciation": "oo-kwoo",
           "example": "Ụkwụ m zọrọ ajọ.",
           "culturalNote": "My leg is injured / sprained.",
-          "audioId": "ukwu"
+          "audioId": ""
         },
         {
           "word": "Afọ",
@@ -3165,7 +3223,7 @@
           "pronunciation": "ah-foh",
           "example": "Afọ na-agwọ m.",
           "culturalNote": "I have stomach ache.",
-          "audioId": "afo"
+          "audioId": ""
         },
         {
           "word": "Ọbara",
@@ -3173,7 +3231,7 @@
           "pronunciation": "or-bah-rah",
           "example": "Ọbara na-esi n'imi m apụta.",
           "culturalNote": "Nosebleed.",
-          "audioId": "obara"
+          "audioId": ""
         },
         {
           "word": "Ọkpụkpụ",
@@ -3181,7 +3239,7 @@
           "pronunciation": "or-kpoo-kpoo",
           "example": "Ọkpụkpụ m gbajiri.",
           "culturalNote": "My bone is broken.",
-          "audioId": "okpukpu"
+          "audioId": ""
         },
         {
           "word": "Ọrịa",
@@ -3189,7 +3247,7 @@
           "pronunciation": "or-ree-ah",
           "example": "Ọrịa na-efe efe.",
           "culturalNote": "Contagious disease.",
-          "audioId": "oria"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -3219,31 +3277,36 @@
           "speaker": "Onye Ọrịa (Patient)",
           "text": "Dọkịta, isi m na-awụ. Ahụ ọkụ na-agba m.",
           "translation": "Doctor, my head is spinning. I have a fever.",
-          "audioContext": "Describing symptoms"
+          "audioContext": "Describing symptoms",
+          "audioId": ""
         },
         {
           "speaker": "Dọkịta (Doctor)",
           "text": "Meghee ọnụ gị, ka m hụ. Ọ na-afụ gị ụfụ ebe a?",
           "translation": "Open your mouth, let me see. Does it hurt here?",
-          "audioContext": "Examination"
+          "audioContext": "Examination",
+          "audioId": ""
         },
         {
           "speaker": "Onye Ọrịa",
           "text": "Ee, ọ na-afụ m ụfụ mgbe m na-elo ilo.",
           "translation": "Yes, it hurts when I swallow.",
-          "audioContext": "Specific pain"
+          "audioContext": "Specific pain",
+          "audioId": ""
         },
         {
           "speaker": "Dọkịta",
           "text": "Ọ bụ ọrịa akpịrị. Ị ga-aṅụ ọgwụ.",
           "translation": "It's tonsillitis. You will take medicine.",
-          "audioContext": "Diagnosis"
+          "audioContext": "Diagnosis",
+          "audioId": ""
         },
         {
           "speaker": "Onye Ọrịa",
           "text": "Daalụ, dọkịta. M ga-eme ihe ị gwara m.",
           "translation": "Thank you, doctor. I will do what you told me.",
-          "audioContext": "Compliance"
+          "audioContext": "Compliance",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -3385,7 +3448,7 @@
           "pronunciation": "ah-chah",
           "example": "Àcha ọ bụla dị mma.",
           "culturalNote": "General term for colour.",
-          "audioId": "acha"
+          "audioId": ""
         },
         {
           "word": "Oji",
@@ -3393,7 +3456,7 @@
           "pronunciation": "oh-jee",
           "example": "Ọ na-eyi uwe ojii.",
           "culturalNote": "Associated with mourning, but also formal wear.",
-          "audioId": "oji"
+          "audioId": ""
         },
         {
           "word": "Ọcha",
@@ -3401,7 +3464,7 @@
           "pronunciation": "or-chah",
           "example": "Akwụkwọ ọcha.",
           "culturalNote": "Symbolizes purity; worn at weddings and title-taking.",
-          "audioId": "ocha"
+          "audioId": ""
         },
         {
           "word": "Uhie",
@@ -3409,7 +3472,7 @@
           "pronunciation": "oo-hee-eh",
           "example": "Ankara uhie mara mma.",
           "culturalNote": "Associated with chieftaincy, blood, and festivals.",
-          "audioId": "uhie"
+          "audioId": ""
         },
         {
           "word": "Akwụkwọ ndụ",
@@ -3417,7 +3480,7 @@
           "pronunciation": "ah-kwoo-kwoh n-doo",
           "example": "Uwe akwụkwọ ndụ.",
           "culturalNote": "Symbolizes agriculture, nature, and wealth.",
-          "audioId": "akwukwo_ndu"
+          "audioId": ""
         },
         {
           "word": "Anụnụ",
@@ -3425,7 +3488,7 @@
           "pronunciation": "ah-noo-noo",
           "example": "Ọ na-eyi uwe anụnụ anụnụ.",
           "culturalNote": "Represents peace and harmony.",
-          "audioId": "anunu"
+          "audioId": ""
         },
         {
           "word": "Odo",
@@ -3433,7 +3496,7 @@
           "pronunciation": "oh-doh",
           "example": "Ọcha na odo na-agbako.",
           "culturalNote": "Associated with royalty and prosperity.",
-          "audioId": "odo"
+          "audioId": ""
         },
         {
           "word": "Ankara",
@@ -3441,7 +3504,7 @@
           "pronunciation": "ahn-kah-rah",
           "example": "Ọ kpara Ankara mara mma.",
           "culturalNote": "Vibrant printed fabric, worn for celebrations.",
-          "audioId": "ankara"
+          "audioId": ""
         },
         {
           "word": "George",
@@ -3449,7 +3512,7 @@
           "pronunciation": "jorj",
           "example": "Nne m yi George n'emume.",
           "culturalNote": "Expensive, heavy brocade fabric; status symbol.",
-          "audioId": "george"
+          "audioId": ""
         },
         {
           "word": "Yiri",
@@ -3457,7 +3520,7 @@
           "pronunciation": "yee-ree",
           "example": "A na-eyi m uwe ọhụrụ taa.",
           "culturalNote": "Verb for wearing clothes.",
-          "audioId": "yiri"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -3487,25 +3550,29 @@
           "speaker": "Ngozi",
           "text": "Uwe gị mara mma taa! Àcha ole ka ọ bụ?",
           "translation": "Your outfit is beautiful today! What colour is it?",
-          "audioContext": "Compliment"
+          "audioContext": "Compliment",
+          "audioId": ""
         },
         {
           "speaker": "Adanna",
           "text": "Daalụ. Ọ bụ anụnụ anụnụ. Ankara m hụrụ n'ahịa.",
           "translation": "Thank you. It is blue. I bought the Ankara at the market.",
-          "audioContext": "Response"
+          "audioContext": "Response",
+          "audioId": ""
         },
         {
           "speaker": "Ngozi",
           "text": "Ọ na-amasị m. Ị ga-eyi ya gaa agbamakwụkwọ?",
           "translation": "I like it. Will you wear it to the wedding?",
-          "audioContext": "Follow-up"
+          "audioContext": "Follow-up",
+          "audioId": ""
         },
         {
           "speaker": "Adanna",
           "text": "Ee, mana aga m etinyekwa George n'úkwù.",
           "translation": "Yes, but I will also add a George wrapper on my waist.",
-          "audioContext": "Accessorizing"
+          "audioContext": "Accessorizing",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -3647,7 +3714,7 @@
           "pronunciation": "sah ah-hoo",
           "example": "A sara m ahụ ụtụtụ a.",
           "culturalNote": "Bathing is done at least twice daily in Nigeria.",
-          "audioId": "sa_ahu"
+          "audioId": ""
         },
         {
           "word": "Ri nri",
@@ -3655,7 +3722,7 @@
           "pronunciation": "ree n-ree",
           "example": "A riri m ji na àkwá.",
           "culturalNote": "Breakfast often includes leftovers from previous night.",
-          "audioId": "ri_nri"
+          "audioId": ""
         },
         {
           "word": "ṅụọ mmiri",
@@ -3663,7 +3730,7 @@
           "pronunciation": "ngoo-oh m-mee-ree",
           "example": "A ṅụrụ m mmiri ọkụ.",
           "culturalNote": "Many prefer warm water in the morning.",
-          "audioId": "nuo_mmiri"
+          "audioId": ""
         },
         {
           "word": "Yiri uwe",
@@ -3671,7 +3738,7 @@
           "pronunciation": "yee-ree oo-weh",
           "example": "A yiri m uwe ọrụ.",
           "culturalNote": "Work clothes or school uniform.",
-          "audioId": "yiri_uwe"
+          "audioId": ""
         },
         {
           "word": "Pụọ",
@@ -3679,7 +3746,7 @@
           "pronunciation": "poo-oh",
           "example": "A pụrụ m n'ụlọ n'elekere asaa.",
           "culturalNote": "Leaving home to go to work or school.",
-          "audioId": "puo"
+          "audioId": ""
         },
         {
           "word": "Kpọọ",
@@ -3687,7 +3754,7 @@
           "pronunciation": "kpo-oh",
           "example": "A kpọrọ m akwụkwọ ụtụtụ.",
           "culturalNote": "Morning devotion includes reading the Bible or Quran.",
-          "audioId": "kpoo"
+          "audioId": ""
         },
         {
           "word": "Fụọ",
@@ -3695,7 +3762,7 @@
           "pronunciation": "foo-oh",
           "example": "A fụrụ m ezé m.",
           "culturalNote": "Use chewing stick (ọsa) traditionally.",
-          "audioId": "fuo"
+          "audioId": ""
         },
         {
           "word": "Kwaa",
@@ -3703,7 +3770,7 @@
           "pronunciation": "kwah-ah",
           "example": "A kwara m ụlọ.",
           "culturalNote": "Sweeping the compound is often a child's chore.",
-          "audioId": "kwaa"
+          "audioId": ""
         },
         {
           "word": "Gaa",
@@ -3711,7 +3778,7 @@
           "pronunciation": "gah-ah",
           "example": "A gara m ụlọ akwụkwọ.",
           "culturalNote": "Past tense of 'gaa' is 'gara'.",
-          "audioId": "gaa"
+          "audioId": ""
         },
         {
           "word": "Lata",
@@ -3719,7 +3786,7 @@
           "pronunciation": "lah-tah",
           "example": "A latara m n'ehihie.",
           "culturalNote": "Return home in the afternoon.",
-          "audioId": "lata"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -3749,31 +3816,36 @@
           "speaker": "Nne",
           "text": "Gịnị ka ị mere ụtụtụ a?",
           "translation": "What did you do this morning?",
-          "audioContext": "Asking routine"
+          "audioContext": "Asking routine",
+          "audioId": ""
         },
         {
           "speaker": "Nwa",
           "text": "A fụrụ m ezé m, sara m ahụ, riri m nri.",
           "translation": "I brushed my teeth, bathed, ate.",
-          "audioContext": "Listing"
+          "audioContext": "Listing",
+          "audioId": ""
         },
         {
           "speaker": "Nne",
           "text": "Ị kpara ụlọ kwa?",
           "translation": "Did you also sweep the house?",
-          "audioContext": "Chore check"
+          "audioContext": "Chore check",
+          "audioId": ""
         },
         {
           "speaker": "Nwa",
           "text": "Ee, a kwara m ụlọ. A pụrụ m n'elekere asatọ.",
           "translation": "Yes, I swept the house. I left at 8 o'clock.",
-          "audioContext": "Complete"
+          "audioContext": "Complete",
+          "audioId": ""
         },
         {
           "speaker": "Nne",
           "text": "Ọ dị mma. Jee nke ọma!",
           "translation": "Okay. Go well!",
-          "audioContext": "Blessing"
+          "audioContext": "Blessing",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -3915,7 +3987,7 @@
           "pronunciation": "or-koo",
           "example": "Ọkụ apụọla!",
           "culturalNote": "Common exclamation when power goes out.",
-          "audioId": "oku"
+          "audioId": ""
         },
         {
           "word": "Apụọ",
@@ -3923,7 +3995,7 @@
           "pronunciation": "ah-poo-oh",
           "example": "Ọkụ apụọla ọzọ.",
           "culturalNote": "Frequent lament in Nigeria.",
-          "audioId": "apuo"
+          "audioId": ""
         },
         {
           "word": "Mkpụrụ",
@@ -3931,7 +4003,7 @@
           "pronunciation": "m-kpoo-roo",
           "example": "Gbanye mkpụrụ, biko.",
           "culturalNote": "'Mkpụrụ' short for 'mkpụrụ ọkụ' (power plant).",
-          "audioId": "mkpuru"
+          "audioId": ""
         },
         {
           "word": "Gbanye",
@@ -3939,7 +4011,7 @@
           "pronunciation": "gbah-nyeh",
           "example": "Gbanye igwe oyoyo.",
           "culturalNote": "Verb for starting generator or engine.",
-          "audioId": "gbanye"
+          "audioId": ""
         },
         {
           "word": "Okada",
@@ -3947,7 +4019,7 @@
           "pronunciation": "oh-kah-dah",
           "example": "M ga-abata okada.",
           "culturalNote": "Borrowed from 'Okada Air', now generic for bike taxi.",
-          "audioId": "okada"
+          "audioId": ""
         },
         {
           "word": "Kwụsị ebe a",
@@ -3955,7 +4027,7 @@
           "pronunciation": "kwoo-see eh-beh ah",
           "example": "Kwụsị ebe a, biko.",
           "culturalNote": "Told to okada driver or taxi.",
-          "audioId": "kwusi_ebe_a"
+          "audioId": ""
         },
         {
           "word": "Ego mgbanwe",
@@ -3963,7 +4035,7 @@
           "pronunciation": "eh-goh m-gbah-nweh",
           "example": "Jide ego mgbanwe gị.",
           "culturalNote": "Often said by vendors when no change is available.",
-          "audioId": "ego_mgbanwe"
+          "audioId": ""
         },
         {
           "word": "Jide",
@@ -3971,7 +4043,7 @@
           "pronunciation": "jee-deh",
           "example": "Jide ego mgbanwe gị.",
           "culturalNote": "Means 'keep your change' (tip).",
-          "audioId": "jide"
+          "audioId": ""
         },
         {
           "word": "Ụgbọ ala",
@@ -3979,7 +4051,7 @@
           "pronunciation": "oo-gboh ah-lah",
           "example": "Ụgbọ ala adịghị ọsọ.",
           "culturalNote": "General term for car.",
-          "audioId": "ugbo_ala"
+          "audioId": ""
         },
         {
           "word": "Njem",
@@ -3987,7 +4059,7 @@
           "pronunciation": "n-jem",
           "example": "Njem ọma!",
           "culturalNote": "Wish for a good trip.",
-          "audioId": "njem"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -4017,43 +4089,50 @@
           "speaker": "Onye njem (Passenger)",
           "text": "Okada! Okada!",
           "translation": "Okada! Okada!",
-          "audioContext": "Hailing"
+          "audioContext": "Hailing",
+          "audioId": ""
         },
         {
           "speaker": "Ọkwọ okada (Rider)",
           "text": "Ebee ka ị na-aga?",
           "translation": "Where are you going?",
-          "audioContext": "Asking destination"
+          "audioContext": "Asking destination",
+          "audioId": ""
         },
         {
           "speaker": "Onye njem",
           "text": "Gaa ahịa. Ego ole?",
           "translation": "To the market. How much?",
-          "audioContext": "Price negotiation"
+          "audioContext": "Price negotiation",
+          "audioId": ""
         },
         {
           "speaker": "Ọkwọ okada",
           "text": "Narị ise.",
           "translation": "Five hundred.",
-          "audioContext": "Initial price"
+          "audioContext": "Initial price",
+          "audioId": ""
         },
         {
           "speaker": "Onye njem",
           "text": "Narị atọ. Ọ bụ ngwụcha?",
           "translation": "Three hundred. Is it final?",
-          "audioContext": "Haggling"
+          "audioContext": "Haggling",
+          "audioId": ""
         },
         {
           "speaker": "Ọkwọ okada",
           "text": "Ọ dị mma, bata. Kwụsị ebe a?",
           "translation": "Okay, get on. Stop here?",
-          "audioContext": "Agreement"
+          "audioContext": "Agreement",
+          "audioId": ""
         },
         {
           "speaker": "Onye njem",
           "text": "Ee, kwụsị ebe a. Jide ego mgbanwe.",
           "translation": "Yes, stop here. Keep the change.",
-          "audioContext": "Arrival and tip"
+          "audioContext": "Arrival and tip",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -4195,7 +4274,7 @@
           "pronunciation": "or-roo",
           "example": "Gịnị bụ ọrụ gị?",
           "culturalNote": "Common question when meeting new people.",
-          "audioId": "oru"
+          "audioId": ""
         },
         {
           "word": "Onye ahịa",
@@ -4203,7 +4282,7 @@
           "pronunciation": "aw-nyeh ah-hee-ah",
           "example": "Ọ bụ onye ahịa akwa.",
           "culturalNote": "Many Nigerians are involved in trading.",
-          "audioId": "onye_ahia"
+          "audioId": ""
         },
         {
           "word": "Onye nkụzi",
@@ -4211,7 +4290,7 @@
           "pronunciation": "aw-nyeh n-koo-zee",
           "example": "Nne m bụ onye nkụzi.",
           "culturalNote": "Respected profession.",
-          "audioId": "onye_nkuzi"
+          "audioId": ""
         },
         {
           "word": "Dọkịta",
@@ -4219,7 +4298,7 @@
           "pronunciation": "dor-kee-tah",
           "example": "Ọ chọrọ ịbụ dọkịta.",
           "culturalNote": "Borrowed from English.",
-          "audioId": "dokita"
+          "audioId": ""
         },
         {
           "word": "Ọkwọ ụgbọ ala",
@@ -4227,7 +4306,7 @@
           "pronunciation": "or-kwoh oo-gboh ah-lah",
           "example": "Ọ bụ ọkwọ ụgbọ ala.",
           "culturalNote": "Can refer to taxi, bus, or private driver.",
-          "audioId": "okwo_ugbo_ala"
+          "audioId": ""
         },
         {
           "word": "Onye ọrụ ugbo",
@@ -4235,7 +4314,7 @@
           "pronunciation": "aw-nyeh or-roo oo-gboh",
           "example": "Nna nna m bụ onye ọrụ ugbo.",
           "culturalNote": "Farming is the backbone of traditional Igbo economy.",
-          "audioId": "onye_oru_ugbo"
+          "audioId": ""
         },
         {
           "word": "Onye nwe ụlọ",
@@ -4243,7 +4322,7 @@
           "pronunciation": "aw-nyeh n-weh oo-loh",
           "example": "Ọ bụ onye nwe ụlọ n'obodo.",
           "culturalNote": "Wealth is often measured by property ownership.",
-          "audioId": "onye_nwe_ulo"
+          "audioId": ""
         },
         {
           "word": "Onye ọrụ ụlọ ọrụ",
@@ -4251,7 +4330,7 @@
           "pronunciation": "aw-nyeh or-roo oo-loh or-roo",
           "example": "Ọ rụrụ ọrụ n'ụlọ ọrụ.",
           "culturalNote": "Formal employment.",
-          "audioId": "onye_oru_ulo_oru"
+          "audioId": ""
         },
         {
           "word": "Onye ọrụ aka",
@@ -4259,7 +4338,7 @@
           "pronunciation": "aw-nyeh or-roo ah-kah",
           "example": "Ọ bụ onye ọrụ aka.",
           "culturalNote": "Includes tailors, carpenters, mechanics.",
-          "audioId": "onye_oru_aka"
+          "audioId": ""
         },
         {
           "word": "Nwa akwụkwọ",
@@ -4267,7 +4346,7 @@
           "pronunciation": "n-wah ah-kwoo-kwoh",
           "example": "A bụ m nwa akwụkwọ.",
           "culturalNote": "Literally 'child of book'.",
-          "audioId": "nwa_akwukwo"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -4296,31 +4375,36 @@
           "speaker": "Obi",
           "text": "Nwanne, gịnị bụ ọrụ gị?",
           "translation": "My friend, what is your job?",
-          "audioContext": "Asking occupation"
+          "audioContext": "Asking occupation",
+          "audioId": ""
         },
         {
           "speaker": "Nkechi",
           "text": "A bụ m onye ahịa. A na-ere m akwa.",
           "translation": "I am a trader. I sell clothes.",
-          "audioContext": "Response"
+          "audioContext": "Response",
+          "audioId": ""
         },
         {
           "speaker": "Obi",
           "text": "Ị na-ere ebe?",
           "translation": "Where do you sell?",
-          "audioContext": "Asking location"
+          "audioContext": "Asking location",
+          "audioId": ""
         },
         {
           "speaker": "Nkechi",
           "text": "Anọ m n'ahịa Ariaria.",
           "translation": "I am at Ariaria market.",
-          "audioContext": "Specific market"
+          "audioContext": "Specific market",
+          "audioId": ""
         },
         {
           "speaker": "Obi",
           "text": "Ọ dị mma. A bụ m nwa akwụkwọ, mana m na-enyekwa nne m aka n'ahịa.",
           "translation": "Okay. I am a student, but I also help my mother at the market.",
-          "audioContext": "Sharing"
+          "audioContext": "Sharing",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -4462,7 +4546,7 @@
           "pronunciation": "oo-gboo ah",
           "example": "Bịa ugbu a!",
           "culturalNote": "Emphatic: immediately.",
-          "audioId": "ugbu_a"
+          "audioId": ""
         },
         {
           "word": "Ugbu a ugbu a",
@@ -4470,7 +4554,7 @@
           "pronunciation": "oo-gboo ah oo-gboo ah",
           "example": "Chọrọ m ya ugbu a ugbu a!",
           "culturalNote": "Repetition adds urgency.",
-          "audioId": "ugbu_a_ugbu_a"
+          "audioId": ""
         },
         {
           "word": "Obere oge",
@@ -4478,7 +4562,7 @@
           "pronunciation": "oh-beh-reh oh-geh",
           "example": "Ọ ga-abịa n'obere oge.",
           "culturalNote": "Vague timeframe, could be 5 minutes or 1 hour.",
-          "audioId": "obere_oge"
+          "audioId": ""
         },
         {
           "word": "Mgbede",
@@ -4486,7 +4570,7 @@
           "pronunciation": "m-gbe-de",
           "example": "Anyị ga-ahụ na mgbede.",
           "culturalNote": "From about 4pm until night.",
-          "audioId": "mgbede"
+          "audioId": ""
         },
         {
           "word": "N'abalị",
@@ -4494,7 +4578,7 @@
           "pronunciation": "nah-bah-lee",
           "example": "Ọ bịara n'abalị.",
           "culturalNote": "After dark.",
-          "audioId": "n_abali"
+          "audioId": ""
         },
         {
           "word": "Echi",
@@ -4502,7 +4586,7 @@
           "pronunciation": "eh-chee",
           "example": "M ga-ala echi.",
           "culturalNote": "Often used loosely.",
-          "audioId": "echi"
+          "audioId": ""
         },
         {
           "word": "N'ehihie",
@@ -4510,7 +4594,7 @@
           "pronunciation": "neh-hee-hee-eh",
           "example": "Anyị ga-eri nri n'ehihie.",
           "culturalNote": "Around noon to 4pm.",
-          "audioId": "n_ehihie"
+          "audioId": ""
         },
         {
           "word": "N'ụtụtụ",
@@ -4518,7 +4602,7 @@
           "pronunciation": "noo-too-too",
           "example": "Ọ na-apụ n'ụtụtụ.",
           "culturalNote": "Can mean any time before noon.",
-          "audioId": "n_ututu"
+          "audioId": ""
         },
         {
           "word": "Elekere",
@@ -4526,7 +4610,7 @@
           "pronunciation": "eh-leh-keh-reh",
           "example": "Ọ bụ elekere abụọ.",
           "culturalNote": "Borrowed from English 'clock'.",
-          "audioId": "elekere"
+          "audioId": ""
         },
         {
           "word": "N'oge",
@@ -4534,7 +4618,7 @@
           "pronunciation": "noh-geh",
           "example": "Bịa n'oge, biko.",
           "culturalNote": "Punctuality is appreciated but not always practiced.",
-          "audioId": "n_oge"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -4563,37 +4647,43 @@
           "speaker": "Chuka",
           "text": "Anyị ga-ahụ mgbe?",
           "translation": "When will we meet?",
-          "audioContext": "Scheduling"
+          "audioContext": "Scheduling",
+          "audioId": ""
         },
         {
           "speaker": "Ifeanyi",
           "text": "Ka anyị hụ n'ehihie taa.",
           "translation": "Let's meet this afternoon.",
-          "audioContext": "Proposal"
+          "audioContext": "Proposal",
+          "audioId": ""
         },
         {
           "speaker": "Chuka",
           "text": "Ole elekere?",
           "translation": "What time?",
-          "audioContext": "Specific time"
+          "audioContext": "Specific time",
+          "audioId": ""
         },
         {
           "speaker": "Ifeanyi",
           "text": "N'ihe dịka elekere anọ.",
           "translation": "Around 4 o'clock.",
-          "audioContext": "Approximate"
+          "audioContext": "Approximate",
+          "audioId": ""
         },
         {
           "speaker": "Chuka",
           "text": "Ọ dị mma. Aga m abịa n'oge.",
           "translation": "Okay. I will come on time.",
-          "audioContext": "Promise"
+          "audioContext": "Promise",
+          "audioId": ""
         },
         {
           "speaker": "Ifeanyi",
           "text": "Ọ bụ nkwa. Ka anyị hụ.",
           "translation": "It's a deal. See you.",
-          "audioContext": "Confirmation"
+          "audioContext": "Confirmation",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -4735,7 +4825,7 @@
           "pronunciation": "ee-hoo ee-gweh",
           "example": "Ihu igwe taa dị mma.",
           "culturalNote": "Literally 'face of sky'.",
-          "audioId": "ihu_igwe"
+          "audioId": ""
         },
         {
           "word": "Anwụ",
@@ -4743,7 +4833,7 @@
           "pronunciation": "ah-nwoo",
           "example": "Anwụ na-acha taa.",
           "culturalNote": "The sun is shining.",
-          "audioId": "anwu"
+          "audioId": ""
         },
         {
           "word": "Ọkụ",
@@ -4751,7 +4841,7 @@
           "pronunciation": "or-koo",
           "example": "Anwụ ọkụ taa!",
           "culturalNote": "Exclamation: The sun is hot today!",
-          "audioId": "oku"
+          "audioId": ""
         },
         {
           "word": "Oyi",
@@ -4759,7 +4849,7 @@
           "pronunciation": "oh-yee",
           "example": "Oyi na-atụ m.",
           "culturalNote": "I am cold.",
-          "audioId": "oyi"
+          "audioId": ""
         },
         {
           "word": "Mmiri ozuzo",
@@ -4767,7 +4857,7 @@
           "pronunciation": "m-mee-ree oh-zoo-zoh",
           "example": "Mmiri ozuzo na-ezo.",
           "culturalNote": "Rain is falling.",
-          "audioId": "mmiri_ozuzo"
+          "audioId": ""
         },
         {
           "word": "Ifufe",
@@ -4775,7 +4865,7 @@
           "pronunciation": "ee-foo-feh",
           "example": "Ifufe na-efe taa.",
           "culturalNote": "Windy.",
-          "audioId": "ifufe"
+          "audioId": ""
         },
         {
           "word": "Oge mmiri",
@@ -4783,7 +4873,7 @@
           "pronunciation": "oh-geh m-mee-ree",
           "example": "Oge mmiri abịala.",
           "culturalNote": "Typically April to October.",
-          "audioId": "oge_mmiri"
+          "audioId": ""
         },
         {
           "word": "Oge ọkọchị",
@@ -4791,7 +4881,7 @@
           "pronunciation": "oh-geh or-koh-chee",
           "example": "Oge ọkọchị bụ oge anwụ.",
           "culturalNote": "November to March.",
-          "audioId": "oge_okochi"
+          "audioId": ""
         },
         {
           "word": "Harmattan",
@@ -4799,7 +4889,7 @@
           "pronunciation": "hahr-mah-tahn",
           "example": "Ikuku harmattan na-ekpo ọkụ ma na-ajụ oyi.",
           "culturalNote": "Dry, dusty wind from Sahara, Dec–Feb.",
-          "audioId": "harmattan"
+          "audioId": ""
         },
         {
           "word": "Urukpu",
@@ -4807,7 +4897,7 @@
           "pronunciation": "oo-roo-kpoo",
           "example": "Urukpu juru n'elu igwe.",
           "culturalNote": "Cloudy sky.",
-          "audioId": "urukpu"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -4837,31 +4927,36 @@
           "speaker": "Ada",
           "text": "Ihu igwe taa dị ụkọ! Anwụ ọkụ nke ukwuu.",
           "translation": "The weather today is extreme! The sun is very hot.",
-          "audioContext": "Comment"
+          "audioContext": "Comment",
+          "audioId": ""
         },
         {
           "speaker": "Chidi",
           "text": "Ee, oge ọkọchị bụ. Oyi na-atụ m n'ụtụtụ.",
           "translation": "Yes, it's dry season. I am cold in the mornings.",
-          "audioContext": "Agree"
+          "audioContext": "Agree",
+          "audioId": ""
         },
         {
           "speaker": "Ada",
           "text": "N'ehihie, anwụ na-acha, ma n'abalị ọ dị mma.",
           "translation": "In the afternoon, the sun shines, but at night it's nice.",
-          "audioContext": "Contrast"
+          "audioContext": "Contrast",
+          "audioId": ""
         },
         {
           "speaker": "Chidi",
           "text": "Anyị nwere olileanya mmiri ga-ezo n'oge na-adịghị anya.",
           "translation": "We hope it will rain soon.",
-          "audioContext": "Wish"
+          "audioContext": "Wish",
+          "audioId": ""
         },
         {
           "speaker": "Ada",
           "text": "Ee, ubi chọrọ mmiri.",
           "translation": "Yes, the farms need water.",
-          "audioContext": "Practical"
+          "audioContext": "Practical",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -5166,7 +5261,7 @@
           "pronunciation": "ah-hoo ee-keh",
           "example": "Kedu ahụ ike gị?",
           "culturalNote": "Literally 'body strength'.",
-          "audioId": "ahu_ike"
+          "audioId": ""
         },
         {
           "word": "Ọrịa",
@@ -5174,7 +5269,7 @@
           "pronunciation": "or-ree-ah",
           "example": "Ọ na-arịa ọrịa ụkwara.",
           "culturalNote": "Often paired with specific illness names.",
-          "audioId": "oria"
+          "audioId": ""
         },
         {
           "word": "Ụkwara",
@@ -5182,7 +5277,7 @@
           "pronunciation": "oo-kwah-rah",
           "example": "Ụkwara na-akụ m.",
           "culturalNote": "Cough is common during Harmattan.",
-          "audioId": "ukwara"
+          "audioId": ""
         },
         {
           "word": "Ọgwụ",
@@ -5190,7 +5285,7 @@
           "pronunciation": "or-gwoo",
           "example": "Ṇụọ ọgwụ a ụbọchị atọ.",
           "culturalNote": "Can refer to both orthodox and traditional medicine.",
-          "audioId": "ogwu"
+          "audioId": ""
         },
         {
           "word": "Ọnyá",
@@ -5198,7 +5293,7 @@
           "pronunciation": "or-nyah",
           "example": "Ọnyá m na-agwọla.",
           "culturalNote": "Also used metaphorically for emotional pain.",
-          "audioId": "onya"
+          "audioId": ""
         },
         {
           "word": "Ịba",
@@ -5206,7 +5301,7 @@
           "pronunciation": "ee-bah",
           "example": "Ọ na-arịa ịba.",
           "culturalNote": "Malaria is endemic; often self‑diagnosed.",
-          "audioId": "iba"
+          "audioId": ""
         },
         {
           "word": "Ọgwụgwọ",
@@ -5214,7 +5309,7 @@
           "pronunciation": "or-gwoo-gwoh",
           "example": "Ọ na-agwọ ọrịa n'ụzọ ọdịnala.",
           "culturalNote": "Traditional healing is still widely respected.",
-          "audioId": "ogwugwo"
+          "audioId": ""
         },
         {
           "word": "Ike ọgwụgwụ",
@@ -5222,7 +5317,7 @@
           "pronunciation": "ee-keh or-gwoo-gwoo",
           "example": "Ike ọgwụgwụ na-agwụ m.",
           "culturalNote": "Literal 'strength finished'.",
-          "audioId": "ike_ogwugwu"
+          "audioId": ""
         },
         {
           "word": "Dọkịta",
@@ -5230,7 +5325,7 @@
           "pronunciation": "dor-kee-tah",
           "example": "Gaa hụ dọkịta ngwa ngwa.",
           "culturalNote": "Borrowed from English.",
-          "audioId": "dokita"
+          "audioId": ""
         },
         {
           "word": "Nọọsụ",
@@ -5238,7 +5333,7 @@
           "pronunciation": "noh-oh-soo",
           "example": "Nọọsụ na-elekọta ndị ọrịa.",
           "culturalNote": "Borrowed from English 'nurse'.",
-          "audioId": "noosu"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -5268,37 +5363,43 @@
           "speaker": "Adaeze",
           "text": "Nwanne, ị dịla mma? Kedu ahụ ike gị?",
           "translation": "My friend, are you better? How is your health?",
-          "audioContext": "Concern"
+          "audioContext": "Concern",
+          "audioId": ""
         },
         {
           "speaker": "Chibụike",
           "text": "Ọ dịtụbeghị nke ọma. Ụkwara ka na-akụ m.",
           "translation": "Not yet well. I still have a cough.",
-          "audioContext": "Still ill"
+          "audioContext": "Still ill",
+          "audioId": ""
         },
         {
           "speaker": "Adaeze",
           "text": "Ndo. Ị ṅụrụ ọgwụ?",
           "translation": "Sorry. Did you take medicine?",
-          "audioContext": "Advice"
+          "audioContext": "Advice",
+          "audioId": ""
         },
         {
           "speaker": "Chibụike",
           "text": "Ee, a ṅụrụ m, mana ụkwara anaghị akwụsị.",
           "translation": "Yes, I took it, but the cough won't stop.",
-          "audioContext": "Frustration"
+          "audioContext": "Frustration",
+          "audioId": ""
         },
         {
           "speaker": "Adaeze",
           "text": "Ndo, ọ ga-aka mma. Gaa hụ dọkịta ọzọ.",
           "translation": "Sorry, it will get better. Go see the doctor again.",
-          "audioContext": "Encouragement"
+          "audioContext": "Encouragement",
+          "audioId": ""
         },
         {
           "speaker": "Chibụike",
           "text": "M ga-eme nke ahụ. Daalụ maka nchegbu gị.",
           "translation": "I will do that. Thank you for your concern.",
-          "audioContext": "Gratitude"
+          "audioContext": "Gratitude",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -5440,7 +5541,7 @@
           "pronunciation": "or-nyeh",
           "example": "Ònye bụ nwoke ahụ?",
           "culturalNote": "Used for people.",
-          "audioId": "onye"
+          "audioId": ""
         },
         {
           "word": "Gịnị",
@@ -5448,7 +5549,7 @@
           "pronunciation": "gee-nee",
           "example": "Gịnị ka ị na-eme?",
           "culturalNote": "For things and actions.",
-          "audioId": "gini"
+          "audioId": ""
         },
         {
           "word": "Ebee",
@@ -5456,7 +5557,7 @@
           "pronunciation": "eh-beh-eh",
           "example": "Ebee ka ị bi?",
           "culturalNote": "For locations.",
-          "audioId": "ebee"
+          "audioId": ""
         },
         {
           "word": "Mgbe",
@@ -5464,7 +5565,7 @@
           "pronunciation": "m-gbeh",
           "example": "Mgbe ka ị lọtara?",
           "culturalNote": "For time.",
-          "audioId": "mgbe"
+          "audioId": ""
         },
         {
           "word": "Ihe kpatara",
@@ -5472,7 +5573,7 @@
           "pronunciation": "ee-heh kpah-tah-rah",
           "example": "Gịnị kpatara ị ji abịa?",
           "culturalNote": "Often phrased as 'Gịnị kpatara...'",
-          "audioId": "ihe_kpatara"
+          "audioId": ""
         },
         {
           "word": "Olee otú",
@@ -5480,7 +5581,7 @@
           "pronunciation": "oh-leh eh-too",
           "example": "Olee otú e si eme nke a?",
           "culturalNote": "Method or manner.",
-          "audioId": "olee_otu"
+          "audioId": ""
         },
         {
           "word": "Ị lụrụ di/nwunye?",
@@ -5488,7 +5589,7 @@
           "pronunciation": "ee loo-roo dee / n-woo-nyeh",
           "example": "Ị lụrụ nwunye? (to man) / Ị lụrụ di? (to woman)",
           "culturalNote": "Very common, not rude.",
-          "audioId": "i_luru_di_nwunye"
+          "audioId": ""
         },
         {
           "word": "Ụmụ ole?",
@@ -5496,7 +5597,7 @@
           "pronunciation": "oo-moo oh-leh",
           "example": "Ị mụrụ ụmụ ole?",
           "culturalNote": "Expected question for married adults.",
-          "audioId": "umu_ole"
+          "audioId": ""
         },
         {
           "word": "Afa ole?",
@@ -5504,7 +5605,7 @@
           "pronunciation": "ah-fah oh-leh",
           "example": "Afa ole ka ị dị?",
           "culturalNote": "Asking age is normal.",
-          "audioId": "afa_ole"
+          "audioId": ""
         },
         {
           "word": "Ọ bụ ihe nzuzo",
@@ -5512,7 +5613,7 @@
           "pronunciation": "aw boo ee-heh n-zoo-zoh",
           "example": "Ọ bụ ihe nzuzo, agaghị m ekwu.",
           "culturalNote": "Polite way to decline answering.",
-          "audioId": "o_bu_ihe_nzuzo"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -5543,31 +5644,36 @@
           "speaker": "Nne (older woman)",
           "text": "Nwa m nwanyị, ị lụrụ di?",
           "translation": "My daughter, are you married?",
-          "audioContext": "Personal question"
+          "audioContext": "Personal question",
+          "audioId": ""
         },
         {
           "speaker": "Ada (young woman)",
           "text": "Mba, nne, amụbeghị m.",
           "translation": "No, mother, I haven't married yet.",
-          "audioContext": "Honest answer"
+          "audioContext": "Honest answer",
+          "audioId": ""
         },
         {
           "speaker": "Nne",
           "text": "Gịnị kpatara? Ihe na-egbo gị?",
           "translation": "Why? What is preventing you?",
-          "audioContext": "Follow-up"
+          "audioContext": "Follow-up",
+          "audioId": ""
         },
         {
           "speaker": "Ada",
           "text": "Ọ bụ ihe nzuzo, nne. Ọ bụ oge Chineke.",
           "translation": "It's a secret, mother. It's God's time.",
-          "audioContext": "Polite deflection"
+          "audioContext": "Polite deflection",
+          "audioId": ""
         },
         {
           "speaker": "Nne",
           "text": "Ehee, Chineke nwe ya. Ị ga-enye m ozi mgbe ọ bụla.",
           "translation": "Alright, God's will. You will tell me whenever.",
-          "audioContext": "Acceptance"
+          "audioContext": "Acceptance",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -5709,7 +5815,7 @@
           "pronunciation": "hoo n-ah-nyah",
           "example": "A hụrụ m gị n'anya.",
           "culturalNote": "Strong affection; used for people and deep passions.",
-          "audioId": "hu_n_anya"
+          "audioId": ""
         },
         {
           "word": "Masị",
@@ -5717,7 +5823,7 @@
           "pronunciation": "mah-see",
           "example": "Ọ na-amasị m nri a.",
           "culturalNote": "Common verb for liking things.",
-          "audioId": "masi"
+          "audioId": ""
         },
         {
           "word": "Kpọrọ asị",
@@ -5725,7 +5831,7 @@
           "pronunciation": "kpo-roh ah-see",
           "example": "A kpọrọ m ose asị!",
           "culturalNote": "Strong dislike; often used dramatically.",
-          "audioId": "kporo_asi"
+          "audioId": ""
         },
         {
           "word": "Ọkacha mmasị",
@@ -5733,7 +5839,7 @@
           "pronunciation": "or-kah-chah m-mah-see",
           "example": "Nke a bụ ọkacha mmasị m.",
           "culturalNote": "Literally 'the most liking'.",
-          "audioId": "okacha_mmasi"
+          "audioId": ""
         },
         {
           "word": "Wahala",
@@ -5741,7 +5847,7 @@
           "pronunciation": "wah-hah-lah",
           "example": "Achọghị m wahala.",
           "culturalNote": "Borrowed from Hausa, used across Nigeria.",
-          "audioId": "wahala"
+          "audioId": ""
         },
         {
           "word": "Ụtọ",
@@ -5749,7 +5855,7 @@
           "pronunciation": "oo-toh",
           "example": "Nri a dị ụtọ.",
           "culturalNote": "Used for food and also for good news.",
-          "audioId": "uto"
+          "audioId": ""
         },
         {
           "word": "Ịṅụ mmanya",
@@ -5757,7 +5863,7 @@
           "pronunciation": "ee-ngoo m-mah-nyah",
           "example": "Ọ na-aṅụ mmanya n'oge.",
           "culturalNote": "Palm wine (ngwo) is traditional.",
-          "audioId": "inu_mmanya"
+          "audioId": ""
         },
         {
           "word": "Egwu",
@@ -5765,7 +5871,7 @@
           "pronunciation": "eh-gwoo",
           "example": "Egwu Igbo na-amasị m.",
           "culturalNote": "Highlife and gospel are popular.",
-          "audioId": "egwu"
+          "audioId": ""
         },
         {
           "word": "Ịgba egwu",
@@ -5773,7 +5879,7 @@
           "pronunciation": "ee-gbah eh-gwoo",
           "example": "Ọ na-ama ịgba egwu.",
           "culturalNote": "Dance is integral to ceremonies.",
-          "audioId": "igba_egwu"
+          "audioId": ""
         },
         {
           "word": "Njem",
@@ -5781,7 +5887,7 @@
           "pronunciation": "n-jem",
           "example": "A hụrụ m njem n'anya.",
           "culturalNote": "Many Nigerians love to travel.",
-          "audioId": "njem"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -5810,31 +5916,36 @@
           "speaker": "Ezinne",
           "text": "Nri a dị ụtọ! Ọ na-amasị gị?",
           "translation": "This food is delicious! Do you like it?",
-          "audioContext": "Asking preference"
+          "audioContext": "Asking preference",
+          "audioId": ""
         },
         {
           "speaker": "Somto",
           "text": "Ee, ọ na-amasị m nke ukwuu. Ma a kpọrọ m ose asị.",
           "translation": "Yes, I like it very much. But I hate pepper.",
-          "audioContext": "Strong dislike"
+          "audioContext": "Strong dislike",
+          "audioId": ""
         },
         {
           "speaker": "Ezinne",
           "text": "Ị kpọrọ ose asị! Kedu otu ị si eri nri Igbo?",
           "translation": "You hate pepper! How do you eat Igbo food?",
-          "audioContext": "Shock"
+          "audioContext": "Shock",
+          "audioId": ""
         },
         {
           "speaker": "Somto",
           "text": "A na-eri m obere obere. Ọkacha mmasị m bụ ji na àkwá.",
           "translation": "I eat small small. My favorite is yam and egg.",
-          "audioContext": "Compromise"
+          "audioContext": "Compromise",
+          "audioId": ""
         },
         {
           "speaker": "Ezinne",
           "text": "Ọ dị mma. Achọghị m wahala n'ihi nri!",
           "translation": "Okay. I don't want trouble because of food!",
-          "audioContext": "Humour"
+          "audioContext": "Humour",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -5976,7 +6087,7 @@
           "pronunciation": "ee noo-roo",
           "example": "Ị nụrụ ihe mere taa?",
           "culturalNote": "Classic gossip opener.",
-          "audioId": "i_nuru"
+          "audioId": ""
         },
         {
           "word": "Akụkọ",
@@ -5984,7 +6095,7 @@
           "pronunciation": "ah-koo-koh",
           "example": "Enwere m akụkọ ọhụrụ.",
           "culturalNote": "Can be positive or negative.",
-          "audioId": "akuko"
+          "audioId": ""
         },
         {
           "word": "Ọnye gwara gị?",
@@ -5992,7 +6103,7 @@
           "pronunciation": "or-nyeh gwah-rah gee",
           "example": "Ọnye gwara gị nke ahụ?",
           "culturalNote": "Often asked with suspicion.",
-          "audioId": "onye_gwara_gi"
+          "audioId": ""
         },
         {
           "word": "Ihe nzuzo",
@@ -6000,7 +6111,7 @@
           "pronunciation": "ee-heh n-zoo-zoh",
           "example": "Debe nke a dịka ihe nzuzo.",
           "culturalNote": "Literally 'hidden thing'.",
-          "audioId": "ihe_nzuzo"
+          "audioId": ""
         },
         {
           "word": "Debe",
@@ -6008,7 +6119,7 @@
           "pronunciation": "deh-beh",
           "example": "Debe okwu a n'etiti anyị.",
           "culturalNote": "Command to keep secret.",
-          "audioId": "debe"
+          "audioId": ""
         },
         {
           "word": "Gbasaa",
@@ -6016,7 +6127,7 @@
           "pronunciation": "gba-sah-ah",
           "example": "Egbasala akụkọ ahụ!",
           "culturalNote": "Negative connotation.",
-          "audioId": "gbasaa"
+          "audioId": ""
         },
         {
           "word": "Asịrị",
@@ -6024,7 +6135,7 @@
           "pronunciation": "ah-see-ree",
           "example": "Asịrị ka ọ bụ eziokwu?",
           "culturalNote": "Often means unverified talk.",
-          "audioId": "asiri"
+          "audioId": ""
         },
         {
           "word": "Tụkwasị obi",
@@ -6032,7 +6143,7 @@
           "pronunciation": "too-kwah-see oh-bee",
           "example": "Enwere m ike ịtụkwasị gị obi?",
           "culturalNote": "Essential before sharing secrets.",
-          "audioId": "tukwasi_obi"
+          "audioId": ""
         },
         {
           "word": "N'etiti anyị",
@@ -6040,7 +6151,7 @@
           "pronunciation": "neh-tee-tee ah-nyee",
           "example": "Ka nke a dịrị n'etiti anyị.",
           "culturalNote": "Confidentiality phrase.",
-          "audioId": "n_etiti_anyi"
+          "audioId": ""
         },
         {
           "word": "Anụla m",
@@ -6048,7 +6159,7 @@
           "pronunciation": "ah-noo-lah m",
           "example": "Anụla m na ọ lụrụ nwunye.",
           "culturalNote": "Introducing second-hand news.",
-          "audioId": "anula_m"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -6078,31 +6189,36 @@
           "speaker": "Chioma",
           "text": "Ị nụrụ akụkọ banyere Adanna?",
           "translation": "Did you hear the news about Adanna?",
-          "audioContext": "Gossip starter"
+          "audioContext": "Gossip starter",
+          "audioId": ""
         },
         {
           "speaker": "Nkechi",
           "text": "Ee, anụla m! Ọ na-akwaga Canada?",
           "translation": "Yes, I heard! She is moving to Canada?",
-          "audioContext": "Sharing"
+          "audioContext": "Sharing",
+          "audioId": ""
         },
         {
           "speaker": "Chioma",
           "text": "Ọnye gwara gị? Ekwela ka ọ gbasaa.",
           "translation": "Who told you? Don't let it spread.",
-          "audioContext": "Secrecy"
+          "audioContext": "Secrecy",
+          "audioId": ""
         },
         {
           "speaker": "Nkechi",
           "text": "Ekwela m. Debe ya n'etiti anyị.",
           "translation": "I won't. Keep it between us.",
-          "audioContext": "Promise"
+          "audioContext": "Promise",
+          "audioId": ""
         },
         {
           "speaker": "Chioma",
           "text": "Ọ dị mma. Enwere m ike ịtụkwasị gị obi.",
           "translation": "Okay. I can trust you.",
-          "audioContext": "Trust"
+          "audioContext": "Trust",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -6244,7 +6360,7 @@
           "pronunciation": "or-nyoo",
           "example": "Ọṅụ juru m obi.",
           "culturalNote": "Literally 'joy fills my heart'.",
-          "audioId": "onu"
+          "audioId": ""
         },
         {
           "word": "Mwute",
@@ -6252,7 +6368,7 @@
           "pronunciation": "m-woo-teh",
           "example": "Ọ dị m mwute.",
           "culturalNote": "I am sad.",
-          "audioId": "mwute"
+          "audioId": ""
         },
         {
           "word": "Iwe",
@@ -6260,7 +6376,7 @@
           "pronunciation": "ee-weh",
           "example": "Iwe na-ewe m.",
           "culturalNote": "I am angry (anger is taking me).",
-          "audioId": "iwe"
+          "audioId": ""
         },
         {
           "word": "Ụjọ",
@@ -6268,7 +6384,7 @@
           "pronunciation": "oo-joh",
           "example": "Ụjọ na-atụ m.",
           "culturalNote": "I am afraid.",
-          "audioId": "ujo"
+          "audioId": ""
         },
         {
           "word": "Mgbagwoju anya",
@@ -6276,7 +6392,7 @@
           "pronunciation": "m-gba-gwoh-joo ah-nyah",
           "example": "Ọ na-agbagwoju m anya.",
           "culturalNote": "Literally 'it tangles my eyes'.",
-          "audioId": "mgbagwoju_anya"
+          "audioId": ""
         },
         {
           "word": "Obi ụtọ",
@@ -6284,7 +6400,7 @@
           "pronunciation": "oh-bee oo-toh",
           "example": "Enwere m obi ụtọ.",
           "culturalNote": "Very common expression.",
-          "audioId": "obi_uto"
+          "audioId": ""
         },
         {
           "word": "Obi ọjọọ",
@@ -6292,7 +6408,7 @@
           "pronunciation": "oh-bee or-joh-oh",
           "example": "Ekwela ka obi ọjọọ gbaa gị.",
           "culturalNote": "Don't let bitterness consume you.",
-          "audioId": "obi_ojoo"
+          "audioId": ""
         },
         {
           "word": "Chegbuo",
@@ -6300,7 +6416,7 @@
           "pronunciation": "cheh-gboo-oh",
           "example": "Echegbula onwe gị.",
           "culturalNote": "Don't worry yourself.",
-          "audioId": "chegbuo"
+          "audioId": ""
         },
         {
           "word": "Chị ọchị",
@@ -6308,7 +6424,7 @@
           "pronunciation": "chee oh-chee",
           "example": "Ọ na-achị m ọchị.",
           "culturalNote": "I am just laughing.",
-          "audioId": "chi_ochi"
+          "audioId": ""
         },
         {
           "word": "Nwee ndidi",
@@ -6316,7 +6432,7 @@
           "pronunciation": "n-weh n-dee-dee",
           "example": "Nwee ndidi, ihe ga-akara gị mma.",
           "culturalNote": "Advice for those who are upset.",
-          "audioId": "nwee_ndidi"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -6346,31 +6462,36 @@
           "speaker": "Ifeanyi",
           "text": "Kedu ihe mere? I yiri onye iwe ji.",
           "translation": "What happened? You look angry.",
-          "audioContext": "Noticing mood"
+          "audioContext": "Noticing mood",
+          "audioId": ""
         },
         {
           "speaker": "Ngozi",
           "text": "Iwe na-ewe m n'ezie. Enyi m ekwughị m ozi.",
           "translation": "I am really angry. My friend didn't tell me the news.",
-          "audioContext": "Expressing anger"
+          "audioContext": "Expressing anger",
+          "audioId": ""
         },
         {
           "speaker": "Ifeanyi",
           "text": "Echegbula. Ọ ga-akọrọ gị ma emechaa.",
           "translation": "Don't worry. He will tell you later.",
-          "audioContext": "Calming"
+          "audioContext": "Calming",
+          "audioId": ""
         },
         {
           "speaker": "Ngozi",
           "text": "Mana ọ dị m mwute. Anyị bụ enyi.",
           "translation": "But I am sad. We are friends.",
-          "audioContext": "Sadness"
+          "audioContext": "Sadness",
+          "audioId": ""
         },
         {
           "speaker": "Ifeanyi",
           "text": "Nwee ndidi. Kpọọ ya jụọ ihe mere.",
           "translation": "Be patient. Call him and ask what happened.",
-          "audioContext": "Advice"
+          "audioContext": "Advice",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -6512,7 +6633,7 @@
           "pronunciation": "ee-bee-ah",
           "example": "Bịa n'emume m.",
           "culturalNote": "Basic invitation verb.",
-          "audioId": "ibia"
+          "audioId": ""
         },
         {
           "word": "Ọrịrị",
@@ -6520,7 +6641,7 @@
           "pronunciation": "or-ree-ree",
           "example": "E nyere m gị ọrịrị.",
           "culturalNote": "Formal word for invitation.",
-          "audioId": "oriri"
+          "audioId": ""
         },
         {
           "word": "Emume",
@@ -6528,7 +6649,7 @@
           "pronunciation": "eh-moo-meh",
           "example": "Emume agbamakwụkwọ.",
           "culturalNote": "Wedding ceremony.",
-          "audioId": "emume"
+          "audioId": ""
         },
         {
           "word": "Agbamakwụkwọ",
@@ -6536,7 +6657,7 @@
           "pronunciation": "a-gba-mah-kwoo-kwoh",
           "example": "Anyị na-eme agbamakwụkwọ ụbọchị Satọde.",
           "culturalNote": "Biggest social event.",
-          "audioId": "agbamakwukwo"
+          "audioId": ""
         },
         {
           "word": "Olili",
@@ -6544,7 +6665,7 @@
           "pronunciation": "oh-lee-lee",
           "example": "Olili nna m bụ Fraịde.",
           "culturalNote": "Mourning ceremony.",
-          "audioId": "olili"
+          "audioId": ""
         },
         {
           "word": "Onye ọbịa",
@@ -6552,7 +6673,7 @@
           "pronunciation": "aw-nyeh oh-bee-ah",
           "example": "Anyị nwere ọtụtụ ndị ọbịa.",
           "culturalNote": "Honored visitor.",
-          "audioId": "onye_obia"
+          "audioId": ""
         },
         {
           "word": "Sọpụrụ",
@@ -6560,7 +6681,7 @@
           "pronunciation": "soh-poo-roo",
           "example": "Anyị ga-asọpụrụ gị ma ị bịa.",
           "culturalNote": "Your presence honours us.",
-          "audioId": "sopuru"
+          "audioId": ""
         },
         {
           "word": "Ụbọchị",
@@ -6568,7 +6689,7 @@
           "pronunciation": "oo-boh-chee",
           "example": "Kedu ụbọchị e mere emume?",
           "culturalNote": "Also means 'day'.",
-          "audioId": "ubochi"
+          "audioId": ""
         },
         {
           "word": "Ebe",
@@ -6576,7 +6697,7 @@
           "pronunciation": "eh-beh",
           "example": "Ebe anyị ga-ezukọ bụ Ọba.",
           "culturalNote": "Specify location.",
-          "audioId": "ebe"
+          "audioId": ""
         },
         {
           "word": "Achọrọ m ịkpọ gị",
@@ -6584,7 +6705,7 @@
           "pronunciation": "ah-chor-roh m ee-kpoh gee",
           "example": "Achọrọ m ịkpọ gị oriri nri abalị.",
           "culturalNote": "Polite pre-invitation.",
-          "audioId": "achoro_m_ikpo_gi"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -6613,37 +6734,43 @@
           "speaker": "Chinedu",
           "text": "Achọrọ m ịkpọ gị n'agbamakwụkwọ m.",
           "translation": "I want to invite you to my wedding.",
-          "audioContext": "Invitation"
+          "audioContext": "Invitation",
+          "audioId": ""
         },
         {
           "speaker": "Adaeze",
           "text": "Ee, ọ ga-amasị m ịbịa! Kedu ụbọchị?",
           "translation": "Yes, I would love to come! What day?",
-          "audioContext": "Accepting"
+          "audioContext": "Accepting",
+          "audioId": ""
         },
         {
           "speaker": "Chinedu",
           "text": "Ọ bụ Satọde, ụbọchị iri abụọ na Machị.",
           "translation": "It's Saturday, the 20th of March.",
-          "audioContext": "Date"
+          "audioContext": "Date",
+          "audioId": ""
         },
         {
           "speaker": "Adaeze",
           "text": "Ebee ka ọ ga-eme?",
           "translation": "Where will it hold?",
-          "audioContext": "Asking venue"
+          "audioContext": "Asking venue",
+          "audioId": ""
         },
         {
           "speaker": "Chinedu",
           "text": "N'ogige Ọgọọ, n'elekere anọ.",
           "translation": "At Ogọọ Hall, at 4 o'clock.",
-          "audioContext": "Time & place"
+          "audioContext": "Time & place",
+          "audioId": ""
         },
         {
           "speaker": "Adaeze",
           "text": "Ọ dị mma. Aga m abịa sọpụrụ gị.",
           "translation": "Okay. I will come to honour you.",
-          "audioContext": "Confirmation"
+          "audioContext": "Confirmation",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -6785,7 +6912,7 @@
           "pronunciation": "aw gah ah-mah-see m",
           "example": "Ọ ga-amasị m ịbịa.",
           "culturalNote": "Polite acceptance.",
-          "audioId": "o_ga_amasi_m"
+          "audioId": ""
         },
         {
           "word": "Aga m abịa",
@@ -6793,7 +6920,7 @@
           "pronunciation": "ah-gah m ah-bee-ah",
           "example": "Aga m abịa n'oge.",
           "culturalNote": "Direct commitment.",
-          "audioId": "aga_m_abia"
+          "audioId": ""
         },
         {
           "word": "M ga-agbalị",
@@ -6801,7 +6928,7 @@
           "pronunciation": "m gah a-gba-lee",
           "example": "M ga-agbalị ịbịa.",
           "culturalNote": "Often means 'maybe' or polite no.",
-          "audioId": "m_ga_agbali"
+          "audioId": ""
         },
         {
           "word": "Ọ bụ Chukwu",
@@ -6809,7 +6936,7 @@
           "pronunciation": "aw boo choo-kwoo",
           "example": "Ọ bụ Chukwu, m ga-abịa.",
           "culturalNote": "Pious deferral.",
-          "audioId": "o_bu_chukwu"
+          "audioId": ""
         },
         {
           "word": "Anọghị m n'obodo",
@@ -6817,7 +6944,7 @@
           "pronunciation": "ah-noh-hee m n oh-boh-doh",
           "example": "Ọ dị m nwute, anọghị m n'obodo ụbọchị ahụ.",
           "culturalNote": "Classic polite decline.",
-          "audioId": "anoghi_m_n_obodo"
+          "audioId": ""
         },
         {
           "word": "Enweghị m oge",
@@ -6825,7 +6952,7 @@
           "pronunciation": "eh-n-weh-hee m oh-geh",
           "example": "Enweghị m oge ịbịa.",
           "culturalNote": "Direct, but acceptable.",
-          "audioId": "enweghi_m_oge"
+          "audioId": ""
         },
         {
           "word": "Ọ dị m nwute",
@@ -6833,7 +6960,7 @@
           "pronunciation": "aw dee m n-woo-teh",
           "example": "Ọ dị m nwute, enweghị m ike.",
           "culturalNote": "Softens refusal.",
-          "audioId": "o_di_m_nwute"
+          "audioId": ""
         },
         {
           "word": "M ga-ahụ",
@@ -6841,7 +6968,7 @@
           "pronunciation": "m gah ah-hoo",
           "example": "M ga-ahụ ma m ga-enwe oge.",
           "culturalNote": "Non-committal.",
-          "audioId": "m_ga_ahu"
+          "audioId": ""
         },
         {
           "word": "N'oge ọzọ",
@@ -6849,7 +6976,7 @@
           "pronunciation": "n-oh-geh or-zoh",
           "example": "K'anyị hụ n'oge ọzọ.",
           "culturalNote": "Hope for future.",
-          "audioId": "n_oge_ozo"
+          "audioId": ""
         },
         {
           "word": "Ekele",
@@ -6857,7 +6984,7 @@
           "pronunciation": "eh-keh-leh",
           "example": "Biko, keleere m ha.",
           "culturalNote": "Send regards when you can't attend.",
-          "audioId": "ekele"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -6887,37 +7014,43 @@
           "speaker": "Nnamdi",
           "text": "A na-eme m oriri ncheta ọmụmụ echi. Ị ga-abịa?",
           "translation": "I am having a birthday party tomorrow. Will you come?",
-          "audioContext": "Invitation"
+          "audioContext": "Invitation",
+          "audioId": ""
         },
         {
           "speaker": "Chioma",
           "text": "Ọ ga-amasị m ịbịa, mana enweghị m ike.",
           "translation": "I would like to come, but I can't.",
-          "audioContext": "Polite decline"
+          "audioContext": "Polite decline",
+          "audioId": ""
         },
         {
           "speaker": "Nnamdi",
           "text": "Gịnị kpatara?",
           "translation": "Why?",
-          "audioContext": "Asking reason"
+          "audioContext": "Asking reason",
+          "audioId": ""
         },
         {
           "speaker": "Chioma",
           "text": "Anọghị m n'obodo. M ga-alọta Sọnde.",
           "translation": "I am not in town. I will return on Sunday.",
-          "audioContext": "Reason"
+          "audioContext": "Reason",
+          "audioId": ""
         },
         {
           "speaker": "Nnamdi",
           "text": "Ọ dị m nwute. N'oge ọzọ.",
           "translation": "I am sorry. Another time.",
-          "audioContext": "Acceptance"
+          "audioContext": "Acceptance",
+          "audioId": ""
         },
         {
           "speaker": "Chioma",
           "text": "Ee, n'oge ọzọ. Keleere m ndị ọzọ.",
           "translation": "Yes, another time. Greet the others for me.",
-          "audioContext": "Regards"
+          "audioContext": "Regards",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -7060,7 +7193,7 @@
           "pronunciation": "mah-rah m-mah",
           "example": "Ị mara mma taa!",
           "culturalNote": "Can be used for both men and women.",
-          "audioId": "mara_mma"
+          "audioId": ""
         },
         {
           "word": "Na-egbu mara",
@@ -7068,7 +7201,7 @@
           "pronunciation": "nah-eh-gboo mah-rah",
           "example": "Uwe gị na-egbu mara!",
           "culturalNote": "Slangy, high praise.",
-          "audioId": "na_egbu_mara"
+          "audioId": ""
         },
         {
           "word": "Ị na-acha",
@@ -7076,7 +7209,7 @@
           "pronunciation": "ee nah-ah-chah",
           "example": "Ị na-acha ka ego!",
           "culturalNote": "Compliment on skin tone, often seen as positive.",
-          "audioId": "i_na_acha"
+          "audioId": ""
         },
         {
           "word": "Ọcha",
@@ -7084,7 +7217,7 @@
           "pronunciation": "or-chah",
           "example": "Ị dị ọcha taa.",
           "culturalNote": "Compliment on neatness or fairness.",
-          "audioId": "ocha"
+          "audioId": ""
         },
         {
           "word": "Ọkacha mma",
@@ -7092,7 +7225,7 @@
           "pronunciation": "or-kah-chah m-mah",
           "example": "Ị bụ ọkacha mma n'ebe a.",
           "culturalNote": "You are the best here.",
-          "audioId": "okacha_mma"
+          "audioId": ""
         },
         {
           "word": "Ejiji",
@@ -7100,7 +7233,7 @@
           "pronunciation": "eh-jee-jee",
           "example": "Ejiji gị dị egwu!",
           "culturalNote": "Your style is amazing.",
-          "audioId": "ejiji"
+          "audioId": ""
         },
         {
           "word": "Ị nwere àgwà ọma",
@@ -7108,7 +7241,7 @@
           "pronunciation": "ee n-weh-reh ah-gwah or-mah",
           "example": "Ị nwere àgwà ọma, nwanne m.",
           "culturalNote": "Compliment on personality.",
-          "audioId": "i_nwere_agwa_oma"
+          "audioId": ""
         },
         {
           "word": "Ọ na-adị mma",
@@ -7116,7 +7249,7 @@
           "pronunciation": "aw nah-dee m-mah",
           "example": "Akwa gị ọhụrụ na-adị mma.",
           "culturalNote": "For objects/clothes.",
-          "audioId": "o_na_adi_mma"
+          "audioId": ""
         },
         {
           "word": "Chineke gozie",
@@ -7124,7 +7257,7 @@
           "pronunciation": "chee-neh-keh go-zee-eh",
           "example": "Chineke gozie nwa ọhụrụ a.",
           "culturalNote": "Necessary when praising babies.",
-          "audioId": "chineke_gozie"
+          "audioId": ""
         },
         {
           "word": "Ị ga-adi ogologo ndụ",
@@ -7132,7 +7265,7 @@
           "pronunciation": "ee gah ah-dee oh-goh-loh-goh n-doo",
           "example": "Ị ga-adi ogologo ndụ, nne!",
           "culturalNote": "Blessing in response to a compliment.",
-          "audioId": "i_ga_adi_ogologo_ndu"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -7162,31 +7295,36 @@
           "speaker": "Adanna",
           "text": "Chioma! Uwe gị na-egbu mara! Ebee ka ị zụtara ya?",
           "translation": "Chioma! Your outfit is stunning! Where did you buy it?",
-          "audioContext": "Compliment"
+          "audioContext": "Compliment",
+          "audioId": ""
         },
         {
           "speaker": "Chioma",
           "text": "Daalụ, nwanne. A zụtara m ya n'ahịa Ariaria.",
           "translation": "Thank you, my friend. I bought it at Ariaria market.",
-          "audioContext": "Gratitude"
+          "audioContext": "Gratitude",
+          "audioId": ""
         },
         {
           "speaker": "Adanna",
           "text": "Ọ dabara gị nke ọma. Ị na-acha ka ego!",
           "translation": "It fits you perfectly. You are shining like money!",
-          "audioContext": "Further praise"
+          "audioContext": "Further praise",
+          "audioId": ""
         },
         {
           "speaker": "Chioma",
           "text": "Chineke gozie gị. Ị bụ ezigbo enyi.",
           "translation": "God bless you. You are a good friend.",
-          "audioContext": "Blessing"
+          "audioContext": "Blessing",
+          "audioId": ""
         },
         {
           "speaker": "Adanna",
           "text": "Ọ bụ eziokwu. Ị ga-adi ogologo ndụ!",
           "translation": "It's the truth. You will live long!",
-          "audioContext": "Blessing response"
+          "audioContext": "Blessing response",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -7328,7 +7466,7 @@
           "pronunciation": "n-doh",
           "example": "Ndo maka ọnwụ nna gị.",
           "culturalNote": "Primary condolence word.",
-          "audioId": "ndo"
+          "audioId": ""
         },
         {
           "word": "Ọnwụ",
@@ -7336,7 +7474,7 @@
           "pronunciation": "or-nwoo",
           "example": "Anụla m ọnwụ nne gị. Ndo.",
           "culturalNote": "Direct term, used with care.",
-          "audioId": "onwu"
+          "audioId": ""
         },
         {
           "word": "Olili",
@@ -7344,7 +7482,7 @@
           "pronunciation": "oh-lee-lee",
           "example": "Mgbe ka olili ya ga-eme?",
           "culturalNote": "Often weeks or months after death.",
-          "audioId": "olili"
+          "audioId": ""
         },
         {
           "word": "Gbaa ume",
@@ -7352,7 +7490,7 @@
           "pronunciation": "gbah-ah oo-meh",
           "example": "Gbaa ume, nwanne m.",
           "culturalNote": "Encouragement to endure.",
-          "audioId": "gbaa_ume"
+          "audioId": ""
         },
         {
           "word": "Ọ ga-aka mma",
@@ -7360,7 +7498,7 @@
           "pronunciation": "aw gah kah m-mah",
           "example": "Ọ ga-aka mma n'oge na-adịghị anya.",
           "culturalNote": "Hope for healing.",
-          "audioId": "o_ga_aka_mma"
+          "audioId": ""
         },
         {
           "word": "Ka Chineke mee ka mkpụrụ obi ya zuru ike",
@@ -7368,7 +7506,7 @@
           "pronunciation": "kah chee-neh-keh meh kah m-kpoo-roo oh-bee yah zoo-roo ee-keh",
           "example": "Ka Chineke mee ka mkpụrụ obi ya zuru ike.",
           "culturalNote": "Christian prayer for the dead.",
-          "audioId": "ka_chineke_mee_ka_mkpuru_obi_ya_zuru_ike"
+          "audioId": ""
         },
         {
           "word": "Ị ga-adi ogologo ndụ",
@@ -7376,7 +7514,7 @@
           "pronunciation": "ee gah ah-dee oh-goh-loh-goh n-doo",
           "example": "Ị ga-adi ogologo ndụ, nne.",
           "culturalNote": "Blessing to the bereaved.",
-          "audioId": "i_ga_adi_ogologo_ndu"
+          "audioId": ""
         },
         {
           "word": "Ekwela ka obi gbaa gị mgba",
@@ -7384,7 +7522,7 @@
           "pronunciation": "eh-kweh-lah kah oh-bee gbah-ah gee m-gbah",
           "example": "Ekwela ka obi gbaa gị mgba.",
           "culturalNote": "Don't be overwhelmed.",
-          "audioId": "ekwela_ka_obi_gbaa_gi_mgba"
+          "audioId": ""
         },
         {
           "word": "Anyị nọnyeere gị",
@@ -7392,7 +7530,7 @@
           "pronunciation": "ah-nyee noh-nyeh-reh gee",
           "example": "Anyị nọnyeere gị n'oge a.",
           "culturalNote": "Showing solidarity.",
-          "audioId": "anyi_nonyeere_gi"
+          "audioId": ""
         },
         {
           "word": "Daalụ maka ndo gị",
@@ -7400,7 +7538,7 @@
           "pronunciation": "dah-loo mah-kah n-doh gee",
           "example": "Daalụ maka ndo gị, anyị nwere obi ụtọ maka nkwado unu.",
           "culturalNote": "Grateful response.",
-          "audioId": "daalu_maka_ndo_gi"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -7428,25 +7566,29 @@
           "speaker": "Chuka",
           "text": "Ndo maka ọnwụ nne gị, Ada. Obi gbawara m mgbe anụrụ m.",
           "translation": "Sorry for the death of your mother, Ada. My heart broke when I heard.",
-          "audioContext": "Condolences"
+          "audioContext": "Condolences",
+          "audioId": ""
         },
         {
           "speaker": "Ada",
           "text": "Daalụ, Chuka. Ọ bụ ọnwụ siri ike.",
           "translation": "Thank you, Chuka. It was a hard death.",
-          "audioContext": "Gratitude"
+          "audioContext": "Gratitude",
+          "audioId": ""
         },
         {
           "speaker": "Chuka",
           "text": "Gbaa ume. Ọ ga-aka mma. Ị ga-adi ogologo ndụ.",
           "translation": "Be strong. It will get better. You will live long.",
-          "audioContext": "Encouragement"
+          "audioContext": "Encouragement",
+          "audioId": ""
         },
         {
           "speaker": "Ada",
           "text": "Ka Chineke mee ka mkpụrụ obi ya zuru ike. Anyị na-ekele unu maka nkwado unu.",
           "translation": "May God rest her soul. We thank you all for your support.",
-          "audioContext": "Prayer and thanks"
+          "audioContext": "Prayer and thanks",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -7752,7 +7894,7 @@
           "pronunciation": "oo-gboh ah-lah",
           "example": "Ụgbọ ala na-aga ahịa?",
           "culturalNote": "General term; in context, means taxi/bus.",
-          "audioId": "ugbo_ala"
+          "audioId": ""
         },
         {
           "word": "Ụgbọ",
@@ -7760,7 +7902,7 @@
           "pronunciation": "oo-gboh",
           "example": "Ụgbọ ọhụrụ abịala.",
           "culturalNote": "Often used for buses.",
-          "audioId": "ugbo"
+          "audioId": ""
         },
         {
           "word": "Ọkwọ ụgbọ",
@@ -7768,7 +7910,7 @@
           "pronunciation": "or-kwoh oo-gboh",
           "example": "Ọkwọ ụgbọ, biko, kwụsị ebe a.",
           "culturalNote": "Respectful address.",
-          "audioId": "okwo_ugbo"
+          "audioId": ""
         },
         {
           "word": "Nọdụ ala",
@@ -7776,7 +7918,7 @@
           "pronunciation": "noh-doo ah-lah",
           "example": "Nọdụ ala, anyị ga-apụ ugbu a.",
           "culturalNote": "Conductor's instruction.",
-          "audioId": "nodu_ala"
+          "audioId": ""
         },
         {
           "word": "Kwụsị",
@@ -7784,7 +7926,7 @@
           "pronunciation": "kwoo-see",
           "example": "Biko, kwụsị m na nkwụsị ahịa.",
           "culturalNote": "Essential for getting off.",
-          "audioId": "kwusi"
+          "audioId": ""
         },
         {
           "word": "Ego ole?",
@@ -7792,7 +7934,7 @@
           "pronunciation": "eh-goh oh-leh",
           "example": "Ego ole si ebe a gaa Onịcha?",
           "culturalNote": "Ask fare before boarding.",
-          "audioId": "ego_ole"
+          "audioId": ""
         },
         {
           "word": "Weta",
@@ -7800,7 +7942,7 @@
           "pronunciation": "weh-tah",
           "example": "Weta m ego mgbanwe m.",
           "culturalNote": "Ask conductor for change.",
-          "audioId": "weta"
+          "audioId": ""
         },
         {
           "word": "Nkwụsị",
@@ -7808,7 +7950,7 @@
           "pronunciation": "n-kwoo-see",
           "example": "Nkwụsị ọzọ, biko.",
           "culturalNote": "Request next stop.",
-          "audioId": "nkwusi"
+          "audioId": ""
         },
         {
           "word": "Ahịa ukwu",
@@ -7816,7 +7958,7 @@
           "pronunciation": "ah-hee-ah oo-kwoo",
           "example": "Aga m ahịa ukwu.",
           "culturalNote": "Major destination.",
-          "audioId": "ahia_ukwu"
+          "audioId": ""
         },
         {
           "word": "Bata",
@@ -7824,7 +7966,7 @@
           "pronunciation": "bah-tah",
           "example": "Bata, ohere dị.",
           "culturalNote": "Conductor invites passenger.",
-          "audioId": "bata"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -7854,37 +7996,43 @@
           "speaker": "Onye njem",
           "text": "Ọkwọ ụgbọ! Ụgbọ a na-aga Ahịa Ukwu?",
           "translation": "Driver! Is this vehicle going to the Main Market?",
-          "audioContext": "Confirming route"
+          "audioContext": "Confirming route",
+          "audioId": ""
         },
         {
           "speaker": "Ọkwọ ụgbọ",
           "text": "Ee, bata. Anyị ga-ala ugbu a.",
           "translation": "Yes, get in. We are leaving now.",
-          "audioContext": "Invitation"
+          "audioContext": "Invitation",
+          "audioId": ""
         },
         {
           "speaker": "Onye njem",
           "text": "Ego ole bụ ụgwọ?",
           "translation": "How much is the fare?",
-          "audioContext": "Asking price"
+          "audioContext": "Asking price",
+          "audioId": ""
         },
         {
           "speaker": "Ọkwọ ụgbọ",
           "text": "Narị abụọ.",
           "translation": "Two hundred.",
-          "audioContext": "Fare"
+          "audioContext": "Fare",
+          "audioId": ""
         },
         {
           "speaker": "Onye njem",
           "text": "Ọ dị mma. Biko, kwụsị m n'ihu Ụlọ Akwụkwọ Central.",
           "translation": "Okay. Please, drop me in front of Central School.",
-          "audioContext": "Specific stop"
+          "audioContext": "Specific stop",
+          "audioId": ""
         },
         {
           "speaker": "Ọkwọ ụgbọ",
           "text": "Aga m akwụsị gị ebe ahụ.",
           "translation": "I will drop you there.",
-          "audioContext": "Agreement"
+          "audioContext": "Agreement",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -8026,7 +8174,7 @@
           "pronunciation": "oo-gboh-ah-lah",
           "example": "Ụgbọala m mebiri emebi.",
           "culturalNote": "Formal term.",
-          "audioId": "ugboala"
+          "audioId": ""
         },
         {
           "word": "Taya",
@@ -8034,7 +8182,7 @@
           "pronunciation": "tah-yah",
           "example": "Taya m gbawara.",
           "culturalNote": "Borrowed from English.",
-          "audioId": "taya"
+          "audioId": ""
         },
         {
           "word": "Gbawara",
@@ -8042,7 +8190,7 @@
           "pronunciation": "gba-wah-rah",
           "example": "Taya azụ gbawara.",
           "culturalNote": "Past tense of 'gbawaa'.",
-          "audioId": "gbawara"
+          "audioId": ""
         },
         {
           "word": "Mkpị",
@@ -8050,7 +8198,7 @@
           "pronunciation": "m-kpee",
           "example": "Ọ nwere mkpị n'ime taya.",
           "culturalNote": "Sharp object causing puncture.",
-          "audioId": "mkpi"
+          "audioId": ""
         },
         {
           "word": "Ụda",
@@ -8058,7 +8206,7 @@
           "pronunciation": "oo-dah",
           "example": "Ụgbọala m na-eme ụda.",
           "culturalNote": "Unusual noise = problem.",
-          "audioId": "uda"
+          "audioId": ""
         },
         {
           "word": "Mmezi",
@@ -8066,7 +8214,7 @@
           "pronunciation": "m-meh-zee",
           "example": "Chọrọ m mmezi ụgbọala.",
           "culturalNote": "Noun form of 'mezi' (fix).",
-          "audioId": "mmezi"
+          "audioId": ""
         },
         {
           "word": "Onye mezie ụgbọ",
@@ -8074,7 +8222,7 @@
           "pronunciation": "aw-nyeh meh-zee-eh oo-gboh",
           "example": "Onye mezie ụgbọ nọ ebe a?",
           "culturalNote": "Literally 'person who fixes vehicle'.",
-          "audioId": "onye_mezie_ugbo"
+          "audioId": ""
         },
         {
           "word": "Oge ole?",
@@ -8082,7 +8230,7 @@
           "pronunciation": "oh-geh oh-leh",
           "example": "Oge ole ka ọ ga-ewe?",
           "culturalNote": "Ask for duration.",
-          "audioId": "oge_ole"
+          "audioId": ""
         },
         {
           "word": "Ego mmezi",
@@ -8090,7 +8238,7 @@
           "pronunciation": "eh-goh m-meh-zee",
           "example": "Ego mmezi ole ka ọ bụ?",
           "culturalNote": "Essential to ask.",
-          "audioId": "ego_mmezi"
+          "audioId": ""
         },
         {
           "word": "Dozie",
@@ -8098,7 +8246,7 @@
           "pronunciation": "doh-zee-eh",
           "example": "Ị nwere ike ịdozie ya taa?",
           "culturalNote": "Verb: to fix.",
-          "audioId": "dozie"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -8127,37 +8275,43 @@
           "speaker": "Onye nwe ụgbọ",
           "text": "Nwanne, ụgbọala m na-eme ụda. Ị nwere ike ile anya?",
           "translation": "Brother, my car is making noise. Can you look?",
-          "audioContext": "Request"
+          "audioContext": "Request",
+          "audioId": ""
         },
         {
           "speaker": "Onye mezie",
           "text": "Kedu ụdị ụda?",
           "translation": "What kind of noise?",
-          "audioContext": "Diagnosis"
+          "audioContext": "Diagnosis",
+          "audioId": ""
         },
         {
           "speaker": "Onye nwe ụgbọ",
           "text": "Ụda siri ike si n'okpuru. Echere m na ọ bụ injin.",
           "translation": "A loud noise from underneath. I think it's the engine.",
-          "audioContext": "Description"
+          "audioContext": "Description",
+          "audioId": ""
         },
         {
           "speaker": "Onye mezie",
           "text": "Ka m lee. Ehee, taya gị gbawara, injin adịghị mma.",
           "translation": "Let me see. Aha, your tyre is flat, the engine is not good.",
-          "audioContext": "Finding issues"
+          "audioContext": "Finding issues",
+          "audioId": ""
         },
         {
           "speaker": "Onye nwe ụgbọ",
           "text": "Oge ole ka ọ ga-ewe idozi ya?",
           "translation": "How long will it take to fix it?",
-          "audioContext": "Asking time"
+          "audioContext": "Asking time",
+          "audioId": ""
         },
         {
           "speaker": "Onye mezie",
           "text": "Ihe dịka elekere abụọ. Ego mmezi bụ puku ise.",
           "translation": "About two hours. The repair cost is five thousand.",
-          "audioContext": "Estimate"
+          "audioContext": "Estimate",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -8299,7 +8453,7 @@
           "pronunciation": "or-gwoo",
           "example": "Ị nwere ọgwụ ọnya?",
           "culturalNote": "General term for drugs.",
-          "audioId": "ogwu"
+          "audioId": ""
         },
         {
           "word": "Ọgwụ ịba",
@@ -8307,7 +8461,7 @@
           "pronunciation": "or-gwoo ee-bah",
           "example": "Ị na-ere ọgwụ ịba?",
           "culturalNote": "Common request.",
-          "audioId": "ogwu_iba"
+          "audioId": ""
         },
         {
           "word": "Ọgwụ mgbu",
@@ -8315,7 +8469,7 @@
           "pronunciation": "or-gwoo m-gboo",
           "example": "Nye m ọgwụ mgbu isi.",
           "culturalNote": "For headache, etc.",
-          "audioId": "ogwu_mgbu"
+          "audioId": ""
         },
         {
           "word": "Ọgwụ ehighi ụra",
@@ -8323,7 +8477,7 @@
           "pronunciation": "or-gwoo eh-hee-hee oo-rah",
           "example": "Ọ na-enye m nsogbu ụra.",
           "culturalNote": "Less common, often herbal.",
-          "audioId": "ogwu_ehighi_ura"
+          "audioId": ""
         },
         {
           "word": "Ahụ ọkụ",
@@ -8331,7 +8485,7 @@
           "pronunciation": "ah-hoo or-koo",
           "example": "Ahụ ọkụ na-agba m.",
           "culturalNote": "I have fever.",
-          "audioId": "ahu_oku"
+          "audioId": ""
         },
         {
           "word": "Ọgwụnwụ",
@@ -8339,7 +8493,7 @@
           "pronunciation": "or-gwoo-nwoo",
           "example": "Ọgwụnwụ na-agbọ m.",
           "culturalNote": "I am vomiting.",
-          "audioId": "ogwunwu"
+          "audioId": ""
         },
         {
           "word": "Ọnyá",
@@ -8347,7 +8501,7 @@
           "pronunciation": "or-nyah",
           "example": "Enwere m ọnyá n'aka.",
           "culturalNote": "Cut or sore.",
-          "audioId": "onya"
+          "audioId": ""
         },
         {
           "word": "Ọgba",
@@ -8355,7 +8509,7 @@
           "pronunciation": "or-gbah",
           "example": "Dọkịta nyere m ọgba.",
           "culturalNote": "Often preferred for quick relief.",
-          "audioId": "ogba"
+          "audioId": ""
         },
         {
           "word": "Iwu ọgwụ",
@@ -8363,7 +8517,7 @@
           "pronunciation": "ee-woo or-gwoo",
           "example": "Ọ nwere iwu ọgwụ?",
           "culturalNote": "Some drugs require prescription.",
-          "audioId": "iwu_ogwu"
+          "audioId": ""
         },
         {
           "word": "Ọgwụ mịrị amị",
@@ -8371,7 +8525,7 @@
           "pronunciation": "or-gwoo mee-ree ah-mee",
           "example": "Ṇụọ ọgwụ a abụọ n'ụtụtụ.",
           "culturalNote": "Instructions for pills.",
-          "audioId": "ogwu_miri_ami"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -8400,37 +8554,43 @@
           "speaker": "Onye ọrịa",
           "text": "Nnọọ. Ahụ ọkụ na-agba m, isi m na-egbu m mgbu.",
           "translation": "Hello. I have a fever and a headache.",
-          "audioContext": "Presenting symptoms"
+          "audioContext": "Presenting symptoms",
+          "audioId": ""
         },
         {
           "speaker": "Onye na-ere ọgwụ",
           "text": "Ị nwere ụkwara ma ọ bụ ọgwụnwụ?",
           "translation": "Do you have a cough or vomiting?",
-          "audioContext": "Assessment"
+          "audioContext": "Assessment",
+          "audioId": ""
         },
         {
           "speaker": "Onye ọrịa",
           "text": "Mba, ọ bụ naanị ahụ ọkụ na isi ọwụwa.",
           "translation": "No, only fever and headache.",
-          "audioContext": "Clarify"
+          "audioContext": "Clarify",
+          "audioId": ""
         },
         {
           "speaker": "Onye na-ere ọgwụ",
           "text": "Ọ nwere ike ịbụ ịba. A ga-enye gị ọgwụ ịba na paracetamol.",
           "translation": "It could be malaria. I will give you malaria medicine and paracetamol.",
-          "audioContext": "Recommendation"
+          "audioContext": "Recommendation",
+          "audioId": ""
         },
         {
           "speaker": "Onye ọrịa",
           "text": "Ọ dị mma. Olee otú m ga-esi ṅụọ ya?",
           "translation": "Okay. How do I take it?",
-          "audioContext": "Asking instructions"
+          "audioContext": "Asking instructions",
+          "audioId": ""
         },
         {
           "speaker": "Onye na-ere ọgwụ",
           "text": "Ṇụọ paracetamol otu abụọ ugboro atọ n'ụbọchị. Ọgwụ ịba a, otu ụbọchị.",
           "translation": "Take paracetamol two tablets three times a day. This malaria medicine, once a day.",
-          "audioContext": "Dosage"
+          "audioContext": "Dosage",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -8572,7 +8732,7 @@
           "pronunciation": "nah-eh-ree",
           "example": "Ọ na-eri nri ugbu a.",
           "culturalNote": "Present continuous of 'ri'.",
-          "audioId": "na_eri"
+          "audioId": ""
         },
         {
           "word": "Na-aṅụ",
@@ -8580,7 +8740,7 @@
           "pronunciation": "nah-ah-ngoo",
           "example": "Ha na-aṅụ mmanya.",
           "culturalNote": "Present continuous of 'ṅụọ'.",
-          "audioId": "na_anu"
+          "audioId": ""
         },
         {
           "word": "Na-agba egwu",
@@ -8588,7 +8748,7 @@
           "pronunciation": "nah-ah-gbah eh-gwoo",
           "example": "Ụmụaka na-agba egwu n'ụlọ.",
           "culturalNote": "Lit. 'playing dance'.",
-          "audioId": "na_agba_egwu"
+          "audioId": ""
         },
         {
           "word": "Na-acha",
@@ -8596,7 +8756,7 @@
           "pronunciation": "nah-ah-chah",
           "example": "Anwụ na-acha.",
           "culturalNote": "Sun is shining.",
-          "audioId": "na_acha"
+          "audioId": ""
         },
         {
           "word": "Na-ezo",
@@ -8604,7 +8764,7 @@
           "pronunciation": "nah-eh-zoh",
           "example": "Mmiri na-ezo.",
           "culturalNote": "Rain is falling.",
-          "audioId": "na_ezo"
+          "audioId": ""
         },
         {
           "word": "Na-ekwu okwu",
@@ -8612,7 +8772,7 @@
           "pronunciation": "nah-eh-kwoo o-kwoo",
           "example": "Ọ na-ekwu okwu n'ekwe.",
           "culturalNote": "On the phone.",
-          "audioId": "na_ekwu_okwu"
+          "audioId": ""
         },
         {
           "word": "Na-akwọ ụgbọ",
@@ -8620,7 +8780,7 @@
           "pronunciation": "nah-ah-kwoh oo-gboh",
           "example": "Nna m na-akwọ ụgbọ ugbu a.",
           "culturalNote": "Present continuous.",
-          "audioId": "na_akwo_ugbo"
+          "audioId": ""
         },
         {
           "word": "Na-esi nri",
@@ -8628,7 +8788,7 @@
           "pronunciation": "nah-eh-see n-ree",
           "example": "Nne m na-esi nri na kichin.",
           "culturalNote": "Cooking food.",
-          "audioId": "na_esi_nri"
+          "audioId": ""
         },
         {
           "word": "Na-ere ọkụ",
@@ -8636,7 +8796,7 @@
           "pronunciation": "nah-eh-reh or-koo",
           "example": "Nri na-ere ọkụ!",
           "culturalNote": "Food is burning!",
-          "audioId": "na_ere_oku"
+          "audioId": ""
         },
         {
           "word": "Ugbu a",
@@ -8644,7 +8804,7 @@
           "pronunciation": "oo-gboo ah",
           "example": "Anyị na-eme ememe ugbu a.",
           "culturalNote": "Common time marker.",
-          "audioId": "ugbu_a"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -8673,31 +8833,36 @@
           "speaker": "Ada",
           "text": "Kedu ihe ị na-eme ugbu a?",
           "translation": "What are you doing now?",
-          "audioContext": "Asking current action"
+          "audioContext": "Asking current action",
+          "audioId": ""
         },
         {
           "speaker": "Chidi",
           "text": "A na-esi m nri. Nri ji na àkwá.",
           "translation": "I am cooking food. Yam and eggs.",
-          "audioContext": "Current activity"
+          "audioContext": "Current activity",
+          "audioId": ""
         },
         {
           "speaker": "Ada",
           "text": "Ọ na-esi ísì ụtọ! Ụmụaka ebe a na-agba egwu.",
           "translation": "It smells delicious! The children here are dancing.",
-          "audioContext": "Describing others"
+          "audioContext": "Describing others",
+          "audioId": ""
         },
         {
           "speaker": "Chidi",
           "text": "Chee ntị! Mmiri na-ezo. Bata ngwa ngwa.",
           "translation": "Listen! It is raining. Come in quickly.",
-          "audioContext": "Urgent"
+          "audioContext": "Urgent",
+          "audioId": ""
         },
         {
           "speaker": "Ada",
           "text": "Ee, anyị na-abata ugbu a.",
           "translation": "Yes, we are coming in now.",
-          "audioContext": "Response"
+          "audioContext": "Response",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -8839,7 +9004,7 @@
           "pronunciation": "ee-zoo-kah",
           "example": "N'izuka gara aga, agara m ime obodo.",
           "culturalNote": "Last week.",
-          "audioId": "izuka"
+          "audioId": ""
         },
         {
           "word": "Ime obodo",
@@ -8847,7 +9012,7 @@
           "pronunciation": "ee-meh oh-boh-doh",
           "example": "Anyị gara ime obodo Sọnde.",
           "culturalNote": "Many urban dwellers visit on weekends.",
-          "audioId": "ime_obodo"
+          "audioId": ""
         },
         {
           "word": "Emume ịnwa",
@@ -8855,7 +9020,7 @@
           "pronunciation": "eh-moo-meh ee-n-wah",
           "example": "Anyị gara emume ịnwa nwanne m.",
           "culturalNote": "Important family event.",
-          "audioId": "emume_inwa"
+          "audioId": ""
         },
         {
           "word": "Chọọchị",
@@ -8863,7 +9028,7 @@
           "pronunciation": "chor-chee",
           "example": "Anyị gara chọọchị ụtụtụ Sọnde.",
           "culturalNote": "Sunday morning ritual.",
-          "audioId": "choochi"
+          "audioId": ""
         },
         {
           "word": "Zụrụ",
@@ -8871,7 +9036,7 @@
           "pronunciation": "zoo-roo",
           "example": "A zụrụ m akwa ọhụrụ.",
           "culturalNote": "Past of 'zụta'.",
-          "audioId": "zuru"
+          "audioId": ""
         },
         {
           "word": "Hụrụ",
@@ -8879,7 +9044,7 @@
           "pronunciation": "hoo-roo",
           "example": "A hụrụ m enyi m ochie.",
           "culturalNote": "Past of 'hụ'.",
-          "audioId": "huru"
+          "audioId": ""
         },
         {
           "word": "Nọrọ",
@@ -8887,7 +9052,7 @@
           "pronunciation": "noh-roh",
           "example": "Anyị nọrọ n'ụlọ ma zụọ ike.",
           "culturalNote": "Past of 'nọ'.",
-          "audioId": "noro"
+          "audioId": ""
         },
         {
           "word": "Gara",
@@ -8895,7 +9060,7 @@
           "pronunciation": "gah-rah",
           "example": "Agara m ahịa Satọde.",
           "culturalNote": "Past of 'gaa'.",
-          "audioId": "gara"
+          "audioId": ""
         },
         {
           "word": "Riri",
@@ -8903,7 +9068,7 @@
           "pronunciation": "ree-ree",
           "example": "Anyị riri nri ọdịnala.",
           "culturalNote": "Past of 'ri'.",
-          "audioId": "riri"
+          "audioId": ""
         },
         {
           "word": "Ṇụrụ",
@@ -8911,7 +9076,7 @@
           "pronunciation": "ngoo-roo",
           "example": "Ha ṅụrụ mmanya nkwụ.",
           "culturalNote": "Past of 'ṅụọ'.",
-          "audioId": "nuru"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -8942,31 +9107,36 @@
           "speaker": "Ngozi",
           "text": "Kedu ihe ị mere na ngwụcha izu ụka?",
           "translation": "What did you do over the weekend?",
-          "audioContext": "Weekend chat"
+          "audioContext": "Weekend chat",
+          "audioId": ""
         },
         {
           "speaker": "Chibụike",
           "text": "Agara m ime obodo. Ọ bụ emume ịnwa nwanne m.",
           "translation": "I went to the village. It was my sibling's naming ceremony.",
-          "audioContext": "Sharing"
+          "audioContext": "Sharing",
+          "audioId": ""
         },
         {
           "speaker": "Ngozi",
           "text": "Ọ dị mma! Ị hụrụ ezinụlọ gị niile?",
           "translation": "Nice! Did you see all your family?",
-          "audioContext": "Follow-up"
+          "audioContext": "Follow-up",
+          "audioId": ""
         },
         {
           "speaker": "Chibụike",
           "text": "Ee, ha niile bịara. Anyị riri nri, ṅụrụ mmanya, gbakwara egwu.",
           "translation": "Yes, they all came. We ate, drank, and danced.",
-          "audioContext": "Activities"
+          "audioContext": "Activities",
+          "audioId": ""
         },
         {
           "speaker": "Ngozi",
           "text": "Nke ahụ dị ụtọ. Agara m naanị chọọchị ma zuru ike.",
           "translation": "That's sweet. I only went to church and rested.",
-          "audioContext": "Simple weekend"
+          "audioContext": "Simple weekend",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -9108,7 +9278,7 @@
           "pronunciation": "gah-ah-kpoh",
           "example": "M ga-akpọ gị n'ehihie.",
           "culturalNote": "Future of 'kpọ'.",
-          "audioId": "ga_akpo"
+          "audioId": ""
         },
         {
           "word": "Ga-akwụ",
@@ -9116,7 +9286,7 @@
           "pronunciation": "gah-ah-kwoo",
           "example": "M ga-akwụ gị ụgwọ Fraịde.",
           "culturalNote": "Future of 'kwụ'.",
-          "audioId": "ga_akwu"
+          "audioId": ""
         },
         {
           "word": "Ga-abịa",
@@ -9124,7 +9294,7 @@
           "pronunciation": "gah-ah-bee-ah",
           "example": "Ọ ga-abịa oriri abalị.",
           "culturalNote": "Future of 'bịa'.",
-          "audioId": "ga_abia"
+          "audioId": ""
         },
         {
           "word": "Ga-eme",
@@ -9132,7 +9302,7 @@
           "pronunciation": "gah-ah-meh",
           "example": "M ga-eme ihe ị gwara m.",
           "culturalNote": "Future of 'me'.",
-          "audioId": "ga_eme"
+          "audioId": ""
         },
         {
           "word": "Ga-enye",
@@ -9140,7 +9310,7 @@
           "pronunciation": "gah-ah-eh-nyeh",
           "example": "Ọ ga-enye m akwụkwọ echi.",
           "culturalNote": "Future of 'nye'.",
-          "audioId": "ga_enye"
+          "audioId": ""
         },
         {
           "word": "Nkwa",
@@ -9148,7 +9318,7 @@
           "pronunciation": "n-kwah",
           "example": "Ọ bụ nkwa, m ga-emezu ya.",
           "culturalNote": "A promise is binding.",
-          "audioId": "nkwa"
+          "audioId": ""
         },
         {
           "word": "Meezu",
@@ -9156,7 +9326,7 @@
           "pronunciation": "meh-eh-zoo",
           "example": "Ị ga-emezu nkwa gị?",
           "culturalNote": "To keep a promise.",
-          "audioId": "meezu"
+          "audioId": ""
         },
         {
           "word": "Echi",
@@ -9164,7 +9334,7 @@
           "pronunciation": "eh-chee",
           "example": "M ga-ala echi.",
           "culturalNote": "Common future marker.",
-          "audioId": "echi"
+          "audioId": ""
         },
         {
           "word": "N'izu ụka na-abịa",
@@ -9172,7 +9342,7 @@
           "pronunciation": "n-ee-zoo oo-kah nah-ah-bee-ah",
           "example": "Anyị ga-ezukọ n'izu ụka na-abịa.",
           "culturalNote": "Literal 'week that is coming'.",
-          "audioId": "n_izu_uka_na_abia"
+          "audioId": ""
         },
         {
           "word": "Anyị ga-erute",
@@ -9180,7 +9350,7 @@
           "pronunciation": "ah-nyee gah eh-roo-teh",
           "example": "Anyị ga-erute n'oge.",
           "culturalNote": "Optimistic future.",
-          "audioId": "anyi_ga_erute"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -9210,31 +9380,36 @@
           "speaker": "Chuka",
           "text": "Ị ga-abịa oriri m na Satọde?",
           "translation": "Will you come to my party on Saturday?",
-          "audioContext": "Invitation"
+          "audioContext": "Invitation",
+          "audioId": ""
         },
         {
           "speaker": "Ifeanyi",
           "text": "Ee, m ga-abịa. Ọ bụ nkwa.",
           "translation": "Yes, I will come. It's a promise.",
-          "audioContext": "Commitment"
+          "audioContext": "Commitment",
+          "audioId": ""
         },
         {
           "speaker": "Chuka",
           "text": "Ọ dị mma. Ị ga-akpọ m tupu ị bịa?",
           "translation": "Okay. Will you call me before you come?",
-          "audioContext": "Arrangement"
+          "audioContext": "Arrangement",
+          "audioId": ""
         },
         {
           "speaker": "Ifeanyi",
           "text": "M ga-akpọ gị na mgbede Fraịde.",
           "translation": "I will call you on Friday evening.",
-          "audioContext": "Specific plan"
+          "audioContext": "Specific plan",
+          "audioId": ""
         },
         {
           "speaker": "Chuka",
           "text": "Daalụ. Anyị ga-erute n'oge.",
           "translation": "Thank you. We will get there on time.",
-          "audioContext": "Confidence"
+          "audioContext": "Confidence",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -9376,7 +9551,7 @@
           "pronunciation": "beh-poo",
           "example": "Bepụ anụ ahụ n'ime obere iberibe.",
           "culturalNote": "Imperative of 'bepụ'.",
-          "audioId": "bepu"
+          "audioId": ""
         },
         {
           "word": "Tinye",
@@ -9384,7 +9559,7 @@
           "pronunciation": "tee-nyeh",
           "example": "Tinye mmiri nwayọọ nwayọọ.",
           "culturalNote": "Add gradually.",
-          "audioId": "tinye"
+          "audioId": ""
         },
         {
           "word": "Nwayọọ nwayọọ",
@@ -9392,7 +9567,7 @@
           "pronunciation": "n-wah-yoh n-wah-yoh",
           "example": "Wụsa mmiri nwayọọ nwayọọ.",
           "culturalNote": "Repetition for emphasis.",
-          "audioId": "nwayoo_nwayoo"
+          "audioId": ""
         },
         {
           "word": "Gbakwunye",
@@ -9400,7 +9575,7 @@
           "pronunciation": "gba-kwoo-nyeh",
           "example": "Gbakwunye nnu ma ọ dị mkpa.",
           "culturalNote": "Add extra.",
-          "audioId": "gbakwunye"
+          "audioId": ""
         },
         {
           "word": "Gbanwụọ",
@@ -9408,7 +9583,7 @@
           "pronunciation": "gba-nwoo-oh",
           "example": "Gbanwụọ ọkụ, biko.",
           "culturalNote": "Turn on light/appliance.",
-          "audioId": "gbanwuo"
+          "audioId": ""
         },
         {
           "word": "Gbachie",
@@ -9416,7 +9591,7 @@
           "pronunciation": "gba-chee-eh",
           "example": "Gbachie igwe oyoyo.",
           "culturalNote": "Turn off generator.",
-          "audioId": "gbachie"
+          "audioId": ""
         },
         {
           "word": "Kpọọ",
@@ -9424,7 +9599,7 @@
           "pronunciation": "kpo-oh",
           "example": "Kpọọ mmiri tupu ị tinye tea.",
           "culturalNote": "Boil water.",
-          "audioId": "kpoo"
+          "audioId": ""
         },
         {
           "word": "Gwakọta",
@@ -9432,7 +9607,7 @@
           "pronunciation": "gwa-koh-tah",
           "example": "Gwakọta ntụ ọka na mmiri.",
           "culturalNote": "Mix flour and water.",
-          "audioId": "gwakota"
+          "audioId": ""
         },
         {
           "word": "Chere",
@@ -9440,7 +9615,7 @@
           "pronunciation": "cheh-reh",
           "example": "Chere ka ọ sie.",
           "culturalNote": "Wait for it to cook.",
-          "audioId": "chere"
+          "audioId": ""
         },
         {
           "word": "Nụrụ",
@@ -9448,7 +9623,7 @@
           "pronunciation": "noo-roo",
           "example": "Nụrụ ya ma ọ dị ụtọ.",
           "culturalNote": "Check seasoning.",
-          "audioId": "nuru"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -9479,43 +9654,50 @@
           "speaker": "Nne",
           "text": "Ada, bịa zie m nri.",
           "translation": "Ada, come and cook for me.",
-          "audioContext": "Call"
+          "audioContext": "Call",
+          "audioId": ""
         },
         {
           "speaker": "Ada",
           "text": "Ee, nne. Gịnị ka m ga-eme?",
           "translation": "Yes, mother. What should I do?",
-          "audioContext": "Ready"
+          "audioContext": "Ready",
+          "audioId": ""
         },
         {
           "speaker": "Nne",
           "text": "Nke mbụ, bepụ ji ahụ n'ime obere iberibe.",
           "translation": "First, cut the yam into small pieces.",
-          "audioContext": "Instruction 1"
+          "audioContext": "Instruction 1",
+          "audioId": ""
         },
         {
           "speaker": "Ada",
           "text": "Ọ dị mma. E bepụla m ya.",
           "translation": "Okay. I have cut it.",
-          "audioContext": "Done"
+          "audioContext": "Done",
+          "audioId": ""
         },
         {
           "speaker": "Nne",
           "text": "Mgbe ahụ, tinye ya n'ite, gbakwunye mmiri nwayọọ nwayọọ.",
           "translation": "Then, put it in the pot, add water gradually.",
-          "audioContext": "Instruction 2"
+          "audioContext": "Instruction 2",
+          "audioId": ""
         },
         {
           "speaker": "Ada",
           "text": "M ga-eme nke ahụ. Ọ ga-esi ruo mgbe?",
           "translation": "I will do that. How long will it cook?",
-          "audioContext": "Clarify"
+          "audioContext": "Clarify",
+          "audioId": ""
         },
         {
           "speaker": "Nne",
           "text": "Chere ihe dịka nkeji iri, gbachie ọkụ, nụrụ ya.",
           "translation": "Wait about ten minutes, turn off the heat, taste it.",
-          "audioContext": "Final steps"
+          "audioContext": "Final steps",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -9657,7 +9839,7 @@
           "pronunciation": "eh-meh-too-lah",
           "example": "Emetụla ọkụ, ọ na-ekpo ọkụ!",
           "culturalNote": "Warning.",
-          "audioId": "emetula"
+          "audioId": ""
         },
         {
           "word": "Kpachara anya",
@@ -9665,7 +9847,7 @@
           "pronunciation": "kpa-chah-rah ah-nyah",
           "example": "Kpachara anya n'okporo ụzọ.",
           "culturalNote": "Literal 'use eyes well'.",
-          "audioId": "kpachara_anya"
+          "audioId": ""
         },
         {
           "word": "Ọ bụrụ na m bụ gị",
@@ -9673,7 +9855,7 @@
           "pronunciation": "aw boo-roo nah m boo gee",
           "example": "Ọ bụrụ na m bụ gị, aga m ajụ.",
           "culturalNote": "Hypothetical advice.",
-          "audioId": "o_buru_na_m_bu_gi"
+          "audioId": ""
         },
         {
           "word": "Ị kwesịrị",
@@ -9681,7 +9863,7 @@
           "pronunciation": "ee kweh-see-ree",
           "example": "Ị kwesịrị ịga dọkịta.",
           "culturalNote": "Strong recommendation.",
-          "audioId": "i_kwesiri"
+          "audioId": ""
         },
         {
           "word": "Ọ ka mma",
@@ -9689,7 +9871,7 @@
           "pronunciation": "aw kah m-mah",
           "example": "Ọ ka mma ị nọrọ n'ụlọ.",
           "culturalNote": "Comparative advice.",
-          "audioId": "o_ka_mma"
+          "audioId": ""
         },
         {
           "word": "Ekwela ka",
@@ -9697,7 +9879,7 @@
           "pronunciation": "eh-kweh-lah kah",
           "example": "Ekwela ka ụmụaka gwuo egwu n'okporo ụzọ.",
           "culturalNote": "Preventative.",
-          "audioId": "ekwela_ka"
+          "audioId": ""
         },
         {
           "word": "Gbalịa",
@@ -9705,7 +9887,7 @@
           "pronunciation": "gba-lee-ah",
           "example": "Gbalịa ime ihe ọhụrụ.",
           "culturalNote": "Encouragement.",
-          "audioId": "gbalia"
+          "audioId": ""
         },
         {
           "word": "Ihe ize ndụ",
@@ -9713,7 +9895,7 @@
           "pronunciation": "ee-heh ee-zeh n-doo",
           "example": "Nke ahụ bụ ihe ize ndụ.",
           "culturalNote": "Dangerous thing.",
-          "audioId": "ihe_ize_ndu"
+          "audioId": ""
         },
         {
           "word": "Chee echiche",
@@ -9721,7 +9903,7 @@
           "pronunciation": "cheh-eh eh-chee-cheh",
           "example": "Chee echiche tupu ị mee ihe.",
           "culturalNote": "Think before you act.",
-          "audioId": "chee_echiche"
+          "audioId": ""
         },
         {
           "word": "Nwee obi ike",
@@ -9729,7 +9911,7 @@
           "pronunciation": "n-weh oh-bee ee-keh",
           "example": "Nwee obi ike, ị ga-emeri.",
           "culturalNote": "Encouragement.",
-          "audioId": "nwee_obi_ike"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -9758,31 +9940,36 @@
           "speaker": "Nna",
           "text": "Nwa m nwoke, emetụla igbe ọkụ ahụ.",
           "translation": "My son, don't touch that electrical box.",
-          "audioContext": "Warning"
+          "audioContext": "Warning",
+          "audioId": ""
         },
         {
           "speaker": "Nwa",
           "text": "Gịnị kpatara, nna?",
           "translation": "Why, father?",
-          "audioContext": "Curious"
+          "audioContext": "Curious",
+          "audioId": ""
         },
         {
           "speaker": "Nna",
           "text": "Ọ bụ ihe ize ndụ. Ọ nwere ike igbu gị.",
           "translation": "It's dangerous. It can kill you.",
-          "audioContext": "Explanation"
+          "audioContext": "Explanation",
+          "audioId": ""
         },
         {
           "speaker": "Nwa",
           "text": "Ọ dị mma. M ga-anọ ebe a.",
           "translation": "Okay. I will stay here.",
-          "audioContext": "Compliance"
+          "audioContext": "Compliance",
+          "audioId": ""
         },
         {
           "speaker": "Nna",
           "text": "Ọ ka mma. Ọ bụrụ na m bụ gị, aga m egwu egwu n'èzí.",
           "translation": "That's better. If I were you, I would play outside.",
-          "audioContext": "Advice"
+          "audioContext": "Advice",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -9924,7 +10111,7 @@
           "pronunciation": "n-nu-kwoo",
           "example": "Daalụ maka nnukwu enyemaka gị.",
           "culturalNote": "Used for emphasis.",
-          "audioId": "nnukwu"
+          "audioId": ""
         },
         {
           "word": "Ọ bụ ihe ùgwù",
@@ -9932,7 +10119,7 @@
           "pronunciation": "aw boo ee-heh oo-gwoo",
           "example": "Ọ bụ ihe ùgwù ịnọ ebe a taa.",
           "culturalNote": "Formal opening.",
-          "audioId": "o_bu_ihe_ugwu"
+          "audioId": ""
         },
         {
           "word": "Ekene",
@@ -9940,7 +10127,7 @@
           "pronunciation": "eh-keh-neh",
           "example": "Ekene m na-ezitere unu niile.",
           "culturalNote": "Formal greetings.",
-          "audioId": "ekene"
+          "audioId": ""
         },
         {
           "word": "Nnabata",
@@ -9948,7 +10135,7 @@
           "pronunciation": "n-nah-bah-tah",
           "example": "Anyị na-enye unu nnabata ọkụ.",
           "culturalNote": "Warm reception.",
-          "audioId": "nnabata"
+          "audioId": ""
         },
         {
           "word": "Onye isi",
@@ -9956,7 +10143,7 @@
           "pronunciation": "aw-nyeh ee-see",
           "example": "Onye isi anyị ga-ekwu okwu.",
           "culturalNote": "Respectful title.",
-          "audioId": "onye_isi"
+          "audioId": ""
         },
         {
           "word": "Ụlọ ọrụ",
@@ -9964,7 +10151,7 @@
           "pronunciation": "oo-loh or-roo",
           "example": "N'aha ụlọ ọrụ anyị, ana m ekele gị.",
           "chemical": "Formal business context.",
-          "audioId": "ulo_oru"
+          "audioId": ""
         },
         {
           "word": "Nkwado",
@@ -9972,7 +10159,7 @@
           "pronunciation": "n-kwah-doh",
           "example": "Anyị na-enweta nkwado gị.",
           "culturalNote": "Formal appreciation.",
-          "audioId": "nkwado"
+          "audioId": ""
         },
         {
           "word": "Mmezu",
@@ -9980,7 +10167,7 @@
           "pronunciation": "m-meh-zoo",
           "example": "Ekele maka mmezu a.",
           "culturalNote": "Congratulatory.",
-          "audioId": "mmezu"
+          "audioId": ""
         },
         {
           "word": "Oghere",
@@ -9988,7 +10175,7 @@
           "pronunciation": "oh-geh-reh",
           "example": "Enwere m olileanya maka oghere ọrụ.",
           "culturalNote": "Formal request.",
-          "audioId": "oghere"
+          "audioId": ""
         },
         {
           "word": "Ọkà okwu",
@@ -9996,7 +10183,7 @@
           "pronunciation": "or-kah o-kwoo",
           "example": "Ọkà okwu anyị taa bụ ...",
           "culturalNote": "Guest speaker.",
-          "audioId": "oka_okwu"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -10026,25 +10213,29 @@
           "speaker": "Onye isi oche",
           "text": "Ekene m na-ezitere unu niile. Ọ bụ ihe ùgwù ịnọ ebe a taa.",
           "translation": "I bring greetings to you all. It is an honour to be here today.",
-          "audioContext": "Formal welcome"
+          "audioContext": "Formal welcome",
+          "audioId": ""
         },
         {
           "speaker": "Ndị bịara",
           "text": "Daalụ. Anyị nwere obi ụtọ ịnọ.",
           "translation": "Thank you. We are happy to be present.",
-          "audioContext": "Response"
+          "audioContext": "Response",
+          "audioId": ""
         },
         {
           "speaker": "Onye isi oche",
           "text": "N'aha ụlọ ọrụ anyị, ana m ekele unu maka nkwado unu.",
           "translation": "On behalf of our organization, I thank you for your support.",
-          "audioContext": "Appreciation"
+          "audioContext": "Appreciation",
+          "audioId": ""
         },
         {
           "speaker": "Ndị bịara",
           "text": "Ọ bụ anyị na-ekele. Anyị ga-aga n'ihu ịkwado gị.",
           "translation": "We are the ones to thank. We will continue to support you.",
-          "audioContext": "Commitment"
+          "audioContext": "Commitment",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -10348,7 +10539,7 @@
           "pronunciation": "ee-loo",
           "example": "Ọ ma ilu Igbo nke ọma.",
           "culturalNote": "Proverbs are the palm oil with which words are eaten.",
-          "audioId": "ilu"
+          "audioId": ""
         },
         {
           "word": "Onye akwụghị aka ya, nri adịghị ya n'ọnụ",
@@ -10356,49 +10547,49 @@
           "pronunciation": "aw-nyeh ah-kwoo-hee ah-kah yah, n-ree ah-dee-hee yah n or-noo",
           "example": "Ọ bụ eziokwu: onye akwụghị aka ya, nri adịghị ya n'ọnụ.",
           "culturalNote": "Respect and preparation are required to participate in important matters.",
-          "audioId": "onye_akwughi_aka_ya_nri_adighi_ya_n_onu"
+          "audioId": ""
         },
         {
           "word": "Anwụ na-awa n'ụra, ọ dịghị onye ma ebe ọ ga-ada",
           "translation": "The sun rises from its sleep, no one knows where it will set",
           "pronunciation": "ah-nwoo nah-wah-wah n oo-rah, aw dee-hee aw-nyeh mah eh-beh aw gah ah-dah",
           "culturalNote": "Life is uncertain; the future is unknown.",
-          "audioId": "anwu_na_awa_n_ura_o_dighi_onye_ma_ebe_o_ga_ada"
+          "audioId": ""
         },
         {
           "word": "Onye ji onye n'azụ, ka ọ na-aga",
           "translation": "He who carries someone on his back decides the direction",
           "pronunciation": "aw-nyeh jee aw-nyeh n ah-zoo, kah aw nah-ah-gah",
           "culturalNote": "The one in charge leads; often said of leaders.",
-          "audioId": "onye_ji_onye_n_azu_ka_o_na_aga"
+          "audioId": ""
         },
         {
           "word": "Eze enweghị ihe ọ na-eri, ụmụ ya enweghị ihe ha na-eri",
           "translation": "If the king has nothing to eat, his children have nothing to eat",
           "pronunciation": "eh-zeh eh-n-weh-hee ee-heh aw neh-ree, oo-moo yah eh-n-weh-hee ee-heh ha nah-ree",
           "culturalNote": "The leader's welfare affects the whole community.",
-          "audioId": "eze_enweghi_ihe_o_na_eri_umu_ya_enweghi_ihe_ha_na_eri"
+          "audioId": ""
         },
         {
           "word": "Otu mkpịsị aka adịghị ebu ihe elu",
           "translation": "One finger cannot lift a load",
           "pronunciation": "oh-too m-kpee-see ah-kah ah-dee-hee eh-boo ee-heh eh-loo",
           "culturalNote": "Unity is strength; teamwork is essential.",
-          "audioId": "otu_mkpisi_aka_adighi_ebu_ihe_elu"
+          "audioId": ""
         },
         {
           "word": "Agadi nwanyi tara ogili, ọ matala na ọ ga-agba ara",
           "translation": "The old woman who chewed the bitter leaf knew she would be mad",
           "pronunciation": "ah-gah-dee n-wah-nyee tah-rah oh-gee-lee, aw mah-tah-lah nah aw gah ah-gbah ah-rah",
           "culturalNote": "Actions have consequences; you knew the risks.",
-          "audioId": "agadi_nwanyi_tara_ogili_o_matala_na_o_ga_agba_ara"
+          "audioId": ""
         },
         {
           "word": "Onye kwe, Chineke ekwe",
           "translation": "If one agrees, God agrees",
           "pronunciation": "aw-nyeh kweh, chee-neh-keh eh-kweh",
           "culturalNote": "Where there is determination, divine help follows.",
-          "audioId": "onye_kwe_chineke_ekwe"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -10427,25 +10618,29 @@
           "speaker": "Nna ochie",
           "text": "Nwa m, ị matala na ị ga-alụ nwanyị. Cheta ilu: 'Onye akwụghị aka ya, nri adịghị ya n'ọnụ.'",
           "translation": "My child, you know you will marry. Remember the proverb: 'He who does not wash his hands does not eat with elders.'",
-          "audioContext": "Advice with proverb"
+          "audioContext": "Advice with proverb",
+          "audioId": ""
         },
         {
           "speaker": "Nwa okorobịa",
           "text": "Nna, a ghọtara m. Ọ pụtara na m ga-akwanyere ndị ochie ùgwù.",
           "translation": "Father, I understand. It means I must respect elders.",
-          "audioContext": "Interpretation"
+          "audioContext": "Interpretation",
+          "audioId": ""
         },
         {
           "speaker": "Nna ochie",
           "text": "Ọ bụ ya. Ọzọkwa, 'otu mkpịsị aka adịghị ebu ihe elu' – ị chọrọ nkwado ezinụlọ.",
           "translation": "Yes. Also, 'one finger cannot lift a load' – you need family support.",
-          "audioContext": "Second proverb"
+          "audioContext": "Second proverb",
+          "audioId": ""
         },
         {
           "speaker": "Nwa okorobịa",
           "text": "Ee, nna. Aga m echeta ilu ndị a mgbe niile.",
           "translation": "Yes, father. I will always remember these proverbs.",
-          "audioContext": "Gratitude"
+          "audioContext": "Gratitude",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -10587,7 +10782,7 @@
           "pronunciation": "ee-heh ah eh-zoo-hee eh-zoo",
           "example": "Ihe a ezughị ezu, akwụghị m ego zuru ezu?",
           "culturalNote": "Polite way to point out an error.",
-          "audioId": "ihe_a_ezughi_ezu"
+          "audioId": ""
         },
         {
           "word": "Ọ bụghị ihe m tụrụ anya",
@@ -10595,7 +10790,7 @@
           "pronunciation": "aw boo-hee ee-heh m too-roo ah-nyah",
           "example": "Ọrụ a bụghị ihe m tụrụ anya.",
           "culturalNote": "Express disappointment.",
-          "audioId": "o_bughi_ihe_m_turu_anya"
+          "audioId": ""
         },
         {
           "word": "Emeghị ihe e kwere ná nkwa",
@@ -10603,7 +10798,7 @@
           "pronunciation": "eh-meh-hee ee-heh eh kweh-reh n n-kwah",
           "example": "Emeghị ihe e kwere ná nkwa maka mmezi ụgbọala m.",
           "culturalNote": "Hold someone accountable.",
-          "audioId": "emeghi_ihe_e_kwere_na_nkwa"
+          "audioId": ""
         },
         {
           "word": "Enwere m nsogbu",
@@ -10611,7 +10806,7 @@
           "pronunciation": "eh-n-weh-reh m n-soh-gboo",
           "example": "Enwere m nsogbu na ngwaahịa a.",
           "culturalNote": "Calm opening.",
-          "audioId": "enwere_m_nsogbu"
+          "audioId": ""
         },
         {
           "word": "Biko, dozie ya",
@@ -10619,7 +10814,7 @@
           "pronunciation": "bee-koh, doh-zee-eh yah",
           "example": "Biko, dozie ya ngwa ngwa.",
           "culturalNote": "Polite request for resolution.",
-          "audioId": "biko_dozie_ya"
+          "audioId": ""
         },
         {
           "word": "Anaghị m enwe afọ ojuju",
@@ -10627,7 +10822,7 @@
           "pronunciation": "ah-nah-hee m eh-n-weh ah-foh oh-joo-joo",
           "example": "Anaghị m enwe afọ ojuju maka ọrụ unu.",
           "culturalNote": "Formal dissatisfaction.",
-          "audioId": "anaghi_m_enwe_afo_ojuju"
+          "audioId": ""
         },
         {
           "word": "Nweghachi ego",
@@ -10635,7 +10830,7 @@
           "pronunciation": "n-weh-hah-chee eh-goh",
           "example": "Achọrọ m nweghachi ego m.",
           "culturalNote": "Request refund.",
-          "audioId": "nweghachi_ego"
+          "audioId": ""
         },
         {
           "word": "Ọ bụ njehie",
@@ -10643,7 +10838,7 @@
           "pronunciation": "aw boo n-jeh-hee-eh",
           "example": "Ọ bụ njehie, biko dezie ya.",
           "culturalNote": "Acknowledging error without blame.",
-          "audioId": "o_bu_njehie"
+          "audioId": ""
         },
         {
           "word": "Ị ga-emezigharị ya",
@@ -10651,7 +10846,7 @@
           "pronunciation": "ee gah eh-meh-zee-hah-ree yah",
           "example": "Ị ga-emezigharị ya ozugbo.",
           "culturalNote": "Firm but polite.",
-          "audioId": "i_ga_emezighari_ya"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -10681,31 +10876,36 @@
           "speaker": "Onye ahịa",
           "text": "Ọ dị m nwute, mana enwere m nsogbu na nri m nyere iwu.",
           "translation": "I am sorry, but I have a problem with the food I ordered.",
-          "audioContext": "Polite complaint"
+          "audioContext": "Polite complaint",
+          "audioId": ""
         },
         {
           "speaker": "Onye ọrụ",
           "text": "Gịnị bụ nsogbu ahụ, nwanne?",
           "translation": "What is the problem, friend?",
-          "audioContext": "Open to feedback"
+          "audioContext": "Open to feedback",
+          "audioId": ""
         },
         {
           "speaker": "Onye ahịa",
           "text": "Ọ bụghị ihe m tụrụ anya. Enwere m ose n'ime ya, ma agwara m ha ka ha ghara itinye ose.",
           "translation": "It is not what I expected. There is pepper in it, but I told them not to put pepper.",
-          "audioContext": "Specific issue"
+          "audioContext": "Specific issue",
+          "audioId": ""
         },
         {
           "speaker": "Onye ọrụ",
           "text": "Ọ dị m nwute maka njehie ahụ. M ga-emezigharị ya ozugbo.",
           "translation": "I am sorry for that mistake. I will correct it immediately.",
-          "audioContext": "Resolution"
+          "audioContext": "Resolution",
+          "audioId": ""
         },
         {
           "speaker": "Onye ahịa",
           "text": "Daalụ. Anaghị m achọ nweghachi ego, naanị ka e dozie ya.",
           "translation": "Thank you. I don't want a refund, just to have it fixed.",
-          "audioContext": "Reasonable"
+          "audioContext": "Reasonable",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -10847,7 +11047,7 @@
           "pronunciation": "ah-jeh-boh",
           "example": "Ọ bụ ajebo, o nweghị ike ịghọta anyị.",
           "culturalNote": "Originally Yoruba, now pan-Nigerian. Can be derogatory or teasing.",
-          "audioId": "ajebo"
+          "audioId": ""
         },
         {
           "word": "Omo",
@@ -10855,7 +11055,7 @@
           "pronunciation": "oh-moh",
           "example": "Omo, kedu ihe na-eme?",
           "culturalNote": "Borrowed from Yoruba 'omo' (child), used like 'dude'.",
-          "audioId": "omo"
+          "audioId": ""
         },
         {
           "word": "Gbese",
@@ -10863,7 +11063,7 @@
           "pronunciation": "gbeh-seh",
           "example": "Enweghị m gbese ugbu a.",
           "culturalNote": "Slang for money, popular in music.",
-          "audioId": "gbese"
+          "audioId": ""
         },
         {
           "word": "Jaiye",
@@ -10871,7 +11071,7 @@
           "pronunciation": "jah-ee-yeh",
           "example": "Anyị ga-ajaiye na Friday.",
           "culturalNote": "From Yoruba 'jáìyé' (to enjoy life).",
-          "audioId": "jaiye"
+          "audioId": ""
         },
         {
           "word": "Shenk",
@@ -10879,7 +11079,7 @@
           "pronunciation": "shenk",
           "example": "Nke a bụ shenk, ọ bụghị ezigbo.",
           "culturalNote": "Nigerian Pidgin/street slang.",
-          "audioId": "shenk"
+          "audioId": ""
         },
         {
           "word": "Kọnkọ",
@@ -10887,7 +11087,7 @@
           "pronunciation": "kon-kon",
           "example": "Nwatakịrị a kọnkọ nke ukwuu.",
           "culturalNote": "Igbo slang for stubborn child.",
-          "audioId": "konko"
+          "audioId": ""
         },
         {
           "word": "Nwoke oma",
@@ -10895,7 +11095,7 @@
           "pronunciation": "n-woh-keh oh-mah",
           "example": "Nwoke oma abịala!",
           "culturalNote": "Compliment; used playfully.",
-          "audioId": "nwoke_oma"
+          "audioId": ""
         },
         {
           "word": "Wahala",
@@ -10903,7 +11103,7 @@
           "pronunciation": "wah-hah-lah",
           "example": "Wahala dey o!",
           "culturalNote": "Pidgin, but widely used in Igbo slang.",
-          "audioId": "wahala"
+          "audioId": ""
         },
         {
           "word": "Mekọ",
@@ -10911,7 +11111,7 @@
           "pronunciation": "meh-koh",
           "example": "Mekọ nụ, ngwa!",
           "culturalNote": "Encouragement to act.",
-          "audioId": "meko"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -10941,25 +11141,29 @@
           "speaker": "Emeka",
           "text": "Omo, kedu? Ị nọ ebe a?",
           "translation": "Dude, what's up? Are you here?",
-          "audioContext": "Casual greeting"
+          "audioContext": "Casual greeting",
+          "audioId": ""
         },
         {
           "speaker": "Chibụike",
           "text": "Ọ dị mma, mana enweghị m gbese. Ajebo ka ị bụ?",
           "translation": "I'm good, but I have no cash. Are you an ajebo?",
-          "audioContext": "Teasing"
+          "audioContext": "Teasing",
+          "audioId": ""
         },
         {
           "speaker": "Emeka",
           "text": "Mba, mba. Anyị ga-ajaiye na Sọnde, ị bịa?",
           "translation": "No, no. We will party on Sunday, are you coming?",
-          "audioContext": "Invite"
+          "audioContext": "Invite",
+          "audioId": ""
         },
         {
           "speaker": "Chibụike",
           "text": "Ọ bụrụ na enwere m gbese, m ga-abịa. Ma nwatakịrị a kọnkọ nke ukwuu, gị onwe gị!",
           "translation": "If I have money, I will come. But this child is very stubborn, you yourself!",
-          "audioContext": "Playful insult"
+          "audioContext": "Playful insult",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -11101,7 +11305,7 @@
           "pronunciation": "or-chee",
           "example": "Ọ na-akpa ọchị.",
           "culturalNote": "He is joking.",
-          "audioId": "ochi"
+          "audioId": ""
         },
         {
           "word": "Ịkpa ọchị",
@@ -11109,7 +11313,7 @@
           "pronunciation": "ee-kpah or-chee",
           "example": "Ekwela ka ịkpa ọchị gị meghee ọnya.",
           "culturalNote": "Don't let your jokes cause pain.",
-          "audioId": "ikpa_ochi"
+          "audioId": ""
         },
         {
           "word": "Ịchị ọchị",
@@ -11117,7 +11321,7 @@
           "pronunciation": "ee-chee or-chee",
           "example": "Ọchị na-achị m.",
           "culturalNote": "I am laughing.",
-          "audioId": "ichi_ochi"
+          "audioId": ""
         },
         {
           "word": "Onye nzuzu",
@@ -11125,7 +11329,7 @@
           "pronunciation": "aw-nyeh n-zoo-zoo",
           "example": "Ọ na-akpọ m onye nzuzu, ma ọ bụ ọchị.",
           "culturalNote": "Can be playful among friends.",
-          "audioId": "onye_nzuzu"
+          "audioId": ""
         },
         {
           "word": "Ịkwa emo",
@@ -11133,7 +11337,7 @@
           "pronunciation": "ee-kwah eh-moh",
           "example": "Ịkwa emo adịghị mma.",
           "culturalNote": "Mocking is hurtful, not humorous.",
-          "audioId": "ikwa_emo"
+          "audioId": ""
         },
         {
           "word": "Ọ dị ilu",
@@ -11141,7 +11345,7 @@
           "pronunciation": "aw dee ee-loo",
           "example": "Okwu ya dị ilu, ọ bụghị ọchị.",
           "culturalNote": "Sarcasm is sometimes used but can offend.",
-          "audioId": "o_di_ilu"
+          "audioId": ""
         },
         {
           "word": "Mee ka m chịa ọchị",
@@ -11149,7 +11353,7 @@
           "pronunciation": "meh-eh kah m chee-ah or-chee",
           "example": "Biko, mee ka m chịa ọchị.",
           "culturalNote": "Request for a joke.",
-          "audioId": "mee_ka_m_chia_ochi"
+          "audioId": ""
         },
         {
           "word": "Ọ bụ egwuregwu",
@@ -11157,7 +11361,7 @@
           "pronunciation": "aw boo eh-gwoo-reh-gwoo",
           "example": "Echegbula, ọ bụ egwuregwu.",
           "culturalNote": "Reassurance after a joke.",
-          "audioId": "o_bu_egwuregwu"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -11185,25 +11389,29 @@
           "speaker": "Ada",
           "text": "Kedu ihe mere i ji abịa n'oge?",
           "translation": "Why are you late?",
-          "audioContext": "Teasing"
+          "audioContext": "Teasing",
+          "audioId": ""
         },
         {
           "speaker": "Chidi",
           "text": "Ụgbọala m amaliteghị. A bụ m onye nzuzu, echefuru m ịgbanye ya!",
           "translation": "My car didn't start. I am foolish, I forgot to turn it on!",
-          "audioContext": "Self-mockery"
+          "audioContext": "Self-mockery",
+          "audioId": ""
         },
         {
           "speaker": "Ada",
           "text": "Ọchị na-achị m! Ị ga-aka mma.",
           "translation": "I am laughing! You are something else.",
-          "audioContext": "Laughter"
+          "audioContext": "Laughter",
+          "audioId": ""
         },
         {
           "speaker": "Chidi",
           "text": "Ọ bụ egwuregwu, mana eziokwu bụ na m hụrụrụ n'ụra.",
           "translation": "It's a joke, but the truth is I overslept.",
-          "audioContext": "Confession"
+          "audioContext": "Confession",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -11345,7 +11553,7 @@
           "pronunciation": "eh-moo-meh",
           "example": "Emume ịwa ji na-eme kwa afọ.",
           "culturalNote": "Yam festival.",
-          "audioId": "emume"
+          "audioId": ""
         },
         {
           "word": "Ịwa ji",
@@ -11353,7 +11561,7 @@
           "pronunciation": "ee-wah jee",
           "example": "Ịwa ji bụ nnukwu emume n'ala Igbo.",
           "culturalNote": "Celebrates the harvest of yams.",
-          "audioId": "iwa_ji"
+          "audioId": ""
         },
         {
           "word": "Ichu eze",
@@ -11361,7 +11569,7 @@
           "pronunciation": "ee-choo eh-zeh",
           "example": "Ha na-eme ichu eze ọhụrụ.",
           "culturalNote": "Installing a new king.",
-          "audioId": "ichu_eze"
+          "audioId": ""
         },
         {
           "word": "Ịnye ọfịa",
@@ -11369,7 +11577,7 @@
           "pronunciation": "ee-nyeh or-fee-ah",
           "example": "Nna m ga-anara ọfịa n'afọ a.",
           "culturalNote": "A prestigious event.",
-          "audioId": "inye_ofia"
+          "audioId": ""
         },
         {
           "word": "Ịgba egwu",
@@ -11377,7 +11585,7 @@
           "pronunciation": "ee-gbah eh-gwoo",
           "example": "Nne, bịa gbaa egwu!",
           "culturalNote": "Dance is essential.",
-          "audioId": "igba_egwu"
+          "audioId": ""
         },
         {
           "word": "Ịtụ ego",
@@ -11385,7 +11593,7 @@
           "pronunciation": "ee-too eh-goh",
           "example": "Ha na-atụ ego n'elu nwanyị ahụ na-agba egwu.",
           "culturalNote": "Dropping money on dancers/celebrants.",
-          "audioId": "itu_ego"
+          "audioId": ""
         },
         {
           "word": "Lafụn",
@@ -11393,7 +11601,7 @@
           "pronunciation": "lah-foon",
           "example": "A na-ete ndị eze lafụn n'ihu.",
           "culturalNote": "Traditional yellow paste for blessings.",
-          "audioId": "lafun"
+          "audioId": ""
         },
         {
           "word": "Nzu",
@@ -11401,7 +11609,7 @@
           "pronunciation": "n-zoo",
           "example": "E ji nzu kee ha aka.",
           "culturalNote": "Symbol of purity and blessing.",
-          "audioId": "nzu"
+          "audioId": ""
         },
         {
           "word": "Ọnụ",
@@ -11409,7 +11617,7 @@
           "pronunciation": "",
           "example": "",
           "culturalNote": "",
-          "audioId": "onu"
+          "audioId": ""
         },
         {
           "word": "Ọjị",
@@ -11417,7 +11625,7 @@
           "pronunciation": "or-jee",
           "example": "Weta ọjị maka ndị ọbịa.",
           "culturalNote": "Sacred nut for welcoming and prayer.",
-          "audioId": "oji"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -11447,31 +11655,36 @@
           "speaker": "Ọkà okwu",
           "text": "Nnọọ, ndị ọbịa! Bịanu sọpụrụ anyị n'emume ịnye ọfịa nna anyị.",
           "translation": "Welcome, guests! Come honour us at our father's chieftaincy title ceremony.",
-          "audioContext": "Announcement"
+          "audioContext": "Announcement",
+          "audioId": ""
         },
         {
           "speaker": "Onye ọbịa",
           "text": "Anyị bịara ịsọpụrụ ya. Ebe ka anyị ga-anọdụ?",
           "translation": "We came to honour him. Where shall we sit?",
-          "audioContext": "Response"
+          "audioContext": "Response",
+          "audioId": ""
         },
         {
           "speaker": "Ọkà okwu",
           "text": "Nọdụnu ala ebe a. Nwata, weta ọjị na mmanya.",
           "translation": "Sit here. Child, bring kola nut and wine.",
-          "audioContext": "Hospitality"
+          "audioContext": "Hospitality",
+          "audioId": ""
         },
         {
           "speaker": "Onye ọbịa",
           "text": "Ka anyị taa ọjị. Ọfịa dị ụtọ!",
           "translation": "Let us break kola. Chieftaincy is sweet!",
-          "audioContext": "Blessing"
+          "audioContext": "Blessing",
+          "audioId": ""
         },
         {
           "speaker": "Ọkà okwu",
           "text": "Ugbu a, nne anyị ga-agba egwu. Tụọnụ ego n'elu ya!",
           "translation": "Now, our mother will dance. Spray money on her!",
-          "audioContext": "Spraying"
+          "audioContext": "Spraying",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -11613,7 +11826,7 @@
           "pronunciation": "oh-meh-nah-lah",
           "example": "Ọ bụ omenala anyị ịkọ ugbo.",
           "culturalNote": "Deeply held practices.",
-          "audioId": "omenala"
+          "audioId": ""
         },
         {
           "word": "N'oge ochie",
@@ -11621,7 +11834,7 @@
           "pronunciation": "n-oh-geh oh-chee-eh",
           "example": "N'oge ochie, a na-eli ozu n'ụlọ.",
           "culturalNote": "Before modernity.",
-          "audioId": "n_oge_ochie"
+          "audioId": ""
         },
         {
           "word": "N'oge ugbu a",
@@ -11629,7 +11842,7 @@
           "pronunciation": "n-oh-geh oo-gboo ah",
           "example": "N'oge ugbu a, a na-eli n'ebe a na-eli ozu.",
           "culturalNote": "Current practice.",
-          "audioId": "n_oge_ugbu_a"
+          "audioId": ""
         },
         {
           "word": "Ụzọ ọdịnala",
@@ -11637,7 +11850,7 @@
           "pronunciation": "oo-zoh or-dee-nah-lah",
           "example": "Ha ka na-agbaso ụzọ ọdịnala.",
           "culturalNote": "Still follow customs.",
-          "audioId": "uzo_odinala"
+          "audioId": ""
         },
         {
           "word": "Ụzọ ọhụrụ",
@@ -11645,7 +11858,7 @@
           "pronunciation": "oo-zoh or-hoo-roo",
           "example": "Ụfọdụ ndị na-ahọrọ ụzọ ọhụrụ.",
           "culturalNote": "Some choose new ways.",
-          "audioId": "uzo_ohuru"
+          "audioId": ""
         },
         {
           "word": "Gbanwee",
@@ -11653,7 +11866,7 @@
           "pronunciation": "gba-nweh",
           "example": "Omenala anyị agbanweela.",
           "culturalNote": "Our traditions have changed.",
-          "audioId": "gbanwee"
+          "audioId": ""
         },
         {
           "word": "Chekwa",
@@ -11661,7 +11874,7 @@
           "pronunciation": "cheh-kwah",
           "example": "Anyị ga-achekwa omenala anyị.",
           "culturalNote": "We must preserve our culture.",
-          "audioId": "chekwa"
+          "audioId": ""
         },
         {
           "word": "Ịgba alụkwaghịm",
@@ -11669,7 +11882,7 @@
           "pronunciation": "ee-gbah ah-loo-kwah-heem",
           "example": "N'oge ochie, a naghị anabata ịgba alụkwaghịm.",
           "culturalNote": "Divorce was rare and stigmatized.",
-          "audioId": "igba_alukwaghim"
+          "audioId": ""
         },
         {
           "word": "Ịlụ otu nwanyị",
@@ -11677,7 +11890,7 @@
           "pronunciation": "ee-loo oh-too n-wah-nyee",
           "example": "Ọtụtụ ndị na-ahọrọ ịlụ otu nwanyị ugbu a.",
           "culturalNote": "Once polygyny was common.",
-          "audioId": "ilu_otu_nwanyi"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -11705,37 +11918,43 @@
           "speaker": "Nwa nwa",
           "text": "Nna nna, gịnị ka ndị Igbo na-eme n'oge ochie?",
           "translation": "Grandfather, what did the Igbo do in the olden days?",
-          "audioContext": "Curiosity"
+          "audioContext": "Curiosity",
+          "audioId": ""
         },
         {
           "speaker": "Nna nna",
           "text": "N'oge ochie, anyị na-efe arụsị, ma n'oge ugbu a, ọtụtụ anyị bụ Ndị Kraịst.",
           "translation": "In the olden days, we worshipped idols, but nowadays most of us are Christians.",
-          "audioContext": "Religious change"
+          "audioContext": "Religious change",
+          "audioId": ""
         },
         {
           "speaker": "Nwa nwa",
           "text": "Gịnị mere unu ji gbanwee?",
           "translation": "Why did you change?",
-          "audioContext": "Asking reason"
+          "audioContext": "Asking reason",
+          "audioId": ""
         },
         {
           "speaker": "Nna nna",
           "text": "Ọ bụ n'ihi ozioma ndị ozi ala ọzọ wetara. Ọ bụkwa nhọrọ anyị.",
           "translation": "Because of the gospel the missionaries brought. It was also our choice.",
-          "audioContext": "Explanation"
+          "audioContext": "Explanation",
+          "audioId": ""
         },
         {
           "speaker": "Nwa nwa",
           "text": "Ma ụfọdụ omenala ka dị, dịka ịwa ji.",
           "translation": "But some traditions remain, like the New Yam Festival.",
-          "audioContext": "Continuity"
+          "audioContext": "Continuity",
+          "audioId": ""
         },
         {
           "speaker": "Nna nna",
           "text": "Ee, anyị ga-echekwa ha maka ọdịnihu.",
           "translation": "Yes, we must preserve them for the future.",
-          "audioContext": "Preservation"
+          "audioContext": "Preservation",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -11877,7 +12096,7 @@
           "pronunciation": "heh-loh",
           "example": "Hello, ọ bụ onye?",
           "culturalNote": "Borrowed from English, universally used.",
-          "audioId": "hello"
+          "audioId": ""
         },
         {
           "word": "Ị nụrụ m?",
@@ -11885,7 +12104,7 @@
           "pronunciation": "ee noo-roo m",
           "example": "Ị nụrụ m? Ụda adịghị mma.",
           "culturalNote": "Common network complaint.",
-          "audioId": "i_nuru_m"
+          "audioId": ""
         },
         {
           "word": "Ụda",
@@ -11893,7 +12112,7 @@
           "pronunciation": "oo-dah",
           "example": "Ụda ekwentị adịghị mma.",
           "culturalNote": "Literally 'sound'.",
-          "audioId": "uda"
+          "audioId": ""
         },
         {
           "word": "Gbanye",
@@ -11901,7 +12120,7 @@
           "pronunciation": "gba-nyeh",
           "example": "Gbanye ekwentị gị.",
           "culturalNote": "Turn on your phone.",
-          "audioId": "gbanye"
+          "audioId": ""
         },
         {
           "word": "Gbachie",
@@ -11909,7 +12128,7 @@
           "pronunciation": "gba-chee-eh",
           "example": "Gbachie ekwentị gị n'ụlọ akwụkwọ.",
           "culturalNote": "Turn off.",
-          "audioId": "gbachie"
+          "audioId": ""
         },
         {
           "word": "Bepụ",
@@ -11917,7 +12136,7 @@
           "pronunciation": "beh-poo",
           "example": "Bepụ, m ga-akpọghachi gị.",
           "culturalNote": "Hang up and I'll call you back.",
-          "audioId": "bepu"
+          "audioId": ""
         },
         {
           "word": "Kpọghachi",
@@ -11925,7 +12144,7 @@
           "pronunciation": "kpo-hah-chee",
           "example": "M ga-akpọghachi gị n'ime nkeji ise.",
           "culturalNote": "Return call.",
-          "audioId": "kpoghachi"
+          "audioId": ""
         },
         {
           "word": "Ozi",
@@ -11933,7 +12152,7 @@
           "pronunciation": "oh-zee",
           "example": "Hapụrụ m gị ozi, ị nwetaghị ya?",
           "culturalNote": "SMS/chat.",
-          "audioId": "ozi"
+          "audioId": ""
         },
         {
           "word": "Ekwentị",
@@ -11941,7 +12160,7 @@
           "pronunciation": "eh-kweh-ntee",
           "example": "Ekwentị m nwụrụ anwụ.",
           "culturalNote": "My phone is dead.",
-          "audioId": "ekwenti"
+          "audioId": ""
         },
         {
           "word": "Nọmba",
@@ -11949,7 +12168,7 @@
           "pronunciation": "nohm-bah",
           "example": "Nọmba gị bụ ole?",
           "culturalNote": "Borrowed from English.",
-          "audioId": "nomba"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -11979,31 +12198,36 @@
           "speaker": "Chika",
           "text": "Hello, ọ bụ Ngozi?",
           "translation": "Hello, is it Ngozi?",
-          "audioContext": "Call opening"
+          "audioContext": "Call opening",
+          "audioId": ""
         },
         {
           "speaker": "Ngozi",
           "text": "Ee, ọ bụ m. Kedu, Chika?",
           "translation": "Yes, it's me. How are you, Chika?",
-          "audioContext": "Response"
+          "audioContext": "Response",
+          "audioId": ""
         },
         {
           "speaker": "Chika",
           "text": "Ọ dị mma. Ma ụda adịghị mma. Ị nụrụ m?",
           "translation": "I'm fine. But the network is bad. Can you hear me?",
-          "audioContext": "Network issue"
+          "audioContext": "Network issue",
+          "audioId": ""
         },
         {
           "speaker": "Ngozi",
           "text": "Anụghị m nke ọma. Biko, bepụ, kpọghachikwa m.",
           "translation": "I can't hear well. Please, hang up and call me back.",
-          "audioContext": "Request call back"
+          "audioContext": "Request call back",
+          "audioId": ""
         },
         {
           "speaker": "Chika",
           "text": "Ọ dị mma, m ga-akpọghachi gị ozugbo.",
           "translation": "Okay, I will call you back immediately.",
-          "audioContext": "Agree"
+          "audioContext": "Agree",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -12145,7 +12369,7 @@
           "pronunciation": "n-oo-cheh m",
           "example": "N'uche m, ọ bụghị ezi mkpebi.",
           "culturalNote": "Soft opener.",
-          "audioId": "n_uche_m"
+          "audioId": ""
         },
         {
           "word": "Echere m na",
@@ -12153,7 +12377,7 @@
           "pronunciation": "eh-cheh-reh m nah",
           "example": "Echere m na anyị kwesịrị ichere.",
           "culturalNote": "Common phrase.",
-          "audioId": "echere_m_na"
+          "audioId": ""
         },
         {
           "word": "Ọ dị m ka",
@@ -12161,7 +12385,7 @@
           "pronunciation": "aw dee m kah",
           "example": "Ọ dị m ka ọ ga-aka mma ma anyị gbanwee.",
           "culturalNote": "Humble opinion.",
-          "audioId": "o_di_m_ka"
+          "audioId": ""
         },
         {
           "word": "M ga-ekweta",
@@ -12169,7 +12393,7 @@
           "pronunciation": "m gah eh-kweh-tah",
           "example": "M ga-ekweta na ị ziri ezi.",
           "culturalNote": "Conceding.",
-          "audioId": "m_ga_ekweta"
+          "audioId": ""
         },
         {
           "word": "Anaghị m ekweta",
@@ -12177,7 +12401,7 @@
           "pronunciation": "ah-nah-hee m eh-kweh-tah",
           "example": "Anaghị m ekweta n'echiche gị.",
           "culturalNote": "Polite disagreement.",
-          "audioId": "anaghi_m_ekweta"
+          "audioId": ""
         },
         {
           "word": "Ekwela m ka ị mata",
@@ -12185,7 +12409,7 @@
           "pronunciation": "eh-kweh-lah m kah ee mah-tah",
           "example": "Ekwela m ka ị mata na enwere m nsogbu.",
           "culturalNote": "Preface to a strong opinion.",
-          "audioId": "ekwela_m_ka_i_mata"
+          "audioId": ""
         },
         {
           "word": "N'akụkụ ọzọ",
@@ -12193,7 +12417,7 @@
           "pronunciation": "nah-koo-koo or-zoh",
           "example": "N'akụkụ ọzọ, ụfọdụ ndị nwere ike ịhọrọ ụzọ ọzọ.",
           "culturalNote": "Balanced view.",
-          "audioId": "n_akuku_ozo"
+          "audioId": ""
         },
         {
           "word": "Ọ bụ ihe ezi uche",
@@ -12201,7 +12425,7 @@
           "pronunciation": "aw boo ee-heh eh-zee oo-cheh",
           "example": "Ọ bụ ihe ezi uche ịgbaso iwu.",
           "culturalNote": "Logical conclusion.",
-          "audioId": "o_bu_ihe_ezi_uche"
+          "audioId": ""
         },
         {
           "word": "E nwere ike",
@@ -12209,7 +12433,7 @@
           "pronunciation": "eh n-weh-reh ee-keh",
           "example": "E nwere ike na m mehiere.",
           "culturalNote": "Open-minded.",
-          "audioId": "e_nwere_ike"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -12237,31 +12461,36 @@
           "speaker": "Obi",
           "text": "Echere m na anyị kwesịrị ịzụta ụgbọala ọhụrụ.",
           "translation": "I think we should buy a new car.",
-          "audioContext": "Opinion"
+          "audioContext": "Opinion",
+          "audioId": ""
         },
         {
           "speaker": "Nkechi",
           "text": "Anaghị m ekweta. N'uche m, nke ochie ka na-arụ ọrụ nke ọma.",
           "translation": "I don't agree. In my opinion, the old one still works well.",
-          "audioContext": "Disagree politely"
+          "audioContext": "Disagree politely",
+          "audioId": ""
         },
         {
           "speaker": "Obi",
           "text": "Ọ dị m ka anyị ga-efunahụ ego ma ọ bụrụ na anyị echere.",
           "translation": "It seems to me we will lose money if we wait.",
-          "audioContext": "Counter-argument"
+          "audioContext": "Counter-argument",
+          "audioId": ""
         },
         {
           "speaker": "Nkechi",
           "text": "E nwere ike, ma e nwekwara ihe ize ndụ ịzụta ugbu a.",
           "translation": "Maybe, but there are also risks buying now.",
-          "audioContext": "Acknowledge"
+          "audioContext": "Acknowledge",
+          "audioId": ""
         },
         {
           "speaker": "Obi",
           "text": "Ọ bụ ihe ezi uche ka anyị tụlee nhọrọ abụọ ahụ.",
           "translation": "It is reasonable for us to consider both options.",
-          "audioContext": "Compromise"
+          "audioContext": "Compromise",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -12403,7 +12632,7 @@
           "pronunciation": "ah-koo-koh",
           "example": "Ka m kọrọ gị akụkọ.",
           "culturalNote": "Let me tell you a story.",
-          "audioId": "akuko"
+          "audioId": ""
         },
         {
           "word": "Kọọ",
@@ -12411,7 +12640,7 @@
           "pronunciation": "koh-oh",
           "example": "Nne m na-akọ akụkọ ọdịnala.",
           "culturalNote": "Oral tradition.",
-          "audioId": "koo"
+          "audioId": ""
         },
         {
           "word": "Mmalite",
@@ -12419,7 +12648,7 @@
           "pronunciation": "m-mah-lee-teh",
           "example": "Na mmalite, e nwere otu nwoke...",
           "culturalNote": "Once upon a time.",
-          "audioId": "mmalite"
+          "audioId": ""
         },
         {
           "word": "Nsogbu",
@@ -12427,7 +12656,7 @@
           "pronunciation": "n-soh-gboo",
           "example": "Nsogbu bịara mgbe ahụ...",
           "culturalNote": "The complication.",
-          "audioId": "nsogbu"
+          "audioId": ""
         },
         {
           "word": "Ọnọdụ siri ike",
@@ -12435,7 +12664,7 @@
           "pronunciation": "or-noh-doo see-ree ee-keh",
           "example": "Ha zutere ọnọdụ siri ike.",
           "culturalNote": "Climax.",
-          "audioId": "onodu_siri_ike"
+          "audioId": ""
         },
         {
           "word": "Ngwọta",
@@ -12443,7 +12672,7 @@
           "pronunciation": "n-gwoh-tah",
           "example": "Ha chọtara ngwọta.",
           "culturalNote": "Resolution.",
-          "audioId": "ngwota"
+          "audioId": ""
         },
         {
           "word": "Ọgwụgwụ",
@@ -12451,7 +12680,7 @@
           "pronunciation": "or-gwoo-gwoo",
           "example": "N'ọgwụgwụ, ha bịara biri n'udo.",
           "culturalNote": "Conclusion.",
-          "audioId": "ogwugwu"
+          "audioId": ""
         },
         {
           "word": "Otu ụbọchị",
@@ -12459,7 +12688,7 @@
           "pronunciation": "oh-too oo-boh-chee",
           "example": "Otu ụbọchị, ọ gara ahịa.",
           "culturalNote": "Common story opener.",
-          "audioId": "otu_ubochi"
+          "audioId": ""
         },
         {
           "word": "N'ihe dị ka",
@@ -12467,7 +12696,7 @@
           "pronunciation": "n-ee-heh dah kah",
           "example": "N'ihe dị ka elekere anọ, ọ lọtara.",
           "culturalNote": "Time setting.",
-          "audioId": "n_ihe_di_ka"
+          "audioId": ""
         },
         {
           "word": "Mmegharị",
@@ -12475,7 +12704,7 @@
           "pronunciation": "m-meh-hah-ree",
           "example": "Mmegharị ndị a mere ngwa ngwa.",
           "culturalNote": "Plot events.",
-          "audioId": "mmeghari"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -12504,37 +12733,43 @@
           "speaker": "Nne nne",
           "text": "Ụmụ m, bịanu nụrụ akụkọ. Ka m kọrọ unu ihe mere n'oge gara aga.",
           "translation": "My children, come and hear a story. Let me tell you what happened in the past.",
-          "audioContext": "Story invitation"
+          "audioContext": "Story invitation",
+          "audioId": ""
         },
         {
           "speaker": "Ụmụaka",
           "text": "Ee, nne nne, anyị chọrọ ịnụ!",
           "translation": "Yes, grandmother, we want to hear!",
-          "audioContext": "Enthusiastic"
+          "audioContext": "Enthusiastic",
+          "audioId": ""
         },
         {
           "speaker": "Nne nne",
           "text": "Otu mgbe, e nwere oke na ọdụm. Ha bụ enyi...",
           "translation": "Once upon a time, there was a rat and a lion. They were friends...",
-          "audioContext": "Beginning"
+          "audioContext": "Beginning",
+          "audioId": ""
         },
         {
           "speaker": "Nne nne",
           "text": "Mgbe ahụ, ọdụm tọrọ atọ n'ọnya. Oke nụrụ akwa ya wee bịa nyere ya aka.",
           "translation": "Then, the lion got trapped in a net. The rat heard his cry and came to help.",
-          "audioContext": "Conflict"
+          "audioContext": "Conflict",
+          "audioId": ""
         },
         {
           "speaker": "Nne nne",
           "text": "N'ikpeazụ, oke tara ụdọ ahụ, hapụ ọdụm. Ọdụm wee kelee ya.",
           "translation": "Finally, the rat chewed the rope and freed the lion. The lion thanked him.",
-          "audioContext": "Resolution"
+          "audioContext": "Resolution",
+          "audioId": ""
         },
         {
           "speaker": "Ụmụaka",
           "text": "Ọ bụ akụkọ mara mma!",
           "translation": "It's a beautiful story!",
-          "audioContext": "Appreciation"
+          "audioContext": "Appreciation",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
