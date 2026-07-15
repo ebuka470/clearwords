@@ -2296,6 +2296,33 @@
     const GOOGLE_SHEETS_URL =
       "https://script.google.com/macros/s/AKfycbzlz3Rjnz9lMQ4lgWfyAHLNbY4oSzSqiy0NeMJ74PodevndR6zov7WEwBtCUbc7x1Aj/exec";
 
+    // ==================== 9JALINGO + SUPABASE CONFIG ====================
+    // REPLACE WITH YOUR ACTUAL KEYS
+    const NINE_JALINGO_API_KEY = 'nlg_live_3Ela1hLxyJUtQ3CmuWWKx2QGT8WkdovvSgrnSmpxwiQ6Rk1mUvOvSyl8W2EroPMT';
+    const NINE_JALINGO_BASE_URL = 'https://api.9jalingo.org';
+    const SUPABASE_URL = 'https://btwumalgrkevzbtodsix.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ0d3VtYWxncmtldnpidG9kc2l4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQwNDQwOTcsImV4cCI6MjA5OTYyMDA5N30.0wydYSU_w90N0Sp8oeeFROthliugku-WHlseGXUIZ-E';
+    const SUPABASE_BUCKET = 'audio';
+
+    // Map app languages to 9jaLingo voice codes
+    const NINE_JALINGO_VOICES = {
+        'yoruba': 'yo',
+        'hausa': 'ha',
+        'igbo': 'ig',
+        'pidgin': 'pcm',
+        'urhobo': 'yo',
+        'itsekiri': 'yo'
+    };
+
+    const NINE_JALINGO_SPEAKERS = {
+        'yoruba': 'titilayo_yo',
+        'hausa': 'usman_ha',
+        'igbo': 'azubuike_ig',
+        'pidgin': 'james_pcm',
+        'urhobo': 'titilayo_yo',
+        'itsekiri': 'titilayo_yo'
+    };
+
     // ==================== GLOBAL STATE ====================
     let appState = {
       user: {
@@ -2345,13 +2372,245 @@
       feedbackRating: 0
     };
 
-    // ==================== AUDIO MANAGER - FIXED ====================
+    // ==================== SUPABASE CACHE FUNCTIONS ====================
+    function getAudioCacheKey(text, language, type) {
+        const clean = text.toLowerCase()
+            .trim()
+            .replace(/\s+/g, '_')
+            .replace(/[^a-z0-9_]/g, '');
+        return `${language}/${type}/${clean}.mp3`;
+    }
+
+    async function audioExistsInSupabase(cacheKey) {
+        try {
+            const response = await fetch(`${SUPABASE_URL}/storage/v1/object/public/${SUPABASE_BUCKET}/${cacheKey}`, {
+                method: 'HEAD'
+            });
+            return response.ok;
+        } catch (e) {
+            return false;
+        }
+    }
+
+    async function uploadAudioToSupabase(cacheKey, audioBuffer) {
+        const blob = new Blob([audioBuffer], { type: 'audio/mpeg' });
+        const response = await fetch(`${SUPABASE_URL}/storage/v1/object/${SUPABASE_BUCKET}/${cacheKey}`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                'Content-Type': 'audio/mpeg'
+            },
+            body: blob
+        });
+        if (!response.ok) throw new Error(`Upload failed: ${response.status}`);
+        return response.ok;
+    }
+
+    function getSupabaseAudioUrl(cacheKey) {
+        return `${SUPABASE_URL}/storage/v1/object/public/${SUPABASE_BUCKET}/${cacheKey}`;
+    }
+
+    // ==================== GENERATE AUDIO WITH 9JALINGO ====================
+    async function generateWith9jaLingo(text, language) {
+        const voiceCode = NINE_JALINGO_VOICES[language] || 'yo';
+        const speaker = NINE_JALINGO_SPEAKERS[language] || 'titilayo_yo;
+        
+        const response = await fetch(`${NINE_JALINGO_BASE_URL}/v1/audio/speech`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-API-Key': NINE_JALINGO_API_KEY
+            },
+            body: JSON.stringify({
+                text: text,
+                voice: voiceCode,
+                speaker: speaker,
+                response_format: 'mp3',
+                temperature: 0.95,
+                top_p: 0.95,
+                repetition_penalty: 1.1
+            })
+        });
+        
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`9jaLingo API error: ${response.status} - ${errorText}`);
+        }
+        return await response.arrayBuffer();
+    }
+
+    // ==================== SMART AUDIO PLAYER ====================
+    async function playSmartAudio(text, language, type) {
+        if (!text || text.trim() === '') return false;
+        
+        if (window.speechSynthesis) {
+            window.speechSynthesis.cancel();
+        }
+        
+        const cleanText = text.replace(/<[^>]*>/g, '').trim();
+        if (!cleanText) return false;
+        
+        const cacheKey = getAudioCacheKey(cleanText, language, type);
+        const publicUrl = getSupabaseAudioUrl(cacheKey);
+        
+        try {
+            const exists = await audioExistsInSupabase(cacheKey);
+            
+            if (exists) {
+                const audio = new Audio(publicUrl);
+                audio.play();
+                console.log(`✅ Played from Supabase: ${cleanText}`);
+                return true;
+            }
+            
+            console.log(`🎤 Generating: ${cleanText}`);
+            const audioBuffer = await generateWith9jaLingo(cleanText, language);
+            await uploadAudioToSupabase(cacheKey, audioBuffer);
+            console.log(`📤 Uploaded: ${cacheKey}`);
+            
+            const audio = new Audio(publicUrl);
+            audio.play();
+            return true;
+            
+        } catch (error) {
+            console.error('Smart audio error:', error);
+            if (window.speechSynthesis) {
+                const utterance = new SpeechSynthesisUtterance(cleanText);
+                utterance.lang = TTS_LANG_MAP[language] || 'en-US';
+                utterance.rate = 0.85;
+                window.speechSynthesis.speak(utterance);
+                return true;
+            }
+            return false;
+        }
+    }
+
+    // ==================== GENERATE AND PLAY (Last Resort) ====================
+    async function generateAndPlay(text, language) {
+        console.log(`🎤 Generating with 9jaLingo: ${text}`);
+        const success = await playSmartAudio(text, language, 'vocabulary');
+        if (success) {
+            updateChallengeProgress('audio_plays', 1);
+        } else {
+            fallbackTTS(text, language);
+            updateChallengeProgress('audio_plays', 1);
+        }
+    }
+
+    // ==================== PRE-GENERATE VOCAB & DIALOGUE ====================
+    async function preGenerateVocabAndDialogue() {
+        const language = appState.user.language;
+        const curriculum = appState.curriculumData[language];
+        
+        if (!curriculum || !curriculum.levels) {
+            alert('No curriculum loaded. Please select a language first.');
+            return;
+        }
+        
+        let total = 0;
+        let generated = 0;
+        let skipped = 0;
+        
+        const texts = [];
+        
+        for (const level of curriculum.levels) {
+            if (level.vocabulary) {
+                for (const vocab of level.vocabulary) {
+                    if (vocab.word) {
+                        texts.push({
+                            text: vocab.word,
+                            type: 'vocabulary',
+                            source: `Level ${level.level} - ${vocab.word}`
+                        });
+                        total++;
+                    }
+                }
+            }
+            
+            if (level.dialogue) {
+                for (const line of level.dialogue) {
+                    if (line.text) {
+                        texts.push({
+                            text: line.text,
+                            type: 'dialogue',
+                            source: `Level ${level.level} - ${line.speaker}: ${line.text.substring(0, 20)}...`
+                        });
+                        total++;
+                    }
+                }
+            }
+        }
+        
+        console.log(`📊 Total texts to process: ${total}`);
+        
+        const progressDiv = document.createElement('div');
+        progressDiv.id = 'pregen-progress';
+        progressDiv.style.cssText = 'position:fixed;bottom:80px;left:10px;right:10px;background:var(--card-bg);border-radius:12px;padding:16px;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,0.3);max-height:300px;overflow-y:auto;';
+        progressDiv.innerHTML = `
+            <div style="font-weight:600;margin-bottom:8px;">🎵 Pre-generating vocabulary & dialogue audio...</div>
+            <div class="progress-bar"><div class="progress-fill" id="pregen-progress-bar" style="width:0%;"></div></div>
+            <div id="pregen-status" style="font-size:13px;color:var(--text-secondary);">0/${total} completed</div>
+            <div id="pregen-detail" style="font-size:12px;color:var(--text-secondary);margin-top:4px;"></div>
+        `;
+        document.body.appendChild(progressDiv);
+        
+        let processed = 0;
+        for (const item of texts) {
+            const cacheKey = getAudioCacheKey(item.text, language, item.type);
+            const exists = await audioExistsInSupabase(cacheKey);
+            
+            const detail = document.getElementById('pregen-detail');
+            if (detail) detail.textContent = `Processing: ${item.source}`;
+            
+            if (exists) {
+                skipped++;
+                processed++;
+                const status = document.getElementById('pregen-status');
+                if (status) status.textContent = `⏭️ ${processed}/${total} - Skipped (cached)`;
+                continue;
+            }
+            
+            try {
+                const status = document.getElementById('pregen-status');
+                if (status) status.textContent = `🔄 ${processed}/${total} - Generating: ${item.source}`;
+                
+                const audioBuffer = await generateWith9jaLingo(item.text, language);
+                await uploadAudioToSupabase(cacheKey, audioBuffer);
+                generated++;
+                
+                const progressBar = document.getElementById('pregen-progress-bar');
+                if (progressBar) {
+                    progressBar.style.width = `${(processed / total) * 100}%`;
+                }
+                processed++;
+                await new Promise(resolve => setTimeout(resolve, 300));
+                
+            } catch (error) {
+                console.error(`❌ Failed: ${item.source}`, error);
+                processed++;
+            }
+            
+            const status = document.getElementById('pregen-status');
+            if (status) {
+                status.textContent = `✅ ${processed}/${total} - ${generated} generated, ${skipped} cached`;
+            }
+        }
+        
+        setTimeout(() => {
+            const div = document.getElementById('pregen-progress');
+            if (div) div.remove();
+        }, 3000);
+        
+        console.log(`\n📊 Done! Generated: ${generated}, Skipped: ${skipped}, Total: ${total}`);
+        alert(`✅ Pre-generation complete!\n\nGenerated: ${generated}\nSkipped: ${skipped}\nTotal: ${total}`);
+    }
+
+    // ==================== AUDIO MANAGER ====================
     const AudioManager = {
       cache: {},
       audioTimeouts: {},
 
       loadAudio(language, level, audioId, callback) {
-        // FIX 1: Validate audioId properly
         if (!audioId || audioId.trim() === '') {
           if (callback) callback(null);
           return null;
@@ -2364,7 +2623,6 @@
           return this.cache[key];
         }
 
-        // Use relative path - works on any domain
         const audioPath = `/audio/${language}/level${level}/${audioId}.mp3`;
         const audio = new Audio();
 
@@ -2372,7 +2630,7 @@
           console.warn(`Audio load timeout (11s): ${audioPath}`);
           audio.src = '';
           if (callback) callback(null);
-        }, 20000);
+        }, 11000);
 
         audio.addEventListener('canplaythrough', () => {
           clearTimeout(timeoutId);
@@ -2394,7 +2652,6 @@
       },
 
       preloadLesson(language, level, vocabulary) {
-        // FIX 2: Proper validation with trim
         if (!vocabulary || !vocabulary.length) return;
         const items = vocabulary.filter(v => v.audioId && v.audioId.trim() !== '');
         if (!items.length) return;
@@ -2428,75 +2685,126 @@
         });
       },
 
-      play(word, language, level, audioId) {
+      play: async function(word, language, level, audioId) {
         console.log('🔊 AudioManager.play called:', { word, language, level, audioId });
-
-        // FIX 3: Proper validation with trim - custom lessons use TTS
-        if (!audioId || audioId.trim() === '') {
-          console.log('No audioId, using TTS for:', word);
-          fallbackTTS(word, language);
-          updateChallengeProgress('audio_plays', 1);
-          return;
-        }
-
-        // FIX 4: Custom lessons (level 999 or custom_) always use TTS
+        
+        // Custom lessons skip local files, go straight to Supabase
         if (level === 999 || level === 'custom' || String(level).startsWith('custom_')) {
-          console.log('Custom lesson, using TTS for:', word);
-          fallbackTTS(word, language);
-          updateChallengeProgress('audio_plays', 1);
-          return;
-        }
-
-        const key = `${language}_${level}_${audioId}`;
-
-        if (this.cache[key]) {
-          try {
-            this.cache[key].currentTime = 0;
-            this.cache[key].play()
-              .then(() => {
+            const success = await playSmartAudio(word, language, 'vocabulary');
+            if (success) {
                 updateChallengeProgress('audio_plays', 1);
-              })
-              .catch((e) => {
-                console.warn('Audio playback failed, using TTS:', e);
+            } else {
                 fallbackTTS(word, language);
                 updateChallengeProgress('audio_plays', 1);
-              });
-            return;
-          } catch (e) {
-            console.warn('Audio playback error, using TTS:', e);
-            fallbackTTS(word, language);
-            updateChallengeProgress('audio_plays', 1);
-            return;
-          }
-        }
-
-        // FIX 5: Load with timeout and fallback
-        this.loadAudio(language, level, audioId, (audio) => {
-          if (audio) {
-            try {
-              audio.currentTime = 0;
-              audio.play()
-                .then(() => {
-                  updateChallengeProgress('audio_plays', 1);
-                })
-                .catch((e) => {
-                  console.warn('Audio load/play failed, using TTS:', e);
-                  fallbackTTS(word, language);
-                  updateChallengeProgress('audio_plays', 1);
-                });
-            } catch (e) {
-              console.warn('Audio error, using TTS:', e);
-              fallbackTTS(word, language);
-              updateChallengeProgress('audio_plays', 1);
             }
-          } else {
-            console.log('Audio file not found, using TTS for:', word);
-            fallbackTTS(word, language);
-            updateChallengeProgress('audio_plays', 1);
-          }
-        });
+            return;
+        }
+        
+        // ==================== PRIORITY ORDER ====================
+        
+        // PRIORITY 1: Check Supabase first (global cache)
+        const cacheKey = getAudioCacheKey(word, language, 'vocabulary');
+        const exists = await audioExistsInSupabase(cacheKey);
+        
+        if (exists) {
+            // Play from Supabase (fast, shared across all users)
+            const publicUrl = getSupabaseAudioUrl(cacheKey);
+            const audio = new Audio(publicUrl);
+            audio.play()
+                .then(() => {
+                    console.log(`✅ Played from Supabase: ${word}`);
+                    updateChallengeProgress('audio_plays', 1);
+                })
+                .catch(() => {
+                    // If Supabase playback fails, try local
+                    playLocalAudio(word, language, level, audioId);
+                });
+            return;
+        }
+        
+        // PRIORITY 2: Try local audio file
+        if (audioId && audioId.trim() !== '') {
+            // Check if already cached in memory
+            const cacheKey_local = `${language}_${level}_${audioId}`;
+            if (this.cache[cacheKey_local]) {
+                try {
+                    this.cache[cacheKey_local].currentTime = 0;
+                    await this.cache[cacheKey_local].play();
+                    console.log(`✅ Played from local cache: ${word}`);
+                    updateChallengeProgress('audio_plays', 1);
+                    return;
+                } catch (e) {
+                    console.warn('Local cache playback failed:', e);
+                }
+            }
+            
+            // Try loading the local audio file
+            this.loadAudio(language, level, audioId, (audio) => {
+                if (audio) {
+                    try {
+                        audio.currentTime = 0;
+                        audio.play()
+                            .then(() => {
+                                console.log(`✅ Played from local file: ${word}`);
+                                updateChallengeProgress('audio_plays', 1);
+                            })
+                            .catch(() => {
+                                // Local file failed → generate with 9jaLingo
+                                generateAndPlay(word, language);
+                            });
+                    } catch (e) {
+                        generateAndPlay(word, language);
+                    }
+                } else {
+                    // No local file → generate with 9jaLingo
+                    generateAndPlay(word, language);
+                }
+            });
+            return;
+        }
+        
+        // PRIORITY 3: No audioId → generate with 9jaLingo
+        generateAndPlay(word, language);
       }
     };
+
+    // ==================== PLAY LOCAL AUDIO HELPER ====================
+    function playLocalAudio(word, language, level, audioId) {
+        if (!audioId || audioId.trim() === '') {
+            generateAndPlay(word, language);
+            return;
+        }
+        
+        const cacheKey = `${language}_${level}_${audioId}`;
+        
+        if (AudioManager.cache[cacheKey]) {
+            try {
+                AudioManager.cache[cacheKey].currentTime = 0;
+                AudioManager.cache[cacheKey].play()
+                    .then(() => updateChallengeProgress('audio_plays', 1))
+                    .catch(() => generateAndPlay(word, language));
+                return;
+            } catch (e) {
+                generateAndPlay(word, language);
+                return;
+            }
+        }
+        
+        AudioManager.loadAudio(language, level, audioId, (audio) => {
+            if (audio) {
+                try {
+                    audio.currentTime = 0;
+                    audio.play()
+                        .then(() => updateChallengeProgress('audio_plays', 1))
+                        .catch(() => generateAndPlay(word, language));
+                } catch (e) {
+                    generateAndPlay(word, language);
+                }
+            } else {
+                generateAndPlay(word, language);
+            }
+        });
+    }
 
     // ==================== SIMULATED LEADERBOARD ====================
     const nigerianNames = ["Adebayo Ogunlesi", "Chiamaka Nwosu", "Olumide Bakare", "Ngozi Onyema", "Tunde Adeyemi",
@@ -2762,7 +3070,7 @@
     // ==================== STATE MANAGEMENT ====================
     function saveState() { localStorage.setItem('clearWordsState', JSON.stringify(appState)); }
 
-    // ==================== TTS - FIXED ====================
+    // ==================== TTS ====================
     const TTS_LANG_MAP = { yoruba: 'yo-NG', hausa: 'ha-NG', igbo: 'ig-NG', urhobo: 'en-NG', itsekiri: 'en-NG',
       pidgin: 'en-NG' };
     let ttsState = { isSpeaking: false };
@@ -2792,7 +3100,6 @@
       utterance.pitch = 1.0;
       utterance.volume = 1.0;
 
-      // Try to find a matching voice
       const voices = window.speechSynthesis.getVoices();
       const matchingVoice = voices.find(v => v.lang.startsWith(langCode.split('-')[0]));
       if (matchingVoice) {
@@ -2801,7 +3108,6 @@
 
       utterance.onstart = () => {
         ttsState.isSpeaking = true;
-        // Visual feedback
         const audioBtns = document.querySelectorAll('.audio-btn');
         audioBtns.forEach(btn => {
           if (btn.textContent.includes('🔊')) {
@@ -2821,7 +3127,6 @@
       }
     }
 
-    // Preload voices
     if ('speechSynthesis' in window) {
       window.speechSynthesis.getVoices();
       window.speechSynthesis.onvoiceschanged = () => {
@@ -2829,12 +3134,10 @@
       };
     }
 
-    // ==================== playWordAudio - FIXED ====================
-    function playWordAudio(word, language, level, audioId) {
+    // ==================== playWordAudio ====================
+    async function playWordAudio(word, language, level, audioId) {
       console.log('🔊 playWordAudio called:', { word, language, level, audioId });
-
-      // FIX 6: Don't rely on global event - use proper parameter
-      // Visual feedback on button
+      
       const btn = document.activeElement;
       if (btn && btn.classList && btn.classList.contains('audio-btn')) {
         const originalText = btn.textContent;
@@ -2843,30 +3146,54 @@
           if (btn) btn.textContent = originalText || '🔊';
         }, 1500);
       }
-
+      
       AudioManager.play(word, language, level, audioId);
     }
 
-    function playDialogueLine(index) {
+    // ==================== playDialogueLine ====================
+    async function playDialogueLine(index) {
       const lessonData = appState.currentLessonData;
       if (!lessonData?.dialogue?.[index]) return;
-      stopTTS();
+      
       const line = lessonData.dialogue[index];
-      const utterance = new SpeechSynthesisUtterance(line.text);
-      utterance.lang = TTS_LANG_MAP[appState.user.language] || 'en-NG';
-      utterance.rate = 0.8;
-      window.speechSynthesis.speak(utterance);
+      
+      const cacheKey = getAudioCacheKey(line.text, appState.user.language, 'dialogue');
+      const exists = await audioExistsInSupabase(cacheKey);
+      
+      if (exists) {
+        const publicUrl = getSupabaseAudioUrl(cacheKey);
+        const audio = new Audio(publicUrl);
+        audio.play();
+        return;
+      }
+      
+      const success = await playSmartAudio(line.text, appState.user.language, 'dialogue');
+      if (!success) {
+        stopTTS();
+        const utterance = new SpeechSynthesisUtterance(line.text);
+        utterance.lang = TTS_LANG_MAP[appState.user.language] || 'en-NG';
+        utterance.rate = 0.8;
+        window.speechSynthesis.speak(utterance);
+      }
     }
 
-    function playFullDialogue() {
+    // ==================== playFullDialogue ====================
+    async function playFullDialogue() {
       const lessonData = appState.currentLessonData;
       if (!lessonData?.dialogue?.length) return;
+      
       stopTTS();
-      const text = lessonData.dialogue.map(l => `${l.speaker}: ${l.text}`).join('. ... ');
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = TTS_LANG_MAP[appState.user.language] || 'en-NG';
-      utterance.rate = 0.75;
-      window.speechSynthesis.speak(utterance);
+      
+      for (const line of lessonData.dialogue) {
+        const success = await playSmartAudio(line.text, appState.user.language, 'dialogue');
+        if (!success) {
+          const utterance = new SpeechSynthesisUtterance(line.text);
+          utterance.lang = TTS_LANG_MAP[appState.user.language] || 'en-NG';
+          utterance.rate = 0.8;
+          window.speechSynthesis.speak(utterance);
+        }
+        await new Promise(resolve => setTimeout(resolve, 500));
+      }
     }
 
     // ==================== CONFIG DATA ====================
@@ -3371,7 +3698,6 @@
       try {
         const lang = languageConfigs[appState.user.language];
 
-        // Generate vocabulary
         const vocabPrompt =
           `Generate 6 unique ${lang.name} vocabulary words related to "${topic}". 
 Use this format: word|translation|pronunciation|example sentence
@@ -3437,7 +3763,6 @@ Keep it short. Only use real ${lang.name} words.`;
         }
         vocabulary = uniqueWords.slice(0, 6);
 
-        // Generate dialogue
         const dialoguePrompt =
           `Create a 4-line dialogue in ${lang.name} about "${topic}". 
 Format: Speaker A|Text in ${lang.name}|English translation
@@ -3479,7 +3804,6 @@ Keep it short and simple.`;
           }));
         }
 
-        // Generate cultural notes
         const culturePrompt =
           `Give 2 brief cultural notes about ${topic} in ${lang.name} culture. 
 Format: Title|Content
@@ -3512,7 +3836,6 @@ Keep each note under 2 sentences.`;
           ];
         }
 
-        // Generate quiz
         const quizPrompt =
           `Create 4 multiple choice questions about "${topic}" in ${lang.name}.
 Format: Question|Option A|Option B|Option C|Option D|Correct Answer (0-3)
@@ -3603,9 +3926,6 @@ Keep questions simple and related to the topic.`;
         document.getElementById('lesson-flow').classList.add('active');
         showLessonCard(0);
         updateURL('lesson-flow', customId);
-
-        // FIX 7: Don't preload audio for custom lessons (they use TTS)
-        // Custom lessons always use TTS via AudioManager.play
 
         checkAchievements();
 
@@ -3788,7 +4108,6 @@ Keep questions simple and related to the topic.`;
         document.getElementById('lesson-flow').classList.add('active');
         showLessonCard(0);
         updateURL('lesson-flow', levelId);
-        // FIX 8: Don't preload audio for custom lessons - they use TTS
         return;
       }
 
@@ -3819,7 +4138,6 @@ Keep questions simple and related to the topic.`;
         showLessonCard(0);
         updateURL('lesson-flow', level);
         if (lessonData.vocabulary) {
-          // FIX 9: Only preload audio for normal lessons (not custom)
           AudioManager.preloadLesson(appState.user.language, level, lessonData.vocabulary);
         }
       } else {
@@ -3839,7 +4157,6 @@ Keep questions simple and related to the topic.`;
 
     function populateLessonCards(ld) {
       const isCustom = ld.isCustom || false;
-      // FIX 10: For custom lessons, pass level 999 to playWordAudio for TTS detection
       const audioLevel = isCustom ? 999 : ld.level;
       
       document.getElementById('lesson-card-1').innerHTML =
@@ -4200,7 +4517,6 @@ Keep questions simple and related to the topic.`;
       document.getElementById('timmy-chat-menu').classList.remove('show');
     }
 
-    // Close menu on outside click
     document.addEventListener('click', function(e) {
       const menu = document.getElementById('timmy-chat-menu');
       const btn = document.querySelector('.timmy-chat-menu-btn');
@@ -4690,9 +5006,11 @@ Keep questions simple and related to the topic.`;
     window.toggleTimmyMenu = toggleTimmyMenu;
     window.exportTimmyChat = exportTimmyChat;
     window.deleteTimmyChat = deleteTimmyChat;
+    window.preGenerateVocabAndDialogue = preGenerateVocabAndDialogue;
+    window.playSmartAudio = playSmartAudio;
 
     console.log("ClearWords v2.2 - All features loaded! 🚀");
-    console.log("🎵 Audio: Normal lessons use MP3 files, Custom lessons use TTS, 11s timeout");
+    console.log("🎵 Audio: Supabase → Local → 9jaLingo → TTS (priority order)");
   </script>
 </body>
 </html>
