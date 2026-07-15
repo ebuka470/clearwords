@@ -2629,7 +2629,7 @@ async function preGenerateVocabAndDialogue() {
             const status = document.getElementById('pregen-status');
             if (status) status.textContent = `🔄 ${processedCount}/${total} - Generating: ${item.source}`;
             
-            const audioBuffer = await generateWith9jalingo(item.text, language);
+            const audioBuffer = await generateWith9jaLingo(item.text, language);
             await uploadAudioToSupabase(cacheKey, audioBuffer);
             generated++;
             completedSet.add(cacheKey);
