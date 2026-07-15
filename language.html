@@ -2374,12 +2374,61 @@
 
     // ==================== SUPABASE CACHE FUNCTIONS ====================
     function getAudioCacheKey(text, language, type) {
-        const clean = text.toLowerCase()
-            .trim()
-            .replace(/\s+/g, '_')
-            .replace(/[^a-z0-9_]/g, '');
-        return `${language}/${type}/${clean}.mp3`;
+    // Guard against empty or very short text
+    if (!text || text.trim().length < 2) {
+        console.warn('⚠️ Empty or short text:', text);
+        const fallback = `word_${Date.now()}`;
+        return `${language}/${type}/${fallback}.mp3`;
     }
+    
+    let clean = text.toLowerCase().trim();
+    
+    // Character mapping (same as above)
+    const charMap = {
+        'ẹ': 'e', 'é': 'e', 'è': 'e', 'ê': 'e', 'ë': 'e',
+        'á': 'a', 'à': 'a', 'â': 'a', 'ä': 'a', 'ā': 'a',
+        'í': 'i', 'ì': 'i', 'î': 'i', 'ï': 'i', 'ī': 'i',
+        'ó': 'o', 'ò': 'o', 'ô': 'o', 'ö': 'o', 'ō': 'o',
+        'ú': 'u', 'ù': 'u', 'û': 'u', 'ü': 'u', 'ū': 'u',
+        'ọ': 'o', 'ọ́': 'o', 'ọ̀': 'o',
+        'ụ': 'u', 'ụ́': 'u', 'ụ̀': 'u',
+        'ṣ': 's', 'ṣ́': 's', 'ṣ̀': 's',
+        'ị': 'i', 'ị́': 'i', 'ị̀': 'i',
+        'ḿ': 'm', 'ń': 'n', 'ñ': 'n', 'ŋ': 'n',
+        'ɓ': 'b', 'ƙ': 'k', 'r̃': 'r',
+        // Common European accents
+        'à': 'a', 'á': 'a', 'â': 'a', 'ä': 'a', 'ã': 'a', 'å': 'a',
+        'è': 'e', 'é': 'e', 'ê': 'e', 'ë': 'e',
+        'ì': 'i', 'í': 'i', 'î': 'i', 'ï': 'i',
+        'ò': 'o', 'ó': 'o', 'ô': 'o', 'ö': 'o', 'õ': 'o', 'ø': 'o',
+        'ù': 'u', 'ú': 'u', 'û': 'u', 'ü': 'u',
+        'ý': 'y', 'ÿ': 'y', 'ç': 'c', 'ñ': 'n'
+    };
+    
+    for (const [key, value] of Object.entries(charMap)) {
+        clean = clean.replaceAll(key, value);
+    }
+    
+    clean = clean
+        .replace(/\s+/g, '_')
+        .replace(/[^a-z0-9_]/g, '');
+    
+    // If clean is empty or too short, use a hash of the original
+    if (clean.length < 2) {
+        let hash = 0;
+        for (let i = 0; i < text.length; i++) {
+            hash = ((hash << 5) - hash) + text.charCodeAt(i);
+            hash |= 0;
+        }
+        const hashStr = Math.abs(hash).toString(36).padStart(4, '0');
+        clean = `word_${hashStr}`;
+        console.log(`⚠️ Generated fallback key for "${text}": ${clean}`);
+    }
+    
+    const result = `${language}/${type}/${clean}.mp3`;
+    console.log(`🔑 ${text} → ${result}`);
+    return result;
+}
 
     async function audioExistsInSupabase(cacheKey) {
         try {
