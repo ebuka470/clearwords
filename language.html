@@ -2413,7 +2413,7 @@
     // ==================== GENERATE AUDIO WITH 9JALINGO ====================
     async function generateWith9jaLingo(text, language) {
         const voiceCode = NINE_JALINGO_VOICES[language] || 'yo';
-        const speaker = NINE_JALINGO_SPEAKERS[language] || 'titilayo_yo;
+        const speaker = NINE_JALINGO_SPEAKERS[language] || 'titilayo_yo';
         
         const response = await fetch(`${NINE_JALINGO_BASE_URL}/v1/audio/speech`, {
             method: 'POST',
