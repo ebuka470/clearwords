@@ -2419,7 +2419,7 @@ async function generateWith9jaLingo(text, language) {
     const BACKEND_URL = 'https://autopost-backend-hbck.onrender.com'; // ← Your backend URL
 
     try {
-        const response = await fetch(`${BACKEND_URL}/clearwords/tts`, {
+        const response = await fetch(`${BACKEND_URL}/clearwordsapi/tts`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
