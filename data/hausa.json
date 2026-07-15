@@ -20,7 +20,7 @@
           "pronunciation": "san-nu",
           "example": "Sannu, yaya kake?",
           "culturalNote": "The most common greeting, can be used anytime.",
-          "audioId": "sannu"
+          "audioId": ""
         },
         {
           "word": "Ina kwana?",
@@ -28,7 +28,7 @@
           "pronunciation": "ee-na kwa-na",
           "example": "Ina kwana? – Lafiya.",
           "culturalNote": "Used in the morning/afternoon.",
-          "audioId": "ina_kwana"
+          "audioId": ""
         },
         {
           "word": "Lafiya",
@@ -36,7 +36,7 @@
           "pronunciation": "la-fi-ya",
           "example": "Lafiya, nagode.",
           "culturalNote": "Common response to 'Ina kwana?'",
-          "audioId": "lafiya"
+          "audioId": ""
         },
         {
           "word": "Barka da safe",
@@ -44,7 +44,7 @@
           "pronunciation": "bar-ka da sa-fe",
           "example": "Barka da safe, yaya kake?",
           "culturalNote": "Used specifically in the morning.",
-          "audioId": "barka_da_safe"
+          "audioId": ""
         },
         {
           "word": "Barka da rana",
@@ -52,7 +52,7 @@
           "pronunciation": "bar-ka da ra-na",
           "example": "Barka da rana, ina kwana?",
           "culturalNote": "Used after noon.",
-          "audioId": "barka_da_rana"
+          "audioId": ""
         },
         {
           "word": "Barka da yamma",
@@ -60,7 +60,7 @@
           "pronunciation": "bar-ka da yam-ma",
           "example": "Barka da yamma, sannu.",
           "culturalNote": "Used in the evening.",
-          "audioId": "barka_da_yamma"
+          "audioId": ""
         },
         {
           "word": "Sai an jima",
@@ -68,7 +68,7 @@
           "pronunciation": "sai an jee-ma",
           "example": "Sai an jima, mu tafi.",
           "culturalNote": "Informal way to say goodbye.",
-          "audioId": "sai_an_jima"
+          "audioId": ""
         },
         {
           "word": "Yaya kake?",
@@ -76,7 +76,7 @@
           "pronunciation": "ya-ya ka-ke",
           "example": "Yaya kake? – Lafiya.",
           "culturalNote": "Use with male interlocutors.",
-          "audioId": "yaya_kake"
+          "audioId": ""
         },
         {
           "word": "Yaya kiki?",
@@ -84,7 +84,7 @@
           "pronunciation": "ya-ya kee-kee",
           "example": "Yaya kiki? – Lafiya.",
           "culturalNote": "Use with female interlocutors.",
-          "audioId": "yaya_kiki"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -112,31 +112,36 @@
           "speaker": "Ali",
           "text": "Sannu!",
           "translation": "Hello!",
-          "audioContext": "greeting"
+          "audioContext": "greeting",
+          "audioId": ""
         },
         {
           "speaker": "Aisha",
           "text": "Sannu!",
           "translation": "Hello!",
-          "audioContext": "greeting"
+          "audioContext": "greeting",
+          "audioId": ""
         },
         {
           "speaker": "Ali",
           "text": "Ina kwana?",
           "translation": "How are you?",
-          "audioContext": "question"
+          "audioContext": "question",
+          "audioId": ""
         },
         {
           "speaker": "Aisha",
           "text": "Lafiya, nagode. Kai fa?",
           "translation": "Fine, thank you. And you?",
-          "audioContext": "response"
+          "audioContext": "response",
+          "audioId": ""
         },
         {
           "speaker": "Ali",
           "text": "Lafiya, nagode. Sai an jima.",
           "translation": "Fine, thank you. See you later.",
-          "audioContext": "farewell"
+          "audioContext": "farewell",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -273,7 +278,7 @@
           "pronunciation": "ya-ya su-nan-ka",
           "example": "Yaya sunanka? – Sunana Ali.",
           "culturalNote": "Use 'sunanki' for female.",
-          "audioId": "yaya_sunanka"
+          "audioId": ""
         },
         {
           "word": "Yaya sunanki?",
@@ -281,7 +286,7 @@
           "pronunciation": "ya-ya su-nan-kee",
           "example": "Yaya sunanki? – Sunana Aisha.",
           "culturalNote": "The suffix changes based on gender.",
-          "audioId": "yaya_sunanki"
+          "audioId": ""
         },
         {
           "word": "Sunana [name]",
@@ -289,7 +294,7 @@
           "pronunciation": "su-na-na",
           "example": "Sunana Ali.",
           "culturalNote": "Simple way to introduce yourself.",
-          "audioId": "sunana_name"
+          "audioId": ""
         },
         {
           "word": "Daga ina kake?",
@@ -297,7 +302,7 @@
           "pronunciation": "da-ga ee-na ka-ke",
           "example": "Daga ina kake? – Daga Najeriya.",
           "culturalNote": "Asking about origin shows interest.",
-          "audioId": "daga_ina_kake"
+          "audioId": ""
         },
         {
           "word": "Daga ina kiki?",
@@ -305,7 +310,7 @@
           "pronunciation": "da-ga ee-na kee-kee",
           "example": "Daga ina kiki? – Daga Ghana.",
           "culturalNote": "Gender agreement is important.",
-          "audioId": "daga_ina_kiki"
+          "audioId": ""
         },
         {
           "word": "Daga Najeriya",
@@ -313,7 +318,7 @@
           "pronunciation": "da-ga na-je-ri-ya",
           "example": "Daga Najeriya ne.",
           "culturalNote": "'Ne' at the end is a masculine marker; for feminine, use 'ce'.",
-          "audioId": "daga_najeriya"
+          "audioId": ""
         },
         {
           "word": "Daga Ghana",
@@ -321,7 +326,7 @@
           "pronunciation": "da-ga gha-na",
           "example": "Daga Ghana ce.",
           "culturalNote": "Feminine marker 'ce' because Ghana is treated as feminine in Hausa.",
-          "audioId": "daga_ghana"
+          "audioId": ""
         },
         {
           "word": "Don Allah",
@@ -329,7 +334,7 @@
           "pronunciation": "don al-lah",
           "example": "Don Allah, taimake ni.",
           "culturalNote": "Essential for polite requests.",
-          "audioId": "don_allah"
+          "audioId": ""
         },
         {
           "word": "Na gode",
@@ -337,7 +342,7 @@
           "pronunciation": "na go-de",
           "example": "Na gode sosai.",
           "culturalNote": "Add 'sosai' for 'thank you very much'.",
-          "audioId": "na_gode"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -365,31 +370,36 @@
           "speaker": "Musa",
           "text": "Sannu, yaya sunanka?",
           "translation": "Hello, what is your name?",
-          "audioContext": "question"
+          "audioContext": "question",
+          "audioId": ""
         },
         {
           "speaker": "Fatima",
           "text": "Sunana Fatima. Kai fa, yaya sunanka?",
           "translation": "My name is Fatima. And you, what is your name?",
-          "audioContext": "response"
+          "audioContext": "response",
+          "audioId": ""
         },
         {
           "speaker": "Musa",
           "text": "Sunana Musa. Daga ina kiki?",
           "translation": "My name is Musa. Where are you from?",
-          "audioContext": "question"
+          "audioContext": "question",
+          "audioId": ""
         },
         {
           "speaker": "Fatima",
           "text": "Daga Ghana ce. Kai fa, daga ina kake?",
           "translation": "I'm from Ghana. And you, where are you from?",
-          "audioContext": "response"
+          "audioContext": "response",
+          "audioId": ""
         },
         {
           "speaker": "Musa",
           "text": "Daga Najeriya ne. Na gode.",
           "translation": "I'm from Nigeria. Thank you.",
-          "audioContext": "response"
+          "audioContext": "response",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -528,7 +538,7 @@
           "pronunciation": "nee",
           "example": "Ni Ali ne.",
           "culturalNote": "Subject pronoun for 'I'.",
-          "audioId": "ni"
+          "audioId": ""
         },
         {
           "word": "Kai",
@@ -536,7 +546,7 @@
           "pronunciation": "kai",
           "example": "Kai, yaya sunanka?",
           "culturalNote": "Used when addressing a male.",
-          "audioId": "kai"
+          "audioId": ""
         },
         {
           "word": "Ke",
@@ -544,7 +554,7 @@
           "pronunciation": "keh",
           "example": "Ke, yaya sunanki?",
           "culturalNote": "Used when addressing a female.",
-          "audioId": "ke"
+          "audioId": ""
         },
         {
           "word": "Malami",
@@ -552,7 +562,7 @@
           "pronunciation": "ma-la-mee",
           "example": "Ni malami ne.",
           "culturalNote": "Occupation; gender changes: malami (m), malama (f).",
-          "audioId": "malami"
+          "audioId": ""
         },
         {
           "word": "Likita",
@@ -560,7 +570,7 @@
           "pronunciation": "lee-kee-ta",
           "example": "Ni likita ce.",
           "culturalNote": "Occupation; same word for both genders but marker changes.",
-          "audioId": "likita"
+          "audioId": ""
         },
         {
           "word": "Dalibi",
@@ -568,7 +578,7 @@
           "pronunciation": "da-lee-bee",
           "example": "Ni dalibi ne.",
           "culturalNote": "Feminine: daliba.",
-          "audioId": "dalibi"
+          "audioId": ""
         },
         {
           "word": "Daliba",
@@ -576,7 +586,7 @@
           "pronunciation": "da-lee-ba",
           "example": "Ni daliba ce.",
           "culturalNote": "Female student.",
-          "audioId": "daliba"
+          "audioId": ""
         },
         {
           "word": "Ina zaune a",
@@ -584,7 +594,7 @@
           "pronunciation": "ee-na za-u-ne a",
           "example": "Ina zaune a Lagos.",
           "culturalNote": "Use to state your city of residence.",
-          "audioId": "ina_zaune_a"
+          "audioId": ""
         },
         {
           "word": "Ina aiki a",
@@ -592,7 +602,7 @@
           "pronunciation": "ee-na a-ee-kee a",
           "example": "Ina aiki a banki.",
           "culturalNote": "Use to state your workplace.",
-          "audioId": "ina_aiki_a"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -621,31 +631,36 @@
           "speaker": "Musa",
           "text": "Sannu, ni Musa ne. Yaya sunanka?",
           "translation": "Hello, I am Musa. What is your name?",
-          "audioContext": "intro"
+          "audioContext": "intro",
+          "audioId": ""
         },
         {
           "speaker": "Aisha",
           "text": "Sannu Musa, ni Aisha ce. Ina zaune a Kano.",
           "translation": "Hello Musa, I am Aisha. I live in Kano.",
-          "audioContext": "response"
+          "audioContext": "response",
+          "audioId": ""
         },
         {
           "speaker": "Musa",
           "text": "Ni kuma ina zaune a Abuja. Me kike yi?",
           "translation": "I live in Abuja. What do you do? (to female)",
-          "audioContext": "question"
+          "audioContext": "question",
+          "audioId": ""
         },
         {
           "speaker": "Aisha",
           "text": "Ni daliba ce. Kai fa, me kake yi?",
           "translation": "I am a student. And you, what do you do?",
-          "audioContext": "response"
+          "audioContext": "response",
+          "audioId": ""
         },
         {
           "speaker": "Musa",
           "text": "Ni malami ne. Na ji daɗin saduwa da ke.",
           "translation": "I am a teacher. Nice to meet you.",
-          "audioContext": "farewell"
+          "audioContext": "farewell",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -784,7 +799,7 @@
           "pronunciation": "yee ha-koo-ree",
           "example": "Yi hakuri, na yi kuskure.",
           "culturalNote": "Used for minor mistakes or inconveniences.",
-          "audioId": "yi_hakuri"
+          "audioId": ""
         },
         {
           "word": "Gafara",
@@ -792,7 +807,7 @@
           "pronunciation": "ga-fa-ra",
           "example": "Don Allah, ka yi min gafara.",
           "culturalNote": "More formal, used when asking for forgiveness.",
-          "audioId": "gafara"
+          "audioId": ""
         },
         {
           "word": "Ban yi da gangan ba",
@@ -800,7 +815,7 @@
           "pronunciation": "ban yee da gan-gan ba",
           "example": "Yi hakuri, ban yi da gangan ba.",
           "culturalNote": "Use to clarify it was accidental.",
-          "audioId": "ban_yi_da_gangan_ba"
+          "audioId": ""
         },
         {
           "word": "Kuskure",
@@ -808,7 +823,7 @@
           "pronunciation": "kus-koo-reh",
           "example": "Na yi kuskure.",
           "culturalNote": "Admitting a mistake.",
-          "audioId": "kuskure"
+          "audioId": ""
         },
         {
           "word": "Ka yi min gafara",
@@ -816,7 +831,7 @@
           "pronunciation": "ka yee min ga-fa-ra",
           "example": "Ka yi min gafara, na makara.",
           "culturalNote": "Asking for forgiveness directly.",
-          "audioId": "ka_yi_min_gafara"
+          "audioId": ""
         },
         {
           "word": "Ki yi min gafara",
@@ -824,7 +839,7 @@
           "pronunciation": "kee yee min ga-fa-ra",
           "example": "Ki yi min gafara, na makara.",
           "culturalNote": "Use 'ki' for female.",
-          "audioId": "ki_yi_min_gafara"
+          "audioId": ""
         },
         {
           "word": "Ba laifi",
@@ -832,7 +847,7 @@
           "pronunciation": "ba la-ee-fee",
           "example": "A: Yi hakuri. B: Ba laifi.",
           "culturalNote": "Common response to an apology.",
-          "audioId": "ba_laifi"
+          "audioId": ""
         },
         {
           "word": "Kada ka damu",
@@ -840,7 +855,7 @@
           "pronunciation": "ka-da ka da-moo",
           "example": "Kada ka damu, komai zai yi kyau.",
           "culturalNote": "Reassurance.",
-          "audioId": "kada_ka_damu"
+          "audioId": ""
         },
         {
           "word": "Kada ki damu",
@@ -848,7 +863,7 @@
           "pronunciation": "ka-da kee da-moo",
           "example": "Kada ki damu, an gyara shi.",
           "culturalNote": "Feminine form.",
-          "audioId": "kada_ki_damu"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -876,31 +891,36 @@
           "speaker": "Ali",
           "text": "Yi hakuri, na yi kuskure.",
           "translation": "Sorry, I made a mistake.",
-          "audioContext": "apology"
+          "audioContext": "apology",
+          "audioId": ""
         },
         {
           "speaker": "Binta",
           "text": "Ba laifi. Me ya faru?",
           "translation": "No problem. What happened?",
-          "audioContext": "response"
+          "audioContext": "response",
+          "audioId": ""
         },
         {
           "speaker": "Ali",
           "text": "Na manta da alƙawarin mu.",
           "translation": "I forgot our appointment.",
-          "audioContext": "explanation"
+          "audioContext": "explanation",
+          "audioId": ""
         },
         {
           "speaker": "Binta",
           "text": "Kada ka damu, za mu iya sake tsarawa.",
           "translation": "Don't worry, we can reschedule.",
-          "audioContext": "reassurance"
+          "audioContext": "reassurance",
+          "audioId": ""
         },
         {
           "speaker": "Ali",
           "text": "Na gode da fahimta.",
           "translation": "Thank you for understanding.",
-          "audioContext": "thanks"
+          "audioContext": "thanks",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -1040,7 +1060,7 @@
           "pronunciation": "roo-wa",
           "example": "Don Allah, ba ni ruwa.",
           "culturalNote": "Essential word; always ask politely.",
-          "audioId": "ruwa"
+          "audioId": ""
         },
         {
           "word": "Abinci",
@@ -1048,7 +1068,7 @@
           "pronunciation": "a-been-chee",
           "example": "Ina so in ci abinci.",
           "culturalNote": "General term for food.",
-          "audioId": "abinci"
+          "audioId": ""
         },
         {
           "word": "Gidan wanka",
@@ -1056,7 +1076,7 @@
           "pronunciation": "gee-dan wan-ka",
           "example": "Ina gidan wanka?",
           "culturalNote": "Literally 'house of bath'.",
-          "audioId": "gidan_wanka"
+          "audioId": ""
         },
         {
           "word": "Taimako",
@@ -1064,7 +1084,7 @@
           "pronunciation": "tai-ma-ko",
           "example": "Ina buƙatar taimako.",
           "culturalNote": "Use in emergencies or when you need assistance.",
-          "audioId": "taimako"
+          "audioId": ""
         },
         {
           "word": "Ina buƙatar",
@@ -1072,7 +1092,7 @@
           "pronunciation": "ee-na boo-ka-tar",
           "example": "Ina buƙatar ruwa.",
           "culturalNote": "Followed by the item you need.",
-          "audioId": "ina_bu_atar"
+          "audioId": ""
         },
         {
           "word": "Ba ni",
@@ -1080,7 +1100,7 @@
           "pronunciation": "ba nee",
           "example": "Ba ni ruwa don Allah.",
           "culturalNote": "Direct request; always pair with 'don Allah'.",
-          "audioId": "ba_ni"
+          "audioId": ""
         },
         {
           "word": "Ina so",
@@ -1088,7 +1108,7 @@
           "pronunciation": "ee-na so",
           "example": "Ina so in ci abinci.",
           "culturalNote": "Softer than 'ba ni', more like 'I would like'.",
-          "audioId": "ina_so"
+          "audioId": ""
         },
         {
           "word": "Kudi",
@@ -1096,7 +1116,7 @@
           "pronunciation": "koo-dee",
           "example": "Ina buƙatar kudi.",
           "culturalNote": "Be careful when asking for money; context matters.",
-          "audioId": "kudi"
+          "audioId": ""
         },
         {
           "word": "Asibiti",
@@ -1104,7 +1124,7 @@
           "pronunciation": "a-see-bee-tee",
           "example": "Ina asibiti?",
           "culturalNote": "Important for emergencies.",
-          "audioId": "asibiti"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -1132,31 +1152,36 @@
           "speaker": "Musa",
           "text": "Don Allah, ina gidan wanka?",
           "translation": "Please, where is the bathroom?",
-          "audioContext": "question"
+          "audioContext": "question",
+          "audioId": ""
         },
         {
           "speaker": "Attendant",
           "text": "Can kofar baya.",
           "translation": "Behind the back door.",
-          "audioContext": "response"
+          "audioContext": "response",
+          "audioId": ""
         },
         {
           "speaker": "Musa",
           "text": "Na gode. Kuma ina buƙatar ruwa.",
           "translation": "Thank you. Also I need water.",
-          "audioContext": "request"
+          "audioContext": "request",
+          "audioId": ""
         },
         {
           "speaker": "Attendant",
           "text": "Za mu iya ba ka ruwa. Zauna.",
           "translation": "We can give you water. Sit down.",
-          "audioContext": "offer"
+          "audioContext": "offer",
+          "audioId": ""
         },
         {
           "speaker": "Musa",
           "text": "Nagode sosai.",
           "translation": "Thank you very much.",
-          "audioContext": "thanks"
+          "audioContext": "thanks",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -1295,7 +1320,7 @@
           "pronunciation": "too-wo",
           "example": "Ina son tuwo da miya.",
           "culturalNote": "Often served with soup (miya).",
-          "audioId": "tuwo"
+          "audioId": ""
         },
         {
           "word": "Miya",
@@ -1303,7 +1328,7 @@
           "pronunciation": "mee-ya",
           "example": "Miya mai ɗanɗano.",
           "culturalNote": "Can be okra, groundnut, or other varieties.",
-          "audioId": "miya"
+          "audioId": ""
         },
         {
           "word": "Suya",
@@ -1311,7 +1336,7 @@
           "pronunciation": "soo-ya",
           "example": "Ina so in ci suya.",
           "culturalNote": "Very popular street food.",
-          "audioId": "suya"
+          "audioId": ""
         },
         {
           "word": "Dambu",
@@ -1319,7 +1344,7 @@
           "pronunciation": "dam-boo",
           "example": "Dambu da kuli-kuli.",
           "culturalNote": "Often eaten as a snack.",
-          "audioId": "dambu"
+          "audioId": ""
         },
         {
           "word": "Kuli-kuli",
@@ -1327,7 +1352,7 @@
           "pronunciation": "koo-lee koo-lee",
           "example": "Kuli-kuli yana da ɗanɗano.",
           "culturalNote": "Crunchy snack made from peanuts.",
-          "audioId": "kuli_kuli"
+          "audioId": ""
         },
         {
           "word": "Shinkafa",
@@ -1335,7 +1360,7 @@
           "pronunciation": "sheen-ka-fa",
           "example": "Ina so in ci shinkafa da miya.",
           "culturalNote": "Common base for many meals.",
-          "audioId": "shinkafa"
+          "audioId": ""
         },
         {
           "word": "Yaji",
@@ -1343,7 +1368,7 @@
           "pronunciation": "ya-jee",
           "example": "Suya da yaji mai zafi.",
           "culturalNote": "Often added to meat for heat.",
-          "audioId": "yaji"
+          "audioId": ""
         },
         {
           "word": "Zafi",
@@ -1351,7 +1376,7 @@
           "pronunciation": "za-fee",
           "example": "Ba ni da yaji mai zafi.",
           "culturalNote": "Use to ask for mild or spicy.",
-          "audioId": "zafi"
+          "audioId": ""
         },
         {
           "word": "Nawa ne?",
@@ -1359,7 +1384,7 @@
           "pronunciation": "na-wa neh",
           "example": "Suya, nawa ne?",
           "culturalNote": "Essential for buying.",
-          "audioId": "nawa_ne"
+          "audioId": ""
         },
         {
           "word": "Ina so in ci...",
@@ -1367,7 +1392,7 @@
           "pronunciation": "ee-na so in chee",
           "example": "Ina so in ci tuwo.",
           "culturalNote": "Polite way to order.",
-          "audioId": "ina_so_in_ci"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -1395,43 +1420,50 @@
           "speaker": "Customer",
           "text": "Sannu, ina so in ci suya.",
           "translation": "Hello, I want to eat suya.",
-          "audioContext": "order"
+          "audioContext": "order",
+          "audioId": ""
         },
         {
           "speaker": "Vendor",
           "text": "To, nawa kike so?",
           "translation": "OK, how many do you want? (to female)",
-          "audioContext": "question"
+          "audioContext": "question",
+          "audioId": ""
         },
         {
           "speaker": "Customer",
           "text": "Ni ce, ina so guda biyar. Mai yaji.",
           "translation": "I'd like five pieces. Spicy.",
-          "audioContext": "quantity"
+          "audioContext": "quantity",
+          "audioId": ""
         },
         {
           "speaker": "Vendor",
           "text": "Za a yi. Nawa ne?",
           "translation": "It will be done. How much?",
-          "audioContext": "confirm"
+          "audioContext": "confirm",
+          "audioId": ""
         },
         {
           "speaker": "Customer",
           "text": "Nawa ne duka?",
           "translation": "How much total?",
-          "audioContext": "price"
+          "audioContext": "price",
+          "audioId": ""
         },
         {
           "speaker": "Vendor",
           "text": "Dubu biyar ne.",
           "translation": "It's five thousand.",
-          "audioContext": "total"
+          "audioContext": "total",
+          "audioId": ""
         },
         {
           "speaker": "Customer",
           "text": "Ga kuɗin. Na gode.",
           "translation": "Here's the money. Thank you.",
-          "audioContext": "payment"
+          "audioContext": "payment",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -1571,7 +1603,7 @@
           "pronunciation": "ee-na",
           "example": "Ina kasuwa?",
           "culturalNote": "Used to ask 'where is'.",
-          "audioId": "ina"
+          "audioId": ""
         },
         {
           "word": "Kasuwa",
@@ -1579,7 +1611,7 @@
           "pronunciation": "ka-soo-wa",
           "example": "Ina kasuwa?",
           "culturalNote": "Central place in towns.",
-          "audioId": "kasuwa"
+          "audioId": ""
         },
         {
           "word": "Daga",
@@ -1587,7 +1619,7 @@
           "pronunciation": "da-ga",
           "example": "Daga nan zuwa kasuwa?",
           "culturalNote": "Used in giving directions.",
-          "audioId": "daga"
+          "audioId": ""
         },
         {
           "word": "Zuwa",
@@ -1595,7 +1627,7 @@
           "pronunciation": "zoo-wa",
           "example": "Daga nan zuwa gida.",
           "culturalNote": "Indicates destination.",
-          "audioId": "zuwa"
+          "audioId": ""
         },
         {
           "word": "Hagu",
@@ -1603,7 +1635,7 @@
           "pronunciation": "ha-goo",
           "example": "Juya hagu.",
           "culturalNote": "Essential turn direction.",
-          "audioId": "hagu"
+          "audioId": ""
         },
         {
           "word": "Dama",
@@ -1611,7 +1643,7 @@
           "pronunciation": "da-ma",
           "example": "Juya dama.",
           "culturalNote": "Opposite of left.",
-          "audioId": "dama"
+          "audioId": ""
         },
         {
           "word": "Gaba",
@@ -1619,7 +1651,7 @@
           "pronunciation": "ga-ba",
           "example": "Ci gaba.",
           "culturalNote": "Continue straight.",
-          "audioId": "gaba"
+          "audioId": ""
         },
         {
           "word": "Kusa",
@@ -1627,7 +1659,7 @@
           "pronunciation": "koo-sa",
           "example": "Kasuwa kusa ne.",
           "culturalNote": "Indicates proximity.",
-          "audioId": "kusa"
+          "audioId": ""
         },
         {
           "word": "Nesa",
@@ -1635,7 +1667,7 @@
           "pronunciation": "ne-sa",
           "example": "Gidan waya nesa ne.",
           "culturalNote": "Indicates distance.",
-          "audioId": "nesa"
+          "audioId": ""
         },
         {
           "word": "Baya",
@@ -1643,7 +1675,7 @@
           "pronunciation": "ba-ya",
           "example": "Gidan baya.",
           "culturalNote": "Used for locations.",
-          "audioId": "baya"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -1671,31 +1703,36 @@
           "speaker": "Visitor",
           "text": "Don Allah, ina kasuwa?",
           "translation": "Please, where is the market?",
-          "audioContext": "ask"
+          "audioContext": "ask",
+          "audioId": ""
         },
         {
           "speaker": "Local",
           "text": "Kasuwa kusa ne. Ci gaba zuwa gaba.",
           "translation": "The market is near. Go straight ahead.",
-          "audioContext": "direction"
+          "audioContext": "direction",
+          "audioId": ""
         },
         {
           "speaker": "Visitor",
           "text": "Sannan?",
           "translation": "And then?",
-          "audioContext": "followup"
+          "audioContext": "followup",
+          "audioId": ""
         },
         {
           "speaker": "Local",
           "text": "Sa'an nan juya dama a gidan waya.",
           "translation": "Then turn right at the post office.",
-          "audioContext": "further"
+          "audioContext": "further",
+          "audioId": ""
         },
         {
           "speaker": "Visitor",
           "text": "Na gode sosai.",
           "translation": "Thank you very much.",
-          "audioContext": "thanks"
+          "audioContext": "thanks",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -1834,7 +1871,7 @@
           "pronunciation": "na-wa neh",
           "example": "Wannan, nawa ne?",
           "culturalNote": "Essential start to any negotiation.",
-          "audioId": "nawa_ne"
+          "audioId": ""
         },
         {
           "word": "Rage mini",
@@ -1842,7 +1879,7 @@
           "pronunciation": "ra-ge mee-nee",
           "example": "Rage mini, don Allah.",
           "culturalNote": "Polite way to ask for a discount.",
-          "audioId": "rage_mini"
+          "audioId": ""
         },
         {
           "word": "Yayi yawa",
@@ -1850,7 +1887,7 @@
           "pronunciation": "ya-yee ya-wa",
           "example": "Nawa ne? – Dubu goma. – Yayi yawa.",
           "culturalNote": "Express that the price is high.",
-          "audioId": "yayi_yawa"
+          "audioId": ""
         },
         {
           "word": "Karshe",
@@ -1858,7 +1895,7 @@
           "pronunciation": "kar-sheh",
           "example": "Menene karshe?",
           "culturalNote": "Ask for the final price.",
-          "audioId": "karshe"
+          "audioId": ""
         },
         {
           "word": "Na siya",
@@ -1866,7 +1903,7 @@
           "pronunciation": "na see-ya",
           "example": "Na siya da wannan farashin.",
           "culturalNote": "Confirm purchase.",
-          "audioId": "na_siya"
+          "audioId": ""
         },
         {
           "word": "Ba ni da kuɗi",
@@ -1874,7 +1911,7 @@
           "pronunciation": "ba nee da koo-dee",
           "example": "Ba ni da kuɗi da yawa.",
           "culturalNote": "Justify asking for lower price.",
-          "audioId": "ba_ni_da_ku_i"
+          "audioId": ""
         },
         {
           "word": "Mai arha",
@@ -1882,7 +1919,7 @@
           "pronunciation": "mai ar-ha",
           "example": "Wannan mai arha ne.",
           "culturalNote": "Describing a good price.",
-          "audioId": "mai_arha"
+          "audioId": ""
         },
         {
           "word": "Mai tsada",
@@ -1890,7 +1927,7 @@
           "pronunciation": "mai tsa-da",
           "example": "Wannan mai tsada ne.",
           "culturalNote": "Complaining about price.",
-          "audioId": "mai_tsada"
+          "audioId": ""
         },
         {
           "word": "Zan biya",
@@ -1898,7 +1935,7 @@
           "pronunciation": "zan bee-ya",
           "example": "Zan biya dubu biyar.",
           "culturalNote": "State your offer.",
-          "audioId": "zan_biya"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -1926,43 +1963,50 @@
           "speaker": "Customer",
           "text": "Sannu, wannan riga, nawa ne?",
           "translation": "Hello, this shirt, how much?",
-          "audioContext": "ask_price"
+          "audioContext": "ask_price",
+          "audioId": ""
         },
         {
           "speaker": "Vendor",
           "text": "Dubu goma sha biyar ne.",
           "translation": "It's fifteen thousand.",
-          "audioContext": "price"
+          "audioContext": "price",
+          "audioId": ""
         },
         {
           "speaker": "Customer",
           "text": "Yayi yawa! Rage mini, don Allah.",
           "translation": "It's too much! Reduce for me, please.",
-          "audioContext": "bargain"
+          "audioContext": "bargain",
+          "audioId": ""
         },
         {
           "speaker": "Vendor",
           "text": "To, nawa za ka biya?",
           "translation": "OK, how much will you pay?",
-          "audioContext": "counter"
+          "audioContext": "counter",
+          "audioId": ""
         },
         {
           "speaker": "Customer",
           "text": "Zan biya dubu goma.",
           "translation": "I'll pay ten thousand.",
-          "audioContext": "offer"
+          "audioContext": "offer",
+          "audioId": ""
         },
         {
           "speaker": "Vendor",
           "text": "Ba zai yiwu ba. Dubu goma sha uku, karshe.",
           "translation": "It's not possible. Thirteen thousand, final.",
-          "audioContext": "final"
+          "audioContext": "final",
+          "audioId": ""
         },
         {
           "speaker": "Customer",
           "text": "Na siya. Ga kuɗin.",
           "translation": "I'll buy it. Here's the money.",
-          "audioContext": "agree"
+          "audioContext": "agree",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -2102,7 +2146,7 @@
           "pronunciation": "sai an jee-ma",
           "example": "Sai an jima, ina tafiya.",
           "culturalNote": "Informal, used among friends.",
-          "audioId": "sai_an_jima"
+          "audioId": ""
         },
         {
           "word": "Sai gobe",
@@ -2110,7 +2154,7 @@
           "pronunciation": "sai go-beh",
           "example": "Sai gobe, mu ci gaba.",
           "culturalNote": "When you'll meet again the next day.",
-          "audioId": "sai_gobe"
+          "audioId": ""
         },
         {
           "word": "Ina tafiya",
@@ -2118,7 +2162,7 @@
           "pronunciation": "ee-na ta-fee-ya",
           "example": "Ina tafiya yanzu.",
           "culturalNote": "Announce your departure.",
-          "audioId": "ina_tafiya"
+          "audioId": ""
         },
         {
           "word": "Zan dawo",
@@ -2126,7 +2170,7 @@
           "pronunciation": "zan da-wo",
           "example": "Zan dawo daga baya.",
           "culturalNote": "Reassure you'll return.",
-          "audioId": "zan_dawo"
+          "audioId": ""
         },
         {
           "word": "Ina sauri",
@@ -2134,7 +2178,7 @@
           "pronunciation": "ee-na sa-oo-ree",
           "example": "Ina sauri, yi hakuri.",
           "culturalNote": "Excuse for rushing off.",
-          "audioId": "ina_sauri"
+          "audioId": ""
         },
         {
           "word": "Yi hakuri (don barin)",
@@ -2142,7 +2186,7 @@
           "pronunciation": "yee ha-koo-ree",
           "example": "Yi hakuri, dole in tafi.",
           "culturalNote": "Polite way to excuse yourself.",
-          "audioId": "yi_hakuri_don_barin"
+          "audioId": ""
         },
         {
           "word": "Mu hadu daga baya",
@@ -2150,7 +2194,7 @@
           "pronunciation": "moo ha-doo da-ga ba-ya",
           "example": "Mu hadu daga baya, ina aiki.",
           "culturalNote": "Suggest future meeting.",
-          "audioId": "mu_hadu_daga_baya"
+          "audioId": ""
         },
         {
           "word": "Akwai gaggawa",
@@ -2158,7 +2202,7 @@
           "pronunciation": "a-kwai gag-ga-wa",
           "example": "Akwai gaggawa, dole in tafi.",
           "culturalNote": "Strong reason to leave.",
-          "audioId": "akwai_gaggawa"
+          "audioId": ""
         },
         {
           "word": "Barka da yamma",
@@ -2166,7 +2210,7 @@
           "pronunciation": "bar-ka da yam-ma",
           "example": "Barka da yamma, sai gobe.",
           "culturalNote": "Used in evening departures.",
-          "audioId": "barka_da_yamma"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -2195,25 +2239,29 @@
           "speaker": "Amina",
           "text": "Sannu, ina sauri. Yi hakuri, dole in tafi.",
           "translation": "Hello, I'm in a hurry. Sorry, I have to go.",
-          "audioContext": "excuse"
+          "audioContext": "excuse",
+          "audioId": ""
         },
         {
           "speaker": "Bala",
           "text": "Ba laifi. Za ka dawo?",
           "translation": "No problem. Will you come back?",
-          "audioContext": "question"
+          "audioContext": "question",
+          "audioId": ""
         },
         {
           "speaker": "Amina",
           "text": "Zan dawo daga baya. Sai an jima.",
           "translation": "I'll come back later. See you later.",
-          "audioContext": "promise"
+          "audioContext": "promise",
+          "audioId": ""
         },
         {
           "speaker": "Bala",
           "text": "To, sai an jima. Ka kula.",
           "translation": "OK, see you later. Take care.",
-          "audioContext": "farewell"
+          "audioContext": "farewell",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -2513,7 +2561,7 @@
           "pronunciation": "gee-da",
           "example": "Gidana yana nan.",
           "culturalNote": "Gida can mean house, home, or compound.",
-          "audioId": "gida"
+          "audioId": ""
         },
         {
           "word": "Ɗaki",
@@ -2521,7 +2569,7 @@
           "pronunciation": "da-kee",
           "example": "Ina ɗaki na?",
           "culturalNote": "Refers to a bedroom or any room in a house.",
-          "audioId": "aki"
+          "audioId": ""
         },
         {
           "word": "Falo",
@@ -2529,7 +2577,7 @@
           "pronunciation": "fa-lo",
           "example": "Mu zauna a falo.",
           "culturalNote": "The main sitting area for guests.",
-          "audioId": "falo"
+          "audioId": ""
         },
         {
           "word": "Kicin",
@@ -2537,7 +2585,7 @@
           "pronunciation": "kee-cheen",
           "example": "Mahaifiyata tana kicin.",
           "culturalNote": "Borrowed from English, widely used.",
-          "audioId": "kicin"
+          "audioId": ""
         },
         {
           "word": "Bakin titi",
@@ -2545,7 +2593,7 @@
           "pronunciation": "ba-keen tee-tee",
           "example": "Muna zaune a bakin titi.",
           "culturalNote": "Literally 'mouth of the street', often used for relaxing outside.",
-          "audioId": "bakin_titi"
+          "audioId": ""
         },
         {
           "word": "Gado",
@@ -2553,7 +2601,7 @@
           "pronunciation": "ga-do",
           "example": "Gado na yana da daɗi.",
           "culturalNote": "Traditional beds may be simple mats (tabarma).",
-          "audioId": "gado"
+          "audioId": ""
         },
         {
           "word": "Tebur",
@@ -2561,7 +2609,7 @@
           "pronunciation": "teh-boor",
           "example": "Ajiye abinci a tebur.",
           "culturalNote": "Borrowed from English 'table'.",
-          "audioId": "tebur"
+          "audioId": ""
         },
         {
           "word": "Kujera",
@@ -2569,7 +2617,7 @@
           "pronunciation": "koo-je-ra",
           "example": "Zauna a kujera.",
           "culturalNote": "Plastic chairs are common in Nigerian homes.",
-          "audioId": "kujera"
+          "audioId": ""
         },
         {
           "word": "Taga",
@@ -2577,7 +2625,7 @@
           "pronunciation": "ta-ga",
           "example": "Bude taga don iska.",
           "culturalNote": "Windows are often kept open for ventilation.",
-          "audioId": "taga"
+          "audioId": ""
         },
         {
           "word": "Ƙofa",
@@ -2585,7 +2633,7 @@
           "pronunciation": "ko-fa",
           "example": "Rufe ƙofar da kyau.",
           "culturalNote": "Security doors are common.",
-          "audioId": "ofa"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -2615,31 +2663,36 @@
           "speaker": "Amina",
           "text": "Ina ɗakina?",
           "translation": "Where is my room?",
-          "audioContext": "question"
+          "audioContext": "question",
+          "audioId": ""
         },
         {
           "speaker": "Hassan",
           "text": "Ɗakinki yana can, kusa da falo.",
           "translation": "Your room is there, near the parlour.",
-          "audioContext": "response"
+          "audioContext": "response",
+          "audioId": ""
         },
         {
           "speaker": "Amina",
           "text": "To, na gode. Kuma ina kicin?",
           "translation": "OK, thank you. And where is the kitchen?",
-          "audioContext": "followup"
+          "audioContext": "followup",
+          "audioId": ""
         },
         {
           "speaker": "Hassan",
           "text": "Kicin yana baya, kusa da bakin titi.",
           "translation": "The kitchen is at the back, near the verandah.",
-          "audioContext": "direction"
+          "audioContext": "direction",
+          "audioId": ""
         },
         {
           "speaker": "Amina",
           "text": "Na gode sosai.",
           "translation": "Thank you very much.",
-          "audioContext": "thanks"
+          "audioContext": "thanks",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -2778,7 +2831,7 @@
           "pronunciation": "ee-ya-lee",
           "example": "Iyali na yana da yawa.",
           "culturalNote": "Refers to the extended family.",
-          "audioId": "iyali"
+          "audioId": ""
         },
         {
           "word": "Uba",
@@ -2786,7 +2839,7 @@
           "pronunciation": "oo-ba",
           "example": "Ubana ya zo.",
           "culturalNote": "Also 'baba' in informal address.",
-          "audioId": "uba"
+          "audioId": ""
         },
         {
           "word": "Uwa",
@@ -2794,7 +2847,7 @@
           "pronunciation": "oo-wa",
           "example": "Uwata tana dafa abinci.",
           "culturalNote": "Also 'mama'.",
-          "audioId": "uwa"
+          "audioId": ""
         },
         {
           "word": "Ɗa",
@@ -2802,7 +2855,7 @@
           "pronunciation": "da",
           "example": "Ɗana ya tafi makaranta.",
           "culturalNote": "Plural 'ya'ya' (children).",
-          "audioId": "a"
+          "audioId": ""
         },
         {
           "word": "Diya",
@@ -2810,7 +2863,7 @@
           "pronunciation": "dee-ya",
           "example": "Diyata tana karatu.",
           "culturalNote": "Also 'yarinya'.",
-          "audioId": "diya"
+          "audioId": ""
         },
         {
           "word": "Kane",
@@ -2818,7 +2871,7 @@
           "pronunciation": "ka-neh",
           "example": "Kanena yana wasa.",
           "culturalNote": "Specific to younger brother.",
-          "audioId": "kane"
+          "audioId": ""
         },
         {
           "word": "Ya",
@@ -2826,7 +2879,7 @@
           "pronunciation": "ya",
           "example": "Yana shi ne babba.",
           "culturalNote": "Often used as a title before names.",
-          "audioId": "ya"
+          "audioId": ""
         },
         {
           "word": "Kanwa",
@@ -2834,7 +2887,7 @@
           "pronunciation": "kan-wa",
           "example": "Kanwata tana nan.",
           "culturalNote": "Feminine of 'kane'.",
-          "audioId": "kanwa"
+          "audioId": ""
         },
         {
           "word": "Ya (mace)",
@@ -2842,7 +2895,7 @@
           "pronunciation": "ya ma-cheh",
           "example": "Yata tana aiki.",
           "culturalNote": "Often just 'ya' with context.",
-          "audioId": "ya_mace"
+          "audioId": ""
         },
         {
           "word": "Kawu",
@@ -2850,7 +2903,7 @@
           "pronunciation": "ka-woo",
           "example": "Kawuna ya zo daga ƙauye.",
           "culturalNote": "Maternal uncle; paternal uncle is 'baffa'.",
-          "audioId": "kawu"
+          "audioId": ""
         },
         {
           "word": "Baffa",
@@ -2858,7 +2911,7 @@
           "pronunciation": "baf-fa",
           "example": "Baffana yana da gona.",
           "culturalNote": "Father's brother.",
-          "audioId": "baffa"
+          "audioId": ""
         },
         {
           "word": "Inna",
@@ -2866,7 +2919,7 @@
           "pronunciation": "een-na",
           "example": "Innata ta zo ziyara.",
           "culturalNote": "Father's sister.",
-          "audioId": "inna"
+          "audioId": ""
         },
         {
           "word": "Gwaggo",
@@ -2874,7 +2927,7 @@
           "pronunciation": "gwag-go",
           "example": "Gwaggo ta kawo kyauta.",
           "culturalNote": "Mother's sister.",
-          "audioId": "gwaggo"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -2903,31 +2956,36 @@
           "speaker": "Musa",
           "text": "Shin kana da iyali?",
           "translation": "Do you have a family?",
-          "audioContext": "question"
+          "audioContext": "question",
+          "audioId": ""
         },
         {
           "speaker": "Aisha",
           "text": "Ee, ina da miji da 'ya'ya biyu.",
           "translation": "Yes, I have a husband and two children.",
-          "audioContext": "response"
+          "audioContext": "response",
+          "audioId": ""
         },
         {
           "speaker": "Musa",
           "text": "Nawa ne shekarun 'ya'yanki?",
           "translation": "How old are your children?",
-          "audioContext": "followup"
+          "audioContext": "followup",
+          "audioId": ""
         },
         {
           "speaker": "Aisha",
           "text": "Ɗana yana da shekara biyar, diyata kuma tana da shekara uku.",
           "translation": "My son is five years old, and my daughter is three.",
-          "audioContext": "detail"
+          "audioContext": "detail",
+          "audioId": ""
         },
         {
           "speaker": "Musa",
           "text": "Allah ya ba su albarka.",
           "translation": "May God bless them.",
-          "audioContext": "blessing"
+          "audioContext": "blessing",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -3066,7 +3124,7 @@
           "pronunciation": "kai",
           "example": "Kaina yana ciwo.",
           "culturalNote": "Used for 'head' and also as a pronoun.",
-          "audioId": "kai"
+          "audioId": ""
         },
         {
           "word": "Ido",
@@ -3074,7 +3132,7 @@
           "pronunciation": "ee-do",
           "example": "Idonsa yana ciwo.",
           "culturalNote": "Plural: 'idanu'.",
-          "audioId": "ido"
+          "audioId": ""
         },
         {
           "word": "Hanci",
@@ -3082,7 +3140,7 @@
           "pronunciation": "han-chee",
           "example": "Hancina yana toshe.",
           "culturalNote": "Common in cold/flu context.",
-          "audioId": "hanci"
+          "audioId": ""
         },
         {
           "word": "Baki",
@@ -3090,7 +3148,7 @@
           "pronunciation": "ba-kee",
           "example": "Bude bakinka.",
           "culturalNote": "Also means 'edge' in other contexts.",
-          "audioId": "baki"
+          "audioId": ""
         },
         {
           "word": "Hannu",
@@ -3098,7 +3156,7 @@
           "pronunciation": "han-noo",
           "example": "Hannuna ya ji rauni.",
           "culturalNote": "Refers to both hand and arm.",
-          "audioId": "hannu"
+          "audioId": ""
         },
         {
           "word": "Ƙafa",
@@ -3106,7 +3164,7 @@
           "pronunciation": "ka-fa",
           "example": "Ƙafata ta kumbura.",
           "culturalNote": "Covers both foot and leg.",
-          "audioId": "afa"
+          "audioId": ""
         },
         {
           "word": "Ciki",
@@ -3114,7 +3172,7 @@
           "pronunciation": "chee-kee",
           "example": "Cikina yana ciwo.",
           "culturalNote": "Can also mean 'inside'.",
-          "audioId": "ciki"
+          "audioId": ""
         },
         {
           "word": "Zuƙuci",
@@ -3122,7 +3180,7 @@
           "pronunciation": "zoo-koo-chee",
           "example": "Zuƙucina yana bugawa da sauri.",
           "culturalNote": "Also used metaphorically for feelings.",
-          "audioId": "zu_uci"
+          "audioId": ""
         },
         {
           "word": "Ciwo",
@@ -3130,7 +3188,7 @@
           "pronunciation": "chee-wo",
           "example": "Ina jin ciwo a kai.",
           "culturalNote": "Used for any ache or illness.",
-          "audioId": "ciwo"
+          "audioId": ""
         },
         {
           "word": "Zazzaɓi",
@@ -3138,7 +3196,7 @@
           "pronunciation": "zaz-za-bee",
           "example": "Yana da zazzaɓi.",
           "culturalNote": "Common symptom of malaria.",
-          "audioId": "zazza_i"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -3166,37 +3224,43 @@
           "speaker": "Patient",
           "text": "Likita, ina jin ciwo a kai.",
           "translation": "Doctor, I have a headache.",
-          "audioContext": "symptom"
+          "audioContext": "symptom",
+          "audioId": ""
         },
         {
           "speaker": "Doctor",
           "text": "Tun yaushe kake jin haka?",
           "translation": "Since when have you been feeling this way?",
-          "audioContext": "question"
+          "audioContext": "question",
+          "audioId": ""
         },
         {
           "speaker": "Patient",
           "text": "Tun jiya da yamma.",
           "translation": "Since yesterday evening.",
-          "audioContext": "duration"
+          "audioContext": "duration",
+          "audioId": ""
         },
         {
           "speaker": "Doctor",
           "text": "Kana da zazzaɓi kuma?",
           "translation": "Do you have a fever as well?",
-          "audioContext": "followup"
+          "audioContext": "followup",
+          "audioId": ""
         },
         {
           "speaker": "Patient",
           "text": "Ee, ina jin zafi a jiki.",
           "translation": "Yes, I feel hot all over.",
-          "audioContext": "confirm"
+          "audioContext": "confirm",
+          "audioId": ""
         },
         {
           "speaker": "Doctor",
           "text": "To, zamu duba maka. Bude bakinka.",
           "translation": "OK, we'll check you. Open your mouth.",
-          "audioContext": "examination"
+          "audioContext": "examination",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -3335,7 +3399,7 @@
           "pronunciation": "fa-ree",
           "example": "Tufafinsa fari ne.",
           "culturalNote": "Associated with purity, often worn during religious festivals.",
-          "audioId": "fari"
+          "audioId": ""
         },
         {
           "word": "Baƙi",
@@ -3343,7 +3407,7 @@
           "pronunciation": "ba-kee",
           "example": "Ta sa riga baƙa.",
           "culturalNote": "Sometimes associated with mourning, but also elegant.",
-          "audioId": "ba_i"
+          "audioId": ""
         },
         {
           "word": "Ja",
@@ -3351,7 +3415,7 @@
           "pronunciation": "ja",
           "example": "Yana son kalar ja.",
           "culturalNote": "Symbolizes courage, often worn by grooms.",
-          "audioId": "ja"
+          "audioId": ""
         },
         {
           "word": "Kore",
@@ -3359,7 +3423,7 @@
           "pronunciation": "ko-reh",
           "example": "Ganyen kore ne.",
           "culturalNote": "Associated with nature and prosperity.",
-          "audioId": "kore"
+          "audioId": ""
         },
         {
           "word": "Shuɗi",
@@ -3367,7 +3431,7 @@
           "pronunciation": "shoo-dee",
           "example": "Zan siya riga shuɗi.",
           "culturalNote": "Common colour for everyday wear.",
-          "audioId": "shu_i"
+          "audioId": ""
         },
         {
           "word": "Rawa",
@@ -3375,7 +3439,7 @@
           "pronunciation": "ra-wa",
           "example": "Ta sa mayafi rawa.",
           "culturalNote": "Bright, cheerful colour.",
-          "audioId": "rawa"
+          "audioId": ""
         },
         {
           "word": "Ruwan hoda",
@@ -3383,7 +3447,7 @@
           "pronunciation": "roo-wan ho-da",
           "example": "Yarinyar tana son ruwan hoda.",
           "culturalNote": "Literally 'rose water'.",
-          "audioId": "ruwan_hoda"
+          "audioId": ""
         },
         {
           "word": "Kalar fata",
@@ -3391,7 +3455,7 @@
           "pronunciation": "ka-lar fa-ta",
           "example": "Takalmin kalar fata ne.",
           "culturalNote": "Literally 'skin colour'.",
-          "audioId": "kalar_fata"
+          "audioId": ""
         },
         {
           "word": "Riga",
@@ -3399,7 +3463,7 @@
           "pronunciation": "ree-ga",
           "example": "Rigarsa sabuwa ce.",
           "culturalNote": "Can refer to any garment.",
-          "audioId": "riga"
+          "audioId": ""
         },
         {
           "word": "Wando",
@@ -3407,7 +3471,7 @@
           "pronunciation": "wan-do",
           "example": "Wandon sa gajere ne.",
           "culturalNote": "Borrowed from English.",
-          "audioId": "wando"
+          "audioId": ""
         },
         {
           "word": "Mayafi",
@@ -3415,7 +3479,7 @@
           "pronunciation": "ma-ya-fee",
           "example": "Ta ɗaure mayafi.",
           "culturalNote": "Traditional women's headwear.",
-          "audioId": "mayafi"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -3443,31 +3507,36 @@
           "speaker": "Customer",
           "text": "Ina son siyan riga.",
           "translation": "I want to buy a shirt.",
-          "audioContext": "intent"
+          "audioContext": "intent",
+          "audioId": ""
         },
         {
           "speaker": "Vendor",
           "text": "Wane kalane kake so?",
           "translation": "What colour do you want?",
-          "audioContext": "question"
+          "audioContext": "question",
+          "audioId": ""
         },
         {
           "speaker": "Customer",
           "text": "Ina son shuɗi ko kore.",
           "translation": "I like blue or green.",
-          "audioContext": "preference"
+          "audioContext": "preference",
+          "audioId": ""
         },
         {
           "speaker": "Vendor",
           "text": "Ga wannan shuɗi. Yana da kyau.",
           "translation": "Here is this blue one. It's nice.",
-          "audioContext": "offer"
+          "audioContext": "offer",
+          "audioId": ""
         },
         {
           "speaker": "Customer",
           "text": "Nawa ne?",
           "translation": "How much?",
-          "audioContext": "price"
+          "audioContext": "price",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -3606,7 +3675,7 @@
           "pronunciation": "na ta-shee",
           "example": "Na tashi da safe.",
           "culturalNote": "Past tense of 'tashi'.",
-          "audioId": "na_tashi"
+          "audioId": ""
         },
         {
           "word": "Na yi wanka",
@@ -3614,7 +3683,7 @@
           "pronunciation": "na yee wan-ka",
           "example": "Na yi wanka da ruwan dumi.",
           "culturalNote": "Bathing is often done twice a day.",
-          "audioId": "na_yi_wanka"
+          "audioId": ""
         },
         {
           "word": "Na ci karin kumallo",
@@ -3622,7 +3691,7 @@
           "pronunciation": "na chee ka-reen koo-mal-lo",
           "example": "Na ci karin kumallo da gari.",
           "culturalNote": "Breakfast often includes porridge or leftovers.",
-          "audioId": "na_ci_karin_kumallo"
+          "audioId": ""
         },
         {
           "word": "Na sha ruwa",
@@ -3630,7 +3699,7 @@
           "pronunciation": "na sha roo-wa",
           "example": "Na sha ruwa bayan tashi.",
           "culturalNote": "Hydration is important.",
-          "audioId": "na_sha_ruwa"
+          "audioId": ""
         },
         {
           "word": "Na yi sallah",
@@ -3638,7 +3707,7 @@
           "pronunciation": "na yee sal-lah",
           "example": "Na yi sallah da safe.",
           "culturalNote": "Many Muslims pray Fajr (dawn prayer).",
-          "audioId": "na_yi_sallah"
+          "audioId": ""
         },
         {
           "word": "Na tafi aiki",
@@ -3646,7 +3715,7 @@
           "pronunciation": "na ta-fee a-ee-kee",
           "example": "Na tafi aiki da mota.",
           "culturalNote": "Commuting is a daily reality.",
-          "audioId": "na_tafi_aiki"
+          "audioId": ""
         },
         {
           "word": "Na sa tufafi",
@@ -3654,7 +3723,7 @@
           "pronunciation": "na sa too-fa-fee",
           "example": "Na sa tufafi na.",
           "culturalNote": "Dressing is part of the routine.",
-          "audioId": "na_sa_tufafi"
+          "audioId": ""
         },
         {
           "word": "Na goge haƙora",
@@ -3662,7 +3731,7 @@
           "pronunciation": "na go-geh ha-ko-ra",
           "example": "Na goge haƙora bayan karin kumallo.",
           "culturalNote": "Oral hygiene is important.",
-          "audioId": "na_goge_ha_ora"
+          "audioId": ""
         },
         {
           "word": "Na bar gida",
@@ -3670,7 +3739,7 @@
           "pronunciation": "na bar gee-da",
           "example": "Na bar gida karfe bakwai.",
           "culturalNote": "Leaving home marks the start of the day.",
-          "audioId": "na_bar_gida"
+          "audioId": ""
         },
         {
           "word": "Daga baya",
@@ -3678,7 +3747,7 @@
           "pronunciation": "da-ga ba-ya",
           "example": "Daga baya na tafi kasuwa.",
           "culturalNote": "Used to sequence events.",
-          "audioId": "daga_baya"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -3707,31 +3776,36 @@
           "speaker": "Musa",
           "text": "Me ka yi da safe?",
           "translation": "What did you do this morning?",
-          "audioContext": "question"
+          "audioContext": "question",
+          "audioId": ""
         },
         {
           "speaker": "Aisha",
           "text": "Na tashi da safe, na yi wanka, sa'an nan na ci karin kumallo.",
           "translation": "I woke up early, bathed, then ate breakfast.",
-          "audioContext": "response"
+          "audioContext": "response",
+          "audioId": ""
         },
         {
           "speaker": "Musa",
           "text": "Bayan haka?",
           "translation": "After that?",
-          "audioContext": "followup"
+          "audioContext": "followup",
+          "audioId": ""
         },
         {
           "speaker": "Aisha",
           "text": "Na tafi aiki da karfe takwas.",
           "translation": "I went to work at 8 o'clock.",
-          "audioContext": "detail"
+          "audioContext": "detail",
+          "audioId": ""
         },
         {
           "speaker": "Musa",
           "text": "To, ni ma na tafi aiki da wuri.",
           "translation": "OK, I also went to work early.",
-          "audioContext": "comment"
+          "audioContext": "comment",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -3870,7 +3944,7 @@
           "pronunciation": "woo-tar lan-tar-kee ta ka-reh",
           "example": "Wutar lantarki ta ƙare, mu sami fitila.",
           "culturalNote": "Frequent occurrence; be prepared with torches.",
-          "audioId": "wutar_lantarki_ta_are"
+          "audioId": ""
         },
         {
           "word": "Tsaya anan!",
@@ -3878,7 +3952,7 @@
           "pronunciation": "tsa-ya a-nan",
           "example": "Tsaya anan, don Allah.",
           "culturalNote": "Used when hailing taxis or okada.",
-          "audioId": "tsaya_anan"
+          "audioId": ""
         },
         {
           "word": "Okada",
@@ -3886,7 +3960,7 @@
           "pronunciation": "o-ka-da",
           "example": "Kira okada mu tafi.",
           "culturalNote": "Common in cities for quick transport.",
-          "audioId": "okada"
+          "audioId": ""
         },
         {
           "word": "Ka riƙe canjina",
@@ -3894,7 +3968,7 @@
           "pronunciation": "ka ree-ke kan-jee-na",
           "example": "Ka riƙe canjina, zan dawo.",
           "culturalNote": "Often said when you don't have exact change.",
-          "audioId": "ka_ri_e_canjina"
+          "audioId": ""
         },
         {
           "word": "Ki riƙe canjina",
@@ -3902,7 +3976,7 @@
           "pronunciation": "kee ree-ke kan-jee-na",
           "example": "Ki riƙe canjina, ina tafiya.",
           "culturalNote": "Gender-appropriate form.",
-          "audioId": "ki_ri_e_canjina"
+          "audioId": ""
         },
         {
           "word": "Ina buƙatar fitila",
@@ -3910,7 +3984,7 @@
           "pronunciation": "ee-na boo-ka-tar fee-tee-la",
           "example": "Wutar ta ƙare, ina buƙatar fitila.",
           "culturalNote": "Essential during outages.",
-          "audioId": "ina_bu_atar_fitila"
+          "audioId": ""
         },
         {
           "word": "Nawa ne zuwa...?",
@@ -3918,7 +3992,7 @@
           "pronunciation": "na-wa neh zoo-wa",
           "example": "Nawa ne zuwa kasuwa?",
           "culturalNote": "Ask fare before boarding okada.",
-          "audioId": "nawa_ne_zuwa"
+          "audioId": ""
         },
         {
           "word": "A kwana",
@@ -3926,7 +4000,7 @@
           "pronunciation": "a kwa-na",
           "example": "A kwana, sai gobe.",
           "culturalNote": "Used at night.",
-          "audioId": "a_kwana"
+          "audioId": ""
         },
         {
           "word": "Tafiya lafiya",
@@ -3934,7 +4008,7 @@
           "pronunciation": "ta-fee-ya la-fee-ya",
           "example": "Tafiya lafiya, mu hadu gobe.",
           "culturalNote": "Common farewell to travelers.",
-          "audioId": "tafiya_lafiya"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -3963,31 +4037,36 @@
           "speaker": "Passenger",
           "text": "Okada! Nawa ne zuwa kasuwa?",
           "translation": "Okada! How much to the market?",
-          "audioContext": "hail"
+          "audioContext": "hail",
+          "audioId": ""
         },
         {
           "speaker": "Rider",
           "text": "Dubu biyu ne.",
           "translation": "It's two thousand.",
-          "audioContext": "fare"
+          "audioContext": "fare",
+          "audioId": ""
         },
         {
           "speaker": "Passenger",
           "text": "To, mu tafi. Tsaya anan!",
           "translation": "OK, let's go. Stop here!",
-          "audioContext": "agree"
+          "audioContext": "agree",
+          "audioId": ""
         },
         {
           "speaker": "Passenger",
           "text": "Ga dubu uku. Ka riƙe canjina.",
           "translation": "Here's three thousand. Hold my change.",
-          "audioContext": "payment"
+          "audioContext": "payment",
+          "audioId": ""
         },
         {
           "speaker": "Rider",
           "text": "To, sai an jima.",
           "translation": "OK, see you later.",
-          "audioContext": "farewell"
+          "audioContext": "farewell",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -4130,7 +4209,7 @@
           "pronunciation": "ma-la-mee",
           "example": "Malami ne a makaranta.",
           "culturalNote": "Respected profession.",
-          "audioId": "malami"
+          "audioId": ""
         },
         {
           "word": "Malama",
@@ -4138,7 +4217,7 @@
           "pronunciation": "ma-la-ma",
           "example": "Malama ce ta koyar da ni.",
           "culturalNote": "Feminine form.",
-          "audioId": "malama"
+          "audioId": ""
         },
         {
           "word": "Likita",
@@ -4146,7 +4225,7 @@
           "pronunciation": "lee-kee-ta",
           "example": "Likita ne a asibiti.",
           "culturalNote": "Same for male/female; marker changes.",
-          "audioId": "likita"
+          "audioId": ""
         },
         {
           "word": "Direba",
@@ -4154,7 +4233,7 @@
           "pronunciation": "dee-re-ba",
           "example": "Direban tasi ne.",
           "culturalNote": "Common informal job.",
-          "audioId": "direba"
+          "audioId": ""
         },
         {
           "word": "Dan kasuwa",
@@ -4162,7 +4241,7 @@
           "pronunciation": "dan ka-soo-wa",
           "example": "Dan kasuwa ne, yana sayar da kaya.",
           "culturalNote": "Women: 'yar kasuwa'.",
-          "audioId": "dan_kasuwa"
+          "audioId": ""
         },
         {
           "word": "Manomi",
@@ -4170,7 +4249,7 @@
           "pronunciation": "ma-no-mee",
           "example": "Manomi ne, yana noma.",
           "culturalNote": "Many Nigerians are farmers.",
-          "audioId": "manomi"
+          "audioId": ""
         },
         {
           "word": "Sassaƙa",
@@ -4178,7 +4257,7 @@
           "pronunciation": "sas-sa-ka",
           "example": "Sassaƙa ce, tana dinka tufafi.",
           "culturalNote": "Common informal occupation.",
-          "audioId": "sassa_a"
+          "audioId": ""
         },
         {
           "word": "Mai dafa abinci",
@@ -4186,7 +4265,7 @@
           "pronunciation": "mai da-fa a-been-chee",
           "example": "Mai dafa abinci ne a gidan abinci.",
           "culturalNote": "Literally 'owner of cooking food'.",
-          "audioId": "mai_dafa_abinci"
+          "audioId": ""
         },
         {
           "word": "Ina aiki a",
@@ -4194,7 +4273,7 @@
           "pronunciation": "ee-na a-ee-kee a",
           "example": "Ina aiki a banki.",
           "culturalNote": "Use to state workplace.",
-          "audioId": "ina_aiki_a"
+          "audioId": ""
         },
         {
           "word": "Na sayar da",
@@ -4202,7 +4281,7 @@
           "pronunciation": "na sa-ya-da da",
           "example": "Na sayar da tufafi a kasuwa.",
           "culturalNote": "Common for traders.",
-          "audioId": "na_sayar_da"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -4232,31 +4311,36 @@
           "speaker": "Ahmad",
           "text": "Me kake yi?",
           "translation": "What do you do? (to male)",
-          "audioContext": "question"
+          "audioContext": "question",
+          "audioId": ""
         },
         {
           "speaker": "Fatima",
           "text": "Ni malama ce. Ina koyarwa a makaranta. Kai fa?",
           "translation": "I am a teacher. I teach at a school. And you?",
-          "audioContext": "response"
+          "audioContext": "response",
+          "audioId": ""
         },
         {
           "speaker": "Ahmad",
           "text": "Ni dan kasuwa ne. Ina sayar da kayan sawa a kasuwa.",
           "translation": "I am a businessman. I sell clothing in the market.",
-          "audioContext": "reply"
+          "audioContext": "reply",
+          "audioId": ""
         },
         {
           "speaker": "Fatima",
           "text": "Wannan yana da kyau. Kina samun riba?",
           "translation": "That's good. Do you make a profit?",
-          "audioContext": "comment"
+          "audioContext": "comment",
+          "audioId": ""
         },
         {
           "speaker": "Ahmad",
           "text": "Ee, alhamdu lillahi.",
           "translation": "Yes, praise be to God.",
-          "audioContext": "thanks"
+          "audioContext": "thanks",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -4395,7 +4479,7 @@
           "pronunciation": "kar-feh",
           "example": "Karfe nawa ne?",
           "culturalNote": "Used to tell time.",
-          "audioId": "karfe"
+          "audioId": ""
         },
         {
           "word": "Karfe nawa?",
@@ -4403,7 +4487,7 @@
           "pronunciation": "kar-feh na-wa",
           "example": "Karfe nawa ne yanzu?",
           "culturalNote": "Common question.",
-          "audioId": "karfe_nawa"
+          "audioId": ""
         },
         {
           "word": "Karfe daya",
@@ -4411,7 +4495,7 @@
           "pronunciation": "kar-feh da-ya",
           "example": "Za mu hadu karfe daya.",
           "culturalNote": "Numbers after karfe.",
-          "audioId": "karfe_daya"
+          "audioId": ""
         },
         {
           "word": "Rabin",
@@ -4419,7 +4503,7 @@
           "pronunciation": "ra-been",
           "example": "Karfe daya da rabi.",
           "culturalNote": "Half past one.",
-          "audioId": "rabin"
+          "audioId": ""
         },
         {
           "word": "Minti",
@@ -4427,7 +4511,7 @@
           "pronunciation": "meen-tee",
           "example": "Minti goma kenan.",
           "culturalNote": "Borrowed from English.",
-          "audioId": "minti"
+          "audioId": ""
         },
         {
           "word": "Yanzu",
@@ -4435,7 +4519,7 @@
           "pronunciation": "yan-zoo",
           "example": "Mu tafi yanzu.",
           "culturalNote": "Immediate now.",
-          "audioId": "yanzu"
+          "audioId": ""
         },
         {
           "word": "Yanzu yanzu",
@@ -4443,7 +4527,7 @@
           "pronunciation": "yan-zoo yan-zoo",
           "example": "Zo nan yanzu yanzu!",
           "culturalNote": "Urgent, immediate.",
-          "audioId": "yanzu_yanzu"
+          "audioId": ""
         },
         {
           "word": "Da wuri",
@@ -4451,7 +4535,7 @@
           "pronunciation": "da woo-ree",
           "example": "Ya zo da wuri.",
           "culturalNote": "Punctuality is valued.",
-          "audioId": "da_wuri"
+          "audioId": ""
         },
         {
           "word": "Daga baya",
@@ -4459,7 +4543,7 @@
           "pronunciation": "da-ga ba-ya",
           "example": "Zan zo daga baya.",
           "culturalNote": "Flexible time.",
-          "audioId": "daga_baya"
+          "audioId": ""
         },
         {
           "word": "An jima",
@@ -4467,7 +4551,7 @@
           "pronunciation": "an jee-ma",
           "example": "Za mu hadu an jima.",
           "culturalNote": "Used in 'Sai an jima'.",
-          "audioId": "an_jima"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -4497,31 +4581,36 @@
           "speaker": "Musa",
           "text": "Karfe nawa ne yanzu?",
           "translation": "What time is it now?",
-          "audioContext": "question"
+          "audioContext": "question",
+          "audioId": ""
         },
         {
           "speaker": "Aisha",
           "text": "Karfe goma ne.",
           "translation": "It's 10 o'clock.",
-          "audioContext": "answer"
+          "audioContext": "answer",
+          "audioId": ""
         },
         {
           "speaker": "Musa",
           "text": "To, sai mun hadu karfe sha daya?",
           "translation": "OK, shall we meet at 11?",
-          "audioContext": "suggest"
+          "audioContext": "suggest",
+          "audioId": ""
         },
         {
           "speaker": "Aisha",
           "text": "Babu shakka. Zan zo da wuri.",
           "translation": "No problem. I'll come early.",
-          "audioContext": "agree"
+          "audioContext": "agree",
+          "audioId": ""
         },
         {
           "speaker": "Musa",
           "text": "To, sai an jima.",
           "translation": "OK, see you later.",
-          "audioContext": "farewell"
+          "audioContext": "farewell",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -4659,7 +4748,7 @@
           "pronunciation": "ya-na-yee",
           "example": "Yanayi yana da zafi.",
           "culturalNote": "Also means 'condition'.",
-          "audioId": "yanayi"
+          "audioId": ""
         },
         {
           "word": "Zafi",
@@ -4667,7 +4756,7 @@
           "pronunciation": "za-fee",
           "example": "Rana tana da zafi.",
           "culturalNote": "Common complaint during dry season.",
-          "audioId": "zafi"
+          "audioId": ""
         },
         {
           "word": "Sanyi",
@@ -4675,7 +4764,7 @@
           "pronunciation": "san-yee",
           "example": "Yanayi yana da sanyi.",
           "culturalNote": "Especially during Harmattan.",
-          "audioId": "sanyi"
+          "audioId": ""
         },
         {
           "word": "Ruwa",
@@ -4683,7 +4772,7 @@
           "pronunciation": "roo-wa",
           "example": "Ana ruwa.",
           "culturalNote": "'Ana ruwa' means it's raining.",
-          "audioId": "ruwa"
+          "audioId": ""
         },
         {
           "word": "Iska",
@@ -4691,7 +4780,7 @@
           "pronunciation": "ees-ka",
           "example": "Iska tana kadawa.",
           "culturalNote": "Can be strong during Harmattan.",
-          "audioId": "iska"
+          "audioId": ""
         },
         {
           "word": "Rana",
@@ -4699,7 +4788,7 @@
           "pronunciation": "ra-na",
           "example": "Rana ta fito.",
           "culturalNote": "The sun is strong.",
-          "audioId": "rana"
+          "audioId": ""
         },
         {
           "word": "Gajimare",
@@ -4707,7 +4796,7 @@
           "pronunciation": "ga-jee-ma-reh",
           "example": "Gajimare sun yi yawa.",
           "culturalNote": "Indicates possible rain.",
-          "audioId": "gajimare"
+          "audioId": ""
         },
         {
           "word": "Damina",
@@ -4715,7 +4804,7 @@
           "pronunciation": "da-mee-na",
           "example": "Damina ta zo.",
           "culturalNote": "Roughly April–October.",
-          "audioId": "damina"
+          "audioId": ""
         },
         {
           "word": "Rani",
@@ -4723,7 +4812,7 @@
           "pronunciation": "ra-nee",
           "example": "Rani yana da zafi sosai.",
           "culturalNote": "November–March.",
-          "audioId": "rani"
+          "audioId": ""
         },
         {
           "word": "Harmattan",
@@ -4731,7 +4820,7 @@
           "pronunciation": "har-mat-tan",
           "example": "Harmattan yana da sanyi da ƙura.",
           "culturalNote": "A dry, dusty wind from the Sahara, December–February.",
-          "audioId": "harmattan"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -4760,31 +4849,36 @@
           "speaker": "Ali",
           "text": "Yanayi yana da zafi sosai a yau.",
           "translation": "The weather is very hot today.",
-          "audioContext": "comment"
+          "audioContext": "comment",
+          "audioId": ""
         },
         {
           "speaker": "Fatima",
           "text": "Ee, amma gobe za a yi ruwa.",
           "translation": "Yes, but tomorrow it will rain.",
-          "audioContext": "response"
+          "audioContext": "response",
+          "audioId": ""
         },
         {
           "speaker": "Ali",
           "text": "Nagode da labari. Ina son ruwa.",
           "translation": "Thanks for the news. I like rain.",
-          "audioContext": "reply"
+          "audioContext": "reply",
+          "audioId": ""
         },
         {
           "speaker": "Fatima",
           "text": "Ni kuma ina son sanyi.",
           "translation": "I prefer cold weather.",
-          "audioContext": "preference"
+          "audioContext": "preference",
+          "audioId": ""
         },
         {
           "speaker": "Ali",
           "text": "Lokacin Harmattan zai zo ba da daɗewa ba.",
           "translation": "Harmattan season will come soon.",
-          "audioContext": "future"
+          "audioContext": "future",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -5093,7 +5187,7 @@
           "pronunciation": "la-fee-ya",
           "example": "Ina jin lafiya?",
           "culturalNote": "The root of many health-related phrases.",
-          "audioId": "lafiya"
+          "audioId": ""
         },
         {
           "word": "Ina lafiyarka?",
@@ -5101,7 +5195,7 @@
           "pronunciation": "ee-na la-fee-yar-ka",
           "example": "Ina lafiyarka? – Lafiya.",
           "culturalNote": "Common greeting among acquaintances.",
-          "audioId": "ina_lafiyarka"
+          "audioId": ""
         },
         {
           "word": "Ina lafiyarki?",
@@ -5109,7 +5203,7 @@
           "pronunciation": "ee-na la-fee-yar-kee",
           "example": "Ina lafiyarki? – Lafiya.",
           "culturalNote": "Feminine form.",
-          "audioId": "ina_lafiyarki"
+          "audioId": ""
         },
         {
           "word": "Gajiya",
@@ -5117,7 +5211,7 @@
           "pronunciation": "ga-jee-ya",
           "example": "Ina jin gajiya.",
           "culturalNote": "Common after a long day.",
-          "audioId": "gajiya"
+          "audioId": ""
         },
         {
           "word": "Tari",
@@ -5125,7 +5219,7 @@
           "pronunciation": "ta-ree",
           "example": "Yana da tari.",
           "culturalNote": "Often mentioned in cold/flu season.",
-          "audioId": "tari"
+          "audioId": ""
         },
         {
           "word": "Mura",
@@ -5133,7 +5227,7 @@
           "pronunciation": "moo-ra",
           "example": "Ta kamu da mura.",
           "culturalNote": "Common ailment.",
-          "audioId": "mura"
+          "audioId": ""
         },
         {
           "word": "Ciwon kai",
@@ -5141,7 +5235,7 @@
           "pronunciation": "chee-won kai",
           "example": "Ina fama da ciwon kai.",
           "culturalNote": "Literally 'pain of head'.",
-          "audioId": "ciwon_kai"
+          "audioId": ""
         },
         {
           "word": "Ciwon ciki",
@@ -5149,7 +5243,7 @@
           "pronunciation": "chee-won chee-kee",
           "example": "Ciwon ciki yana damuna.",
           "culturalNote": "Common complaint.",
-          "audioId": "ciwon_ciki"
+          "audioId": ""
         },
         {
           "word": "Magani",
@@ -5157,7 +5251,7 @@
           "pronunciation": "ma-ga-nee",
           "example": "Ina buƙatar magani.",
           "culturalNote": "Can refer to both modern and traditional remedies.",
-          "audioId": "magani"
+          "audioId": ""
         },
         {
           "word": "Huta",
@@ -5165,7 +5259,7 @@
           "pronunciation": "hoo-ta",
           "example": "Kana buƙatar huta.",
           "culturalNote": "Advice for recovery.",
-          "audioId": "huta"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -5193,31 +5287,36 @@
           "speaker": "Binta",
           "text": "Sannu, ina lafiyarki?",
           "translation": "Hello, how is your health?",
-          "audioContext": "greeting"
+          "audioContext": "greeting",
+          "audioId": ""
         },
         {
           "speaker": "Amina",
           "text": "Lafiya, nagode. Kai fa?",
           "translation": "Fine, thank you. And you?",
-          "audioContext": "response"
+          "audioContext": "response",
+          "audioId": ""
         },
         {
           "speaker": "Binta",
           "text": "Ni ma lafiya. Amma ina jin gajiya.",
           "translation": "I'm also fine. But I feel tired.",
-          "audioContext": "comment"
+          "audioContext": "comment",
+          "audioId": ""
         },
         {
           "speaker": "Amina",
           "text": "To, ka huta da kyau.",
           "translation": "OK, rest well.",
-          "audioContext": "advice"
+          "audioContext": "advice",
+          "audioId": ""
         },
         {
           "speaker": "Binta",
           "text": "Na gode. Sai an jima.",
           "translation": "Thank you. See you later.",
-          "audioContext": "farewell"
+          "audioContext": "farewell",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -5356,7 +5455,7 @@
           "pronunciation": "ka yee aoo-reh",
           "example": "Ka yi aure? – Ee, na yi aure.",
           "culturalNote": "Common question in social settings.",
-          "audioId": "ka_yi_aure"
+          "audioId": ""
         },
         {
           "word": "Kin yi aure?",
@@ -5364,7 +5463,7 @@
           "pronunciation": "keen yee aoo-reh",
           "example": "Kin yi aure? – A'a, ban yi ba.",
           "culturalNote": "Feminine form.",
-          "audioId": "kin_yi_aure"
+          "audioId": ""
         },
         {
           "word": "Ina shekarunki?",
@@ -5372,7 +5471,7 @@
           "pronunciation": "ee-na she-ka-roon-kee",
           "example": "Ina shekarunki? – Ina da shekara ashirin.",
           "culturalNote": "Asking age is common but can be sensitive.",
-          "audioId": "ina_shekarunki"
+          "audioId": ""
         },
         {
           "word": "Ina shekarunka?",
@@ -5380,7 +5479,7 @@
           "pronunciation": "ee-na she-ka-roon-ka",
           "example": "Ina shekarunka? – Ina da shekara talatin.",
           "culturalNote": "Masculine form.",
-          "audioId": "ina_shekarunka"
+          "audioId": ""
         },
         {
           "word": "Kana da 'ya'ya?",
@@ -5388,7 +5487,7 @@
           "pronunciation": "ka-na da ya-ya",
           "example": "Kana da 'ya'ya? – Ee, ina da biyu.",
           "culturalNote": "Often asked after marriage.",
-          "audioId": "kana_da_ya_ya"
+          "audioId": ""
         },
         {
           "word": "Kina da 'ya'ya?",
@@ -5396,7 +5495,7 @@
           "pronunciation": "kee-na da ya-ya",
           "example": "Kina da 'ya'ya? – A'a, ba ni da.",
           "culturalNote": "Feminine form.",
-          "audioId": "kina_da_ya_ya"
+          "audioId": ""
         },
         {
           "word": "Ba ni da",
@@ -5404,7 +5503,7 @@
           "pronunciation": "ba nee da",
           "example": "Ba ni da aure.",
           "culturalNote": "Use to deny possession.",
-          "audioId": "ba_ni_da"
+          "audioId": ""
         },
         {
           "word": "Ina son yin shiru",
@@ -5412,7 +5511,7 @@
           "pronunciation": "ee-na son yin shee-roo",
           "example": "Game da shekaru, ina son yin shiru.",
           "culturalNote": "Polite way to avoid answering.",
-          "audioId": "ina_son_yin_shiru"
+          "audioId": ""
         },
         {
           "word": "Ban sani ba",
@@ -5420,7 +5519,7 @@
           "pronunciation": "ban sa-nee ba",
           "example": "Ban sani ba game da haka.",
           "culturalNote": "Use when unsure.",
-          "audioId": "ban_sani_ba"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -5448,31 +5547,36 @@
           "speaker": "Hassan",
           "text": "Sannu, ka yi aure?",
           "translation": "Hello, are you married?",
-          "audioContext": "question"
+          "audioContext": "question",
+          "audioId": ""
         },
         {
           "speaker": "Musa",
           "text": "Ee, na yi aure. Ina da mata da 'ya'ya biyu.",
           "translation": "Yes, I'm married. I have a wife and two children.",
-          "audioContext": "answer"
+          "audioContext": "answer",
+          "audioId": ""
         },
         {
           "speaker": "Hassan",
           "text": "Madalla! Ina shekarun 'ya'yanka?",
           "translation": "Great! How old are your children?",
-          "audioContext": "followup"
+          "audioContext": "followup",
+          "audioId": ""
         },
         {
           "speaker": "Musa",
           "text": "Ɗana yana da shekara bakwai, diyata kuma tana da shekara biyar.",
           "translation": "My son is seven, my daughter is five.",
-          "audioContext": "detail"
+          "audioContext": "detail",
+          "audioId": ""
         },
         {
           "speaker": "Hassan",
           "text": "Allah ya ba su albarka.",
           "translation": "May God bless them.",
-          "audioContext": "blessing"
+          "audioContext": "blessing",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -5611,7 +5715,7 @@
           "pronunciation": "ee-na son",
           "example": "Ina son tuwo da miya.",
           "culturalNote": "Used for both like and love; context clarifies.",
-          "audioId": "ina_son"
+          "audioId": ""
         },
         {
           "word": "Ina ƙaunar",
@@ -5619,7 +5723,7 @@
           "pronunciation": "ee-na kau-nar",
           "example": "Ina ƙaunar iyalina.",
           "culturalNote": "Stronger than 'son'.",
-          "audioId": "ina_aunar"
+          "audioId": ""
         },
         {
           "word": "Ba na son",
@@ -5627,7 +5731,7 @@
           "pronunciation": "ba na son",
           "example": "Ba na son yaji mai yawa.",
           "culturalNote": "Negative form.",
-          "audioId": "ba_na_son"
+          "audioId": ""
         },
         {
           "word": "Ina kyamatar",
@@ -5635,7 +5739,7 @@
           "pronunciation": "ee-na kya-ma-tar",
           "example": "Ina kyamatar rashin gaskiya.",
           "culturalNote": "Strong negative.",
-          "audioId": "ina_kyamatar"
+          "audioId": ""
         },
         {
           "word": "Wahala",
@@ -5643,7 +5747,7 @@
           "pronunciation": "wa-ha-la",
           "example": "Ba na son wahala.",
           "culturalNote": "Common expression: 'I don't like trouble'.",
-          "audioId": "wahala"
+          "audioId": ""
         },
         {
           "word": "Fi so",
@@ -5651,7 +5755,7 @@
           "pronunciation": "fee so",
           "example": "Na fi son shayi fiye da kofi.",
           "culturalNote": "Used to compare.",
-          "audioId": "fi_so"
+          "audioId": ""
         },
         {
           "word": "Daɗi",
@@ -5659,7 +5763,7 @@
           "pronunciation": "da-dee",
           "example": "Wannan abinci yana da daɗi.",
           "culturalNote": "Used to describe enjoyable things.",
-          "audioId": "da_i"
+          "audioId": ""
         },
         {
           "word": "M",
@@ -5667,7 +5771,7 @@
           "pronunciation": "tsa-mee",
           "example": "Magani yana da ɗaci.",
           "culturalNote": "Opposite of daɗi.",
-          "audioId": "m"
+          "audioId": ""
         },
         {
           "word": "Kyakkyawa",
@@ -5675,7 +5779,7 @@
           "pronunciation": "kya-kya-wa",
           "example": "Ina son kyakkyawan yanayi.",
           "culturalNote": "Describes something pleasant.",
-          "audioId": "kyakkyawa"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -5703,31 +5807,36 @@
           "speaker": "Aisha",
           "text": "Kina son abinci mai yaji?",
           "translation": "Do you like spicy food?",
-          "audioContext": "question"
+          "audioContext": "question",
+          "audioId": ""
         },
         {
           "speaker": "Fatima",
           "text": "Ee, ina son suya mai yaji sosai. Ke fa?",
           "translation": "Yes, I love very spicy suya. And you?",
-          "audioContext": "answer"
+          "audioContext": "answer",
+          "audioId": ""
         },
         {
           "speaker": "Aisha",
           "text": "Ba na son yaji. Ina son abinci mai sauƙi.",
           "translation": "I don't like pepper. I like simple food.",
-          "audioContext": "preference"
+          "audioContext": "preference",
+          "audioId": ""
         },
         {
           "speaker": "Fatima",
           "text": "Ba wahala. Za mu iya samun abinci daban.",
           "translation": "No problem. We can get different food.",
-          "audioContext": "response"
+          "audioContext": "response",
+          "audioId": ""
         },
         {
           "speaker": "Aisha",
           "text": "Na gode da fahimta.",
           "translation": "Thanks for understanding.",
-          "audioContext": "thanks"
+          "audioContext": "thanks",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -5867,7 +5976,7 @@
           "pronunciation": "ka jee la-ba-ree",
           "example": "Ka ji labari game da Musa?",
           "culturalNote": "Common way to start gossip.",
-          "audioId": "ka_ji_labari"
+          "audioId": ""
         },
         {
           "word": "Kin ji labari?",
@@ -5875,7 +5984,7 @@
           "pronunciation": "keen jee la-ba-ree",
           "example": "Kin ji labari? – A'a, menene?",
           "culturalNote": "Feminine form.",
-          "audioId": "kin_ji_labari"
+          "audioId": ""
         },
         {
           "word": "Wane labari?",
@@ -5883,7 +5992,7 @@
           "pronunciation": "wa-neh la-ba-ree",
           "example": "Wane labari kake da shi?",
           "culturalNote": "Ask for details.",
-          "audioId": "wane_labari"
+          "audioId": ""
         },
         {
           "word": "Rumour",
@@ -5891,7 +6000,7 @@
           "pronunciation": "jee-ta",
           "example": "Wannan jita ce kawai.",
           "culturalNote": "Refers to unverified news.",
-          "audioId": "rumour"
+          "audioId": ""
         },
         {
           "word": "Gaskiya?",
@@ -5899,7 +6008,7 @@
           "pronunciation": "gas-kee-ya",
           "example": "Gaskiya ne? – Ee, gaskiya.",
           "culturalNote": "Express surprise or seek confirmation.",
-          "audioId": "gaskiya"
+          "audioId": ""
         },
         {
           "word": "A asirce",
@@ -5907,7 +6016,7 @@
           "pronunciation": "a a-seer-cheh",
           "example": "Na gaya maka a asirce.",
           "culturalNote": "Used when sharing confidential info.",
-          "audioId": "a_asirce"
+          "audioId": ""
         },
         {
           "word": "Kar ka fada wa kowa",
@@ -5915,7 +6024,7 @@
           "pronunciation": "kar ka fa-da wa ko-wa",
           "example": "Kar ka fada wa kowa abin da na fada maka.",
           "culturalNote": "Plea for secrecy.",
-          "audioId": "kar_ka_fada_wa_kowa"
+          "audioId": ""
         },
         {
           "word": "Kar ki fada wa kowa",
@@ -5923,7 +6032,7 @@
           "pronunciation": "kar kee fa-da wa ko-wa",
           "example": "Kar ki fada wa kowa.",
           "culturalNote": "Feminine form.",
-          "audioId": "kar_ki_fada_wa_kowa"
+          "audioId": ""
         },
         {
           "word": "Na rantse",
@@ -5931,7 +6040,7 @@
           "pronunciation": "na ran-tseh",
           "example": "Na rantse ba zan fada wa kowa ba.",
           "culturalNote": "Emphasizing promise.",
-          "audioId": "na_rantse"
+          "audioId": ""
         },
         {
           "word": "Yada jita",
@@ -5939,7 +6048,7 @@
           "pronunciation": "ya-da jee-ta",
           "example": "Kada ka yada jita.",
           "culturalNote": "Discouraged behavior.",
-          "audioId": "yada_jita"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -5967,37 +6076,43 @@
           "speaker": "Binta",
           "text": "Sannu, kin ji labari?",
           "translation": "Hello, did you hear the news?",
-          "audioContext": "question"
+          "audioContext": "question",
+          "audioId": ""
         },
         {
           "speaker": "Aisha",
           "text": "A'a, menene?",
           "translation": "No, what?",
-          "audioContext": "curious"
+          "audioContext": "curious",
+          "audioId": ""
         },
         {
           "speaker": "Binta",
           "text": "An ce Aisha ta samu aiki a banki.",
           "translation": "It's said that Aisha got a job at the bank.",
-          "audioContext": "news"
+          "audioContext": "news",
+          "audioId": ""
         },
         {
           "speaker": "Aisha",
           "text": "Gaskiya? Wannan yana da kyau!",
           "translation": "Really? That's great!",
-          "audioContext": "reaction"
+          "audioContext": "reaction",
+          "audioId": ""
         },
         {
           "speaker": "Binta",
           "text": "Kar ki fada wa kowa har sai an tabbatar.",
           "translation": "Don't tell anyone until it's confirmed.",
-          "audioContext": "secrecy"
+          "audioContext": "secrecy",
+          "audioId": ""
         },
         {
           "speaker": "Aisha",
           "text": "Na rantse ba zan fada ba.",
           "translation": "I swear I won't tell.",
-          "audioContext": "promise"
+          "audioContext": "promise",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -6136,7 +6251,7 @@
           "pronunciation": "fa-reen chee-kee",
           "example": "Ina cikin farin ciki.",
           "culturalNote": "Literally 'white stomach', metaphor for joy.",
-          "audioId": "farin_ciki"
+          "audioId": ""
         },
         {
           "word": "Bakin ciki",
@@ -6144,7 +6259,7 @@
           "pronunciation": "ba-keen chee-kee",
           "example": "Bakin ciki ya mamaye ni.",
           "culturalNote": "Literally 'black stomach'.",
-          "audioId": "bakin_ciki"
+          "audioId": ""
         },
         {
           "word": "Fushi",
@@ -6152,7 +6267,7 @@
           "pronunciation": "foo-shee",
           "example": "Ina cikin fushi.",
           "culturalNote": "Common emotion.",
-          "audioId": "fushi"
+          "audioId": ""
         },
         {
           "word": "Damuwa",
@@ -6160,7 +6275,7 @@
           "pronunciation": "da-moo-wa",
           "example": "Kada ka damu.",
           "culturalNote": "Often used in reassurance.",
-          "audioId": "damuwa"
+          "audioId": ""
         },
         {
           "word": "Tsoro",
@@ -6168,7 +6283,7 @@
           "pronunciation": "tso-ro",
           "example": "Ina jin tsoro.",
           "culturalNote": "Fear of something.",
-          "audioId": "tsoro"
+          "audioId": ""
         },
         {
           "word": "Murna",
@@ -6176,7 +6291,7 @@
           "pronunciation": "moor-na",
           "example": "Murna ya cika ni.",
           "culturalNote": "Intense joy.",
-          "audioId": "murna"
+          "audioId": ""
         },
         {
           "word": "Rashin tabbas",
@@ -6184,7 +6299,7 @@
           "pronunciation": "ra-sheen tab-bas",
           "example": "Ina cikin rashin tabbas.",
           "culturalNote": "Feeling unsure.",
-          "audioId": "rashin_tabbas"
+          "audioId": ""
         },
         {
           "word": "Gajiya",
@@ -6192,7 +6307,7 @@
           "pronunciation": "ga-jee-ya",
           "example": "Na gaji da wannan.",
           "culturalNote": "Can be physical or mental.",
-          "audioId": "gajiya"
+          "audioId": ""
         },
         {
           "word": "Cikakken farin ciki",
@@ -6200,7 +6315,7 @@
           "pronunciation": "chee-kak-ken fa-reen chee-kee",
           "example": "Na samu cikakken farin ciki.",
           "culturalNote": "Intense happiness.",
-          "audioId": "cikakken_farin_ciki"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -6228,37 +6343,43 @@
           "speaker": "Musa",
           "text": "Ya ya kake ji yau?",
           "translation": "How are you feeling today?",
-          "audioContext": "question"
+          "audioContext": "question",
+          "audioId": ""
         },
         {
           "speaker": "Aisha",
           "text": "Ina cikin farin ciki! Na samu aiki.",
           "translation": "I'm happy! I got a job.",
-          "audioContext": "happiness"
+          "audioContext": "happiness",
+          "audioId": ""
         },
         {
           "speaker": "Musa",
           "text": "Madalla! Ina murna da ranki.",
           "translation": "Congratulations! I'm happy for you.",
-          "audioContext": "reaction"
+          "audioContext": "reaction",
+          "audioId": ""
         },
         {
           "speaker": "Aisha",
           "text": "Na gode. Amma kai, me ya faru? Ka ga kamar cikin damuwa?",
           "translation": "Thank you. But you, what happened? You seem worried.",
-          "audioContext": "concern"
+          "audioContext": "concern",
+          "audioId": ""
         },
         {
           "speaker": "Musa",
           "text": "Ee, ina cikin damuwa game da jarrabawa.",
           "translation": "Yes, I'm worried about an exam.",
-          "audioContext": "worry"
+          "audioContext": "worry",
+          "audioId": ""
         },
         {
           "speaker": "Aisha",
           "text": "Kada ka damu, za ka ci nasara.",
           "translation": "Don't worry, you will succeed.",
-          "audioContext": "reassurance"
+          "audioContext": "reassurance",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -6397,7 +6518,7 @@
           "pronunciation": "ga-ya-to",
           "example": "Na karɓi gayyatonka.",
           "culturalNote": "Noun form.",
-          "audioId": "gayyato"
+          "audioId": ""
         },
         {
           "word": "Ina gayyatar ka",
@@ -6405,7 +6526,7 @@
           "pronunciation": "ee-na ga-ya-tar ka",
           "example": "Ina gayyatar ka zuwa bikina.",
           "culturalNote": "Verb form.",
-          "audioId": "ina_gayyatar_ka"
+          "audioId": ""
         },
         {
           "word": "Ina gayyatar ki",
@@ -6413,7 +6534,7 @@
           "pronunciation": "ee-na ga-ya-tar kee",
           "example": "Ina gayyatar ki zuwa walimarsa.",
           "culturalNote": "Feminine.",
-          "audioId": "ina_gayyatar_ki"
+          "audioId": ""
         },
         {
           "word": "Biki",
@@ -6421,7 +6542,7 @@
           "pronunciation": "bee-kee",
           "example": "Za a yi biki a ranar Asabar.",
           "culturalNote": "General term for celebration.",
-          "audioId": "biki"
+          "audioId": ""
         },
         {
           "word": "Aure",
@@ -6429,7 +6550,7 @@
           "pronunciation": "aoo-reh",
           "example": "Ana shirin aure.",
           "culturalNote": "Wedding ceremony.",
-          "audioId": "aure"
+          "audioId": ""
         },
         {
           "word": "Sunan yaro",
@@ -6437,7 +6558,7 @@
           "pronunciation": "soo-nan ya-ro",
           "example": "Za a yi sunan yaro ranar Juma'a.",
           "culturalNote": "Important event for newborns.",
-          "audioId": "sunan_yaro"
+          "audioId": ""
         },
         {
           "word": "Jana'iza",
@@ -6445,7 +6566,7 @@
           "pronunciation": "ja-na-ee-za",
           "example": "Muna jana'izar mamacin.",
           "culturalNote": "Condolence event.",
-          "audioId": "jana_iza"
+          "audioId": ""
         },
         {
           "word": "Ranar",
@@ -6453,7 +6574,7 @@
           "pronunciation": "ra-nar",
           "example": "Ranar Lahadi.",
           "culturalNote": "Used to specify day.",
-          "audioId": "ranar"
+          "audioId": ""
         },
         {
           "word": "Wuri",
@@ -6461,7 +6582,7 @@
           "pronunciation": "woo-ree",
           "example": "Wurin bikin shine a gidansu.",
           "culturalNote": "Important to specify.",
-          "audioId": "wuri"
+          "audioId": ""
         },
         {
           "word": "Lokaci",
@@ -6469,7 +6590,7 @@
           "pronunciation": "lo-ka-chee",
           "example": "Lokacin farawa karfe uku.",
           "culturalNote": "Time of event.",
-          "audioId": "lokaci"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -6497,31 +6618,36 @@
           "speaker": "Ahmad",
           "text": "Sannu, ina gayyatar ka zuwa bikina.",
           "translation": "Hello, I invite you to my party.",
-          "audioContext": "invite"
+          "audioContext": "invite",
+          "audioId": ""
         },
         {
           "speaker": "Musa",
           "text": "Na gode! Wane lokaci ne?",
           "translation": "Thank you! What time?",
-          "audioContext": "ask_time"
+          "audioContext": "ask_time",
+          "audioId": ""
         },
         {
           "speaker": "Ahmad",
           "text": "Ranar Asabar da karfe biyar a gidana.",
           "translation": "Saturday at 5 o'clock at my house.",
-          "audioContext": "details"
+          "audioContext": "details",
+          "audioId": ""
         },
         {
           "speaker": "Musa",
           "text": "Zan zo da wuri. Ina buƙatar kawo abu?",
           "translation": "I'll come early. Do I need to bring something?",
-          "audioContext": "offer"
+          "audioContext": "offer",
+          "audioId": ""
         },
         {
           "speaker": "Ahmad",
           "text": "A'a, kawai ka zo da kanka.",
           "translation": "No, just come yourself.",
-          "audioContext": "response"
+          "audioContext": "response",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -6660,7 +6786,7 @@
           "pronunciation": "zan zo",
           "example": "Zan zo bikinki.",
           "culturalNote": "Simple acceptance.",
-          "audioId": "zan_zo"
+          "audioId": ""
         },
         {
           "word": "Na yarda",
@@ -6668,7 +6794,7 @@
           "pronunciation": "na yar-da",
           "example": "Na yarda da gayyatar.",
           "culturalNote": "Formal acceptance.",
-          "audioId": "na_yarda"
+          "audioId": ""
         },
         {
           "word": "Da farin ciki",
@@ -6676,7 +6802,7 @@
           "pronunciation": "da fa-reen chee-kee",
           "example": "Zan zo da farin ciki.",
           "culturalNote": "Enthusiastic acceptance.",
-          "audioId": "da_farin_ciki"
+          "audioId": ""
         },
         {
           "word": "Zan yi ƙoƙari",
@@ -6684,7 +6810,7 @@
           "pronunciation": "zan yee ko-karee",
           "example": "Zan yi ƙoƙari in zo.",
           "culturalNote": "Soft commitment.",
-          "audioId": "zan_yi_o_ari"
+          "audioId": ""
         },
         {
           "word": "In sha Allahu",
@@ -6692,7 +6818,7 @@
           "pronunciation": "in shaa al-laa-hoo",
           "example": "Zan zo in sha Allahu.",
           "culturalNote": "Common qualifier, shows humility.",
-          "audioId": "in_sha_allahu"
+          "audioId": ""
         },
         {
           "word": "Ba zan iya ba",
@@ -6700,7 +6826,7 @@
           "pronunciation": "ba zan ee-ya ba",
           "example": "Ba zan iya zuwa ba.",
           "culturalNote": "Direct refusal.",
-          "audioId": "ba_zan_iya_ba"
+          "audioId": ""
         },
         {
           "word": "Ina da wani aiki",
@@ -6708,7 +6834,7 @@
           "pronunciation": "ee-na da wa-nee a-ee-kee",
           "example": "Ina da wani aiki a wannan ranar.",
           "culturalNote": "Polite excuse.",
-          "audioId": "ina_da_wani_aiki"
+          "audioId": ""
         },
         {
           "word": "Watakila wani lokaci",
@@ -6716,7 +6842,7 @@
           "pronunciation": "wa-ta-kee-la wa-nee lo-ka-chee",
           "example": "Watakila wani lokaci zan iya zuwa.",
           "culturalNote": "Leaves door open.",
-          "audioId": "watakila_wani_lokaci"
+          "audioId": ""
         },
         {
           "word": "Na gode da gayyatar",
@@ -6724,7 +6850,7 @@
           "pronunciation": "na go-deh da ga-ya-tar",
           "example": "Na gode da gayyatar, amma ba zan iya ba.",
           "culturalNote": "Always thank first.",
-          "audioId": "na_gode_da_gayyatar"
+          "audioId": ""
         },
         {
           "word": "Kada ka ji kunya",
@@ -6732,7 +6858,7 @@
           "pronunciation": "ka-da ka jee koon-ya",
           "example": "Kada ka ji kunya, wani lokaci.",
           "culturalNote": "Reassurance after a decline.",
-          "audioId": "kada_ka_ji_kunya"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -6760,31 +6886,36 @@
           "speaker": "Aisha",
           "text": "Ina gayyatar ki zuwa bikina ranar Asabar.",
           "translation": "I invite you to my party on Saturday.",
-          "audioContext": "invite"
+          "audioContext": "invite",
+          "audioId": ""
         },
         {
           "speaker": "Fatima",
           "text": "Na gode! Zan zo da farin ciki in sha Allahu.",
           "translation": "Thank you! I will come with pleasure, God willing.",
-          "audioContext": "accept"
+          "audioContext": "accept",
+          "audioId": ""
         },
         {
           "speaker": "Aisha",
           "text": "Madalla! Zan jira ki.",
           "translation": "Great! I'll wait for you.",
-          "audioContext": "response"
+          "audioContext": "response",
+          "audioId": ""
         },
         {
           "speaker": "Amina",
           "text": "Ni ma na gode da gayyatar, amma ba zan iya zuwa ba. Ina da wani aiki.",
           "translation": "I also thank you for the invitation, but I can't come. I have another commitment.",
-          "audioContext": "decline"
+          "audioContext": "decline",
+          "audioId": ""
         },
         {
           "speaker": "Aisha",
           "text": "Kada ki ji kunya, watakila wani lokaci.",
           "translation": "No problem, maybe another time.",
-          "audioContext": "reassure"
+          "audioContext": "reassure",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -6925,7 +7056,7 @@
           "pronunciation": "keen yee kyau",
           "example": "Kin yi kyau a yau.",
           "culturalNote": "Common compliment.",
-          "audioId": "kin_yi_kyau"
+          "audioId": ""
         },
         {
           "word": "Ka yi kyau",
@@ -6933,7 +7064,7 @@
           "pronunciation": "ka yee kyau",
           "example": "Ka yi kyau da wannan riga.",
           "culturalNote": "For men.",
-          "audioId": "ka_yi_kyau"
+          "audioId": ""
         },
         {
           "word": "Kana da kyau",
@@ -6941,7 +7072,7 @@
           "pronunciation": "ka-na da kyau",
           "example": "Kana da kyau sosai.",
           "culturalNote": "Alternative form.",
-          "audioId": "kana_da_kyau"
+          "audioId": ""
         },
         {
           "word": "Allah ya albarkace ka",
@@ -6949,7 +7080,7 @@
           "pronunciation": "al-lah ya al-bar-ka-cheh ka",
           "example": "Allah ya albarkace ka da wannan aiki.",
           "culturalNote": "Used after praise to ward off envy.",
-          "audioId": "allah_ya_albarkace_ka"
+          "audioId": ""
         },
         {
           "word": "Madalla!",
@@ -6957,7 +7088,7 @@
           "pronunciation": "ma-dal-la",
           "example": "Madalla da aikin!",
           "culturalNote": "Praise for work.",
-          "audioId": "madalla"
+          "audioId": ""
         },
         {
           "word": "Sannu da aiki",
@@ -6965,7 +7096,7 @@
           "pronunciation": "san-noo da a-ee-kee",
           "example": "Sannu da aiki, kun gama da sauri.",
           "culturalNote": "Praise for effort.",
-          "audioId": "sannu_da_aiki"
+          "audioId": ""
         },
         {
           "word": "Kai gwarzo ne",
@@ -6973,7 +7104,7 @@
           "pronunciation": "kai gwar-zo neh",
           "example": "Kai gwarzo ne don taimakonka.",
           "culturalNote": "Strong praise.",
-          "audioId": "kai_gwarzo_ne"
+          "audioId": ""
         },
         {
           "word": "Ke gwarzuwa ce",
@@ -6981,7 +7112,7 @@
           "pronunciation": "keh gwar-zoo-wa cheh",
           "example": "Ke gwarzuwa ce.",
           "culturalNote": "Feminine form.",
-          "audioId": "ke_gwarzuwa_ce"
+          "audioId": ""
         },
         {
           "word": "Kyakkyawa",
@@ -6989,7 +7120,7 @@
           "pronunciation": "kya-kya-wa",
           "example": "Wannan kyakkyawa ne.",
           "culturalNote": "General adjective.",
-          "audioId": "kyakkyawa"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -7017,25 +7148,29 @@
           "speaker": "Aisha",
           "text": "Kin yi kyau sosai a yau, Amina! Wannan riga ta dace da ke.",
           "translation": "You look very beautiful today, Amina! This dress suits you.",
-          "audioContext": "compliment"
+          "audioContext": "compliment",
+          "audioId": ""
         },
         {
           "speaker": "Amina",
           "text": "Na gode, Aisha. Allah ya albarkace ki.",
           "translation": "Thank you, Aisha. May God bless you.",
-          "audioContext": "response"
+          "audioContext": "response",
+          "audioId": ""
         },
         {
           "speaker": "Bala",
           "text": "Madalla da aikin da kuka yi a gonar.",
           "translation": "Well done on the work you did on the farm.",
-          "audioContext": "praise"
+          "audioContext": "praise",
+          "audioId": ""
         },
         {
           "speaker": "Musa",
           "text": "Na gode, Bala. Mun yi ƙoƙari.",
           "translation": "Thank you, Bala. We tried.",
-          "audioContext": "thanks"
+          "audioContext": "thanks",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -7175,7 +7310,7 @@
           "pronunciation": "ta-a-zee-ya",
           "example": "Na yi ta'aziyya ga dangin mamacin.",
           "culturalNote": "Formal expression of sympathy.",
-          "audioId": "ta_aziyya"
+          "audioId": ""
         },
         {
           "word": "Ina ta'aziyya",
@@ -7183,7 +7318,7 @@
           "pronunciation": "ee-na ta-a-zee-ya",
           "example": "Ina ta'aziyya game da rasuwar mahaifinka.",
           "culturalNote": "Common phrase.",
-          "audioId": "ina_ta_aziyya"
+          "audioId": ""
         },
         {
           "word": "Rasuwa",
@@ -7191,7 +7326,7 @@
           "pronunciation": "ra-soo-wa",
           "example": "Mun ji rasuwar kakarsa.",
           "culturalNote": "Respectful term.",
-          "audioId": "rasuwa"
+          "audioId": ""
         },
         {
           "word": "Mamaci",
@@ -7199,7 +7334,7 @@
           "pronunciation": "ma-ma-chee",
           "example": "Allah ya jikan mamaci.",
           "culturalNote": "For a deceased man.",
-          "audioId": "mamaci"
+          "audioId": ""
         },
         {
           "word": "Mamaciya",
@@ -7207,7 +7342,7 @@
           "pronunciation": "ma-ma-chee-ya",
           "example": "Allah ya jikan mamaciya.",
           "culturalNote": "For a deceased woman.",
-          "audioId": "mamaciya"
+          "audioId": ""
         },
         {
           "word": "Allah ya jikan shi",
@@ -7215,7 +7350,7 @@
           "pronunciation": "al-lah ya jee-kan shee",
           "example": "Allah ya jikan shi.",
           "culturalNote": "Prayer for the deceased.",
-          "audioId": "allah_ya_jikan_shi"
+          "audioId": ""
         },
         {
           "word": "Allah ya jikan ta",
@@ -7223,7 +7358,7 @@
           "pronunciation": "al-lah ya jee-kan ta",
           "example": "Allah ya jikan ta.",
           "culturalNote": "For a woman.",
-          "audioId": "allah_ya_jikan_ta"
+          "audioId": ""
         },
         {
           "word": "Yi hakuri",
@@ -7231,7 +7366,7 @@
           "pronunciation": "yee ha-koo-ree",
           "example": "Yi hakuri da rashin.",
           "culturalNote": "Encouragement to the bereaved.",
-          "audioId": "yi_hakuri"
+          "audioId": ""
         },
         {
           "word": "Allah ya ba ku hakuri",
@@ -7239,7 +7374,7 @@
           "pronunciation": "al-lah ya ba koo ha-koo-ree",
           "example": "Allah ya ba ku hakuri.",
           "culturalNote": "Common condolence.",
-          "audioId": "allah_ya_ba_ku_hakuri"
+          "audioId": ""
         },
         {
           "word": "Rai rai ne",
@@ -7247,7 +7382,7 @@
           "pronunciation": "rai rai neh",
           "example": "Rai rai ne, dole mu yi hakuri.",
           "culturalNote": "Philosophical acceptance.",
-          "audioId": "rai_rai_ne"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -7274,25 +7409,29 @@
           "speaker": "Musa",
           "text": "Mun ji rasuwar mahaifinka. Allah ya jikan shi.",
           "translation": "We heard about your father's passing. May God have mercy on him.",
-          "audioContext": "condolence"
+          "audioContext": "condolence",
+          "audioId": ""
         },
         {
           "speaker": "Bala",
           "text": "Na gode, Musa. Allah ya sa mu jimre.",
           "translation": "Thank you, Musa. May God help us endure.",
-          "audioContext": "thanks"
+          "audioContext": "thanks",
+          "audioId": ""
         },
         {
           "speaker": "Musa",
           "text": "Yi hakuri da rashin. Allah ya ba ku hakuri.",
           "translation": "Be patient in your loss. May God give you patience.",
-          "audioContext": "encourage"
+          "audioContext": "encourage",
+          "audioId": ""
         },
         {
           "speaker": "Bala",
           "text": "Amin. Rai rai ne.",
           "translation": "Amen. Such is life.",
-          "audioContext": "accept"
+          "audioContext": "accept",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -7601,7 +7740,7 @@
           "pronunciation": "mo-ta",
           "example": "Ina so in hau mota zuwa kasuwa.",
           "culturalNote": "Often refers to shared taxis in urban areas.",
-          "audioId": "mota"
+          "audioId": ""
         },
         {
           "word": "Bas",
@@ -7609,7 +7748,7 @@
           "pronunciation": "bas",
           "example": "Bas din zuwa Kano yana tashi karfe bakwai.",
           "culturalNote": "Borrowed from English.",
-          "audioId": "bas"
+          "audioId": ""
         },
         {
           "word": "Direba",
@@ -7617,7 +7756,7 @@
           "pronunciation": "dee-re-ba",
           "example": "Direba, za ka tafi kasuwa?",
           "culturalNote": "Always address the driver politely.",
-          "audioId": "direba"
+          "audioId": ""
         },
         {
           "word": "Kudi",
@@ -7625,7 +7764,7 @@
           "pronunciation": "koo-dee",
           "example": "Nawa ne kudin mota zuwa tashar?",
           "culturalNote": "Always confirm fare before boarding.",
-          "audioId": "kudi"
+          "audioId": ""
         },
         {
           "word": "Tasha",
@@ -7633,7 +7772,7 @@
           "pronunciation": "ta-sha",
           "example": "Ina tashar mota?",
           "culturalNote": "Common term for bus stops or taxi ranks.",
-          "audioId": "tasha"
+          "audioId": ""
         },
         {
           "word": "Sauka",
@@ -7641,7 +7780,7 @@
           "pronunciation": "sao-ka",
           "example": "Ina so in sauka a kasuwa.",
           "culturalNote": "Tell the driver where you want to alight.",
-          "audioId": "sauka"
+          "audioId": ""
         },
         {
           "word": "Hau",
@@ -7649,7 +7788,7 @@
           "pronunciation": "hao",
           "example": "Za mu hau mota yanzu.",
           "culturalNote": "Used for entering any vehicle.",
-          "audioId": "hau"
+          "audioId": ""
         },
         {
           "word": "Cike",
@@ -7657,7 +7796,7 @@
           "pronunciation": "chee-keh",
           "example": "Mota ta cika, ba kujera.",
           "culturalNote": "Commonly heard when vehicles are full.",
-          "audioId": "cike"
+          "audioId": ""
         },
         {
           "word": "Gurbi",
@@ -7665,7 +7804,7 @@
           "pronunciation": "goor-bee",
           "example": "Akwai gurbi a mota?",
           "culturalNote": "Ask if there's space.",
-          "audioId": "gurbi"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -7693,31 +7832,36 @@
           "speaker": "Passenger",
           "text": "Direba, za ka tafi kasuwa?",
           "translation": "Driver, are you going to the market?",
-          "audioContext": "question"
+          "audioContext": "question",
+          "audioId": ""
         },
         {
           "speaker": "Driver",
           "text": "Ee, shiga. Kudi dubu biyu ne.",
           "translation": "Yes, get in. It's two thousand.",
-          "audioContext": "response"
+          "audioContext": "response",
+          "audioId": ""
         },
         {
           "speaker": "Passenger",
           "text": "To, ina so in sauka a bakin kasuwa.",
           "translation": "OK, I want to get off at the market entrance.",
-          "audioContext": "request"
+          "audioContext": "request",
+          "audioId": ""
         },
         {
           "speaker": "Driver",
           "text": "Lafiya. Zan tsaya a bakin kasuwa.",
           "translation": "Fine. I'll stop at the market entrance.",
-          "audioContext": "agree"
+          "audioContext": "agree",
+          "audioId": ""
         },
         {
           "speaker": "Passenger",
           "text": "Na gode. Ga kudin.",
           "translation": "Thank you. Here's the money.",
-          "audioContext": "payment"
+          "audioContext": "payment",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -7856,7 +8000,7 @@
           "pronunciation": "ma-ka-nee-kee",
           "example": "Ina buƙatar makaniki, motata ta lalace.",
           "culturalNote": "Borrowed from English, widely used.",
-          "audioId": "makaniki"
+          "audioId": ""
         },
         {
           "word": "Motata ta lalace",
@@ -7864,7 +8008,7 @@
           "pronunciation": "mo-ta-ta ta la-la-cheh",
           "example": "Motata ta lalace a hanya.",
           "culturalNote": "Common phrase for breakdowns.",
-          "audioId": "motata_ta_lalace"
+          "audioId": ""
         },
         {
           "word": "Taya",
@@ -7872,7 +8016,7 @@
           "pronunciation": "ta-ya",
           "example": "Taya ta huda.",
           "culturalNote": "Flat tire is a common issue.",
-          "audioId": "taya"
+          "audioId": ""
         },
         {
           "word": "Ta huda",
@@ -7880,7 +8024,7 @@
           "pronunciation": "ta hoo-da",
           "example": "Taya ta huda, muna buƙatar canji.",
           "culturalNote": "Refers to a flat tire.",
-          "audioId": "ta_huda"
+          "audioId": ""
         },
         {
           "word": "Ina jin ƙara",
@@ -7888,7 +8032,7 @@
           "pronunciation": "ee-na jin ka-ra",
           "example": "Ina jin ƙara daga mota.",
           "culturalNote": "Describe unusual sounds.",
-          "audioId": "ina_jin_ara"
+          "audioId": ""
         },
         {
           "word": "Man mota",
@@ -7896,7 +8040,7 @@
           "pronunciation": "man mo-ta",
           "example": "Man mota ya ƙare.",
           "culturalNote": "Essential for maintenance.",
-          "audioId": "man_mota"
+          "audioId": ""
         },
         {
           "word": "Baturiya",
@@ -7904,7 +8048,7 @@
           "pronunciation": "ba-too-ree-ya",
           "example": "Baturiya ta mutu.",
           "culturalNote": "Dead battery.",
-          "audioId": "baturiya"
+          "audioId": ""
         },
         {
           "word": "Canji",
@@ -7912,7 +8056,7 @@
           "pronunciation": "chan-jee",
           "example": "Ina buƙatar canjin taya.",
           "culturalNote": "Can also mean 'change' in money context.",
-          "audioId": "canji"
+          "audioId": ""
         },
         {
           "word": "Yaushe za a gama?",
@@ -7920,7 +8064,7 @@
           "pronunciation": "yao-sheh za a ga-ma",
           "example": "Yaushe za a gama gyaran?",
           "culturalNote": "Ask about repair time.",
-          "audioId": "yaushe_za_a_gama"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -7948,31 +8092,36 @@
           "speaker": "Driver",
           "text": "Makaniki, ina buƙatar taimako. Motata ta lalace.",
           "translation": "Mechanic, I need help. My car is broken.",
-          "audioContext": "call"
+          "audioContext": "call",
+          "audioId": ""
         },
         {
           "speaker": "Mechanic",
           "text": "Me ya faru?",
           "translation": "What happened?",
-          "audioContext": "question"
+          "audioContext": "question",
+          "audioId": ""
         },
         {
           "speaker": "Driver",
           "text": "Taya ta huda, kuma ina jin ƙara daga injin.",
           "translation": "The tire is punctured, and I hear a noise from the engine.",
-          "audioContext": "explain"
+          "audioContext": "explain",
+          "audioId": ""
         },
         {
           "speaker": "Mechanic",
           "text": "Zan duba. Zai ɗauki awa ɗaya.",
           "translation": "I'll check. It will take one hour.",
-          "audioContext": "estimate"
+          "audioContext": "estimate",
+          "audioId": ""
         },
         {
           "speaker": "Driver",
           "text": "To, na gode. Zan jira.",
           "translation": "OK, thank you. I'll wait.",
-          "audioContext": "accept"
+          "audioContext": "accept",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -8111,7 +8260,7 @@
           "pronunciation": "kan-teen ma-ga-nee",
           "example": "Ina buƙatar zuwa kantin magani.",
           "culturalNote": "Literally 'medicine shop'.",
-          "audioId": "kantin_magani"
+          "audioId": ""
         },
         {
           "word": "Magani",
@@ -8119,7 +8268,7 @@
           "pronunciation": "ma-ga-nee",
           "example": "Kana da maganin ciwon kai?",
           "culturalNote": "General term for any remedy.",
-          "audioId": "magani"
+          "audioId": ""
         },
         {
           "word": "Zazzaɓi",
@@ -8127,7 +8276,7 @@
           "pronunciation": "zaz-za-bee",
           "example": "Ina da zazzaɓi da mura.",
           "culturalNote": "Common symptom.",
-          "audioId": "zazza_i"
+          "audioId": ""
         },
         {
           "word": "Amai",
@@ -8135,7 +8284,7 @@
           "pronunciation": "a-mai",
           "example": "Ina yin amai.",
           "culturalNote": "Serious symptom.",
-          "audioId": "amai"
+          "audioId": ""
         },
         {
           "word": "Tari",
@@ -8143,7 +8292,7 @@
           "pronunciation": "ta-ree",
           "example": "Tari yana damuna da dare.",
           "culturalNote": "Often persistent.",
-          "audioId": "tari"
+          "audioId": ""
         },
         {
           "word": "Ciwon kai",
@@ -8151,7 +8300,7 @@
           "pronunciation": "chee-won kai",
           "example": "Ina jin ciwon kai mai zafi.",
           "culturalNote": "Common complaint.",
-          "audioId": "ciwon_kai"
+          "audioId": ""
         },
         {
           "word": "Ciwon ciki",
@@ -8159,7 +8308,7 @@
           "pronunciation": "chee-won chee-kee",
           "example": "Ciwon ciki yana damuna.",
           "culturalNote": "Could be from food.",
-          "audioId": "ciwon_ciki"
+          "audioId": ""
         },
         {
           "word": "Kwaya",
@@ -8167,7 +8316,7 @@
           "pronunciation": "kwa-ya",
           "example": "Kwayoyin maganin zazzabi.",
           "culturalNote": "Plural: kwayoyi.",
-          "audioId": "kwaya"
+          "audioId": ""
         },
         {
           "word": "Ruwa",
@@ -8175,7 +8324,7 @@
           "pronunciation": "roo-wa",
           "example": "Sha ruwa da yawa.",
           "culturalNote": "Often advised with medication.",
-          "audioId": "ruwa"
+          "audioId": ""
         },
         {
           "word": "Sau nawa?",
@@ -8183,7 +8332,7 @@
           "pronunciation": "sao na-wa",
           "example": "Sau nawa zan sha kwaya a rana?",
           "culturalNote": "Ask for dosage.",
-          "audioId": "sau_nawa"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -8211,31 +8360,36 @@
           "speaker": "Patient",
           "text": "Sannu, ina da zazzaɓi da ciwon kai.",
           "translation": "Hello, I have a fever and headache.",
-          "audioContext": "symptoms"
+          "audioContext": "symptoms",
+          "audioId": ""
         },
         {
           "speaker": "Pharmacist",
           "text": "Kana da maganin ciwon kai?",
           "translation": "Do you have medicine for headache?",
-          "audioContext": "ask_medicine"
+          "audioContext": "ask_medicine",
+          "audioId": ""
         },
         {
           "speaker": "Patient",
           "text": "A'a, ina buƙatar magani.",
           "translation": "No, I need medicine.",
-          "audioContext": "request"
+          "audioContext": "request",
+          "audioId": ""
         },
         {
           "speaker": "Pharmacist",
           "text": "Ga kwayoyin. Ka sha sau biyu a rana.",
           "translation": "Here are tablets. Take twice a day.",
-          "audioContext": "instruction"
+          "audioContext": "instruction",
+          "audioId": ""
         },
         {
           "speaker": "Patient",
           "text": "Sau nawa? – Sau biyu. Na gode.",
           "translation": "How many times? – Twice. Thank you.",
-          "audioContext": "confirm"
+          "audioContext": "confirm",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -8374,7 +8528,7 @@
           "pronunciation": "ee-na zoo-wa",
           "example": "Ina zuwa gida yanzu.",
           "culturalNote": "Common phrase for 'I'm on my way'.",
-          "audioId": "ina_zuwa"
+          "audioId": ""
         },
         {
           "word": "Yana tafiya",
@@ -8382,7 +8536,7 @@
           "pronunciation": "ya-na ta-fee-ya",
           "example": "Yana tafiya kasuwa.",
           "culturalNote": "Present continuous.",
-          "audioId": "yana_tafiya"
+          "audioId": ""
         },
         {
           "word": "Tana aiki",
@@ -8390,7 +8544,7 @@
           "pronunciation": "ta-na a-ee-kee",
           "example": "Tana aiki a ofis.",
           "culturalNote": "Describes ongoing work.",
-          "audioId": "tana_aiki"
+          "audioId": ""
         },
         {
           "word": "Muna ci",
@@ -8398,7 +8552,7 @@
           "pronunciation": "moo-na chee",
           "example": "Muna ci abinci yanzu.",
           "culturalNote": "Present continuous plural.",
-          "audioId": "muna_ci"
+          "audioId": ""
         },
         {
           "word": "Kuna karatu?",
@@ -8406,7 +8560,7 @@
           "pronunciation": "koo-na ka-ra-too",
           "example": "Kuna karatu a yanzu?",
           "culturalNote": "Asking about current activity.",
-          "audioId": "kuna_karatu"
+          "audioId": ""
         },
         {
           "word": "Suna wasa",
@@ -8414,7 +8568,7 @@
           "pronunciation": "soo-na wa-sa",
           "example": "Yara suna wasa a waje.",
           "culturalNote": "Children playing.",
-          "audioId": "suna_wasa"
+          "audioId": ""
         },
         {
           "word": "Abinci yana ƙonewa",
@@ -8422,7 +8576,7 @@
           "pronunciation": "a-been-chee ya-na ko-ne-wa",
           "example": "Abinci yana ƙonewa, ka tsaya!",
           "culturalNote": "Emergency in the kitchen.",
-          "audioId": "abinci_yana_onewa"
+          "audioId": ""
         },
         {
           "word": "Ana ruwa",
@@ -8430,7 +8584,7 @@
           "pronunciation": "a-na roo-wa",
           "example": "Ana ruwa a waje.",
           "culturalNote": "Impersonal 'it is raining'.",
-          "audioId": "ana_ruwa"
+          "audioId": ""
         },
         {
           "word": "Me kake yi?",
@@ -8438,7 +8592,7 @@
           "pronunciation": "meh ka-ke yee",
           "example": "Me kake yi yanzu?",
           "culturalNote": "Common question.",
-          "audioId": "me_kake_yi"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -8468,31 +8622,36 @@
           "speaker": "Aisha",
           "text": "Sannu, me kike yi yanzu?",
           "translation": "Hello, what are you doing now?",
-          "audioContext": "question"
+          "audioContext": "question",
+          "audioId": ""
         },
         {
           "speaker": "Fatima",
           "text": "Ina dafa abinci. Kai fa, me kake yi?",
           "translation": "I am cooking. And you, what are you doing?",
-          "audioContext": "answer"
+          "audioContext": "answer",
+          "audioId": ""
         },
         {
           "speaker": "Aisha",
           "text": "Ina karanta littafi.",
           "translation": "I am reading a book.",
-          "audioContext": "reply"
+          "audioContext": "reply",
+          "audioId": ""
         },
         {
           "speaker": "Fatima",
           "text": "Abinci yana ƙonewa! Ina gaggawa.",
           "translation": "The food is burning! I'm in a hurry.",
-          "audioContext": "exclaim"
+          "audioContext": "exclaim",
+          "audioId": ""
         },
         {
           "speaker": "Aisha",
           "text": "To, sai an jima.",
           "translation": "OK, see you later.",
-          "audioContext": "farewell"
+          "audioContext": "farewell",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -8631,7 +8790,7 @@
           "pronunciation": "na ta-fee",
           "example": "Na tafi ƙauye a karshen mako.",
           "culturalNote": "Past tense of 'tafi'.",
-          "audioId": "na_tafi"
+          "audioId": ""
         },
         {
           "word": "Na ga",
@@ -8639,7 +8798,7 @@
           "pronunciation": "na ga",
           "example": "Na ga abokaina a biki.",
           "culturalNote": "Past of 'gani'.",
-          "audioId": "na_ga"
+          "audioId": ""
         },
         {
           "word": "Na ci",
@@ -8647,7 +8806,7 @@
           "pronunciation": "na chee",
           "example": "Na ci tuwo da miya.",
           "culturalNote": "Past of 'ci'.",
-          "audioId": "na_ci"
+          "audioId": ""
         },
         {
           "word": "Na sha",
@@ -8655,7 +8814,7 @@
           "pronunciation": "na sha",
           "example": "Na sha ruwa mai yawa.",
           "culturalNote": "Past of 'sha'.",
-          "audioId": "na_sha"
+          "audioId": ""
         },
         {
           "word": "Na yi",
@@ -8663,7 +8822,7 @@
           "pronunciation": "na yee",
           "example": "Na yi aiki a gona.",
           "culturalNote": "Versatile past verb.",
-          "audioId": "na_yi"
+          "audioId": ""
         },
         {
           "word": "Mun je",
@@ -8671,7 +8830,7 @@
           "pronunciation": "moon jeh",
           "example": "Mun je gidan abokai.",
           "culturalNote": "Plural past.",
-          "audioId": "mun_je"
+          "audioId": ""
         },
         {
           "word": "Ya zo",
@@ -8679,7 +8838,7 @@
           "pronunciation": "ya zo",
           "example": "Ya zo gidana jiya.",
           "culturalNote": "Past of 'zo'.",
-          "audioId": "ya_zo"
+          "audioId": ""
         },
         {
           "word": "Ta tafi",
@@ -8687,7 +8846,7 @@
           "pronunciation": "ta ta-fee",
           "example": "Ta tafi kasuwa da safe.",
           "culturalNote": "Feminine past.",
-          "audioId": "ta_tafi"
+          "audioId": ""
         },
         {
           "word": "Jiya",
@@ -8695,7 +8854,7 @@
           "pronunciation": "jee-ya",
           "example": "Jiya mun yi sallah tare.",
           "culturalNote": "Common time marker.",
-          "audioId": "jiya"
+          "audioId": ""
         },
         {
           "word": "Karshen mako",
@@ -8703,7 +8862,7 @@
           "pronunciation": "kar-shen ma-ko",
           "example": "Me kuka yi a karshen mako?",
           "culturalNote": "Literally 'end of the week'.",
-          "audioId": "karshen_mako"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -8732,31 +8891,36 @@
           "speaker": "Musa",
           "text": "Me ka yi a karshen mako?",
           "translation": "What did you do over the weekend?",
-          "audioContext": "question"
+          "audioContext": "question",
+          "audioId": ""
         },
         {
           "speaker": "Ali",
           "text": "Na tafi ƙauye. Na ga iyalina. Kai fa?",
           "translation": "I went to the village. I saw my family. And you?",
-          "audioContext": "answer"
+          "audioContext": "answer",
+          "audioId": ""
         },
         {
           "speaker": "Musa",
           "text": "Ni kuma na zauna a gida. Na yi hutu.",
           "translation": "I stayed at home. I rested.",
-          "audioContext": "reply"
+          "audioContext": "reply",
+          "audioId": ""
         },
         {
           "speaker": "Ali",
           "text": "Madalla. Mun je biki ranar Lahadi.",
           "translation": "Great. We went to a party on Sunday.",
-          "audioContext": "add"
+          "audioContext": "add",
+          "audioId": ""
         },
         {
           "speaker": "Musa",
           "text": "Wane biki?",
           "translation": "Which party?",
-          "audioContext": "followup"
+          "audioContext": "followup",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -8895,7 +9059,7 @@
           "pronunciation": "zan ta-fee",
           "example": "Zan tafi kasuwa gobe.",
           "culturalNote": "Future tense with 'za'.",
-          "audioId": "zan_tafi"
+          "audioId": ""
         },
         {
           "word": "Za ka zo?",
@@ -8903,7 +9067,7 @@
           "pronunciation": "za ka zo",
           "example": "Za ka zo bikina?",
           "culturalNote": "Asking about future.",
-          "audioId": "za_ka_zo"
+          "audioId": ""
         },
         {
           "word": "Za ki taimake ni?",
@@ -8911,7 +9075,7 @@
           "pronunciation": "za kee tai-ma-keh nee",
           "example": "Za ki taimake ni da aiki?",
           "culturalNote": "Request for future help.",
-          "audioId": "za_ki_taimake_ni"
+          "audioId": ""
         },
         {
           "word": "Zan kira ka",
@@ -8919,7 +9083,7 @@
           "pronunciation": "zan kee-ra ka",
           "example": "Zan kira ka da yamma.",
           "culturalNote": "Common promise.",
-          "audioId": "zan_kira_ka"
+          "audioId": ""
         },
         {
           "word": "Zan biya",
@@ -8927,7 +9091,7 @@
           "pronunciation": "zan bee-ya",
           "example": "Zan biya gobe.",
           "culturalNote": "Financial promise.",
-          "audioId": "zan_biya"
+          "audioId": ""
         },
         {
           "word": "Mu hadu gobe",
@@ -8935,7 +9099,7 @@
           "pronunciation": "moo ha-doo go-beh",
           "example": "Mu hadu gobe da safe.",
           "culturalNote": "Making plans.",
-          "audioId": "mu_hadu_gobe"
+          "audioId": ""
         },
         {
           "word": "Gobe",
@@ -8943,7 +9107,7 @@
           "pronunciation": "go-beh",
           "example": "Gobe za mu tafi aiki.",
           "culturalNote": "Common future time.",
-          "audioId": "gobe"
+          "audioId": ""
         },
         {
           "word": "Bayan gobe",
@@ -8951,7 +9115,7 @@
           "pronunciation": "ba-yan go-beh",
           "example": "Bayan gobe zan dawo.",
           "culturalNote": "Further future.",
-          "audioId": "bayan_gobe"
+          "audioId": ""
         },
         {
           "word": "Nan gaba",
@@ -8959,7 +9123,7 @@
           "pronunciation": "nan ga-ba",
           "example": "Nan gaba zan zama likita.",
           "culturalNote": "Long-term plans.",
-          "audioId": "nan_gaba"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -8988,25 +9152,29 @@
           "speaker": "Musa",
           "text": "Za ka zo bikina ranar Asabar?",
           "translation": "Will you come to my party on Saturday?",
-          "audioContext": "invite"
+          "audioContext": "invite",
+          "audioId": ""
         },
         {
           "speaker": "Ali",
           "text": "Ee, zan zo tabbas. Zan kawo abu.",
           "translation": "Yes, I will come surely. I will bring something.",
-          "audioContext": "accept"
+          "audioContext": "accept",
+          "audioId": ""
         },
         {
           "speaker": "Musa",
           "text": "Na gode. Zan kira ka ranar Juma'a don tunatarwa.",
           "translation": "Thank you. I will call you on Friday to remind you.",
-          "audioContext": "promise"
+          "audioContext": "promise",
+          "audioId": ""
         },
         {
           "speaker": "Ali",
           "text": "To, sai mun hadu.",
           "translation": "OK, see you then.",
-          "audioContext": "agree"
+          "audioContext": "agree",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -9145,7 +9313,7 @@
           "pronunciation": "yan-ka",
           "example": "Yanka nama kanana.",
           "culturalNote": "Imperative form.",
-          "audioId": "yanka"
+          "audioId": ""
         },
         {
           "word": "Ɗanƙaɗa",
@@ -9153,7 +9321,7 @@
           "pronunciation": "dan-ka-da",
           "example": "Ɗanƙaɗa ruwa kadan kadan.",
           "culturalNote": "Used in cooking.",
-          "audioId": "an_a_a"
+          "audioId": ""
         },
         {
           "word": "Juya",
@@ -9161,7 +9329,7 @@
           "pronunciation": "joo-ya",
           "example": "Juya miya don kada ta ƙone.",
           "culturalNote": "Stirring prevents burning.",
-          "audioId": "juya"
+          "audioId": ""
         },
         {
           "word": "Dafa",
@@ -9169,7 +9337,7 @@
           "pronunciation": "da-fa",
           "example": "Dafa shinkafa har sai ta nuna.",
           "culturalNote": "Basic cooking verb.",
-          "audioId": "dafa"
+          "audioId": ""
         },
         {
           "word": "Goge",
@@ -9177,7 +9345,7 @@
           "pronunciation": "go-geh",
           "example": "Goge tukwane da kyau.",
           "culturalNote": "Cleaning instructions.",
-          "audioId": "goge"
+          "audioId": ""
         },
         {
           "word": "Ajiye",
@@ -9185,7 +9353,7 @@
           "pronunciation": "a-jee-yeh",
           "example": "Ajiye kayan a tebur.",
           "culturalNote": "Organizing items.",
-          "audioId": "ajiye"
+          "audioId": ""
         },
         {
           "word": "Ɗauka",
@@ -9193,7 +9361,7 @@
           "pronunciation": "dau-ka",
           "example": "Ɗauka littafin daga kasa.",
           "culturalNote": "Imperative.",
-          "audioId": "auka"
+          "audioId": ""
         },
         {
           "word": "Kadan kadan",
@@ -9201,7 +9369,7 @@
           "pronunciation": "ka-dan ka-dan",
           "example": "Zuba ruwa kadan kadan.",
           "culturalNote": "Common instruction.",
-          "audioId": "kadan_kadan"
+          "audioId": ""
         },
         {
           "word": "Da sauri",
@@ -9209,7 +9377,7 @@
           "pronunciation": "da sa-oo-ree",
           "example": "Yi da sauri, muna gaggawa.",
           "culturalNote": "Urgency.",
-          "audioId": "da_sauri"
+          "audioId": ""
         },
         {
           "word": "A hankali",
@@ -9217,7 +9385,7 @@
           "pronunciation": "a han-ka-lee",
           "example": "Yi a hankali don kada ka faɗi.",
           "culturalNote": "Caution.",
-          "audioId": "a_hankali"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -9246,31 +9414,36 @@
           "speaker": "Mother",
           "text": "Yanka albasa kanana, don Allah.",
           "translation": "Cut the onions small, please.",
-          "audioContext": "instruction"
+          "audioContext": "instruction",
+          "audioId": ""
         },
         {
           "speaker": "Daughter",
           "text": "To, na yanka. Sannan in yi me?",
           "translation": "OK, I've cut. Then what should I do?",
-          "audioContext": "followup"
+          "audioContext": "followup",
+          "audioId": ""
         },
         {
           "speaker": "Mother",
           "text": "Sannan ɗanƙaɗa mai a tukunya. A hankali.",
           "translation": "Then add oil to the pot. Carefully.",
-          "audioContext": "next"
+          "audioContext": "next",
+          "audioId": ""
         },
         {
           "speaker": "Daughter",
           "text": "Na ƙara. Yanzu?",
           "translation": "I've added. Now?",
-          "audioContext": "check"
+          "audioContext": "check",
+          "audioId": ""
         },
         {
           "speaker": "Mother",
           "text": "Yanzu juye albasar. Ka juya su.",
           "translation": "Now pour in the onions. Stir them.",
-          "audioContext": "continue"
+          "audioContext": "continue",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -9409,7 +9582,7 @@
           "pronunciation": "ka-da ka ta-ba",
           "example": "Kada ka taɓa wuta, tana da zafi.",
           "culturalNote": "Warning.",
-          "audioId": "kada_ka_ta_a"
+          "audioId": ""
         },
         {
           "word": "Kada ki taɓa",
@@ -9417,7 +9590,7 @@
           "pronunciation": "ka-da kee ta-ba",
           "example": "Kada ki taɓa abincin, ba a dafa ba.",
           "culturalNote": "Feminine warning.",
-          "audioId": "kada_ki_ta_a"
+          "audioId": ""
         },
         {
           "word": "Gara",
@@ -9425,7 +9598,7 @@
           "pronunciation": "ga-ra",
           "example": "Gara ka huta yau.",
           "culturalNote": "Giving advice.",
-          "audioId": "gara"
+          "audioId": ""
         },
         {
           "word": "Ya fi kyau",
@@ -9433,7 +9606,7 @@
           "pronunciation": "ya fee kyau",
           "example": "Ya fi kyau mu tafi da wuri.",
           "culturalNote": "Suggestion.",
-          "audioId": "ya_fi_kyau"
+          "audioId": ""
         },
         {
           "word": "Yi hattara",
@@ -9441,7 +9614,7 @@
           "pronunciation": "yee hat-ta-ra",
           "example": "Yi hattara a hanya.",
           "culturalNote": "General caution.",
-          "audioId": "yi_hattara"
+          "audioId": ""
         },
         {
           "word": "Kada ka manta",
@@ -9449,7 +9622,7 @@
           "pronunciation": "ka-da ka man-ta",
           "example": "Kada ka manta da littafinka.",
           "culturalNote": "Reminder.",
-          "audioId": "kada_ka_manta"
+          "audioId": ""
         },
         {
           "word": "Ina ba ka shawara",
@@ -9457,7 +9630,7 @@
           "pronunciation": "ee-na ba ka sha-wa-ra",
           "example": "Ina ba ka shawara ka yi a hankali.",
           "culturalNote": "Formal advice.",
-          "audioId": "ina_ba_ka_shawara"
+          "audioId": ""
         },
         {
           "word": "Zai fi kyau",
@@ -9465,7 +9638,7 @@
           "pronunciation": "zai fee kyau",
           "example": "Zai fi kyau mu jira.",
           "culturalNote": "Conditional advice.",
-          "audioId": "zai_fi_kyau"
+          "audioId": ""
         },
         {
           "word": "Kada ka yi",
@@ -9473,7 +9646,7 @@
           "pronunciation": "ka-da ka yee",
           "example": "Kada ka yi wannan abu.",
           "culturalNote": "Strong prohibition.",
-          "audioId": "kada_ka_yi"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -9501,31 +9674,36 @@
           "speaker": "Father",
           "text": "Kada ka taɓa wutar lantarki!",
           "translation": "Don't touch the electricity!",
-          "audioContext": "warning"
+          "audioContext": "warning",
+          "audioId": ""
         },
         {
           "speaker": "Son",
           "text": "Na gode, baba. Zan yi hattara.",
           "translation": "Thank you, dad. I'll be careful.",
-          "audioContext": "response"
+          "audioContext": "response",
+          "audioId": ""
         },
         {
           "speaker": "Father",
           "text": "Gara ka je ka yi wanka yanzu.",
           "translation": "You should go take a bath now.",
-          "audioContext": "advice"
+          "audioContext": "advice",
+          "audioId": ""
         },
         {
           "speaker": "Son",
           "text": "To, zan tafi.",
           "translation": "OK, I'll go.",
-          "audioContext": "agree"
+          "audioContext": "agree",
+          "audioId": ""
         },
         {
           "speaker": "Father",
           "text": "Kada ka manta da sabulu.",
           "translation": "Don't forget the soap.",
-          "audioContext": "reminder"
+          "audioContext": "reminder",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -9664,7 +9842,7 @@
           "pronunciation": "rank ya da-deh",
           "example": "Rank ya dade, ina iya taimaka muku?",
           "culturalNote": "Highly respectful address.",
-          "audioId": "rank_ya_dade"
+          "audioId": ""
         },
         {
           "word": "Malam",
@@ -9672,7 +9850,7 @@
           "pronunciation": "ma-lam",
           "example": "Malam Musa, ina da tambaya.",
           "culturalNote": "Used for men, especially teachers.",
-          "audioId": "malam"
+          "audioId": ""
         },
         {
           "word": "Malama",
@@ -9680,7 +9858,7 @@
           "pronunciation": "ma-la-ma",
           "example": "Malama Aisha ta zo.",
           "culturalNote": "Respectful for women.",
-          "audioId": "malama"
+          "audioId": ""
         },
         {
           "word": "Ina fata",
@@ -9688,7 +9866,7 @@
           "pronunciation": "ee-na fa-ta",
           "example": "Ina fata za ku amsa.",
           "culturalNote": "Polite expression.",
-          "audioId": "ina_fata"
+          "audioId": ""
         },
         {
           "word": "Za a iya?",
@@ -9696,7 +9874,7 @@
           "pronunciation": "za a ee-ya",
           "example": "Za a iya samun taimako?",
           "culturalNote": "Polite request.",
-          "audioId": "za_a_iya"
+          "audioId": ""
         },
         {
           "word": "Don Allah a",
@@ -9704,7 +9882,7 @@
           "pronunciation": "don al-lah a",
           "example": "Don Allah a zauna.",
           "culturalNote": "Used with imperative.",
-          "audioId": "don_allah_a"
+          "audioId": ""
         },
         {
           "word": "Godiya",
@@ -9712,7 +9890,7 @@
           "pronunciation": "go-dee-ya",
           "example": "Godiya ga haƙurinku.",
           "culturalNote": "More formal than 'na gode'.",
-          "audioId": "godiya"
+          "audioId": ""
         },
         {
           "word": "Barka da aiki",
@@ -9720,7 +9898,7 @@
           "pronunciation": "bar-ka da a-ee-kee",
           "example": "Barka da aiki, malam.",
           "culturalNote": "Formal praise.",
-          "audioId": "barka_da_aiki"
+          "audioId": ""
         },
         {
           "word": "Tabbas",
@@ -9728,7 +9906,7 @@
           "pronunciation": "tab-bas",
           "example": "Tabbas, zan zo.",
           "culturalNote": "Emphasizes certainty.",
-          "audioId": "tabbas"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -9756,25 +9934,29 @@
           "speaker": "Visitor",
           "text": "Rank ya dade, ina son ganin Malam Musa.",
           "translation": "Sir, I would like to see Mr. Musa.",
-          "audioContext": "request"
+          "audioContext": "request",
+          "audioId": ""
         },
         {
           "speaker": "Secretary",
           "text": "Malam Musa yana cikin taro. Za a iya jira?",
           "translation": "Mr. Musa is in a meeting. Can you wait?",
-          "audioContext": "response"
+          "audioContext": "response",
+          "audioId": ""
         },
         {
           "speaker": "Visitor",
           "text": "Tabbas, zan jira. Godiya.",
           "translation": "Certainly, I'll wait. Thanks.",
-          "audioContext": "agree"
+          "audioContext": "agree",
+          "audioId": ""
         },
         {
           "speaker": "Secretary",
           "text": "Don Allah a zauna. Za a kira ku.",
           "translation": "Please sit down. You will be called.",
-          "audioContext": "polite"
+          "audioContext": "polite",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -10083,7 +10265,7 @@
           "pronunciation": "ha-koo-ree",
           "example": "Hakuri maganin duniya.",
           "culturalNote": "The proverb 'Hakuri maganin duniya' means 'Patience is the cure for the world'.",
-          "audioId": "hakuri"
+          "audioId": ""
         },
         {
           "word": "Tafiya",
@@ -10091,7 +10273,7 @@
           "pronunciation": "ta-fee-ya",
           "example": "Tafiya ce babu santsi.",
           "culturalNote": "Proverb: 'Life is a journey without smoothness'.",
-          "audioId": "tafiya"
+          "audioId": ""
         },
         {
           "word": "Rana",
@@ -10099,7 +10281,7 @@
           "pronunciation": "ra-na",
           "example": "Rana ba ta fadewa dare.",
           "culturalNote": "Proverb: 'The sun does not set on darkness' – implying truth prevails.",
-          "audioId": "rana"
+          "audioId": ""
         },
         {
           "word": "Dare",
@@ -10107,7 +10289,7 @@
           "pronunciation": "da-reh",
           "example": "Dare ba shi da wadata.",
           "culturalNote": "Proverb: 'The night has no wealth' – meaning you cannot achieve much without effort.",
-          "audioId": "dare"
+          "audioId": ""
         },
         {
           "word": "Ganuwa",
@@ -10115,7 +10297,7 @@
           "pronunciation": "ga-noo-wa",
           "example": "Ganuwa ta fi saƙo.",
           "culturalNote": "Proverb: 'Seeing face-to-face is better than a message' – personal interaction is best.",
-          "audioId": "ganuwa"
+          "audioId": ""
         },
         {
           "word": "Zuciya",
@@ -10123,7 +10305,7 @@
           "pronunciation": "zoo-chee-ya",
           "example": "Zuciya uwar gida ce.",
           "culturalNote": "Proverb: 'The heart is the head of the household' – emotions guide us.",
-          "audioId": "zuciya"
+          "audioId": ""
         },
         {
           "word": "Harshe",
@@ -10131,7 +10313,7 @@
           "pronunciation": "har-sheh",
           "example": "Harshe ka fi ƙarfe.",
           "culturalNote": "Proverb: 'The tongue is sharper than metal' – words hurt more.",
-          "audioId": "harshe"
+          "audioId": ""
         },
         {
           "word": "Sani",
@@ -10139,7 +10321,7 @@
           "pronunciation": "sa-nee",
           "example": "Sani shi ne haske.",
           "culturalNote": "Proverb: 'Knowledge is light'.",
-          "audioId": "sani"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -10167,25 +10349,29 @@
           "speaker": "Baba",
           "text": "Ɗana, ka san abin da ake cewa? Hakuri maganin duniya.",
           "translation": "My son, do you know what they say? Patience is the cure for the world.",
-          "audioContext": "teaching"
+          "audioContext": "teaching",
+          "audioId": ""
         },
         {
           "speaker": "Musa",
           "text": "Ina fahimta, baba. Amma me ya sa?",
           "translation": "I understand, father. But why?",
-          "audioContext": "question"
+          "audioContext": "question",
+          "audioId": ""
         },
         {
           "speaker": "Baba",
           "text": "Domin idan ka yi hakuri, komai zai daidaita. Kamar rana ba ta fadewa dare.",
           "translation": "Because if you are patient, everything will be okay. Like the sun does not set on darkness.",
-          "audioContext": "explain"
+          "audioContext": "explain",
+          "audioId": ""
         },
         {
           "speaker": "Musa",
           "text": "Na gode. Zan tuna da hakan.",
           "translation": "Thank you. I will remember that.",
-          "audioContext": "thanks"
+          "audioContext": "thanks",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -10324,7 +10510,7 @@
           "pronunciation": "wan-nan bai da-cheh ba",
           "example": "Wannan bai dace ba, na biya kuɗi.",
           "culturalNote": "Assertive complaint.",
-          "audioId": "wannan_bai_dace_ba"
+          "audioId": ""
         },
         {
           "word": "Na yi kuskure?",
@@ -10332,7 +10518,7 @@
           "pronunciation": "na yee kus-koo-reh",
           "example": "Na yi kuskure, ko kuwa ku?",
           "culturalNote": "Questioning to clarify.",
-          "audioId": "na_yi_kuskure"
+          "audioId": ""
         },
         {
           "word": "Ba gaskiya ba ne",
@@ -10340,7 +10526,7 @@
           "pronunciation": "ba gas-kee-ya ba neh",
           "example": "Ba gaskiya ba ne ka yi mini haka.",
           "culturalNote": "Calling out unfairness.",
-          "audioId": "ba_gaskiya_ba_ne"
+          "audioId": ""
         },
         {
           "word": "Na ji rashin gaskiya",
@@ -10348,7 +10534,7 @@
           "pronunciation": "na jee ra-sheen gas-kee-ya",
           "example": "Na ji rashin gaskiya da wannan ciniki.",
           "culturalNote": "Expressing feeling of being wronged.",
-          "audioId": "na_ji_rashin_gaskiya"
+          "audioId": ""
         },
         {
           "word": "Don Allah a duba",
@@ -10356,7 +10542,7 @@
           "pronunciation": "don al-lah a doo-ba",
           "example": "Don Allah a duba lissafin.",
           "culturalNote": "Polite request for verification.",
-          "audioId": "don_allah_a_duba"
+          "audioId": ""
         },
         {
           "word": "Na yi hakuri, amma",
@@ -10364,7 +10550,7 @@
           "pronunciation": "na yee ha-koo-ree am-ma",
           "example": "Na yi hakuri, amma wannan ba abin da na umarta ba.",
           "culturalNote": "Soft opener for complaint.",
-          "audioId": "na_yi_hakuri_amma"
+          "audioId": ""
         },
         {
           "word": "Matsala",
@@ -10372,7 +10558,7 @@
           "pronunciation": "mat-sa-la",
           "example": "Akwai matsala da wannan.",
           "culturalNote": "Stating there's a problem.",
-          "audioId": "matsala"
+          "audioId": ""
         },
         {
           "word": "Ina son a gyara",
@@ -10380,7 +10566,7 @@
           "pronunciation": "ee-na son a gya-ra",
           "example": "Ina son a gyara wannan nan take.",
           "culturalNote": "Demanding resolution.",
-          "audioId": "ina_son_a_gyara"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -10408,31 +10594,36 @@
           "speaker": "Customer",
           "text": "Na yi hakuri, amma wannan kayan da na siya bai yi kyau ba.",
           "translation": "I'm sorry, but this item I bought is not good.",
-          "audioContext": "complaint"
+          "audioContext": "complaint",
+          "audioId": ""
         },
         {
           "speaker": "Vendor",
           "text": "Me ya same shi?",
           "translation": "What's wrong with it?",
-          "audioContext": "question"
+          "audioContext": "question",
+          "audioId": ""
         },
         {
           "speaker": "Customer",
           "text": "Ya lalace a kwana biyu kacal. Ba gaskiya ba ne.",
           "translation": "It broke after just two days. It's not fair.",
-          "audioContext": "explain"
+          "audioContext": "explain",
+          "audioId": ""
         },
         {
           "speaker": "Vendor",
           "text": "Yi hakuri. Zan mayar miki kuɗin.",
           "translation": "I'm sorry. I will refund your money.",
-          "audioContext": "resolution"
+          "audioContext": "resolution",
+          "audioId": ""
         },
         {
           "speaker": "Customer",
           "text": "Na gode. Ina fatan hakan ba zai sake faruwa ba.",
           "translation": "Thank you. I hope this won't happen again.",
-          "audioContext": "thanks"
+          "audioContext": "thanks",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -10571,7 +10762,7 @@
           "pronunciation": "a-je-bo",
           "example": "Wannan ajebo ne, ba ya son abincin gida.",
           "culturalNote": "Used to describe someone who acts posh or above their roots.",
-          "audioId": "ajebo"
+          "audioId": ""
         },
         {
           "word": "Omo",
@@ -10579,7 +10770,7 @@
           "pronunciation": "o-mo",
           "example": "Omo, ka zo mu tafi?",
           "culturalNote": "Borrowed from Yoruba, used casually among youth.",
-          "audioId": "omo"
+          "audioId": ""
         },
         {
           "word": "Gbese",
@@ -10587,7 +10778,7 @@
           "pronunciation": "gbe-se",
           "example": "Ya shiga gbese da mota.",
           "culturalNote": "Refers to being in trouble or debt.",
-          "audioId": "gbese"
+          "audioId": ""
         },
         {
           "word": "Jaiye",
@@ -10595,7 +10786,7 @@
           "pronunciation": "jai-ye",
           "example": "Mu tafi jaiye a daren yau.",
           "culturalNote": "From Yoruba, means to enjoy or party.",
-          "audioId": "jaiye"
+          "audioId": ""
         },
         {
           "word": "Wahala",
@@ -10603,7 +10794,7 @@
           "pronunciation": "wa-ha-la",
           "example": "Wahala dey o!",
           "culturalNote": "Widely used across Nigeria.",
-          "audioId": "wahala"
+          "audioId": ""
         },
         {
           "word": "Sape",
@@ -10611,7 +10802,7 @@
           "pronunciation": "sa-peh",
           "example": "Ya yi sape sosai a bikin.",
           "culturalNote": "From English 'sharp' or 'sharp dressing'.",
-          "audioId": "sape"
+          "audioId": ""
         },
         {
           "word": "Yarn",
@@ -10619,7 +10810,7 @@
           "pronunciation": "yarn",
           "example": "Mu yarn kadan.",
           "culturalNote": "From English, used in casual speech.",
-          "audioId": "yarn"
+          "audioId": ""
         },
         {
           "word": "Banga",
@@ -10627,7 +10818,7 @@
           "pronunciation": "ban-ga",
           "example": "Yana banga da sabuwar motarsa.",
           "culturalNote": "Slang for flaunting.",
-          "audioId": "banga"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -10655,25 +10846,29 @@
           "speaker": "Ahmed",
           "text": "Omo, me kake yi?",
           "translation": "Dude, what's up?",
-          "audioContext": "greeting"
+          "audioContext": "greeting",
+          "audioId": ""
         },
         {
           "speaker": "Bala",
           "text": "Ba komai, ina sape don bikin. Kai fa?",
           "translation": "Nothing much, I'm dressing up for the party. You?",
-          "audioContext": "response"
+          "audioContext": "response",
+          "audioId": ""
         },
         {
           "speaker": "Ahmed",
           "text": "Ni kuma ina cikin wahala, kuɗi ya ƙare.",
           "translation": "I'm in trouble, money finished.",
-          "audioContext": "complaint"
+          "audioContext": "complaint",
+          "audioId": ""
         },
         {
           "speaker": "Bala",
           "text": "Kada ka damu, mu yarn gobe.",
           "translation": "Don't worry, let's chat tomorrow.",
-          "audioContext": "reassure"
+          "audioContext": "reassure",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -10812,7 +11007,7 @@
           "pronunciation": "da-ree-ya",
           "example": "Dariya maganin baƙin ciki.",
           "culturalNote": "Laughter is the best medicine.",
-          "audioId": "dariya"
+          "audioId": ""
         },
         {
           "word": "Mai ban dariya",
@@ -10820,7 +11015,7 @@
           "pronunciation": "mai ban da-ree-ya",
           "example": "Wannan labari mai ban dariya ne.",
           "culturalNote": "Describing something humorous.",
-          "audioId": "mai_ban_dariya"
+          "audioId": ""
         },
         {
           "word": "Wargi",
@@ -10828,7 +11023,7 @@
           "pronunciation": "war-gee",
           "example": "Ka ji wargi?",
           "culturalNote": "Word for joke.",
-          "audioId": "wargi"
+          "audioId": ""
         },
         {
           "word": "Cikin dariya",
@@ -10836,7 +11031,7 @@
           "pronunciation": "chee-keen da-ree-ya",
           "example": "Na faɗa cikin dariya ne.",
           "culturalNote": "To indicate you're joking.",
-          "audioId": "cikin_dariya"
+          "audioId": ""
         },
         {
           "word": "Kai!",
@@ -10844,7 +11039,7 @@
           "pronunciation": "kai",
           "example": "Kai, ka yi wayo!",
           "culturalNote": "Exclamation often used in humorous contexts.",
-          "audioId": "kai"
+          "audioId": ""
         },
         {
           "word": "Wayo",
@@ -10852,7 +11047,7 @@
           "pronunciation": "wa-yo",
           "example": "Kai wayo ne, ka yi dariya.",
           "culturalNote": "Praising someone's clever joke.",
-          "audioId": "wayo"
+          "audioId": ""
         },
         {
           "word": "Banza",
@@ -10860,7 +11055,7 @@
           "pronunciation": "ban-za",
           "example": "Wannan banza ce.",
           "culturalNote": "Used to describe something silly.",
-          "audioId": "banza"
+          "audioId": ""
         },
         {
           "word": "Ba gaskiya ba",
@@ -10868,7 +11063,7 @@
           "pronunciation": "ba gas-kee-ya ba",
           "example": "Ba gaskiya ba, ina wasa.",
           "culturalNote": "Clarify you're joking.",
-          "audioId": "ba_gaskiya_ba"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -10895,25 +11090,29 @@
           "speaker": "Ali",
           "text": "Ka ji wargi? Me ya sa kaza ta haye hanya? Don ta je ƙauye!",
           "translation": "Did you hear a joke? Why did the chicken cross the road? To go to the village!",
-          "audioContext": "joke"
+          "audioContext": "joke",
+          "audioId": ""
         },
         {
           "speaker": "Musa",
           "text": "Kai, wayo! Dariya ta ba ni.",
           "translation": "Wow, witty! It made me laugh.",
-          "audioContext": "laugh"
+          "audioContext": "laugh",
+          "audioId": ""
         },
         {
           "speaker": "Ali",
           "text": "Ba gaskiya ba, ina wasa.",
           "translation": "Not true, I'm just joking.",
-          "audioContext": "clarify"
+          "audioContext": "clarify",
+          "audioId": ""
         },
         {
           "speaker": "Musa",
           "text": "Ko ta yaya, na ji daɗi.",
           "translation": "Anyway, I enjoyed it.",
-          "audioContext": "response"
+          "audioContext": "response",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -11052,7 +11251,7 @@
           "pronunciation": "bee-keen ao-reh",
           "example": "Za mu je bikin aure a ranar Asabar.",
           "culturalNote": "One of the most important celebrations.",
-          "audioId": "bikin_aure"
+          "audioId": ""
         },
         {
           "word": "Sunan yaro",
@@ -11060,7 +11259,7 @@
           "pronunciation": "soo-nan ya-ro",
           "example": "An yi sunan yaron a ranar Juma'a.",
           "culturalNote": "Held 7 days after birth for Muslims.",
-          "audioId": "sunan_yaro"
+          "audioId": ""
         },
         {
           "word": "Sadaki",
@@ -11068,7 +11267,7 @@
           "pronunciation": "sa-da-kee",
           "example": "An biya sadakin jiya.",
           "culturalNote": "An important part of wedding negotiations.",
-          "audioId": "sadaki"
+          "audioId": ""
         },
         {
           "word": "Ango",
@@ -11076,7 +11275,7 @@
           "pronunciation": "an-go",
           "example": "Ango yana cikin farin ciki.",
           "culturalNote": "The bridegroom.",
-          "audioId": "ango"
+          "audioId": ""
         },
         {
           "word": "Amarya",
@@ -11084,7 +11283,7 @@
           "pronunciation": "a-mar-ya",
           "example": "Amarya tayi kyau sosai.",
           "culturalNote": "The bride.",
-          "audioId": "amarya"
+          "audioId": ""
         },
         {
           "word": "Biki",
@@ -11092,7 +11291,7 @@
           "pronunciation": "bee-kee",
           "example": "Biki ya cika da mutane.",
           "culturalNote": "General term.",
-          "audioId": "biki"
+          "audioId": ""
         },
         {
           "word": "Taron",
@@ -11100,7 +11299,7 @@
           "pronunciation": "ta-ron",
           "example": "Taron aure yana nan.",
           "culturalNote": "Used for any large gathering.",
-          "audioId": "taron"
+          "audioId": ""
         },
         {
           "word": "Murna",
@@ -11108,7 +11307,7 @@
           "pronunciation": "moor-na",
           "example": "Murna ya cika duk gidan.",
           "culturalNote": "Expression of collective joy.",
-          "audioId": "murna"
+          "audioId": ""
         },
         {
           "word": "Saƙo",
@@ -11116,7 +11315,7 @@
           "pronunciation": "sa-ko",
           "example": "An aika saƙon gayyatar.",
           "culturalNote": "Invitations are sent out.",
-          "audioId": "sa_o"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -11144,25 +11343,29 @@
           "speaker": "Guest",
           "text": "Barka da aure! Ina murna da ku.",
           "translation": "Congratulations on your wedding! I'm happy for you.",
-          "audioContext": "congratulate"
+          "audioContext": "congratulate",
+          "audioId": ""
         },
         {
           "speaker": "Groom",
           "text": "Na gode sosai. Allah ya sa'a.",
           "translation": "Thank you very much. May God grant success.",
-          "audioContext": "thanks"
+          "audioContext": "thanks",
+          "audioId": ""
         },
         {
           "speaker": "Guest",
           "text": "Wane lokaci ne sunan yaro?",
           "translation": "When is the naming ceremony?",
-          "audioContext": "ask"
+          "audioContext": "ask",
+          "audioId": ""
         },
         {
           "speaker": "Groom",
           "text": "Bayan mako guda, in sha Allahu.",
           "translation": "After one week, God willing.",
-          "audioContext": "reply"
+          "audioContext": "reply",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -11301,7 +11504,7 @@
           "pronunciation": "al-a-da",
           "example": "Al'adarmu tana da muhimmanci.",
           "culturalNote": "Core concept in Hausa society.",
-          "audioId": "al_ada"
+          "audioId": ""
         },
         {
           "word": "Gargajiya",
@@ -11309,7 +11512,7 @@
           "pronunciation": "gar-ga-jee-ya",
           "example": "Wannan magani ne na gargajiya.",
           "culturalNote": "Refers to traditional medicine or practices.",
-          "audioId": "gargajiya"
+          "audioId": ""
         },
         {
           "word": "Zamani",
@@ -11317,7 +11520,7 @@
           "pronunciation": "za-ma-nee",
           "example": "A zamanin yau, abubuwa sun canja.",
           "culturalNote": "Contrast with the past.",
-          "audioId": "zamani"
+          "audioId": ""
         },
         {
           "word": "Canji",
@@ -11325,7 +11528,7 @@
           "pronunciation": "chan-jee",
           "example": "Canji na faruwa a al'adunmu.",
           "culturalNote": "Inevitable evolution.",
-          "audioId": "canji"
+          "audioId": ""
         },
         {
           "word": "Muhimmanci",
@@ -11333,7 +11536,7 @@
           "pronunciation": "moo-heem-man-chee",
           "example": "Muhimmancin al'ada ba ya ƙarewa.",
           "culturalNote": "Value placed on tradition.",
-          "audioId": "muhimmanci"
+          "audioId": ""
         },
         {
           "word": "Girmamawa",
@@ -11341,7 +11544,7 @@
           "pronunciation": "geer-ma-ma-wa",
           "example": "Girmamawa ga dattijai muhimmi ce.",
           "culturalNote": "Key value.",
-          "audioId": "girmamawa"
+          "audioId": ""
         },
         {
           "word": "Haɗin kai",
@@ -11349,7 +11552,7 @@
           "pronunciation": "ha-deen kai",
           "example": "Haɗin kai yana cikin al'adarmu.",
           "culturalNote": "Community bonds.",
-          "audioId": "ha_in_kai"
+          "audioId": ""
         },
         {
           "word": "Tarihi",
@@ -11357,7 +11560,7 @@
           "pronunciation": "ta-ree-hee",
           "example": "Tarihinmu yana koya mana.",
           "culturalNote": "Learning from the past.",
-          "audioId": "tarihi"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -11385,25 +11588,29 @@
           "speaker": "Grandfather",
           "text": "A da, muna tafiya ƙasa don neman ruwa.",
           "translation": "In the past, we walked far to fetch water.",
-          "audioContext": "past"
+          "audioContext": "past",
+          "audioId": ""
         },
         {
           "speaker": "Grandson",
           "text": "Yau muna da famfo a gida.",
           "translation": "Today we have taps at home.",
-          "audioContext": "present"
+          "audioContext": "present",
+          "audioId": ""
         },
         {
           "speaker": "Grandfather",
           "text": "Duk da haka, muhimmancin ruwa bai canja ba.",
           "translation": "Nevertheless, the importance of water hasn't changed.",
-          "audioContext": "continuity"
+          "audioContext": "continuity",
+          "audioId": ""
         },
         {
           "speaker": "Grandson",
           "text": "Gaskiya. Al'adarmu tana koya mana godiya.",
           "translation": "True. Our tradition teaches us gratitude.",
-          "audioContext": "agree"
+          "audioContext": "agree",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -11542,7 +11749,7 @@
           "pronunciation": "wa-yar",
           "example": "Wayata ba ta aiki.",
           "culturalNote": "Refers to mobile phone.",
-          "audioId": "wayar"
+          "audioId": ""
         },
         {
           "word": "Saukewa",
@@ -11550,7 +11757,7 @@
           "pronunciation": "sao-ke-wa",
           "example": "Kira ya sauka.",
           "culturalNote": "When a call drops.",
-          "audioId": "saukewa"
+          "audioId": ""
         },
         {
           "word": "Babu hanyar sadarwa",
@@ -11558,7 +11765,7 @@
           "pronunciation": "ba-boo han-yar sa-dar-wa",
           "example": "Babu hanyar sadarwa a nan.",
           "culturalNote": "Common complaint.",
-          "audioId": "babu_hanyar_sadarwa"
+          "audioId": ""
         },
         {
           "word": "Ka sake kira",
@@ -11566,7 +11773,7 @@
           "pronunciation": "ka sa-keh kee-ra",
           "example": "Ka sake kira bayan minti biyar.",
           "culturalNote": "Request to call back.",
-          "audioId": "ka_sake_kira"
+          "audioId": ""
         },
         {
           "word": "Ki sake kira",
@@ -11574,7 +11781,7 @@
           "pronunciation": "kee sa-keh kee-ra",
           "example": "Ki sake kira daga baya.",
           "culturalNote": "Feminine form.",
-          "audioId": "ki_sake_kira"
+          "audioId": ""
         },
         {
           "word": "Ina jin muryarka",
@@ -11582,7 +11789,7 @@
           "pronunciation": "ee-na jin moor-yar-ka",
           "example": "Ina jin muryarka, amma ba kyau.",
           "culturalNote": "When connection is poor.",
-          "audioId": "ina_jin_muryarka"
+          "audioId": ""
         },
         {
           "word": "Na rasa",
@@ -11590,7 +11797,7 @@
           "pronunciation": "na ra-sa",
           "example": "Na rasa kiranka, yi hakuri.",
           "culturalNote": "Apologizing for missed call.",
-          "audioId": "na_rasa"
+          "audioId": ""
         },
         {
           "word": "Bari in kira ka daga baya",
@@ -11598,7 +11805,7 @@
           "pronunciation": "ba-ree in kee-ra ka da-ga ba-ya",
           "example": "Bari in kira ka daga baya, yanzu ina aiki.",
           "culturalNote": "Polite way to postpone.",
-          "audioId": "bari_in_kira_ka_daga_baya"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -11626,25 +11833,29 @@
           "speaker": "Ali",
           "text": "Sannu, ina jin muryarka?",
           "translation": "Hello, can you hear me?",
-          "audioContext": "greeting"
+          "audioContext": "greeting",
+          "audioId": ""
         },
         {
           "speaker": "Musa",
           "text": "Ee, amma ba kyau. Kira ya sauka.",
           "translation": "Yes, but not well. The call dropped.",
-          "audioContext": "problem"
+          "audioContext": "problem",
+          "audioId": ""
         },
         {
           "speaker": "Ali",
           "text": "Babu hanyar sadarwa a nan. Bari in kira ka daga baya.",
           "translation": "There's no network here. Let me call you back later.",
-          "audioContext": "suggestion"
+          "audioContext": "suggestion",
+          "audioId": ""
         },
         {
           "speaker": "Musa",
           "text": "To, na jira. Ka sake kira.",
           "translation": "OK, I'll wait. Call again.",
-          "audioContext": "agree"
+          "audioContext": "agree",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -11783,7 +11994,7 @@
           "pronunciation": "a ga-nee-na",
           "example": "A ganina, wannan ba daidai ba ne.",
           "culturalNote": "Softens the statement.",
-          "audioId": "a_ganina"
+          "audioId": ""
         },
         {
           "word": "Ina tsammanin",
@@ -11791,7 +12002,7 @@
           "pronunciation": "ee-na tsa-ma-neen",
           "example": "Ina tsammanin za mu yi nasara.",
           "culturalNote": "Expresses a thought, not certainty.",
-          "audioId": "ina_tsammanin"
+          "audioId": ""
         },
         {
           "word": "Da ra'ayina",
@@ -11799,7 +12010,7 @@
           "pronunciation": "da ra-ay-ee-na",
           "example": "Da ra'ayina, ya kamata mu jira.",
           "culturalNote": "Another way to give opinion.",
-          "audioId": "da_ra_ayina"
+          "audioId": ""
         },
         {
           "word": "Na yarda",
@@ -11807,7 +12018,7 @@
           "pronunciation": "na yar-da",
           "example": "Na yarda da ra'ayinka.",
           "culturalNote": "Direct agreement.",
-          "audioId": "na_yarda"
+          "audioId": ""
         },
         {
           "word": "Ban yarda ba",
@@ -11815,7 +12026,7 @@
           "pronunciation": "ban yar-da ba",
           "example": "Ban yarda da haka ba.",
           "culturalNote": "Direct disagreement, may need softening.",
-          "audioId": "ban_yarda_ba"
+          "audioId": ""
         },
         {
           "word": "Ina fata",
@@ -11823,7 +12034,7 @@
           "pronunciation": "ee-na fa-ta",
           "example": "Ina fata za ku fahimta.",
           "culturalNote": "Hoping for understanding.",
-          "audioId": "ina_fata"
+          "audioId": ""
         },
         {
           "word": "Wataƙila",
@@ -11831,7 +12042,7 @@
           "pronunciation": "wa-ta-kee-la",
           "example": "Wataƙila ka yi gaskiya.",
           "culturalNote": "Hedging.",
-          "audioId": "wata_ila"
+          "audioId": ""
         },
         {
           "word": "Ba shakka",
@@ -11839,7 +12050,7 @@
           "pronunciation": "ba shak-ka",
           "example": "Ba shakka, wannan kyakkyawa ne.",
           "culturalNote": "Strong affirmation.",
-          "audioId": "ba_shakka"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -11867,31 +12078,36 @@
           "speaker": "Aisha",
           "text": "A ganina, ya kamata mu tafi yanzu.",
           "translation": "In my opinion, we should go now.",
-          "audioContext": "opinion"
+          "audioContext": "opinion",
+          "audioId": ""
         },
         {
           "speaker": "Fatima",
           "text": "Wataƙila, amma ina jin mu jira kadan.",
           "translation": "Maybe, but I feel we should wait a bit.",
-          "audioContext": "disagree"
+          "audioContext": "disagree",
+          "audioId": ""
         },
         {
           "speaker": "Aisha",
           "text": "Me ya sa kike jin haka?",
           "translation": "Why do you feel that way?",
-          "audioContext": "ask"
+          "audioContext": "ask",
+          "audioId": ""
         },
         {
           "speaker": "Fatima",
           "text": "Don ruwa, yana iya sauka.",
           "translation": "Because of rain, it might come down.",
-          "audioContext": "reason"
+          "audioContext": "reason",
+          "audioId": ""
         },
         {
           "speaker": "Aisha",
           "text": "Na gane. To, mu jira.",
           "translation": "I see. OK, let's wait.",
-          "audioContext": "agree"
+          "audioContext": "agree",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
@@ -12030,7 +12246,7 @@
           "pronunciation": "la-ba-ree",
           "example": "Zan ba ku labari mai daɗi.",
           "culturalNote": "Can mean both story and news.",
-          "audioId": "labari"
+          "audioId": ""
         },
         {
           "word": "Wata rana",
@@ -12038,7 +12254,7 @@
           "pronunciation": "wa-ta ra-na",
           "example": "Wata rana, wani mutum ya tafi kasuwa.",
           "culturalNote": "Classic story opener.",
-          "audioId": "wata_rana"
+          "audioId": ""
         },
         {
           "word": "Jarumi",
@@ -12046,7 +12262,7 @@
           "pronunciation": "ja-roo-mee",
           "example": "Jarumin labarinmu shi ne...",
           "culturalNote": "Main character.",
-          "audioId": "jarumi"
+          "audioId": ""
         },
         {
           "word": "Makiya",
@@ -12054,7 +12270,7 @@
           "pronunciation": "ma-kee-ya",
           "example": "Makiya sun yi ƙoƙari su hana shi.",
           "culturalNote": "Antagonists.",
-          "audioId": "makiya"
+          "audioId": ""
         },
         {
           "word": "Daga bisani",
@@ -12062,7 +12278,7 @@
           "pronunciation": "da-ga bee-sa-nee",
           "example": "Daga bisani, ya ci nasara.",
           "culturalNote": "Sequencing.",
-          "audioId": "daga_bisani"
+          "audioId": ""
         },
         {
           "word": "A ƙarshe",
@@ -12070,7 +12286,7 @@
           "pronunciation": "a kar-sheh",
           "example": "A ƙarshe, sun yi farin ciki.",
           "culturalNote": "Conclusion.",
-          "audioId": "a_arshe"
+          "audioId": ""
         },
         {
           "word": "Darasi",
@@ -12078,7 +12294,7 @@
           "pronunciation": "da-ra-see",
           "example": "Darasin wannan labari shi ne...",
           "culturalNote": "Often included at the end.",
-          "audioId": "darasi"
+          "audioId": ""
         },
         {
           "word": "Abin mamaki",
@@ -12086,7 +12302,7 @@
           "pronunciation": "a-been ma-ma-kee",
           "example": "Abin mamaki, shi ne makiya sun zama abokai.",
           "culturalNote": "Plot twist.",
-          "audioId": "abin_mamaki"
+          "audioId": ""
         }
       ],
       "grammarPoints": [
@@ -12115,31 +12331,36 @@
           "speaker": "Grandmother",
           "text": "Wata rana, wani yaro ya tafi daji don neman itace.",
           "translation": "Once upon a time, a boy went to the forest to find firewood.",
-          "audioContext": "opening"
+          "audioContext": "opening",
+          "audioId": ""
         },
         {
           "speaker": "Grandchild",
           "text": "Me ya faru da shi?",
           "translation": "What happened to him?",
-          "audioContext": "curious"
+          "audioContext": "curious",
+          "audioId": ""
         },
         {
           "speaker": "Grandmother",
           "text": "A hanya, ya gamu da wani kurege mai magana.",
           "translation": "On the way, he met a talking rabbit.",
-          "audioContext": "event"
+          "audioContext": "event",
+          "audioId": ""
         },
         {
           "speaker": "Grandchild",
           "text": "Kurege! Abin mamaki!",
           "translation": "A rabbit! Amazing!",
-          "audioContext": "reaction"
+          "audioContext": "reaction",
+          "audioId": ""
         },
         {
           "speaker": "Grandmother",
           "text": "A ƙarshe, suka zama abokai. Darasin labari: taimako yana da kyau.",
           "translation": "Finally, they became friends. The lesson: help is good.",
-          "audioContext": "conclusion"
+          "audioContext": "conclusion",
+          "audioId": ""
         }
       ],
       "culturalNotes": [
