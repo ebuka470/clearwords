@@ -2498,113 +2498,214 @@
     }
 
     // ==================== PRE-GENERATE VOCAB & DIALOGUE ====================
-    async function preGenerateVocabAndDialogue() {
-        const language = appState.user.language;
-        const curriculum = appState.curriculumData[language];
-        
-        if (!curriculum || !curriculum.levels) {
-            alert('No curriculum loaded. Please select a language first.');
-            return;
-        }
-        
-        let total = 0;
-        let generated = 0;
-        let skipped = 0;
-        
-        const texts = [];
-        
-        for (const level of curriculum.levels) {
-            if (level.vocabulary) {
-                for (const vocab of level.vocabulary) {
-                    if (vocab.word) {
-                        texts.push({
-                            text: vocab.word,
-                            type: 'vocabulary',
-                            source: `Level ${level.level} - ${vocab.word}`
-                        });
-                        total++;
-                    }
-                }
-            }
-            
-            if (level.dialogue) {
-                for (const line of level.dialogue) {
-                    if (line.text) {
-                        texts.push({
-                            text: line.text,
-                            type: 'dialogue',
-                            source: `Level ${level.level} - ${line.speaker}: ${line.text.substring(0, 20)}...`
-                        });
-                        total++;
-                    }
-                }
-            }
-        }
-        
-        console.log(`📊 Total texts to process: ${total}`);
-        
-        const progressDiv = document.createElement('div');
-        progressDiv.id = 'pregen-progress';
-        progressDiv.style.cssText = 'position:fixed;bottom:80px;left:10px;right:10px;background:var(--card-bg);border-radius:12px;padding:16px;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,0.3);max-height:300px;overflow-y:auto;';
-        progressDiv.innerHTML = `
-            <div style="font-weight:600;margin-bottom:8px;">🎵 Pre-generating vocabulary & dialogue audio...</div>
-            <div class="progress-bar"><div class="progress-fill" id="pregen-progress-bar" style="width:0%;"></div></div>
-            <div id="pregen-status" style="font-size:13px;color:var(--text-secondary);">0/${total} completed</div>
-            <div id="pregen-detail" style="font-size:12px;color:var(--text-secondary);margin-top:4px;"></div>
-        `;
-        document.body.appendChild(progressDiv);
-        
-        let processed = 0;
-        for (const item of texts) {
-            const cacheKey = getAudioCacheKey(item.text, language, item.type);
-            const exists = await audioExistsInSupabase(cacheKey);
-            
-            const detail = document.getElementById('pregen-detail');
-            if (detail) detail.textContent = `Processing: ${item.source}`;
-            
-            if (exists) {
-                skipped++;
-                processed++;
-                const status = document.getElementById('pregen-status');
-                if (status) status.textContent = `⏭️ ${processed}/${total} - Skipped (cached)`;
-                continue;
-            }
-            
-            try {
-                const status = document.getElementById('pregen-status');
-                if (status) status.textContent = `🔄 ${processed}/${total} - Generating: ${item.source}`;
-                
-                const audioBuffer = await generateWith9jaLingo(item.text, language);
-                await uploadAudioToSupabase(cacheKey, audioBuffer);
-                generated++;
-                
-                const progressBar = document.getElementById('pregen-progress-bar');
-                if (progressBar) {
-                    progressBar.style.width = `${(processed / total) * 100}%`;
-                }
-                processed++;
-                await new Promise(resolve => setTimeout(resolve, 300));
-                
-            } catch (error) {
-                console.error(`❌ Failed: ${item.source}`, error);
-                processed++;
-            }
-            
-            const status = document.getElementById('pregen-status');
-            if (status) {
-                status.textContent = `✅ ${processed}/${total} - ${generated} generated, ${skipped} cached`;
-            }
-        }
-        
-        setTimeout(() => {
-            const div = document.getElementById('pregen-progress');
-            if (div) div.remove();
-        }, 3000);
-        
-        console.log(`\n📊 Done! Generated: ${generated}, Skipped: ${skipped}, Total: ${total}`);
-        alert(`✅ Pre-generation complete!\n\nGenerated: ${generated}\nSkipped: ${skipped}\nTotal: ${total}`);
-    }
+    // ==================== PRE-GENERATE WITH RESUME CAPABILITY ====================
+// This saves progress and can resume if interrupted
 
+async function preGenerateVocabAndDialogue() {
+    const language = appState.user.language;
+    const curriculum = appState.curriculumData[language];
+    
+    if (!curriculum || !curriculum.levels) {
+        alert('No curriculum loaded. Please select a language first.');
+        return;
+    }
+    
+    // ========== GENERATE LIST OF ALL TEXTS ==========
+    const allTexts = [];
+    
+    for (const level of curriculum.levels) {
+        if (level.vocabulary) {
+            for (const vocab of level.vocabulary) {
+                if (vocab.word) {
+                    allTexts.push({
+                        text: vocab.word,
+                        type: 'vocabulary',
+                        level: level.level,
+                        source: `Level ${level.level} - ${vocab.word}`
+                    });
+                }
+            }
+        }
+        
+        if (level.dialogue) {
+            for (const line of level.dialogue) {
+                if (line.text) {
+                    allTexts.push({
+                        text: line.text,
+                        type: 'dialogue',
+                        level: level.level,
+                        source: `Level ${level.level} - ${line.speaker}`
+                    });
+                }
+            }
+        }
+    }
+    
+    const total = allTexts.length;
+    console.log(`📊 Total texts to process: ${total}`);
+    
+    // ========== LOAD PROGRESS FROM LOCALSTORAGE ==========
+    const progressKey = `pregen_progress_${language}`;
+    let progress = JSON.parse(localStorage.getItem(progressKey) || '{}');
+    
+    // Progress structure:
+    // {
+    //   "processed": 0,
+    //   "generated": 0,
+    //   "skipped": 0,
+    //   "completed": [],  // List of completed cache keys
+    //   "failed": [],     // List of failed items
+    //   "lastUpdate": null
+    // }
+    
+    if (progress.processed && progress.processed > 0) {
+        console.log(`🔄 Resuming from previous session...`);
+        console.log(`   Already processed: ${progress.processed}/${total}`);
+        console.log(`   Generated: ${progress.generated}`);
+        console.log(`   Skipped: ${progress.skipped}`);
+        console.log(`   Failed: ${progress.failed?.length || 0}`);
+    }
+    
+    // ========== SETUP UI ==========
+    const progressDiv = document.createElement('div');
+    progressDiv.id = 'pregen-progress';
+    progressDiv.style.cssText = 'position:fixed;bottom:80px;left:10px;right:10px;background:var(--card-bg);border-radius:12px;padding:16px;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,0.3);max-height:300px;overflow-y:auto;';
+    progressDiv.innerHTML = `
+        <div style="font-weight:600;margin-bottom:8px;">🎵 Pre-generating vocabulary & dialogue audio...</div>
+        <div class="progress-bar"><div class="progress-fill" id="pregen-progress-bar" style="width:0%;"></div></div>
+        <div id="pregen-status" style="font-size:13px;color:var(--text-secondary);">0/${total} completed</div>
+        <div id="pregen-detail" style="font-size:12px;color:var(--text-secondary);margin-top:4px;"></div>
+        <div id="pregen-timer" style="font-size:11px;color:var(--text-secondary);margin-top:4px;"></div>
+        <div id="pregen-failed" style="font-size:11px;color:#F44336;margin-top:4px;"></div>
+    `;
+    document.body.appendChild(progressDiv);
+    
+    // ========== PROCESS ==========
+    let processed = progress.processed || 0;
+    let generated = progress.generated || 0;
+    let skipped = progress.skipped || 0;
+    const completedSet = new Set(progress.completed || []);
+    const failedItems = progress.failed || [];
+    
+    // If there were failed items, retry them first
+    const itemsToProcess = [...failedItems, ...allTexts.slice(processed)];
+    const startTime = Date.now();
+    const RATE_LIMIT_DELAY = 1200;
+    
+    // Clean up failed items that are already in the main list
+    const failedTexts = failedItems.map(f => f.text);
+    const uniqueFailed = itemsToProcess.filter((item, index) => {
+        // Only keep first occurrence of each text
+        return itemsToProcess.findIndex(i => i.text === item.text) === index;
+    });
+    
+    let processedCount = processed;
+    
+    for (const item of uniqueFailed) {
+        const cacheKey = getAudioCacheKey(item.text, language, item.type);
+        
+        // Skip if already completed
+        if (completedSet.has(cacheKey)) {
+            skipped++;
+            processedCount++;
+            continue;
+        }
+        
+        // Check if exists in Supabase
+        const exists = await audioExistsInSupabase(cacheKey);
+        if (exists) {
+            completedSet.add(cacheKey);
+            skipped++;
+            processedCount++;
+            await saveProgress(progressKey, processedCount, generated, skipped, completedSet, failedItems);
+            continue;
+        }
+        
+        // Update UI
+        const detail = document.getElementById('pregen-detail');
+        if (detail) detail.textContent = `Processing: ${item.source}`;
+        
+        try {
+            const status = document.getElementById('pregen-status');
+            if (status) status.textContent = `🔄 ${processedCount}/${total} - Generating: ${item.source}`;
+            
+            const audioBuffer = await generateWith9jalingo(item.text, language);
+            await uploadAudioToSupabase(cacheKey, audioBuffer);
+            generated++;
+            completedSet.add(cacheKey);
+            
+            const progressBar = document.getElementById('pregen-progress-bar');
+            if (progressBar) {
+                progressBar.style.width = `${(processedCount / total) * 100}%`;
+            }
+            processedCount++;
+            
+            // Save progress after each success
+            await saveProgress(progressKey, processedCount, generated, skipped, completedSet, failedItems);
+            
+            const elapsed = Math.floor((Date.now() - startTime) / 1000);
+            const remaining = Math.ceil(((total - processedCount) * RATE_LIMIT_DELAY) / 1000);
+            const timer = document.getElementById('pregen-timer');
+            if (timer) timer.textContent = `⏱️ ${elapsed}s elapsed ~ ${remaining}s remaining`;
+            
+            await new Promise(resolve => setTimeout(resolve, RATE_LIMIT_DELAY));
+            
+        } catch (error) {
+            console.error(`❌ Failed: ${item.source}`, error);
+            // Add to failed list for retry
+            if (!failedItems.some(f => f.text === item.text)) {
+                failedItems.push(item);
+            }
+            processedCount++;
+            
+            // Save failed state
+            await saveProgress(progressKey, processedCount, generated, skipped, completedSet, failedItems);
+            
+            const failedEl = document.getElementById('pregen-failed');
+            if (failedEl) failedEl.textContent = `⚠️ ${failedItems.length} items failed - will retry on next run`;
+            
+            // Wait longer on failure
+            await new Promise(resolve => setTimeout(resolve, 3000));
+        }
+        
+        const status = document.getElementById('pregen-status');
+        if (status) {
+            status.textContent = `✅ ${processedCount}/${total} - ${generated} generated, ${skipped} cached`;
+        }
+    }
+    
+    // ========== FINALIZE ==========
+    setTimeout(() => {
+        const div = document.getElementById('pregen-progress');
+        if (div) div.remove();
+    }, 3000);
+    
+    const totalTime = Math.floor((Date.now() - startTime) / 1000);
+    console.log(`\n📊 Done! Generated: ${generated}, Skipped: ${skipped}, Total: ${total}`);
+    console.log(`⏱️ Total time: ${Math.floor(totalTime / 60)}m ${totalTime % 60}s`);
+    
+    // Clear progress on success
+    localStorage.removeItem(progressKey);
+    
+    if (failedItems.length > 0) {
+        alert(`✅ Pre-generation complete!\n\nGenerated: ${generated}\nSkipped: ${skipped}\nTotal: ${total}\n⚠️ ${failedItems.length} items failed - run again to retry`);
+    } else {
+        alert(`✅ Pre-generation complete!\n\nGenerated: ${generated}\nSkipped: ${skipped}\nTotal: ${total}\nTime: ${Math.floor(totalTime / 60)}m ${totalTime % 60}s`);
+    }
+}
+
+// ========== HELPER: SAVE PROGRESS ==========
+async function saveProgress(key, processed, generated, skipped, completedSet, failedItems) {
+    const progress = {
+        processed: processed,
+        generated: generated,
+        skipped: skipped,
+        completed: Array.from(completedSet),
+        failed: failedItems,
+        lastUpdate: new Date().toISOString()
+    };
+    localStorage.setItem(key, JSON.stringify(progress));
+}
     // ==================== AUDIO MANAGER ====================
     const AudioManager = {
       cache: {},
