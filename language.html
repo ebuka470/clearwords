@@ -2410,16 +2410,19 @@
         return `${SUPABASE_URL}/storage/v1/object/public/${SUPABASE_BUCKET}/${cacheKey}`;
     }
 
-    // ==================== GENERATE AUDIO WITH 9JALINGO ====================
-    async function generateWith9jaLingo(text, language) {
-        const voiceCode = NINE_JALINGO_VOICES[language] || 'yo';
-        const speaker = NINE_JALINGO_SPEAKERS[language] || 'titilayo_yo';
-        
-        const response = await fetch(`${NINE_JALINGO_BASE_URL}/v1/audio/speech`, {
+    // ==================== GENERATE AUDIO WITH 9JALINGO (via Proxy) ====================
+async function generateWith9jaLingo(text, language) {
+    const voiceCode = NINE_JALINGO_VOICES[language] || 'yo';
+    const speaker = NINE_JALINGO_SPEAKERS[language] || 'adaeze_yo';
+
+    // Get your backend URL (adjust if different)
+    const BACKEND_URL = 'https://autopost-backend-hbck.onrender.com'; // ← Your backend URL
+
+    try {
+        const response = await fetch(`${BACKEND_URL}/clearwords/tts`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
-                'X-API-Key': NINE_JALINGO_API_KEY
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 text: text,
@@ -2431,13 +2434,20 @@
                 repetition_penalty: 1.1
             })
         });
-        
+
         if (!response.ok) {
             const errorText = await response.text();
-            throw new Error(`9jaLingo API error: ${response.status} - ${errorText}`);
+            throw new Error(`Proxy error: ${response.status} - ${errorText}`);
         }
+
+        // Get audio as ArrayBuffer
         return await response.arrayBuffer();
+
+    } catch (error) {
+        console.error('9jaLingo generation error:', error);
+        throw error;
     }
+}
 
     // ==================== SMART AUDIO PLAYER ====================
     async function playSmartAudio(text, language, type) {
