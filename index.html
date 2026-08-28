@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="TnDUibhkSaSNYx3xuSAzJOVc88OZR071Hav108FyvLQ" />
-    
-  <meta name="description" content="ClearWords - Learn Nigerian Languages. Register for early access!">
+  <meta name="description" content="ClearWords - Learn Nigerian Languages. Register for early access and join the launch webinar!">
   <meta name="theme-color" content="#2E8B57">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗣️</text></svg>">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -184,6 +183,96 @@
     .benefit-desc {
       font-size: 14px;
       color: #666;
+    }
+    
+    /* ====== MISSION SECTION ====== */
+    .mission-section {
+      margin-bottom: 60px;
+      text-align: center;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+    
+    .mission-icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    
+    .mission-title {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      color: #FFD700;
+    }
+    
+    .mission-quote {
+      font-size: 20px;
+      font-style: italic;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+    
+    .mission-stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    
+    .mission-stat {
+      text-align: center;
+    }
+    
+    .mission-stat-value {
+      font-size: 36px;
+      font-weight: 800;
+      color: #FFD700;
+      display: block;
+    }
+    
+    .mission-stat-label {
+      font-size: 14px;
+      opacity: 0.8;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    /* ====== WEBINAR SECTION ====== */
+    .webinar-section {
+      margin-bottom: 60px;
+      text-align: center;
+      padding: 40px;
+      background: linear-gradient(135deg, #FFD700, #FF9800);
+      border-radius: 20px;
+      color: white;
+      box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+    }
+    
+    .webinar-icon {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+    
+    .webinar-title {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    
+    .webinar-date {
+      font-size: 18px;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    
+    .webinar-desc {
+      font-size: 16px;
+      margin-bottom: 20px;
+      opacity: 0.9;
     }
     
     /* ====== FORM SECTION ====== */
@@ -364,6 +453,61 @@
       font-size: 16px;
     }
     
+    /* ====== WEBINAR CTA IN MODAL ====== */
+    .webinar-cta-section {
+      margin: 20px 0;
+      padding: 20px;
+      background: linear-gradient(135deg, #f0f9f0, #e8f5e9);
+      border-radius: 12px;
+      border: 2px solid #4CAF50;
+    }
+    
+    .webinar-cta-icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+    
+    .webinar-cta-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #2E8B57;
+      margin-bottom: 5px;
+    }
+    
+    .webinar-cta-desc {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 15px;
+    }
+    
+    .webinar-cta-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 14px;
+      background: #25D366;
+      color: white;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s;
+      cursor: pointer;
+      border: none;
+    }
+    
+    .webinar-cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+    }
+    
+    .webinar-cta-btn span {
+      font-size: 24px;
+    }
+    
+    /* ====== SHARE SECTION ====== */
     .share-section {
       margin-top: 30px;
       border-top: 1px solid #E0E0E0;
@@ -510,6 +654,18 @@
       .benefits-grid {
         grid-template-columns: 1fr;
       }
+      
+      .mission-stats {
+        gap: 20px;
+      }
+      
+      .mission-stat-value {
+        font-size: 28px;
+      }
+      
+      .webinar-section {
+        padding: 30px 20px;
+      }
     }
     
     @media (max-width: 480px) {
@@ -541,6 +697,14 @@
       .share-btn {
         font-size: 12px;
         padding: 8px 15px;
+      }
+      
+      .mission-title {
+        font-size: 24px;
+      }
+      
+      .mission-quote {
+        font-size: 16px;
       }
     }
   </style>
@@ -606,6 +770,44 @@
           <div class="benefit-desc">Join the pioneer community and help shape the app</div>
         </div>
       </div>
+    </div>
+    
+    <!-- MISSION SECTION -->
+    <div class="mission-section">
+      <div class="mission-icon">🌍</div>
+      <h2 class="mission-title">Our Mission</h2>
+      <p class="mission-quote">"Empowering the next generation through technology-driven education."</p>
+      
+      <div class="mission-stats">
+        <div class="mission-stat">
+          <span class="mission-stat-value">6</span>
+          <span class="mission-stat-label">Languages</span>
+        </div>
+        <div class="mission-stat">
+          <span class="mission-stat-value">200M+</span>
+          <span class="mission-stat-label">Speakers</span>
+        </div>
+        <div class="mission-stat">
+          <span class="mission-stat-value">50</span>
+          <span class="mission-stat-label">Levels</span>
+        </div>
+        <div class="mission-stat">
+          <span class="mission-stat-value">1</span>
+          <span class="mission-stat-label">Mission</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- WEBINAR SECTION -->
+    <div class="webinar-section">
+      <div class="webinar-icon">🎤</div>
+      <h2 class="webinar-title">Launch Day Webinar</h2>
+      <p class="webinar-date">📅 September 1, 2026 | 8:00 AM</p>
+      <p class="webinar-desc">
+        Join us as we discuss our mission to preserve Nigerian languages through technology.
+        Be part of the conversation shaping the future of language learning!
+      </p>
+      <p style="font-size: 14px; margin-top: 15px;">✨ Free for all early registrants ✨</p>
     </div>
     
     <!-- REGISTRATION FORM -->
@@ -678,7 +880,7 @@
         
         <div class="consent">
           <input type="checkbox" id="consent" required>
-          <label for="consent">I agree to be contacted about ClearWords updates and launch details</label>
+          <label for="consent">I agree to be contacted about ClearWords updates and the launch webinar</label>
         </div>
         
         <button type="submit" class="submit-btn" id="submit-btn">
@@ -700,9 +902,22 @@
       <div class="success-icon">🎉</div>
       <h2>You're In!</h2>
       <p class="message">You're #<span id="waitlist-number">---</span> on the waitlist</p>
-      <p class="message" style="font-size: 14px;">
-        We'll email you when ClearWords launches on September 1, 2026!
-      </p>
+      
+      <!-- WEBINAR CTA -->
+      <div class="webinar-cta-section">
+        <div class="webinar-cta-icon">🎤</div>
+        <div class="webinar-cta-title">Join the Launch Webinar!</div>
+        <div class="webinar-cta-desc">
+          📅 September 1, 2026 | 8:00 AM<br>
+          Be part of our mission discussion and get exclusive insights!
+        </div>
+        <a href="https://chat.whatsapp.com/GRbVGYABwflIDjTVK6Hujh?s=cl&p=a&ilr=1" target="_blank" class="webinar-cta-btn">
+          <span>👥</span> Join WhatsApp Group for Webinar
+        </a>
+        <p style="font-size: 12px; color: #666; margin-top: 10px;">
+          Join to get the webinar link and exclusive early access!
+        </p>
+      </div>
       
       <div class="share-section">
         <div class="share-title">📤 Share with Friends</div>
