@@ -2487,7 +2487,7 @@ async function generateWith9jaLingo(text, language) {
     const speaker = NINE_JALINGO_SPEAKERS[language] || 'adaeze_yo';
 
     // Get your backend URL (adjust if different)
-    const BACKEND_URL = 'https://autopost-backend-hbck.onrender.com'; // ← Your backend URL
+    const BACKEND_URL = 'https://clearwords-backend.onrender.com'; // ← Your backend URL
 
     try {
         const response = await fetch(`${BACKEND_URL}/clearwordsapi/tts`, {
@@ -4187,7 +4187,7 @@ async function saveProgress(key, processed, generated, skipped, completedSet, fa
 Use this format: word|translation|pronunciation|example sentence
 Keep it short. Only use real ${lang.name} words.`;
 
-        const vocabResp = await fetch("https://autopost-backend-hbck.onrender.com/clearwordsapi/generate", {
+        const vocabResp = await fetch("https://clearwords-backend.onrender.com/clearwordsapi/generate", {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ prompt: vocabPrompt })
@@ -4252,7 +4252,7 @@ Keep it short. Only use real ${lang.name} words.`;
 Format: Speaker A|Text in ${lang.name}|English translation
 Keep it short and simple.`;
 
-        const dialogueResp = await fetch("https://autopost-backend-hbck.onrender.com/clearwordsapi/generate", {
+        const dialogueResp = await fetch("https://clearwords-backend.onrender.com/clearwordsapi/generate", {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ prompt: dialoguePrompt })
@@ -4293,7 +4293,7 @@ Keep it short and simple.`;
 Format: Title|Content
 Keep each note under 2 sentences.`;
 
-        const cultureResp = await fetch("https://autopost-backend-hbck.onrender.com/clearwordsapi/generate", {
+        const cultureResp = await fetch("https://clearwords-backend.onrender.com/clearwordsapi/generate", {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ prompt: culturePrompt })
@@ -4325,7 +4325,7 @@ Keep each note under 2 sentences.`;
 Format: Question|Option A|Option B|Option C|Option D|Correct Answer (0-3)
 Keep questions simple and related to the topic.`;
 
-        const quizResp = await fetch("https://autopost-backend-hbck.onrender.com/clearwordsapi/generate", {
+        const quizResp = await fetch("https://clearwords-backend.onrender.com/clearwordsapi/generate", {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ prompt: quizPrompt })
@@ -4802,7 +4802,7 @@ Keep questions simple and related to the topic.`;
         const vocabCtx = getFullVocabularyContext();
         const prompt =
           `You are Timmy, a witty Nigerian language tutor. Student: ${appState.user.firstName||'friend'} (Learning ${lang.name} - ${lang.nativeName}). Segment: ${seg}. Progress: ${appState.user.completedLevels.length}/50.\n\nVOCABULARY REFERENCE (use these exact translations):\n${vocabCtx}\n\nCRITICAL: Only use translations from the reference above. Never make up translations.\n\nHistory: ${getChatContext()}\n\nMessage: ${userMessage}\n\nRespond as JSON: {"paragraph1":"intro to response","paragraph2":"main response with accurate translations"}`;
-        const resp = await fetch("https://autopost-backend-hbck.onrender.com/clearwordsapi/generate", {
+        const resp = await fetch("https://clearwords-backend.onrender.com/clearwordsapi/generate", {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ prompt })
