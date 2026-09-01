@@ -2320,7 +2320,7 @@
 
     // ==================== 9JALINGO + SUPABASE CONFIG ====================
     // REPLACE WITH YOUR ACTUAL KEYS
-    const NINE_JALINGO_API_KEY = 'nlg_live_3Ela1hLxyJUtQ3CmuWWKx2QGT8WkdovvSgrnSmpxwiQ6Rk1mUvOvSyl8W2EroPMT';
+    const NINE_JALINGO_API_KEY = 'nlg_live_XrTPU1fQFHTTyFbbRk0OXXulu8cyG5_qWtmvYoXbwxshV94ftyGFNRSZuh-qHRft';
     const NINE_JALINGO_BASE_URL = 'https://api.9jalingo.org';
     const SUPABASE_URL = 'https://megxgmsivslzdxaqxxpl.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1lZ3hnbXNpdnNsemR4YXF4eHBsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ0NzA4MzIsImV4cCI6MjEwMDA0NjgzMn0.hJmwvrXhhGADlHxkciTzq2TgQo25QCdKv142at9_jyw';
@@ -2452,14 +2452,42 @@
     return result;
 }
 
+    // Check whether an audio object exists WITHOUT downloading the MP3.
+    // Supabase Storage provides a public object-info endpoint for this.
+    // 200 = exists, 404 = missing. Any other status is treated as a real
+    // error so the pre-generator does NOT accidentally regenerate existing
+    // audio and waste 9jaLingo credits.
     async function audioExistsInSupabase(cacheKey) {
+        const encodedPath = cacheKey
+            .split('/')
+            .map(part => encodeURIComponent(part))
+            .join('/');
+
+        const infoUrl = `${SUPABASE_URL}/storage/v1/object/info/public/${SUPABASE_BUCKET}/${encodedPath}`;
+
         try {
-            const response = await fetch(`${SUPABASE_URL}/storage/v1/object/public/${SUPABASE_BUCKET}/${cacheKey}`, {
-                method: 'HEAD'
+            const response = await fetch(infoUrl, {
+                method: 'GET',
+                cache: 'no-store'
             });
-            return response.ok;
-        } catch (e) {
-            return false;
+
+            if (response.ok) {
+                console.log(`✅ Supabase audio exists: ${cacheKey}`);
+                return true;
+            }
+
+            if (response.status === 404) {
+                console.log(`🆕 Supabase audio missing: ${cacheKey}`);
+                return false;
+            }
+
+            const errorText = await response.text().catch(() => '');
+            throw new Error(
+                `Supabase object-info check failed: ${response.status}${errorText ? ` - ${errorText}` : ''}`
+            );
+        } catch (error) {
+            console.error(`❌ Supabase existence check failed for ${cacheKey}:`, error);
+            throw error;
         }
     }
 
