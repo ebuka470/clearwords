@@ -2454,44 +2454,11 @@
 
     async function audioExistsInSupabase(cacheKey) {
         try {
-            // Use Supabase Storage's object-info endpoint. This checks the
-            // object's metadata only and does NOT download the MP3.
-            // The public-info endpoint is appropriate because the `audio`
-            // bucket is used through public object URLs elsewhere in the app.
-            const url = `${SUPABASE_URL}/storage/v1/object/info/public/${SUPABASE_BUCKET}/${cacheKey}`;
-
-            const response = await fetch(url, {
-                method: 'GET',
-                headers: {
-                    'apikey': SUPABASE_ANON_KEY,
-                    'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
-                },
-                cache: 'no-store'
+            const response = await fetch(`${SUPABASE_URL}/storage/v1/object/public/${SUPABASE_BUCKET}/${cacheKey}`, {
+                method: 'HEAD'
             });
-
-            if (response.ok) {
-                const info = await response.json();
-                console.log(`✅ Already in Supabase: ${cacheKey}`, {
-                    size: info?.metadata?.size,
-                    mimeType: info?.metadata?.mimetype
-                });
-                return true;
-            }
-
-            // A 404 means the exact object is not present.
-            if (response.status === 404) {
-                console.log(`🆕 Not in Supabase: ${cacheKey}`);
-                return false;
-            }
-
-            // Other errors mean the existence check itself failed. Do not
-            // silently treat those as missing, because that could cause
-            // unnecessary 9jaLingo generations and duplicate uploads.
-            const errorText = await response.text().catch(() => '');
-            console.warn(`⚠️ Supabase object-info check failed (${response.status}) for ${cacheKey}: ${errorText}`);
-            return false;
+            return response.ok;
         } catch (e) {
-            console.warn(`⚠️ Supabase object-info check failed for ${cacheKey}:`, e);
             return false;
         }
     }
