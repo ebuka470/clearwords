@@ -495,6 +495,28 @@
       border-color: var(--primary);
       background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1) 0%, rgba(var(--accent1-rgb), 0.1) 100%);
     }
+
+    /* Languages that are visible but not yet available */
+    .language-option.language-disabled {
+      filter: blur(2.5px);
+      opacity: 0.55;
+      cursor: not-allowed !important;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .language-option.language-disabled:hover {
+      transform: none;
+      border-color: var(--border);
+      box-shadow: none;
+    }
+
+    .language-option.language-disabled .language-name::after {
+      content: '  • Coming soon';
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
     .language-emoji {
       font-size: 32px;
       margin-right: 20px;
@@ -1773,12 +1795,12 @@
           <div class="language-name">Igbo</div>
           <div class="language-stats">34M+ speakers</div>
         </div>
-        <div class="language-option" onclick="selectLanguage('urhobo', event)">
+        <div class="language-option language-disabled" aria-disabled="true" tabindex="-1">
           <div class="language-emoji">⚓</div>
           <div class="language-name">Urhobo</div>
           <div class="language-stats">2M+ speakers</div>
         </div>
-        <div class="language-option" onclick="selectLanguage('itsekiri', event)">
+        <div class="language-option language-disabled" aria-disabled="true" tabindex="-1">
           <div class="language-emoji">⚖️</div>
           <div class="language-name">Itsekiri</div>
           <div class="language-stats">1M+ speakers</div>
@@ -3371,16 +3393,16 @@ async function saveProgress(key, processed, generated, skipped, completedSet, fa
     };
     const languageConfigs = {
       yoruba: { name: "Yoruba", nativeName: "Yorùbá", emoji: "👑", speakers: "44M+", greeting: "Ẹ káàbọ",
-        jsonFile: "data/yoruba.json" },
+        jsonFile: "data/yoruba.json", available: true },
       hausa: { name: "Hausa", nativeName: "Hausa", emoji: "🕌", speakers: "50M+", greeting: "Sannu",
-        jsonFile: "data/hausa.json" },
-      igbo: { name: "Igbo", nativeName: "Igbo", emoji: "🌍", speakers: "34M+", greeting: "Nnọọ", jsonFile: "data/igbo.json" },
+        jsonFile: "data/hausa.json", available: true },
+      igbo: { name: "Igbo", nativeName: "Igbo", emoji: "🌍", speakers: "34M+", greeting: "Nnọọ", jsonFile: "data/igbo.json", available: true },
       urhobo: { name: "Urhobo", nativeName: "Urhobo", emoji: "⚓", speakers: "2M+", greeting: "Mavo",
-        jsonFile: "data/urhobo.json" },
+        jsonFile: "data/urhobo.json", available: false },
       itsekiri: { name: "Itsekiri", nativeName: "Itsekiri", emoji: "⚖️", speakers: "1M+", greeting: "Welọ",
-        jsonFile: "data/itsekiri.json" },
+        jsonFile: "data/itsekiri.json", available: false },
       pidgin: { name: "Pidgin", nativeName: "Naija Pidgin", emoji: "🗣️", speakers: "75M+", greeting: "How far?",
-        jsonFile: "data/pidgin.json" }
+        jsonFile: "data/pidgin.json", available: true }
     };
     const challengeTemplates = [
       { title: "Complete 1 Lesson", icon: "📚", xp: 20, requirement: { type: 'lessons', count: 1 } },
@@ -3396,7 +3418,67 @@ async function saveProgress(key, processed, generated, skipped, completedSet, fa
       selectedSegment = null,
       selectedLanguage = null;
 
-    function showOnboarding() {
+    function clearOnboardingForm() {
+      ['firstName', 'lastName', 'email', 'phone'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.value = '';
+      });
+      document.querySelectorAll('#step3 .segment-option, #step4 .language-option').forEach(el => {
+        el.classList.remove('selected');
+      });
+      const step3Next = document.getElementById('step3-next');
+      const step4Next = document.getElementById('step4-next');
+      if (step3Next) step3Next.disabled = true;
+      if (step4Next) step4Next.disabled = true;
+    }
+
+    /*
+     * A fresh onboarding must never inherit learning progress from the
+     * language that was active before the restart. Identity fields are
+     * retained only when the user is switching/re-onboarding in the same
+     * session; the form itself is cleared so the flow is genuinely fresh.
+     */
+    function resetLearningStateForFreshOnboarding() {
+      const u = appState.user;
+      u.segment = null;
+      u.language = null;
+      u.completedLevels = [];
+      u.currentLevel = 1;
+      u.totalXP = 0;
+      u.streak = 0;
+      u.dailyCompleted = 0;
+      u.dailyChallenges = [];
+      u.dailyChallengesCompleted = [];
+      u.lastChallengeGen = null;
+      u.lastActive = null;
+      u.createdAt = null;
+      u.favorites = [];
+      u.progress = {};
+      u.achievements = [];
+      u.perfectScores = 0;
+      u.customLessons = [];
+      u.customLessonsToday = 0;
+      u.customLessonsDate = null;
+      appState.currentPage = 'home';
+      appState.currentLesson = null;
+      appState.currentLessonData = null;
+      appState.lessonCardIndex = 0;
+      appState.testAnswers = [];
+      appState.languageToSwitch = null;
+      appState.switchOption = null;
+      appState.segmentToSwitch = null;
+      appState.filteredLevels = 'all';
+      appState.searchQuery = '';
+      appState.timmyChats = {};
+      appState.currentTimmyChatId = null;
+      appState.timmyView = 'list';
+      selectedSegment = null;
+      selectedLanguage = null;
+    }
+
+    function showOnboarding({ fresh = false } = {}) {
+      if (fresh) resetLearningStateForFreshOnboarding();
+
       document.getElementById('loading').style.opacity = '0';
       setTimeout(() => {
         document.getElementById('loading').style.display = 'none';
@@ -3405,6 +3487,7 @@ async function saveProgress(key, processed, generated, skipped, completedSet, fa
         currentStep = 1;
         selectedSegment = null;
         selectedLanguage = null;
+        clearOnboardingForm();
         updateOnboardingSteps();
       }, 500);
     }
@@ -3436,50 +3519,291 @@ async function saveProgress(key, processed, generated, skipped, completedSet, fa
       ev.currentTarget.classList.add('selected');
       document.getElementById('step3-next').disabled = false; }
 
-    function selectLanguage(lang, ev) { selectedLanguage = lang;
+    function selectLanguage(lang, ev) {
+      if (!languageConfigs[lang]?.available) return;
+      selectedLanguage = lang;
       document.querySelectorAll('#step4 .language-option').forEach(e => e.classList.remove('selected'));
       ev.currentTarget.classList.add('selected');
-      document.getElementById('step4-next').disabled = false; }
+      document.getElementById('step4-next').disabled = false;
+    }
 
     function completeOnboarding() {
-      if (!selectedSegment || !selectedLanguage) { alert('Please select both.'); return; }
+      if (!selectedSegment || !selectedLanguage || !languageConfigs[selectedLanguage]?.available) {
+        alert('Please select both.');
+        return;
+      }
+
       const uid = localStorage.getItem('clearWordsUserId') || ('user_' + Date.now());
       localStorage.setItem('clearWordsUserId', uid);
+
       appState.user.id = uid;
       appState.user.segment = selectedSegment;
       appState.user.language = selectedLanguage;
       appState.user.createdAt = new Date().toISOString();
       appState.user.lastActive = new Date().toISOString().split('T')[0];
+
+      // Always start the selected language with a clean learning state.
+      appState.user.completedLevels = [];
+      appState.user.currentLevel = 1;
+      appState.user.totalXP = 0;
+      appState.user.progress = {};
       appState.user.achievements = [];
+      appState.user.perfectScores = 0;
+      appState.user.customLessons = [];
+      appState.user.customLessonsToday = 0;
+      appState.user.customLessonsDate = null;
+      appState.user.dailyChallenges = [];
+      appState.user.dailyChallengesCompleted = [];
+      appState.user.lastChallengeGen = null;
+      appState.user.streak = 0;
+      appState.user.dailyCompleted = 0;
+      appState.timmyChats = {};
+      appState.currentTimmyChatId = null;
+      appState.currentLesson = null;
+      appState.currentLessonData = null;
+
       generateDailyChallenges();
       saveState();
-      sendRegistrationData();
+
+      // Registration is intentionally non-blocking. The queue is persisted
+      // locally and retried independently for Google Sheets and EmailJS.
+      queueRegistrationData();
+
+      // Let the user enter the app immediately. Curriculum loading is also
+      // non-blocking and has its existing local fallback.
+      document.getElementById('onboarding').style.display = 'none';
+      document.getElementById('app').style.display = 'block';
+      initializeApp();
+      showPage('home');
+      updateURL('home');
+
       loadCurriculum(selectedLanguage, () => {
-        document.getElementById('onboarding').style.display = 'none';
-        initializeApp();
-        document.getElementById('app').style.display = 'block';
-        showPage('home');
-        updateURL('home');
+        if (appState.user.language === selectedLanguage) {
+          generateLevels();
+          updateUserUI();
+        }
       });
     }
 
-    function showOnboardingAgain() { if (confirm("Restart?")) { document.getElementById('app').style.display = 'none';
-        document.getElementById('onboarding').style.display = 'block';
-        currentStep = 1;
-        selectedSegment = null;
-        selectedLanguage = null;
-        updateOnboardingSteps(); } }
+    function showOnboardingAgain() {
+      if (!confirm("Restart onboarding? Your current learning progress will be cleared and the new language will start from Level 1.")) return;
+
+      resetLearningStateForFreshOnboarding();
+      saveState();
+
+      document.getElementById('app').style.display = 'none';
+      document.getElementById('onboarding').style.display = 'block';
+      currentStep = 1;
+      selectedSegment = null;
+      selectedLanguage = null;
+      clearOnboardingForm();
+      updateOnboardingSteps();
+    }
 
     // ==================== GOOGLE SHEETS & EMAILJS ====================
-    async function sendRegistrationData() {
+    /*
+     * Registration delivery is deliberately decoupled from onboarding.
+     *
+     * The registration record is first saved to localStorage. Google Sheets
+     * and EmailJS are then attempted independently. A failure in either
+     * service can never block the user from entering the app. Failed jobs
+     * remain in the queue and are retried with exponential backoff.
+     */
+    const REGISTRATION_QUEUE_KEY = 'clearWordsRegistrationQueue';
+    const REGISTRATION_MAX_ATTEMPTS = 12;
+    let registrationRetryTimer = null;
+    let registrationQueueRunning = false;
+
+    function readRegistrationQueue() {
+      try {
+        const raw = localStorage.getItem(REGISTRATION_QUEUE_KEY);
+        const parsed = raw ? JSON.parse(raw) : [];
+        return Array.isArray(parsed) ? parsed : [];
+      } catch (e) {
+        console.warn('Could not read registration retry queue:', e);
+        return [];
+      }
+    }
+
+    function writeRegistrationQueue(queue) {
+      try {
+        localStorage.setItem(REGISTRATION_QUEUE_KEY, JSON.stringify(queue));
+      } catch (e) {
+        console.warn('Could not persist registration retry queue:', e);
+      }
+    }
+
+    function queueRegistrationData() {
       const u = appState.user;
-      const payload = { type: "registration", timestamp: new Date().toISOString(), userId: u.id, firstName: u.firstName,
-        lastName: u.lastName, email: u.email, phone: u.phone || "", segment: u.segment, language: u.language };
-      fetch(GOOGLE_SHEETS_URL, { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload) }).catch(() => {});
-      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_REG, { user_id: u.id, first_name: u.firstName, last_name: u
-          .lastName, email: u.email, phone: u.phone || "Not provided", segment: u.segment, language: u.language,
-        registration_date: new Date().toLocaleString() }).catch(() => {});
+      const payload = {
+        type: 'registration',
+        timestamp: new Date().toISOString(),
+        userId: u.id,
+        firstName: u.firstName,
+        lastName: u.lastName,
+        email: u.email,
+        phone: u.phone || '',
+        segment: u.segment,
+        language: u.language
+      };
+
+      const queue = readRegistrationQueue();
+
+      // Avoid duplicate queue entries for the same registration snapshot.
+      const duplicate = queue.some(item =>
+        item.payload?.userId === payload.userId &&
+        item.payload?.email === payload.email &&
+        item.payload?.language === payload.language
+      );
+
+      if (!duplicate) {
+        queue.push({
+          id: `${payload.userId}_${Date.now()}`,
+          payload,
+          emailDone: false,
+          sheetsDone: false,
+          emailAttempts: 0,
+          sheetsAttempts: 0,
+          createdAt: Date.now(),
+          nextAttemptAt: Date.now()
+        });
+        writeRegistrationQueue(queue);
+      }
+
+      // Kick off delivery without awaiting it.
+      processRegistrationQueue();
+    }
+
+    // Kept as a compatibility wrapper for any other code that calls it.
+    function sendRegistrationData() {
+      queueRegistrationData();
+    }
+
+    function registrationBackoff(attempts) {
+      return Math.min(5 * 60 * 1000, Math.max(2 * 1000, 2 ** attempts * 1000));
+    }
+
+    async function processRegistrationQueue() {
+      if (registrationQueueRunning) return;
+      registrationQueueRunning = true;
+
+      try {
+        let queue = readRegistrationQueue();
+        let changed = false;
+        const now = Date.now();
+
+        for (const item of queue) {
+          if (!item?.payload) {
+            item.emailDone = true;
+            item.sheetsDone = true;
+            changed = true;
+            continue;
+          }
+
+          if (item.nextAttemptAt && item.nextAttemptAt > now) continue;
+
+          // Google Sheets attempt
+          if (!item.sheetsDone && item.sheetsAttempts < REGISTRATION_MAX_ATTEMPTS) {
+            try {
+              await fetch(GOOGLE_SHEETS_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(item.payload),
+                keepalive: true
+              });
+              item.sheetsDone = true;
+              changed = true;
+            } catch (error) {
+              item.sheetsAttempts = (item.sheetsAttempts || 0) + 1;
+              changed = true;
+              console.warn(`Google Sheets registration attempt ${item.sheetsAttempts} failed.`, error);
+            }
+          }
+
+          // EmailJS attempt — independent of Sheets
+          if (!item.emailDone && item.emailAttempts < REGISTRATION_MAX_ATTEMPTS) {
+            try {
+              if (!window.emailjs || typeof window.emailjs.send !== 'function') {
+                throw new Error('EmailJS is not available yet.');
+              }
+
+              await window.emailjs.send(
+                EMAILJS_SERVICE_ID,
+                EMAILJS_TEMPLATE_REG,
+                {
+                  user_id: item.payload.userId,
+                  first_name: item.payload.firstName,
+                  last_name: item.payload.lastName,
+                  email: item.payload.email,
+                  phone: item.payload.phone || 'Not provided',
+                  segment: item.payload.segment,
+                  language: item.payload.language,
+                  registration_date: new Date(item.payload.timestamp).toLocaleString()
+                }
+              );
+
+              item.emailDone = true;
+              changed = true;
+            } catch (error) {
+              item.emailAttempts = (item.emailAttempts || 0) + 1;
+              changed = true;
+              console.warn(`EmailJS registration attempt ${item.emailAttempts} failed.`, error);
+            }
+          }
+
+          const sheetsFinished = item.sheetsDone || item.sheetsAttempts >= REGISTRATION_MAX_ATTEMPTS;
+          const emailFinished = item.emailDone || item.emailAttempts >= REGISTRATION_MAX_ATTEMPTS;
+
+          if (item.sheetsDone && item.emailDone) {
+            item.completedAt = Date.now();
+            item.nextAttemptAt = null;
+            changed = true;
+          } else if (!sheetsFinished || !emailFinished) {
+            const attempts = Math.max(item.sheetsAttempts || 0, item.emailAttempts || 0);
+            item.nextAttemptAt = Date.now() + registrationBackoff(attempts);
+            changed = true;
+          } else {
+            // Both channels exhausted. Keep the record for a while rather than
+            // blocking onboarding; a later retry can be manually triggered.
+            item.nextAttemptAt = null;
+          }
+        }
+
+        // Remove only fully delivered records. Keep failed records for retry.
+        queue = queue.filter(item => !(item.sheetsDone && item.emailDone));
+        if (changed) writeRegistrationQueue(queue);
+
+        scheduleRegistrationRetry(queue);
+      } finally {
+        registrationQueueRunning = false;
+      }
+    }
+
+    function scheduleRegistrationRetry(queue = readRegistrationQueue()) {
+      if (registrationRetryTimer) {
+        clearTimeout(registrationRetryTimer);
+        registrationRetryTimer = null;
+      }
+
+      const pending = queue.filter(item => item && !(item.sheetsDone && item.emailDone));
+      if (!pending.length) return;
+
+      const nextAt = pending
+        .map(item => item.nextAttemptAt || Date.now())
+        .sort((a, b) => a - b)[0];
+
+      registrationRetryTimer = setTimeout(() => {
+        registrationRetryTimer = null;
+        processRegistrationQueue();
+      }, Math.max(1000, nextAt - Date.now()));
+    }
+
+    function retryPendingRegistrations() {
+      const queue = readRegistrationQueue();
+      queue.forEach(item => { item.nextAttemptAt = Date.now(); });
+      writeRegistrationQueue(queue);
+      processRegistrationQueue();
     }
     async function sendFeedbackData(rating, message) {
       const u = appState.user;
@@ -4818,30 +5142,65 @@ Keep questions simple and related to the topic.`;
     function closeModal(id) { document.getElementById(id).classList.remove('active');
       document.body.style.overflow = ''; }
 
-    function showLanguageSelector() { const c = document.getElementById('language-options');
+    function showLanguageSelector() {
+      const c = document.getElementById('language-options');
       c.innerHTML = '';
-      Object.entries(languageConfigs).forEach(([k, v]) => { const isCur = k === appState.user.language; const o =
-          document.createElement('div');
-        o.className = `language-option ${isCur?'selected':''}`;
-        o.onclick = (e) => selectLanguageInModal(k, e);
+      appState.languageToSwitch = null;
+      appState.switchOption = null;
+
+      Object.entries(languageConfigs).forEach(([k, v]) => {
+        const isCur = k === appState.user.language;
+        const isDisabled = v.available === false;
+        const o = document.createElement('div');
+
+        o.className = `language-option ${isCur ? 'selected' : ''} ${isDisabled ? 'language-disabled' : ''}`;
+        o.setAttribute('aria-disabled', isDisabled ? 'true' : 'false');
+
+        if (!isDisabled) {
+          o.tabIndex = 0;
+          o.onclick = (e) => selectLanguageInModal(k, e);
+          o.onkeydown = (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              selectLanguageInModal(k, e);
+            }
+          };
+        } else {
+          o.tabIndex = -1;
+        }
+
         o.innerHTML =
           `<div class="language-emoji">${v.emoji}</div><div class="language-name">${v.name}</div><div class="language-stats">${v.speakers}</div>`;
-        c.appendChild(o); });
-      showModal('language-modal'); }
+        c.appendChild(o);
+      });
 
-    function selectLanguageInModal(l, e) { if (l === appState.user.language) return;
+      const confirmBtn = document.getElementById('confirm-language-btn');
+      if (confirmBtn) confirmBtn.disabled = true;
+      showModal('language-modal');
+    }
+
+    function selectLanguageInModal(l, e) {
+      if (!languageConfigs[l]?.available || l === appState.user.language) return;
       appState.languageToSwitch = l;
       document.querySelectorAll('#language-modal .language-option').forEach(o => o.classList.remove('selected'));
       e.currentTarget.classList.add('selected');
-      document.getElementById('confirm-language-btn').disabled = false; }
+      document.getElementById('confirm-language-btn').disabled = false;
+    }
 
-    function filterLanguages() { const q = document.getElementById('language-search').value.toLowerCase();
-      document.querySelectorAll('#language-modal .language-option').forEach(o => o.style.display = o.textContent
-        .toLowerCase().includes(q) ? 'flex' : 'none'); }
+    function filterLanguages() {
+      const q = document.getElementById('language-search').value.toLowerCase();
+      document.querySelectorAll('#language-modal .language-option').forEach(o => {
+        o.style.display = o.textContent.toLowerCase().includes(q) ? 'flex' : 'none';
+      });
+    }
 
-    function confirmLanguageSwitch() { if (!appState.languageToSwitch) return; if (appState.user.completedLevels.length)
+    function confirmLanguageSwitch() {
+      if (!appState.languageToSwitch || !languageConfigs[appState.languageToSwitch]?.available) return;
+      if (appState.user.completedLevels.length)
         showModal('language-warning-modal');
-      else switchLanguage(appState.languageToSwitch, 'preserve'); }
+      else
+        switchLanguage(appState.languageToSwitch, 'preserve');
+    }
 
     function selectSwitchOption(o, e) { appState.switchOption = o;
       document.querySelectorAll('.confirmation-option').forEach(el => el.classList.remove('selected'));
@@ -4854,24 +5213,58 @@ Keep questions simple and related to the topic.`;
       closeModal('language-modal'); }
 
     function switchLanguage(nl, opt) {
+      if (!languageConfigs[nl]?.available) return;
+
       const ol = appState.user.language;
-      if (opt === 'preserve') { appState.user.progress[ol] = { completedLevels: [...appState.user.completedLevels],
-          currentLevel: appState.user.currentLevel, totalXP: appState.user.totalXP }; if (appState.user.progress[nl]) {
+
+      if (opt === 'preserve') {
+        appState.user.progress = appState.user.progress || {};
+        if (ol && languageConfigs[ol]?.available) {
+          appState.user.progress[ol] = {
+            completedLevels: [...(appState.user.completedLevels || [])],
+            currentLevel: appState.user.currentLevel || 1,
+            totalXP: appState.user.totalXP || 0
+          };
+        }
+
+        if (appState.user.progress[nl]) {
           appState.user.completedLevels = appState.user.progress[nl].completedLevels || [];
           appState.user.currentLevel = appState.user.progress[nl].currentLevel || 1;
-          appState.user.totalXP = appState.user.progress[nl].totalXP || 0; } else { appState.user.completedLevels = [];
+          appState.user.totalXP = appState.user.progress[nl].totalXP || 0;
+        } else {
+          appState.user.completedLevels = [];
           appState.user.currentLevel = 1;
-          appState.user.totalXP = 0; } } else { appState.user.completedLevels = [];
+          appState.user.totalXP = 0;
+        }
+      } else {
+        appState.user.completedLevels = [];
         appState.user.currentLevel = 1;
-        appState.user.totalXP = 0; }
+        appState.user.totalXP = 0;
+        appState.user.progress = appState.user.progress || {};
+        delete appState.user.progress[nl];
+      }
+
       appState.user.language = nl;
       appState.user.customLessons = [];
       appState.user.customLessonsToday = 0;
       appState.user.customLessonsDate = null;
-      loadCurriculum(nl, () => { saveState();
+      appState.user.dailyChallenges = [];
+      appState.user.dailyChallengesCompleted = [];
+      appState.user.lastChallengeGen = null;
+      appState.currentLesson = null;
+      appState.currentLessonData = null;
+      appState.testAnswers = [];
+      appState.lessonCardIndex = 0;
+
+      saveState();
+
+      loadCurriculum(nl, () => {
+        if (appState.user.language !== nl) return;
+        saveState();
         updateUserUI();
         generateLevels();
-        alert(`Switched to ${languageConfigs[nl].name}!`); });
+        alert(`Switched to ${languageConfigs[nl].name}!`);
+      });
     }
 
     function showSegmentSelector() { const c = document.getElementById('segment-options');
@@ -4932,7 +5325,7 @@ Keep questions simple and related to the topic.`;
       showModal('progress-modal');
     }
 
-    function exportProgress() { const d = { version: '2.2.0', exportDate: new Date().toISOString(), user: appState.user };
+    function exportProgress() { const d = { version: '2.3.0', exportDate: new Date().toISOString(), user: appState.user };
       const b = new Blob([JSON.stringify(d)], { type: 'application/json' });
       const a = document.createElement('a');
       a.href = URL.createObjectURL(b);
@@ -5074,8 +5467,19 @@ Keep questions simple and related to the topic.`;
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-      emailjs.init(EMAILJS_PUBLIC_KEY);
+      try {
+        if (window.emailjs && typeof window.emailjs.init === 'function') {
+          window.emailjs.init(EMAILJS_PUBLIC_KEY);
+        }
+      } catch (e) {
+        console.warn('EmailJS initialization failed. Registration will retry in the background.', e);
+      }
+
       if (!localStorage.getItem('clearWordsUserId')) localStorage.setItem('clearWordsUserId', 'user_' + Date.now());
+
+      // Retry any registration deliveries left from a previous session.
+      setTimeout(() => processRegistrationQueue(), 1000);
+      window.addEventListener('online', retryPendingRegistrations);
       simulateLoading();
       setTimeout(() => {
         const saved = localStorage.getItem('clearWordsState');
@@ -5111,6 +5515,7 @@ Keep questions simple and related to the topic.`;
     window.selectLanguage = selectLanguage;
     window.completeOnboarding = completeOnboarding;
     window.showOnboardingAgain = showOnboardingAgain;
+    window.retryPendingRegistrations = retryPendingRegistrations;
     window.showPage = showPage;
     window.startLesson = startLesson;
     window.filterLevels = filterLevels;
