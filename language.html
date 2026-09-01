@@ -1794,11 +1794,7 @@
           <div class="language-emoji">🌍</div>
           <div class="language-name">Igbo</div>
           <div class="language-stats">34M+ speakers</div>
-        </div>        
-        <div class="language-option" onclick="selectLanguage('pidgin', event)">
-          <div class="language-emoji">🗣️</div>
-          <div class="language-name">Pidgin</div>
-          <div class="language-stats">75M+ speakers</div>
+        </div>
         <div class="language-option language-disabled" aria-disabled="true" tabindex="-1">
           <div class="language-emoji">⚓</div>
           <div class="language-name">Urhobo</div>
@@ -1809,6 +1805,10 @@
           <div class="language-name">Itsekiri</div>
           <div class="language-stats">1M+ speakers</div>
         </div>
+        <div class="language-option" onclick="selectLanguage('pidgin', event)">
+          <div class="language-emoji">🗣️</div>
+          <div class="language-name">Pidgin</div>
+          <div class="language-stats">75M+ speakers</div>
         </div>
         <div style="margin-top: 30px; display: flex; gap: 10px; justify-content: center;">
           <button class="btn" onclick="prevStep()" style="background: var(--border);">Back</button>
@@ -2454,11 +2454,44 @@
 
     async function audioExistsInSupabase(cacheKey) {
         try {
-            const response = await fetch(`${SUPABASE_URL}/storage/v1/object/public/${SUPABASE_BUCKET}/${cacheKey}`, {
-                method: 'HEAD'
+            // Use Supabase Storage's object-info endpoint. This checks the
+            // object's metadata only and does NOT download the MP3.
+            // The public-info endpoint is appropriate because the `audio`
+            // bucket is used through public object URLs elsewhere in the app.
+            const url = `${SUPABASE_URL}/storage/v1/object/info/public/${SUPABASE_BUCKET}/${cacheKey}`;
+
+            const response = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    'apikey': SUPABASE_ANON_KEY,
+                    'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+                },
+                cache: 'no-store'
             });
-            return response.ok;
+
+            if (response.ok) {
+                const info = await response.json();
+                console.log(`✅ Already in Supabase: ${cacheKey}`, {
+                    size: info?.metadata?.size,
+                    mimeType: info?.metadata?.mimetype
+                });
+                return true;
+            }
+
+            // A 404 means the exact object is not present.
+            if (response.status === 404) {
+                console.log(`🆕 Not in Supabase: ${cacheKey}`);
+                return false;
+            }
+
+            // Other errors mean the existence check itself failed. Do not
+            // silently treat those as missing, because that could cause
+            // unnecessary 9jaLingo generations and duplicate uploads.
+            const errorText = await response.text().catch(() => '');
+            console.warn(`⚠️ Supabase object-info check failed (${response.status}) for ${cacheKey}: ${errorText}`);
+            return false;
         } catch (e) {
+            console.warn(`⚠️ Supabase object-info check failed for ${cacheKey}:`, e);
             return false;
         }
     }
