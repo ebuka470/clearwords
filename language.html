@@ -1702,7 +1702,51 @@
         transition-duration: 0.01ms !important;
       }
     }
-  </style>
+  
+    /* ==================== COMMUNITY AUDIO ==================== */
+    .community-audio-card { overflow: hidden; }
+    .community-audio-header { display:flex; align-items:flex-start; justify-content:space-between; gap:14px; margin-bottom:16px; }
+    .community-audio-title { font-size:17px; font-weight:700; }
+    .community-audio-subtitle { color:var(--text-secondary); font-size:13px; line-height:1.45; margin-top:4px; }
+    .community-audio-count { min-width:34px; height:34px; padding:0 9px; border-radius:17px; display:flex; align-items:center; justify-content:center; background:rgba(46,139,87,.12); color:#2E8B57; font-weight:800; font-size:13px; }
+    .community-audio-suggestion { border:1px solid var(--border); background:var(--bg); border-radius:16px; padding:18px; }
+    .community-audio-kicker,.community-section-label { font-size:10px; font-weight:800; letter-spacing:.08em; color:var(--text-secondary); text-transform:uppercase; }
+    .community-audio-word { font-size:30px; font-weight:800; margin-top:8px; line-height:1.15; word-break:break-word; }
+    .community-audio-translation { font-size:14px; color:var(--text-secondary); margin-top:5px; }
+    .community-audio-actions { display:flex; gap:9px; margin-top:16px; }
+    .community-audio-actions .btn { flex:1; }
+    .community-record-btn.recording { background:#d64545 !important; }
+    .community-record-status { min-height:18px; margin-top:10px; font-size:12px; color:var(--text-secondary); }
+    .community-my-recordings { margin-top:20px; }
+    #community-recordings-list { margin-top:8px; display:flex; flex-direction:column; gap:8px; }
+    .community-recording-row { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:10px 12px; border-radius:12px; background:var(--bg); }
+    .community-recording-info { min-width:0; }
+    .community-recording-text { font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .community-recording-meta { font-size:11px; color:var(--text-secondary); margin-top:2px; }
+    .community-recording-play { flex:0 0 auto; border:0; border-radius:10px; padding:8px 10px; background:var(--card); color:var(--text); cursor:pointer; }
+    .community-empty { color:var(--text-secondary); font-size:12px; padding:8px 0; }
+    .community-recording-preview { margin-top:12px; width:100%; }
+    .community-consent { display:flex; gap:9px; align-items:flex-start; margin-top:13px; font-size:11px; color:var(--text-secondary); line-height:1.45; }
+    .community-consent input { margin-top:2px; }
+    .community-daily-progress { margin-top:10px; font-size:12px; font-weight:700; color:var(--primary); }
+    .community-daily-suggestions { margin-top:14px; display:flex; flex-direction:column; gap:8px; max-height:360px; overflow:auto; }
+    .community-suggestion-row { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:10px 12px; border:1px solid var(--border); border-radius:12px; background:var(--card); transition:.15s; }
+    .community-suggestion-info { display:flex; align-items:center; gap:10px; min-width:0; flex:1; }
+    .community-suggestion-number { width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:var(--bg); font-size:11px; font-weight:800; flex:0 0 auto; }
+    .community-suggestion-word { font-weight:700; word-break:break-word; }
+    .community-suggestion-meta { font-size:11px; color:var(--text-secondary); margin-top:2px; }
+    .community-suggestion-actions { display:flex; gap:6px; flex:0 0 auto; align-items:center; }
+    .community-record-mini, .community-record-play { border:0; border-radius:9px; padding:8px 9px; background:var(--bg); color:var(--text); cursor:pointer; }
+    .community-record-mini.recording { background:#d64545 !important; color:#fff !important; }
+    .community-suggestion-status { font-size:11px; color:var(--text-secondary); margin-top:5px; }
+    .community-recorded-today { margin-top:12px; display:flex; flex-direction:column; gap:6px; }
+    .community-recorded-title { font-size:10px; font-weight:800; letter-spacing:.08em; color:var(--text-secondary); text-transform:uppercase; margin-bottom:2px; }
+    .community-recorded-row { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:8px 10px; border-radius:10px; background:rgba(46,139,87,.08); }
+    .community-recorded-word { font-weight:700; font-size:13px; }
+    .community-recorded-badge { font-size:11px; font-weight:800; color:#2E8B57; }
+    .lesson-record-missing { width:100%; margin-top:2px; font-size:12px; }
+    @media (max-width:480px) { .community-audio-actions { flex-direction:column; } }
+</style>
 </head>
 <body class="light-theme">
   <div id="loading">
@@ -2010,6 +2054,35 @@
           <div style="font-size: 16px; font-weight: 600;" id="total-xp">0 XP</div>
         </div>
       </div>
+      <div class="card community-audio-card" id="community-audio-card">
+        <div class="community-audio-header">
+          <div>
+            <div class="community-audio-title">🎙️ Community Audio</div>
+            <div class="community-audio-subtitle">Help ClearWords collect natural voices for Nigerian languages.</div>
+          </div>
+          <div class="community-audio-count" id="community-audio-count">0</div>
+        </div>
+
+        <div class="community-audio-suggestion" id="community-audio-suggestion">
+          <div class="community-audio-kicker">TODAY'S RECORDING SUGGESTIONS</div>
+          <div class="community-audio-word" id="community-audio-word">Loading…</div>
+          <div class="community-audio-translation" id="community-audio-translation">Finding today’s recording targets…</div>
+          <div class="community-daily-progress" id="community-daily-progress"></div>
+          <div id="community-daily-suggestions" class="community-daily-suggestions"></div>
+          <div id="community-recorded-today" class="community-recorded-today"></div>
+          <div class="community-record-status" id="community-record-status"></div>
+        </div>
+
+        <div class="community-my-recordings" id="community-my-recordings">
+          <div class="community-section-label">Your contributions</div>
+          <div id="community-recordings-list"><div class="community-empty">Your submitted recordings will appear here.</div></div>
+        </div>
+
+        <div class="community-audio-note">
+          Record a natural pronunciation, preview it, then submit. Your recording is saved to ClearWords community audio.
+        </div>
+      </div>
+
       <div class="card">
         <div style="font-size: 16px; font-weight: 600; margin-bottom: 15px;">Appearance</div>
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding: 12px; background: var(--bg); border-radius: 10px; cursor: pointer;" onclick="toggleTheme()">
@@ -2320,7 +2393,7 @@
 
     // ==================== 9JALINGO + SUPABASE CONFIG ====================
     // REPLACE WITH YOUR ACTUAL KEYS
-    const NINE_JALINGO_API_KEY = 'nlg_live_S3YD6dbFPY7Mgm1_ofetMfn3-7yKWrreak4ik9rnWcGn8o6iVCE_d9LK7ziTho5k';
+    // 9jaLingo credentials stay on the Render backend. Never expose the API key in the browser.
     const NINE_JALINGO_BASE_URL = 'https://api.9jalingo.org';
     const SUPABASE_URL = 'https://megxgmsivslzdxaqxxpl.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1lZ3hnbXNpdnNsemR4YXF4eHBsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ0NzA4MzIsImV4cCI6MjEwMDA0NjgzMn0.hJmwvrXhhGADlHxkciTzq2TgQo25QCdKv142at9_jyw';
@@ -2373,7 +2446,10 @@
         perfectScores: 0,
         customLessons: [],
         customLessonsToday: 0,
-        customLessonsDate: null
+        customLessonsDate: null,
+        communityDailySuggestions: [],
+        communityDailySuggestionDate: null,
+        communityRecordingXP: 0
       },
       currentPage: 'home',
       currentLesson: null,
@@ -2453,10 +2529,26 @@
 }
 
     async function audioExistsInSupabase(cacheKey) {
+        // Supabase public HEAD requests can return 400 even when an object exists.
+        // Check Storage's object listing first, then fall back to a normal request.
         try {
-            const response = await fetch(`${SUPABASE_URL}/storage/v1/object/public/${SUPABASE_BUCKET}/${cacheKey}`, {
-                method: 'HEAD'
+            const parts = cacheKey.split('/');
+            const filename = parts.pop();
+            const prefix = parts.join('/') + '/';
+            const listResponse = await fetch(`${SUPABASE_URL}/storage/v1/object/list/${SUPABASE_BUCKET}`, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                    'apikey': SUPABASE_ANON_KEY,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ prefix, limit: 1000, offset: 0 })
             });
+            if (listResponse.ok) {
+                const items = await listResponse.json();
+                if (Array.isArray(items) && items.some(item => item.name === filename)) return true;
+            }
+            const response = await fetch(`${SUPABASE_URL}/storage/v1/object/public/${SUPABASE_BUCKET}/${cacheKey}`, { method: 'GET' });
             return response.ok;
         } catch (e) {
             return false;
@@ -2520,39 +2612,157 @@ async function generateWith9jaLingo(text, language) {
     }
 }
 
+    // ==================== COMMUNITY AUDIO + SMART AUDIO PLAYER ====================
+    const COMMUNITY_AUDIO_TARGETS = { vocabulary: 10, phrase: 10, dialogue: 5 };
+    let communityAudioState = {
+        currentSuggestion: null,
+        mediaRecorder: null,
+        stream: null,
+        chunks: [],
+        recordingStartedAt: null,
+        previewBlob: null,
+        previewUrl: null,
+        busy: false,
+        targetStatusId: 'community-record-status',
+        targetButtonId: 'community-record-btn',
+        ttsGraceTimers: {}
+    };
+
+    function communityContributorId() {
+        let id = localStorage.getItem('clearwordsCommunityContributorId');
+        if (!id) {
+            id = (crypto && crypto.randomUUID) ? crypto.randomUUID() : `cw_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+            localStorage.setItem('clearwordsCommunityContributorId', id);
+        }
+        return id;
+    }
+
+    function communityContributionKey() {
+        return 'clearwordsCommunityContributions';
+    }
+
+    function getCommunityContributions() {
+        try { return JSON.parse(localStorage.getItem(communityContributionKey()) || '[]'); }
+        catch (_) { return []; }
+    }
+
+    function saveCommunityContributions(items) {
+        localStorage.setItem(communityContributionKey(), JSON.stringify(items.slice(-100)));
+    }
+
+    function communitySlug(text, language, type='vocabulary') {
+        const officialKey = getAudioCacheKey(text, language, type);
+        const prefix = `${language}/${type}/`;
+        return officialKey.startsWith(prefix) ? officialKey.slice(prefix.length).replace(/\.mp3$/i,'') : officialKey.replace(/[^a-z0-9_]/gi,'_');
+    }
+
+    function communityAudioPath(text, language, type, recordingId) {
+        return `community/${language}/${type}/${communitySlug(text, language, type)}/${recordingId}.webm`;
+    }
+
+    function communityMetadataPath(text, language, type, recordingId) {
+        return `community-meta/${language}/${type}/${communitySlug(text, language, type)}/${recordingId}.json`;
+    }
+
+    function communityStorageUrl(path) {
+        return `${SUPABASE_URL}/storage/v1/object/public/${SUPABASE_BUCKET}/${path}`;
+    }
+
+    async function uploadCommunityObject(path, blob, contentType) {
+        const response = await fetch(`${SUPABASE_URL}/storage/v1/object/${SUPABASE_BUCKET}/${path}`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                'apikey': SUPABASE_ANON_KEY,
+                'Content-Type': contentType,
+                'x-upsert': 'false'
+            },
+            body: blob
+        });
+        if (!response.ok) {
+            const body = await response.text().catch(()=>'');
+            throw new Error(`Supabase upload failed: ${response.status}${body ? ` - ${body}` : ''}`);
+        }
+        return true;
+    }
+
+    async function listCommunityRecordings(text, language, type='vocabulary') {
+        const prefix = `community/${language}/${type}/${communitySlug(text, language, type)}`;
+        try {
+            const response = await fetch(`${SUPABASE_URL}/storage/v1/object/list/${SUPABASE_BUCKET}`, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                    'apikey': SUPABASE_ANON_KEY,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ prefix, limit: 10, offset: 0, sortBy: { column: 'created_at', order: 'desc' } })
+            });
+            if (!response.ok) return [];
+            const items = await response.json();
+            return Array.isArray(items) ? items.filter(x => x.name && /\.(webm|mp3|wav|ogg)$/i.test(x.name)) : [];
+        } catch (e) {
+            console.warn('Community audio list unavailable:', e);
+            return [];
+        }
+    }
+
+    async function getBestCommunityAudio(text, language, type='vocabulary') {
+        const files = await listCommunityRecordings(text, language, type);
+        if (!files.length) return null;
+        // V1 selection: newest usable recording. V1.5 can rank by validation/confidence.
+        return { path: `${`community/${language}/${type}/${communitySlug(text, language, type)}`}/${files[0].name}`, url: communityAudioPathToUrl(language,type,text,files[0].name) };
+    }
+
+    function communityAudioPathToUrl(language, type, text, name) {
+        return communityStorageUrl(`community/${language}/${type}/${communitySlug(text, language, type)}/${name}`);
+    }
+
+    async function playCommunityAudio(text, language, type='vocabulary') {
+        const result = await getBestCommunityAudio(text, language, type);
+        if (!result) return false;
+        try {
+            const audio = new Audio(result.url);
+            await audio.play();
+            window._clearWordsActiveAudio = audio;
+            return true;
+        } catch (e) {
+            console.warn('Community audio playback failed:', e);
+            return false;
+        }
+    }
+
     // ==================== SMART AUDIO PLAYER ====================
     async function playSmartAudio(text, language, type) {
         if (!text || text.trim() === '') return false;
-        
-        if (window.speechSynthesis) {
-            window.speechSynthesis.cancel();
-        }
-        
+        if (window.speechSynthesis) window.speechSynthesis.cancel();
+        if (window._clearWordsActiveAudio) { try { window._clearWordsActiveAudio.pause(); } catch (_) {} }
         const cleanText = text.replace(/<[^>]*>/g, '').trim();
         if (!cleanText) return false;
-        
         const cacheKey = getAudioCacheKey(cleanText, language, type);
         const publicUrl = getSupabaseAudioUrl(cacheKey);
-        
         try {
-            const exists = await audioExistsInSupabase(cacheKey);
-            
-            if (exists) {
+            // 1. Existing official audio
+            if (await audioExistsInSupabase(cacheKey)) {
                 const audio = new Audio(publicUrl);
-                audio.play();
-                console.log(`✅ Played from Supabase: ${cleanText}`);
+                await audio.play();
+                window._clearWordsActiveAudio = audio;
+                console.log(`✅ Played official Supabase audio: ${cleanText}`);
                 return true;
             }
-            
-            console.log(`🎤 Generating: ${cleanText}`);
+            // 2. Community human recording
+            if (await playCommunityAudio(cleanText, language, type)) {
+                console.log(`🎙️ Played community audio: ${cleanText}`);
+                return true;
+            }
+            // 3. Existing TTS fallback/generation. Generated audio is still cached using the existing official path.
+            console.log(`🎤 No stored human audio. Generating fallback: ${cleanText}`);
             const audioBuffer = await generateWith9jaLingo(cleanText, language);
             await uploadAudioToSupabase(cacheKey, audioBuffer);
-            console.log(`📤 Uploaded: ${cacheKey}`);
-            
             const audio = new Audio(publicUrl);
-            audio.play();
+            await audio.play();
+            window._clearWordsActiveAudio = audio;
             return true;
-            
         } catch (error) {
             console.error('Smart audio error:', error);
             if (window.speechSynthesis) {
@@ -2564,6 +2774,358 @@ async function generateWith9jaLingo(text, language) {
             }
             return false;
         }
+    }
+
+    // ==================== COMMUNITY CONTRIBUTION UI ====================
+    function getContributionCandidates() {
+        const language = appState.user.language;
+        const curriculum = appState.curriculumData[language];
+        if (!curriculum?.levels) return [];
+        const out = [];
+        for (const level of curriculum.levels) {
+            for (const vocab of (level.vocabulary || [])) {
+                if (vocab?.word) out.push({ text: vocab.word, translation: vocab.translation || '', type: 'vocabulary', level: level.level });
+            }
+            for (const line of (level.dialogue || [])) {
+                if (line?.text) out.push({ text: line.text, translation: line.translation || '', type: 'dialogue', level: level.level });
+            }
+        }
+        return out;
+    }
+
+    const COMMUNITY_DAILY_SUGGESTION_MIN = 5;
+    const COMMUNITY_DAILY_SUGGESTION_MAX = 10;
+
+    function communitySuggestionKey(x) {
+        return `${x.language}|${x.type}|${x.text}`;
+    }
+
+    async function getDailyCommunitySuggestions() {
+        const language = appState.user.language;
+        const today = new Date().toISOString().split('T')[0];
+        if (appState.user.communityDailySuggestionDate === today && Array.isArray(appState.user.communityDailySuggestions) && appState.user.communityDailySuggestions.length) return appState.user.communityDailySuggestions;
+        const candidates = getContributionCandidates();
+        if (!candidates.length) return [];
+        const contributions = getCommunityContributions();
+        const ownKeys = new Set(contributions.map(communitySuggestionKey));
+        const unseen = candidates.filter(x => !ownKeys.has(communitySuggestionKey({ ...x, language })));
+        const pool = (unseen.length >= COMMUNITY_DAILY_SUGGESTION_MIN ? unseen : candidates).slice();
+        pool.sort(() => Math.random() - 0.5);
+        const count = Math.min(pool.length, COMMUNITY_DAILY_SUGGESTION_MIN + Math.floor(Math.random() * (COMMUNITY_DAILY_SUGGESTION_MAX - COMMUNITY_DAILY_SUGGESTION_MIN + 1)));
+        const selected = pool.slice(0, count);
+        appState.user.communityDailySuggestions = selected;
+        appState.user.communityDailySuggestionDate = today;
+        saveState();
+        return selected;
+    }
+
+    async function chooseCommunitySuggestion() {
+        const list = await getDailyCommunitySuggestions();
+        return list[0] || null;
+    }
+
+    function getTodayCommunityRecordingKeys() {
+        const contributions = getCommunityContributions();
+        const language = appState.user.language;
+        const today = new Date().toISOString().split('T')[0];
+        return new Set(contributions.filter(x =>
+            x.language === language && String(x.createdAt || '').startsWith(today)
+        ).map(communitySuggestionKey));
+    }
+
+    function renderDailyCommunitySuggestions(list) {
+        const container = document.getElementById('community-daily-suggestions');
+        const recordedContainer = document.getElementById('community-recorded-today');
+        const progressEl = document.getElementById('community-daily-progress');
+        if (!container) return;
+
+        const recordedKeys = getTodayCommunityRecordingKeys();
+        const recordedToday = list.filter(s => recordedKeys.has(communitySuggestionKey({ ...s, language: appState.user.language })));
+        const active = list.filter(s => !recordedKeys.has(communitySuggestionKey({ ...s, language: appState.user.language })));
+        const totalTarget = 10;
+        const completed = Math.min(totalTarget, recordedToday.length);
+        if (progressEl) progressEl.textContent = completed >= totalTarget ? '🎉 10/10 recordings completed today!' : `🎙️ ${completed}/${totalTarget} recordings completed today`;
+
+        if (!active.length) {
+            container.innerHTML = completed >= totalTarget
+                ? '<div class="community-empty">You’ve completed today’s recording goal.</div>'
+                : '<div class="community-empty">All current suggestions are recorded. Loading more…</div>';
+        } else {
+            container.innerHTML = active.map((s, i) => {
+                const originalIndex = list.indexOf(s);
+                return `
+                <div class="community-suggestion-row" data-suggestion-index="${originalIndex}">
+                  <div class="community-suggestion-info">
+                    <div class="community-suggestion-number">${i + 1}</div>
+                    <div style="min-width:0;flex:1;">
+                      <div class="community-suggestion-word">${escapeHtml(s.text)}</div>
+                      <div class="community-suggestion-meta">${escapeHtml(s.translation || '')} · ${escapeHtml(languageConfigs[s.language || appState.user.language]?.name || appState.user.language)}</div>
+                      <div class="community-suggestion-status" id="community-suggestion-status-${originalIndex}"></div>
+                    </div>
+                  </div>
+                  <div class="community-suggestion-actions">
+                    <button class="community-record-play" onclick="playSuggestedCommunityWord(${originalIndex})">🔊</button>
+                    <button class="community-record-mini" id="community-suggestion-record-${originalIndex}" onclick="startCommunitySuggestionRecording(${originalIndex})">🎙️ Record</button>
+                  </div>
+                </div>`;
+            }).join('');
+        }
+
+        if (recordedContainer) {
+            recordedContainer.innerHTML = recordedToday.length ? `
+              <div class="community-recorded-title">Recorded today</div>
+              ${recordedToday.map(s => `
+                <div class="community-recorded-row">
+                  <div class="community-recorded-word">${escapeHtml(s.text)}</div>
+                  <div class="community-recorded-badge">✓ Recorded</div>
+                </div>`).join('')}` : '';
+        }
+    }
+
+    async function refreshCommunitySuggestion() {
+        let list = await getDailyCommunitySuggestions();
+        const recordedKeys = getTodayCommunityRecordingKeys();
+        const completed = list.filter(s => recordedKeys.has(communitySuggestionKey({ ...s, language: appState.user.language }))).length;
+
+        // Keep feeding the recommendation list from the day's pool until the 10-recording goal is complete.
+        if (completed < 10) {
+            const candidates = getContributionCandidates();
+            const existing = new Set(list.map(s => communitySuggestionKey({ ...s, language: appState.user.language })));
+            const available = candidates.filter(s => {
+                const key = communitySuggestionKey({ ...s, language: appState.user.language });
+                return !existing.has(key) && !recordedKeys.has(key);
+            }).sort(() => Math.random() - 0.5);
+            const need = Math.max(0, 10 - list.length);
+            if (need && available.length) {
+                list = list.concat(available.slice(0, need));
+                appState.user.communityDailySuggestions = list;
+                saveState();
+            }
+        }
+
+        communityAudioState.currentSuggestion = list.find(s => !recordedKeys.has(communitySuggestionKey({ ...s, language: appState.user.language }))) || null;
+        renderDailyCommunitySuggestions(list);
+        const wordEl = document.getElementById('community-audio-word');
+        const translationEl = document.getElementById('community-audio-translation');
+        const active = list.filter(s => !recordedKeys.has(communitySuggestionKey({ ...s, language: appState.user.language })));
+        if (wordEl) wordEl.textContent = active.length ? `${active.length} recordings left in today’s list` : 'Today’s list complete';
+        if (translationEl) translationEl.textContent = active.length ? 'Record any word directly from its row.' : 'Come back tomorrow for a new set of recording suggestions.';
+        const countEl = document.getElementById('community-audio-count');
+        if (countEl) countEl.textContent = getCommunityContributions().filter(x => x.language === appState.user.language).length;
+    }
+
+    function selectCommunitySuggestion(index) {
+        const list = appState.user.communityDailySuggestions || [];
+        const s = list[index];
+        if (!s) return;
+        communityAudioState.currentSuggestion = s;
+        const wordEl = document.getElementById('community-audio-word');
+        const translationEl = document.getElementById('community-audio-translation');
+        if (wordEl) wordEl.textContent = s.text;
+        if (translationEl) translationEl.textContent = s.translation || `${languageConfigs[appState.user.language]?.name || appState.user.language} · Level ${s.level}`;
+    }
+
+    async function startCommunitySuggestionRecording(index) {
+        const list = appState.user.communityDailySuggestions || [];
+        const s = list[index];
+        if (!s) return;
+        const button = document.getElementById(`community-suggestion-record-${index}`);
+        const statusId = `community-suggestion-status-${index}`;
+        setCommunityRecordingTarget(s, statusId, `community-suggestion-record-${index}`);
+        selectCommunitySuggestion(index);
+        await startCommunityRecording();
+        // Keep the stop control beside this exact word while recording.
+        const activeButton = document.getElementById(`community-suggestion-record-${index}`);
+        if (communityAudioState.mediaRecorder?.state === 'recording' && activeButton) {
+            activeButton.textContent = '⏹️ Stop';
+            activeButton.classList.add('recording');
+        }
+    }
+
+    async function playSuggestedCommunityWord(index = null) {
+        if (index !== null) selectCommunitySuggestion(index);
+        const s = communityAudioState.currentSuggestion;
+        if (!s) return;
+        const ok = await playSmartAudio(s.text, appState.user.language, s.type);
+        if (!ok) showToast('Audio could not be played.');
+    }
+
+    function setCommunityRecordingTarget(suggestion, statusId = 'community-record-status', buttonId = 'community-record-btn') {
+        communityAudioState.currentSuggestion = suggestion;
+        communityAudioState.targetStatusId = statusId;
+        communityAudioState.targetButtonId = buttonId;
+    }
+
+    async function recordLessonWord(level, index) {
+        const ld = appState.currentLessonData;
+        const w = ld?.vocabulary?.[index];
+        if (!w?.word) return;
+        const suggestion = { text: w.word, translation: w.translation || '', type: 'vocabulary', level };
+        cancelLessonTTSTimer(appState.user.language, 'vocabulary', w.word);
+        setCommunityRecordingTarget(suggestion, `lesson-record-status-${level}-${index}`, `lesson-record-btn-${level}-${index}`);
+        await startCommunityRecording();
+    }
+
+    async function recordLessonDialogue(level, index) {
+      const ld = appState.currentLessonData;
+      const line = ld?.dialogue?.[index];
+      if (!line?.text) return;
+      const suggestion = { text: line.text, translation: line.translation || '', type: 'dialogue', level };
+      cancelLessonTTSTimer(appState.user.language, 'dialogue', line.text);
+      setCommunityRecordingTarget(suggestion, `lesson-dialogue-record-status-${level}-${index}`, `lesson-dialogue-record-btn-${level}-${index}`);
+      await startCommunityRecording();
+    }
+
+    function getSupportedRecorderMimeType() {
+        const candidates = ['audio/webm;codecs=opus','audio/webm','audio/ogg;codecs=opus','audio/mp4'];
+        return candidates.find(type => window.MediaRecorder && MediaRecorder.isTypeSupported(type)) || '';
+    }
+
+    async function startCommunityRecording() {
+        const btn = document.getElementById(communityAudioState.targetButtonId || 'community-record-btn');
+        const status = document.getElementById(communityAudioState.targetStatusId || 'community-record-status');
+        if (!btn || communityAudioState.busy) return;
+        if (!navigator.mediaDevices?.getUserMedia || !window.MediaRecorder) {
+            showToast('Your browser does not support voice recording.');
+            return;
+        }
+        if (!communityAudioState.currentSuggestion) {
+            await refreshCommunitySuggestion();
+            if (!communityAudioState.currentSuggestion) return;
+        }
+        cancelLessonTTSTimer(
+          appState.user.language,
+          communityAudioState.currentSuggestion.type || 'vocabulary',
+          communityAudioState.currentSuggestion.text
+        );
+        if (communityAudioState.mediaRecorder?.state === 'recording') {
+            stopCommunityRecording();
+            return;
+        }
+        // Recording eligibility/consent is intentionally explicit.
+        const eligible = confirm('Before recording: please confirm you are eligible to contribute under ClearWords\'s voice-contribution terms and have permission to submit this recording. Continue?');
+        if (!eligible) return;
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            const mimeType = getSupportedRecorderMimeType();
+            const recorder = mimeType ? new MediaRecorder(stream, { mimeType }) : new MediaRecorder(stream);
+            communityAudioState.stream = stream;
+            communityAudioState.mediaRecorder = recorder;
+            communityAudioState.chunks = [];
+            communityAudioState.recordingStartedAt = Date.now();
+            recorder.ondataavailable = e => { if (e.data?.size) communityAudioState.chunks.push(e.data); };
+            recorder.onstop = () => finishCommunityRecording(recorder.mimeType || mimeType || 'audio/webm');
+            recorder.start();
+            btn.textContent = '⏹️ Stop recording';
+            btn.classList.add('recording');
+            status.textContent = 'Recording… speak naturally, then stop when finished.';
+        } catch (e) {
+            console.error('Microphone error:', e);
+            showToast('Microphone access was not granted.');
+        }
+    }
+
+    function stopCommunityRecording() {
+        const recorder = communityAudioState.mediaRecorder;
+        if (recorder?.state === 'recording') recorder.stop();
+        if (communityAudioState.stream) communityAudioState.stream.getTracks().forEach(t => t.stop());
+        communityAudioState.stream = null;
+    }
+
+    function finishCommunityRecording(mimeType) {
+        const btn = document.getElementById(communityAudioState.targetButtonId || 'community-record-btn');
+        const status = document.getElementById(communityAudioState.targetStatusId || 'community-record-status');
+        if (btn) { btn.textContent = '🎙️ Record'; btn.classList.remove('recording'); }
+        const duration = communityAudioState.recordingStartedAt ? Math.round((Date.now() - communityAudioState.recordingStartedAt) / 1000) : 0;
+        const blob = new Blob(communityAudioState.chunks, { type: mimeType });
+        communityAudioState.mediaRecorder = null;
+        communityAudioState.recordingStartedAt = null;
+        communityAudioState.chunks = [];
+        if (duration < 1 || blob.size < 1000) { status.textContent = 'Recording was too short. Try again.'; return; }
+        if (duration > 15) { status.textContent = 'Keep recordings under 15 seconds.'; return; }
+        if (communityAudioState.previewUrl) URL.revokeObjectURL(communityAudioState.previewUrl);
+        communityAudioState.previewBlob = blob;
+        communityAudioState.previewDuration = duration;
+        communityAudioState.previewUrl = URL.createObjectURL(blob);
+        status.innerHTML = `<div>Preview your recording:</div><audio class="community-recording-preview" controls src="${communityAudioState.previewUrl}"></audio><label class="community-consent"><input type="checkbox" id="community-submit-consent"> <span>I confirm I have permission to submit this voice recording and agree that ClearWords may store and use it as community language-learning audio.</span></label><button class="btn" style="width:100%;margin-top:10px;" onclick="submitCommunityRecording()">Submit recording</button>`;
+    }
+
+    async function submitCommunityRecording() {
+        const s = communityAudioState.currentSuggestion;
+        const blob = communityAudioState.previewBlob;
+        const consent = document.getElementById('community-submit-consent');
+        const status = document.getElementById(communityAudioState.targetStatusId || 'community-record-status');
+        if (!s || !blob) { showToast('Record something first.'); return; }
+        if (!consent?.checked) { showToast('Please confirm the recording permission before submitting.'); return; }
+        if (communityAudioState.busy) return;
+        communityAudioState.busy = true;
+        status.textContent = 'Saving your recording to ClearWords…';
+        try {
+            const id = (crypto && crypto.randomUUID) ? crypto.randomUUID() : `rec_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+            const language = appState.user.language;
+            const audioPath = communityAudioPath(s.text, language, s.type, id);
+            const extensionType = blob.type || 'audio/webm';
+            const metadata = {
+                recordingId: id, contributorId: communityContributorId(), language, type: s.type,
+                text: s.text, translation: s.translation || '', level: s.level || null,
+                audioPath, audioUrl: communityStorageUrl(audioPath), mimeType: extensionType,
+                durationSeconds: communityAudioState.previewDuration || 0, createdAt: new Date().toISOString(),
+                status: 'community', confidence: 0, validationCount: 0, consentConfirmed: true
+            };
+            await uploadCommunityObject(audioPath, blob, extensionType);
+            const metaBlob = new Blob([JSON.stringify(metadata, null, 2)], { type:'application/json' });
+            await uploadCommunityObject(communityMetadataPath(s.text, language, s.type, id), metaBlob, 'application/json');
+            const contributions = getCommunityContributions();
+            contributions.push(metadata);
+            saveCommunityContributions(contributions);
+            const recordingXP = 10;
+            appState.user.totalXP = (appState.user.totalXP || 0) + recordingXP;
+            appState.user.communityRecordingXP = (appState.user.communityRecordingXP || 0) + recordingXP;
+            updateChallengeProgress('community_recordings', 1);
+            checkAchievements();
+            saveState();
+            const countEl = document.getElementById('community-audio-count');
+            if (countEl) countEl.textContent = contributions.filter(x => x.language === language).length;
+            status.textContent = `Saved permanently. +${recordingXP} XP 🎉`;
+            showToast(`🎙️ Recording submitted! +${recordingXP} XP`);
+            communityAudioState.previewBlob = null;
+            if (communityAudioState.previewUrl) URL.revokeObjectURL(communityAudioState.previewUrl);
+            communityAudioState.previewUrl = null;
+            renderMyCommunityRecordings();
+            await refreshCommunitySuggestion();
+        } catch (e) {
+            console.error('Community recording submission failed:', e);
+            status.textContent = 'Could not save this recording. Check Supabase Storage permissions and try again.';
+            showToast('❌ Recording could not be saved.');
+        } finally { communityAudioState.busy = false; }
+    }
+
+    function renderMyCommunityRecordings() {
+        const el = document.getElementById('community-recordings-list');
+        if (!el) return;
+        const mine = getCommunityContributions().filter(x => x.language === appState.user.language).slice(-5).reverse();
+        if (!mine.length) { el.innerHTML = '<div class="community-empty">Your submitted recordings will appear here.</div>'; return; }
+        el.innerHTML = mine.map((r, i) => `<div class="community-recording-row"><div class="community-recording-info"><div class="community-recording-text">${escapeHtml(r.text)}</div><div class="community-recording-meta">${escapeHtml(r.type)} · community audio</div></div><button class="community-recording-play" onclick="playCommunityContribution(${i})">▶️</button></div>`).join('');
+        window._communityRendered = mine;
+    }
+
+    function playCommunityContribution(index) {
+        const r = window._communityRendered?.[index];
+        if (!r?.audioUrl) return;
+        const audio = new Audio(r.audioUrl);
+        audio.play().catch(() => showToast('Could not play this recording.'));
+        window._clearWordsActiveAudio = audio;
+    }
+
+    function escapeHtml(value) {
+        return String(value ?? '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+    }
+
+    function initializeCommunityAudio() {
+        communityAudioState.targetStatusId = 'community-record-status';
+        communityAudioState.targetButtonId = 'community-record-btn';
+        refreshCommunitySuggestion();
+        renderMyCommunityRecordings();
     }
 
     // ==================== GENERATE AND PLAY (Last Resort) ====================
@@ -3078,7 +3640,11 @@ async function saveProgress(key, processed, generated, skipped, completedSet, fa
       { id: 'custom_creator', name: 'Custom Creator', icon: '⚡', description: 'Create your first custom lesson',
         check: () => (appState.user.customLessons || []).length >= 1 },
       { id: 'custom_5', name: 'Lesson Crafter', icon: '🔨', description: 'Create 5 custom lessons', check: () => (
-          appState.user.customLessons || []).filter(l => l.completed).length >= 5 }
+          appState.user.customLessons || []).filter(l => l.completed).length >= 5 },
+      { id: 'voice_first', name: 'Voice Starter', icon: '🎙️', description: 'Submit your first community recording', check: () => getCommunityContributions().filter(x => x.language === appState.user.language).length >= 1 },
+      { id: 'voice_10', name: 'Voice Builder', icon: '🗣️', description: 'Submit 10 community recordings', check: () => getCommunityContributions().filter(x => x.language === appState.user.language).length >= 10 },
+      { id: 'voice_50', name: 'Voice Champion', icon: '🏅', description: 'Submit 50 community recordings', check: () => getCommunityContributions().filter(x => x.language === appState.user.language).length >= 50 },
+      { id: 'voice_100', name: 'Language Voice Keeper', icon: '🏆', description: 'Submit 100 community recordings', check: () => getCommunityContributions().filter(x => x.language === appState.user.language).length >= 100 }
     ];
 
     function checkAchievements() {
@@ -3316,6 +3882,56 @@ async function saveProgress(key, processed, generated, skipped, completedSet, fa
       };
     }
 
+    // ==================== DELAYED TTS GRACE PERIOD ====================
+    // When a specific lesson item has no official/community recording, ClearWords
+    // gives the learner 60 seconds to tap Record before using 9jaLingo TTS.
+    const COMMUNITY_TTS_GRACE_MS = 60 * 1000;
+
+    function getLessonAudioTimerKey(language, type, text) {
+      return `${language}|${type}|${text}`;
+    }
+
+    function cancelLessonTTSTimer(language, type, text) {
+      const key = getLessonAudioTimerKey(language, type, text);
+      const timer = communityAudioState.ttsGraceTimers?.[key];
+      if (timer) {
+        clearTimeout(timer);
+        delete communityAudioState.ttsGraceTimers[key];
+        console.log(`⏹️ Cancelled delayed TTS: ${text}`);
+      }
+    }
+
+    function scheduleLessonTTSAudio(text, language, type, playFn) {
+      const key = getLessonAudioTimerKey(language, type, text);
+      cancelLessonTTSTimer(language, type, text);
+
+      communityAudioState.ttsGraceTimers[key] = setTimeout(async () => {
+        delete communityAudioState.ttsGraceTimers[key];
+
+        // Re-check at the 60-second mark. A recording may have been added
+        // while the timer was waiting, so never call TTS unnecessarily.
+        try {
+          const cacheKey = getAudioCacheKey(text, language, type);
+          if (await audioExistsInSupabase(cacheKey)) {
+            await playFn();
+            return;
+          }
+          const communityFiles = await listCommunityRecordings(text, language, type);
+          if (communityFiles.length) {
+            await playFn();
+            return;
+          }
+        } catch (e) {
+          console.warn('Could not re-check audio before delayed TTS:', text, e);
+        }
+
+        console.log(`⏱️ 60-second recording window ended. Playing TTS: ${text}`);
+        await playFn();
+      }, COMMUNITY_TTS_GRACE_MS);
+
+      return communityAudioState.ttsGraceTimers[key];
+    }
+
     // ==================== playWordAudio ====================
     async function playWordAudio(word, language, level, audioId) {
       console.log('🔊 playWordAudio called:', { word, language, level, audioId });
@@ -3329,6 +3945,39 @@ async function saveProgress(key, processed, generated, skipped, completedSet, fa
         }, 1500);
       }
       
+      // Recording UI is intentionally LAZY: do not show it until the learner
+      // actually tries to play this specific word. If that exact word has no
+      // official/community audio, only its own card gets the Record button.
+      try {
+        const cacheKey = getAudioCacheKey(word, language, 'vocabulary');
+        const officialExists = await audioExistsInSupabase(cacheKey);
+        if (!officialExists) {
+          const communityFiles = await listCommunityRecordings(word, language, 'vocabulary');
+          if (!communityFiles.length) {
+            showLessonRecordButton(level, word);
+          }
+        }
+      } catch (e) {
+        console.warn('Could not check recording availability for clicked word:', word, e);
+      }
+
+      const cacheKey = getAudioCacheKey(word, language, 'vocabulary');
+      const officialExists = await audioExistsInSupabase(cacheKey);
+      if (!officialExists) {
+        let communityFiles = [];
+        try {
+          communityFiles = await listCommunityRecordings(word, language, 'vocabulary');
+        } catch (_) {}
+
+        if (!communityFiles.length) {
+          showLessonRecordButton(level, word);
+          showToast('🎙️ Record this pronunciation. TTS will play after 1 minute if you do not record.');
+          scheduleLessonTTSAudio(word, language, 'vocabulary', () => AudioManager.play(word, language, level, audioId));
+          return;
+        }
+      }
+
+      cancelLessonTTSTimer(language, 'vocabulary', word);
       AudioManager.play(word, language, level, audioId);
     }
 
@@ -3336,27 +3985,48 @@ async function saveProgress(key, processed, generated, skipped, completedSet, fa
     async function playDialogueLine(index) {
       const lessonData = appState.currentLessonData;
       if (!lessonData?.dialogue?.[index]) return;
-      
+
       const line = lessonData.dialogue[index];
-      
-      const cacheKey = getAudioCacheKey(line.text, appState.user.language, 'dialogue');
+      const language = appState.user.language;
+      const audioLevel = lessonData?.isCustom ? 999 : lessonData.level;
+
+      const cacheKey = getAudioCacheKey(line.text, language, 'dialogue');
       const exists = await audioExistsInSupabase(cacheKey);
-      
+
       if (exists) {
+        cancelLessonTTSTimer(language, 'dialogue', line.text);
         const publicUrl = getSupabaseAudioUrl(cacheKey);
         const audio = new Audio(publicUrl);
         audio.play();
         return;
       }
-      
-      const success = await playSmartAudio(line.text, appState.user.language, 'dialogue');
-      if (!success) {
-        stopTTS();
-        const utterance = new SpeechSynthesisUtterance(line.text);
-        utterance.lang = TTS_LANG_MAP[appState.user.language] || 'en-NG';
-        utterance.rate = 0.8;
-        window.speechSynthesis.speak(utterance);
+
+      const communityFiles = await listCommunityRecordings(line.text, language, 'dialogue');
+      if (communityFiles.length) {
+        cancelLessonTTSTimer(language, 'dialogue', line.text);
+        const success = await playSmartAudio(line.text, language, 'dialogue');
+        if (!success) {
+          stopTTS();
+          const utterance = new SpeechSynthesisUtterance(line.text);
+          utterance.lang = TTS_LANG_MAP[language] || 'en-NG';
+          utterance.rate = 0.8;
+          window.speechSynthesis.speak(utterance);
+        }
+        return;
       }
+
+      await showLessonDialogueRecordButton(audioLevel, index);
+      showToast('🎙️ Record this dialogue line. TTS will play after 1 minute if you do not record.');
+      scheduleLessonTTSAudio(line.text, language, 'dialogue', async () => {
+        const success = await playSmartAudio(line.text, language, 'dialogue');
+        if (!success) {
+          stopTTS();
+          const utterance = new SpeechSynthesisUtterance(line.text);
+          utterance.lang = TTS_LANG_MAP[language] || 'en-NG';
+          utterance.rate = 0.8;
+          window.speechSynthesis.speak(utterance);
+        }
+      });
     }
 
     // ==================== playFullDialogue ====================
@@ -3410,7 +4080,9 @@ async function saveProgress(key, processed, generated, skipped, completedSet, fa
       { title: "Practice 5 Words", icon: "🔊", xp: 15, requirement: { type: 'audio_plays', count: 5 } },
       { title: "Chat with Timmy", icon: "🤓", xp: 25, requirement: { type: 'chat_messages', count: 3 } },
       { title: "2 Lessons", icon: "📖", xp: 40, requirement: { type: 'lessons', count: 2 } },
-      { title: "Streak Day", icon: "🔥", xp: 50, requirement: { type: 'streak', count: 1 } }
+      { title: "Streak Day", icon: "🔥", xp: 50, requirement: { type: 'streak', count: 1 } },
+      { title: "Record 3 Pronunciations", icon: "🎙️", xp: 30, requirement: { type: 'community_recordings', count: 3 } },
+      { title: "Record 5 Pronunciations", icon: "🗣️", xp: 50, requirement: { type: 'community_recordings', count: 5 } }
     ];
 
     // ==================== ONBOARDING ====================
@@ -3447,6 +4119,9 @@ async function saveProgress(key, processed, generated, skipped, completedSet, fa
       u.totalXP = 0;
       u.streak = 0;
       u.dailyCompleted = 0;
+      u.communityDailySuggestions = [];
+      u.communityDailySuggestionDate = null;
+      u.communityRecordingXP = 0;
       u.dailyChallenges = [];
       u.dailyChallengesCompleted = [];
       u.lastChallengeGen = null;
@@ -3557,6 +4232,9 @@ async function saveProgress(key, processed, generated, skipped, completedSet, fa
       appState.user.lastChallengeGen = null;
       appState.user.streak = 0;
       appState.user.dailyCompleted = 0;
+      appState.user.communityDailySuggestions = [];
+      appState.user.communityDailySuggestionDate = null;
+      appState.user.communityRecordingXP = 0;
       appState.timmyChats = {};
       appState.currentTimmyChatId = null;
       appState.currentLesson = null;
@@ -3850,7 +4528,10 @@ async function saveProgress(key, processed, generated, skipped, completedSet, fa
     function generateDailyChallenges() {
       if (!shouldRegenerateChallenges()) return;
       const today = new Date().toISOString().split('T')[0];
-      appState.user.dailyChallenges = [...challengeTemplates].sort(() => Math.random() - 0.5).slice(0, 3).map(c => ({ ...c,
+      const recordingChallenges = challengeTemplates.filter(c => c.requirement.type === 'community_recordings');
+      const otherChallenges = challengeTemplates.filter(c => c.requirement.type !== 'community_recordings').sort(() => Math.random() - 0.5);
+      const recordingChallenge = recordingChallenges[Math.floor(Math.random() * recordingChallenges.length)];
+      appState.user.dailyChallenges = [recordingChallenge, ...otherChallenges.slice(0, 2)].map(c => ({ ...c,
         id: Date.now() + Math.random(), completed: false, progress: 0 }));
       appState.user.lastChallengeGen = today;
       appState.user.dailyCompleted = 0;
@@ -4644,13 +5325,147 @@ Keep questions simple and related to the topic.`;
       const audioLevel = isCustom ? 999 : ld.level;
       
       document.getElementById('lesson-card-1').innerHTML =
-        `<div style="text-align:center;margin-bottom:20px;"><div style="font-size:12px;color:var(--text-secondary);">${isCustom ? '⚡ CUSTOM LESSON' : 'LEVEL ' + ld.level}</div><div style="font-size:24px;font-weight:700;color:var(--primary);">${ld.title}</div><div style="font-size:14px;color:var(--text-secondary);">${ld.description}</div></div><div style="font-size:16px;font-weight:600;margin-bottom:15px;">New Words</div>${(ld.vocabulary||[]).map(w => `<div style="margin-bottom:15px;padding:16px;background:var(--bg);border-radius:12px;border:1px solid var(--border);"><div style="display:flex;justify-content:space-between;"><div><div style="font-size:20px;font-weight:600;color:var(--primary);">${w.word}</div><div style="font-size:12px;color:var(--text-secondary);">${w.pronunciation||''}</div><div style="font-size:14px;margin:8px 0;">${w.translation}</div><div style="font-size:13px;color:var(--text-secondary);">"${w.example||''}"</div></div><button class="audio-btn" onclick="playWordAudio('${(w.word||'').replace(/'/g,"\\'")}','${appState.user.language}', ${audioLevel}, '${w.audioId || ''}')">🔊</button></div></div>`).join('')}`;
+        `<div style="text-align:center;margin-bottom:20px;"><div style="font-size:12px;color:var(--text-secondary);">${isCustom ? '⚡ CUSTOM LESSON' : 'LEVEL ' + ld.level}</div><div style="font-size:24px;font-weight:700;color:var(--primary);">${escapeHtml(ld.title || '')}</div><div style="font-size:14px;color:var(--text-secondary);">${escapeHtml(ld.description || '')}</div></div><div style="font-size:16px;font-weight:600;margin-bottom:15px;">New Words</div>${(ld.vocabulary||[]).map((w,i) => `<div style="margin-bottom:15px;padding:16px;background:var(--bg);border-radius:12px;border:1px solid var(--border);" id="lesson-word-card-${audioLevel}-${i}"><div style="display:flex;justify-content:space-between;gap:12px;"><div style="min-width:0;"><div style="font-size:20px;font-weight:600;color:var(--primary);">${escapeHtml(w.word||'')}</div><div style="font-size:12px;color:var(--text-secondary);">${escapeHtml(w.pronunciation||'')}</div><div style="font-size:14px;margin:8px 0;">${escapeHtml(w.translation||'')}</div><div style="font-size:13px;color:var(--text-secondary);">"${escapeHtml(w.example||'')}"</div></div><button class="audio-btn" onclick="playWordAudio('${(w.word||'').replace(/'/g,"\'")}','${appState.user.language}', ${audioLevel}, '${w.audioId || ''}')">🔊</button></div></div>`).join('')}`;
       document.getElementById('lesson-card-2').innerHTML =
         `<div style="text-align:center;margin-bottom:20px;"><div style="font-size:12px;color:var(--text-secondary);">GRAMMAR & CULTURE</div><div style="font-size:24px;font-weight:700;color:var(--primary);">Grammar & Context</div></div>${(ld.grammarPoints||[]).map(g => `<div style="margin-bottom:20px;padding:16px;background:var(--bg);border-radius:12px;"><div style="font-weight:600;color:var(--accent1);">${g.concept}</div><div style="color:var(--text-secondary);">${g.explanation}</div></div>`).join('')}${(ld.culturalNotes||[]).map(n => `<div style="margin-bottom:15px;padding:16px;background:var(--bg);border-radius:12px;"><div style="font-weight:600;color:var(--accent2);">${n.title}</div><div style="color:var(--text-secondary);">${n.content}</div></div>`).join('')}`;
       document.getElementById('lesson-card-3').innerHTML =
-        `<div style="text-align:center;margin-bottom:20px;"><div style="font-size:12px;color:var(--text-secondary);">CONVERSATION</div><div style="font-size:24px;font-weight:700;color:var(--primary);">Dialogue Practice</div></div><div style="background:var(--bg);border-radius:12px;padding:20px;">${(ld.dialogue||[]).map((l,i) => `<div style="margin-bottom:15px;"><div style="display:flex;align-items:flex-start;gap:12px;"><div style="background:var(--primary);color:white;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;">${l.speaker[0]}</div><div style="flex:1;"><div style="display:flex;justify-content:space-between;"><div style="font-weight:600;">${l.speaker}</div><button class="audio-btn" onclick="playDialogueLine(${i})">🔊</button></div><div style="font-size:16px;">${l.text}</div><div style="font-size:13px;color:var(--text-secondary);font-style:italic;">"${l.translation}"</div></div></div></div>`).join('')}</div><div style="display:flex;gap:10px;margin-top:20px;"><button class="btn" onclick="playFullDialogue()" style="flex:1;">🔊 Play All</button><button class="btn" onclick="practiceWithPartner()" style="flex:1;background:var(--accent1);">👥 Practice</button></div>`;
+        `<div style="text-align:center;margin-bottom:20px;"><div style="font-size:12px;color:var(--text-secondary);">CONVERSATION</div><div style="font-size:24px;font-weight:700;color:var(--primary);">Dialogue Practice</div><div style="font-size:13px;color:var(--text-secondary);margin-top:6px;">Record any dialogue line that does not have pronunciation yet.</div></div><div style="background:var(--bg);border-radius:12px;padding:20px;">${(ld.dialogue||[]).map((l,i) => `<div data-dialogue-index="${audioLevel}-${i}" style="margin-bottom:15px;"><div style="display:flex;align-items:flex-start;gap:12px;"><div style="background:var(--primary);color:white;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:0 0 auto;">${escapeHtml((l.speaker||'?')[0])}</div><div style="flex:1;min-width:0;"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px;"><div style="font-weight:600;">${escapeHtml(l.speaker||'')}</div><button class="audio-btn" onclick="playDialogueLine(${i})">🔊</button></div><div style="font-size:16px;margin-top:4px;">${escapeHtml(l.text||'')}</div><div style="font-size:13px;color:var(--text-secondary);font-style:italic;">"${escapeHtml(l.translation||'')}"</div></div></div></div>`).join('')}</div><div style="display:flex;gap:10px;margin-top:20px;"><button class="btn" onclick="playFullDialogue()" style="flex:1;">🔊 Play All</button><button class="btn" onclick="practiceWithPartner()" style="flex:1;background:var(--accent1);">👥 Practice</button></div>`;
       document.getElementById('lesson-card-4').innerHTML =
         `<div style="text-align:center;margin-bottom:20px;"><div style="font-size:12px;color:var(--text-secondary);">KNOWLEDGE CHECK</div><div style="font-size:24px;font-weight:700;color:var(--primary);">Test Your Understanding</div></div>${(ld.practiceExercises||[]).map((ex,i) => ex.type === 'multipleChoice' ? `<div class="question"><div class="question-text">${i+1}. ${ex.question}</div>${ex.options.map((o,oi) => `<div class="option" onclick="selectTestAnswer(${i},${oi})">${o}</div>`).join('')}</div>` : '').join('')}`;
+    }
+
+    function showLessonRecordButton(level, word) {
+      const ld = appState.currentLessonData;
+      const index = (ld?.vocabulary || []).findIndex(w => w?.word === word);
+      if (index < 0) return;
+      const audioLevel = ld.isCustom ? 999 : ld.level;
+      const card = document.getElementById(`lesson-word-card-${audioLevel}-${index}`);
+      if (!card) return;
+
+      // Never duplicate the control if the learner presses Listen more than once.
+      if (card.querySelector('.lesson-record-missing')) return;
+
+      const button = document.createElement('button');
+      button.className = 'btn btn-secondary lesson-record-missing';
+      button.id = `lesson-record-btn-${audioLevel}-${index}`;
+      button.innerHTML = `🎙️ Record pronunciation <span style=\"font-size:11px;opacity:.75;\">+10 XP</span>`;
+      button.onclick = () => recordLessonWord(audioLevel, index);
+
+      const status = document.createElement('div');
+      status.id = `lesson-record-status-${audioLevel}-${index}`;
+      status.className = 'community-record-status lesson-record-status-inline';
+      card.appendChild(button);
+      card.appendChild(status);
+    }
+
+    async function showLessonDialogueRecordButton(audioLevel, index) {
+      const ld = appState.currentLessonData;
+      const line = ld?.dialogue?.[index];
+      if (!line?.text) return;
+      const row = document.querySelector(`#lesson-card-3 [data-dialogue-index=\"${audioLevel}-${index}\"]`);
+      if (!row || row.querySelector('.lesson-record-missing')) return;
+
+      try {
+        const cacheKey = getAudioCacheKey(line.text, appState.user.language, 'dialogue');
+        const officialExists = await audioExistsInSupabase(cacheKey);
+        if (officialExists) return;
+        const communityFiles = await listCommunityRecordings(line.text, appState.user.language, 'dialogue');
+        if (communityFiles.length) return;
+
+        const button = document.createElement('button');
+        button.className = 'btn btn-secondary lesson-record-missing';
+        button.id = `lesson-dialogue-record-btn-${audioLevel}-${index}`;
+        button.innerHTML = `🎙️ Record dialogue <span style=\"font-size:11px;opacity:.75;\">+10 XP</span>`;
+        button.onclick = () => recordLessonDialogue(audioLevel, index);
+
+        const status = document.createElement('div');
+        status.id = `lesson-dialogue-record-status-${audioLevel}-${index}`;
+        status.className = 'community-record-status lesson-record-status-inline';
+        row.appendChild(button);
+        row.appendChild(status);
+      } catch (e) {
+        console.warn('Could not check recording availability for clicked dialogue:', line.text, e);
+      }
+    }
+
+    async function renderLessonRecordingAvailability(ld, audioLevel) {
+      const language = appState.user.language;
+      const lessonId = `${language}-${audioLevel}-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+      appState._communityAudioRenderId = lessonId;
+
+      // IMPORTANT: there is NO recording placeholder created for every word.
+      // We only append a recording control to the specific word card that
+      // actually has no official/community audio.
+      await Promise.all((ld.vocabulary || []).map(async (w, i) => {
+        if (!w?.word || appState._communityAudioRenderId !== lessonId) return;
+        const card = document.getElementById(`lesson-word-card-${audioLevel}-${i}`);
+        if (!card) return;
+
+        // Remove any stale recording UI from this specific card first.
+        card.querySelectorAll('.lesson-record-missing, .lesson-record-status-inline').forEach(el => el.remove());
+
+        try {
+          const cacheKey = getAudioCacheKey(w.word, language, 'vocabulary');
+          const officialExists = await audioExistsInSupabase(cacheKey);
+          if (officialExists || appState._communityAudioRenderId !== lessonId) return;
+
+          const communityFiles = await listCommunityRecordings(w.word, language, 'vocabulary');
+          if (communityFiles.length || appState._communityAudioRenderId !== lessonId) return;
+
+          const button = document.createElement('button');
+          button.className = 'btn btn-secondary lesson-record-missing';
+          button.id = `lesson-record-btn-${audioLevel}-${i}`;
+          button.innerHTML = `🎙️ Record pronunciation <span style="font-size:11px;opacity:.75;">+10 XP</span>`;
+          button.onclick = () => recordLessonWord(audioLevel, i);
+
+          const status = document.createElement('div');
+          status.id = `lesson-record-status-${audioLevel}-${i}`;
+          status.className = 'community-record-status lesson-record-status-inline';
+
+          card.appendChild(button);
+          card.appendChild(status);
+        } catch (e) {
+          console.warn('Could not check lesson audio:', w.word, e);
+        }
+      }));
+    }
+
+    async function renderLessonDialogueRecordingAvailability(ld, audioLevel) {
+      const language = appState.user.language;
+      const lessonId = appState._communityAudioRenderId || `${language}-${audioLevel}-${Date.now()}`;
+
+      // Dialogue follows the same rule: no empty recording divs are created.
+      // A recording button is appended only to the exact dialogue line that
+      // has neither official nor community audio.
+      await Promise.all((ld.dialogue || []).map(async (line, i) => {
+        if (!line?.text) return;
+        const row = document.querySelector(`#lesson-card-3 [data-dialogue-index="${audioLevel}-${i}"]`);
+        if (!row) return;
+        row.querySelectorAll('.lesson-record-missing, .lesson-record-status-inline').forEach(el => el.remove());
+
+        try {
+          const officialExists = await audioExistsInSupabase(getAudioCacheKey(line.text, language, 'dialogue'));
+          if (officialExists || appState._communityAudioRenderId !== lessonId) return;
+
+          const communityFiles = await listCommunityRecordings(line.text, language, 'dialogue');
+          if (communityFiles.length || appState._communityAudioRenderId !== lessonId) return;
+
+          const button = document.createElement('button');
+          button.className = 'btn btn-secondary lesson-record-missing';
+          button.id = `lesson-dialogue-record-btn-${audioLevel}-${i}`;
+          button.innerHTML = `🎙️ Record dialogue <span style="font-size:11px;opacity:.75;">+10 XP</span>`;
+          button.onclick = () => recordLessonDialogue(audioLevel, i);
+
+          const status = document.createElement('div');
+          status.id = `lesson-dialogue-record-status-${audioLevel}-${i}`;
+          status.className = 'community-record-status lesson-record-status-inline';
+
+          row.appendChild(button);
+          row.appendChild(status);
+        } catch (e) {
+          console.warn('Could not check lesson dialogue audio:', line.text, e);
+        }
+      }));
     }
 
     function showLessonCard(index) {
@@ -5035,7 +5850,7 @@ Keep questions simple and related to the topic.`;
         renderAchievements(6);
         renderRoadmap(); } else if (pageId === 'lessons') { generateLevels();
         updateCustomCounter(); } else if (pageId === 'chat') { showTimmyView('list');
-        showBottomNav(); }
+        showBottomNav(); } else if (pageId === 'settings') { initializeCommunityAudio(); }
       if (pageId !== 'chat') showBottomNav();
     }
 
@@ -5116,6 +5931,7 @@ Keep questions simple and related to the topic.`;
       updateCustomCounter();
       updateStreakMilestone();
       renderRoadmap();
+      if (document.getElementById('community-audio-card')) initializeCommunityAudio();
     }
 
     function updateLessonsBadge() { const b = document.getElementById('lessons-badge'); if (appState.user.currentLevel >
@@ -5573,6 +6389,15 @@ Keep questions simple and related to the topic.`;
     window.deleteTimmyChat = deleteTimmyChat;
     window.preGenerateVocabAndDialogue = preGenerateVocabAndDialogue;
     window.playSmartAudio = playSmartAudio;
+    window.startCommunityRecording = startCommunityRecording;
+    window.stopCommunityRecording = stopCommunityRecording;
+    window.submitCommunityRecording = submitCommunityRecording;
+    window.playSuggestedCommunityWord = playSuggestedCommunityWord;
+    window.refreshCommunitySuggestion = refreshCommunitySuggestion;
+    window.selectCommunitySuggestion = selectCommunitySuggestion;
+    window.recordLessonWord = recordLessonWord;
+    window.recordLessonDialogue = recordLessonDialogue;
+    window.playCommunityContribution = playCommunityContribution;
 
     console.log("ClearWords v2.2 - All features loaded! 🚀");
     console.log("🎵 Audio: Supabase → Local → 9jaLingo → TTS (priority order)");
