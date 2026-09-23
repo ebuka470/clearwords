@@ -1,11 +1,28 @@
 {
+  "cleanUrls": true,
   "rewrites": [
+    {
+      "source": "/app",
+      "destination": "/language.html"
+    },
     {
       "source": "/blog/:slug*",
       "destination": "/index.html"
     }
   ],
-  "headers": [
+  "redirects": [
+    {
+      "source": "/language",
+      "destination": "/app",
+      "permanent": true
+    },
+    {
+      "source": "/language.html",
+      "destination": "/app",
+      "permanent": true
+    }
+  ],
+"headers": [
     {
       "source": "/data/(.*)",
       "headers": [
