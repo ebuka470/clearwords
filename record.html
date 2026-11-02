@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClearWords — Recording Studio</title>
+  <style>
+    :root {
+      --primary: #2E8B57;
+      --bg: #f8f9fa;
+      --text: #333;
+      --border: #ddd;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+    
+    /* Top Header */
+    .header {
+      background: white;
+      padding: 15px 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      z-index: 10;
+    }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    .title { font-size: 18px; font-weight: 700; color: var(--primary); }
+    select {
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: 14px;
+      font-weight: 600;
+      outline: none;
+    }
+    .progress-container {
+      width: 100%;
+      background: #eee;
+      border-radius: 10px;
+      height: 8px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+    .progress-bar {
+      height: 100%;
+      background: var(--primary);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+    .progress-text {
+      font-size: 12px;
+      color: #666;
+      margin-top: 5px;
+      text-align: right;
+      font-weight: 600;
+    }
+
+    /* Main Recording Area */
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+    }
+    .item-type {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #888;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .word-text {
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--primary);
+      margin: 10px 0;
+      line-height: 1.2;
+    }
+    .translation-text {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+    .speaker-badge {
+      display: inline-block;
+      background: #4169E1;
+      color: white;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    /* Controls */
+    .controls {
+      padding: 30px 20px;
+      background: white;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      z-index: 10;
+    }
+    .btn {
+      width: 100%;
+      max-width: 400px;
+      padding: 18px;
+      border-radius: 30px;
+      border: none;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-record { background: var(--primary); color: white; }
+    .btn-record.recording { background: #F44336; animation: pulse 1.5s infinite; }
+    .btn-next { background: #4CAF50; color: white; display: none; }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    
+    .status-text {
+      font-size: 14px;
+      font-weight: 600;
+      color: #666;
+      min-height: 20px;
+    }
+
+    /* Modals / Loaders */
+    .loading-screen {
+      position: fixed;
+      inset: 0;
+      background: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+    }
+    .spinner {
+      width: 40px; height: 40px;
+      border: 4px solid #eee;
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 15px;
+    }
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+    @keyframes pulse { 50% { opacity: 0.7; } }
+  </style>
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div class="loading-screen" id="loader" style="display: none;">
+    <div class="spinner"></div>
+    <div id="loader-text" style="font-weight: 600; text-align: center; padding: 0 20px;">Connecting to Supabase...</div>
+  </div>
+
+  <!-- Main UI -->
+  <div class="header">
+    <div class="header-top">
+      <div class="title">🎙️ Voice Studio</div>
+      <select id="lang-select" onchange="loadLanguage()">
+        <option value="">Select Language...</option>
+        <option value="yoruba">Yoruba</option>
+        <option value="igbo">Igbo</option>
+        <option value="hausa">Hausa</option>
+      </select>
+    </div>
+    <div class="progress-container">
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+    <div class="progress-text" id="progress-text">0 / 0 recorded</div>
+  </div>
+
+  <div class="main-content" id="main-content" style="display: none;">
+    <div class="item-type" id="item-type">Vocabulary</div>
+    <div id="speaker-container"></div>
+    <div class="word-text" id="word-text">Word</div>
+    <div class="translation-text" id="translation-text">Translation</div>
+    <audio id="audio-preview" controls style="display: none; margin-top: 20px; width: 100%; max-width: 300px;"></audio>
+  </div>
+
+  <div class="controls" id="controls" style="display: none;">
+    <div class="status-text" id="status-text">Ready to record</div>
+    
+    <button class="btn btn-record" id="btn-record" onclick="toggleRecording()">
+      <span>🔴</span> Tap to Record
+    </button>
+    
+    <button class="btn btn-next" id="btn-next" onclick="nextItem()">
+      Next Word →
+    </button>
+  </div>
+
+  <script>
+    // ==================== CONFIGURATION ====================
+    const SUPABASE_URL = 'https://megxgmsivslzdxaqxxpl.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1lZ3hnbXNpdnNsemR4YXF4eHBsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ0NzA4MzIsImV4cCI6MjEwMDA0NjgzMn0.hJmwvrXhhGADlHxkciTzq2TgQo25QCdKv142at9_jyw';
+    const SUPABASE_BUCKET = 'audio';
+
+    // App State
+    let queue = [];           // Array of items to record
+    let currentIndex = 0;     
+    let selectedLang = '';    
+    
+    // Recording State
+    let mediaRecorder = null;
+    let audioChunks = [];
+    let isRecording = false;
+    let currentBlob = null;
+
+    // ==================== 1. CORE LOGIC ====================
+    function getAudioCacheKey(text, language, type) {
+      if (!text || text.trim().length < 2) {
+        return `${language}/${type}/word_${Date.now()}.mp3`;
+      }
+      
+      let clean = text.toLowerCase().trim();
+      const charMap = {
+          'ẹ': 'e', 'é': 'e', 'è': 'e', 'ê': 'e', 'ë': 'e',
+          'á': 'a', 'à': 'a', 'â': 'a', 'ä': 'a', 'ā': 'a',
+          'í': 'i', 'ì': 'i', 'î': 'i', 'ï': 'i', 'ī': 'i',
+          'ó': 'o', 'ò': 'o', 'ô': 'o', 'ö': 'o', 'ō': 'o',
+          'ú': 'u', 'ù': 'u', 'û': 'u', 'ü': 'u', 'ū': 'u',
+          'ọ': 'o', 'ọ́': 'o', 'ọ̀': 'o', 'ụ': 'u', 'ụ́': 'u', 'ụ̀': 'u',
+          'ṣ': 's', 'ṣ́': 's', 'ṣ̀': 's', 'ị': 'i', 'ị́': 'i', 'ị̀': 'i',
+          'ḿ': 'm', 'ń': 'n', 'ñ': 'n', 'ŋ': 'n', 'ɓ': 'b', 'ƙ': 'k', 'r̃': 'r',
+          'à': 'a', 'ã': 'a', 'å': 'a', 'ç': 'c', 'õ': 'o', 'ø': 'o', 'ý': 'y', 'ÿ': 'y'
+      };
+      
+      for (const [key, value] of Object.entries(charMap)) {
+          clean = clean.replaceAll(key, value);
+      }
+      
+      clean = clean.replace(/\s+/g, '_').replace(/[^a-z0-9_]/g, '');
+      
+      if (clean.length < 2) {
+          let hash = 0;
+          for (let i = 0; i < text.length; i++) {
+              hash = ((hash << 5) - hash) + text.charCodeAt(i);
+              hash |= 0;
+          }
+          clean = `word_${Math.abs(hash).toString(36).padStart(4, '0')}`;
+      }
+      
+      return `${language}/${type}/${clean}.mp3`;
+    }
+
+    // ==================== 2. DATA & SUPABASE CHECKER ====================
+    async function loadLanguage() {
+      selectedLang = document.getElementById('lang-select').value;
+      if (!selectedLang) return;
+
+      document.getElementById('loader').style.display = 'flex';
+      document.getElementById('loader-text').textContent = "Loading curriculum...";
+      
+      try {
+        // 1. Fetch the JSON
+        const response = await fetch(`data/${selectedLang}.json`);
+        if (!response.ok) throw new Error("JSON not found.");
+        const data = await response.json();
+        
+        let allItems = [];
+        if (data.levels && Array.isArray(data.levels)) {
+          data.levels.forEach(level => {
+            if (level.vocabulary) {
+              level.vocabulary.forEach(v => {
+                if (v.word) allItems.push({ text: v.word, translation: v.translation || '', type: 'vocabulary', level: level.level });
+              });
+            }
+            if (level.dialogue) {
+              level.dialogue.forEach(d => {
+                if (d.text) allItems.push({ text: d.text, translation: d.translation || '', type: 'dialogue', speaker: d.speaker || 'Speaker', level: level.level });
+              });
+            }
+          });
+        }
+
+        // 2. Check Supabase for existing files
+        document.getElementById('loader-text').textContent = "Checking database for existing audio...";
+        const existingFiles = await getExistingSupabaseFiles(selectedLang);
+
+        // 3. Filter out existing files
+        queue = allItems.filter(item => {
+          const cacheKey = getAudioCacheKey(item.text, selectedLang, item.type);
+          return !existingFiles.has(cacheKey);
+        });
+
+        currentIndex = 0;
+        document.getElementById('loader').style.display = 'none';
+        document.getElementById('main-content').style.display = 'flex';
+        document.getElementById('controls').style.display = 'flex';
+        
+        if (queue.length === 0) {
+          document.getElementById('word-text').textContent = "All Done! 🎉";
+          document.getElementById('translation-text').textContent = "Everything for this language is already recorded.";
+          document.getElementById('item-type').textContent = "";
+          document.getElementById('btn-record').style.display = "none";
+          document.getElementById('progress-text').textContent = "0 items left";
+        } else {
+          renderCurrentItem();
+        }
+        
+      } catch (error) {
+        alert("Error: " + error.message);
+        document.getElementById('loader').style.display = 'none';
+        console.error(error);
+      }
+    }
+
+    // Fetch file paths from Supabase
+    async function getExistingSupabaseFiles(language) {
+      const existing = new Set();
+      
+      // We fetch the list of objects in the folder (e.g., yoruba/vocabulary/)
+      // Supabase list API allows fetching by prefix, we limit to 1000 per request
+      const types = ['vocabulary', 'dialogue'];
+      
+      for (const type of types) {
+        let offset = 0;
+        let hasMore = true;
+
+        while (hasMore) {
+          const res = await fetch(`${SUPABASE_URL}/storage/v1/object/list/${SUPABASE_BUCKET}`, {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+              'apikey': SUPABASE_ANON_KEY,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              prefix: `${language}/${type}/`,
+              limit: 1000,
+              offset: offset
+            })
+          });
+
+          if (!res.ok) {
+            console.warn(`Could not fetch list for ${language}/${type}. Continuing anyway.`);
+            break;
+          }
+
+          const files = await res.json();
+          
+          if (files.length === 0) {
+            hasMore = false;
+          } else {
+            files.forEach(f => {
+              // f.name is the filename (e.g., "hello.mp3")
+              existing.add(`${language}/${type}/${f.name}`);
+            });
+            
+            if (files.length < 1000) hasMore = false;
+            else offset += 1000;
+          }
+        }
+      }
+      
+      return existing;
+    }
+
+    // ==================== 3. UI RENDERING ====================
+    function renderCurrentItem() {
+      if (currentIndex >= queue.length) {
+        document.getElementById('word-text').textContent = "All Done! 🎉";
+        document.getElementById('translation-text').textContent = "You've recorded everything that was missing.";
+        document.getElementById('item-type').textContent = "";
+        document.getElementById('speaker-container').innerHTML = "";
+        document.getElementById('btn-record').style.display = "none";
+        document.getElementById('btn-next').style.display = "none";
+        document.getElementById('status-text').textContent = "";
+        document.getElementById('progress-bar').style.width = `100%`;
+        document.getElementById('progress-text').textContent = `${queue.length} / ${queue.length} recorded`;
+        return;
+      }
+
+      const item = queue[currentIndex];
+      
+      // Reset UI
+      document.getElementById('audio-preview').style.display = 'none';
+      document.getElementById('audio-preview').src = "";
+      document.getElementById('btn-next').style.display = "none";
+      document.getElementById('btn-record').style.display = "flex";
+      document.getElementById('btn-record').className = "btn btn-record";
+      document.getElementById('btn-record').innerHTML = "<span>🔴</span> Tap to Record";
+      document.getElementById('btn-record').disabled = false;
+      document.getElementById('status-text').textContent = "Ready to record";
+      document.getElementById('status-text').style.color = "#666";
+
+      // Populate Text
+      document.getElementById('item-type').textContent = `Level ${item.level} • ${item.type}`;
+      document.getElementById('word-text').textContent = item.text;
+      document.getElementById('translation-text').textContent = item.translation;
+
+      // Handle Dialogue Speaker
+      const speakerContainer = document.getElementById('speaker-container');
+      if (item.type === 'dialogue' && item.speaker) {
+        speakerContainer.innerHTML = `<div class="speaker-badge">${item.speaker}</div>`;
+      } else {
+        speakerContainer.innerHTML = "";
+      }
+
+      // Update Progress
+      const percent = (currentIndex / queue.length) * 100;
+      document.getElementById('progress-bar').style.width = `${percent}%`;
+      document.getElementById('progress-text').textContent = `${currentIndex} / ${queue.length} recorded`;
+    }
+
+    // ==================== 4. RECORDING LOGIC ====================
+    async function toggleRecording() {
+      if (isRecording) {
+        stopRecording();
+      } else {
+        startRecording();
+      }
+    }
+
+    async function startRecording() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        mediaRecorder = new MediaRecorder(stream, { mimeType: 'audio/webm' });
+        
+        audioChunks = [];
+        mediaRecorder.ondataavailable = e => {
+          if (e.data.size > 0) audioChunks.push(e.data);
+        };
+
+        mediaRecorder.onstop = () => {
+          currentBlob = new Blob(audioChunks, { type: 'audio/webm' });
+          
+          const audioUrl = URL.createObjectURL(currentBlob);
+          const preview = document.getElementById('audio-preview');
+          preview.src = audioUrl;
+          preview.style.display = 'block';
+          
+          stream.getTracks().forEach(track => track.stop());
+          uploadAudio();
+        };
+
+        mediaRecorder.start();
+        isRecording = true;
+        
+        document.getElementById('btn-record').className = "btn btn-record recording";
+        document.getElementById('btn-record').innerHTML = "<span>⏹️</span> Stop Recording";
+        document.getElementById('status-text').textContent = "Recording...";
+        document.getElementById('status-text').style.color = "#F44336";
+
+      } catch (err) {
+        alert("Microphone access denied.");
+      }
+    }
+
+    function stopRecording() {
+      if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+        mediaRecorder.stop();
+        isRecording = false;
+      }
+    }
+
+    // ==================== 5. UPLOAD TO SUPABASE ====================
+    async function uploadAudio() {
+      const item = queue[currentIndex];
+      
+      document.getElementById('btn-record').disabled = true;
+      document.getElementById('status-text').textContent = "Saving to database...";
+      document.getElementById('status-text').style.color = "#4169E1";
+
+      const cacheKey = getAudioCacheKey(item.text, selectedLang, item.type);
+      
+      try {
+        const response = await fetch(`${SUPABASE_URL}/storage/v1/object/${SUPABASE_BUCKET}/${cacheKey}`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+            'Content-Type': 'audio/webm',
+            'x-upsert': 'true' 
+          },
+          body: currentBlob
+        });
+
+        if (!response.ok) throw new Error(`Upload failed: ${response.status}`);
+
+        document.getElementById('status-text').textContent = "Saved successfully! ✅";
+        document.getElementById('status-text').style.color = "#4CAF50";
+        
+        document.getElementById('btn-record').style.display = "none";
+        document.getElementById('btn-next').style.display = "flex";
+
+      } catch (error) {
+        document.getElementById('status-text').textContent = "Upload failed. Try again.";
+        document.getElementById('status-text').style.color = "#F44336";
+        document.getElementById('btn-record').disabled = false;
+      }
+    }
+
+    // ==================== 6. NAVIGATION ====================
+    function nextItem() {
+      currentIndex++;
+      renderCurrentItem();
+    }
+  </script>
+</body>
+</html>
