@@ -1,0 +1,2448 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#2E8B57">
+<title>ClearWords — Profile</title>
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="ClearWords">
+<link rel="apple-touch-icon" href="/logo.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="ClearWords">
+<meta name="msapplication-TileColor" content="#2E8B57">
+<meta name="msapplication-TileImage" content="/logo.png">
+
+<style>
+/* ============ DESIGN TOKENS ============ */
+:root {
+  --brand: #2E8B57;
+  --brand-rgb: 46,139,87;
+  --gold: #E8B33C;
+  --gold-rgb: 232,179,60;
+  --indigo: #3B5BA5;
+  --indigo-rgb: 59,91,165;
+  --terracotta: #D97757;
+  --terracotta-rgb: 217,119,87;
+  --danger: #E5484D;
+  --danger-rgb: 229,72,77;
+  --bg: #FAF7F2;
+  --bg-elev: #FFFFFF;
+  --card: #FFFFFF;
+  --text: #1C1E21;
+  --text-2: #6B6F76;
+  --text-3: #9AA0A6;
+  --border: #E5E1D8;
+  --border-strong: #D4CFC2;
+  --shadow: 0 2px 12px rgba(28,30,33,0.06);
+  --shadow-lg: 0 8px 28px rgba(28,30,33,0.10);
+  --radius: 14px;
+  --radius-lg: 20px;
+  --radius-full: 999px;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bot: env(safe-area-inset-bottom, 0px);
+}
+[data-theme="dark"] {
+  --bg: #0F1114;
+  --bg-elev: #16191D;
+  --card: #1A1D21;
+  --text: #F2EFE9;
+  --text-2: #9AA0A6;
+  --text-3: #6B6F76;
+  --border: #2A2E33;
+  --border-strong: #3A3E44;
+  --shadow: 0 2px 12px rgba(0,0,0,0.4);
+  --shadow-lg: 0 8px 28px rgba(0,0,0,0.6);
+  --brand: #4CAF7A;
+  --brand-rgb: 76,175,122;
+}
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color: transparent; }
+html, body { height: 100%; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior-y: contain;
+  padding-bottom: calc(84px + var(--safe-bot));
+}
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+input, textarea, select { font-family: inherit; }
+::-webkit-scrollbar { width: 0; height: 0; }
+
+#cw-header {
+  position: sticky; top: 0; z-index: 40;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: calc(12px + var(--safe-top)) 16px 12px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: saturate(180%) blur(12px);
+}
+.hdr-left, .hdr-right { display: flex; align-items: center; gap: 8px; }
+.lang-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 12px; border-radius: var(--radius-full);
+  background: var(--card); border: 1px solid var(--border);
+  font-size: 14px; font-weight: 700;
+}
+.lang-pill .chev { color: var(--text-3); font-size: 11px; }
+.icon-btn {
+  width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 50%; background: var(--card); border: 1px solid var(--border);
+  position: relative; color: var(--text);
+}
+.streak-btn { width: auto; padding: 0 12px; gap: 4px; font-weight: 700; font-size: 13px; color: var(--gold); background: rgba(var(--gold-rgb), 0.12); border-color: rgba(var(--gold-rgb), 0.28); }
+.notif-dot {
+  position: absolute; top: 8px; right: 9px;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--danger); border: 2px solid var(--card);
+}
+
+.page { max-width: 520px; margin: 0 auto; padding: 0 16px 30px; }
+
+.hero {
+  position: relative;
+  margin: 12px 0 0;
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.hero-cover {
+  height: 104px;
+  background: linear-gradient(135deg, var(--brand) 0%, var(--indigo) 100%);
+  position: relative;
+}
+.hero-cover::after {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 85% 25%, rgba(255,255,255,.22) 0, transparent 55%),
+    radial-gradient(circle at 10% 110%, rgba(255,255,255,.14) 0, transparent 50%);
+}
+.hero-gear {
+  position: absolute; top: 12px; right: 12px; z-index: 2;
+  width: 38px; height: 38px; border-radius: 50%;
+  background: rgba(0,0,0,.22); color: #fff; font-size: 17px;
+  display: flex; align-items: center; justify-content: center;
+  backdrop-filter: blur(6px);
+}
+.hero-gear:active { background: rgba(0,0,0,.38); }
+.hero-body { padding: 0 20px 20px; text-align: center; position: relative; }
+.avatar-wrap { position: relative; width: 96px; height: 96px; margin: -48px auto 10px; }
+.avatar {
+  width: 96px; height: 96px; border-radius: 50%;
+  border: 4px solid var(--card);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 32px; font-weight: 800; color: #fff; letter-spacing: -.02em;
+  background-size: cover; background-position: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,.14);
+}
+.avatar-edit {
+  position: absolute; right: -2px; bottom: 2px;
+  width: 32px; height: 32px; border-radius: 50%;
+  background: var(--brand); color: #fff; font-size: 14px;
+  border: 3px solid var(--card);
+  display: flex; align-items: center; justify-content: center;
+}
+.avatar-edit:active { transform: scale(.92); }
+.hero-name { font-size: 22px; font-weight: 800; letter-spacing: -.02em; }
+.hero-handle { font-size: 13.5px; color: var(--text-2); margin-top: 2px; }
+.hero-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 10px; padding: 6px 12px; border-radius: 999px;
+  background: rgba(var(--brand-rgb), .10); color: var(--brand);
+  font-size: 12.5px; font-weight: 800;
+}
+.hero-bio { font-size: 14px; color: var(--text-2); margin: 12px auto 0; max-width: 340px; line-height: 1.55; }
+.hero-loc { font-size: 12.5px; color: var(--text-3); margin-top: 6px; }
+.hero-goals { margin-top: 10px; }
+.goal-chip {
+  display: inline-block; margin: 4px 3px 0; padding: 6px 12px; border-radius: 999px;
+  background: var(--bg); border: 1px solid var(--border);
+  font-size: 12px; font-weight: 600; color: var(--text-2);
+}
+.hero-actions { display: flex; gap: 10px; margin-top: 16px; }
+.hero-actions .btn { flex: 1; }
+
+.stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 12px; }
+.stat-tile {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 14px 8px 12px; text-align: center; box-shadow: var(--shadow);
+}
+.stat-ico { font-size: 22px; line-height: 1; }
+.stat-val { font-size: 22px; font-weight: 800; letter-spacing: -.02em; margin-top: 6px; }
+.stat-lbl { font-size: 10.5px; color: var(--text-2); text-transform: uppercase; letter-spacing: .06em; font-weight: 700; margin-top: 1px; }
+
+.nudge {
+  display: flex; align-items: center; gap: 12px;
+  margin-top: 12px; padding: 12px 14px; border-radius: var(--radius);
+  background: rgba(var(--gold-rgb), .10); border: 1px solid rgba(var(--gold-rgb), .30);
+  font-size: 13.5px; line-height: 1.45;
+}
+.nudge.broken { background: rgba(var(--terracotta-rgb), .10); border-color: rgba(var(--terracotta-rgb), .32); }
+.nudge.empty { background: rgba(var(--indigo-rgb), .08); border-color: rgba(var(--indigo-rgb), .25); }
+.nudge-ico { font-size: 24px; flex-shrink: 0; }
+.nudge-body { flex: 1; min-width: 0; }
+.nudge-link { color: var(--brand); font-weight: 800; font-size: 13px; white-space: nowrap; }
+
+.section-h {
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 13px; font-weight: 800; letter-spacing: .08em; color: var(--text-3);
+  text-transform: uppercase; margin: 26px 6px 10px;
+}
+.section-h .action { font-size: 12.5px; font-weight: 700; letter-spacing: 0; text-transform: none; color: var(--brand); cursor: pointer; }
+
+.card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 16px;
+  margin-bottom: 12px; box-shadow: var(--shadow);
+}
+.card-tint-primary { background: rgba(var(--brand-rgb), 0.06); border-color: rgba(var(--brand-rgb), 0.22); }
+.card-tint-gold { background: rgba(var(--gold-rgb), 0.06); border-color: rgba(var(--gold-rgb), 0.25); }
+.card-tint-indigo { background: rgba(var(--indigo-rgb), 0.06); border-color: rgba(var(--indigo-rgb), 0.25); }
+
+.sub-card {
+  border-radius: var(--radius-lg); padding: 18px;
+  background: linear-gradient(135deg, rgba(var(--gold-rgb), .14), rgba(var(--terracotta-rgb), .10));
+  border: 1.5px solid rgba(var(--gold-rgb), .38);
+  margin-top: 12px;
+  display: flex; gap: 14px; align-items: flex-start;
+}
+.sub-ico {
+  width: 48px; height: 48px; border-radius: 14px; flex-shrink: 0;
+  background: rgba(var(--gold-rgb), .22); font-size: 26px;
+  display: flex; align-items: center; justify-content: center;
+}
+.sub-main { flex: 1; min-width: 0; }
+.sub-tier-name { font-size: 11.5px; font-weight: 800; letter-spacing: .08em; color: var(--gold); text-transform: uppercase; }
+.sub-title { font-size: 18px; font-weight: 800; margin-top: 2px; letter-spacing: -.02em; }
+.sub-desc { font-size: 13px; color: var(--text-2); margin-top: 5px; line-height: 1.5; }
+.sub-expiry { font-size: 12px; color: var(--text-3); margin-top: 8px; }
+.sub-actions { display: flex; gap: 10px; margin-top: 14px; }
+
+.chip {
+  padding: 8px 16px; border-radius: var(--radius-full);
+  background: var(--card); border: 1.5px solid var(--border);
+  font-size: 13px; font-weight: 700; color: var(--text-2);
+  cursor: pointer; transition: all .15s;
+}
+.chip.active { background: var(--brand); border-color: var(--brand); color: #fff; }
+.chip:active { transform: scale(.96); }
+
+.ach-summary { display: flex; align-items: center; gap: 14px; }
+.ach-trophy {
+  width: 54px; height: 54px; border-radius: 16px; flex-shrink: 0;
+  background: linear-gradient(135deg, rgba(var(--gold-rgb), .30), rgba(var(--terracotta-rgb), .22));
+  display: flex; align-items: center; justify-content: center; font-size: 28px;
+}
+.ach-sum-body { flex: 1; min-width: 0; }
+.ach-sum-title { font-weight: 800; font-size: 16px; letter-spacing: -.01em; }
+.ach-sum-title small { font-weight: 600; color: var(--text-2); font-size: 13px; margin-left: 4px; }
+.ach-bar { height: 8px; border-radius: 4px; background: var(--border); margin-top: 8px; overflow: hidden; }
+.ach-bar > i { display: block; height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--brand), var(--gold)); transition: width .6s cubic-bezier(.2,.8,.2,1); }
+.ach-next { font-size: 12.5px; color: var(--text-2); margin-top: 8px; }
+.ach-next b { color: var(--text); }
+
+.ach-row { display: flex; gap: 10px; overflow-x: auto; padding: 14px 2px 4px; margin: 0 -2px; scroll-snap-type: x proximity; }
+.ach-tile {
+  flex: 0 0 92px; scroll-snap-align: start; text-align: center;
+  padding: 12px 6px 10px; border-radius: 14px;
+  background: var(--bg-elev); border: 1.5px solid var(--border);
+  transition: transform .1s, border-color .15s;
+}
+.ach-tile:active { transform: scale(.96); }
+.ach-tile.unlocked { border-color: rgba(var(--gold-rgb), .55); background: linear-gradient(165deg, rgba(var(--gold-rgb), .12), rgba(var(--brand-rgb), .06)); }
+.ach-ring {
+  --p: 0;
+  width: 54px; height: 54px; border-radius: 50%; margin: 0 auto 8px;
+  background: conic-gradient(var(--brand) calc(var(--p) * 1%), var(--border) 0);
+  display: flex; align-items: center; justify-content: center; position: relative;
+}
+.ach-ring::before { content: ''; position: absolute; inset: 4px; border-radius: 50%; background: var(--bg-elev); }
+.ach-tile.unlocked .ach-ring { background: conic-gradient(var(--gold), var(--terracotta), var(--gold)); }
+.ach-tile.unlocked .ach-ring::before { background: var(--card); }
+.ach-emoji { position: relative; z-index: 1; font-size: 24px; }
+.ach-tile.locked .ach-emoji { filter: grayscale(.85); opacity: .55; }
+.ach-name { font-size: 11.5px; font-weight: 800; line-height: 1.25; }
+.ach-sub { font-size: 10.5px; color: var(--text-3); margin-top: 2px; font-weight: 600; }
+.ach-tile.unlocked .ach-sub { color: var(--gold); }
+.ach-foot { font-size: 11.5px; color: var(--text-3); margin-top: 10px; text-align: center; }
+
+.ach-cat { font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--text-3); margin: 18px 0 6px; display: flex; justify-content: space-between; }
+.ach-cat:first-child { margin-top: 0; }
+.ach-item { display: flex; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--border); width: 100%; text-align: left; }
+.ach-item:last-child { border-bottom: none; }
+.ach-item .ach-ring { margin: 0; flex-shrink: 0; width: 46px; height: 46px; }
+.ach-item .ach-emoji { font-size: 21px; }
+.ach-item.locked .ach-emoji { filter: grayscale(.85); opacity: .55; }
+.ach-item.unlocked .ach-ring { background: conic-gradient(var(--gold), var(--terracotta), var(--gold)); }
+.ach-item.unlocked .ach-ring::before { background: var(--card); }
+.ach-item-body { flex: 1; min-width: 0; }
+.ach-item-name { font-weight: 800; font-size: 14.5px; }
+.ach-item-desc { font-size: 12.5px; color: var(--text-2); margin-top: 1px; }
+.ach-item-bar { height: 5px; border-radius: 3px; background: var(--border); margin-top: 7px; overflow: hidden; }
+.ach-item-bar > i { display: block; height: 100%; background: var(--brand); border-radius: 3px; }
+.ach-item-state { font-size: 12px; font-weight: 800; color: var(--text-3); flex-shrink: 0; }
+.ach-item.unlocked .ach-item-state { color: var(--gold); }
+
+.ach-detail { text-align: center; padding: 6px 0 4px; }
+.ach-detail .ach-ring { width: 104px; height: 104px; margin: 4px auto 16px; }
+.ach-detail .ach-ring::before { inset: 7px; }
+.ach-detail .ach-emoji { font-size: 48px; }
+.ach-detail.locked .ach-emoji { filter: grayscale(.85); opacity: .55; }
+.ach-detail.unlocked .ach-ring { background: conic-gradient(var(--gold), var(--terracotta), var(--gold)); }
+.ach-detail.unlocked .ach-ring::before { background: var(--card); }
+.ach-detail h3 { font-size: 21px; font-weight: 800; letter-spacing: -.02em; }
+.ach-detail p { font-size: 14px; color: var(--text-2); margin-top: 6px; line-height: 1.5; }
+.ach-detail .ach-bar { margin: 18px auto 6px; max-width: 280px; }
+.ach-detail .count { font-size: 13px; font-weight: 800; }
+.pop { animation: pop .5s cubic-bezier(.2,1.4,.4,1); }
+@keyframes pop { 0% { transform: scale(.5); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+
+.ref-code {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 14px; background: var(--bg-elev);
+  border: 1.5px dashed rgba(var(--brand-rgb), 0.5); border-radius: 12px; margin: 12px 0;
+}
+.ref-code-val { flex: 1; font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 17px; font-weight: 800; letter-spacing: .08em; color: var(--brand); }
+.ref-copy-btn { padding: 8px 14px; border-radius: var(--radius-full); background: var(--brand); color: #fff; font-size: 12.5px; font-weight: 700; }
+.ref-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 12px; }
+.ref-stat { text-align: center; padding: 12px 6px; background: var(--bg-elev); border-radius: 10px; border: 1px solid var(--border); }
+.ref-stat-val { font-size: 18px; font-weight: 800; color: var(--brand); }
+.ref-stat-lbl { font-size: 10.5px; color: var(--text-2); text-transform: uppercase; letter-spacing: .06em; margin-top: 2px; font-weight: 700; }
+
+.freeze-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.freeze-icon { font-size: 28px; }
+.freeze-count { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: rgba(var(--indigo-rgb), 0.14); color: var(--indigo); font-weight: 800; font-size: 15px; }
+.freeze-body { flex: 1; min-width: 0; }
+.freeze-title { font-weight: 800; font-size: 14.5px; }
+.freeze-sub { font-size: 12.5px; color: var(--text-2); margin-top: 2px; }
+.freeze-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+
+.set-label { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--text-3); margin: 18px 8px 7px; }
+.set-group { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 8px; overflow: hidden; }
+.set-row {
+  display: flex; align-items: center; gap: 12px;
+  padding: 11px 14px; cursor: pointer;
+  border-bottom: 1px solid var(--border);
+  transition: background .1s; width: 100%; text-align: left;
+}
+.set-row:last-child { border-bottom: none; }
+.set-row:active { background: rgba(var(--brand-rgb), 0.07); }
+.set-ico { width: 32px; height: 32px; border-radius: 9px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 17px; background: rgba(var(--brand-rgb), .14); }
+.set-ico.indigo { background: rgba(var(--indigo-rgb), .16); }
+.set-ico.gold { background: rgba(var(--gold-rgb), .22); }
+.set-ico.terracotta { background: rgba(var(--terracotta-rgb), .18); }
+.set-ico.dark { background: rgba(60,60,80,.18); }
+.set-ico.red { background: rgba(var(--danger-rgb), .14); }
+.set-body { flex: 1; min-width: 0; }
+.set-title { font-size: 15px; font-weight: 600; }
+.set-sub { font-size: 12px; color: var(--text-2); margin-top: 1px; }
+.set-value { font-size: 13px; color: var(--text-3); font-weight: 600; }
+.set-chev { color: var(--text-3); font-size: 20px; }
+
+.toggle { width: 46px; height: 28px; border-radius: 14px; background: var(--border-strong); position: relative; transition: background .2s; flex-shrink: 0; }
+.toggle.on { background: var(--brand); }
+.toggle::after { content: ''; position: absolute; top: 3px; left: 3px; width: 22px; height: 22px; border-radius: 50%; background: #fff; transition: left .2s; box-shadow: 0 1px 3px rgba(0,0,0,.2); }
+.toggle.on::after { left: 21px; }
+.toggle.busy { opacity: .6; pointer-events: none; }
+.toggle.busy::after { animation: toggleSpin 0.9s linear infinite; }
+@keyframes toggleSpin { to { transform: rotate(360deg); } }
+
+.signout {
+  text-align: center; color: var(--danger); font-size: 15px; font-weight: 700;
+  padding: 15px; margin-top: 16px; border-radius: var(--radius);
+  background: var(--card); border: 1px solid var(--border); cursor: pointer;
+}
+.signout:active { background: rgba(var(--danger-rgb), .07); }
+.version { text-align: center; font-size: 11.5px; color: var(--text-3); padding: 20px 0 4px; }
+
+#cw-bottom-nav {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
+  display: flex; justify-content: space-around; align-items: center;
+  padding: 8px 8px calc(8px + var(--safe-bot));
+  background: color-mix(in srgb, var(--card) 92%, transparent);
+  backdrop-filter: saturate(180%) blur(16px);
+  border-top: 1px solid var(--border);
+  max-width: 520px; margin: 0 auto;
+}
+.tab { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 6px 4px; border-radius: 10px; color: var(--text-3); font-size: 11px; font-weight: 600; position: relative; }
+.tab.active { color: var(--brand); }
+.tab svg { width: 22px; height: 22px; }
+.tab:active { transform: scale(.94); }
+.tab-badge {
+  position: absolute; top: 2px; right: 22%;
+  min-width: 18px; height: 18px; padding: 0 5px; border-radius: 9px;
+  background: var(--danger); color: #fff; font-size: 10.5px; font-weight: 800; line-height: 18px; text-align: center;
+  box-shadow: 0 0 0 2px var(--card); pointer-events: none; animation: badgePop .25s ease;
+}
+@keyframes badgePop { 0% { transform: scale(.4); } 60% { transform: scale(1.15); } 100% { transform: scale(1); } }
+
+.cw-modal-overlay { position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,.55); backdrop-filter: blur(4px); display: none; align-items: flex-end; justify-content: center; }
+.cw-modal-overlay.active { display: flex; }
+.cw-modal { width: 100%; max-width: 520px; max-height: 90vh; display: flex; flex-direction: column; background: var(--card); border-radius: 24px 24px 0 0; animation: modalUp .25s ease; border: 1px solid var(--border); border-bottom: none; }
+.cw-modal::before { content: ''; display: block; width: 38px; height: 4px; border-radius: 2px; background: var(--border-strong); margin: 8px auto 0; }
+@keyframes modalUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.cw-modal-head { display: flex; align-items: center; justify-content: space-between; padding: 12px 20px 12px; border-bottom: 1px solid var(--border); }
+.cw-modal-title { font-weight: 800; font-size: 16px; }
+.cw-modal-close { font-size: 26px; line-height: 1; color: var(--text-2); padding: 0 4px; }
+.cw-modal-body { padding: 16px 20px 24px; overflow-y: auto; flex: 1; }
+
+.lang-option { display: flex; align-items: center; gap: 12px; width: 100%; padding: 14px 16px; margin-bottom: 8px; border-radius: 12px; border: 1.5px solid var(--border); background: var(--bg-elev); text-align: left; }
+.lang-option.active { border-color: var(--brand); background: rgba(var(--brand-rgb), 0.08); }
+.lang-emoji { font-size: 22px; }
+.lang-name { flex: 1; font-weight: 700; font-size: 15px; }
+.lang-check { color: var(--brand); font-weight: 800; }
+
+.lang-section { padding: 14px 16px; border-radius: 12px; background: var(--bg-elev); border: 1.5px solid var(--border); }
+.lang-section-title { font-size: 14.5px; font-weight: 800; margin-bottom: 4px; }
+.lang-section-sub { font-size: 12.5px; color: var(--text-2); line-height: 1.45; margin-bottom: 12px; }
+.lang-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.lang-chip { padding: 9px 15px; border-radius: var(--radius-full); background: var(--card); border: 1.5px solid var(--border); font-size: 13.5px; font-weight: 700; color: var(--text-2); transition: all .15s; cursor: pointer; }
+.lang-chip:active { transform: scale(.96); }
+.lang-chip.active { background: var(--brand); border-color: var(--brand); color: #fff; }
+.lang-error { font-size: 12.5px; color: var(--danger); min-height: 16px; margin-top: 6px; }
+
+.notif-item { display: flex; gap: 12px; padding: 12px; border-radius: 12px; background: var(--bg-elev); border: 1px solid var(--border); margin-bottom: 8px; }
+.notif-item.unread { border-color: rgba(var(--brand-rgb), 0.35); background: rgba(var(--brand-rgb), 0.05); }
+.notif-icon { font-size: 20px; flex-shrink: 0; }
+.notif-body { flex: 1; min-width: 0; }
+.notif-title { font-weight: 700; font-size: 13px; }
+.notif-text { font-size: 12.5px; color: var(--text-2); margin-top: 2px; }
+.notif-time { font-size: 11px; color: var(--text-3); margin-top: 4px; }
+.modal-loading { padding: 40px; text-align: center; color: var(--text-2); font-size: 14px; }
+
+.field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+.field label { font-size: 13px; font-weight: 700; color: var(--text-2); }
+.field input, .field textarea { width: 100%; padding: 14px 16px; font-size: 16px; border-radius: 12px; background: var(--bg-elev); border: 1.5px solid var(--border); color: var(--text); -webkit-appearance: none; appearance: none; }
+.field textarea { resize: vertical; min-height: 70px; line-height: 1.5; }
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 3px rgba(var(--brand-rgb), 0.12); }
+.field-hint { font-size: 12px; color: var(--text-3); }
+.field-error { font-size: 12.5px; color: var(--danger); min-height: 16px; }
+
+/* Language Chips (Replaces Native Select) */
+.lang-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.lang-chip { 
+  padding: 9px 15px; border-radius: var(--radius-full); 
+  background: var(--bg-elev); border: 1.5px solid var(--border); 
+  font-size: 13.5px; font-weight: 700; color: var(--text-2); 
+  transition: all .15s; cursor: pointer; 
+}
+.lang-chip:active { transform: scale(.96); }
+.lang-chip.active { background: var(--brand); border-color: var(--brand); color: #fff; }
+  
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 20px; border-radius: var(--radius-full); font-weight: 700; font-size: 15px; background: var(--brand); color: #fff; min-height: 46px; transition: transform .08s, opacity .15s; }
+.btn:active { transform: scale(.97); }
+.btn:disabled { opacity: .55; }
+.btn-ghost { background: transparent; color: var(--brand); border: 1.5px solid var(--brand); }
+.btn-secondary { background: var(--text); color: var(--bg); }
+.btn-danger { background: var(--danger); color: #fff; }
+.btn-block { width: 100%; }
+.btn-sm { padding: 9px 16px; min-height: 36px; font-size: 13px; }
+
+.spinner-inline { width: 16px; height: 16px; border: 2.5px solid rgba(255,255,255,0.35); border-top-color: #fff; border-radius: 50%; animation: spin .7s linear infinite; display: inline-block; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.plan-card { display: flex; align-items: flex-start; gap: 14px; padding: 16px; border-radius: 14px; border: 2px solid var(--border); background: var(--card); margin-bottom: 10px; width: 100%; text-align: left; transition: border-color .15s, background .15s; }
+.plan-card.selected { border-color: var(--brand); background: rgba(var(--brand-rgb), 0.05); }
+.plan-card.recommended { border-color: rgba(var(--gold-rgb), 0.55); }
+.plan-card.recommended.selected { border-color: var(--brand); }
+.plan-radio { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--border-strong); flex-shrink: 0; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+.plan-card.selected .plan-radio { border-color: var(--brand); background: var(--brand); }
+.plan-card.selected .plan-radio::after { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #fff; }
+.plan-body { flex: 1; min-width: 0; }
+.plan-name { font-weight: 800; font-size: 16px; display: flex; align-items: center; gap: 6px; }
+.plan-badge { font-size: 10px; font-weight: 800; padding: 3px 8px; border-radius: 6px; background: rgba(var(--gold-rgb), 0.18); color: var(--gold); letter-spacing: .05em; text-transform: uppercase; }
+.plan-price { font-size: 22px; font-weight: 800; margin-top: 6px; letter-spacing: -0.02em; }
+.plan-price small { font-size: 13px; font-weight: 600; color: var(--text-2); margin-left: 4px; }
+.plan-features { margin-top: 10px; font-size: 12.5px; color: var(--text-2); line-height: 1.6; }
+.plan-features li { list-style: none; padding-left: 18px; position: relative; }
+.plan-features li::before { content: '✓'; position: absolute; left: 0; color: var(--brand); font-weight: 800; }
+
+  /* Emotional Milestone Styles for Family Overview */
+.milestone-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.milestone-title {
+  font-weight: 800;
+  font-size: 15px;
+  color: var(--text);
+}
+.milestone-text {
+  font-size: 13.5px;
+  color: var(--brand);
+  font-style: italic;
+  line-height: 1.4;
+  background: rgba(46,139,87,0.06);
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-top: 6px;
+  border-left: 3px solid var(--brand);
+}
+
+.empty-note { color: var(--text-2); font-size: 14px; text-align: center; padding: 30px 16px; }
+.empty-note strong { color: var(--text); display: block; font-size: 15px; margin-bottom: 6px; }
+.skel { background: linear-gradient(90deg, var(--border) 0%, var(--border-strong) 50%, var(--border) 100%); background-size: 200% 100%; animation: skel 1.2s infinite; border-radius: 8px; }
+.skel-row { height: 14px; margin: 8px 0; }
+.skel-tile { flex: 0 0 92px; height: 112px; border-radius: 14px; }
+@keyframes skel { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+.cw-toast { position: fixed; left: 50%; bottom: 100px; transform: translateX(-50%) translateY(20px); background: var(--text); color: var(--bg); padding: 12px 20px; border-radius: var(--radius-full); font-size: 14px; font-weight: 600; z-index: 200; opacity: 0; transition: opacity .2s, transform .2s; max-width: 90%; text-align: center; box-shadow: var(--shadow-lg); }
+.cw-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+.cw-toast-error { background: var(--danger); color: #fff; }
+.cw-toast-success { background: var(--brand); color: #fff; }
+
+@media (max-width: 380px) {
+  .hero-name { font-size: 20px; }
+  .sub-title { font-size: 16px; }
+  .plan-price { font-size: 19px; }
+  .stat-val { font-size: 19px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+</style>
+</head>
+<body>
+
+<header id="cw-header"></header>
+
+<main class="page">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="profile-hero">
+    <div class="hero-cover">
+      <button class="hero-gear" onclick="Prof.openSettings()" title="Settings" aria-label="Settings">⚙</button>
+    </div>
+    <div class="hero-body">
+      <div class="avatar-wrap">
+        <div class="avatar" id="p-avatar">—</div>
+        <button class="avatar-edit" id="p-avatar-switch" onclick="Prof.openProfileSwitcher()" aria-label="Edit profile">✎</button>
+      </div>
+      <div class="hero-name" id="p-name">Loading…</div>
+      <div class="hero-handle" id="p-handle"></div>
+      <div class="hero-pill" id="p-pill" style="display:none;"></div>
+      <div class="hero-bio" id="p-bio"></div>
+      <div class="hero-loc" id="p-loc"></div>
+      <div class="hero-goals" id="profile-goals"></div>
+      <div class="hero-actions">
+        <button class="btn btn-ghost btn-sm" onclick="Prof.openEditProfile()">Edit profile</button>
+        <button class="btn btn-ghost btn-sm" onclick="ShareCards.openIdentity(Prof.getActiveName())">🪪 My card</button>
+        <button class="btn btn-sm" onclick="Prof.copyReferral()">Invite</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATS ============ -->
+  <div class="stat-row">
+    <div class="stat-tile"><div class="stat-ico">🔥</div><div class="stat-val" id="p-streak">0</div><div class="stat-lbl">Day streak</div></div>
+    <div class="stat-tile"><div class="stat-ico">⭐</div><div class="stat-val" id="p-xp">0</div><div class="stat-lbl">Total XP</div></div>
+    <div class="stat-tile"><div class="stat-ico">🧭</div><div class="stat-val" id="p-level">1</div><div class="stat-lbl">Level</div></div>
+  </div>
+  <div id="p-nudge"></div>
+
+  <!-- ============ SUBSCRIPTION ============ -->
+  <div id="subscription-section"></div>
+
+  <!-- ============ ACHIEVEMENTS ============ -->
+  <div class="section-h">
+    Achievements
+    <span class="action" onclick="Prof.showAllAchievements()">See all</span>
+  </div>
+  <div class="card" id="ach-card">
+    <div id="ach-summary"></div>
+    <div class="ach-row" id="ach-row"></div>
+    <div class="ach-foot" id="ach-foot"></div>
+  </div>
+
+  <!-- ============ REFERRALS ============ -->
+  <div class="section-h">Invite friends</div>
+  <div class="card card-tint-primary" id="referrals-card">
+    <div style="font-size: 14px; color: var(--text-2);">
+      When 12 friends you invite complete their first lesson, you get 30 days of Premium — free.
+    </div>
+    <div class="ref-code">
+      <span class="ref-code-val" id="ref-code-val">—</span>
+      <button class="ref-copy-btn" onclick="Prof.copyReferral()">Share</button>
+    </div>
+    <div class="ref-stats">
+      <div class="ref-stat"><div class="ref-stat-val" id="ref-count">0</div><div class="ref-stat-lbl">Qualified</div></div>
+      <div class="ref-stat"><div class="ref-stat-val" id="ref-pending">0</div><div class="ref-stat-lbl">Pending</div></div>
+      <div class="ref-stat"><div class="ref-stat-val" id="ref-rewards">0</div><div class="ref-stat-lbl">Rewards</div></div>
+    </div>
+    <div id="ref-progress" style="margin-top: 12px;"></div>
+  </div>
+
+  <!-- ============ STREAK FREEZES ============ -->
+  <div class="section-h">Streak protection</div>
+  <div class="card card-tint-indigo" id="freezes-card">
+    <div class="freeze-row">
+      <div class="freeze-icon">🛡️</div>
+      <div class="freeze-body">
+        <div class="freeze-title">Streak freezes</div>
+        <div class="freeze-sub" id="freeze-sub">Loading…</div>
+      </div>
+      <div class="freeze-count" id="freeze-count">—</div>
+    </div>
+    <div class="freeze-actions">
+      <button class="btn btn-sm btn-ghost" onclick="Prof.buyFreeze()">Buy with 200 XP</button>
+      <button class="btn btn-sm btn-ghost" onclick="Prof.recoverStreak()">Recover streak</button>
+      <button class="btn btn-sm btn-ghost" onclick="Prof.toggleAutoFreeze()" id="auto-freeze-btn">Toggle auto-apply</button>
+    </div>
+  </div>
+
+  <!-- ============ FAMILY ============ -->
+  <div id="family-section" style="display:none;">
+    <div class="section-h">Family</div>
+    <div class="card card-tint-gold" id="family-card"></div>
+  </div>
+
+  <!-- ============ SETTINGS ============ -->
+  <div id="settings"></div>
+  <div class="set-label">Account</div>
+  <div class="set-group">
+    <div class="set-row" onclick="Prof.openEditProfile()">
+      <div class="set-ico indigo">✏️</div>
+      <div class="set-body"><div class="set-title">Edit profile</div><div class="set-sub">Name, username, bio, location</div></div>
+      <div class="set-chev">›</div>
+    </div>
+    <div class="set-row" onclick="Prof.openChangePassword()">
+      <div class="set-ico gold">🔑</div>
+      <div class="set-body"><div class="set-title">Change password</div></div>
+      <div class="set-chev">›</div>
+    </div>
+  </div>
+
+  <div class="set-label">Preferences</div>
+  <div class="set-group">
+    <div class="set-row" onclick="Prof.openLanguagePicker()">
+      <div class="set-ico">🌍</div>
+      <div class="set-body"><div class="set-title">Learning language</div></div>
+      <div class="set-value" id="set-lang-value">—</div>
+      <div class="set-chev">›</div>
+    </div>
+    <div class="set-row" onclick="Prof.toggleDarkMode()">
+      <div class="set-ico dark">🌙</div>
+      <div class="set-body"><div class="set-title">Dark mode</div></div>
+      <div class="toggle" id="theme-toggle"></div>
+    </div>
+    <div class="set-row" onclick="Prof.togglePushNotifications()">
+      <div class="set-ico terracotta">🔔</div>
+      <div class="set-body">
+        <div class="set-title">Push notifications</div>
+        <div class="set-sub" id="notif-sub">Streak reminders and updates</div>
+      </div>
+      <div class="toggle" id="notif-toggle"></div>
+    </div>
+  </div>
+
+  <div class="set-label">About</div>
+  <div class="set-group">
+    <div class="set-row" onclick="Prof.openAbout()">
+      <div class="set-ico">🗣️</div>
+      <div class="set-body"><div class="set-title">About ClearWords</div></div>
+      <div class="set-chev">›</div>
+    </div>
+    <div class="set-row" onclick="Prof.openPrivacy()">
+      <div class="set-ico indigo">🔒</div>
+      <div class="set-body"><div class="set-title">Privacy Policy</div></div>
+      <div class="set-chev">›</div>
+    </div>
+    <div class="set-row" onclick="Prof.openTerms()">
+      <div class="set-ico gold">📄</div>
+      <div class="set-body"><div class="set-title">Terms of Service</div></div>
+      <div class="set-chev">›</div>
+    </div>
+  </div>
+
+  <div class="set-label">Danger zone</div>
+  <div class="set-group">
+    <div class="set-row set-danger" onclick="Prof.confirmResetProgress()">
+      <div class="set-ico red">⚠️</div>
+      <div class="set-body">
+        <div class="set-title">Reset learning progress</div>
+        <div class="set-sub">Clears lessons, XP and streak for this language</div>
+      </div>
+      <div class="set-chev">›</div>
+    </div>
+  </div>
+
+  <div class="signout" onclick="Prof.signOut()">Sign out of ClearWords</div>
+  <div class="version">ClearWords v3.0 · Made with ❤️ for Nigerian heritage</div>
+</main>
+
+<nav id="cw-bottom-nav">
+  <button class="tab" onclick="Nav.go('learn')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+    </svg>
+    <span>Learn</span>
+  </button>
+  <button class="tab" onclick="Nav.go('practice')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path>
+      <path d="M19 10v1a7 7 0 0 1-14 0v-1"></path>
+      <line x1="12" y1="19" x2="12" y2="23"></line>
+      <line x1="8" y1="23" x2="16" y2="23"></line>
+    </svg>
+    <span>Practice</span>
+  </button>
+  <button class="tab" onclick="Nav.go('community')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+      <circle cx="9" cy="7" r="4"></circle>
+      <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+      <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+    </svg>
+    <span>Community</span>
+  </button>
+  <button class="tab active" onclick="Nav.go('profile')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+      <circle cx="12" cy="7" r="4"></circle>
+    </svg>
+    <span>Profile</span>
+  </button>
+</nav>
+
+<script src="shared.js"></script>
+<script src="sharecards.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+
+/* ============================================================
+   ACHIEVEMENT DEFINITIONS
+   ============================================================ */
+const ACH_CATS = [
+  { id: 'learn',     name: 'Learning',  icon: '📚' },
+  { id: 'streak',    name: 'Streaks',   icon: '🔥' },
+  { id: 'xp',        name: 'XP',        icon: '⭐' },
+  { id: 'mastery',   name: 'Mastery',   icon: '🎯' },
+  { id: 'community', name: 'Community', icon: '🤝' }
+];
+const ACH = [
+  { id: 'first_lesson', cat: 'learn',   icon: '👣', name: 'First Steps',     desc: 'Complete your first lesson',            stat: 'lessons',       target: 1,    go: 'learn' },
+  { id: 'lessons_5',    cat: 'learn',   icon: '📚', name: 'Getting Going',   desc: 'Complete 5 lessons',                    stat: 'lessons',       target: 5,    go: 'learn' },
+  { id: 'lessons_25',   cat: 'learn',   icon: '🎓', name: 'Dedicated',       desc: 'Complete 25 lessons',                   stat: 'lessons',       target: 25,   go: 'learn' },
+  { id: 'lessons_50',   cat: 'learn',   icon: '🏫', name: 'Scholar',         desc: 'Complete 50 lessons',                   stat: 'lessons',       target: 50,   go: 'learn' },
+  { id: 'level_5',      cat: 'learn',   icon: '🧭', name: 'Explorer',        desc: 'Reach level 5',                         stat: 'level',         target: 5,    go: 'learn' },
+  { id: 'level_10',     cat: 'learn',   icon: '🚀', name: 'Rising Star',     desc: 'Reach level 10',                        stat: 'level',         target: 10,   go: 'learn' },
+  { id: 'streak_3',     cat: 'streak',  icon: '🔥', name: 'Hot Streak',      desc: 'Learn 3 days in a row',                 stat: 'longestStreak', target: 3,    go: 'learn' },
+  { id: 'streak_7',     cat: 'streak',  icon: '💥', name: 'On Fire',         desc: 'Learn 7 days in a row',                 stat: 'longestStreak', target: 7,    go: 'learn' },
+  { id: 'streak_30',    cat: 'streak',  icon: '👑', name: 'Legendary',       desc: 'Learn 30 days in a row',                stat: 'longestStreak', target: 30,   go: 'learn' },
+  { id: 'xp_500',       cat: 'xp',      icon: '⭐', name: '500 XP',          desc: 'Earn 500 XP',                           stat: 'xp',            target: 500,  go: 'learn' },
+  { id: 'xp_1000',      cat: 'xp',      icon: '💎', name: '1,000 XP',        desc: 'Earn 1,000 XP',                         stat: 'xp',            target: 1000, go: 'learn' },
+  { id: 'xp_5000',      cat: 'xp',      icon: '🏆', name: '5,000 XP',        desc: 'Earn 5,000 XP',                         stat: 'xp',            target: 5000, go: 'learn' },
+  { id: 'perfect_5',    cat: 'mastery', icon: '🎯', name: 'Perfectionist',   desc: 'Get 5 perfect lessons',                 stat: 'perfect',       target: 5,    go: 'learn' },
+  { id: 'perfect_20',   cat: 'mastery', icon: '🏹', name: 'Sharpshooter',    desc: 'Get 20 perfect lessons',                stat: 'perfect',       target: 20,   go: 'learn' },
+  { id: 'words_10',     cat: 'mastery', icon: '🗂️', name: 'Word Collector',  desc: 'Save 10 words from lessons',            stat: 'words',         target: 10,   go: 'learn' },
+  { id: 'pod_1',        cat: 'community', icon: '👥', name: 'Pod Member',    desc: 'Join a study pod',                      stat: 'pods',          target: 1,    go: 'community' },
+  { id: 'pair_1',       cat: 'community', icon: '🤝', name: 'Language Buddy', desc: 'Pair up with a language partner',      stat: 'pairs',         target: 1,    go: 'community' },
+  { id: 'card_1',       cat: 'community', icon: '✨', name: 'Show Off',      desc: 'Share a progress card',                 stat: 'cards',         target: 1,    go: 'community' },
+  { id: 'ref_1',        cat: 'community', icon: '🎁', name: 'Friend Magnet', desc: 'Invite a friend who completes a lesson', stat: 'referrals',    target: 1,    go: 'invite' },
+  { id: 'ref_12',       cat: 'community', icon: '🌟', name: 'Ambassador',    desc: 'Get 12 friends to complete a lesson',   stat: 'referrals',     target: 12,   go: 'invite' }
+];
+const GO_LABEL = { learn: 'Go to Learn', community: 'Open Community', invite: 'Invite friends' };
+
+/* ============================================================
+   PROFILE TAB
+   ============================================================ */
+const Prof = {
+  user: null,
+  progress: null,
+  progressLoaded: false,
+  progressError: false,
+  subscription: null,
+  plans: [],
+  achievements: [],
+  freezes: null,
+  referrals: null,
+  notifBusy: false,
+
+  async init() {
+    const ok = await cwBoot();
+    if (!ok) return;
+    Header.render('profile');
+    this.user = State.user;
+
+    this.renderBanner();
+    this.renderAchievements();
+    this.applyThemeToggle();
+    this.syncPushToggle();
+
+    this.loadProgress();
+    this.loadSubscription();
+    this.loadReferrals();
+    this.loadFreezes();
+    this.maybeShowFamily();
+
+    State.on('hydrated', () => {
+      this.user = State.user;
+      this.renderBanner();
+      this.renderAchievements();
+      this.maybeShowFamily();
+      this.loadSubscription();
+      this.loadReferrals();
+      this.syncPushToggle();
+    });
+
+       State.on('profile:changed', () => {
+      this.user = State.user;
+      // Wipe local cached profile data
+      this.progress = null;
+      this.achievements = [];
+      this.progressLoaded = false;
+      
+      this.renderBanner();
+      this.loadProgress();   // Fetches the new child's progress
+      this.loadFreezes();    // Fetches the new child's freezes
+      this.maybeShowFamily();
+      Header.render('profile'); // Re-renders the header (clears the streak badge)
+    });
+    
+    State.on('push:enabled',  () => this.syncPushToggle());
+    State.on('push:disabled', () => this.syncPushToggle());
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible' && this.progressLoaded) this.loadProgress(true);
+      if (document.visibilityState === 'visible') this.syncPushToggle();
+    });
+
+    const urlParams = new URLSearchParams(location.search);
+    if (urlParams.get('upgrade') === '1') {
+      setTimeout(() => this.openUpgrade(), 400);
+      history.replaceState({}, '', location.pathname);
+    }
+  },
+
+  /* ============================================================
+     PROGRESS
+     ============================================================ */
+  normProgress(raw) {
+    if (!raw || typeof raw !== 'object') return {};
+    const has = o => o && typeof o === 'object' && (o.totalXP !== undefined || Array.isArray(o.completedLessons) || o.streak !== undefined);
+    if (has(raw)) return raw;
+    if (has(raw.data)) return raw.data;
+    if (has(raw.progress)) return raw.progress;
+    return raw;
+  },
+
+  async loadProgress(silent) {
+    try {
+      const raw = await Backend.getProgress(State.currentLanguage);
+      const p = this.normProgress(raw);
+      this.progress = p;
+      State.progress = p;
+      this.progressError = false;
+    } catch (e) {
+      console.warn('Progress load failed:', e);
+      if (!this.progress) this.progressError = true;
+    }
+    this.progressLoaded = true;
+    this.renderBanner();
+    this.renderAchievements();
+    this.syncHeaderStreak();
+  },
+
+  effectiveStreak(p) {
+    const s = (p && p.streak) || 0;
+    if (!s) return 0;
+    const last = p.lastCompletedDate;
+    if (!last) return s;
+    const key = offsetDays => {
+      const d = new Date(Date.now() - offsetDays * 86400000);
+      return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+    };
+    return (last === key(0) || last === key(1)) ? s : 0;
+  },
+
+  syncHeaderStreak() {
+    const el = document.querySelector('#cw-header .streak-btn span:last-child');
+    if (el) el.textContent = this.effectiveStreak(this.progress || {});
+  },
+
+  /* ============================================================
+     HERO
+     ============================================================ */
+  avatarGradient(name) {
+    let h = 0;
+    for (let i = 0; i < name.length; i++) h = (h * 31 + name.charCodeAt(i)) % 360;
+    return `linear-gradient(135deg, hsl(${h},55%,48%), hsl(${(h + 40) % 360},60%,38%))`;
+  },
+
+  renderBanner() {
+    const u = this.user || {};
+    const p = this.progress || {};
+    
+    // Check if we are currently in a child profile
+    const activeProfile = State.currentProfileId 
+      ? (u.familyProfiles || []).find(pr => String(pr._id) === String(State.currentProfileId))
+      : null;
+
+    let displayName = u.fullName || [u.firstName, u.lastName].filter(Boolean).join(' ') || 'Learner';
+    let displayUsername = u.username || (u.email ? u.email.split('@')[0] : 'learner');
+    let displayBio = u.bio || 'Learning Nigerian languages with ClearWords 🇳🇬';
+    let displayLoc = u.location ? '📍 ' + u.location : '📍 Global diaspora';
+    
+    // If on a child profile, use their details
+    if (activeProfile) {
+      displayName = activeProfile.name;
+      displayUsername = ''; // Children don't have usernames
+      displayBio = 'Learning ' + (CW_CONFIG.LANGUAGES[activeProfile.language]?.name || 'languages') + ' with the family account.';
+      displayLoc = '📍 Family Account';
+    }
+
+    const langCfg = CW_CONFIG.LANGUAGES[activeProfile?.language || u.primaryLanguage || State.currentLanguage];
+
+    const av = $('p-avatar');
+    const url = /^https?:\/\//i.test(u.avatarUrl || '') ? u.avatarUrl : '';
+    
+    if (activeProfile) {
+      // Render child avatar
+      av.style.backgroundImage = 'none';
+      av.style.backgroundColor = activeProfile.color || '#2E8B57';
+      av.textContent = activeProfile.emoji || '🧑';
+      av.style.fontSize = '48px';
+    } else if (url) {
+      av.style.backgroundImage = `url('${url.replace(/'/g, '%27')}')`;
+      av.style.backgroundColor = 'transparent';
+      av.textContent = '';
+      av.style.fontSize = '32px';
+    } else {
+      av.style.backgroundImage = this.avatarGradient(displayName);
+      av.style.backgroundColor = 'transparent';
+      av.textContent = initialsOf(displayName);
+      av.style.fontSize = '32px';
+    }
+
+    $('p-name').textContent = displayName;
+    $('p-handle').textContent = displayUsername ? '@' + displayUsername : '';
+    $('p-bio').textContent = displayBio;
+    $('p-loc').textContent = displayLoc;
+
+    const level = p.currentLevel || 1;
+    const pill = $('p-pill');
+    if (langCfg) {
+      pill.style.display = 'inline-flex';
+      pill.textContent = `${langCfg.emoji} ${langCfg.name} · Level ${level}`;
+    } else pill.style.display = 'none';
+
+    const streak = this.effectiveStreak(p);
+    $('p-streak').textContent = streak;
+    $('p-xp').textContent = (p.totalXP || 0).toLocaleString();
+    $('p-level').textContent = level;
+
+    this.renderNudge(p, streak);
+
+    const goalsHost = $('profile-goals');
+    const goals = activeProfile ? [] : (u.goals || []);
+    const labels = {
+      talk_family: 'Talk with family', understand: 'Understand conversations', speak: 'Speak confidently',
+      pronunciation: 'Pronunciation', culture: 'Culture', read_write: 'Read & write',
+      teach_child: 'Teach my child', visit_nigeria: 'Visit Nigeria'
+    };
+    goalsHost.innerHTML = goals.map(g => `<span class="goal-chip">${esc(labels[g] || g)}</span>`).join('');
+
+    const langValue = $('set-lang-value');
+    if (langValue && langCfg) langValue.textContent = langCfg.emoji + ' ' + langCfg.name;
+
+    // Avatar button: chevron for family accounts, pencil otherwise
+    const switchBtn = $('p-avatar-switch');
+    if (switchBtn) {
+      const isFamily = u.accountType === 'family' || (u.familyProfiles || []).length > 0;
+      switchBtn.textContent = isFamily ? '▾' : '✎';
+      switchBtn.setAttribute('aria-label', isFamily ? 'Switch profile' : 'Edit profile');
+      switchBtn.onclick = isFamily
+        ? () => this.openProfileSwitcher()
+        : () => this.openEditProfile();
+    }
+  },
+
+  renderNudge(p, streak) {
+    const host = $('p-nudge');
+    if (!host) return;
+    if (!this.progressLoaded) { host.innerHTML = ''; return; }
+    const stored = (p && p.streak) || 0;
+
+    if (streak > 0) {
+      const msg = streak >= 30 ? 'Incredible — a whole month!' : streak >= 7 ? "You're on fire — keep it going!" : 'Nice rhythm. Come back tomorrow to keep it alive.';
+      host.innerHTML = `<div class="nudge"><div class="nudge-ico">🔥</div><div class="nudge-body"><b>${streak}-day streak.</b> ${msg}</div></div>`;
+    } else if (stored > 0) {
+      host.innerHTML = `
+        <div class="nudge broken"><div class="nudge-ico">🧊</div>
+          <div class="nudge-body"><b>Your ${stored}-day streak ended.</b> Use a freeze to bring it back, or start fresh today.</div>
+          <button class="nudge-link" onclick="Prof.recoverStreak()">Recover</button>
+        </div>`;
+    } else {
+      host.innerHTML = `
+        <div class="nudge empty"><div class="nudge-ico">🌱</div>
+          <div class="nudge-body"><b>Start your streak.</b> Finish one lesson today and it begins.</div>
+          <button class="nudge-link" onclick="Nav.go('learn')">Learn</button>
+        </div>`;
+    }
+  },
+
+  /* ============================================================
+     SUBSCRIPTION
+     ============================================================ */
+  async loadSubscription() {
+    const host = $('subscription-section');
+    if (!host) return;
+    try {
+      const [sub, plans] = await Promise.allSettled([Backend.getSubscription(), Backend.getPlans()]);
+      this.subscription = sub.status === 'fulfilled' ? sub.value : null;
+      this.plans = (plans.status === 'fulfilled' && (plans.value.plans || plans.value)) || [];
+      if (!Array.isArray(this.plans)) this.plans = [];
+      this.renderSubscription();
+    } catch (e) {
+      console.warn('Subscription load failed:', e);
+      host.innerHTML = '';
+    }
+  },
+
+  renderSubscription() {
+    const host = $('subscription-section');
+    if (!host) return;
+    const sub = this.subscription || {};
+    const tier = (sub.tier || sub.subscriptionTier || (this.user && this.user.subscriptionTier) || 'free').toLowerCase();
+    const expiresAt = sub.expiresAt || sub.subscriptionExpires;
+    const isFree = tier === 'free';
+
+    let ico, title, desc, badge;
+    if (isFree) {
+      ico = '🌱'; badge = 'FREE'; title = 'Keep the language going';
+      desc = 'Upgrade to unlock unlimited lessons, more pods and pairs, and voice calls.';
+    } else if (tier === 'premium') {
+      ico = '⭐'; badge = 'PREMIUM'; title = 'Premium · active';
+      desc = 'Unlimited lessons and Timmy chats, 5 pairs, voice calls with partners, and family accounts.';
+    } else if (tier === 'immersive') {
+      ico = '💎'; badge = 'IMMERSIVE'; title = 'Immersive · active';
+      desc = 'Everything in Premium, plus video calls with partners and unlimited partners.';
+    } else {
+      ico = '✨'; badge = tier.toUpperCase(); title = tier + ' · active';
+      desc = 'Your subscription is active.';
+    }
+
+    const expiryLine = expiresAt ? `<div class="sub-expiry">Renews ${new Date(expiresAt).toLocaleDateString()}</div>` : '';
+    const cta = isFree
+      ? `<button class="btn btn-block" onclick="Prof.openUpgrade()" style="margin-top: 14px;">See plans →</button>`
+      : `<div class="sub-actions"><button class="btn btn-ghost btn-sm" style="flex: 1;" onclick="Prof.openUpgrade()">Change plan</button></div>`;
+
+    host.innerHTML = `
+      <div class="sub-card">
+        <div class="sub-ico">${ico}</div>
+        <div class="sub-main">
+          <div class="sub-tier-name">${esc(badge)}</div>
+          <div class="sub-title">${esc(title)}</div>
+          <div class="sub-desc">${esc(desc)}</div>
+          ${expiryLine}
+          ${cta}
+        </div>
+      </div>`;
+  },
+
+  async openUpgrade() {
+    Header._modal('Choose your plan', '<div class="modal-loading">Loading plans…</div>');
+    try {
+      const res = await Backend.getPlans();
+      const raw = res.plans || res;
+      this.plans = raw;
+      this.renderPlans(raw);
+    } catch (e) {
+      console.warn('Plans load failed:', e);
+      const body = document.querySelector('#cw-generic-modal .cw-modal-body');
+      if (body) {
+        body.innerHTML = `
+          <div class="empty-note">
+            <strong>Couldn't load plans.</strong>
+            <button class="btn btn-sm" style="margin-top: 12px;" onclick="Prof.openUpgrade()">Retry</button>
+          </div>`;
+      }
+    }
+  },
+
+  renderPlans(plansObj) {
+    const body = document.querySelector('#cw-generic-modal .cw-modal-body');
+    if (!body) return;
+
+    const order = ['free', 'premium', 'immersive'];
+    const plans = order.filter(k => plansObj[k]).map(k => ({ id: k, tier: k, ...plansObj[k] }));
+    const currentTier = (this.user?.subscriptionTier || 'free').toLowerCase();
+
+    const FEATURES = {
+      free: [
+        '50 lessons per language',
+        'Unlimited AI chat with Timmy (text)',
+        '5 custom AI lessons per day',
+        'Join up to 3 study pods',
+        '1 language exchange partner',
+        'Text chat with your pod + partner',
+        'Progress cards + external sharing'
+      ],
+      premium: [
+        'Unlimited lessons per language',
+        'Unlimited AI chat with Timmy (text)',
+        'Unlimited custom AI lessons',
+        'Join up to 3 pods — or create your own',
+        'Up to 5 language exchange partners',
+        'Voice calls with your exchange partner',
+        'Family / shared account',
+        'Everything in Free'
+      ],
+      immersive: [
+        'Everything in Premium',
+        'Video calls with your exchange partner',
+        'Unlimited language exchange partners',
+        'Custom learning paths built around your goals',
+        'Priority matching',
+        'Highest tier — for serious learners'
+      ]
+    };
+
+    const fmtPrice = (prices, cycle) => {
+      if (!prices) return null;
+      const ngn = prices.NGN?.[cycle];
+      const usd = prices.USD?.[cycle];
+      const parts = [];
+      if (ngn) parts.push(`₦${(ngn).toLocaleString()}`);
+      if (usd) parts.push(`$${(usd).toFixed(2)}`);
+      return parts.join(' · ') || null;
+    };
+
+    const html = plans.map(plan => {
+      const id = plan.id;
+      const isCurrent = id === currentTier;
+      const isRecommended = id === 'premium';
+      const features = FEATURES[id] || [];
+      const monthly = fmtPrice(plan.prices, 'monthly');
+      const yearly = fmtPrice(plan.prices, 'yearly');
+
+      let priceLine = '';
+      if (id === 'free') {
+        priceLine = `<div class="plan-price">₦0 <small>/ forever</small></div>`;
+      } else {
+        const monthlyLine = monthly ? `${monthly} <small>/ month</small>` : 'Contact us';
+        const yearlyLine = yearly ? `${yearly} <small>/ year</small>` : '';
+        priceLine = `
+          <div class="plan-price">${monthlyLine}</div>
+          ${yearlyLine ? `<div style="font-size: 12.5px; color: var(--text-3); margin-top: 4px;">or ${yearlyLine}</div>` : ''}`;
+      }
+
+      return `
+        <button type="button"
+                class="plan-card ${isRecommended ? 'recommended' : ''} ${isCurrent ? 'selected' : ''}"
+                data-plan-id="${id}"
+                ${isCurrent ? 'disabled' : ''}
+                onclick="Prof.selectPlan('${id}', this)">
+          <div class="plan-radio"></div>
+          <div class="plan-body">
+            <div class="plan-name">
+              ${id.charAt(0).toUpperCase() + id.slice(1)}
+              ${isRecommended && !isCurrent ? '<span class="plan-badge">Popular</span>' : ''}
+              ${isCurrent ? '<span class="plan-badge" style="background: rgba(46,139,87,0.2); color: var(--brand);">Current</span>' : ''}
+            </div>
+            ${priceLine}
+            ${features.length ? `<ul class="plan-features">${features.map(f => `<li>${esc(f)}</li>`).join('')}</ul>` : ''}
+          </div>
+        </button>`;
+    }).join('');
+
+    body.innerHTML = html + `
+      <button class="btn btn-block" id="plan-checkout-btn" disabled onclick="Prof.startCheckout()" style="margin-top: 6px;">
+        Choose a plan to continue
+      </button>
+      <p style="font-size: 12px; color: var(--text-3); text-align: center; margin-top: 12px; line-height: 1.5;">
+        Payments are handled securely by Paystack.<br>
+        You can cancel any time from your account settings.
+      </p>`;
+
+    if (currentTier === 'free') {
+      setTimeout(() => {
+        const btn = document.querySelector('.plan-card[data-plan-id="premium"]');
+        if (btn) this.selectPlan('premium', btn);
+      }, 50);
+    }
+  },
+
+  selectedPlanId: null,
+  selectedBillingCycle: 'monthly',
+
+  selectPlan(planId, btnEl) {
+    if (planId === 'free') return;
+    if (planId === this.user?.subscriptionTier) return;
+
+    this.selectedPlanId = planId;
+    document.querySelectorAll('.plan-card').forEach(c => c.classList.remove('selected'));
+    if (btnEl) btnEl.classList.add('selected');
+
+    const body = document.querySelector('#cw-generic-modal .cw-modal-body');
+    if (body && !$('plan-cycle-toggle')) {
+      const toggle = document.createElement('div');
+      toggle.id = 'plan-cycle-toggle';
+      toggle.style.cssText = 'display:flex; gap:8px; justify-content:center; margin: 14px 0 8px;';
+      toggle.innerHTML = `
+        <button type="button" class="chip active" data-cycle="monthly" onclick="Prof.pickBillingCycle('monthly', this)">Monthly</button>
+        <button type="button" class="chip" data-cycle="yearly" onclick="Prof.pickBillingCycle('yearly', this)">Yearly · 2 months free</button>`;
+      const checkoutBtn = $('plan-checkout-btn');
+      if (checkoutBtn) body.insertBefore(toggle, checkoutBtn);
+    }
+
+    const checkout = $('plan-checkout-btn');
+    if (checkout) {
+      checkout.disabled = false;
+      checkout.textContent = `Upgrade to ${planId.charAt(0).toUpperCase() + planId.slice(1)} →`;
+    }
+  },
+
+  pickBillingCycle(cycle, btnEl) {
+    this.selectedBillingCycle = cycle;
+    document.querySelectorAll('#plan-cycle-toggle .chip').forEach(c => c.classList.remove('active'));
+    if (btnEl) btnEl.classList.add('active');
+  },
+
+  /* ============================================================
+     PAYSTACK CHECKOUT
+     ============================================================ */
+  async startCheckout() {
+    if (!this.selectedPlanId) return;
+
+    const btn = $('plan-checkout-btn');
+    const originalLabel = btn ? btn.textContent : '';
+    if (btn) { btn.disabled = true; btn.innerHTML = '<span class="spinner-inline"></span> Preparing payment…'; }
+
+    try {
+      const init = await Backend.initPayment(this.selectedPlanId, this.selectedBillingCycle, 'NGN');
+      const { reference, amount, currency, publicKey, email } = init;
+
+      if (!reference || !publicKey) throw new Error('Payment initialization failed — missing reference or key');
+
+      closeModal('cw-generic-modal');
+      await this.loadPaystackScript();
+
+      const userEmail = email || (this.user && this.user.email);
+      if (!userEmail) throw new Error('Missing email for checkout');
+
+      const handler = window.PaystackPop.setup({
+        key: publicKey,
+        email: userEmail,
+        amount,
+        currency: currency || 'NGN',
+        ref: reference,
+        onClose: () => { showToast('Payment cancelled.', 'info'); },
+        callback: (response) => { this.verifyPayment(response.reference || reference); }
+      });
+      handler.openIframe();
+    } catch (e) {
+      console.warn('Checkout error:', e);
+      showToast(e.message || 'Could not start payment.', 'error');
+      if (btn) { btn.disabled = false; btn.textContent = originalLabel; }
+    }
+  },
+
+  loadPaystackScript() {
+    return new Promise((resolve, reject) => {
+      if (window.PaystackPop) return resolve();
+      const s = document.createElement('script');
+      s.src = 'https://js.paystack.co/v1/inline.js';
+      s.onload = resolve;
+      s.onerror = () => reject(new Error('Could not load Paystack'));
+      document.head.appendChild(s);
+    });
+  },
+
+  async verifyPayment(reference) {
+    showToast('Verifying payment…', 'info');
+    try {
+      await Backend.verifyPayment(reference);
+      showToast('Subscription activated! 🎉', 'success');
+      await this.loadSubscription();
+
+      const me = await Backend.me();
+      State.user = me.user || me;
+      Auth.setUser(State.user);
+      this.user = State.user;
+      this.renderBanner();
+      Header.render('profile');
+      this.syncHeaderStreak();
+      this.maybeShowFamily();
+    } catch (e) {
+      console.warn('Verify failed:', e);
+      showToast('Could not verify payment. Contact support if charged.', 'error');
+    }
+  },
+
+  /* ============================================================
+     ACHIEVEMENTS
+     ============================================================ */
+      achStats() {
+    const p = this.progress || {};
+    const activeProfile = State.currentProfile;
+    const u = this.user || {};
+
+    // If a child profile is active, use their specific counters (or 0 if none exist yet)
+    // Otherwise, fallback to the parent account
+    return {
+      lessons: Math.max((p.completedLessons || []).length, (p.completedLevels || []).length),
+      level: p.currentLevel || 1,
+      xp: p.totalXP || 0,
+      perfect: p.perfectScores || 0,
+      longestStreak: Math.max(p.longestStreak || 0, p.streak || 0),
+      words: (u.savedWords || []).length, // You can move saved words to profiles too later
+      
+      // These are the ones failing right now:
+      pods: activeProfile ? (activeProfile.podsJoined || 0) : (u.podsJoined || 0),
+      pairs: activeProfile ? (activeProfile.activePairs || 0) : (u.activePairs || 0),
+      cards: activeProfile ? (activeProfile.cardsShared || 0) : (u.cardsShared || 0),
+      referrals: activeProfile ? (activeProfile.referralCount || 0) : (u.referralCount || 0)
+    };
+  },
+
+  computeAchievements() {
+    const st = this.achStats();
+    return ACH.map(a => {
+      const value = st[a.stat] || 0;
+      const done = value >= a.target;
+      return { ...a, value, done, pct: done ? 100 : Math.floor((value / a.target) * 100) };
+    });
+  },
+
+  renderAchievements() {
+    const summary = $('ach-summary'), row = $('ach-row'), foot = $('ach-foot');
+    if (!row) return;
+
+    if (!this.progressLoaded) {
+      summary.innerHTML = '<div class="skel skel-row" style="width:55%;height:18px"></div><div class="skel skel-row" style="width:85%"></div>';
+      row.innerHTML = '<div class="skel skel-tile"></div>'.repeat(4);
+      foot.textContent = '';
+      return;
+    }
+    if (this.progressError) {
+      summary.innerHTML = '';
+      row.innerHTML = `<div class="empty-note" style="width:100%;padding:18px 8px"><strong>Couldn't load your progress.</strong><button class="btn btn-sm" style="margin-top:10px" onclick="Prof.loadProgress()">Retry</button></div>`;
+      foot.textContent = '';
+      return;
+    }
+
+    const list = this.computeAchievements();
+    this.achievements = list;
+    const done = list.filter(a => a.done).length;
+    const total = list.length;
+    const pct = Math.round((done / total) * 100);
+
+    const next = list.filter(a => !a.done).sort((a, b) => b.pct - a.pct)[0];
+    const nextLine = next
+      ? `Next up: <b>${next.icon} ${esc(next.name)}</b> — ${next.value.toLocaleString()} / ${next.target.toLocaleString()}`
+      : 'You unlocked everything. Legend! 👑';
+
+    summary.innerHTML = `
+      <div class="ach-summary">
+        <div class="ach-trophy">🏆</div>
+        <div class="ach-sum-body">
+          <div class="ach-sum-title">${done} of ${total}<small>unlocked</small></div>
+          <div class="ach-bar"><i style="width:${pct}%"></i></div>
+          <div class="ach-next">${nextLine}</div>
+        </div>
+      </div>`;
+
+    const sorted = [...list].sort((a, b) => (Number(b.done) - Number(a.done)) || (b.pct - a.pct));
+    row.innerHTML = sorted.map(a => `
+      <button class="ach-tile ${a.done ? 'unlocked' : 'locked'}" onclick="Prof.showAchievement('${a.id}')" aria-label="${esc(a.name)}">
+        <div class="ach-ring" style="--p:${a.pct}"><span class="ach-emoji">${a.icon}</span></div>
+        <div class="ach-name">${esc(a.name)}</div>
+        <div class="ach-sub">${a.done ? 'Unlocked ✓' : a.value.toLocaleString() + ' / ' + a.target.toLocaleString()}</div>
+      </button>`).join('');
+
+    const lang = CW_CONFIG.LANGUAGES[State.currentLanguage];
+    foot.textContent = `Learning badges count your progress in ${lang ? lang.name : 'this language'}.`;
+
+    this.celebrateNew();
+  },
+
+    celebrateNew() {
+    const uid = (this.user && (this.user.id || this.user._id)) || 'me';
+    // Include the Profile ID in the cache key so each child has their own achievements
+    const profileKey = State.currentProfileId || 'main';
+    const key = `cw_ach_seen_${uid}_${profileKey}`;
+    
+    const unlocked = this.achievements.filter(a => a.done).map(a => a.id);
+    let seen = null;
+    try { seen = JSON.parse(localStorage.getItem(key)); } catch {}
+    
+    if (!Array.isArray(seen)) { 
+      try { localStorage.setItem(key, JSON.stringify(unlocked)); } catch {} 
+      return; 
+    }
+
+    const fresh = this.achievements.filter(a => a.done && !seen.includes(a.id));
+    if (!fresh.length) return;
+    try { localStorage.setItem(key, JSON.stringify([...new Set([...seen, ...unlocked])])); } catch {}
+
+    Header._modal(fresh.length === 1 ? 'Achievement unlocked!' : fresh.length + ' achievements unlocked!', `
+      <div style="text-align:center;padding:4px 0 8px">
+        <div style="font-size:15px;color:var(--text-2);margin-bottom:6px">🎉 Nice work — you earned</div>
+        ${fresh.map(a => `
+          <div class="ach-detail unlocked" style="padding:10px 0 4px">
+            <div class="ach-ring pop" style="--p:100;width:84px;height:84px;margin:0 auto 10px"><span class="ach-emoji" style="font-size:38px">${a.icon}</span></div>
+            <h3 style="font-size:18px">${esc(a.name)}</h3>
+            <p style="margin-top:3px">${esc(a.desc)}</p>
+          </div>`).join('')}
+      </div>
+      <button class="btn btn-block" style="margin-top:14px" onclick="closeModal('cw-generic-modal')">Awesome</button>`);
+  },
+
+  showAchievement(id) {
+    const a = (this.achievements || []).find(x => x.id === id);
+    if (!a) return;
+    const left = Math.max(0, a.target - a.value);
+    const cta = a.done ? '' : `<button class="btn btn-block" style="margin-top:16px" onclick="Prof.achGo('${a.go}')">${GO_LABEL[a.go] || 'Go'}</button>`;
+    Header._modal(a.done ? 'Unlocked' : 'Locked', `
+      <div class="ach-detail ${a.done ? 'unlocked' : 'locked'}">
+        <div class="ach-ring ${a.done ? 'pop' : ''}" style="--p:${a.pct}"><span class="ach-emoji">${a.icon}</span></div>
+        <h3>${esc(a.name)}</h3>
+        <p>${esc(a.desc)}</p>
+        <div class="ach-bar"><i style="width:${a.pct}%"></i></div>
+        <div class="count">${a.done ? 'Completed 🎉' : `${a.value.toLocaleString()} / ${a.target.toLocaleString()} · ${left.toLocaleString()} to go`}</div>
+      </div>
+      ${cta}`);
+  },
+
+  achGo(where) {
+    closeModal('cw-generic-modal');
+    if (where === 'invite') {
+      const el = $('referrals-card');
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else Nav.go(where);
+  },
+
+  showAllAchievements() {
+    if (!this.progressLoaded || !this.achievements.length) { showToast('Still loading your progress…', 'info'); return; }
+    const done = this.achievements.filter(a => a.done).length;
+    const html = ACH_CATS.map(c => {
+      const items = this.achievements.filter(a => a.cat === c.id);
+      const d = items.filter(a => a.done).length;
+      return `
+        <div class="ach-cat"><span>${c.icon} ${c.name}</span><span>${d}/${items.length}</span></div>
+        ${items.map(a => `
+          <button class="ach-item ${a.done ? 'unlocked' : 'locked'}" onclick="Prof.showAchievement('${a.id}')">
+            <div class="ach-ring" style="--p:${a.pct}"><span class="ach-emoji">${a.icon}</span></div>
+            <div class="ach-item-body">
+              <div class="ach-item-name">${esc(a.name)}</div>
+              <div class="ach-item-desc">${esc(a.desc)}</div>
+              ${a.done ? '' : `<div class="ach-item-bar"><i style="width:${a.pct}%"></i></div>`}
+            </div>
+            <div class="ach-item-state">${a.done ? '✓' : a.value.toLocaleString() + '/' + a.target.toLocaleString()}</div>
+          </button>`).join('')}`;
+    }).join('');
+    Header._modal(`Achievements · ${done}/${this.achievements.length}`, html);
+  },
+
+  /* ============================================================
+     REFERRALS
+     ============================================================ */
+  async loadReferrals() {
+    try {
+      const r = await Backend.myReferrals();
+      this.referrals = r;
+      this.renderReferrals(r);
+    } catch (e) {
+      console.warn('Referrals load failed:', e);
+      const code = $('ref-code-val');
+      if (code) code.textContent = (this.user && this.user.referralCode) || '—';
+    }
+  },
+
+  renderReferrals(r) {
+    const code = r.referralCode || r.code || (r.user && r.user.referralCode) || (this.user && this.user.referralCode) || '—';
+    const stats = r.stats || {};
+
+    $('ref-code-val').textContent = code;
+    $('ref-count').textContent = stats.qualified ?? r.qualified ?? r.referralCount ?? 0;
+    $('ref-pending').textContent = stats.pending ?? r.pending ?? r.pendingReferrals ?? 0;
+    $('ref-rewards').textContent = stats.rewarded ?? r.rewards ?? r.referralsRewarded ?? 0;
+
+    const qualified = stats.qualified ?? r.qualified ?? r.referralCount ?? 0;
+    const target = stats.referralsPerReward || 12;
+    const pct = Math.min(100, Math.round((qualified / target) * 100));
+    const remaining = Math.max(0, target - qualified);
+
+    const progressHost = $('ref-progress');
+    if (progressHost) {
+      progressHost.innerHTML = `
+        <div style="display: flex; justify-content: space-between; font-size: 12px; color: var(--text-2); margin-bottom: 6px;">
+          <span>${qualified} of ${target} for 30 free days of Premium</span>
+          <span style="font-weight: 700;">${pct}%</span>
+        </div>
+        <div style="height: 6px; background: var(--border); border-radius: 3px; overflow: hidden;">
+          <div style="height: 100%; width: ${pct}%; background: linear-gradient(90deg, var(--brand), var(--gold)); border-radius: 3px;"></div>
+        </div>
+        ${remaining > 0
+          ? `<div style="font-size: 12px; color: var(--text-3); margin-top: 8px;">${remaining} more friend${remaining === 1 ? '' : 's'} to unlock your reward.</div>`
+          : `<div style="font-size: 12px; color: var(--brand); margin-top: 8px; font-weight: 700;">🎉 Reward unlocked — claim it in the app or check your email.</div>`}`;
+    }
+  },
+
+  copyReferral() {
+    const code = $('ref-code-val').textContent || (this.user && this.user.referralCode) || '';
+    if (!code || code === '—') { showToast('Code not ready yet.', 'info'); return; }
+    const shareText = `Be honest: can you speak to your grandmother in her language? I couldn't, so I started learning on ClearWords 🇳🇬 Join me with my code ${code}: https://clearwords.com.ng/join?ref=${encodeURIComponent(code)}`;
+    if (navigator.share) {
+      navigator.share({ title: 'ClearWords', text: shareText }).catch(() => {});
+    } else {
+      navigator.clipboard.writeText(shareText)
+        .then(() => showToast('Copied to clipboard! 📋', 'success'))
+        .catch(() => showToast('Code: ' + code, 'info'));
+    }
+  },
+
+  /* ============================================================
+     STREAK FREEZES
+     ============================================================ */
+  async loadFreezes() {
+    try {
+      const f = await Backend.getFreezes(State.currentLanguage);
+      this.freezes = f;
+      this.renderFreezes(f);
+    } catch (e) {
+      console.warn('Freezes load failed:', e);
+      const n = (this.user && this.user.streakFreezesAvailable) || 0;
+      const count = $('freeze-count');
+      if (count) count.textContent = n;
+      const sub = $('freeze-sub');
+      if (sub) sub.textContent = 'Protect your streak when you miss a day';
+    }
+  },
+
+  renderFreezes(f) {
+    const available = f.available ?? f.count ?? f.freezes ?? 0;
+    const max = f.max ?? 3;
+    const autoApply = !!(f.autoApply ?? f.auto);
+    $('freeze-count').textContent = available;
+    $('freeze-sub').textContent = `${available} of ${max} held · 200 XP each · auto-apply ${autoApply ? 'on' : 'off'}`;
+    const autoBtn = $('auto-freeze-btn');
+    if (autoBtn) autoBtn.textContent = autoApply ? 'Auto-apply: ON' : 'Auto-apply: OFF';
+  },
+
+  async buyFreeze() {
+    if (!confirm('Buy a streak freeze for 200 XP?')) return;
+    try {
+      await Backend.buyFreeze(State.currentLanguage);
+      showToast('Freeze purchased! 🛡️', 'success');
+      this.loadFreezes();
+      this.loadProgress();
+    } catch (e) {
+      if (e.status === 400 || /xp/i.test(e.message || '')) showToast('Not enough XP.', 'error');
+      else if (e.status === 409 || /max/i.test(e.message || '')) showToast('You already hold the maximum (3).', 'info');
+      else showToast(e.message || 'Could not buy freeze.', 'error');
+    }
+  },
+
+  async recoverStreak() {
+    if (!confirm('Use a freeze to recover your broken streak?')) return;
+    try {
+      await Backend.recoverStreak(State.currentLanguage);
+      showToast('Streak recovered! 🔥', 'success');
+      this.loadFreezes();
+      this.loadProgress();
+    } catch (e) {
+      showToast(e.message || 'Could not recover streak.', 'error');
+    }
+  },
+
+  async toggleAutoFreeze() {
+    const current = this.freezes && (this.freezes.autoApply ?? this.freezes.auto);
+    try {
+      await Backend.toggleAutoFreeze(!current);
+      showToast(!current ? 'Auto-apply on' : 'Auto-apply off', 'success');
+      this.loadFreezes();
+    } catch (e) {
+      showToast(e.message || 'Could not toggle.', 'error');
+    }
+  },
+
+  /* ============================================================
+     FAMILY
+     ============================================================ */
+  isFamilyTier() {
+    const u = this.user || State.user || {};
+    const tier = (u.subscriptionTier || 'free').toLowerCase();
+    if (!['premium', 'immersive'].includes(tier)) return false;
+    if (u.subscriptionExpires && new Date(u.subscriptionExpires) < new Date()) return false;
+    return true;
+  },
+
+  isFamilyAccount() {
+    const u = this.user || State.user || {};
+    return u.accountType === 'family' || (u.familyProfiles || []).length > 0;
+  },
+
+   maybeShowFamily() {
+    const u = this.user || {};
+    const section = $('family-section');
+    const card = $('family-card');
+    if (!section || !card) return;
+
+    const tier = (u.subscriptionTier || 'free').toLowerCase();
+    const active = !u.subscriptionExpires || new Date(u.subscriptionExpires) > new Date();
+    const isEligible = ['premium', 'immersive'].includes(tier) && active;
+    const isFamilyAccount = u.accountType === 'family' || (u.familyProfiles || []).length > 0;
+
+    // If they are Free, show an upgrade prompt instead of the family list
+    if (!isEligible) {
+      section.style.display = 'block';
+      card.innerHTML = `
+        <div style="font-weight: 800; font-size: 15px;">Family accounts 👨‍👩‍👧</div>
+        <div style="font-size: 13px; color: var(--text-2); margin-top: 6px; line-height: 1.5;">
+          Give your kids their own profiles — their own streak, lessons, and Timmy chats. Family accounts require Premium or Immersive.
+        </div>
+        <div style="margin-top: 14px;">
+          <button class="btn btn-sm" onclick="Prof.openUpgrade()">See plans →</button>
+        </div>
+      `;
+      return;
+    }
+
+       // If they are Premium or Immersive but haven't set up profiles yet
+    if (!isFamilyAccount) {
+      section.style.display = 'block';
+      card.innerHTML = `
+        <div style="font-weight: 800; font-size: 15px;">Set up your family</div>
+        <div style="font-size: 13px; color: var(--text-2); margin-top: 6px; line-height: 1.5;">
+          You have family access on your plan. Create up to 6 profiles for your household.
+        </div>
+        <div style="margin-top: 14px;">
+          <!-- Changed this from openProfileSwitcher to openCreateProfile -->
+          <button class="btn btn-sm" onclick="Prof.openCreateProfile()">+ Add a learner</button>
+        </div>
+      `;
+      return;
+    }
+
+    // If they have profiles, show the list
+    section.style.display = 'block';
+    const profiles = u.familyProfiles || [];
+    
+    // Add the main account to the list dynamically for display
+    const displayProfiles = [...profiles];
+    const hasOwner = displayProfiles.some(p => p.role === 'owner');
+    if (!hasOwner) {
+      displayProfiles.unshift({
+        _id: u._id,
+        name: u.fullName,
+        emoji: '🧑',
+        color: '#2E8B57',
+        role: 'owner'
+      });
+    }
+
+    const listHtml = displayProfiles.map(p => {
+      const isActive = State.currentProfileId 
+        ? String(p._id) === String(State.currentProfileId) 
+        : (!State.currentProfileId && p.role === 'owner');
+        
+      return `
+        <div style="display:flex; align-items:center; gap:10px; padding:8px 0; border-bottom:1px solid var(--border);">
+          <span style="width:34px;height:34px;border-radius:50%;background:${esc(p.color || '#2E8B57')};display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;">${esc(p.emoji || '🧑')}</span>
+          <div style="flex:1; min-width:0;">
+            <div style="font-weight:700;font-size:14px;">${esc(p.name)}${isActive ? ' <span style="color:var(--brand);font-size:11px;font-weight:800;">• ACTIVE</span>' : ''}</div>
+            <div style="font-size:12px;color:var(--text-2);">${p.role === 'owner' ? 'Owner / Main Account' : 'Learner'}</div>
+          </div>
+        </div>`;
+    }).join('');
+
+    card.innerHTML = `
+      <div style="font-weight: 800; font-size: 15px;">Your family account</div>
+      <div style="font-size: 13px; color: var(--text-2); margin-top: 6px; line-height: 1.5;">
+        ${displayProfiles.length} profile${displayProfiles.length === 1 ? '' : 's'} · each with their own streak, lessons, and Timmy chats.
+      </div>
+      <div style="margin-top: 10px;">${listHtml}</div>
+      <div style="margin-top: 14px; display: flex; gap: 8px; flex-wrap: wrap;">
+        <button class="btn btn-sm" onclick="Prof.openProfileSwitcher()">Switch profile</button>
+        <button class="btn btn-sm btn-ghost" onclick="Prof.openFamilyOverview()">Family overview</button>
+      </div>`;
+  },
+
+  /* ---------- Profile switcher ---------- */
+      openProfileSwitcher() {
+    const u = this.user || State.user || {};
+    const profiles = u.familyProfiles || [];
+
+    // If no profiles exist but they are eligible, open the create modal
+    if (!profiles.length && this.isFamilyTier()) {
+      this.openCreateProfile();
+      return;
+    }
+
+    if (!profiles.length) {
+      // Personal account (non-family) — keep the old behavior
+      this.openEditProfile();
+      return;
+    }
+
+    const currentId = State.currentProfileId;
+
+    // 1. Render the Main Account row at the top
+    const isMainActive = !currentId;
+    let rows = `
+      <button class="lang-option ${isMainActive ? 'active' : ''}"
+              onclick="Prof.switchProfile('main')"
+              style="margin-bottom: 6px;">
+        <span style="
+          width: 40px; height: 40px; border-radius: 50%;
+          background: #2E8B57;
+          display: flex; align-items: center; justify-content: center;
+          font-size: 20px; flex-shrink: 0;">🧑</span>
+        <div style="flex: 1; text-align: left; min-width: 0;">
+          <div style="font-weight: 700; font-size: 15px;">${esc(u.fullName || 'Main Account')}</div>
+          <div style="font-size: 12px; color: var(--text-2);">Owner / Main Account</div>
+        </div>
+        ${isMainActive
+          ? '<span class="lang-check">✓</span>'
+          : '<span style="color: var(--text-3); font-size: 12px; font-weight: 700;">Switch</span>'}
+      </button>
+    `;
+
+    // 2. Render the child profiles
+    rows += profiles.map(p => {
+      // Skip the owner profile if it exists in the familyProfiles array, 
+      // because we already render the Main Account above.
+      if (p.role === 'owner') return ''; 
+
+      const isActive = currentId && String(p._id) === String(currentId);
+      return `
+        <button class="lang-option ${isActive ? 'active' : ''}"
+                onclick="Prof.switchProfile('${p._id}')"
+                style="margin-bottom: 6px;">
+          <span style="
+            width: 40px; height: 40px; border-radius: 50%;
+            background: ${esc(p.color || '#2E8B57')};
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px; flex-shrink: 0;">${esc(p.emoji || '🧒')}</span>
+          <div style="flex: 1; text-align: left; min-width: 0;">
+            <div style="font-weight: 700; font-size: 15px;">${esc(p.name)}</div>
+            <div style="font-size: 12px; color: var(--text-2);">Learner</div>
+          </div>
+          ${isActive
+            ? '<span class="lang-check">✓</span>'
+            : '<span style="color: var(--text-3); font-size: 12px; font-weight: 700;">Switch</span>'}
+        </button>`;
+    }).join('');
+
+    const atMax = profiles.length >= 6;
+    const footer = `
+      <div style="display: flex; gap: 10px; margin-top: 16px;">
+        <button class="btn btn-ghost btn-block" style="flex: 1;" onclick="Prof.openFamilyOverview()">
+          Manage profiles
+        </button>
+        <button class="btn btn-block" style="flex: 1;" ${atMax ? 'disabled' : ''}
+                onclick="Prof.openCreateProfile()">
+          + Add a learner${atMax ? ' (max 6)' : ''}
+        </button>
+      </div>
+      <button class="btn btn-ghost btn-block" style="margin-top: 8px;" onclick="Prof.openEditProfile()">
+        ✏️ Edit current profile
+      </button>`;
+
+    Header._modal('Switch profile', rows + footer);
+  },
+
+    async switchProfile(profileId) {
+    try {
+      // Show a loading toast
+      showToast('Switching…', 'info');
+      
+      // Perform the switch
+      const res = await Profile.switchTo(profileId);
+      
+      // Close the modal
+      closeModal('cw-generic-modal');
+      
+      // FORCE a hard reload to clear all JS state
+      location.reload();
+      
+    } catch (e) {
+      showToast(e.message || 'Could not switch profile.', 'error');
+    }
+  },
+
+    openCreateProfile() {
+    if (!this.isFamilyTier()) {
+      closeModal('cw-generic-modal');
+      Paywall.show({ feature: 'family' });
+      return;
+    }
+
+    const langChips = Object.entries(CW_CONFIG.LANGUAGES).map(([k, c]) => {
+      const isSelected = State.currentLanguage === k; // default to current language
+      return `
+        <button type="button" 
+                class="lang-chip ${isSelected ? 'active' : ''}" 
+                onclick="Prof.selectCreateLang('${k}', this)">
+          ${c.emoji} ${c.name}
+        </button>
+      `;
+    }).join('');
+
+    Header._modal('Add a learner', `
+      <div class="field">
+        <label>Name</label>
+        <input type="text" id="np-name" maxlength="40" placeholder="e.g. Chika">
+      </div>
+      <div class="field">
+        <label>Emoji</label>
+        <input type="text" id="np-emoji" maxlength="8" value="🧒">
+      </div>
+      <div class="field">
+        <label>Color</label>
+        <input type="text" id="np-color" maxlength="16" value="#E8B33C">
+      </div>
+      <div class="field">
+        <label>Learning Language</label>
+        <div class="lang-chips" id="np-lang-chips">
+          ${langChips}
+        </div>
+        <input type="hidden" id="np-language" value="${State.currentLanguage}">
+      </div>
+      <div class="field-error" id="np-err"></div>
+      <button class="btn btn-block" id="np-save" onclick="Prof.createProfile()">Create profile</button>
+    `);
+  },
+
+   async createProfile() {
+    const name = document.getElementById('np-name').value.trim();
+    const emoji = document.getElementById('np-emoji').value.trim();
+    const color = document.getElementById('np-color').value.trim();
+    const language = document.getElementById('np-language').value; // reads hidden input
+    const err = document.getElementById('np-err');
+    err.textContent = '';
+
+    if (!name) { err.textContent = 'Name is required.'; return; }
+
+    const btn = document.getElementById('np-save');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner-inline"></span> Creating…';
+
+    try {
+      await Profile.create({ name, emoji, color, language });
+      this.user = State.user;
+      closeModal('cw-generic-modal');
+      showToast(`${name} added! 🎉`, 'success');
+      this.maybeShowFamily();
+      this.renderBanner();
+    } catch (e) {
+      err.textContent = e.message || 'Could not create profile.';
+      btn.disabled = false;
+      btn.textContent = 'Create profile';
+    }
+  },
+
+    selectCreateLang(lang, btnEl) {
+    const container = document.getElementById('np-lang-chips');
+    if (container) {
+      container.querySelectorAll('.lang-chip').forEach(c => c.classList.remove('active'));
+    }
+    btnEl.classList.add('active');
+    document.getElementById('np-language').value = lang;
+  },
+
+  async openFamilyOverview() {
+    const u = this.user || State.user || {};
+    const profiles = u.familyProfiles || [];
+    const others = profiles.filter(p => String(p._id) !== String(State.currentProfileId || ''));
+
+    if (!others.length) {
+      showToast('No other profiles to view.', 'info');
+      return;
+    }
+
+    Header._modal('Family overview', '<div class="modal-loading">Loading…</div>');
+
+    try {
+      const body = document.querySelector('#cw-generic-modal .cw-modal-body');
+      
+      // Helper to convert dry levels/XP into emotional milestones
+            // Helper to convert dry levels/XP into culturally nuanced milestones
+      const getMilestone = (level, lang) => {
+        const culturalContext = {
+          yoruba: {
+            greet: "They can greet elders with the right respect (Ẹ káàrọ̀).",
+            connect: "They can share a meal and exchange pleasantries with family in Lagos or Ibadan.",
+            speak: "They can hold their own in a conversation with grandparents. The ancestors are smiling.",
+            stories: "They can understand the deep meanings inside Yorùbá proverbs (òwe).",
+            master: "They are fluent enough to pass the language on to the next generation."
+          },
+          igbo: {
+            greet: "They can greet with 'Kedu' and show respect to their elders.",
+            connect: "They can talk about family, food, and home with relatives in Enugu or Anambra.",
+            speak: "They can joke and share stories with their grandparents. The language is alive in them.",
+            stories: "They can grasp the wisdom hidden in Igbo proverbs (ilu).",
+            master: "They are a true guardian of the Igbo language and culture."
+          },
+          hausa: {
+            greet: "They can greet with 'Sannu' and show proper respect to elders.",
+            connect: "They can chat with relatives and understand the rhythm of Hausa conversation.",
+            speak: "They can share stories and laughter with their grandparents in Kano or Kaduna.",
+            stories: "They can understand the deep poetry and proverbs of the North.",
+            master: "They are fluent enough to carry the Hausa heritage with pride."
+          },
+          pidgin: {
+            greet: "They can say 'How far?' and greet with the right vibe.",
+            connect: "They can flow in everyday conversation and understand the energy of Naija.",
+            speak: "They can gist and joke with family effortlessly.",
+            stories: "They can understand the deeper meaning in Naija slang and stories.",
+            master: "They can express themselves fully in the language of the people."
+          }
+        };
+
+        const ctx = culturalContext[lang] || culturalContext.yoruba;
+
+        if (level >= 50) return `A true guardian of the culture. ${ctx.master}`;
+        if (level >= 40) return `They are practically fluent. ${ctx.stories}`;
+        if (level >= 30) return `They can hold deep conversations. ${ctx.stories}`;
+        if (level >= 20) return `They can share stories and jokes. ${ctx.speak}`;
+        if (level >= 15) return `They can understand nuanced conversations with family. ${ctx.connect}`;
+        if (level >= 10) return `They can speak comfortably with grandparents and elders. ${ctx.speak}`;
+        if (level >= 5)  return `They can talk about their day and their family. ${ctx.connect}`;
+        if (level >= 3)  return `They can introduce themselves and ask simple questions. ${ctx.greet}`;
+        
+        return `Every journey starts with a single word. They've taken the first step in ${lang}.`;
+      };
+
+            const cards = await Promise.all(others.map(async p => {
+        try {
+          const data = await Profile.overview(p._id, p.language || State.currentLanguage);
+          const level = data.level || 1;
+          const langKey = data.language || 'yoruba';
+          const langName = (CW_CONFIG.LANGUAGES[langKey] || CW_CONFIG.LANGUAGES.yoruba).name;
+          
+          // Calculate streak text
+          const streak = data.streak || 0;
+          let streakText = `Building a new habit in ${langName}.`;
+          if (streak === 1) streakText = `A 1-day streak. Today is the first day of the rest of their journey.`;
+          else if (streak > 1) streakText = `A ${streak}-day streak of learning ${langName}. Keep the fire burning.`;
+
+          return `
+            <div class="card" style="margin-bottom: 12px;">
+              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                <div style="
+                  width: 48px; height: 48px; border-radius: 50%;
+                  background: ${esc(p.color || '#2E8B57')};
+                  display: flex; align-items: center; justify-content: center;
+                  font-size: 24px;">${esc(p.emoji || '🧑')}</div>
+                <div class="milestone-card">
+                  <div class="milestone-title">${esc(p.name)}</div>
+                  <div style="font-size: 12px; color: var(--text-2);">Learning ${langName}</div>
+                </div>
+              </div>
+              
+              <div class="milestone-text">
+                "${getMilestone(level, langKey)}"
+              </div>
+              
+              <div style="font-size: 12px; color: var(--text-3); margin-top: 12px; display: flex; align-items: center; gap: 6px;">
+                <span>🔥</span> ${streakText}
+              </div>
+            </div>`;
+        } catch {
+          return `<div class="card"><div style="font-size:13px;color:var(--text-2);">Could not load ${esc(p.name)}</div></div>`;
+        }
+      }));
+
+      body.innerHTML = `
+        <div style="font-size: 12.5px; color: var(--text-3); margin-bottom: 14px; line-height: 1.5;">
+          A snapshot of their journey. Chats, pods, and messages remain private to each learner.
+        </div>
+        ${cards.join('')}
+      `;
+    } catch (e) {
+      showToast('Could not load overview.', 'error');
+    }
+  },
+
+  /* ============================================================
+     EDIT PROFILE
+     ============================================================ */
+      openEditProfile() {
+    const u = this.user || {};
+    const activeProfile = State.currentProfileId 
+      ? (u.familyProfiles || []).find(pr => String(pr._id) === String(State.currentProfileId))
+      : null;
+
+    if (activeProfile) {
+      // Build language chips
+      const langChips = Object.entries(CW_CONFIG.LANGUAGES).map(([k, c]) => {
+        const isSelected = activeProfile.language === k;
+        return `
+          <button type="button" 
+                  class="lang-chip ${isSelected ? 'active' : ''}" 
+                  onclick="Prof.selectEditLang('${k}', this)">
+            ${c.emoji} ${c.name}
+          </button>
+        `;
+      }).join('');
+
+      // Editing a Child Profile
+      Header._modal('Edit learner', `
+        <div class="field">
+          <label>Name</label>
+          <input type="text" id="ep-child-name" value="${esc(activeProfile.name)}" maxlength="40">
+        </div>
+        <div class="field">
+          <label>Emoji</label>
+          <input type="text" id="ep-child-emoji" value="${esc(activeProfile.emoji || '🧒')}" maxlength="8">
+        </div>
+        <div class="field">
+          <label>Color</label>
+          <input type="text" id="ep-child-color" value="${esc(activeProfile.color || '#E8B33C')}" maxlength="16">
+        </div>
+        <div class="field">
+          <label>Learning Language</label>
+          <div class="lang-chips" id="ep-child-lang-chips">
+            ${langChips}
+          </div>
+          <input type="hidden" id="ep-child-language" value="${activeProfile.language || 'yoruba'}">
+        </div>
+        <div class="field-error" id="ep-err"></div>
+        <button class="btn btn-block" id="ep-save-btn" onclick="Prof.saveProfile()">Save changes</button>
+      `);
+    } else {
+      // Editing the Main Account
+      Header._modal('Edit main account', `
+        <div class="field">
+          <label>Full name</label>
+          <input type="text" id="ep-fullname" value="${esc(u.fullName || '')}" maxlength="60">
+        </div>
+        <div class="field">
+          <label>Username</label>
+          <input type="text" id="ep-username" value="${esc(u.username || '')}" maxlength="24" placeholder="e.g. ebuka470">
+          <div class="field-hint">Lowercase letters, numbers, dots and underscores.</div>
+        </div>
+        <div class="field">
+          <label>Bio</label>
+          <textarea id="ep-bio" maxlength="120" placeholder="Tell other learners a little about you…">${esc(u.bio || '')}</textarea>
+        </div>
+        <div class="field">
+          <label>Location</label>
+          <input type="text" id="ep-location" value="${esc(u.location || '')}" maxlength="60" placeholder="e.g. Lagos / London">
+        </div>
+        <div class="field-error" id="ep-err"></div>
+        <button class="btn btn-block" id="ep-save-btn" onclick="Prof.saveProfile()">Save changes</button>
+      `);
+    }
+  },
+
+  // Helper method to handle chip selection
+  selectEditLang(lang, btnEl) {
+    const container = document.getElementById('ep-child-lang-chips');
+    if (container) {
+      container.querySelectorAll('.lang-chip').forEach(c => c.classList.remove('active'));
+    }
+    btnEl.classList.add('active');
+    document.getElementById('ep-child-language').value = lang;
+  },
+
+  async saveProfile() {
+    const btn = $('ep-save-btn');
+    const err = $('ep-err');
+    err.textContent = '';
+    
+    const activeProfile = State.currentProfileId 
+      ? (this.user.familyProfiles || []).find(pr => String(pr._id) === String(State.currentProfileId))
+      : null;
+
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner-inline"></span> Saving…';
+
+    try {
+      if (activeProfile) {
+        // Save Child Profile
+        const name = $('ep-child-name').value.trim();
+        const emoji = $('ep-child-emoji').value.trim();
+        const color = $('ep-child-color').value.trim();
+        const language = $('ep-child-language').value;
+
+        if (!name) { err.textContent = 'Name is required.'; btn.disabled = false; btn.textContent = 'Save changes'; return; }
+
+        await Backend.updateProfileData(activeProfile._id, { name, emoji, color, language });
+        
+        // Update local state
+        activeProfile.name = name;
+        activeProfile.emoji = emoji;
+        activeProfile.color = color;
+        activeProfile.language = language;
+        Auth.setUser(State.user);
+        
+      } else {
+        // Save Main Account
+        const fullName = $('ep-fullname').value.trim();
+        const username = $('ep-username').value.trim().toLowerCase().replace(/[^a-z0-9_.]/g, '');
+        const bio = $('ep-bio').value.trim();
+        const location = $('ep-location').value.trim();
+
+        if (!fullName) { err.textContent = 'Full name is required.'; btn.disabled = false; btn.textContent = 'Save changes'; return; }
+
+        await Backend.updateProfile({ fullName, username, bio, location });
+      }
+
+      // Refresh global user state
+      const me = await Backend.me();
+      State.user = me.user || me;
+      Auth.setUser(State.user);
+      this.user = State.user;
+      
+      this.renderBanner();
+      Header.render('profile');
+      this.syncHeaderStreak();
+      closeModal('cw-generic-modal');
+      showToast('Profile updated.', 'success');
+      
+    } catch (e) {
+      console.warn('Profile update failed:', e);
+      err.textContent = e.status === 409 ? 'That username is taken.' : (e.message || 'Could not save.');
+      btn.disabled = false;
+      btn.textContent = 'Save changes';
+    }
+  },
+
+     getActiveName() {
+    const u = this.user || State.user || {};
+    const activeProfile = State.currentProfileId 
+      ? (u.familyProfiles || []).find(pr => String(pr._id) === String(State.currentProfileId))
+      : null;
+      
+    return activeProfile ? activeProfile.name : u.fullName;
+  },
+
+  /* ============================================================
+     CHANGE PASSWORD
+     ============================================================ */
+  openChangePassword() {
+    Header._modal('Change password', `
+      <div class="field">
+        <label>Current password</label>
+        <input type="password" id="cp-current" autocomplete="current-password">
+      </div>
+      <div class="field">
+        <label>New password</label>
+        <input type="password" id="cp-new" autocomplete="new-password" minlength="6" placeholder="At least 6 characters">
+      </div>
+      <div class="field">
+        <label>Confirm new password</label>
+        <input type="password" id="cp-confirm" autocomplete="new-password">
+      </div>
+      <div class="field-error" id="cp-err"></div>
+      <button class="btn btn-block" id="cp-btn" onclick="Prof.submitChangePassword()">Update password</button>
+      <p style="font-size: 12.5px; color: var(--text-3); margin-top: 12px; text-align: center;">
+        Changing your password signs you out of all other devices.
+      </p>
+    `);
+  },
+
+  async submitChangePassword() {
+    const current = $('cp-current').value;
+    const newPw = $('cp-new').value;
+    const confirmPw = $('cp-confirm').value;
+    const err = $('cp-err');
+    const btn = $('cp-btn');
+    err.textContent = '';
+
+    if (!current) { err.textContent = 'Enter your current password.'; return; }
+    if (newPw.length < 6) { err.textContent = 'New password must be at least 6 characters.'; return; }
+    if (newPw !== confirmPw) { err.textContent = 'New passwords do not match.'; return; }
+
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner-inline"></span> Updating…';
+
+    try {
+      const res = await Backend.changePassword(current, newPw);
+      if (res && res.token) Auth.setToken(res.token);
+      closeModal('cw-generic-modal');
+      showToast('Password updated.', 'success');
+    } catch (e) {
+      console.warn('Change password failed:', e);
+      err.textContent = e.status === 401 ? 'Current password is incorrect.' : (e.message || 'Could not update password.');
+      btn.disabled = false;
+      btn.textContent = 'Update password';
+    }
+  },
+
+  /* ============================================================
+     LANGUAGE / THEME
+     ============================================================ */
+  openLanguagePicker() { Header.openLanguagePicker(); },
+
+  applyThemeToggle() {
+    const el = $('theme-toggle');
+    if (el) el.classList.toggle('on', State.theme === 'dark');
+  },
+
+  toggleDarkMode() {
+    State.setTheme(State.theme === 'dark' ? 'light' : 'dark');
+    this.applyThemeToggle();
+  },
+
+  /* ============================================================
+     PUSH NOTIFICATIONS
+     ============================================================ */
+  async syncPushToggle() {
+    const toggle = $('notif-toggle');
+    const sub = $('notif-sub');
+    if (!toggle) return;
+
+    if (!PushManager.isSupported()) {
+      toggle.classList.remove('on');
+      toggle.classList.add('busy');
+      if (sub) sub.textContent = 'Not supported on this browser';
+      return;
+    }
+
+    if (PushManager.needsInstallFirst()) {
+      toggle.classList.remove('on');
+      if (sub) sub.textContent = 'Add ClearWords to your Home Screen first';
+      return;
+    }
+
+    if (PushManager.permission() === 'denied') {
+      toggle.classList.remove('on');
+      if (sub) sub.textContent = 'Blocked — enable in browser settings';
+      return;
+    }
+
+    if (PushManager.permission() === 'granted') {
+      try {
+        const live = await PushManager.getSubscription();
+        toggle.classList.toggle('on', !!live);
+        if (sub) sub.textContent = live
+          ? 'Streak reminders and updates'
+          : 'Tap to enable on this device';
+      } catch {
+        toggle.classList.remove('on');
+        if (sub) sub.textContent = 'Tap to enable on this device';
+      }
+      return;
+    }
+
+    toggle.classList.remove('on');
+    if (sub) sub.textContent = 'Streak reminders and updates';
+  },
+
+  async togglePushNotifications() {
+    if (this.notifBusy) return;
+    const toggle = $('notif-toggle');
+    const sub = $('notif-sub');
+    if (!toggle) return;
+
+    if (!PushManager.isSupported()) {
+      showToast('Push notifications are not supported on this browser.', 'info');
+      return;
+    }
+
+    if (PushManager.needsInstallFirst()) {
+      showToast('Tap "Share" → "Add to Home Screen", then open the app from the icon to enable notifications.', 'info');
+      return;
+    }
+
+    if (PushManager.permission() === 'denied') {
+      showToast('Notifications are blocked. Enable them in your browser\'s site settings.', 'error');
+      return;
+    }
+
+    this.notifBusy = true;
+    toggle.classList.add('busy');
+
+    try {
+      const isOn = toggle.classList.contains('on');
+
+      if (isOn) {
+        const res = await PushManager.disable();
+        if (res.ok) {
+          toggle.classList.remove('on');
+          if (sub) sub.textContent = 'Streak reminders and updates';
+          showToast('Notifications off', 'info');
+          try { await Backend.updateProfile({ notificationsEnabled: false }); } catch {}
+          if (State.user) State.user.notificationsEnabled = false;
+        } else {
+          showToast('Could not turn notifications off. Try again.', 'error');
+        }
+      } else {
+        const res = await PushManager.enable();
+
+        if (res.ok) {
+          toggle.classList.add('on');
+          if (sub) sub.textContent = 'Streak reminders and updates';
+          showToast('Notifications on 🔔', 'success');
+          try { await Backend.updateProfile({ notificationsEnabled: true }); } catch {}
+          if (State.user) State.user.notificationsEnabled = true;
+        } else if (res.reason === 'denied') {
+          showToast('You declined notifications. Enable them in your browser settings if you change your mind.', 'info');
+          if (sub) sub.textContent = 'Blocked — enable in browser settings';
+        } else if (res.reason === 'no_vapid') {
+          showToast('Push is not configured on the server yet.', 'error');
+        } else if (res.reason === 'no_sw') {
+          showToast('Could not reach the service worker. Try reloading the app.', 'error');
+        } else if (res.reason === 'needs_install') {
+          showToast('Add ClearWords to your Home Screen first.', 'info');
+        } else {
+          showToast('Could not enable notifications. Try again.', 'error');
+        }
+      }
+    } catch (e) {
+      console.warn('togglePushNotifications failed:', e);
+      showToast('Something went wrong. Try again.', 'error');
+    } finally {
+      this.notifBusy = false;
+      toggle.classList.remove('busy');
+    }
+  },
+
+  /* ============================================================
+     STATIC PAGES
+     ============================================================ */
+  openAbout() {
+    Header._modal('About ClearWords', `
+      <div style="text-align: center; padding: 20px 0;">
+        <div style="font-size: 56px; margin-bottom: 10px;">🗣️</div>
+        <div style="font-size: 22px; font-weight: 800; letter-spacing: -0.02em;">ClearWords</div>
+        <div style="font-size: 13px; color: var(--text-2); margin-top: 4px;">Keep the language close.</div>
+      </div>
+      <div style="font-size: 14px; line-height: 1.65; color: var(--text);">
+        <p style="margin-bottom: 14px;">ClearWords helps people learn Nigerian languages through words, conversations, culture, and everyday life — for themselves, and for the people they love.</p>
+        <p style="margin-bottom: 14px;"><strong>Version</strong> 3.0.0</p>
+        <p style="margin-bottom: 14px;"><strong>Languages</strong> Yorùbá · Igbo · Hausa · Nigerian Pidgin (with Urhobo and Itsekiri coming).</p>
+        <p style="margin-bottom: 14px;"><strong>Contact</strong><br>clearwords.ng@gmail.com</p>
+      </div>
+      <div style="text-align: center; font-size: 12px; color: var(--text-3); margin-top: 20px;">Made with ❤️ for Nigerian heritage.</div>
+    `);
+  },
+
+  openPrivacy() {
+    Header._modal('Privacy Policy', `
+      <div style="font-size: 14px; line-height: 1.65; color: var(--text);">
+        <p style="margin-bottom: 14px; font-size: 12.5px; color: var(--text-2);"><strong>Last updated:</strong> ${new Date().toLocaleDateString()}</p>
+
+        <h3 style="margin: 18px 0 8px; font-size: 15px;">What we collect</h3>
+        <p style="margin-bottom: 12px;">Your account email, name, learning progress (completed lessons, XP, streak), saved words, community activity (pods, pairs, messages), and device info for compatibility.</p>
+
+        <h3 style="margin: 18px 0 8px; font-size: 15px;">How we use it</h3>
+        <p style="margin-bottom: 12px;">To personalize your learning, sync progress across sessions, deliver community features (pods, pairs, notifications), process payments, and improve the app.</p>
+
+        <h3 style="margin: 18px 0 8px; font-size: 15px;">Storage</h3>
+        <p style="margin-bottom: 12px;">Your progress is stored on our servers so it's safe across devices. Some preferences (theme, chat history, onboarding state) are stored locally on your device.</p>
+
+        <h3 style="margin: 18px 0 8px; font-size: 15px;">Sharing</h3>
+        <p style="margin-bottom: 12px;">We do not sell your data. Payments are handled by Paystack. Text-to-speech runs on our servers via 9jaLingo. AI conversations run on our servers via Mistral.</p>
+
+        <h3 style="margin: 18px 0 8px; font-size: 15px;">Your rights</h3>
+        <p style="margin-bottom: 12px;">You can export your data, update your profile, reset learning progress, or ask us to delete your account by emailing clearwords.ng@gmail.com.</p>
+
+        <h3 style="margin: 18px 0 8px; font-size: 15px;">Contact</h3>
+        <p style="margin-bottom: 12px;">clearwords.ng@gmail.com</p>
+      </div>
+    `);
+  },
+
+  openTerms() {
+    Header._modal('Terms of Service', `
+      <div style="font-size: 14px; line-height: 1.65; color: var(--text);">
+        <p style="margin-bottom: 14px; font-size: 12.5px; color: var(--text-2);"><strong>Last updated:</strong> ${new Date().toLocaleDateString()}</p>
+
+        <h3 style="margin: 18px 0 8px; font-size: 15px;">1. The service</h3>
+        <p style="margin-bottom: 12px;">ClearWords is a Nigerian language learning service. By using it you agree to use it respectfully and not for harmful or illegal purposes.</p>
+
+        <h3 style="margin: 18px 0 8px; font-size: 15px;">2. Your account</h3>
+        <p style="margin-bottom: 12px;">Keep your password safe. You're responsible for activity under your account. We may suspend accounts that violate these terms or harm other learners.</p>
+
+        <h3 style="margin: 18px 0 8px; font-size: 15px;">3. Community</h3>
+        <p style="margin-bottom: 12px;">Pods and pairs are for learning. Harassment, spam, or inappropriate content may result in a ban. Reports are reviewed and repeated reports may result in account suspension.</p>
+
+        <h3 style="margin: 18px 0 8px; font-size: 15px;">4. Subscriptions</h3>
+        <p style="margin-bottom: 12px;">Premium and Immersive plans are billed monthly or yearly via Paystack. Cancellations take effect at the end of the current billing period.</p>
+
+        <h3 style="margin: 18px 0 8px; font-size: 15px;">5. Content</h3>
+        <p style="margin-bottom: 12px;">Lessons, audio, and curriculum content are protected. You may use them for personal learning; commercial use requires permission.</p>
+
+        <h3 style="margin: 18px 0 8px; font-size: 15px;">6. Disclaimer</h3>
+        <p style="margin-bottom: 12px;">ClearWords is provided as-is. We don't guarantee fluency within any specific timeline, and language content may occasionally contain errors we're actively working to correct.</p>
+
+        <h3 style="margin: 18px 0 8px; font-size: 15px;">7. Contact</h3>
+        <p style="margin-bottom: 12px;">clearwords.ng@gmail.com</p>
+      </div>
+    `);
+  },
+
+  /* ============================================================
+     RESET PROGRESS
+     ============================================================ */
+  confirmResetProgress() {
+    Header._modal('Reset learning progress?', `
+      <div style="text-align: center; padding: 12px 0 20px;">
+        <div style="width: 70px; height: 70px; border-radius: 50%; background: rgba(229,72,77,0.12); border: 2px solid rgba(229,72,77,0.35); color: var(--danger); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 30px;">⚠️</div>
+        <div style="font-weight: 800; font-size: 17px; margin-bottom: 8px;">This clears your progress</div>
+        <div style="font-size: 13.5px; color: var(--text-2); line-height: 1.55; max-width: 320px; margin: 0 auto;">
+          Completed lessons, XP, and streak for <strong>${esc(CW_CONFIG.LANGUAGES[State.currentLanguage].name)}</strong> will be cleared. This cannot be undone.
+        </div>
+      </div>
+      <label style="display: flex; align-items: center; gap: 10px; padding: 14px; background: var(--bg-elev); border: 1px solid var(--border); border-radius: 12px; font-size: 13.5px; cursor: pointer;">
+        <input type="checkbox" id="reset-confirm-cb" onchange="document.getElementById('reset-confirm-btn').disabled = !this.checked;">
+        <span>I understand this cannot be undone</span>
+      </label>
+      <button class="btn btn-danger btn-block" id="reset-confirm-btn" disabled onclick="Prof.doReset()" style="margin-top: 14px;">
+        Reset progress
+      </button>
+    `);
+  },
+
+  async doReset() {
+    const cb = $('reset-confirm-cb');
+    if (!cb || !cb.checked) return;
+    try {
+      await Backend.resetProgress(State.currentLanguage);
+      showToast('Progress reset.', 'info');
+      closeModal('cw-generic-modal');
+      await this.loadProgress();
+      this.loadFreezes();
+    } catch (e) {
+      showToast(e.message || 'Could not reset progress.', 'error');
+    }
+  },
+
+  /* ============================================================
+     SETTINGS (gear icon in the cover)
+     ============================================================ */
+  openSettings() {
+    const el = $('settings');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  },
+
+  /* ============================================================
+     SIGN OUT
+     ============================================================ */
+  signOut() {
+    if (!confirm('Sign out of ClearWords?')) return;
+    cwLogout();
+  }
+};
+
+/* ============================================================
+   BOOT
+   ============================================================ */
+document.addEventListener('DOMContentLoaded', () => Prof.init());
+window.Prof = Prof;
+
+// Register the service worker
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(reg => console.log('[PWA] SW registered:', reg.scope))
+      .catch(err => console.warn('[PWA] SW registration failed:', err));
+  });
+}
+</script>
+</body>
+</html>
