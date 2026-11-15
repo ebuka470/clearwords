@@ -1,18 +1,38 @@
 {
-  "rewrites": [
-    {
-      "source": "/blog/:slug*",
-      "destination": "/index.html"
-    }
+  "redirects": [
+    { "source": "/blog/yoruba-greetings", "destination": "/blog/yoruba-greetings-elders", "permanent": true },
+    { "source": "/blog/igbo-wedding", "destination": "/blog/igbo-wedding-phrases", "permanent": true },
+    { "source": "/blog/tone-guide", "destination": "/blog/yoruba-tones-simple-guide", "permanent": true },
+    { "source": "/blog/pidgin-guide", "destination": "/blog/pidgin-101", "permanent": true },
+    { "source": "/blog/diaspora-kids", "destination": "/blog/kids-understand-but-wont-speak", "permanent": true },
+    { "source": "/blog/hausa-travel", "destination": "/blog", "permanent": true }
   ],
-"headers": [
+  "rewrites": [
+    { "source": "/languages", "destination": "/index.html" },
+    { "source": "/about", "destination": "/index.html" },
+    { "source": "/privacy", "destination": "/index.html" },
+    { "source": "/terms", "destination": "/index.html" },
+    { "source": "/blog", "destination": "/index.html" },
+    { "source": "/blog/:slug*", "destination": "/index.html" }
+  ],
+  "headers": [
     {
       "source": "/data/(.*)",
       "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-cache, no-store, must-revalidate, max-age=0"
-        }
+        { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate, max-age=0" }
+      ]
+    },
+    {
+      "source": "/(service-worker|sw)\\.js",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate, max-age=0" },
+        { "key": "Service-Worker-Allowed", "value": "/" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" }
       ]
     }
   ]
