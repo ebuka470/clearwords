@@ -988,7 +988,8 @@ const Learn = {
     const btn = document.getElementById('word-audio-btn');
     if (btn) { btn.classList.add('playing'); btn.textContent = '🔊 Playing…'; }
     try {
-      await AudioMgr.play(w.word, State.currentLanguage);
+      // Vocabulary audio lives in <language>/vocabulary/
+      await AudioMgr.play(w.word, State.currentLanguage, 'vocabulary');
     } catch (e) {
       if (!Paywall.fromError(e)) {
         showToast('Audio unavailable right now.', 'error');
@@ -1100,7 +1101,8 @@ const Learn = {
     const btn = document.getElementById('dlg-play-' + i);
     if (btn) { btn.classList.add('playing'); btn.textContent = '🔊'; }
     try {
-      await AudioMgr.play(line.text, State.currentLanguage);
+      // Dialogue audio lives in <language>/dialogue/
+      await AudioMgr.play(line.text, State.currentLanguage, 'dialogue');
     } catch (e) {
       if (!Paywall.fromError(e)) {
         showToast('Audio unavailable right now.', 'error');
