@@ -1,11 +1,13 @@
 {
-  "name": "ClearWords",
+  "name": "ClearWords — Learn Nigerian Languages",
   "short_name": "ClearWords",
-  "description": "Learn Nigerian Languages through interactive games and AI conversation",
-  "start_url": "/language.html",
+  "description": "Learn Yorùbá, Igbo, Hausa and Nigerian Pidgin with Timmy — your cousin who's a few steps ahead on the same road.",
+  "start_url": "/learn.html",
+  "scope": "/",
   "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
   "orientation": "portrait",
-  "background_color": "#FFFFFF",
+  "background_color": "#FAF7F2",
   "theme_color": "#2E8B57",
   "categories": ["education", "lifestyle", "productivity"],
   "lang": "en",
@@ -15,47 +17,57 @@
       "src": "/logo.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
     },
     {
       "src": "/logo.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    { 
+      "src": "/badge-72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "monochrome" 
     }
   ],
   "shortcuts": [
     {
-      "name": "Start Learning",
+      "name": "Learn",
       "short_name": "Learn",
-      "description": "Continue your language learning",
-      "url": "/?source=shortcut"
+      "description": "Continue your lessons",
+      "url": "/learn.html"
     },
     {
-      "name": "AI Tutor",
-      "short_name": "Tutor",
-      "description": "Chat with AI language tutor",
-      "url": "/?source=shortcut&page=chat"
+      "name": "Practice with Timmy",
+      "short_name": "Timmy",
+      "description": "Chat with Timmy",
+      "url": "/practice.html"
     },
     {
-      "name": "Daily Challenge",
-      "short_name": "Challenge",
-      "description": "Complete daily challenges",
-      "url": "/?source=shortcut&page=home&action=daily"
-    }
-  ],
-  "screenshots": [
-    {
-      "src": "/logo.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "form_factor": "wide"
+      "name": "Community",
+      "short_name": "Community",
+      "description": "Pods and language exchange",
+      "url": "/community.html"
     },
     {
-      "src": "/logo.png",
-      "sizes": "750x1334",
-      "type": "image/png",
-      "form_factor": "narrow"
+      "name": "Profile",
+      "short_name": "Profile",
+      "description": "Your progress and settings",
+      "url": "/profile.html"
     }
   ],
   "prefer_related_applications": false,
