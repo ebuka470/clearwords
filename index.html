@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="google-site-verification" content="TnDUibhkSaSNYx3xuSAzJOVc88OZR071Hav108FyvLQ" />
 <title>ClearWords: Hand Down the Language of Home, or Pick It Back Up</title>
 <meta name="description" content="Teach your kids or reconnect yourself with Yoruba, Igbo and Pidgin. Scenes, Moments, a full course, study pods, language partners and Timmy.">
@@ -44,8 +44,15 @@
 <style>
 :root{--blue:#1E3A5F;--blue2:#14273E;--green:#2E8B57;--gold:#F4B942;--coral:#FF7F50;--cream:#FFF8EC;--g50:#F8FAFC;--g100:#F1F5F9;--g200:#E2E8F0;--g300:#CBD5E1;--g400:#94A3B8;--g600:#64748B;--g800:#334155;--g900:#0F172A;--grad:linear-gradient(135deg,var(--blue),var(--green));--sh:0 10px 30px -10px rgba(20,39,62,.25);--rl:24px;--full:9999px;--sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;--serif:'Fraunces',Georgia,'Times New Roman',serif}
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:var(--sans);color:var(--g900);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:76px}
+img{max-width:100%;height:auto}
+.hero .container>*,.split>*,.grid3>*,.grid2>*{min-width:0}
+h1,h2,h3,p,li,.pr b{overflow-wrap:break-word}
+.nav-link,.fq,.opt,.btn,.nav-cta{min-height:44px}
+.nav-link{display:inline-flex;align-items:center}
+.nav-cta{display:inline-flex;align-items:center}
+.menu-btn{min-width:44px;min-height:44px}
+body{overflow-x:hidden;font-family:var(--sans);color:var(--g900);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased}
 .container{max-width:1200px;margin:0 auto;padding:0 24px}
 h1,h2,h3{font-family:var(--serif);line-height:1.15;letter-spacing:-.01em}
 h1{font-size:clamp(2.4rem,5.2vw,3.8rem);font-weight:800}
@@ -222,20 +229,72 @@ section{padding:80px 0}
 .float{position:fixed;bottom:20px;right:20px;z-index:999;background:var(--grad);color:#fff;border:2px solid rgba(255,255,255,.25);padding:12px 20px;border-radius:var(--full);font-weight:600;box-shadow:var(--sh);cursor:pointer;display:none}
 .float.on{display:block}
 .ib{display:none}.ib.on{display:inline-block}
-@media(max-width:1000px){.fg{grid-template-columns:1fr 1fr}}
-@media(max-width:820px){
-section{padding:56px 0}
-.nav-links{display:none;position:absolute;top:66px;left:0;right:0;background:#fff;padding:20px;flex-direction:column;box-shadow:var(--sh)}
-.nav-links.active{display:flex}
-.menu-btn{display:block}
-.hero .container,.split,.grid3,.grid2,.fg{grid-template-columns:1fr}
-.timmy-pop{position:relative;right:0;bottom:0;margin:14px 0 0 auto}
-.install{flex-direction:column;text-align:center}
-.acts{flex-direction:column}
-.day{grid-template-columns:1fr;gap:4px}
-.float{left:20px;text-align:center}
-.quiz{padding:22px}
+@media(min-width:1500px){.container{max-width:1320px}}
+@media(max-width:1100px){
+.container{padding:0 20px}
+.hero .container{gap:36px}
+.nav-links{gap:20px}
 }
+@media(max-width:960px){
+.grid3{grid-template-columns:repeat(2,1fr)}
+.fg{grid-template-columns:1fr 1fr}
+.split{gap:36px}
+section{padding:64px 0}
+}
+@media(max-width:900px){
+.menu-btn{display:flex;align-items:center;justify-content:center}
+.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;padding:12px 20px 20px;flex-direction:column;align-items:stretch;gap:0;box-shadow:var(--sh);border-top:1px solid var(--g200);max-height:calc(100vh - 70px);overflow-y:auto}
+.nav-links.active{display:flex}
+.nav-link{padding:12px 4px;border-bottom:1px solid var(--g100)}
+.nav-cta{margin-top:14px;justify-content:center}
+.hero{padding:40px 0 64px}
+.hero .container,.split{grid-template-columns:1fr}
+.stage{max-width:560px;width:100%;margin:0 auto}
+.timmy-pop{position:relative;right:0;bottom:0;margin:14px 0 0 auto}
+.split>.panel,.split>.chat{order:2}
+}
+@media(max-width:640px){
+.container{padding:0 16px}
+section{padding:52px 0}
+.sh{margin-bottom:32px}
+.sh p,.hero .lead{font-size:1.05rem}
+.grid3,.grid2,.fg{grid-template-columns:1fr}
+.fg{gap:28px}
+.hero{padding:28px 0 52px}
+.cta-row{flex-direction:column}
+.cta-row .btn{width:100%;text-align:center}
+.btn-lg{padding:15px 24px;font-size:1.05rem}
+.ticks{gap:8px 16px}
+.strip .container{justify-content:flex-start;gap:8px 18px;font-size:.88rem}
+.card{padding:20px}
+.quiz{padding:20px}
+.quiz .q{font-size:1.2rem}
+.opt{padding:12px 14px;font-size:1.05rem}
+.qcard,.post,.promise,.ic,.lang{padding:22px}
+.day{grid-template-columns:1fr;gap:4px;padding:16px 0}
+.install{flex-direction:column;text-align:center;padding:32px 22px}
+.install .btn{width:100%}
+.acts{flex-direction:column}
+.fq{padding:16px 18px}.fa{padding:0 18px 16px}
+.moment{padding:14px 16px}
+.pr{padding:10px 0}
+.doc,.art{padding:36px 18px}
+.acta{padding:26px 18px}
+.mission{padding:26px 20px}
+.mc{padding:34px 20px 22px}
+.modal{max-height:92vh;overflow-y:auto}
+.float{left:16px;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));text-align:center}
+.footer{padding:44px 0 calc(24px + env(safe-area-inset-bottom))}
+.final h2 br{display:none}
+}
+@media(max-width:380px){
+h1{font-size:2rem}
+h2{font-size:1.65rem}
+.logo{font-size:1.25rem}
+.container{padding:0 14px}
+.hero-badge,.eyebrow{font-size:.74rem}
+}
+@media(hover:none){.qcard:hover,.post:hover,.lang:hover,.btn:hover{transform:none}}
 @media(prefers-reduced-motion:reduce){.timmy-pop{animation:none}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -265,9 +324,9 @@ section{padding:56px 0}
       <a href="/blog" class="nav-link router-link">Guides</a>
       <a href="/languages" class="nav-link router-link">Languages</a>
       <a href="/about" class="nav-link router-link">About</a>
-      <a href="learn.html" class="nav-cta">Launch App</a>
+      <a href="language.html" class="nav-cta">Launch App</a>
     </div>
-    <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">☰</button>
   </div>
 </nav>
 
@@ -286,7 +345,7 @@ section{padding:56px 0}
       </div>
       <div class="cta-row">
         <a href="/#try" class="btn btn-p btn-lg router-link">Try a 30-second Scene →</a>
-        <a href="learn.html" class="btn btn-s btn-lg">Start free</a>
+        <a href="language.html" class="btn btn-s btn-lg">Start free</a>
       </div>
       <div class="ticks"><span>Free to start</span><span>3 Nigerian languages</span><span>Hear every phrase</span></div>
     </div>
@@ -318,7 +377,7 @@ section{padding:56px 0}
       <button class="opt" data-fb="Close, but that's <b>good afternoon</b> (Ẹ káàsán o). In the morning, it's <b>Ẹ káàrọ̀ o</b>.">Ẹ káàsán o<small>Eh-kah-sahn oh</small></button>
       <button class="opt" data-fb="Báwo ni? is a casual 'how are you?', fine with friends. With an elder, start with the respectful <b>Ẹ káàrọ̀ o</b> and let her lead.">Báwo ni?<small>Bah-woh nee</small></button>
       <div class="fb" id="fb"></div>
-      <div class="fb" id="fb2" style="margin-top:10px">🤓 Timmy: That's a Scene in a nutshell. Real moments, respectful words, no pressure. <a href="learn.html">Do the full Scene free →</a></div>
+      <div class="fb" id="fb2" style="margin-top:10px">🤓 Timmy: That's a Scene in a nutshell. Real moments, respectful words, no pressure. <a href="language.html">Do the full Scene free →</a></div>
     </div>
   </div>
 </section>
@@ -346,7 +405,7 @@ section{padding:56px 0}
       <div class="day"><div class="d">Day 5</div><div><h3>Say it to a real person</h3><p>One greeting, out loud, to someone who speaks it. A voice note or a call counts. Effort is what people notice.</p></div></div>
       <div class="day"><div class="d">Weekend</div><div><h3>Practice together</h3><p>Keep your streak, try a second Scene, join a pod or find a language partner for company. Small and steady beats big and rare.</p></div></div>
     </div>
-    <div style="text-align:center;margin-top:30px"><a href="learn.html" class="btn btn-p btn-lg">Begin day one →</a></div>
+    <div style="text-align:center;margin-top:30px"><a href="language.html" class="btn btn-p btn-lg">Begin day one →</a></div>
   </div>
 </section>
 
@@ -452,9 +511,9 @@ section{padding:56px 0}
   <div class="container">
     <div class="sh"><span class="eyebrow">Languages</span><h2>Choose the language of home</h2><p>Each has its own path, Scenes, Moments and audio. Not sure? Pick the one your family speaks.</p></div>
     <div class="grid3">
-      <a href="learn.html?lang=yoruba" class="lang"><div class="em">👑</div><h3>Yorùbá</h3><small>44M+ speakers</small><p>Southwest Nigeria, Benin, Togo</p><b>Start Yorùbá</b></a>
-      <a href="learn.html?lang=igbo" class="lang"><div class="em">🌍</div><h3>Igbo</h3><small>34M+ speakers</small><p>Southeast Nigeria</p><b>Start Igbo</b></a>
-      <a href="learn.html?lang=pidgin" class="lang"><div class="em">🗣️</div><h3>Pidgin</h3><small>Spoken across Nigeria</small><p>The language that connects everyone</p><b>Start Pidgin</b></a>
+      <a href="language.html?lang=yoruba" class="lang"><div class="em">👑</div><h3>Yorùbá</h3><small>44M+ speakers</small><p>Southwest Nigeria, Benin, Togo</p><b>Start Yorùbá</b></a>
+      <a href="language.html?lang=igbo" class="lang"><div class="em">🌍</div><h3>Igbo</h3><small>34M+ speakers</small><p>Southeast Nigeria</p><b>Start Igbo</b></a>
+      <a href="language.html?lang=pidgin" class="lang"><div class="em">🗣️</div><h3>Pidgin</h3><small>Spoken across Nigeria</small><p>The language that connects everyone</p><b>Start Pidgin</b></a>
     </div>
   </div>
 </section>
@@ -518,7 +577,7 @@ section{padding:56px 0}
   <div class="container">
     <h2>The best time to start was years ago.<br>The second best is today.</h2>
     <p>Pick a language, step into your first Scene, and let Timmy cheer you on.</p>
-    <div class="cta-row"><a href="learn.html" class="btn btn-p btn-lg">Start free →</a><button class="btn btn-l btn-lg ib">📱 Install App</button></div>
+    <div class="cta-row"><a href="language.html" class="btn btn-p btn-lg">Start free →</a><button class="btn btn-l btn-lg ib">📱 Install App</button></div>
     <small>Free to start</small>
   </div>
 </section>
@@ -531,9 +590,9 @@ section{padding:56px 0}
     <div class="container">
       <div class="sh"><h2>Choose the language of home</h2><p>Every language includes Scenes, Moments, audio and a structured path.</p></div>
       <div class="grid3">
-        <a href="learn.html?lang=yoruba" class="lang"><div class="em">👑</div><h3>Yorùbá</h3><small>44M+ speakers</small><p>Spoken in Southwest Nigeria, Benin and Togo. Known for its tones and rich oral traditions.</p><b>Start Yorùbá</b></a>
-        <a href="learn.html?lang=igbo" class="lang"><div class="em">🌍</div><h3>Igbo</h3><small>34M+ speakers</small><p>Spoken in Southeast Nigeria. A melodic language with deep cultural significance.</p><b>Start Igbo</b></a>
-        <a href="learn.html?lang=pidgin" class="lang"><div class="em">🗣️</div><h3>Pidgin</h3><small>Spoken across Nigeria</small><p>Heard in markets, music and everyday life, across every ethnic line.</p><b>Start Pidgin</b></a>
+        <a href="language.html?lang=yoruba" class="lang"><div class="em">👑</div><h3>Yorùbá</h3><small>44M+ speakers</small><p>Spoken in Southwest Nigeria, Benin and Togo. Known for its tones and rich oral traditions.</p><b>Start Yorùbá</b></a>
+        <a href="language.html?lang=igbo" class="lang"><div class="em">🌍</div><h3>Igbo</h3><small>34M+ speakers</small><p>Spoken in Southeast Nigeria. A melodic language with deep cultural significance.</p><b>Start Igbo</b></a>
+        <a href="language.html?lang=pidgin" class="lang"><div class="em">🗣️</div><h3>Pidgin</h3><small>Spoken across Nigeria</small><p>Heard in markets, music and everyday life, across every ethnic line.</p><b>Start Pidgin</b></a>
       </div>
     </div>
   </section>
@@ -583,7 +642,7 @@ section{padding:56px 0}
       <div class="pr"><b>Abeg</b><span>Please (Pidgin)</span></div>
     </div>
     <div class="tip"><h4>🤓 Timmy's tip</h4><p>Celebrate the attempt, not the accent. A kid who feels safe saying a word wrong will say it again tomorrow.</p></div>
-    <div class="acta"><h3>Try it together</h3><p>ClearWords Scenes let kids hear a phrase and say it back with no pressure.</p><a href="learn.html" class="btn">Start free →</a></div>
+    <div class="acta"><h3>Try it together</h3><p>ClearWords Scenes let kids hear a phrase and say it back with no pressure.</p><a href="language.html" class="btn">Start free →</a></div>
     <a href="/blog" class="back router-link">← All guides</a>
   </article>
 </div>
@@ -607,7 +666,7 @@ section{padding:56px 0}
     <h2>Manners that go with the words</h2>
     <p>Many families expect a bow or kneel (men often prostrate, women often kneel) when greeting elders. Customs differ between families and regions, so watch what your relatives do and follow their lead.</p>
     <p>With an elder, it's best to greet first, then let them lead the "how are you" conversation. Accept food and drink graciously and say <em>Ẹ ṣé o</em>.</p>
-    <div class="acta"><h3>Practice before you visit</h3><p>Do the "Greeting a parent" Scene in Yorùbá and hear each phrase.</p><a href="learn.html?lang=yoruba" class="btn">Start Yorùbá →</a></div>
+    <div class="acta"><h3>Practice before you visit</h3><p>Do the "Greeting a parent" Scene in Yorùbá and hear each phrase.</p><a href="language.html?lang=yoruba" class="btn">Start Yorùbá →</a></div>
     <a href="/blog" class="back router-link">← All guides</a>
   </article>
 </div>
@@ -637,7 +696,7 @@ section{padding:56px 0}
       <li><strong>Learn phrases, not just words.</strong> Tones sit naturally in a greeting you've heard many times.</li>
     </ol>
     <div class="tip"><h4>🤓 Timmy's tip</h4><p>Mistakes with tones become family jokes. Keep going. Your ear improves faster than you think.</p></div>
-    <div class="acta"><h3>Hear the tones</h3><p>Every ClearWords phrase comes with audio so you can copy the melody.</p><a href="learn.html?lang=yoruba" class="btn">Start Yorùbá →</a></div>
+    <div class="acta"><h3>Hear the tones</h3><p>Every ClearWords phrase comes with audio so you can copy the melody.</p><a href="language.html?lang=yoruba" class="btn">Start Yorùbá →</a></div>
     <a href="/blog" class="back router-link">← All guides</a>
   </article>
 </div>
@@ -665,7 +724,7 @@ section{padding:56px 0}
       <li>Ask a trusted relative about the specifics. Customs vary between communities and families.</li>
     </ul>
     <div class="tip"><h4>🤓 Timmy's tip</h4><p>Bring patience and snacks. Igbo weddings are long, lovely and full of people who will cheer your effort.</p></div>
-    <div class="acta"><h3>Learn before the big day</h3><p>Practice greetings and thank-yous in Igbo with Scenes.</p><a href="learn.html?lang=igbo" class="btn">Start Igbo →</a></div>
+    <div class="acta"><h3>Learn before the big day</h3><p>Practice greetings and thank-yous in Igbo with Scenes.</p><a href="language.html?lang=igbo" class="btn">Start Igbo →</a></div>
     <a href="/blog" class="back router-link">← All guides</a>
   </article>
 </div>
@@ -695,7 +754,7 @@ section{padding:56px 0}
       <li>At traditional ceremonies, where the home language is expected.</li>
     </ul>
     <div class="tip"><h4>🤓 Timmy's tip</h4><p>Read the room. Pidgin among friends is warm. Pidgin at the wrong moment can feel too casual.</p></div>
-    <div class="acta"><h3>Learn more Pidgin</h3><p>Scenes and Moments for everyday Pidgin, with audio.</p><a href="learn.html?lang=pidgin" class="btn">Start Pidgin →</a></div>
+    <div class="acta"><h3>Learn more Pidgin</h3><p>Scenes and Moments for everyday Pidgin, with audio.</p><a href="language.html?lang=pidgin" class="btn">Start Pidgin →</a></div>
     <a href="/blog" class="back router-link">← All guides</a>
   </article>
 </div>
@@ -766,7 +825,7 @@ section{padding:56px 0}
   <div class="container">
     <div class="fg">
       <div><div class="logo"><span class="logo-icon"><img src="logo.png" alt=""></span><span style="color:#fff">ClearWords</span></div><p>Helping families and heritage learners speak the languages of home, one Scene at a time.</p></div>
-      <div><h4>Product</h4><ul class="fl"><li><a href="/languages" class="router-link">Languages</a></li><li><a href="/#start" class="router-link">Start Here</a></li><li><a href="learn.html">Launch App</a></li><li><button class="ib">Install App</button></li></ul></div>
+      <div><h4>Product</h4><ul class="fl"><li><a href="/languages" class="router-link">Languages</a></li><li><a href="/#start" class="router-link">Start Here</a></li><li><a href="language.html">Launch App</a></li><li><button class="ib">Install App</button></li></ul></div>
       <div><h4>Learn</h4><ul class="fl"><li><a href="/blog" class="router-link">Guides</a></li><li><a href="/blog/kids-understand-but-wont-speak" class="router-link">For Parents</a></li><li><a href="/blog/pidgin-101" class="router-link">Pidgin 101</a></li></ul></div>
       <div><h4>Company</h4><ul class="fl"><li><a href="/about" class="router-link">About Us</a></li><li><a href="/privacy" class="router-link">Privacy Policy</a></li><li><a href="/terms" class="router-link">Terms of Service</a></li><li><a href="https://www.instagram.com/clearwords_app">Instagram</a></li></ul></div>
     </div>
@@ -816,7 +875,15 @@ section{padding:56px 0}
 })();
 
 /* Menu, FAQ */
-document.getElementById('menuBtn').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('active'));
+(function(){
+  const b=document.getElementById('menuBtn'),n=document.getElementById('navLinks');
+  const set=o=>{n.classList.toggle('active',o);b.setAttribute('aria-expanded',String(o));b.setAttribute('aria-label',o?'Close menu':'Open menu');b.textContent=o?'✕':'☰'};
+  b.addEventListener('click',()=>set(!n.classList.contains('active')));
+  document.addEventListener('click',e=>{if(n.classList.contains('active')&&!e.target.closest('.navbar'))set(false)});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')set(false)});
+  n.addEventListener('click',e=>{if(e.target.closest('a'))set(false)});
+  window.addEventListener('resize',()=>{if(innerWidth>900)set(false)});
+})();
 document.querySelectorAll('.fq').forEach(q=>q.addEventListener('click',()=>q.parentElement.classList.toggle('active')));
 
 /* Try-it quiz */
