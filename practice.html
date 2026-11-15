@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#2E8B57">
+<title>ClearWords — Practice</title>
+  <!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="ClearWords">
+<link rel="apple-touch-icon" href="/logo.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="ClearWords">
+<meta name="msapplication-TileColor" content="#2E8B57">
+<meta name="msapplication-TileImage" content="/logo.png">
+
+<style>
+:root{--brand:#2E8B57;--brand-rgb:46,139,87;--gold:#E8B33C;--gold-rgb:232,179,60;--indigo-rgb:59,91,165;--terracotta-rgb:217,119,87;--danger:#E5484D;--bg:#FAF7F2;--bg-elev:#fff;--card:#fff;--text:#1C1E21;--text-2:#6B6F76;--text-3:#9AA0A6;--border:#E5E1D8;--shadow:0 2px 12px rgba(28,30,33,.06);--shadow-lg:0 8px 28px rgba(28,30,33,.1);--danger-rgb:229,72,77;--border-strong:#D4CFC2;--radius-lg:20px;--radius-full:999px;--indigo:#3B5BA5;--terracotta:#D97757;--radius:14px;--safe-top:env(safe-area-inset-top,0px);--safe-bot:env(safe-area-inset-bottom,0px)}
+[data-theme=dark]{--bg:#0F1114;--bg-elev:#16191D;--card:#1A1D21;--text:#F2EFE9;--text-2:#9AA0A6;--text-3:#6B6F76;--border:#2A2E33;--brand:#4CAF7A;--brand-rgb:76,175,122;--border-strong:#3A3E44;--shadow:0 2px 12px rgba(0,0,0,.4);--shadow-lg:0 8px 28px rgba(0,0,0,.6)}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;padding-bottom:calc(84px + var(--safe-bot))}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+#cw-header{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;padding:calc(12px + var(--safe-top)) 16px 12px;background:var(--bg);border-bottom:1px solid var(--border)}
+.page{max-width:520px;margin:0 auto;padding:0 16px}
+.page-hero{padding:22px 4px 18px}.page-hero h1{font-size:24px;font-weight:800}.page-hero p{font-size:14px;color:var(--text-2);margin-top:4px}
+.section-h{font-size:13px;font-weight:800;letter-spacing:.08em;color:var(--text-3);text-transform:uppercase;margin:22px 4px 10px}
+.method-card,.situation-card{position:relative;display:flex;align-items:center;gap:14px;padding:16px;border-radius:var(--radius);background:var(--card);border:1.5px solid var(--border);width:100%;text-align:left;margin-bottom:10px}
+.method-card:active,.situation-card:active{transform:scale(.985);border-color:var(--brand)}
+.method-icon,.situation-icon{width:48px;height:48px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:24px;background:rgba(var(--brand-rgb),.12)}
+.tint-indigo .method-icon{background:rgba(var(--indigo-rgb),.12)}.tint-gold .method-icon{background:rgba(var(--gold-rgb),.14)}.tint-terracotta .method-icon,.situation-icon{background:rgba(var(--terracotta-rgb),.14)}
+.method-body,.situation-body{flex:1;min-width:0}
+.method-title,.situation-title{font-weight:800;font-size:15px}.method-desc,.situation-desc{font-size:12.5px;color:var(--text-2);margin-top:3px}
+.method-chev{color:var(--text-3);font-size:20px}
+.method-badge{position:absolute;top:12px;right:46px;min-width:20px;height:20px;padding:0 6px;border-radius:10px;background:var(--danger);color:#fff;font-size:11px;font-weight:800;line-height:20px;text-align:center}
+.usage-bar{display:flex;gap:10px;padding:12px 16px;border-radius:12px;background:rgba(var(--brand-rgb),.06);border:1px solid rgba(var(--brand-rgb),.22);font-size:13px;font-weight:600;margin-bottom:14px}
+.usage-bar.warning{background:rgba(var(--gold-rgb),.08);color:var(--gold)}.usage-bar.limit{background:rgba(229,72,77,.08);color:var(--danger)}
+.usage-bar .label{flex:1}.usage-bar .count{font-weight:800}
+#cw-bottom-nav{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;padding:8px 8px calc(8px + var(--safe-bot));background:var(--card);border-top:1px solid var(--border);max-width:520px;margin:0 auto}
+.tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 4px;color:var(--text-3);font-size:11px;font-weight:600}
+.tab.active{color:var(--brand)}.tab svg{width:22px;height:22px}
+.modal-loading{padding:40px;text-align:center;color:var(--text-2);font-size:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:12px 20px;border-radius:999px;font-weight:700;font-size:15px;background:var(--brand);color:#fff;min-height:46px}
+
+/* ===== TIMMY OVERLAY ===== */
+#timmy-view{position:fixed;inset:0;height:100dvh;z-index:9999;background:var(--bg);display:none;flex-direction:column;overflow:hidden}
+#timmy-view.active{display:flex}
+#timmy-list-view,#timmy-chat-view{flex:1 1 auto;min-height:0;width:100%;max-width:520px;margin:0 auto;flex-direction:column;position:relative;background:var(--bg);border-left:1px solid var(--border);border-right:1px solid var(--border)}
+.chat-topbar{flex-shrink:0;display:flex;align-items:center;gap:10px;padding:calc(12px + var(--safe-top)) 14px 12px;background:var(--bg);border-bottom:1px solid var(--border);position:relative;z-index:2}
+.chat-back,.chat-menu-btn{width:38px;height:38px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--text-2);border-radius:50%}
+.chat-back:active,.chat-menu-btn:active{background:var(--border)}
+.chat-avatar{width:40px;height:40px;border-radius:50%;background:rgba(var(--brand-rgb),.14);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.chat-name{flex:1;min-width:0;font-weight:800;font-size:16px;line-height:1.2}
+.chat-name span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chat-name small{display:block;font-weight:500;font-size:12px;color:var(--text-2);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chat-menu-wrap{position:relative;flex-shrink:0}
+.chat-menu{position:absolute;top:44px;right:0;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:6px;min-width:190px;box-shadow:var(--shadow-lg);display:none;z-index:10}
+.chat-menu.show{display:block}
+.chat-menu button{display:block;width:100%;padding:10px 14px;text-align:left;font-size:13.5px;border-radius:8px;font-weight:600}
+.chat-menu button:hover{background:rgba(var(--brand-rgb),.08)}.chat-menu button.danger{color:var(--danger)}
+.chat-list-scroll{flex:1 1 auto;min-height:0;overflow-y:auto;padding-bottom:96px}
+.chat-list-item{display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid var(--border);width:100%;text-align:left}
+.chat-list-item:active{background:rgba(var(--brand-rgb),.06)}
+.chat-list-avatar{width:48px;height:48px;border-radius:50%;background:rgba(var(--brand-rgb),.14);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.chat-list-body{flex:1;min-width:0}
+.chat-list-title{font-weight:700;font-size:15px;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chat-list-preview{font-size:13px;color:var(--text-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chat-list-meta{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;margin-left:8px}
+.chat-list-time,.chat-list-count{font-size:11.5px;color:var(--text-3)}
+.chat-list-unread{min-width:22px;height:22px;padding:0 6px;border-radius:11px;background:var(--brand);color:#fff;font-size:11.5px;font-weight:800;line-height:22px;text-align:center}
+.chat-list-empty,.chat-empty{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 24px;text-align:center;gap:12px}
+.chat-list-empty-emoji,.chat-empty-emoji{font-size:56px}.chat-list-empty-title,.chat-empty-title{font-size:18px;font-weight:800}
+.chat-list-empty-sub,.chat-empty-sub{font-size:14px;color:var(--text-2);max-width:280px}
+.chat-fab{position:absolute;right:18px;bottom:calc(24px + var(--safe-bot));width:56px;height:56px;border-radius:50%;background:var(--brand);color:#fff;font-size:28px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,.25);z-index:5}
+.chat-scroll{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;padding:16px 14px 20px;display:flex;flex-direction:column;gap:6px}
+.chat-daysep{align-self:center;margin:12px 0;padding:5px 12px;border-radius:999px;background:rgba(0,0,0,.06);font-size:11px;font-weight:700;color:var(--text-2);text-transform:uppercase}
+.msg-row{display:flex;flex-direction:column;max-width:82%;gap:3px}
+.msg-row.user{align-self:flex-end;align-items:flex-end}.msg-row.bot{align-self:flex-start;align-items:flex-start}
+.bubble{padding:10px 14px;border-radius:18px;font-size:14.5px;line-height:1.5;overflow-wrap:anywhere;max-width:100%}
+.msg-row.bot .bubble{background:var(--card);border:1px solid var(--border);border-bottom-left-radius:6px}
+.msg-row.user .bubble{background:var(--brand);color:#fff;border-bottom-right-radius:6px;white-space:pre-wrap}
+.msg-row.bot .bubble.is-error{background:rgba(229,72,77,.08);border-color:rgba(229,72,77,.35);color:var(--danger)}
+.bubble p{margin:0 0 8px}.bubble p:last-child{margin:0}.msg-row.bot .bubble strong{color:var(--brand)}
+.bubble ul,.bubble ol{margin:6px 0 8px;padding-left:20px}
+.msg-meta{font-size:10.5px;color:var(--text-3);padding:0 4px}
+.msg-row.typing .bubble{display:flex;gap:4px;padding:14px 18px}
+.msg-row.typing .bubble span{width:7px;height:7px;border-radius:50%;background:var(--text-3);animation:tb 1.2s infinite}
+.msg-row.typing .bubble span:nth-child(2){animation-delay:.15s}.msg-row.typing .bubble span:nth-child(3){animation-delay:.3s}
+@keyframes tb{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-5px);opacity:1}}
+.scaffold-row{flex-shrink:0;display:flex;gap:8px;padding:8px 14px;overflow-x:auto;border-top:1px solid var(--border)}
+.scaffold-chip{padding:8px 14px;border-radius:999px;background:var(--card);border:1.5px solid var(--brand);color:var(--brand);font-size:13px;font-weight:700;white-space:nowrap}
+.chat-foot{flex-shrink:0;display:flex;gap:8px;align-items:flex-end;padding:10px 12px calc(10px + var(--safe-bot));background:var(--card);border-top:1px solid var(--border)}
+.chat-input{flex:1;padding:12px 16px;font-size:16px;border-radius:22px;background:var(--bg-elev);border:1.5px solid var(--border);color:var(--text);font-family:inherit;resize:none;max-height:120px;line-height:1.4;outline:none}
+.chat-input:focus{border-color:var(--brand)}
+.chat-send{width:46px;height:46px;border-radius:50%;flex-shrink:0;background:var(--brand);color:#fff;font-size:18px}
+.chat-send:disabled{opacity:.4}
+.btn:active{transform:scale(.97)}.btn:disabled{opacity:.55}
+.btn-ghost{background:transparent;color:var(--brand);border:1.5px solid var(--brand)}
+.btn-block{width:100%;margin-top:12px}
+.empty-note{color:var(--text-2);font-size:14px;text-align:center;padding:40px 16px}
+.empty-note strong{color:var(--text);display:block;font-size:16px;margin-bottom:6px}
+.word-row{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:12px;background:var(--card);border:1px solid var(--border);margin-bottom:8px}
+.word-row-body{flex:1;min-width:0}.word-row-term{font-weight:800;font-size:15px;color:var(--brand)}
+.word-row-pron{font-size:11.5px;color:var(--text-3);margin-top:1px;font-style:italic}.word-row-trans{font-size:13px;color:var(--text-2);margin-top:2px}
+.word-row-play{width:36px;height:36px;border-radius:50%;background:rgba(var(--brand-rgb),.12);color:var(--brand);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.word-row-play:active{background:var(--brand);color:#fff}
+.speak-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px 22px;text-align:center;margin-bottom:16px}
+.speak-word{font-size:34px;font-weight:800;color:var(--brand);letter-spacing:-.02em;line-height:1.15}
+.speak-pron{font-size:14px;color:var(--text-3);margin-top:8px;font-style:italic}.speak-trans{font-size:17px;margin-top:14px;color:var(--text-2)}
+.mic-btn{width:84px;height:84px;border-radius:50%;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;margin:20px auto 8px;font-size:32px;box-shadow:0 4px 20px rgba(var(--brand-rgb),.35)}
+.mic-btn:active{transform:scale(.94)}.mic-btn.recording{background:var(--danger);animation:mp 1.2s infinite}
+@keyframes mp{0%,100%{box-shadow:0 0 0 0 rgba(229,72,77,.4)}50%{box-shadow:0 0 0 16px rgba(229,72,77,0)}}
+.mic-hint{font-size:12.5px;color:var(--text-3);text-align:center;margin-top:6px}
+.speak-result{margin-top:16px;padding:14px 16px;border-radius:12px;font-size:13.5px;line-height:1.5;text-align:left}
+.speak-result.info{background:rgba(var(--brand-rgb),.06);border:1px solid rgba(var(--brand-rgb),.25)}
+.speak-result.warn{background:rgba(var(--gold-rgb),.08);border:1px solid rgba(var(--gold-rgb),.35)}
+.ex-opt{width:100%;text-align:left;padding:16px 18px;border-radius:12px;border:1.5px solid var(--border);background:var(--bg-elev);font-weight:600;font-size:15px}
+.ex-opt:active{border-color:var(--brand)}.ex-opt:disabled{opacity:1;cursor:default}
+/* ===== SHARED SHELL STYLES (header, nav, modals, toast, forms) — same as community.html ===== */
+input,textarea{font-family:inherit}
+::-webkit-scrollbar{width:0;height:0}
+body{-webkit-font-smoothing:antialiased;overscroll-behavior-y:contain}
+#cw-header{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;padding:calc(12px + var(--safe-top)) 16px 12px;background:var(--bg);border-bottom:1px solid var(--border);backdrop-filter:saturate(180%) blur(12px)}
+.hdr-left,.hdr-right{display:flex;align-items:center;gap:8px}
+.lang-pill{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:999px;background:var(--card);border:1px solid var(--border);font-size:14px;font-weight:700}
+.lang-pill .chev{color:var(--text-3);font-size:11px}
+.icon-btn{width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;background:var(--card);border:1px solid var(--border);position:relative;color:var(--text)}
+.streak-btn{width:auto;padding:0 12px;gap:4px;font-weight:700;font-size:13px;color:var(--gold);background:rgba(var(--gold-rgb),.12);border-color:rgba(var(--gold-rgb),.28)}
+.streak-icon{font-size:14px}
+.notif-dot{position:absolute;top:8px;right:9px;width:8px;height:8px;border-radius:50%;background:var(--danger);border:2px solid var(--card)}
+#cw-bottom-nav{background:color-mix(in srgb,var(--card) 92%,transparent);backdrop-filter:saturate(180%) blur(16px);justify-content:space-around;align-items:center}
+.tab{border-radius:10px;position:relative}.tab:active{transform:scale(.94)}
+.tab-badge{position:absolute;top:2px;right:22%;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:var(--danger);color:#fff;font-size:10.5px;font-weight:800;line-height:18px;text-align:center;box-shadow:0 0 0 2px var(--card);pointer-events:none;animation:badgePop .25s ease}
+.method-badge{box-shadow:0 0 0 2px var(--card);pointer-events:none;animation:badgePop .25s ease}
+@keyframes badgePop{0%{transform:scale(.4)}60%{transform:scale(1.15)}100%{transform:scale(1)}}
+.cw-modal-overlay{position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);display:none;align-items:flex-end;justify-content:center}
+.cw-modal-overlay.active{display:flex}
+.cw-modal{width:100%;max-width:520px;max-height:90vh;display:flex;flex-direction:column;background:var(--card);border-radius:24px 24px 0 0;animation:modalUp .25s ease;border:1px solid var(--border);border-bottom:none}
+@keyframes modalUp{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}
+.cw-modal-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px 12px;border-bottom:1px solid var(--border)}
+.cw-modal-title{font-weight:800;font-size:16px}
+.cw-modal-close{font-size:26px;line-height:1;color:var(--text-2);padding:0 4px}
+.cw-modal-body{padding:16px 20px 24px;overflow-y:auto;flex:1}
+.lang-option{display:flex;align-items:center;gap:12px;width:100%;padding:14px 16px;margin-bottom:8px;border-radius:12px;border:1.5px solid var(--border);background:var(--bg-elev);text-align:left}
+.lang-option.active{border-color:var(--brand);background:rgba(var(--brand-rgb),.08)}
+.lang-emoji{font-size:22px}.lang-name{flex:1;font-weight:700;font-size:15px}.lang-check{color:var(--brand);font-weight:800}
+.notif-item{display:flex;gap:12px;padding:12px;border-radius:12px;background:var(--bg-elev);border:1px solid var(--border);margin-bottom:8px}
+.notif-item.unread{border-color:rgba(var(--brand-rgb),.35);background:rgba(var(--brand-rgb),.05)}
+.notif-icon{font-size:20px;flex-shrink:0}.notif-body{flex:1;min-width:0}
+.notif-title{font-weight:700;font-size:13px}.notif-text{font-size:12.5px;color:var(--text-2);margin-top:2px}.notif-time{font-size:11px;color:var(--text-3);margin-top:4px}
+.cw-toast{position:fixed;left:50%;bottom:100px;transform:translateX(-50%) translateY(20px);background:var(--text);color:var(--bg);padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;z-index:20000;opacity:0;transition:opacity .2s,transform .2s;max-width:90%;text-align:center;box-shadow:var(--shadow-lg)}
+.cw-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.cw-toast-error{background:var(--danger);color:#fff}.cw-toast-success{background:var(--brand);color:#fff}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.field label{font-size:13px;font-weight:700;color:var(--text-2)}
+.field input,.field textarea,.field select{width:100%;padding:14px 16px;font-size:16px;border-radius:12px;background:var(--bg-elev);border:1.5px solid var(--border);color:var(--text);-webkit-appearance:none;appearance:none}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px rgba(var(--brand-rgb),.12)}
+.field-hint{font-size:12px;color:var(--text-3)}.field-error{font-size:12.5px;color:var(--danger);min-height:16px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-bottom:12px;box-shadow:var(--shadow)}
+.card-tint-primary{background:rgba(var(--brand-rgb),.06);border-color:rgba(var(--brand-rgb),.22)}
+.chip-btn{padding:8px 14px;border-radius:999px;font-size:12.5px;font-weight:700;background:var(--bg-elev);border:1.5px solid var(--border);color:var(--text)}
+.chip-btn.primary{background:var(--brand);color:#fff;border-color:var(--brand)}.chip-btn:active{transform:scale(.97)}
+.btn-secondary{background:var(--text);color:var(--bg)}.btn-danger{background:var(--danger);color:#fff}.btn-sm{padding:9px 16px;min-height:36px;font-size:13px}
+.spinner-inline{width:16px;height:16px;border:2.5px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:inline-block}
+@keyframes spin{to{transform:rotate(360deg)}}
+.skel{background:linear-gradient(90deg,var(--border) 0%,#D4CFC2 50%,var(--border) 100%);background-size:200% 100%;animation:skel 1.2s infinite;border-radius:8px}
+@keyframes skel{0%{background-position:200% 0}100%{background-position:-200% 0}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* ===== ClearWords UI kit: one look across Learn / Practice / Community / Profile ===== */
+:root { --chat-bg: #F3EFE6; }
+[data-theme="dark"] { --chat-bg: #0C0E10; }
+.section-h { margin: 24px 6px 10px; }
+.card { border-radius: var(--radius); padding: 16px; }
+.cw-modal::before { content: ''; display: block; width: 38px; height: 4px; border-radius: 2px; background: var(--border-strong); margin: 8px auto 0; }
+.cw-modal-head { padding: 12px 20px 12px; }
+.stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 14px 0 12px; }
+.stat-tile { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 8px 12px; text-align: center; box-shadow: var(--shadow); }
+.stat-ico { font-size: 22px; line-height: 1; }
+.stat-val { font-size: 22px; font-weight: 800; letter-spacing: -.02em; margin-top: 6px; }
+.stat-lbl { font-size: 10.5px; color: var(--text-2); text-transform: uppercase; letter-spacing: .06em; font-weight: 700; margin-top: 1px; }
+.nudge { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; padding: 14px 16px; border-radius: var(--radius); background: rgba(var(--gold-rgb), .10); border: 1px solid rgba(var(--gold-rgb), .30); font-size: 13.5px; line-height: 1.45; }
+.nudge.brand { background: linear-gradient(135deg, rgba(var(--brand-rgb), .12), rgba(var(--gold-rgb), .12)); border-color: rgba(var(--brand-rgb), .30); }
+.nudge-ico { font-size: 26px; flex-shrink: 0; }
+.nudge-body { flex: 1; min-width: 0; }
+.nudge-body b { display: block; font-size: 14.5px; margin-bottom: 2px; }
+.nudge-link { color: var(--brand); font-weight: 800; font-size: 13px; white-space: nowrap; }
+.set-group { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 8px; overflow: hidden; box-shadow: var(--shadow); }
+
+/* practice: sections as grouped list rows */
+.set-group .method-card,.set-group .situation-card{margin:0;border:none;border-bottom:1px solid var(--border);border-radius:0;background:transparent;padding:12px 14px}
+.set-group .method-card:last-child,.set-group .situation-card:last-child{border-bottom:none}
+.set-group .method-card:active,.set-group .situation-card:active{transform:none;background:rgba(var(--brand-rgb),.07)}
+.set-group .method-icon,.set-group .situation-icon{width:40px;height:40px;border-radius:11px;font-size:21px}
+.set-group .method-badge{top:50%;margin-top:-10px;right:40px}
+.page-hero h1{font-size:26px;letter-spacing:-.02em}
+/* practice: native chat polish (matches Community chats) */
+#timmy-chat-view,#timmy-list-view{background:var(--chat-bg)}
+#timmy-list-view{background:var(--bg)}
+.chat-topbar{background:var(--card)}
+.chat-scroll{gap:2px;padding:14px 12px 12px}
+.msg-row{max-width:84%;gap:2px;margin-top:8px}
+.bubble{border-radius:20px;padding:9px 14px}
+.msg-row.bot .bubble{border-bottom-left-radius:6px;box-shadow:none}
+.msg-row.user .bubble{border-bottom-right-radius:6px}
+.msg-meta{display:flex;align-items:center;gap:10px;padding:0 6px}
+.msg-share{font-size:11px;font-weight:800;color:var(--brand);padding:2px 0}
+.msg-share:active{opacity:.6}
+.chat-foot{gap:8px}
+.chat-input{border-radius:22px}
+/* ===== Practice path, today, drill overlay ===== */
+#drill-view{position:fixed;inset:0;height:100dvh;z-index:9998;background:var(--bg);display:none;flex-direction:column;overflow:hidden}
+.dr-wrap{flex:1;min-height:0;width:100%;max-width:520px;margin:0 auto;display:flex;flex-direction:column;background:var(--chat-bg);border-left:1px solid var(--border);border-right:1px solid var(--border)}
+.dr-body{flex:1;min-height:0;overflow-y:auto;padding:16px 16px calc(24px + var(--safe-bot))}
+.dr-prog{height:6px;border-radius:3px;background:var(--border);overflow:hidden;margin-bottom:16px}
+.dr-prog i{display:block;height:100%;background:var(--brand);transition:width .3s}
+.dr-rate{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+.dr-opt .m{display:block;font-size:12px;font-weight:500;color:var(--text-2);margin-top:3px}
+.ex-opt.best{border-color:var(--brand);background:rgba(var(--brand-rgb),.1)}
+.ex-opt.okay{border-color:var(--gold);background:rgba(var(--gold-rgb),.1)}
+.ex-opt.off{border-color:var(--danger);background:rgba(var(--danger-rgb),.08)}
+.ex-opt.pick{box-shadow:0 0 0 2px var(--text)}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+.stat-tile{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:12px 8px;text-align:center}
+.stat-ico{font-size:18px}.stat-val{font-weight:800;font-size:18px;margin-top:2px}.stat-lbl{font-size:11px;color:var(--text-2)}
+.today{padding:6px 14px 8px}
+.today-h{display:flex;justify-content:space-between;align-items:center;padding:10px 2px 6px;font-size:15px}.today-h span{font-size:12.5px;color:var(--text-2);font-weight:700}
+.today-row{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:11px 2px;border-top:1px solid var(--border)}
+.today-ico{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:19px;background:rgba(var(--brand-rgb),.12);flex-shrink:0}
+.today-row.ok .today-ico{background:var(--brand);color:#fff;font-weight:800}
+.today-body{flex:1;min-width:0}.today-body b{display:block;font-size:14.5px}.today-body small{font-size:12px;color:var(--text-2)}
+
+/* Progress dashboard: metrics explain what they represent */
+.progress-overview{padding:16px;margin:0 0 14px}
+.progress-overview-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.progress-overview-title{font-size:15px;font-weight:800}
+.progress-overview-copy{font-size:12px;color:var(--text-2);margin-top:3px;line-height:1.45}
+.progress-overview-count{font-size:17px;font-weight:800;white-space:nowrap;color:var(--brand)}
+.progress-track{height:8px;border-radius:99px;background:var(--border);overflow:hidden;margin-top:13px}
+.progress-track i{display:block;height:100%;border-radius:inherit;background:var(--brand);transition:width .25s ease}
+.progress-foot{display:flex;justify-content:space-between;gap:10px;margin-top:8px;font-size:11.5px;color:var(--text-2)}
+.stat-detail{display:block;font-size:10.5px;color:var(--text-3);margin-top:3px;line-height:1.3}
+.today-summary{font-size:12px;color:var(--text-2);margin:0 2px 8px}
+@media(max-width:360px){.stat-row{gap:6px}.stat-tile{padding-left:5px;padding-right:5px}.stat-detail{font-size:9.5px}}
+.path{position:relative;padding:4px 0 8px}
+.path::before{content:'';position:absolute;left:32px;top:20px;bottom:20px;width:3px;background:var(--border);border-radius:2px}
+.path-node{position:relative;display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:10px 8px;margin-bottom:6px;border-radius:var(--radius)}
+.path-node:active{background:rgba(var(--brand-rgb),.06)}
+.path-dot{position:relative;z-index:1;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;background:var(--card);border:3px solid var(--brand)}
+.path-node.locked .path-dot{border-color:var(--border-strong);filter:grayscale(1);opacity:.75}
+.path-node.done .path-dot{background:var(--brand);border-color:var(--brand);color:#fff;font-weight:800}
+.path-node.next .path-dot{animation:mp 1.6s infinite;box-shadow:0 0 0 0 rgba(var(--brand-rgb),.4)}
+.path-title{font-weight:800;font-size:15px}.path-node.locked .path-title{color:var(--text-3)}
+.path-sub{font-size:12px;color:var(--text-2)}.path-stars{color:var(--gold);font-size:14px;letter-spacing:2px;margin-top:2px}
+
+
+/* Flashcard 3D reveal */
+.flash-stage{perspective:1100px;margin:8px 0 16px;}
+.flash-card{position:relative;min-height:250px;transform-style:preserve-3d;transition:transform .68s cubic-bezier(.2,.72,.2,1);border-radius:22px;}
+.flash-card.is-flipped{transform:rotateY(180deg)}
+.flash-face{position:absolute;inset:0;min-height:250px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px 22px;text-align:center;background:var(--card);border:1px solid var(--border);border-radius:22px;box-shadow:var(--shadow);backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow-wrap:anywhere;}
+.flash-face.back{transform:rotateY(180deg);background:linear-gradient(145deg,rgba(var(--brand-rgb),.09),var(--card) 65%);border-color:rgba(var(--brand-rgb),.3)}
+.flash-kicker{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);margin-bottom:16px}
+.flash-face .speak-word{font-size:clamp(28px,8vw,38px);}
+.flash-face .speak-trans{font-size:clamp(20px,5vw,25px);font-weight:700;color:var(--text);margin-top:0;line-height:1.35}
+.flash-face .word-row-play{margin-top:16px}
+.flash-actions{display:grid;gap:10px}
+.flash-switch{width:100%;min-height:44px;border-radius:999px;border:1.5px solid var(--border);font-size:13px;font-weight:700;color:var(--text-2);background:var(--card)}
+.flash-switch:active{transform:scale(.98)}
+@media(prefers-reduced-motion:reduce){.flash-card{transition:none}}
+
+</style>
+</head>
+<body>
+
+<header id="cw-header"></header>
+
+<main class="page">
+  <div class="page-hero"><h1>Practice</h1><p>Use what you learn in real situations.</p></div>
+  <div id="home-root"><div class="modal-loading">Loading…</div></div>
+</main>
+
+<nav id="cw-bottom-nav">
+  <button class="tab" onclick="Nav.go('learn')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span>Learn</span></button>
+  <button class="tab active" onclick="Nav.go('practice')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg><span>Practice</span></button>
+  <button class="tab" onclick="Nav.go('community')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Community</span></button>
+  <button class="tab" onclick="Nav.go('profile')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Profile</span></button>
+</nav>
+
+<div id="drill-view"><div class="dr-wrap"><div class="chat-topbar"><button class="chat-back" onclick="Drill.exit()" aria-label="Back">‹</button><div class="chat-name"><span id="dr-title">Practice</span></div></div><div class="dr-body" id="dr-body"></div></div></div>
+
+<script src="shared.js"></script>
+<script src="sharecards.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+
+/* ============ Practice: path of scenes, daily Moments, flashcards ============ */
+const Drill = (() => {
+  const day = 864e5, L = () => State.currentLanguage, LN = () => CW_CONFIG.LANGUAGES[L()].name,
+    K = n => `cw_${n}_${L()}_${State.currentProfileId || 'me'}`, today = () => new Date().toLocaleDateString('en-CA');
+  const rd = (k, d) => { try { return JSON.parse(localStorage.getItem(k)) || d; } catch { return d; } };
+  const wr = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} };
+  const sh = a => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.random() * (i + 1) | 0; [a[i], a[j]] = [a[j], a[i]]; } return a; };
+  let on = false, cur = null, dk = [];
+  const H = { speak: async i => { try { await AudioMgr.play(dk[i].term, L()); } catch (e) { if (!(window.Paywall && Paywall.fromError(e))) showToast('Audio unavailable right now.', 'error'); } } };
+
+  let all = null;
+  async function data() {
+    if (!all) { try { const r = await fetch('/practice.json'); if (!r.ok) throw 0; all = await r.json(); } catch { all = {}; } }
+    return all[L()] || null;
+  }
+  async function need() { const d = await data(); if (!d) showToast('This language is coming soon.', 'info'); else cur = d; return d; }
+
+  /* ----- progress: local cache + backend sync ----- */
+  const API = {
+    async get(l) { if (window.Backend && Backend.getDrillProgress) { const r = await Backend.getDrillProgress(l); return r && r.progress; } return null; },
+    async put(l, p) { if (window.Backend && Backend.saveDrillProgress) return Backend.saveDrillProgress(l, p); throw new Error('Backend.saveDrillProgress missing'); }
+  };
+  const blank = () => ({ srs: {}, moments: {}, scenes: {}, sceneDone: {}, days: {} });
+  const mx = (X, Y) => { const o = {}; for (const k of new Set([...Object.keys(X || {}), ...Object.keys(Y || {})])) o[k] = Math.max((X || {})[k] || 0, (Y || {})[k] || 0); return o; };
+  const merge = (a, b) => {
+    const o = blank(), A = a.srs || {}, B = b.srs || {};
+    for (const id of new Set([...Object.keys(A), ...Object.keys(B)])) { const x = A[id], y = B[id]; o.srs[id] = !y || (x && (x.u || 0) >= (y.u || 0)) ? x : y; }
+    o.moments = mx(a.moments, b.moments); o.scenes = mx(a.scenes, b.scenes);
+    o.sceneDone = { ...(a.sceneDone || {}), ...(b.sceneDone || {}) };
+    for (const k of new Set([...Object.keys(a.days || {}), ...Object.keys(b.days || {})])) {
+      const x = (a.days || {})[k] || {}, y = (b.days || {})[k] || {};
+      o.days[k] = { m: Math.max(x.m || 0, y.m || 0), s: Math.max(x.s || 0, y.s || 0), c: Math.max(x.c || 0, y.c || 0), sceneIds: [...new Set([...(x.sceneIds || []), ...(y.sceneIds || [])])] };
+    }
+    return o;
+  };
+  let P = null, tm = null, dirty = false;
+  async function progress() {
+    const l = L(), pk = l + (State.currentProfileId || ''); if (P && P.pk === pk) return P.d;
+    let d = Object.assign(blank(), rd(K('prog'), {})); P = { l, pk, d };
+    try { const r = await API.get(l); if (r) { d = merge(d, r); P = { l, pk, d }; save(); } } catch (e) { console.warn('drill load', e.message || e); }
+    return P.d;
+  }
+  function save() {
+    const cut = new Date(Date.now() - 30 * day).toLocaleDateString('en-CA'); for (const k of Object.keys(P.d.days)) if (k < cut) delete P.d.days[k];
+    wr(K('prog'), P.d); dirty = true; clearTimeout(tm); tm = setTimeout(push, 1500);
+  }
+  async function push() { if (!dirty || !P) return; try { await API.put(P.l, P.d); dirty = false; } catch (e) { console.warn('drill sync', e.message || e); } }
+  window.addEventListener('pagehide', push);
+  const dayRec = () => P.d.days[today()] || (P.d.days[today()] = { m: 0, s: 0, c: 0 });
+  const bump = k => { dayRec()[k]++; save(); };
+  const markSceneToday = id => { const d = dayRec(); d.sceneIds = Array.isArray(d.sceneIds) ? d.sceneIds : []; if (!d.sceneIds.includes(id)) { d.sceneIds.push(id); d.s = Math.max(d.s || 0, d.sceneIds.length); save(); } };
+
+  /* ----- lessons ----- */
+  const doneLv = n => !n || Curriculum.completedLessonIds(State.progress).some(x => { const s = String(x); return s === 'level-' + n || s === String(n) || s.startsWith(n + '-'); });
+  const deck = () => { const l = L(); return ((State.user && State.user.savedWords) || []).filter(w => w && w.word && (!w.language || w.language === l)).map(w => ({ id: `${l}:${w.word}`, term: w.word, pron: w.pronunciation ? `/${w.pronunciation}/` : '', en: w.translation || '' })); };
+  const stats = (cards, s) => { const n = Date.now(); let due = 0, fresh = 0; cards.forEach(c => { const r = s[c.id]; if (!r) fresh++; else if (r.due <= n) due++; }); return { due, fresh, s }; };
+  function rateCard(id, k) {
+    const s = P.d.srs, r = s[id] || { iv: 0, ease: 2.3, reps: 0 }; r.reps = (r.reps || 0) + 1;
+    if (k === 0) { r.iv = 0; r.ease = Math.max(1.3, r.ease - .2); r.due = Date.now() + 6e5; }
+    else { r.iv = r.iv < 1 ? (k === 3 ? 3 : 1) : Math.max(1, r.iv * (k === 1 ? 1.2 : r.ease * (k === 3 ? 1.3 : 1))); if (k === 3) r.ease += .1; r.due = Date.now() + r.iv * day; }
+    r.u = Date.now(); s[id] = r; save();
+  }
+  async function saveWords(cards) {
+    const l = L(), u = State.user || {}, have = new Set((u.savedWords || []).filter(w => (w.language || l) === l).map(w => w.word));
+    const add = cards.filter(c => !have.has(c.term)).map(c => ({ word: c.term, translation: c.en, pronunciation: c.pron || '', example: '', language: l, savedAt: new Date().toISOString() }));
+    if (!add.length) { showToast('Already in your flashcards', 'info'); return; }
+    const upd = [...(u.savedWords || []), ...add]; State.user.savedWords = upd; Auth.setUser(State.user);
+    try { await Backend.updateProfile({ savedWords: upd }); } catch {}
+    showToast(`Saved ${add.length} to your flashcards ⭐`, 'success');
+  }
+
+  /* ----- overlay ----- */
+  function show(title) { $('dr-title').textContent = title; $('drill-view').style.display = 'flex'; document.documentElement.style.overflow = 'hidden'; if (!on) { history.pushState({ t: 'drill' }, ''); on = true; } }
+  function hide() { push(); on = false; $('drill-view').style.display = 'none'; document.documentElement.style.overflow = ''; render(); }
+  const exit = () => on ? history.back() : hide();
+  window.addEventListener('popstate', () => { if (on) hide(); });
+  const body = h => { $('dr-body').innerHTML = h; $('dr-body').scrollTop = 0; };
+  const prog = p => `<div class="dr-prog"><i style="width:${Math.round(p * 100)}%"></i></div>`;
+  const tim = t => `<div class="speak-result info"><b>🤓 Timmy:</b> ${t}</div>`;
+  const done = (emoji, title, sub, extra) => `<div class="chat-empty"><div class="chat-empty-emoji">${emoji}</div><div class="chat-empty-title">${title}</div><div class="chat-empty-sub">${sub}</div>${extra || ''}<button class="btn" onclick="Drill.exit()">Done</button></div>`;
+  const stars = (pts, s) => { const r = pts / Math.max(1, Object.keys(s.nodes).length - 1), n = r >= 1 ? 3 : r >= .67 ? 2 : r > 0 ? 1 : 0; return '★'.repeat(n) + '☆'.repeat(3 - n); };
+
+  /* ----- flashcards (from saved words) ----- */
+  const spk = i => window.AudioMgr ? `<button class="word-row-play" style="margin:14px auto 0;width:44px;height:44px" onclick="Drill.a('speak',${i})">🔊</button>` : '';
+  async function flash() {
+    const cards = dk = deck(), pr = await progress(); show('Flashcards');
+    if (!cards.length) { body(done('⭐', 'No saved words yet', 'Tap ☆ Save next to a word in a lesson, or save phrases after a scene. They become flashcards here.', `<button class="btn btn-ghost" style="margin-bottom:10px" onclick="Nav.go('learn')">Go to lessons</button>`)); return; }
+    const st = stats(cards, pr.srs), now = Date.now(), idx = cards.map((c, i) => i);
+    const q = sh(idx.filter(i => { const r = st.s[cards[i].id]; return r && r.due <= now; })).concat(idx.filter(i => !st.s[cards[i].id]).slice(0, 6));
+    if (!q.length) { const nx = Math.min(...Object.values(st.s).map(r => r.due)), h = Math.max(1, Math.round((nx - now) / 36e5)); body(done('🎉', 'All caught up', `Your next cards are due in ${h < 48 ? h + ' hours' : Math.round(h / 24) + ' days'}.`)); return; }
+    let n = 0, flip = false, rev = false, seen = 0;
+    const pick = () => { flip = false; const r = st.s[cards[q[n]].id]; rev = !!r && (r.reps || 0) >= 2 && Math.random() < .5; };
+    const draw = () => {
+      if (n >= q.length) { body(done('✅', 'Session done', `You reviewed ${seen} card${seen === 1 ? '' : 's'}. Come back tomorrow to keep your streak.`)); return; }
+      const i = q[n], c = cards[i];
+      const original = rev
+        ? `<div class="speak-trans">${esc(c.en || 'Translation unavailable')}</div><div class="speak-pron">Translate into ${esc(LN())}</div>`
+        : `<div class="speak-word">${esc(c.term)}</div><div class="speak-pron">${esc(c.pron)}</div>${spk(i)}`;
+      const answer = rev
+        ? `<div class="speak-word">${esc(c.term)}</div><div class="speak-pron">${esc(c.pron)}</div>${spk(i)}`
+        : `<div class="speak-trans">${esc(c.en || 'Translation unavailable')}</div>`;
+      body(prog(n / q.length) + `<div class="flash-stage"><div class="flash-card ${flip ? 'is-flipped' : ''}"><div class="flash-face front"><div class="flash-kicker">${rev ? 'Meaning → word' : 'Word → meaning'}</div>${original}</div><div class="flash-face back"><div class="flash-kicker">${rev ? 'Your answer' : 'Translation'}</div>${answer}</div></div></div>`
+        + (flip
+          ? `<div class="flash-actions"><button class="flash-switch" onclick="Drill.a('unflip')">↩ Show original side</button><div class="dr-rate">${['Again', 'Hard', 'Good', 'Easy'].map((t, k) => `<button class="chip-btn" onclick="Drill.a('rate',${k})">${t}</button>`).join('')}</div></div>`
+          : `<button class="btn btn-block" onclick="Drill.a('flip')">See translation ↻</button>`));
+    };
+    H.flip = () => { flip = true; draw(); };
+    H.unflip = () => { flip = false; draw(); };
+    H.rate = k => { const i = q[n]; rateCard(cards[i].id, k); bump('c'); seen++; if (k === 0 && !q.slice(n + 1).includes(i)) q.push(i); n++; if (n < q.length) pick(); draw(); };
+    pick(); draw();
+  }
+
+  /* ----- daily Moments ----- */
+  async function moments() {
+    const d = await need(); if (!d) return; const pr = await progress();
+    const pool = d.moments.filter(m => doneLv(m.after)), w = m => pr.moments[m.id] == null ? 0 : pr.moments[m.id] < 2 ? 1 : 2;
+    if (!pool.length) { show('Daily Moments'); body(done('🔒', 'Daily Moments unlock as you learn', 'Complete more lessons to unlock short, real-life situations to practise.')); return; }
+    const qs = pool.map(m => ({ m, k: w(m) + Math.random() * .9 })).sort((a, b) => a.k - b.k).slice(0, 5).map(x => x.m);
+    const lbl = { best: 'Best', okay: 'Okay', off: 'Off' }, pts = { best: 2, okay: 1, off: 0 }, missed = [];
+    let n = 0, score = 0, picked = false, hint = false, pk = -1, opts = [], mo = null;
+    const start = () => { opts = sh(qs[n].options); picked = false; hint = false; pk = -1; };
+    show('Daily Moments'); start();
+    const draw = () => {
+      if (n >= qs.length) {
+        const max = qs.length * 2, bests = missed.map(m => d.cards[m.options.find(o => o.v === 'best').c]);
+        body(done(score >= max * .8 ? '🏆' : '🎯', `${score} / ${max}`, score >= max * .8 ? 'Excellent. You sound respectful and natural.' : 'Good effort. These come back until you master them.',
+          `<div style="text-align:left;font-size:13px;color:var(--text-2);margin:8px 0">${qs.map(m => `<p style="margin-bottom:6px">🌍 ${esc(m.culture)}</p>`).join('')}</div>`
+          + (bests.length ? `<button class="btn btn-ghost" style="margin-bottom:10px" onclick="Drill.a('savemiss')">Save ${bests.length} missed phrase${bests.length === 1 ? '' : 's'}</button>` : '')
+          + `<button class="btn btn-ghost" style="margin-bottom:10px" onclick="Drill.moments()">Play 5 more</button>`));
+        H.savemiss = () => saveWords(bests); return;
+      }
+      const m = qs[n], p = m.prompt != null ? d.cards[m.prompt] : null;
+      body(prog(n / qs.length) + `<div class="path-sub" style="margin-bottom:4px">After Level ${m.lvl} · ${esc(m.topic)}</div><div style="font-weight:800;font-size:16px;margin-bottom:10px">${esc(m.setup)}</div>`
+        + (p ? `<div class="speak-card" style="padding:22px"><div class="speak-word" style="font-size:26px">«${esc(p.term)}»</div><div class="speak-pron">${esc(p.pron || '')}</div>${picked || hint ? `<div class="speak-trans" style="font-size:15px">${esc(p.en)}</div>` : ''}</div>` : '')
+        + `<div style="font-weight:800;margin:6px 2px 10px">${esc(m.q)}</div>`
+        + opts.map((o, k) => { const c = d.cards[o.c]; return `<button class="ex-opt dr-opt ${picked ? o.v + (k === pk ? ' pick' : '') : ''}" ${picked ? 'disabled' : ''} onclick="Drill.a('pick',${k})" style="margin-bottom:8px">${esc(c.term)}<span class="m">${esc(c.pron || '')}${picked || hint ? ' · ' + esc(c.en) : ''}${picked ? ' · ' + lbl[o.v] : ''}</span></button>`; }).join('')
+        + (picked ? tim(`<b>${lbl[opts[pk].v]}.</b> ${esc(opts[pk].why)}<br><br>🌍 ${esc(m.culture)}<div id="dr-more" style="margin-top:8px"><button class="chip-btn" onclick="Drill.a('more')">More detail</button></div>`) + `<button class="btn btn-block" onclick="Drill.a('next')">${n + 1 < qs.length ? 'Next' : 'See results'}</button>`
+          : `<button class="chip-btn" style="margin-top:6px" onclick="Drill.a('hint')">Show meanings</button>`));
+    };
+    H.pick = k => {
+      if (picked) return; picked = true; pk = k; mo = qs[n]; const v = opts[k].v; score += pts[v];
+      pr.moments[mo.id] = Math.max(pr.moments[mo.id] || 0, pts[v]); bump('m'); if (v !== 'best') missed.push(mo); draw();
+    };
+    H.hint = () => { hint = true; draw(); };
+    H.next = () => { n++; if (n < qs.length) start(); draw(); };
+    H.more = async () => {   // optional AI explanation: cached, capped, and silent on any failure
+      const box = $('dr-more'); if (!box) return; const o = opts[pk], c = d.cards[o.c], key = `cw_why_${L()}_${mo.id}_${o.c}`; let t = localStorage.getItem(key);
+      if (!t) {
+        const u = rd(K('ai'), { d: today(), n: 0 }); if (u.d !== today()) { u.d = today(); u.n = 0; } if (u.n >= 10) { box.remove(); return; }
+        box.textContent = '…';
+        try {
+          const res = await Backend.aiChat(`A learner of ${LN()} met this situation: "${mo.setup}" They chose "${c.term}" (${c.en}), rated ${o.v}. In two short plain sentences, explain why, and how it sounds to a Nigerian elder. No markdown.`, 'You are a warm, accurate Nigerian language and culture tutor.');
+          t = String(res.data || res.reply || res.message || '').replace(/[*_#`]/g, '').trim(); u.n++; wr(K('ai'), u); if (t) localStorage.setItem(key, t);
+        } catch { box.remove(); return; }
+      }
+      if (!t) box.remove(); else box.textContent = t;
+    };
+    draw();
+  }
+
+  /* ----- scenes ----- */
+  function scene(i) {
+    const s = cur && cur.scenes[i]; if (!s) return;
+    if (!doneLv(s.after)) { showToast(`Finish Level ${s.lvl} (${s.topic}) to unlock this scene`, 'info'); return; }
+    play(i);
+  }
+  async function play(i) {
+    const d = await need(); if (!d) return; const pr = await progress(), s = d.scenes[i], max = Object.keys(s.nodes).length - 1; show(s.title);
+    const bot = (t, c) => `<div class="msg-row bot"><div class="bubble">${c ? `<strong>${esc(c.term)}</strong> <em style="color:var(--text-3)">${esc(c.pron || '')}</em><br>` : ''}${esc(t)}</div></div>`;
+    const me = c => `<div class="msg-row user"><div class="bubble">${esc(c.term)}<div style="font-size:11.5px;opacity:.85;margin-top:2px">${esc(c.en)}</div></div></div>`;
+    const note = t => `<div class="msg-meta" style="padding:0 8px 4px;font-style:italic">${esc(t)}</div>`;
+    const first = s.nodes[s.start]; let node = s.start, pts = 0, hint = false, busy = false, attempts = 0, opts = sh(first.replies), log = [bot(first.en, first.c != null ? d.cards[first.c] : null)];
+    const advance = next => {
+      node = next; const nd = s.nodes[node]; attempts = 0;
+      log.push(bot(nd.en, nd.c != null ? d.cards[nd.c] : null)); opts = sh(nd.replies || []); hint = false; busy = false;
+      if (nd.end) { pr.scenes[s.id] = Math.max(pr.scenes[s.id] || 0, pts); pr.sceneDone = pr.sceneDone || {}; pr.sceneDone[s.id] = true; markSceneToday(s.id); save(); }
+      draw();
+    };
+    const draw = () => {
+      const nd = s.nodes[node]; let tail = '';
+      if (nd.end) {
+        tail = tim(`<b>${stars(pts, s)}</b> ${pts === max ? 'Perfect!' : pts >= max - 1 ? 'Great job!' : 'Good start. Replay for more stars.'}<br><br>🌍 ${esc(s.culture)}`)
+          + `<div class="section-h">Words in this scene</div>` + s.words.map(w => { const c = d.cards[w]; return `<div class="word-row"><div class="word-row-body"><div class="word-row-term">${esc(c.term)}</div><div class="word-row-pron">${esc(c.pron || '')}</div><div class="word-row-trans">${esc(c.en)}</div></div></div>`; }).join('')
+          + `<button class="btn btn-block" onclick="Drill.a('savew')">Save words to flashcards</button><button class="btn btn-ghost btn-block" onclick="Drill.play(${i})">Replay</button><button class="btn btn-ghost btn-block" onclick="Drill.exit()">Back to path</button>`;
+      } else if (!busy) {
+        tail = (attempts === 1 ? tim('Not quite. Take another look at the conversation and try once more.') : '')
+          + `<div class="scaffold-row" style="flex-wrap:wrap;border:0;padding:14px 0 0">${opts.map((r, k) => { const c = d.cards[r.c]; return `<button class="scaffold-chip" style="text-align:left" onclick="Drill.a('say',${k})">${esc(c.term)}${hint ? `<br><span style="font-weight:500;font-size:11.5px;color:var(--text-2)">${esc(c.en)}</span>` : ''}</button>`; }).join('')}</div><button class="chip-btn" style="margin-top:6px" onclick="Drill.a('hint')">Show meanings</button>`;
+      }
+      body(`<div class="path-sub" style="margin-bottom:8px">After Level ${s.lvl} · ${esc(s.topic)}</div>${tim(`${esc(s.goal)}. Pick the best reply each time. <b>${pts}/${max}</b>`)}<div style="display:flex;flex-direction:column;gap:6px;margin-top:10px">${log.join('')}</div>${tail}`);
+      $('dr-body').scrollTop = $('dr-body').scrollHeight;
+    };
+    H.hint = () => { hint = true; draw(); };
+    H.savew = () => saveWords(s.words.map(w => d.cards[w]));
+    H.say = k => {
+      if (busy) return;
+      const r = opts[k]; if (!r) return;
+      const correct = opts.find(x => Number(x.ok) > 0);
+      if (Number(r.ok) > 0) {
+        busy = true; pts += Number(r.ok) || 0; log.push(me(d.cards[r.c]), note(r.fb || 'That response fits the situation well.'));
+        draw(); setTimeout(() => advance(r.next), 550); return;
+      }
+      log.push(me(d.cards[r.c]));
+      if (attempts === 0) {
+        attempts = 1; log.push(note(r.fb || 'That response does not quite fit here. Try again.'));
+        draw(); return;
+      }
+      busy = true;
+      log.push(note(r.fb || 'That response does not fit the situation.'));
+      if (correct) {
+        const answer = d.cards[correct.c];
+        log.push(bot(`A better response would be: ${answer.term}${answer.en ? ` — ${answer.en}` : ''}`));
+        log.push(note(correct.fb || 'This response fits the context of the conversation.'));
+      } else {
+        log.push(note('Let’s continue and learn from the next part of the conversation.'));
+      }
+      draw();
+      setTimeout(() => advance(correct ? correct.next : r.next), 1200);
+    };
+    draw();
+  }
+
+  /* ----- Practice home ----- */
+  async function render() {
+    const root = $('home-root'); if (!root || !window.State || !State.currentLanguage) return;
+    const d = await data(); if (!d) { root.innerHTML = `<div class="empty-note"><strong>Coming soon</strong>Practice for ${esc(LN())} is on the way.</div>`; return; }
+    cur = d;
+    const pr = await progress(), cards = deck(), st = stats(cards, pr.srs);
+    const dr = pr.days[today()] || { m: 0, s: 0, c: 0 };
+    const sc = d.scenes || [], open = sc.map(s => doneLv(s.after));
+    const fin = sc.map(s => !!((pr.sceneDone && pr.sceneDone[s.id]) || (pr.scenes[s.id] || 0) > 0));
+    const completedScenes = fin.filter(Boolean).length;
+    const unlockedScenes = open.filter(Boolean).length;
+    let next = sc.findIndex((s, i) => open[i] && !fin[i]);
+    const allDone = next < 0 && unlockedScenes > 0;
+    if (next < 0) next = sc.findIndex((s, i) => open[i]);
+    const nextScene = next >= 0 && open[next] ? sc[next] : null;
+    const pool = d.moments.filter(m => doneLv(m.after)).length;
+    const words = cards.length;
+    const rows = [
+      { ico: '🎯', t: 'Daily Moments', sub: `${Math.min(5, dr.m)}/5 responses today · ${pool} situations unlocked`, ok: dr.m >= 5, go: 'Drill.moments()' }
+    ];
+    if (nextScene) rows.push({ ico: nextScene.emoji || '🎬', t: (allDone ? 'Replay: ' : 'Next scene: ') + nextScene.title, sub: allDone ? 'All available scenes completed' : `After Level ${nextScene.lvl} · ${nextScene.topic}`, ok: (dr.s || 0) >= 1, go: `Drill.scene(${next})` });
+    if (cards.length && st.due + st.fresh > 0) rows.push({ ico: '🗂️', t: 'Flashcards', sub: `${st.due} due · ${Math.min(6, st.fresh)} new available`, ok: (dr.c || 0) >= 5, go: 'Drill.flash()' });
+    const got = rows.filter(r => r.ok).length;
+    const dailyPct = rows.length ? Math.round(got / rows.length * 100) : 0;
+    const streak = State.effectiveStreak(State.progress || {});
+    const scenePct = sc.length ? Math.round(completedScenes / sc.length * 100) : 0;
+    const savedLabel = words === 1 ? 'word saved' : 'words saved';
+    const pathIntro = nextScene
+      ? (allDone ? 'You have completed every currently unlocked scene. Revisit one to strengthen your replies.' : `Next up: ${nextScene.title}. Complete it to add another conversation to your journey.`)
+      : 'Complete a lesson to unlock your first conversation scene.';
+    root.innerHTML = `
+      <div class="stat-row">
+        <div class="stat-tile"><div class="stat-ico">🔥</div><div class="stat-val">${streak}</div><div class="stat-lbl">Day streak</div><small class="stat-detail">Consecutive learning days</small></div>
+        <div class="stat-tile"><div class="stat-ico">🎬</div><div class="stat-val">${completedScenes}/${sc.length}</div><div class="stat-lbl">Scenes done</div><small class="stat-detail">Conversations completed</small></div>
+        <div class="stat-tile"><div class="stat-ico">⭐</div><div class="stat-val">${words}</div><div class="stat-lbl">Saved words</div><small class="stat-detail">${esc(savedLabel)} in ${esc(LN())}</small></div>
+      </div>
+      <div class="card progress-overview">
+        <div class="progress-overview-head"><div><div class="progress-overview-title">Your conversation journey</div><div class="progress-overview-copy">${esc(pathIntro)}</div></div><div class="progress-overview-count">${completedScenes}/${sc.length}</div></div>
+        <div class="progress-track" role="progressbar" aria-label="Conversation scenes completed" aria-valuemin="0" aria-valuemax="${sc.length}" aria-valuenow="${completedScenes}"><i style="width:${scenePct}%"></i></div>
+        <div class="progress-foot"><span>${unlockedScenes} of ${sc.length} scenes unlocked</span><span>${scenePct}% completed</span></div>
+      </div>
+      <div class="card today"><div class="today-h"><b>Today's practice</b><span>${got}/${rows.length} complete</span></div>
+        <div class="today-summary">${got === rows.length ? 'You have completed today’s suggested activities.' : 'A little practice goes a long way. Pick up where you left off.'}</div>
+        ${rows.map(r => `<button class="today-row${r.ok ? ' ok' : ''}" onclick="${r.go}"><span class="today-ico">${r.ok ? '✓' : r.ico}</span><span class="today-body"><b>${esc(r.t)}</b><small>${esc(r.sub)}</small></span><span class="method-chev">›</span></button>`).join('')}
+        <div class="progress-track" style="margin:10px 2px 4px"><i style="width:${dailyPct}%"></i></div>
+      </div>
+      <div class="section-h">Your path</div>
+      <div class="path">${sc.map((s, i) => { const k = !open[i] ? 'locked' : fin[i] ? 'done' : 'open';
+        return `<button class="path-node ${k}${open[i] && i === next && !fin[i] ? ' next' : ''}" onclick="Drill.scene(${i})"><div class="path-dot">${k === 'locked' ? '🔒' : k === 'done' ? '✓' : s.emoji}</div><div class="path-body"><div class="path-title">${esc(s.title)}</div><div class="path-sub">${k === 'locked' ? `Unlocks after Level ${s.lvl} · ` : `After Level ${s.lvl} · `}${esc(s.topic)}</div>${fin[i] ? `<div class="path-stars">${stars(pr.scenes[s.id] || 0, s)}</div>` : ''}</div></button>`; }).join('')}</div>
+      <div class="section-h">Speak &amp; review</div>
+      <div class="set-group">
+        <button class="method-card tint-terracotta" onclick="Practice.openSpeak()"><div class="method-icon">🎤</div><div class="method-body"><div class="method-title">Pronunciation practice</div><div class="method-desc">Listen, then repeat</div></div><div class="method-chev">›</div></button>
+        <button class="method-card" onclick="Practice.openReview()"><div class="method-icon">⭐</div><div class="method-body"><div class="method-title">Saved words</div><div class="method-desc">${words ? `${words} word${words === 1 ? '' : 's'} saved in ${esc(LN())}` : 'Save words in lessons to review them here'}</div></div><div class="method-chev">›</div></button>
+      </div>`;
+  }
+  return { render, flash, moments, scene, play, exit, a: (n, x) => H[n] && H[n](x) };
+})();
+window.Drill = Drill;
+
+const Practice = {
+  user: null,
+  async init() {
+    if (!(await cwBoot())) return;
+    Header.render('practice');
+    this.user = State.user;
+    Drill.render();
+    State.loadProgress(State.currentLanguage).then(() => Drill.render()).catch(() => {});
+    State.on('hydrated', () => { this.user = State.user; Drill.render(); });
+    State.on('language:changed', () => Drill.render());
+    State.on('progress:changed', () => Drill.render());
+  },
+
+  modal(title, html) {
+    let o = $('cw-practice-modal');
+    if (!o) {
+      o = document.createElement('div'); o.id = 'cw-practice-modal'; o.className = 'cw-modal-overlay';
+      o.innerHTML = '<div class="cw-modal"><div class="cw-modal-head"><div class="cw-modal-title"></div><button class="cw-modal-close" onclick="Practice.closeModal()" aria-label="Close">×</button></div><div class="cw-modal-body"></div></div>';
+      o.addEventListener('click', e => { if (e.target === o) Practice.closeModal(); });
+      document.body.appendChild(o);
+    }
+    o.querySelector('.cw-modal-title').textContent = title;
+    o.querySelector('.cw-modal-body').innerHTML = html;
+    o.classList.add('active');
+  },
+  closeModal() { $('cw-practice-modal')?.classList.remove('active'); },
+
+  /* ---------- SPEAK MODE ---------- */
+  async openSpeak() {
+    const saved = (State.user && State.user.savedWords) || [];
+    const curriculum = State.curriculumCache[State.currentLanguage] || await State.loadCurriculum(State.currentLanguage);
+    let pool = saved.slice();
+    if (!pool.length && curriculum) pool = Curriculum.allLessons(curriculum).flatMap(l => l.vocabulary || []).slice(0, 20);
+    if (!pool.length) { showToast('Complete a lesson first to practice pronunciation.', 'info'); return; }
+    this._speakList = pool;
+    Practice.modal('Pronunciation practice', this.speakBody(pool[0], 0, pool));
+  },
+  speakBody(word, index, pool) {
+    const supported = 'SpeechRecognition' in window || 'webkitSpeechRecognition' in window;
+    const note = supported
+      ? `<div class="mic-hint">Speech recognition uses your browser's built-in engine. For non-English languages, accuracy varies.</div>`
+      : `<div class="mic-hint">Your browser doesn't support speech recognition. You can still listen and repeat out loud.</div>`;
+    return `
+      <div class="speak-card">
+        <div class="speak-word">${esc(word.word)}</div>
+        ${word.pronunciation ? `<div class="speak-pron">/${esc(word.pronunciation)}/</div>` : ''}
+        <div class="speak-trans">${esc(word.translation || '')}</div>
+        <button class="btn btn-ghost" onclick="Practice.playSpeakWord(${index})" style="margin-top:18px">🔊 Listen</button>
+      </div>
+      ${supported ? `<button class="mic-btn" id="mic-btn" onclick="Practice.recordSpeak(${index})">🎤</button>` : ''}
+      ${note}
+      <div id="speak-result"></div>
+      <div style="display:flex;gap:10px;margin-top:18px">
+        <button class="btn btn-ghost" style="flex:1" onclick="Practice.speakPrev(${index})" ${index === 0 ? 'disabled' : ''}>← Prev</button>
+        <button class="btn" style="flex:1" onclick="Practice.speakNext(${index}, ${pool.length})" ${index === pool.length - 1 ? 'disabled' : ''}>Next →</button>
+      </div>`;
+  },
+  async playSpeakWord(index) {
+    const w = this._speakList[index]; if (!w) return;
+    try { await AudioMgr.play(w.word, State.currentLanguage); }
+    catch (e) { if (!Paywall.fromError(e)) showToast('Audio unavailable right now.', 'error'); }
+  },
+  speakPrev(i) { if (i > 0) Practice.modal('Pronunciation practice', this.speakBody(this._speakList[i - 1], i - 1, this._speakList)); },
+  speakNext(i, total) { if (i < total - 1) Practice.modal('Pronunciation practice', this.speakBody(this._speakList[i + 1], i + 1, this._speakList)); },
+  recordSpeak(index) {
+    const w = this._speakList[index]; if (!w) return;
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SR) { showToast('Speech recognition not supported here.', 'info'); return; }
+    const btn = $('mic-btn'), result = $('speak-result');
+    const rec = new SR();
+    rec.lang = CW_CONFIG.LANGUAGES[State.currentLanguage].ttsLang || 'en-NG';
+    rec.interimResults = false; rec.maxAlternatives = 1;
+    const reset = () => { if (btn) { btn.classList.remove('recording'); btn.textContent = '🎤'; } };
+    if (btn) { btn.classList.add('recording'); btn.textContent = '⏹'; }
+    if (result) result.innerHTML = '<div class="speak-result info">Listening… speak now.</div>';
+    rec.onresult = e => {
+      const said = (e.results[0][0].transcript || '').trim();
+      const target = String(w.word).toLowerCase().trim(), got = said.toLowerCase().trim();
+      const exact = got === target;
+      const close = !exact && this.levenshtein(got, target) <= Math.max(2, Math.floor(target.length / 3));
+      if (!result) return;
+      if (exact) { result.innerHTML = `<div class="speak-result info"><strong>Nice — match!</strong><br>You said: <em>${esc(said)}</em></div>`; showToast('Perfect match! 🎉', 'success'); }
+      else if (close) result.innerHTML = `<div class="speak-result info"><strong>Close.</strong><br>You said: <em>${esc(said)}</em><br>Target: <em>${esc(w.word)}</em></div>`;
+      else result.innerHTML = `<div class="speak-result warn"><strong>Different sound.</strong><br>You said: <em>${esc(said)}</em><br>Target: <em>${esc(w.word)}</em></div>`;
+    };
+    rec.onerror = e => { if (result) result.innerHTML = `<div class="speak-result warn">Couldn't capture audio (${e.error || 'unknown'}).</div>`; };
+    rec.onend = reset;
+    try { rec.start(); } catch { reset(); showToast('Could not start microphone.', 'error'); }
+  },
+  levenshtein(a, b) {
+    if (a === b) return 0;
+    const m = a.length, n = b.length; if (!m) return n; if (!n) return m;
+    const d = Array.from({ length:m + 1 }, () => new Array(n + 1).fill(0));
+    for (let i = 0; i <= m; i++) d[i][0] = i;
+    for (let j = 0; j <= n; j++) d[0][j] = j;
+    for (let i = 1; i <= m; i++) for (let j = 1; j <= n; j++)
+      d[i][j] = Math.min(d[i-1][j] + 1, d[i][j-1] + 1, d[i-1][j-1] + (a[i-1] === b[j-1] ? 0 : 1));
+    return d[m][n];
+  },
+
+  /* ---------- REVIEW (saved words + quiz) ---------- */
+  async openReview() {
+    const saved = (State.user && State.user.savedWords) || [];
+    if (!saved.length) { Practice.modal('Saved words', `<div class="empty-note"><strong>No saved words yet</strong>In any lesson, tap ☆ Save next to a word to keep it here for review.</div>`); return; }
+    const list = saved.map((w, i) => `
+      <div class="word-row">
+        <div class="word-row-body">
+          <div class="word-row-term">${esc(w.word)}</div>
+          ${w.pronunciation ? `<div class="word-row-pron">/${esc(w.pronunciation)}/</div>` : ''}
+          <div class="word-row-trans">${esc(w.translation || '')}</div>
+        </div>
+        <button class="word-row-play" onclick="Practice.playSaved(${i})">🔊</button>
+      </div>`).join('');
+    this._saved = saved;
+    Practice.modal('Saved words', list + `<button class="btn btn-ghost btn-block" onclick="Practice.startReviewQuiz()" style="margin-top:14px">Quiz me on these ${saved.length} word${saved.length === 1 ? '' : 's'} →</button>`);
+  },
+  async playSaved(i) {
+    const w = this._saved[i]; if (!w) return;
+    try { await AudioMgr.play(w.word, w.language || State.currentLanguage); }
+    catch (e) { if (!Paywall.fromError(e)) showToast('Audio unavailable right now.', 'error'); }
+  },
+  startReviewQuiz() {
+    const saved = this._saved || [];
+    if (saved.length < 4) { showToast('Save at least 4 words to build a quiz.', 'info'); return; }
+    Practice.closeModal();
+    this._quiz = saved.slice(0, Math.min(8, saved.length)).map(w => {
+      const wrong = saved.filter(x => x.word !== w.word).sort(() => Math.random() - .5).slice(0, 3);
+      const options = [w.translation, ...wrong.map(x => x.translation)].sort(() => Math.random() - .5);
+      return { word:w.word, correctIndex:options.indexOf(w.translation), options };
+    });
+    this._quizIndex = 0; this._quizCorrect = 0;
+    this.renderQuizQuestion();
+  },
+  renderQuizQuestion() {
+    const q = this._quiz[this._quizIndex], total = this._quiz.length, pct = Math.round(this._quizIndex / total * 100);
+    Practice.modal('Review quiz', `
+      <div style="font-size:12px;color:var(--text-3);font-weight:800;letter-spacing:.08em;text-transform:uppercase">Question ${this._quizIndex + 1} of ${total}</div>
+      <div style="height:6px;background:var(--border);border-radius:3px;margin:8px 0 22px;overflow:hidden"><div style="height:100%;width:${pct}%;background:var(--brand);border-radius:3px"></div></div>
+      <div style="font-size:26px;font-weight:800;color:var(--brand);text-align:center;padding:20px 0">${esc(q.word)}</div>
+      <div style="text-align:center;color:var(--text-2);font-size:14px;margin-bottom:18px">What does this mean?</div>
+      <div style="display:flex;flex-direction:column;gap:10px" id="quiz-opts">
+        ${q.options.map((o, i) => `<button class="ex-opt" onclick="Practice.answerQuiz(${i})">${esc(o)}</button>`).join('')}
+      </div>
+      <div id="quiz-feedback" style="margin-top:14px"></div>`);
+  },
+  answerQuiz(index) {
+    const q = this._quiz[this._quizIndex], correct = q.correctIndex;
+    document.querySelectorAll('#quiz-opts .ex-opt').forEach((b, i) => {
+      b.disabled = true;
+      if (i === correct) { b.style.borderColor = 'var(--brand)'; b.style.background = 'rgba(46,139,87,.10)'; b.style.color = 'var(--brand)'; }
+      else if (i === index) { b.style.borderColor = 'var(--danger)'; b.style.background = 'rgba(229,72,77,.08)'; b.style.color = 'var(--danger)'; }
+    });
+    if (index === correct) this._quizCorrect++;
+    $('quiz-feedback').innerHTML = `<button class="btn btn-block" onclick="Practice.nextQuizQuestion()">${this._quizIndex === this._quiz.length - 1 ? 'See results →' : 'Next question →'}</button>`;
+  },
+  nextQuizQuestion() {
+    if (this._quizIndex < this._quiz.length - 1) { this._quizIndex++; this.renderQuizQuestion(); return; }
+    const score = this._quizCorrect, total = this._quiz.length, pct = Math.round(score / total * 100);
+    const msg = pct === 100 ? 'Perfect!' : pct >= 80 ? 'Great work!' : pct >= 50 ? 'Solid start.' : 'Keep practicing.';
+    Practice.modal('Review quiz', `
+      <div style="text-align:center;padding:16px 0">
+        <div style="font-size:64px">${pct >= 80 ? '🎉' : '💪'}</div>
+        <div style="font-size:26px;font-weight:800;margin-top:8px">${msg}</div>
+        <div style="font-size:15px;color:var(--text-2);margin-top:6px">You scored ${score}/${total} (${pct}%)</div>
+        <button class="btn btn-block" onclick="Practice.closeModal()" style="margin-top:22px">Done</button>
+      </div>`);
+  },
+};
+
+document.addEventListener('DOMContentLoaded', () => Practice.init());
+window.Practice = Practice;
+
+  // Register the service worker for offline + installability
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(reg => console.log('[PWA] SW registered:', reg.scope))
+        .catch(err => console.warn('[PWA] SW registration failed:', err));
+    });
+  }
+</script>
+</body>
+</html>
