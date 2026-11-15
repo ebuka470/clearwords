@@ -1024,17 +1024,31 @@ const Curriculum = {
 
 /* ============================================================
    7. AUDIO MANAGER
+   ============================================================
+   Supabase "audio" bucket layout:
+     <language>/vocabulary/<clean_text>.mp3   (vocabulary words)
+     <language>/dialogue/<clean_text>.mp3     (dialogue lines)
+
+   AudioMgr.play(text, language, type)
+     type: 'vocabulary' (default) or 'dialogue'
    ============================================================ */
 const AudioMgr = {
   current: null,
 
-  cacheKey(text, language) {
+  // Allowed folders inside each language folder
+  TYPES: ['vocabulary', 'dialogue'],
+
+  _normType(type) {
+    return this.TYPES.includes(type) ? type : 'vocabulary';
+  },
+
+  cacheKey(text, language, type) {
     const clean = String(text || '')
       .toLowerCase().trim()
       .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
       .replace(/[^a-z0-9\s]/g, '')
       .replace(/\s+/g, '_');
-    return language + '/vocabulary/' + (clean || ('w' + Date.now())) + '.mp3';
+    return language + '/' + this._normType(type) + '/' + (clean || ('w' + Date.now())) + '.mp3';
   },
 
   supabaseUrl(key) {
@@ -1057,12 +1071,12 @@ const AudioMgr = {
     if ('speechSynthesis' in window) window.speechSynthesis.cancel();
   },
 
-  async play(text, language) {
+  async play(text, language, type) {
     if (!text || !String(text).trim()) return false;
     this.stop();
 
     const langCfg = CW_CONFIG.LANGUAGES[language] || CW_CONFIG.LANGUAGES.yoruba;
-    const key = this.cacheKey(text, language);
+    const key = this.cacheKey(text, language, type);
 
     if (await this.existsInSupabase(key)) {
       return this._playUrl(this.supabaseUrl(key));
@@ -1104,7 +1118,7 @@ const AudioMgr = {
 
   async playDialogue(lines, language) {
     for (const line of lines) {
-      await this.play(line.text, language);
+      await this.play(line.text, language, 'dialogue');
       await new Promise(r => setTimeout(r, 400));
     }
   }
