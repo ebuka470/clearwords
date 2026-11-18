@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>ClearWords — Review Studio</title>
+  <style>
+    :root { --primary:#2E8B57; --bg:#f8f9fa; --text:#333; --border:#ddd; }
+    * { box-sizing:border-box; }
+    html, body { height:100%; }
+    body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:var(--bg); color:var(--text);
+      margin:0; display:flex; flex-direction:column; height:100vh; height:100dvh; overflow:hidden; }
+    .header { background:white; padding:12px 16px; box-shadow:0 2px 10px rgba(0,0,0,.05); flex-shrink:0; }
+    .header-top { display:flex; justify-content:space-between; align-items:center; gap:8px; }
+    .title { font-size:17px; font-weight:700; color:var(--primary); }
+    select, .exp { padding:8px 10px; border-radius:8px; border:1px solid var(--border); font-size:14px; font-weight:600; background:white; }
+    .bar { height:8px; background:#eee; border-radius:8px; overflow:hidden; margin-top:10px; }
+    .bar div { height:100%; width:0; background:var(--primary); transition:width .3s; }
+    .stats { font-size:12px; color:#666; margin-top:5px; text-align:right; font-weight:600; }
+    .main { flex:1; min-height:0; overflow-y:auto; -webkit-overflow-scrolling:touch; display:flex; flex-direction:column; padding:16px; text-align:center; }
+    .card { margin:auto 0; width:100%; }
+    .meta { font-size:12px; text-transform:uppercase; letter-spacing:1px; color:#888; font-weight:700; margin-bottom:8px; }
+    .badge { display:inline-block; background:#4169E1; color:#fff; padding:3px 10px; border-radius:20px; font-size:12px; font-weight:700; margin-bottom:8px; }
+    .word { font-size:38px; font-weight:800; color:var(--primary); line-height:1.2; margin:8px 0; word-break:break-word; }
+    .tr { font-size:18px; color:#555; margin-bottom:12px; }
+    .tag { display:inline-block; font-size:13px; font-weight:700; padding:3px 10px; border-radius:12px; background:#eee; }
+    .hint { color:#888; font-size:16px; }
+    .edit { text-align:left; max-width:420px; margin:10px auto 0; }
+    .edit label { font-size:12px; font-weight:700; color:#888; text-transform:uppercase; }
+    .edit input { width:100%; padding:12px; font-size:18px; border:1px solid var(--border); border-radius:10px; margin:4px 0 8px; font-family:inherit; }
+    .chars, .chips { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px; }
+    .chars button, .chips button { padding:8px 12px; font-size:18px; border:1px solid var(--border); border-radius:8px; background:white; }
+    .chips button { background:#eef6f1; border-color:#b9dcc7; font-size:15px; font-weight:600; }
+    .controls { flex-shrink:0; background:white; border-top:1px solid var(--border); padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));
+      display:flex; flex-direction:column; align-items:center; gap:10px; }
+    .controls:empty { display:none; }
+    .row { display:flex; gap:10px; width:100%; max-width:420px; }
+    .btn { border:none; border-radius:30px; font-weight:700; cursor:pointer; flex:1; padding:14px; font-size:16px; background:#eee; color:#333; }
+    .btn.ok { width:100%; max-width:420px; flex:none; padding:22px; font-size:22px; background:var(--primary); color:#fff; }
+    .btn.blue { background:#4169E1; color:#fff; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="header-top">
+      <div class="title">✅ Review Studio</div>
+      <select id="lang" onchange="loadLang()">
+        <option value="">Language...</option>
+        <option value="yoruba">Yoruba</option>
+        <option value="igbo">Igbo</option>
+        <option value="hausa">Hausa</option>
+        <option value="pidgin">Pidgin</option>
+      </select>
+      <button class="exp" onclick="exportJson()">⬇ Export</button>
+    </div>
+    <div class="bar"><div id="bar"></div></div>
+    <div class="stats" id="stats">0 / 0 reviewed</div>
+  </div>
+
+  <div class="main" id="main"><div class="card" id="card"><div class="hint">Select a language to start</div></div></div>
+  <div class="controls" id="controls"></div>
+
+  <script>
+    const $ = id => document.getElementById(id);
+    let items = [], data = null, dec = {}, idx = 0, editing = false, lang = '', vars = {}, lastField = 'e-text', reviewSkipped = false;
+
+    // ---------- storage (per language, on this device) ----------
+    const key = () => 'cw_review_' + lang;
+    function save() { try { localStorage.setItem(key(), JSON.stringify(dec)); } catch (e) { console.warn(e); } }
+    function loadSaved() { try { return JSON.parse(localStorage.getItem(key()) || '{}'); } catch (e) { return {}; } }
+
+    // ---------- diacritics helpers ----------
+    const strip = s => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .replace(/ɓ/g, 'b').replace(/ɗ/g, 'd').replace(/ƙ/g, 'k').replace(/ŋ/g, 'n');
+    const TOKEN = /[^\s.,!?;:"“”()]+/g;
+    function buildVars() {
+      vars = {};
+      items.forEach(it => {
+        (it.text.match(TOKEN) || []).forEach(tok => {
+          const low = tok.toLowerCase().normalize('NFC'), sp = strip(low);
+          if (low !== sp) (vars[sp] = vars[sp] || new Set()).add(low);
+        });
+      });
+    }
+
+    // ---------- load ----------
+    async function loadLang() {
+      lang = $('lang').value;
+      if (!lang) return;
+      try {
+        const res = await fetch(`data/${lang}.json`);
+        if (!res.ok) throw new Error('JSON not found');
+        data = await res.json();
+      } catch (e) { alert('Error: ' + e.message); return; }
+      items = [];
+      (data.levels || []).forEach((lvl, li) => {
+        (lvl.vocabulary || []).forEach((v, ix) => { if (v.word) items.push({ id: `${li}:v:${ix}`, li, sec: 'vocabulary', ix, level: lvl.level, type: 'vocabulary', text: v.word, translation: v.translation || '', ref: v }); });
+        (lvl.dialogue || []).forEach((d, ix) => { if (d.text) items.push({ id: `${li}:d:${ix}`, li, sec: 'dialogue', ix, level: lvl.level, type: 'dialogue', speaker: d.speaker, text: d.text, translation: d.translation || '', ref: d }); });
+      });
+      dec = loadSaved(); buildVars(); reviewSkipped = false; editing = false;
+      idx = findNext(0); render();
+    }
+
+    // ---------- navigation ----------
+    const pending = i => reviewSkipped ? (dec[i.id] && dec[i.id].s === 'skip') : !dec[i.id];
+    function findNext(from) {
+      const n = items.length;
+      for (let k = 0; k < n; k++) { const j = (from + k) % n; if (pending(items[j])) return j; }
+      return n;
+    }
+    function advance() { idx = findNext(idx + 1); if (idx >= items.length) reviewSkipped = false; editing = false; render(); }
+    function back() { if (idx >= items.length) idx = items.length; if (idx > 0) idx--; editing = false; render(); }
+    function approve() { if (idx >= items.length || editing) return; dec[items[idx].id] = { s: 'ok' }; save(); advance(); }
+    function skip() { dec[items[idx].id] = { s: 'skip' }; save(); advance(); }
+    function goSkipped() { reviewSkipped = true; idx = findNext(0); if (idx >= items.length) reviewSkipped = false; render(); }
+
+    // ---------- edit ----------
+    const MARKS = [['ẹ','ẹ'],['ọ','ọ'],['ṣ','ṣ'],['ị','ị'],['ụ','ụ'],['ɓ','ɓ'],['ɗ','ɗ'],['ƙ','ƙ'],['ŋ','ŋ'],['◌́','\u0301'],['◌̀','\u0300'],['◌̄','\u0304'],['◌̣','\u0323']];
+    function startEdit() {
+      editing = true; render();
+      const it = items[idx], d = dec[it.id];
+      $('e-text').value = d && d.s === 'edit' ? d.t : it.text;
+      $('e-tr').value = d && d.s === 'edit' ? d.tr : it.translation;
+      const chars = $('chars');
+      MARKS.forEach(([label, ch]) => {
+        const b = document.createElement('button'); b.textContent = label;
+        b.onpointerdown = e => e.preventDefault();
+        b.onclick = () => insertChar(ch); chars.appendChild(b);
+      });
+      ['e-text', 'e-tr'].forEach(f => $(f).addEventListener('focus', () => lastField = f));
+      $('e-text').addEventListener('input', renderChips);
+      renderChips(); $('e-text').focus();
+    }
+    function insertChar(ch) {
+      const el = $(lastField), s = el.selectionStart ?? el.value.length, e = el.selectionEnd ?? s;
+      el.setRangeText(ch, s, e, 'end'); el.focus(); el.dispatchEvent(new Event('input'));
+    }
+    function renderChips() {
+      const box = $('chips'), val = $('e-text').value; box.innerHTML = '';
+      let m; TOKEN.lastIndex = 0;
+      while ((m = TOKEN.exec(val))) {
+        const tok = m[0], start = m.index, low = tok.toLowerCase().normalize('NFC'), sp = strip(low), set = vars[sp];
+        if (set && !set.has(low)) set.forEach(v => {
+          const b = document.createElement('button'), cap = tok[0] !== tok[0].toLowerCase();
+          const rep = cap ? v[0].toUpperCase() + v.slice(1) : v;
+          b.textContent = `${tok} → ${rep}`; b.onpointerdown = e => e.preventDefault();
+          b.onclick = () => { const el = $('e-text'); el.value = el.value.slice(0, start) + rep + el.value.slice(start + tok.length); renderChips(); };
+          box.appendChild(b);
+        });
+      }
+    }
+    function saveEdit() {
+      const it = items[idx], t = $('e-text').value.trim().normalize('NFC'), tr = $('e-tr').value.trim();
+      if (!t) { alert('Text cannot be empty.'); return; }
+      dec[it.id] = (t === it.text.normalize('NFC') && tr === it.translation) ? { s: 'ok' } : { s: 'edit', t, tr };
+      save(); advance();
+    }
+    function cancelEdit() { editing = false; render(); }
+
+    // ---------- render ----------
+    const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    const count = s => items.filter(i => dec[i.id] && dec[i.id].s === s).length;
+    function render() {
+      const card = $('card'), ctl = $('controls');
+      const ok = count('ok'), ed = count('edit'), sk = count('skip'), total = items.length;
+      $('bar').style.width = total ? ((ok + ed) / total * 100) + '%' : '0%';
+      $('stats').textContent = `${ok + ed} / ${total} reviewed • ${ed} edited • ${sk} skipped`;
+      if (!total) { card.innerHTML = '<div class="hint">Select a language to start</div>'; ctl.innerHTML = ''; return; }
+
+      if (idx >= total) {
+        card.innerHTML = `<div class="word">All done 🎉</div><div class="tr">${ok} approved • ${ed} edited • ${sk} skipped</div>`;
+        ctl.innerHTML = `<button class="btn ok" onclick="exportJson()">⬇ Export changes</button>
+          <div class="row">${sk ? '<button class="btn" onclick="goSkipped()">Review skipped (' + sk + ')</button>' : ''}<button class="btn" onclick="back()">← Back</button></div>`;
+        return;
+      }
+
+      const it = items[idx], d = dec[it.id];
+      const tag = d ? `<span class="tag">${d.s === 'ok' ? '✓ approved' : d.s === 'edit' ? '✏️ edited' : '⏭ skipped'}</span>` : '';
+      const shownText = d && d.s === 'edit' ? d.t : it.text, shownTr = d && d.s === 'edit' ? d.tr : it.translation;
+      card.innerHTML = `<div class="meta">Level ${esc(it.level)} • ${it.type} • ${idx + 1}/${total}</div>
+        ${it.speaker ? '<div class="badge">' + esc(it.speaker) + '</div>' : ''}
+        <div class="word">${esc(shownText)}</div><div class="tr">${esc(shownTr)}</div>${tag}
+        ${editing ? `<div class="edit"><label>Text</label><input id="e-text" autocapitalize="off" autocomplete="off">
+          <div class="chips" id="chips"></div><label>Translation</label><input id="e-tr" autocomplete="off">
+          <div class="chars" id="chars"></div></div>` : ''}`;
+
+      ctl.innerHTML = editing
+        ? `<div class="row"><button class="btn" onclick="cancelEdit()">Cancel</button><button class="btn blue" onclick="saveEdit()">Save edit →</button></div>`
+        : `<button class="btn ok" onclick="approve()">✓ Correct</button>
+           <div class="row"><button class="btn" onclick="back()">← Back</button><button class="btn" onclick="startEdit()">✏️ Edit</button><button class="btn" onclick="skip()">Skip →</button></div>`;
+      if (!editing) $('main').scrollTop = 0;
+    }
+
+    // swipe right to approve
+    let sx = 0, sy = 0;
+    $('main').addEventListener('touchstart', e => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
+    $('main').addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
+      if (!editing && dx > 90 && Math.abs(dy) < 60) approve();
+    }, { passive: true });
+
+    // ---------- export: your JSON format, changed items only ----------
+    function exportJson() {
+      if (!lang) { alert('Pick a language first.'); return; }
+      const byLevel = {};
+      items.forEach(it => {
+        const d = dec[it.id]; if (!d || d.s !== 'edit') return;
+        const tk = it.sec === 'vocabulary' ? 'word' : 'text';
+        const out = { ...it.ref, [tk]: d.t, translation: d.tr, original: it.text };
+        if (d.tr !== it.translation) out.original_translation = it.translation;
+        const lvl = byLevel[it.li] = byLevel[it.li] || { level: data.levels[it.li].level, vocabulary: [], dialogue: [] };
+        lvl[it.sec].push(out);
+      });
+      const levels = Object.values(byLevel).map(l => {
+        if (!l.vocabulary.length) delete l.vocabulary;
+        if (!l.dialogue.length) delete l.dialogue;
+        return l;
+      });
+      if (!levels.length) { alert('No changes to export yet.'); return; }
+      const blob = new Blob([JSON.stringify({ levels }, null, 2)], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob); a.download = `${lang}_corrections.json`;
+      document.body.appendChild(a); a.click(); a.remove();
+    }
+  </script>
+</body>
+</html>
