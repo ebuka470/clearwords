@@ -40,7 +40,7 @@
           "audioId": ""
         },
         {
-          "word": "Afternoon",
+          "word": "Good Afternoon",
           "translation": "Good afternoon",
           "pronunciation": "af-ta-noon",
           "example": "Afternoon, ma.",
@@ -48,7 +48,7 @@
           "audioId": ""
         },
         {
-          "word": "Evening",
+          "word": "Good Evening",
           "translation": "Good evening",
           "pronunciation": "eve-ning",
           "example": "Evening, sir.",
@@ -80,7 +80,7 @@
           "audioId": ""
         },
         {
-          "word": "My name be...",
+          "word": "My name na...",
           "translation": "My name is...",
           "pronunciation": "my name be",
           "example": "My name be Chidi.",
@@ -374,7 +374,7 @@
         },
         {
           "speaker": "A",
-          "text": "My name be Funke. Wey you come from?",
+          "text": "My name na Funke. Wey you come from?",
           "translation": "My name is Funke. Where are you from?",
           "audioContext": "origin",
           "audioId": ""
@@ -631,8 +631,8 @@
         },
         {
           "speaker": "A",
-          "text": "Chai, expensive o! Abeg reduce.",
-          "translation": "Oh dear, expensive! Please reduce.",
+          "text": "Chai, e expensive o! Abeg reduce.",
+          "translation": "Oh dear, it's expensive! Please reduce it.",
           "audioContext": "bargain",
           "audioId": ""
         },
@@ -1176,7 +1176,7 @@
         },
         {
           "speaker": "B",
-          "text": "My broda name be Chuka.",
+          "text": "My broda name na Chuka.",
           "translation": "My brother's name is Chuka.",
           "audioContext": "response",
           "audioId": ""
@@ -1668,7 +1668,7 @@
         },
         {
           "speaker": "Customer",
-          "text": "Chai, too much o! Abeg reduce.",
+          "text": "Chai, e too much o! Abeg reduce.",
           "translation": "Oh dear, too expensive! Please reduce.",
           "audioContext": "complain",
           "audioId": ""
@@ -2199,7 +2199,7 @@
         },
         {
           "speaker": "B",
-          "text": "E be twelve noon. You get meeting?",
+          "text": "Na twelve noon. You get meeting?",
           "translation": "It's twelve noon. Do you have a meeting?",
           "audioContext": "answer",
           "audioId": ""
@@ -2213,7 +2213,7 @@
         },
         {
           "speaker": "B",
-          "text": "Oya, you better go small time.",
+          "text": "Oya, you better go soon",
           "translation": "Alright, you should go soon.",
           "audioContext": "advice",
           "audioId": ""
@@ -2796,7 +2796,7 @@
         },
         {
           "title": "Parlour is for guests",
-          "translation": "The living room is often where guests are received; it's kept tidy."
+          "content": "The living room is often where guests are received; it's kept tidy."
         }
       ],
       "practiceExercises": [
@@ -2949,7 +2949,7 @@
           "audioId": ""
         },
         {
-          "word": "Belly",
+          "word": "Belle",
           "translation": "Stomach / belly",
           "pronunciation": "bel-ly",
           "example": "My belly dey pain me.",
@@ -3026,8 +3026,8 @@
         },
         {
           "speaker": "Patient",
-          "text": "Front. And my eye dey hurt me.",
-          "translation": "Front. And my eye hurts.",
+          "text": "Front. And my eye dey pain me too.",
+          "translation": "Front. And my eye hurts also.",
           "audioContext": "detail",
           "audioId": ""
         },
@@ -3253,21 +3253,21 @@
       "dialogue": [
         {
           "speaker": "A",
-          "text": "I wan buy new shirt. Which colour I take?",
+          "text": "I wan buy new shirt. Which colour I go take?",
           "translation": "I want to buy a new shirt. Which colour should I take?",
           "audioContext": "ask",
           "audioId": ""
         },
         {
           "speaker": "B",
-          "text": "Blue go fine you. Blue dey sweet.",
+          "text": "Blue go fit you. Blue fine.",
           "translation": "Blue will suit you. Blue is nice.",
           "audioContext": "advice",
           "audioId": ""
         },
         {
           "speaker": "A",
-          "text": "But I like red. Red dey show.",
+          "text": "But I like red. Red dey show well.",
           "translation": "But I like red. Red stands out.",
           "audioContext": "prefer",
           "audioId": ""
@@ -3495,42 +3495,42 @@
       "dialogue": [
         {
           "speaker": "A",
-          "text": "Wetin you do every morning?",
+          "text": "Wetin you dey do every morning?",
           "translation": "What do you do every morning?",
           "audioContext": "question",
           "audioId": ""
         },
         {
           "speaker": "B",
-          "text": "I wake up, I bath, I chop morning.",
+          "text": "I wake up, I bath, I chop morning food.",
           "translation": "I wake up, bathe, eat breakfast.",
           "audioContext": "answer",
           "audioId": ""
         },
         {
           "speaker": "A",
-          "text": "Which time you go work?",
+          "text": "Which time you take dey go work?",
           "translation": "What time do you go to work?",
           "audioContext": "time",
           "audioId": ""
         },
         {
           "speaker": "B",
-          "text": "I leave house by 7:30.",
+          "text": "I dey leave house by 7:30.",
           "translation": "I leave home by 7:30.",
           "audioContext": "leave",
           "audioId": ""
         },
         {
           "speaker": "A",
-          "text": "When you come back?",
+          "text": "When you dey come back?",
           "translation": "When do you come back?",
           "audioContext": "return",
           "audioId": ""
         },
         {
           "speaker": "B",
-          "text": "I come back for evening, around 6pm.",
+          "text": "I dey come back for evening, around 6pm.",
           "translation": "I come back in the evening, around 6pm.",
           "audioContext": "evening",
           "audioId": ""
@@ -3758,7 +3758,7 @@
         },
         {
           "speaker": "B",
-          "text": "I be teacher. I teach for secondary school.",
+          "text": "I be teacher. I dey teach for secondary school.",
           "translation": "I'm a teacher. I teach at secondary school.",
           "audioContext": "answer",
           "audioId": ""
@@ -3779,7 +3779,7 @@
         },
         {
           "speaker": "A",
-          "text": "Omo, salary too much wahala.",
+          "text": "Omo, salary get too much wahala.",
           "translation": "Man, salary is a big problem.",
           "audioContext": "empathy",
           "audioId": ""
@@ -4520,2564 +4520,14 @@
         },
         {
           "speaker": "A",
-          "text": "That good. Why you no dey smile before?",
+          "text": "E good. Why you no dey smile before?",
           "translation": "That's good. Why weren't you smiling before?",
           "audioContext": "question",
           "audioId": ""
         },
         {
           "speaker": "B",
-          "text": "I dey worried about work. But now I fine.",
-          "translation": "I was worried about work. But now I'm fine.",
-          "audioContext": "worried",
-          "audioId": ""
-        },
-        {
-          "speaker": "A",
-          "text": "No worry, everything go better.",
-          "translation": "Don't worry, everything will get better.",
-          "audioContext": "comfort",
-          "audioId": ""
-        }
-      ],
-      "culturalNotes": [
-        {
-          "title": "Expressing emotions openly",
-          "content": "Nigerians often express emotions openly, especially happiness and anger."
-        },
-        {
-          "title": "'Sorry' for empathy",
-          "content": "If someone is sad, saying 'sorry' shows you care."
-        }
-      ],
-      "practiceExercises": [
-        {
-          "type": "multipleChoice",
-          "question": "How do you say 'I'm happy' in Pidgin?",
-          "options": [
-            "I dey happy",
-            "Happy dey me",
-            "I get happy",
-            "I happy"
-          ],
-          "correctAnswer": 0,
-          "explanation": "'I dey happy' is correct."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "If someone says 'Why you dey angry?', what do they mean?",
-          "options": [
-            "Why are you angry?",
-            "Why are you sad?",
-            "Why are you tired?",
-            "Why are you happy?"
-          ],
-          "correctAnswer": 0,
-          "explanation": "They're asking why you're angry."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "What emotion is 'jealous'?",
-          "options": [
-            "Happy",
-            "Envious",
-            "Sad",
-            "Angry"
-          ],
-          "correctAnswer": 1,
-          "explanation": "Jealous means envious."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "How might you comfort a sad friend?",
-          "options": [
-            "No worry",
-            "Everything go better",
-            "Sorry",
-            "All of the above"
-          ],
-          "correctAnswer": 3,
-          "explanation": "All are comforting phrases."
-        }
-      ],
-      "segmentCustomizations": {
-        "parent": {
-          "tips": [
-            "Ask kids 'How you dey feel?' to encourage emotional expression."
-          ]
-        },
-        "young": {
-          "tips": [
-            "Share your feelings with friends – it's normal."
-          ]
-        },
-        "pro": {
-          "tips": [
-            "In workplace, you might express frustration carefully."
-          ]
-        },
-        "marriage": {
-          "tips": [
-            "Open communication about feelings strengthens relationships."
-          ]
-        },
-        "nigeria": {
-          "tips": [
-            "Emotional expression is part of daily conversation."
-          ]
-        }
-      },
-      "tips": [
-        "Use 'dey' to describe current feelings.",
-        "It's okay to show emotions."
-      ],
-      "prerequisites": [
-        "Complete Level 17"
-      ],
-      "unlocks": [
-        "Access to Level 19"
-      ],
-      "estimatedTime": "15-20 minutes",
-      "xpReward": 25,
-      "difficulty": "Beginner",
-      "tags": [
-        "emotions",
-        "feelings",
-        "level-18"
-      ]
-    },
-    {
-      "level": 19,
-      "topic": "Weekend and Leisure",
-      "subTopic": "Relaxing",
-      "title": "Weekend Plans – What You Do for Fun",
-      "description": "Talk about weekend activities, hobbies, and leisure time in Pidgin.",
-      "learningObjectives": [
-        "Describe leisure activities",
-        "Talk about what you did last weekend",
-        "Make plans for the weekend",
-        "Invite someone to do something"
-      ],
-      "vocabulary": [
-        {
-          "word": "Weekend",
-          "translation": "Weekend",
-          "pronunciation": "week-end",
-          "example": "Weekend don come!",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Rest",
-          "translation": "Rest",
-          "pronunciation": "rest",
-          "example": "I go rest for weekend.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Party",
-          "translation": "Party",
-          "pronunciation": "par-ty",
-          "example": "We go party for Saturday.",
-          "culturalNote": "Nigerians love parties.",
-          "audioId": ""
-        },
-        {
-          "word": "Church",
-          "translation": "Church",
-          "pronunciation": "church",
-          "example": "Sunday we go church.",
-          "culturalNote": "Many attend church on Sunday.",
-          "audioId": ""
-        },
-        {
-          "word": "Visit",
-          "translation": "Visit",
-          "pronunciation": "vi-sit",
-          "example": "I go visit my grandma.",
-          "culturalNote": "Visiting family is common.",
-          "audioId": ""
-        },
-        {
-          "word": "Football",
-          "translation": "Football (soccer)",
-          "pronunciation": "foot-ball",
-          "example": "Make we play football.",
-          "culturalNote": "Very popular.",
-          "audioId": ""
-        },
-        {
-          "word": "Movie",
-          "translation": "Movie / film",
-          "pronunciation": "mo-vie",
-          "example": "I watch movie for night.",
-          "culturalNote": "Nollywood is huge.",
-          "audioId": ""
-        },
-        {
-          "word": "Market",
-          "translation": "Market",
-          "pronunciation": "mar-ket",
-          "example": "Saturday I go market.",
-          "culturalNote": "Many shop on weekends.",
-          "audioId": ""
-        },
-        {
-          "word": "Sleep",
-          "translation": "Sleep",
-          "pronunciation": "sleep",
-          "example": "I go sleep till noon.",
-          "culturalNote": "",
-          "audioId": ""
-        }
-      ],
-      "grammarPoints": [
-        {
-          "concept": "Future with 'go'",
-          "explanation": "Use 'go' to indicate future actions.",
-          "examples": [
-            "I go party tomorrow.",
-            "We go visit on Sunday."
-          ],
-          "pattern": "Subject + go + verb"
-        },
-        {
-          "concept": "Past with 'don' or no marker",
-          "explanation": "For past, you can use 'don' or just context.",
-          "examples": [
-            "I don eat.",
-            "Yesterday I watch movie."
-          ],
-          "pattern": "Subject + (don) + verb"
-        }
-      ],
-      "dialogue": [
-        {
-          "speaker": "A",
-          "text": "Wetin you go do for weekend?",
-          "translation": "What will you do on the weekend?",
-          "audioContext": "ask plans",
-          "audioId": ""
-        },
-        {
-          "speaker": "B",
-          "text": "I go visit my broda for Abuja.",
-          "translation": "I'll visit my brother in Abuja.",
-          "audioContext": "plan",
-          "audioId": ""
-        },
-        {
-          "speaker": "A",
-          "text": "Na long journey. You go fly or drive?",
-          "translation": "That's a long journey. Will you fly or drive?",
-          "audioContext": "transport",
-          "audioId": ""
-        },
-        {
-          "speaker": "B",
-          "text": "I go take bus. E cheap pass.",
-          "translation": "I'll take the bus. It's cheaper.",
-          "audioContext": "bus",
-          "audioId": ""
-        },
-        {
-          "speaker": "A",
-          "text": "Make you come back safe. We go hang next week.",
-          "translation": "Come back safely. We'll hang out next week.",
-          "audioContext": "goodbye",
-          "audioId": ""
-        }
-      ],
-      "culturalNotes": [
-        {
-          "title": "Sunday is for church",
-          "content": "Many Nigerians attend church on Sunday morning, then relax in the afternoon."
-        },
-        {
-          "title": "Visiting is key",
-          "content": "Weekends are for visiting family and friends; it's expected."
-        }
-      ],
-      "practiceExercises": [
-        {
-          "type": "multipleChoice",
-          "question": "How do you ask about weekend plans?",
-          "options": [
-            "Wetin you go do for weekend?",
-            "What your weekend?",
-            "Weekend wetin?",
-            "How weekend?"
-          ],
-          "correctAnswer": 0,
-          "explanation": "'Wetin you go do for weekend?' is common."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "What does 'I go rest' mean?",
-          "options": [
-            "I'm going to rest",
-            "I rested",
-            "I am resting",
-            "I will rest"
-          ],
-          "correctAnswer": 3,
-          "explanation": "'I go rest' indicates future."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "Which activity is popular on Sundays in Nigeria?",
-          "options": [
-            "Going to church",
-            "Playing football",
-            "Watching movies",
-            "All of the above"
-          ],
-          "correctAnswer": 0,
-          "explanation": "Church is very common, though others also happen."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "If you did something yesterday, you might say:",
-          "options": [
-            "I don do am",
-            "I do am yesterday",
-            "I do am",
-            "All are possible"
-          ],
-          "correctAnswer": 3,
-          "explanation": "Context and time words make it clear."
-        }
-      ],
-      "segmentCustomizations": {
-        "parent": {
-          "tips": [
-            "Plan family activities using these phrases."
-          ]
-        },
-        "young": {
-          "tips": [
-            "Use 'go' to talk about your weekend plans with friends."
-          ]
-        },
-        "pro": {
-          "tips": [
-            "You might discuss weekend plans with colleagues."
-          ]
-        },
-        "marriage": {
-          "tips": [
-            "Coordinate weekend activities with your partner."
-          ]
-        },
-        "nigeria": {
-          "tips": [
-            "Weekends are busy with social events; learn to invite and respond."
-          ]
-        }
-      },
-      "tips": [
-        "Use 'go' for future plans.",
-        "Weekends are for family and fun."
-      ],
-      "prerequisites": [
-        "Complete Level 18"
-      ],
-      "unlocks": [
-        "Access to Level 20"
-      ],
-      "estimatedTime": "15-20 minutes",
-      "xpReward": 25,
-      "difficulty": "Beginner",
-      "tags": [
-        "weekend",
-        "leisure",
-        "level-19"
-      ]
-    },
-    {
-      "level": 20,
-      "topic": "Review and Test",
-      "subTopic": "Putting It All Together",
-      "title": "Level 20 Test – Check Your Progress",
-      "description": "Review everything from Levels 11-19 and take a comprehensive test.",
-      "learningObjectives": [
-        "Review home, body, colours, routine, work, weather, health, emotions, weekend",
-        "Demonstrate understanding of vocabulary and grammar",
-        "Apply knowledge in multiple-choice questions"
-      ],
-      "vocabulary": [
-        {
-          "word": "Parlour",
-          "translation": "Living room",
-          "pronunciation": "par-lour",
-          "example": "We sit for parlour.",
-          "culturalNote": "Review",
-          "audioId": ""
-        },
-        {
-          "word": "Belly",
-          "translation": "Stomach",
-          "pronunciation": "bel-ly",
-          "example": "My belly dey pain me.",
-          "culturalNote": "Review",
-          "audioId": ""
-        },
-        {
-          "word": "Ankara",
-          "translation": "African print fabric",
-          "pronunciation": "an-ka-ra",
-          "example": "She wear Ankara.",
-          "culturalNote": "Review",
-          "audioId": ""
-        },
-        {
-          "word": "Chop morning",
-          "translation": "Eat breakfast",
-          "pronunciation": "chop morn-ing",
-          "example": "I chop morning.",
-          "culturalNote": "Review",
-          "audioId": ""
-        },
-        {
-          "word": "Trader",
-          "translation": "Market seller",
-          "pronunciation": "trad-er",
-          "example": "She be trader.",
-          "culturalNote": "Review",
-          "audioId": ""
-        },
-        {
-          "word": "Harmattan",
-          "translation": "Dry dusty season",
-          "pronunciation": "har-ma-tan",
-          "example": "Harmattan dey.",
-          "culturalNote": "Review",
-          "audioId": ""
-        },
-        {
-          "word": "Malaria",
-          "translation": "Malaria",
-          "pronunciation": "ma-la-ria",
-          "example": "Malaria don catch me.",
-          "culturalNote": "Review",
-          "audioId": ""
-        },
-        {
-          "word": "Jealous",
-          "translation": "Jealous",
-          "pronunciation": "jeal-ous",
-          "example": "Why you dey jealous?",
-          "culturalNote": "Review",
-          "audioId": ""
-        },
-        {
-          "word": "Weekend",
-          "translation": "Weekend",
-          "pronunciation": "week-end",
-          "example": "Weekend don come.",
-          "culturalNote": "Review",
-          "audioId": ""
-        }
-      ],
-      "grammarPoints": [
-        {
-          "concept": "Review of key grammar",
-          "explanation": "You've learned location with 'dey', future with 'go', past with 'don', expressing feelings, and more.",
-          "examples": [
-            "I dey for house.",
-            "I go go market.",
-            "I don eat.",
-            "I dey happy."
-          ],
-          "pattern": "Various"
-        }
-      ],
-      "dialogue": [
-        {
-          "speaker": "A",
-          "text": "How far? How you dey feel today?",
-          "translation": "Hello. How are you feeling today?",
-          "audioContext": "greet",
-          "audioId": ""
-        },
-        {
-          "speaker": "B",
-          "text": "I dey fine. But my body dey weak small.",
-          "translation": "I'm fine. But my body is a bit weak.",
-          "audioContext": "response",
-          "audioId": ""
-        },
-        {
-          "speaker": "A",
-          "text": "Sorry. You go rest for weekend?",
-          "translation": "Sorry. Will you rest this weekend?",
-          "audioContext": "ask",
-          "audioId": ""
-        },
-        {
-          "speaker": "B",
-          "text": "Yes, I go stay for house and sleep.",
-          "translation": "Yes, I'll stay home and sleep.",
-          "audioContext": "plan",
-          "audioId": ""
-        },
-        {
-          "speaker": "A",
-          "text": "Make you drink plenty water. Harmattan dey.",
-          "translation": "Drink plenty of water. It's harmattan.",
-          "audioContext": "advice",
-          "audioId": ""
-        }
-      ],
-      "culturalNotes": [
-        {
-          "title": "You've come far",
-          "content": "Keep practicing Pidgin every day. Listen to how people speak."
-        }
-      ],
-      "practiceExercises": [
-        {
-          "type": "multipleChoice",
-          "question": "What does 'parlour' mean?",
-          "options": [
-            "Bedroom",
-            "Living room",
-            "Kitchen",
-            "Bathroom"
-          ],
-          "correctAnswer": 1,
-          "explanation": "'Parlour' is the living room."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "How do you say 'I have a stomach ache'?",
-          "options": [
-            "My belly dey pain me",
-            "Stomach dey hurt",
-            "Belly ache",
-            "I get stomach"
-          ],
-          "correctAnswer": 0,
-          "explanation": "'My belly dey pain me' is correct."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "What is 'Ankara'?",
-          "options": [
-            "A city",
-            "A type of fabric",
-            "A dance",
-            "A food"
-          ],
-          "correctAnswer": 1,
-          "explanation": "Ankara is a colorful African print fabric."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "How do you say 'I eat breakfast'?",
-          "options": [
-            "I chop morning",
-            "I chop afternoon",
-            "I chop night",
-            "I eat morning"
-          ],
-          "correctAnswer": 0,
-          "explanation": "'Chop morning' means eat breakfast."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "What does 'trader' mean?",
-          "options": [
-            "Teacher",
-            "Driver",
-            "Market seller",
-            "Nurse"
-          ],
-          "correctAnswer": 2,
-          "explanation": "A trader sells goods, often in a market."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "What is 'harmattan'?",
-          "options": [
-            "A rainy season",
-            "A dry dusty season",
-            "A type of wind",
-            "A holiday"
-          ],
-          "correctAnswer": 1,
-          "explanation": "Harmattan is a dry, dusty season."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "How do you say 'I have malaria'?",
-          "options": [
-            "Malaria don catch me",
-            "I get malaria",
-            "Malaria dey me",
-            "Both A and B"
-          ],
-          "correctAnswer": 3,
-          "explanation": "Both are commonly used."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "What emotion does 'jealous' describe?",
-          "options": [
-            "Happiness",
-            "Sadness",
-            "Envy",
-            "Fear"
-          ],
-          "correctAnswer": 2,
-          "explanation": "Jealous means envious."
-        }
-      ],
-      "segmentCustomizations": {
-        "parent": {
-          "tips": [
-            "Review with your kids – make it a quiz game."
-          ]
-        },
-        "young": {
-          "tips": [
-            "You're doing great! Try to have a full conversation in Pidgin."
-          ]
-        },
-        "pro": {
-          "tips": [
-            "Assess your progress – can you handle basic workplace chat?"
-          ]
-        },
-        "marriage": {
-          "tips": [
-            "Practice with your partner to see how much you've learned."
-          ]
-        },
-        "nigeria": {
-          "tips": [
-            "Congratulations on reaching level 20! Keep going."
-          ]
-        }
-      },
-      "tips": [
-        "Take your time with each question.",
-        "Review any areas you're unsure about.",
-        "Celebrate your progress!"
-      ],
-      "prerequisites": [
-        "Complete Level 19"
-      ],
-      "unlocks": [
-        "Access to Level 21"
-      ],
-      "estimatedTime": "20-30 minutes",
-      "xpReward": 50,
-      "difficulty": "Beginner",
-      "tags": [
-        "test",
-        "review",
-        "level-20"
-      ]
-    },
-    {
-      "level": 11,
-      "topic": "Home and Household",
-      "subTopic": "Around the House",
-      "title": "My House – Home Vocabulary",
-      "description": "Learn words for rooms, furniture, and common household items in Pidgin.",
-      "learningObjectives": [
-        "Name different rooms in a house",
-        "Identify common furniture and appliances",
-        "Describe where things are located",
-        "Talk about your home"
-      ],
-      "vocabulary": [
-        {
-          "word": "House",
-          "translation": "House / home",
-          "pronunciation": "house",
-          "example": "My house dey for Lagos.",
-          "culturalNote": "Often means the entire building.",
-          "audioId": ""
-        },
-        {
-          "word": "Room",
-          "translation": "Room",
-          "pronunciation": "room",
-          "example": "I get three room for my house.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Parlour",
-          "translation": "Living room",
-          "pronunciation": "par-lour",
-          "example": "Make we sit for parlour.",
-          "culturalNote": "Common term for living room.",
-          "audioId": ""
-        },
-        {
-          "word": "Kitchen",
-          "translation": "Kitchen",
-          "pronunciation": "kit-chen",
-          "example": "Mama dey kitchen cook.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Toilet",
-          "translation": "Toilet / bathroom",
-          "pronunciation": "toi-let",
-          "example": "Where toilet dey?",
-          "culturalNote": "Often includes bathroom.",
-          "audioId": ""
-        },
-        {
-          "word": "Bed",
-          "translation": "Bed",
-          "pronunciation": "bed",
-          "example": "I sleep for my bed.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Table",
-          "translation": "Table",
-          "pronunciation": "ta-ble",
-          "example": "Put the food for table.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Chair",
-          "translation": "Chair",
-          "pronunciation": "chair",
-          "example": "Sit down for chair.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Fridge",
-          "translation": "Refrigerator",
-          "pronunciation": "fridge",
-          "example": "Put drink for fridge.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Fan",
-          "translation": "Electric fan",
-          "pronunciation": "fan",
-          "example": "Switch on fan make cold.",
-          "culturalNote": "Essential in hot weather.",
-          "audioId": ""
-        }
-      ],
-      "grammarPoints": [
-        {
-          "concept": "Location with 'dey'",
-          "explanation": "Use 'dey' to say where something is located.",
-          "examples": [
-            "My room dey upstairs.",
-            "The food dey for kitchen."
-          ],
-          "pattern": "Subject + dey + (place)"
-        },
-        {
-          "concept": "'For' as 'in/at'",
-          "explanation": "'For' is used to mean 'in', 'at', or 'on'.",
-          "examples": [
-            "I dey for house.",
-            "Put am for table."
-          ],
-          "pattern": "Verb + for + place"
-        }
-      ],
-      "dialogue": [
-        {
-          "speaker": "A",
-          "text": "Welcome to my house. Make we go inside.",
-          "translation": "Welcome to my house. Let's go inside.",
-          "audioContext": "welcome",
-          "audioId": ""
-        },
-        {
-          "speaker": "B",
-          "text": "Thank you. Your house fine well.",
-          "translation": "Thank you. Your house is very nice.",
-          "audioContext": "compliment",
-          "audioId": ""
-        },
-        {
-          "speaker": "A",
-          "text": "Sit down for parlour. You want drink?",
-          "translation": "Sit in the living room. Do you want a drink?",
-          "audioContext": "offer",
-          "audioId": ""
-        },
-        {
-          "speaker": "B",
-          "text": "Yes, abeg. Wetin you get?",
-          "translation": "Yes, please. What do you have?",
-          "audioContext": "accept",
-          "audioId": ""
-        },
-        {
-          "speaker": "A",
-          "text": "I get water and zobo. Which one you like?",
-          "translation": "I have water and zobo. Which do you like?",
-          "audioContext": "choice",
-          "audioId": ""
-        },
-        {
-          "speaker": "B",
-          "text": "Give me zobo. Thank you.",
-          "translation": "Give me zobo. Thank you.",
-          "audioContext": "choose",
-          "audioId": ""
-        }
-      ],
-      "culturalNotes": [
-        {
-          "title": "Visiting without notice",
-          "content": "In Nigeria, people may visit without calling first. Always be ready to welcome guests."
-        },
-        {
-          "title": "Parlour is for guests",
-          "translation": "The living room is often where guests are received; it's kept tidy."
-        }
-      ],
-      "practiceExercises": [
-        {
-          "type": "multipleChoice",
-          "question": "How do you say 'living room' in Pidgin?",
-          "options": [
-            "Parlour",
-            "Room",
-            "Sitting room",
-            "Hall"
-          ],
-          "correctAnswer": 0,
-          "explanation": "'Parlour' is the common term."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "Where is the kitchen? – You say:",
-          "options": [
-            "Kitchen dey for back.",
-            "Kitchen dey for house.",
-            "Kitchen dey.",
-            "All can work."
-          ],
-          "correctAnswer": 3,
-          "explanation": "Context matters, but all are possible."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "What does 'fridge' mean?",
-          "options": [
-            "Freezer",
-            "Refrigerator",
-            "Cooler",
-            "Ice box"
-          ],
-          "correctAnswer": 1,
-          "explanation": "'Fridge' is short for refrigerator."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "If you want to say 'Put it on the table', you say:",
-          "options": [
-            "Put am for table",
-            "Put am inside table",
-            "Put am under table",
-            "Put am top table"
-          ],
-          "correctAnswer": 0,
-          "explanation": "'For table' means on the table."
-        }
-      ],
-      "segmentCustomizations": {
-        "parent": {
-          "tips": [
-            "Teach kids the names of rooms and furniture in Pidgin."
-          ]
-        },
-        "young": {
-          "tips": [
-            "When hosting friends, use these words to describe your place."
-          ]
-        },
-        "pro": {
-          "tips": [
-            "If you work in real estate, knowing house terms is useful."
-          ]
-        },
-        "marriage": {
-          "tips": [
-            "Talk about your future home together using these words."
-          ]
-        },
-        "nigeria": {
-          "tips": [
-            "Even if you're Nigerian, different regions may have different terms."
-          ]
-        }
-      },
-      "tips": [
-        "Use 'for' for location.",
-        "Parlour is the main gathering spot."
-      ],
-      "prerequisites": [
-        "Complete Level 10"
-      ],
-      "unlocks": [
-        "Access to Level 12"
-      ],
-      "estimatedTime": "15-20 minutes",
-      "xpReward": 25,
-      "difficulty": "Beginner",
-      "tags": [
-        "home",
-        "household",
-        "level-11"
-      ]
-    },
-    {
-      "level": 12,
-      "topic": "Body Parts",
-      "subTopic": "Human Body",
-      "title": "My Body – Parts of the Body",
-      "description": "Learn the names of body parts in Pidgin, useful for describing pain or visiting the clinic.",
-      "learningObjectives": [
-        "Identify major body parts",
-        "Describe where it hurts",
-        "Understand simple health complaints",
-        "Ask for help with pain"
-      ],
-      "vocabulary": [
-        {
-          "word": "Head",
-          "translation": "Head",
-          "pronunciation": "head",
-          "example": "My head dey hurt me.",
-          "culturalNote": "Headache is very common.",
-          "audioId": ""
-        },
-        {
-          "word": "Eye",
-          "translation": "Eye",
-          "pronunciation": "eye",
-          "example": "I get sand for my eye.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Nose",
-          "translation": "Nose",
-          "pronunciation": "nose",
-          "example": "My nose dey run.",
-          "culturalNote": "Runny nose.",
-          "audioId": ""
-        },
-        {
-          "word": "Mouth",
-          "translation": "Mouth",
-          "pronunciation": "mouth",
-          "example": "Open your mouth make I see.",
-          "culturalNote": "At the doctor.",
-          "audioId": ""
-        },
-        {
-          "word": "Teeth",
-          "translation": "Teeth",
-          "pronunciation": "teeth",
-          "example": "I dey brush my teeth.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Belly",
-          "translation": "Stomach / belly",
-          "pronunciation": "bel-ly",
-          "example": "My belly dey pain me.",
-          "culturalNote": "Stomach ache.",
-          "audioId": ""
-        },
-        {
-          "word": "Hand",
-          "translation": "Hand / arm",
-          "pronunciation": "hand",
-          "example": "Wash your hand before you chop.",
-          "culturalNote": "Often includes arm.",
-          "audioId": ""
-        },
-        {
-          "word": "Leg",
-          "translation": "Leg / foot",
-          "pronunciation": "leg",
-          "example": "My leg dey swell.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Back",
-          "translation": "Back",
-          "pronunciation": "back",
-          "example": "My back dey pain me.",
-          "culturalNote": "Backache.",
-          "audioId": ""
-        },
-        {
-          "word": "Skin",
-          "translation": "Skin",
-          "pronunciation": "skin",
-          "example": "My skin dey itch.",
-          "culturalNote": "",
-          "audioId": ""
-        }
-      ],
-      "grammarPoints": [
-        {
-          "concept": "Expressing pain with 'dey hurt'",
-          "explanation": "Use '[body part] dey hurt me' to say it hurts.",
-          "examples": [
-            "My head dey hurt me.",
-            "My leg dey hurt me."
-          ],
-          "pattern": "My + (body part) + dey hurt me"
-        },
-        {
-          "concept": "Using 'pain' as verb",
-          "explanation": "'Pain' can also be used as a verb: 'My head dey pain me.'",
-          "examples": [
-            "My belly dey pain me.",
-            "Which side dey pain you?"
-          ],
-          "pattern": "My + (body part) + dey pain me"
-        }
-      ],
-      "dialogue": [
-        {
-          "speaker": "Patient",
-          "text": "Doctor, my head dey pain me.",
-          "translation": "Doctor, I have a headache.",
-          "audioContext": "complaint",
-          "audioId": ""
-        },
-        {
-          "speaker": "Doctor",
-          "text": "Which side? Front or back?",
-          "translation": "Which part? Front or back?",
-          "audioContext": "question",
-          "audioId": ""
-        },
-        {
-          "speaker": "Patient",
-          "text": "Front. And my eye dey hurt me.",
-          "translation": "Front. And my eye hurts.",
-          "audioContext": "detail",
-          "audioId": ""
-        },
-        {
-          "speaker": "Doctor",
-          "text": "Open your mouth make I see.",
-          "translation": "Open your mouth so I can see.",
-          "audioContext": "exam",
-          "audioId": ""
-        },
-        {
-          "speaker": "Patient",
-          "text": "Ahh! E pain me.",
-          "translation": "Ahh! It hurts.",
-          "audioContext": "pain",
-          "audioId": ""
-        }
-      ],
-      "culturalNotes": [
-        {
-          "title": "Describing illness",
-          "content": "It's common to describe symptoms directly: 'My head dey spin' (dizzy), 'I dey cough'."
-        },
-        {
-          "title": "Pharmacy first",
-          "content": "Many Nigerians go to a pharmacy for minor ailments before seeing a doctor."
-        }
-      ],
-      "practiceExercises": [
-        {
-          "type": "multipleChoice",
-          "question": "How do you say 'I have a headache' in Pidgin?",
-          "options": [
-            "My head dey pain me",
-            "Head dey hurt",
-            "I get headache",
-            "All of the above"
-          ],
-          "correctAnswer": 0,
-          "explanation": "'My head dey pain me' is the most natural."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "What does 'belly' mean?",
-          "options": [
-            "Back",
-            "Stomach",
-            "Chest",
-            "Neck"
-          ],
-          "correctAnswer": 1,
-          "explanation": "'Belly' means stomach."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "If your nose is running, you say:",
-          "options": [
-            "My nose dey run",
-            "Nose dey water",
-            "I get cold",
-            "My nose dey flow"
-          ],
-          "correctAnswer": 0,
-          "explanation": "'My nose dey run' is correct."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "At the doctor, they might ask you to 'open your mouth' – why?",
-          "options": [
-            "To check your teeth",
-            "To see your throat",
-            "To take temperature",
-            "Both A and B"
-          ],
-          "correctAnswer": 3,
-          "explanation": "Opening mouth helps check teeth and throat."
-        }
-      ],
-      "segmentCustomizations": {
-        "parent": {
-          "tips": [
-            "Teach kids to say which part hurts so they can communicate."
-          ]
-        },
-        "young": {
-          "tips": [
-            "Use these words when you're not feeling well to get help."
-          ]
-        },
-        "pro": {
-          "tips": [
-            "In workplace, you might need to explain why you're sick."
-          ]
-        },
-        "marriage": {
-          "tips": [
-            "Knowing body parts helps when caring for a sick partner."
-          ]
-        },
-        "nigeria": {
-          "tips": [
-            "Pharmacy attendants will understand these terms."
-          ]
-        }
-      },
-      "tips": [
-        "Point to the area if you can't remember the word.",
-        "Use 'dey pain' for aches."
-      ],
-      "prerequisites": [
-        "Complete Level 11"
-      ],
-      "unlocks": [
-        "Access to Level 13"
-      ],
-      "estimatedTime": "15-20 minutes",
-      "xpReward": 25,
-      "difficulty": "Beginner",
-      "tags": [
-        "body",
-        "health",
-        "level-12"
-      ]
-    },
-    {
-      "level": 13,
-      "topic": "Colours",
-      "subTopic": "Describing Things",
-      "title": "Which Colour? – Colours in Pidgin",
-      "description": "Learn the names of colours in Pidgin and how to describe objects.",
-      "learningObjectives": [
-        "Name basic colours",
-        "Describe the colour of objects",
-        "Use colour words in sentences",
-        "Understand colour symbolism in Nigerian culture"
-      ],
-      "vocabulary": [
-        {
-          "word": "Red",
-          "translation": "Red",
-          "pronunciation": "red",
-          "example": "I like red cloth.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Blue",
-          "translation": "Blue",
-          "pronunciation": "blue",
-          "example": "My car be blue.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Yellow",
-          "translation": "Yellow",
-          "pronunciation": "yel-low",
-          "example": "Yellow taxi dey come.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Green",
-          "translation": "Green",
-          "pronunciation": "green",
-          "example": "Green tree.",
-          "culturalNote": "Colour of nature.",
-          "audioId": ""
-        },
-        {
-          "word": "Black",
-          "translation": "Black",
-          "pronunciation": "black",
-          "example": "I wear black shoe.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "White",
-          "translation": "White",
-          "pronunciation": "white",
-          "example": "White cloth for wedding.",
-          "culturalNote": "Often worn for special occasions.",
-          "audioId": ""
-        },
-        {
-          "word": "Brown",
-          "translation": "Brown",
-          "pronunciation": "brown",
-          "example": "Brown wood.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Ankara",
-          "translation": "Colorful African print fabric",
-          "pronunciation": "an-ka-ra",
-          "example": "She wear fine Ankara.",
-          "culturalNote": "Very popular; any bright pattern.",
-          "audioId": ""
-        }
-      ],
-      "grammarPoints": [
-        {
-          "concept": "Describing with colours",
-          "explanation": "Place the colour after the noun or use 'be' to equate.",
-          "examples": [
-            "I get blue shirt.",
-            "The shirt be blue."
-          ],
-          "pattern": "Noun + colour / Noun + be + colour"
-        },
-        {
-          "concept": "Questions with 'which colour'",
-          "explanation": "Ask 'which colour' to inquire.",
-          "examples": [
-            "Which colour you like?",
-            "Which colour be your car?"
-          ],
-          "pattern": "Which colour + (clause)?"
-        }
-      ],
-      "dialogue": [
-        {
-          "speaker": "A",
-          "text": "I wan buy new shirt. Which colour I take?",
-          "translation": "I want to buy a new shirt. Which colour should I take?",
-          "audioContext": "ask",
-          "audioId": ""
-        },
-        {
-          "speaker": "B",
-          "text": "Blue go fine you. Blue dey sweet.",
-          "translation": "Blue will suit you. Blue is nice.",
-          "audioContext": "advice",
-          "audioId": ""
-        },
-        {
-          "speaker": "A",
-          "text": "But I like red. Red dey show.",
-          "translation": "But I like red. Red stands out.",
-          "audioContext": "prefer",
-          "audioId": ""
-        },
-        {
-          "speaker": "B",
-          "text": "Oya buy red. Make e be red.",
-          "translation": "Alright buy red. Let it be red.",
-          "audioContext": "agree",
-          "audioId": ""
-        }
-      ],
-      "culturalNotes": [
-        {
-          "title": "Ankara fabric",
-          "content": "Ankara is a brightly coloured fabric with patterns, worn for parties and special events."
-        },
-        {
-          "title": "Colour symbolism",
-          "content": "White is often worn for celebrations, black for mourning."
-        }
-      ],
-      "practiceExercises": [
-        {
-          "type": "multipleChoice",
-          "question": "What is 'Ankara'?",
-          "options": [
-            "A city",
-            "A type of fabric",
-            "A colour",
-            "A dance"
-          ],
-          "correctAnswer": 1,
-          "explanation": "Ankara is a colourful African print fabric."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "How do you say 'The car is red' in Pidgin?",
-          "options": [
-            "Car red",
-            "The car be red",
-            "Red car",
-            "Car na red"
-          ],
-          "correctAnswer": 1,
-          "explanation": "'The car be red' is a common way."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "Which colour is often worn at Nigerian weddings?",
-          "options": [
-            "Black",
-            "White",
-            "Red",
-            "Blue"
-          ],
-          "correctAnswer": 1,
-          "explanation": "White is traditional for weddings, though Ankara is also popular."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "If someone asks 'Which colour you like?', what do they mean?",
-          "options": [
-            "What's your favourite colour?",
-            "Which colour do you prefer?",
-            "What colour is this?",
-            "Both A and B"
-          ],
-          "correctAnswer": 3,
-          "explanation": "It's asking for your preference."
-        }
-      ],
-      "segmentCustomizations": {
-        "parent": {
-          "tips": [
-            "Play colour games with kids: 'Which colour be this?'"
-          ]
-        },
-        "young": {
-          "tips": [
-            "Use colour words when talking about clothes or accessories."
-          ]
-        },
-        "pro": {
-          "tips": [
-            "Describing products accurately requires colour vocabulary."
-          ]
-        },
-        "marriage": {
-          "tips": [
-            "When buying fabric for family, know colour names."
-          ]
-        },
-        "nigeria": {
-          "tips": [
-            "Ankara patterns have names; ask locals about them."
-          ]
-        }
-      },
-      "tips": [
-        "Colour words are mostly English.",
-        "Use 'fine' to mean 'looks good'."
-      ],
-      "prerequisites": [
-        "Complete Level 12"
-      ],
-      "unlocks": [
-        "Access to Level 14"
-      ],
-      "estimatedTime": "15-20 minutes",
-      "xpReward": 25,
-      "difficulty": "Beginner",
-      "tags": [
-        "colours",
-        "description",
-        "level-13"
-      ]
-    },
-    {
-      "level": 14,
-      "topic": "Daily Routine",
-      "subTopic": "Morning to Night",
-      "title": "My Day – Daily Activities",
-      "description": "Learn to describe your daily routine using simple present tense in Pidgin.",
-      "learningObjectives": [
-        "Talk about morning activities",
-        "Describe what you do during the day",
-        "Use time expressions",
-        "Sequence events"
-      ],
-      "vocabulary": [
-        {
-          "word": "Wake up",
-          "translation": "Wake up",
-          "pronunciation": "wake up",
-          "example": "I wake up by six o'clock.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Bath",
-          "translation": "Take a bath/shower",
-          "pronunciation": "bath",
-          "example": "I bath before I chop morning.",
-          "culturalNote": "Bathing is often twice daily.",
-          "audioId": ""
-        },
-        {
-          "word": "Brush teeth",
-          "translation": "Brush teeth",
-          "pronunciation": "brush teeth",
-          "example": "I brush my teeth.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Dress",
-          "translation": "Get dressed",
-          "pronunciation": "dress",
-          "example": "I dress quick quick.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Chop morning",
-          "translation": "Eat breakfast",
-          "pronunciation": "chop morn-ing",
-          "example": "I chop morning before I go work.",
-          "culturalNote": "Breakfast can be light.",
-          "audioId": ""
-        },
-        {
-          "word": "Go work",
-          "translation": "Go to work",
-          "pronunciation": "go work",
-          "example": "I go work by bus.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Come back",
-          "translation": "Return home",
-          "pronunciation": "come back",
-          "example": "I come back for evening.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Cook",
-          "translation": "Cook",
-          "pronunciation": "cook",
-          "example": "My wife dey cook.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Sleep",
-          "translation": "Sleep",
-          "pronunciation": "sleep",
-          "example": "I sleep by ten o'clock.",
-          "culturalNote": "",
-          "audioId": ""
-        }
-      ],
-      "grammarPoints": [
-        {
-          "concept": "Simple present for routines",
-          "explanation": "Use the verb without changes for habitual actions. Add time expressions.",
-          "examples": [
-            "I wake up every morning.",
-            "She go work by 7am."
-          ],
-          "pattern": "Subject + verb + (time)"
-        },
-        {
-          "concept": "Sequencing with 'before' and 'after'",
-          "explanation": "Use 'before' and 'after' to order events.",
-          "examples": [
-            "I chop before I go.",
-            "After work, I come back."
-          ],
-          "pattern": "Action1 + before/after + Action2"
-        }
-      ],
-      "dialogue": [
-        {
-          "speaker": "A",
-          "text": "Wetin you do every morning?",
-          "translation": "What do you do every morning?",
-          "audioContext": "question",
-          "audioId": ""
-        },
-        {
-          "speaker": "B",
-          "text": "I wake up, I bath, I chop morning.",
-          "translation": "I wake up, bathe, eat breakfast.",
-          "audioContext": "answer",
-          "audioId": ""
-        },
-        {
-          "speaker": "A",
-          "text": "Which time you go work?",
-          "translation": "What time do you go to work?",
-          "audioContext": "time",
-          "audioId": ""
-        },
-        {
-          "speaker": "B",
-          "text": "I leave house by 7:30.",
-          "translation": "I leave home by 7:30.",
-          "audioContext": "leave",
-          "audioId": ""
-        },
-        {
-          "speaker": "A",
-          "text": "When you come back?",
-          "translation": "When do you come back?",
-          "audioContext": "return",
-          "audioId": ""
-        },
-        {
-          "speaker": "B",
-          "text": "I come back for evening, around 6pm.",
-          "translation": "I come back in the evening, around 6pm.",
-          "audioContext": "evening",
-          "audioId": ""
-        }
-      ],
-      "culturalNotes": [
-        {
-          "title": "Bathing twice",
-          "content": "Many Nigerians bathe twice a day due to the heat: morning and evening."
-        },
-        {
-          "title": "Breakfast",
-          "content": "Common breakfast: bread and tea, or leftovers from previous night."
-        }
-      ],
-      "practiceExercises": [
-        {
-          "type": "multipleChoice",
-          "question": "How do you say 'I eat breakfast' in Pidgin?",
-          "options": [
-            "I chop morning",
-            "I eat morning",
-            "I take breakfast",
-            "All are fine"
-          ],
-          "correctAnswer": 0,
-          "explanation": "'Chop morning' is the common phrase."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "What time do you wake up? – Answer:",
-          "options": [
-            "I wake up by 6",
-            "Wake up 6",
-            "I wake 6",
-            "Morning 6"
-          ],
-          "correctAnswer": 0,
-          "explanation": "'I wake up by 6' is correct."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "To say 'after work' you say:",
-          "options": [
-            "After work",
-            "Before work",
-            "Work finish",
-            "Work after"
-          ],
-          "correctAnswer": 0,
-          "explanation": "'After work' is used."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "Which activity comes first in the morning?",
-          "options": [
-            "Sleep",
-            "Wake up",
-            "Go work",
-            "Cook"
-          ],
-          "correctAnswer": 1,
-          "explanation": "You wake up first."
-        }
-      ],
-      "segmentCustomizations": {
-        "parent": {
-          "tips": [
-            "Help children describe their day in Pidgin."
-          ]
-        },
-        "young": {
-          "tips": [
-            "Share your daily routine with friends."
-          ]
-        },
-        "pro": {
-          "tips": [
-            "Talking about your schedule is common in workplace small talk."
-          ]
-        },
-        "marriage": {
-          "tips": [
-            "Discussing daily routines helps coordinate family life."
-          ]
-        },
-        "nigeria": {
-          "tips": [
-            "Routines vary; learn how locals structure their day."
-          ]
-        }
-      },
-      "tips": [
-        "Use time expressions like 'for morning', 'for afternoon'.",
-        "Keep it simple – Pidgin doesn't change verb forms."
-      ],
-      "prerequisites": [
-        "Complete Level 13"
-      ],
-      "unlocks": [
-        "Access to Level 15"
-      ],
-      "estimatedTime": "15-20 minutes",
-      "xpReward": 25,
-      "difficulty": "Beginner",
-      "tags": [
-        "daily routine",
-        "activities",
-        "level-14"
-      ]
-    },
-    {
-      "level": 15,
-      "topic": "Work and Professions",
-      "subTopic": "Jobs",
-      "title": "Wetin You Dey Do? – Talking About Work",
-      "description": "Learn vocabulary for different jobs and how to talk about your occupation in Pidgin.",
-      "learningObjectives": [
-        "Name common professions",
-        "Ask someone about their job",
-        "Describe what you do for a living",
-        "Talk about work activities"
-      ],
-      "vocabulary": [
-        {
-          "word": "Work",
-          "translation": "Work / job",
-          "pronunciation": "work",
-          "example": "I dey go work every day.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Teacher",
-          "translation": "Teacher",
-          "pronunciation": "teach-er",
-          "example": "My mama be teacher.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Driver",
-          "translation": "Driver",
-          "pronunciation": "dri-ver",
-          "example": "He be danfo driver.",
-          "culturalNote": "Common job.",
-          "audioId": ""
-        },
-        {
-          "word": "Trader",
-          "translation": "Trader / market seller",
-          "pronunciation": "trad-er",
-          "example": "I be trader for market.",
-          "culturalNote": "Very common informal job.",
-          "audioId": ""
-        },
-        {
-          "word": "Nurse",
-          "translation": "Nurse",
-          "pronunciation": "nurse",
-          "example": "She dey work as nurse.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Engineer",
-          "translation": "Engineer",
-          "pronunciation": "en-gi-neer",
-          "example": "My broda be engineer.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Business",
-          "translation": "Business (owner)",
-          "pronunciation": "busi-ness",
-          "example": "I dey do my own business.",
-          "culturalNote": "Many are self-employed.",
-          "audioId": ""
-        },
-        {
-          "word": "Office",
-          "translation": "Office",
-          "pronunciation": "off-ice",
-          "example": "I dey work for office.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Salary",
-          "translation": "Salary / pay",
-          "pronunciation": "sa-la-ry",
-          "example": "I collect salary today.",
-          "culturalNote": "",
-          "audioId": ""
-        }
-      ],
-      "grammarPoints": [
-        {
-          "concept": "Stating your job with 'be'",
-          "explanation": "Use 'be' to say what you are.",
-          "examples": [
-            "I be teacher.",
-            "She be nurse."
-          ],
-          "pattern": "Subject + be + profession"
-        },
-        {
-          "concept": "'Dey do' for current activity",
-          "explanation": "Use 'dey do' to describe what you do currently.",
-          "examples": [
-            "I dey do business.",
-            "He dey drive taxi."
-          ],
-          "pattern": "Subject + dey do + (noun)"
-        }
-      ],
-      "dialogue": [
-        {
-          "speaker": "A",
-          "text": "Wetin you dey do for work?",
-          "translation": "What do you do for work?",
-          "audioContext": "ask job",
-          "audioId": ""
-        },
-        {
-          "speaker": "B",
-          "text": "I be teacher. I teach for secondary school.",
-          "translation": "I'm a teacher. I teach at secondary school.",
-          "audioContext": "answer",
-          "audioId": ""
-        },
-        {
-          "speaker": "A",
-          "text": "Na good job. You like am?",
-          "translation": "That's a good job. Do you like it?",
-          "audioContext": "comment",
-          "audioId": ""
-        },
-        {
-          "speaker": "B",
-          "text": "Yes, I like am. But salary small.",
-          "translation": "Yes, I like it. But the salary is small.",
-          "audioContext": "like",
-          "audioId": ""
-        },
-        {
-          "speaker": "A",
-          "text": "Omo, salary too much wahala.",
-          "translation": "Man, salary is a big problem.",
-          "audioContext": "empathy",
-          "audioId": ""
-        }
-      ],
-      "culturalNotes": [
-        {
-          "title": "Informal economy",
-          "content": "Many Nigerians work in the informal sector (traders, artisans, drivers)."
-        },
-        {
-          "title": "Respect for all jobs",
-          "content": "Every job is respected; it's common to ask 'wetin you dey do?' as a conversation starter."
-        }
-      ],
-      "practiceExercises": [
-        {
-          "type": "multipleChoice",
-          "question": "How do you ask 'What do you do for work?'",
-          "options": [
-            "Wetin be your work?",
-            "Wetin you dey do?",
-            "Where you work?",
-            "All of the above"
-          ],
-          "correctAnswer": 3,
-          "explanation": "All are commonly used."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "If someone says 'I be trader', what do they do?",
-          "options": [
-            "They trade in the market",
-            "They are a teacher",
-            "They drive",
-            "They work in an office"
-          ],
-          "correctAnswer": 0,
-          "explanation": "A trader sells goods, often in a market."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "How do you say 'I work in an office'?",
-          "options": [
-            "I dey work for office",
-            "I work office",
-            "I be office",
-            "Office na my work"
-          ],
-          "correctAnswer": 0,
-          "explanation": "'I dey work for office' is correct."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "What does 'salary' mean?",
-          "options": [
-            "Money you earn",
-            "Your boss",
-            "Your workplace",
-            "Your hours"
-          ],
-          "correctAnswer": 0,
-          "explanation": "Salary is your pay."
-        }
-      ],
-      "segmentCustomizations": {
-        "parent": {
-          "tips": [
-            "Teach kids to say what they want to be when they grow up."
-          ]
-        },
-        "young": {
-          "tips": [
-            "When meeting new people, asking about work is normal."
-          ]
-        },
-        "pro": {
-          "tips": [
-            "Networking often starts with 'wetin you dey do?'."
-          ]
-        },
-        "marriage": {
-          "tips": [
-            "Knowing each other's work helps build shared understanding."
-          ]
-        },
-        "nigeria": {
-          "tips": [
-            "Even if you're retired, you might be asked 'wetin you dey do?' meaning what keeps you busy."
-          ]
-        }
-      },
-      "tips": [
-        "Don't be shy to ask about work – it's friendly.",
-        "Many people have multiple jobs."
-      ],
-      "prerequisites": [
-        "Complete Level 14"
-      ],
-      "unlocks": [
-        "Access to Level 16"
-      ],
-      "estimatedTime": "15-20 minutes",
-      "xpReward": 25,
-      "difficulty": "Beginner",
-      "tags": [
-        "work",
-        "professions",
-        "level-15"
-      ]
-    },
-    {
-      "level": 16,
-      "topic": "Weather and Seasons",
-      "subTopic": "Climate Talk",
-      "title": "Weather for Today – Talking About Weather",
-      "description": "Learn how to describe the weather and seasons in Pidgin.",
-      "learningObjectives": [
-        "Describe common weather conditions",
-        "Talk about the harmattan and rainy seasons",
-        "Use weather expressions in conversation",
-        "Understand weather-related small talk"
-      ],
-      "vocabulary": [
-        {
-          "word": "Sun",
-          "translation": "Sun",
-          "pronunciation": "sun",
-          "example": "Sun dey shine hot today.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Rain",
-          "translation": "Rain",
-          "pronunciation": "rain",
-          "example": "Rain dey fall.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Cloud",
-          "translation": "Cloud",
-          "pronunciation": "cloud",
-          "example": "Cloud cover sky.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Wind",
-          "translation": "Wind",
-          "pronunciation": "wind",
-          "example": "Wind dey blow.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Cold",
-          "translation": "Cold",
-          "pronunciation": "cold",
-          "example": "Today weather cold.",
-          "culturalNote": "Can refer to temperature or illness.",
-          "audioId": ""
-        },
-        {
-          "word": "Hot",
-          "translation": "Hot",
-          "pronunciation": "hot",
-          "example": "The sun dey hot.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Harmattan",
-          "translation": "Harmattan (dry, dusty season)",
-          "pronunciation": "har-ma-tan",
-          "example": "Harmattan dey, make you cover yourself.",
-          "culturalNote": "Season with dry wind and dust, usually Dec–Feb.",
-          "audioId": ""
-        },
-        {
-          "word": "Rainy season",
-          "translation": "Rainy season",
-          "pronunciation": "rain-y sea-son",
-          "example": "Rainy season don start.",
-          "culturalNote": "April to October.",
-          "audioId": ""
-        },
-        {
-          "word": "Dry season",
-          "translation": "Dry season",
-          "pronunciation": "dry sea-son",
-          "example": "Dry season, sun too much.",
-          "culturalNote": "",
-          "audioId": ""
-        }
-      ],
-      "grammarPoints": [
-        {
-          "concept": "Describing weather with 'dey'",
-          "explanation": "Use 'dey' + adjective to describe current weather.",
-          "examples": [
-            "Sun dey hot.",
-            "Weather dey cold."
-          ],
-          "pattern": "Weather / Sun / Rain + dey + adjective"
-        },
-        {
-          "concept": "Expressing existence with 'dey'",
-          "explanation": "Use 'dey' to say something is happening.",
-          "examples": [
-            "Rain dey fall.",
-            "Wind dey blow."
-          ],
-          "pattern": "Phenomenon + dey + verb"
-        }
-      ],
-      "dialogue": [
-        {
-          "speaker": "A",
-          "text": "How weather dey today?",
-          "translation": "How's the weather today?",
-          "audioContext": "ask",
-          "audioId": ""
-        },
-        {
-          "speaker": "B",
-          "text": "Sun dey shine hot. I dey sweat.",
-          "translation": "The sun is very hot. I'm sweating.",
-          "audioContext": "hot",
-          "audioId": ""
-        },
-        {
-          "speaker": "A",
-          "text": "Harmattan don finish?",
-          "translation": "Has the harmattan finished?",
-          "audioContext": "harmattan",
-          "audioId": ""
-        },
-        {
-          "speaker": "B",
-          "text": "Yes, dry season dey come.",
-          "translation": "Yes, the dry season is coming.",
-          "audioContext": "dry",
-          "audioId": ""
-        },
-        {
-          "speaker": "A",
-          "text": "I hope rain go fall small.",
-          "translation": "I hope it rains a little.",
-          "audioContext": "hope",
-          "audioId": ""
-        }
-      ],
-      "culturalNotes": [
-        {
-          "title": "Harmattan",
-          "content": "The harmattan brings dusty winds from the Sahara, causing cold mornings and hazy skies."
-        },
-        {
-          "title": "Weather small talk",
-          "content": "Nigerians often complain about the heat or comment on the rain as a conversation starter."
-        }
-      ],
-      "practiceExercises": [
-        {
-          "type": "multipleChoice",
-          "question": "What is 'harmattan'?",
-          "options": [
-            "A type of rain",
-            "A dry, dusty season",
-            "A cold wind",
-            "A holiday"
-          ],
-          "correctAnswer": 1,
-          "explanation": "Harmattan is a dry season with dust."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "How do you say 'It's raining' in Pidgin?",
-          "options": [
-            "Rain dey fall",
-            "Rain fall",
-            "Rain dey",
-            "It dey rain"
-          ],
-          "correctAnswer": 0,
-          "explanation": "'Rain dey fall' is common."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "If someone says 'I dey cold', what do they mean?",
-          "options": [
-            "They feel cold",
-            "They have a cold",
-            "They are sick",
-            "All are possible depending on context"
-          ],
-          "correctAnswer": 3,
-          "explanation": "'Cold' can mean temperature or illness."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "Which season comes after harmattan?",
-          "options": [
-            "Rainy season",
-            "Dry season",
-            "Wet season",
-            "Both A and C"
-          ],
-          "correctAnswer": 0,
-          "explanation": "Harmattan is within dry season; after harmattan, rainy season may start."
-        }
-      ],
-      "segmentCustomizations": {
-        "parent": {
-          "tips": [
-            "Teach kids to dress appropriately for harmattan."
-          ]
-        },
-        "young": {
-          "tips": [
-            "Use weather talk to connect with friends."
-          ]
-        },
-        "pro": {
-          "tips": [
-            "Weather affects business (e.g., farming, transport); knowing terms helps."
-          ]
-        },
-        "marriage": {
-          "tips": [
-            "Talk about weather with in-laws – it's a safe topic."
-          ]
-        },
-        "nigeria": {
-          "tips": [
-            "Different regions have different weather patterns; learn local terms."
-          ]
-        }
-      },
-      "tips": [
-        "Use 'dey' to describe current conditions.",
-        "Harmattan can cause dry skin; use moisturizer."
-      ],
-      "prerequisites": [
-        "Complete Level 15"
-      ],
-      "unlocks": [
-        "Access to Level 17"
-      ],
-      "estimatedTime": "15-20 minutes",
-      "xpReward": 25,
-      "difficulty": "Beginner",
-      "tags": [
-        "weather",
-        "seasons",
-        "level-16"
-      ]
-    },
-    {
-      "level": 17,
-      "topic": "Health and Illness",
-      "subTopic": "Feeling Sick",
-      "title": "I Dey Sick – Health Complaints",
-      "description": "Learn how to talk about common illnesses and symptoms in Pidgin.",
-      "learningObjectives": [
-        "Describe common symptoms",
-        "Say you feel sick",
-        "Ask someone if they are okay",
-        "Understand advice about health"
-      ],
-      "vocabulary": [
-        {
-          "word": "Sick",
-          "translation": "Sick / ill",
-          "pronunciation": "sick",
-          "example": "I dey sick today.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Fever",
-          "translation": "Fever",
-          "pronunciation": "fe-ver",
-          "example": "I get fever.",
-          "culturalNote": "Often means malaria.",
-          "audioId": ""
-        },
-        {
-          "word": "Cough",
-          "translation": "Cough",
-          "pronunciation": "cough",
-          "example": "I dey cough.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Malaria",
-          "translation": "Malaria",
-          "pronunciation": "ma-la-ria",
-          "example": "Malaria don catch me.",
-          "culturalNote": "Very common illness.",
-          "audioId": ""
-        },
-        {
-          "word": "Headache",
-          "translation": "Headache",
-          "pronunciation": "head-ache",
-          "example": "Headache dey worry me.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Stomach ache",
-          "translation": "Stomach ache",
-          "pronunciation": "sto-mach ache",
-          "example": "Stomach ache dey pain me.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Medicine",
-          "translation": "Medicine",
-          "pronunciation": "med-i-cine",
-          "example": "I take medicine.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Hospital",
-          "translation": "Hospital",
-          "pronunciation": "hos-pi-tal",
-          "example": "I go hospital.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Doctor",
-          "translation": "Doctor",
-          "pronunciation": "doc-tor",
-          "example": "Doctor give me injection.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Rest",
-          "translation": "Rest",
-          "pronunciation": "rest",
-          "example": "You need to rest.",
-          "culturalNote": "",
-          "audioId": ""
-        }
-      ],
-      "grammarPoints": [
-        {
-          "concept": "Expressing illness with 'dey' + adjective",
-          "explanation": "Use 'I dey sick' to say you are ill.",
-          "examples": [
-            "I dey sick.",
-            "She dey sick."
-          ],
-          "pattern": "Subject + dey + sick"
-        },
-        {
-          "concept": "Illness 'catch' someone",
-          "explanation": "Use 'catch' to say an illness has affected you.",
-          "examples": [
-            "Malaria don catch me.",
-            "Cold don catch am."
-          ],
-          "pattern": "Illness + don catch + object"
-        }
-      ],
-      "dialogue": [
-        {
-          "speaker": "A",
-          "text": "How you dey? You look tired.",
-          "translation": "How are you? You look tired.",
-          "audioContext": "concern",
-          "audioId": ""
-        },
-        {
-          "speaker": "B",
-          "text": "I dey sick. Malaria don catch me.",
-          "translation": "I'm sick. I've got malaria.",
-          "audioContext": "sick",
-          "audioId": ""
-        },
-        {
-          "speaker": "A",
-          "text": "Sorry. You take medicine?",
-          "translation": "Sorry. Did you take medicine?",
-          "audioContext": "medicine",
-          "audioId": ""
-        },
-        {
-          "speaker": "B",
-          "text": "Yes, I take am. But body still weak.",
-          "translation": "Yes, I took it. But my body is still weak.",
-          "audioContext": "weak",
-          "audioId": ""
-        },
-        {
-          "speaker": "A",
-          "text": "You suppose rest well. Drink plenty water.",
-          "translation": "You should rest well. Drink plenty of water.",
-          "audioContext": "advice",
-          "audioId": ""
-        }
-      ],
-      "culturalNotes": [
-        {
-          "title": "Malaria is common",
-          "content": "Many assume fever is malaria and treat it with anti-malarials."
-        },
-        {
-          "title": "Self-medication",
-          "content": "It's common to buy medicine from pharmacies without seeing a doctor."
-        }
-      ],
-      "practiceExercises": [
-        {
-          "type": "multipleChoice",
-          "question": "How do you say 'I have malaria' in Pidgin?",
-          "options": [
-            "Malaria don catch me",
-            "I get malaria",
-            "Malaria dey me",
-            "Both A and B"
-          ],
-          "correctAnswer": 3,
-          "explanation": "Both are used."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "What does 'I dey cough' mean?",
-          "options": [
-            "I am coughing",
-            "I have a cough",
-            "I need cough syrup",
-            "All of the above"
-          ],
-          "correctAnswer": 3,
-          "explanation": "It indicates a cough."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "If someone says 'Sorry' after you say you're sick, what does it mean?",
-          "options": [
-            "They apologize",
-            "They express sympathy",
-            "They are not sorry",
-            "They want you to be sorry"
-          ],
-          "correctAnswer": 1,
-          "explanation": "'Sorry' expresses empathy."
-        },
-        {
-          "type": "multipleChoice",
-          "question": "What advice might you give a sick person?",
-          "options": [
-            "Rest well",
-            "Drink water",
-            "Take medicine",
-            "All of the above"
-          ],
-          "correctAnswer": 3,
-          "explanation": "All are common advice."
-        }
-      ],
-      "segmentCustomizations": {
-        "parent": {
-          "tips": [
-            "Teach kids to describe symptoms so they can tell you what's wrong."
-          ]
-        },
-        "young": {
-          "tips": [
-            "If you feel unwell, use these phrases to tell friends or roommates."
-          ]
-        },
-        "pro": {
-          "tips": [
-            "You may need to call in sick; use these phrases."
-          ]
-        },
-        "marriage": {
-          "tips": [
-            "Caring for a sick spouse – ask 'How you dey feel?'"
-          ]
-        },
-        "nigeria": {
-          "tips": [
-            "Know how to describe symptoms at a pharmacy."
-          ]
-        }
-      },
-      "tips": [
-        "If you have a fever, it's often assumed to be malaria.",
-        "Rest is the best medicine."
-      ],
-      "prerequisites": [
-        "Complete Level 16"
-      ],
-      "unlocks": [
-        "Access to Level 18"
-      ],
-      "estimatedTime": "15-20 minutes",
-      "xpReward": 25,
-      "difficulty": "Beginner",
-      "tags": [
-        "health",
-        "illness",
-        "level-17"
-      ]
-    },
-    {
-      "level": 18,
-      "topic": "Emotions and Feelings",
-      "subTopic": "How You Dey Feel?",
-      "title": "My Heart – Expressing Emotions",
-      "description": "Learn to express emotions and feelings in Pidgin, from happiness to sadness.",
-      "learningObjectives": [
-        "Express happiness, sadness, anger",
-        "Ask how someone is feeling",
-        "Describe emotional states",
-        "Use emotion words in conversation"
-      ],
-      "vocabulary": [
-        {
-          "word": "Happy",
-          "translation": "Happy",
-          "pronunciation": "hap-py",
-          "example": "I dey happy today.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Sad",
-          "translation": "Sad",
-          "pronunciation": "sad",
-          "example": "Why you dey sad?",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Angry",
-          "translation": "Angry",
-          "pronunciation": "an-gry",
-          "example": "My oga dey angry.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Tired",
-          "translation": "Tired",
-          "pronunciation": "tired",
-          "example": "I dey tired after work.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Worried",
-          "translation": "Worried",
-          "pronunciation": "wor-ried",
-          "example": "Mama dey worried for me.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Surprised",
-          "translation": "Surprised",
-          "pronunciation": "sur-prised",
-          "example": "I dey surprised to see you.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Scared",
-          "translation": "Afraid",
-          "pronunciation": "scared",
-          "example": "Pikin dey scared of dog.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Proud",
-          "translation": "Proud",
-          "pronunciation": "proud",
-          "example": "I dey proud of my pikin.",
-          "culturalNote": "",
-          "audioId": ""
-        },
-        {
-          "word": "Jealous",
-          "translation": "Jealous",
-          "pronunciation": "jeal-ous",
-          "example": "Why you dey jealous?",
-          "culturalNote": "",
-          "audioId": ""
-        }
-      ],
-      "grammarPoints": [
-        {
-          "concept": "Expressing emotions with 'dey' + adjective",
-          "explanation": "Use 'I dey + emotion' to say how you feel.",
-          "examples": [
-            "I dey happy.",
-            "She dey sad."
-          ],
-          "pattern": "Subject + dey + emotion adjective"
-        },
-        {
-          "concept": "Asking 'How you dey feel?'",
-          "explanation": "Use this to ask about someone's emotional state.",
-          "examples": [
-            "How you dey feel?",
-            "How your body dey?"
-          ],
-          "pattern": "How + subject + dey feel?"
-        }
-      ],
-      "dialogue": [
-        {
-          "speaker": "A",
-          "text": "How you dey feel today?",
-          "translation": "How are you feeling today?",
-          "audioContext": "ask",
-          "audioId": ""
-        },
-        {
-          "speaker": "B",
-          "text": "I dey happy. I see my old friend.",
-          "translation": "I'm happy. I saw an old friend.",
-          "audioContext": "happy",
-          "audioId": ""
-        },
-        {
-          "speaker": "A",
-          "text": "That good. Why you no dey smile before?",
-          "translation": "That's good. Why weren't you smiling before?",
-          "audioContext": "question",
-          "audioId": ""
-        },
-        {
-          "speaker": "B",
-          "text": "I dey worried about work. But now I fine.",
+          "text": "I dey worry about work. But now I dey fine.",
           "translation": "I was worried about work. But now I'm fine.",
           "audioContext": "worried",
           "audioId": ""
@@ -7840,7 +5290,7 @@
       "dialogue": [
         {
           "speaker": "A",
-          "text": "Who be that girl wey dey with you?",
+          "text": "Who be that girl wey dey with you that time?",
           "translation": "Who is that girl that was with you?",
           "audioContext": "ask",
           "audioId": ""
@@ -8097,7 +5547,7 @@
         },
         {
           "speaker": "B",
-          "text": "Network dey bad. I no hear you well.",
+          "text": "Network dey bad. I no dey hear you well.",
           "translation": "Network is bad. I can't hear you well.",
           "audioContext": "network",
           "audioId": ""
@@ -8347,15 +5797,15 @@
         },
         {
           "speaker": "B",
-          "text": "Sorry, I no get change. ATM no give small money.",
+          "text": "Sorry, I no get change. ATM no dey give small money.",
           "translation": "Sorry, I don't have change. ATMs don't give small bills.",
           "audioContext": "no change",
           "audioId": ""
         },
         {
           "speaker": "A",
-          "text": "Wahala. I go find somewhere to break am.",
-          "translation": "Trouble. I'll find somewhere to break it.",
+          "text": "Wahala. I go find somewhere to change am.",
+          "translation": "Trouble. I'll find somewhere to change it.",
           "audioContext": "break",
           "audioId": ""
         },
@@ -8596,7 +6046,7 @@
         },
         {
           "speaker": "Passenger",
-          "text": "Too much o. Abeg reduce.",
+          "text": "E too much o. Abeg reduce.",
           "translation": "Too expensive. Please reduce.",
           "audioContext": "bargain",
           "audioId": ""
@@ -8832,21 +6282,21 @@
       "dialogue": [
         {
           "speaker": "A",
-          "text": "How school dey?",
+          "text": "How school?",
           "translation": "How is school?",
           "audioContext": "ask",
           "audioId": ""
         },
         {
           "speaker": "B",
-          "text": "School dey go. But exam dey come.",
+          "text": "School dey o. But exam don dey come.",
           "translation": "School is going on. But exams are coming.",
           "audioContext": "reply",
           "audioId": ""
         },
         {
           "speaker": "A",
-          "text": "Which subject you like most?",
+          "text": "Which subject you like pass?",
           "translation": "Which subject do you like most?",
           "audioContext": "subject",
           "audioId": ""
@@ -9374,7 +6824,7 @@
         },
         {
           "speaker": "A",
-          "text": "Oya make we dance to am!",
+          "text": "Oya make we dance follow am!",
           "translation": "Alright, let's dance to it!",
           "audioContext": "dance",
           "audioId": ""
@@ -10596,7 +8046,7 @@
           "audioId": ""
         },
         {
-          "word": "Party",
+          "word": "Parti",
           "translation": "Political party",
           "pronunciation": "par-ty",
           "example": "Which party you support?",
@@ -10935,14 +8385,14 @@
         },
         {
           "speaker": "B",
-          "text": "Yes, I get dog. E dey guard house.",
+          "text": "Yes, I get dog. E dey guard the house.",
           "translation": "Yes, I have a dog. It guards the house.",
           "audioContext": "answer",
           "audioId": ""
         },
         {
           "speaker": "A",
-          "text": "Wetin be the name?",
+          "text": "Wetin be im name?",
           "translation": "What's its name?",
           "audioContext": "name",
           "audioId": ""
@@ -11211,14 +8661,14 @@
         },
         {
           "speaker": "A",
-          "text": "Agbada fine well. Which colour?",
+          "text": "Agbada fine. Which colour?",
           "translation": "Agbada is very nice. Which color?",
           "audioContext": "color",
           "audioId": ""
         },
         {
           "speaker": "B",
-          "text": "Blue with gold embroidery. E cost me plenty.",
+          "text": "Blue with gold monogram. E dear o.",
           "translation": "Blue with gold embroidery. It cost me a lot.",
           "audioContext": "cost",
           "audioId": ""
@@ -12563,7 +10013,7 @@
         },
         {
           "speaker": "B",
-          "text": "We still dey talk. Her family demands plenty.",
+          "text": "We still dey talk. Her family demand plenty o.",
           "translation": "We're still discussing. Her family demands a lot.",
           "audioContext": "negotiate",
           "audioId": ""
@@ -13388,7 +10838,7 @@
         },
         {
           "speaker": "B",
-          "text": "How much you go sell? And how we go pay?",
+          "text": "How much you go sell? And how much we go pay?",
           "translation": "How much will you sell? And how will we pay?",
           "audioContext": "terms",
           "audioId": ""
@@ -14464,7 +11914,7 @@
         },
         {
           "speaker": "A",
-          "text": "Wetin you dey eat?",
+          "text": "Wetin you dey chop?",
           "translation": "What do you eat?",
           "audioContext": "diet",
           "audioId": ""
@@ -15170,7 +12620,7 @@
           "audioId": ""
         },
         {
-          "word": "Proverb 3: The axe wey dey cut tree, na im dey sharpen",
+          "word": "Proverb 3: The axe wey dey cut tree, na im e dey sharpen",
           "translation": "Challenges strengthen you",
           "pronunciation": "the axe wey dey cut tree, na im dey sharpen",
           "example": "Suffering dey sharpen you. The axe wey dey cut tree, na im dey sharpen.",
@@ -15248,7 +12698,7 @@
         },
         {
           "speaker": "B",
-          "text": "As dem dey say, the axe wey dey cut tree, na im dey sharpen. Suffering dey sharpen you.",
+          "text": "As dem dey say, the axe wey dey cut tree, na im e dey sharpen. Suffering dey sharpen you.",
           "translation": "As they say, the axe that cuts the tree is the one that sharpens it. Hardship sharpens you.",
           "audioContext": "proverb",
           "audioId": ""
@@ -15400,11 +12850,83 @@
       ],
       "vocabulary": [
         {
-          "word": "All levels review",
-          "translation": "Comprehensive review",
-          "pronunciation": "",
-          "example": "This test covers all vocabulary.",
-          "culturalNote": "You've learned a lot!",
+          "word": "Wetin dey happen?",
+          "translation": "What's happening?",
+          "pronunciation": "we-tin dey hap-pen",
+          "example": "Wetin dey happen for your side?",
+          "culturalNote": "Review",
+          "audioId": ""
+        },
+        {
+          "word": "Abeg",
+          "translation": "Please",
+          "pronunciation": "a-beg",
+          "example": "Abeg, give me water.",
+          "culturalNote": "Review",
+          "audioId": ""
+        },
+        {
+          "word": "Oya",
+          "translation": "Let's go / Come on / Alright",
+          "pronunciation": "o-ya",
+          "example": "Oya, make we go.",
+          "culturalNote": "Review",
+          "audioId": ""
+        },
+        {
+          "word": "Pikin",
+          "translation": "Child",
+          "pronunciation": "pi-kin",
+          "example": "She get three pikin.",
+          "culturalNote": "Review",
+          "audioId": ""
+        },
+        {
+          "word": "Chop",
+          "translation": "Food / to eat",
+          "pronunciation": "chop",
+          "example": "I wan chop.",
+          "culturalNote": "Review",
+          "audioId": ""
+        },
+        {
+          "word": "Danfo",
+          "translation": "Yellow minibus",
+          "pronunciation": "dan-fo",
+          "example": "Danfo dey come.",
+          "culturalNote": "Review",
+          "audioId": ""
+        },
+        {
+          "word": "Harmattan",
+          "translation": "Harmattan (dry, dusty season)",
+          "pronunciation": "har-ma-tan",
+          "example": "Harmattan dey, make you cover yourself.",
+          "culturalNote": "Review",
+          "audioId": ""
+        },
+        {
+          "word": "Padi",
+          "translation": "Friend / buddy",
+          "pronunciation": "pa-di",
+          "example": "My padi, how far?",
+          "culturalNote": "Review",
+          "audioId": ""
+        },
+        {
+          "word": "Owambe",
+          "translation": "Big party / social gathering",
+          "pronunciation": "o-wam-be",
+          "example": "Owambe dey happen for Lagos.",
+          "culturalNote": "Review",
+          "audioId": ""
+        },
+        {
+          "word": "Agbada",
+          "translation": "Traditional flowing gown (Yoruba)",
+          "pronunciation": "ag-ba-da",
+          "example": "He wear agbada for wedding.",
+          "culturalNote": "Review",
           "audioId": ""
         }
       ],
@@ -15441,7 +12963,7 @@
         },
         {
           "speaker": "A",
-          "text": "No worry. As dem dey say, the axe wey dey cut tree, na im dey sharpen. You go pass.",
+          "text": "No worry. As dem dey say, the axe wey dey cut tree, na im e dey sharpen. You go pass.",
           "translation": "Don't worry. As they say, the axe that cuts the tree sharpens itself. You'll pass.",
           "audioContext": "proverb",
           "audioId": ""
