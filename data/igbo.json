@@ -1335,7 +1335,7 @@
       "topic": "Food",
       "subTopic": "Ordering street food",
       "title": "Level 6: Food and Ordering",
-      "description": "Ordering street food (Yam and Egg, Boli, Suya). Key phrases: 'I want small small,' 'Add pepper,' 'Pack for me take away.'",
+      "description": "Ordering street food (Yam and Egg, Ogede (plantain), Suya). Key phrases: 'I want small small,' 'Add pepper,' 'Pack for me take away.'",
       "learningObjectives": [
         "Learn food vocabulary",
         "Order food at a restaurant or stall",
@@ -1368,11 +1368,11 @@
           "audioId": ""
         },
         {
-          "word": "Boli",
-          "translation": "Roasted plantain",
-          "pronunciation": "boh-lee",
-          "example": "Boli na groundnut na-aga ofuma.",
-          "culturalNote": "Boli is plantain roasted over charcoal, often with groundnut.",
+          "word": "Ogede",
+          "translation": "Plantain",
+          "pronunciation": "oh-geh-deh",
+          "example": "Ogede na groundnut na-aga ofuma.",
+          "culturalNote": "Ogede (plantain) is often roasted over charcoal and eaten with groundnut.",
           "audioId": ""
         },
         {
@@ -1448,15 +1448,15 @@
       "dialogue": [
         {
           "speaker": "Onye ahịa (Customer)",
-          "text": "Nnọọ. Ị nwere boli taa?",
-          "translation": "Hello. Do you have boli today?",
+          "text": "Nnọọ. Ị nwere ogede taa?",
+          "translation": "Hello. Do you have plantain today?",
           "audioContext": "Inquiry",
           "audioId": ""
         },
         {
           "speaker": "Onye nri (Food seller)",
-          "text": "Ee, enwere m boli ọhụrụ. Ole ka ị chọrọ?",
-          "translation": "Yes, I have fresh boli. How many do you want?",
+          "text": "Ee, enwere m ogede ọhụrụ. Ole ka ị chọrọ?",
+          "translation": "Yes, I have fresh plantain. How many do you want?",
           "audioContext": "Response",
           "audioId": ""
         },
@@ -1492,7 +1492,7 @@
       "culturalNotes": [
         {
           "title": "Street Food Culture",
-          "content": "In Nigerian cities, street food is vibrant. Boli, suya, and roasted corn are sold by roadside vendors. It's common to eat while walking or standing."
+          "content": "In Nigerian cities, street food is vibrant. Roasted plantain (ogede), suya, and roasted corn are sold by roadside vendors. It's common to eat while walking or standing."
         },
         {
           "title": "Spice Preference",
@@ -1505,7 +1505,7 @@
           "question": "How do you say 'Yam and egg' in Igbo?",
           "options": [
             "Ji na àkwá",
-            "Boli na groundnut",
+            "Ogede na groundnut",
             "Suya na ose",
             "Nri ụtụtụ"
           ],
@@ -1579,12 +1579,12 @@
         },
         "marriage": {
           "tips": [
-            "Surprise your partner by making boli and saying 'Nke a bụ maka gị' (this is for you)."
+            "Surprise your partner by making ogede (roasted plantain) and saying 'Nke a bụ maka gị' (this is for you)."
           ]
         },
         "nigeria": {
           "tips": [
-            "Learn local names: boli is called 'boli' across the South, but some areas have specific terms."
+            "Learn local names: this lesson uses 'ogede' for plantain, but some areas have their own terms for roasted plantain."
           ]
         }
       },
@@ -10416,7 +10416,7 @@
           "question": "At the restaurant, the visitor wants to order yam and egg. How do you say it?",
           "options": [
             "Ji na àkwá",
-            "Boli na groundnut",
+            "Ogede na groundnut",
             "Suya na ose",
             "Nri abalị"
           ],
