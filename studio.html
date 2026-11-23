@@ -308,7 +308,9 @@ x.save();rp(x,sx,sy,sw,sh,pw*.12);x.clip();
 if(s.img){x.fillStyle='#fff';x.fillRect(sx,sy,sw,sh);cover(x,s.img,sx,sy,sw,sh,s)}
 else{const g=x.createLinearGradient(sx,sy,sx+sw,sy+sh);g.addColorStop(0,C.b);g.addColorStop(1,'#003A96');x.fillStyle=g;x.fillRect(sx,sy,sw,sh);logo(x,sx+sw*.33,sy+sh*.28,sw*.34,true);if(pv){x.fillStyle=C.cream;x.font=`700 ${sw*.07}px ${BF}`;x.textAlign='center';x.fillText('Add your app screenshot',sx+sw/2,sy+sh*.28+sw*.5);x.textAlign='left'}}
 x.restore();
-rr(x,a+pw/2-pw*.12,sy+pw*.035,pw*.24,pw*.07,pw*.035,'#05070B');
+const nw=pw*.42,nh=pw*.11,cx=a+pw/2,nr=pw*.05,fl=pw*.03;
+x.beginPath();x.moveTo(cx-nw/2-fl,sy-2);x.lineTo(cx+nw/2+fl,sy-2);x.quadraticCurveTo(cx+nw/2,sy-2,cx+nw/2,sy+fl);x.lineTo(cx+nw/2,sy+nh-nr);x.quadraticCurveTo(cx+nw/2,sy+nh,cx+nw/2-nr,sy+nh);x.lineTo(cx-nw/2+nr,sy+nh);x.quadraticCurveTo(cx-nw/2,sy+nh,cx-nw/2,sy+nh-nr);x.lineTo(cx-nw/2,sy+fl);x.quadraticCurveTo(cx-nw/2,sy-2,cx-nw/2-fl,sy-2);x.closePath();x.fillStyle='#10141C';x.fill();
+rr(x,cx-nw*.17,sy+nh*.38,nw*.3,nh*.13,nh*.07,'#2B303B');x.fillStyle='#232832';x.beginPath();x.arc(cx+nw*.28,sy+nh*.45,nh*.1,0,7);x.fill();
 rp(x,a+1,b+1,pw-2,hh-2,pw*.15);x.strokeStyle='rgba(255,255,255,.2)';x.lineWidth=3;x.stroke()}
 
 /* ---------- slide renderer ---------- */
