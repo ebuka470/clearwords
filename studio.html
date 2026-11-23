@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ClearWords · Content Studio</title>
+<style>
+:root{--brand:#0050C8;--mint:#3EDCA1;--gold:#E8B33C;--bg:#F6F0E2;--card:#FFFCF5;--text:#1C1E21;--t2:#6B6F76;--bd:#E5E1D8;--tint:#DCE7FA}
+@media(prefers-color-scheme:dark){:root{--brand:#6AA0FF;--bg:#0F1114;--card:#1A1D21;--text:#F2EFE9;--t2:#9AA0A6;--bd:#2A2E33;--tint:#16264a}}
+*{box-sizing:border-box}html,body{margin:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--text);padding:env(safe-area-inset-top,0) 0 calc(150px + env(safe-area-inset-bottom,0))}
+header{display:flex;align-items:baseline;gap:10px;padding:16px 18px 4px}
+.logo{font-size:24px;font-weight:800;color:var(--brand);display:flex;align-items:center;gap:8px}.logo span{color:var(--mint)}
+header small{color:var(--t2);font-weight:700}
+main{max-width:760px;margin:0 auto;padding:0 16px}
+h2{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--t2);margin:22px 0 10px}
+.seg{display:flex;background:var(--card);border:2px solid var(--bd);border-radius:14px;padding:4px;gap:4px;margin-top:10px}
+.seg button{flex:1;border:0;border-radius:10px;padding:10px;font:inherit;font-weight:700;background:none;color:var(--t2)}
+.seg button.on{background:var(--brand);color:#fff}
+.fm,.cars{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px}
+.fm button{flex:0 0 150px;text-align:left;background:var(--card);border:2px solid var(--bd);border-radius:16px;padding:12px;color:var(--text);font:inherit}
+.fm button b{display:block;font-size:15px}.fm button span{font-size:12px;color:var(--t2)}
+.fm button.on{border-color:var(--brand);background:var(--tint)}
+.cars button{flex:0 0 auto;border:2px solid var(--bd);background:var(--card);color:var(--text);border-radius:999px;padding:8px 14px;font:inherit;font-weight:700;font-size:13px}
+.cars button.on{border-color:var(--brand);background:var(--tint)}
+.tip{font-size:14px;color:var(--t2);margin:8px 0 0}
+.row{display:grid;grid-template-columns:1fr 1.6fr;gap:10px;margin-top:14px}
+label{font-size:12px;font-weight:700;color:var(--t2);display:block}
+input,select,textarea{width:100%;margin-top:4px;padding:11px 12px;border:2px solid var(--bd);border-radius:12px;background:var(--card);color:var(--text);font:inherit;font-size:15px}
+input[type=checkbox]{width:auto;margin:0 8px 0 0;vertical-align:middle}
+textarea{resize:vertical;min-height:84px}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;min-height:280px;line-height:1.45}
+.stage{display:flex;justify-content:center}
+#pv{width:100%;max-width:440px;height:auto;border-radius:18px;box-shadow:0 8px 28px rgba(28,30,33,.14)}
+.strip{display:flex;gap:8px;overflow-x:auto;padding:12px 2px}
+.strip canvas{flex:0 0 76px;width:76px;height:auto;border-radius:8px;border:3px solid transparent;cursor:pointer}
+.strip canvas.on{border-color:var(--brand)}
+#meter{font-size:13px;font-weight:700;margin:2px 0 0}.warn{color:#C2542F}.ok{color:var(--brand)}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:14px}
+.card label{margin-top:10px}.card label:first-child{margin-top:0}
+.btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+button.s{background:var(--card);border:2px solid var(--bd);color:var(--text);border-radius:12px;padding:9px 13px;font:inherit;font-weight:700;font-size:14px}
+button.s.p{background:var(--brand);border-color:var(--brand);color:#fff}
+button.s.d{color:#C2542F}
+.hint{font-size:12px;color:var(--t2);margin:4px 0 0}
+details{margin-top:10px;font-size:13px;color:var(--t2)}summary{cursor:pointer;font-weight:700;color:var(--text)}
+details pre{white-space:pre-wrap;background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px;font-size:12.5px;line-height:1.5}
+.bar{position:fixed;left:0;right:0;bottom:0;display:flex;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0));background:var(--bg);border-top:1px solid var(--bd)}
+.bar button{flex:1;padding:13px 6px;border-radius:14px;border:2px solid var(--brand);background:var(--card);color:var(--brand);font:inherit;font-weight:700;font-size:14px}
+.bar .pri{background:var(--brand);color:#fff}
+input[type=range]{padding:0;border:0;background:none;margin-top:6px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.hide{display:none!important}
+</style></head><body>
+<header><div class="logo"><svg width="34" height="34" viewBox="0 0 34 34"><rect width="34" height="34" rx="9" fill="#0050C8"/><g transform="translate(8.5 8.5) scale(.5)"><rect x="2" y="2" width="30" height="24" rx="7" fill="#3EDCA1"/><path d="M8 25h7l-6.2 6.3c-.5.5-.8.2-.8-.4z" fill="#3EDCA1"/><rect x="7" y="8" width="19" height="3" rx="1.5" fill="#0050C8"/><rect x="7" y="14" width="17" height="3" rx="1.5" fill="#0050C8"/><rect x="7" y="20" width="11" height="3" rx="1.5" fill="#0050C8"/></g></svg><div>Clear<span>Words</span></div></div><small>Content Studio</small></header>
+<main>
+<div class="seg"><button id="mS">Single carousel</button><button id="mB">Batch generate</button></div>
+
+<h2 id="fh">1 · Pick a format</h2>
+<div class="fm" id="fmts"></div><p class="tip" id="tip"></p>
+<div class="row">
+<label>Language<select id="lang"><option value="yoruba">Yorùbá</option><option value="igbo">Igbo</option><option value="pidgin">Naijá Pidgin</option></select></label>
+<label>Link shown on the last slide<input id="url" autocapitalize="off"></label></div>
+<label style="margin-top:10px">Series line (top-right of every slide)<input id="series" placeholder="Speak your heritage. Not just understand it."></label>
+
+<section id="batch" class="hide">
+<h2>Paste your carousels</h2>
+<textarea id="bt" class="mono" spellcheck="false" placeholder="Write or paste carousels here. Long dashes (-----) split carousels. Short dashes (--) split slides."></textarea>
+<p class="hint"><label style="display:inline"><input type="checkbox" id="auto" checked>Add a ClearWords closing slide if I don't write one</label></p>
+<div class="btns"><button class="s p" id="gen">Generate carousels</button><button class="s" id="ex">Load example</button></div>
+<details><summary>How to write it</summary><pre>-----          new carousel (5 or more dashes)
+--             new slide (2 to 4 dashes)
+
+@format myth   optional, top of a carousel
+@lang igbo     optional, top of a carousel
+
+First line of a slide = headline
+Next lines = body text
+# Tag          small pill at the top
+[big] Daalụ    big word card
+- item         list item
+Myth: ...      Fact: ...   (compare cards)
+Phrase | sound | meaning
+A) option      * marks the right answer
+&gt; their line   &lt; your line   (chat mock)
+{tag}         highlight a few words inline
+[quiz] [list] [text] [chat] [cta] [phone]
+               force a type ([phone] = app screenshot)
+
+First slide = cover. A last slide with "ClearWords"
+in its headline = call to action.
+Formats: explainer, myth, story, lesson, deep, convo, product, quiz</pre></details>
+</section>
+
+<h2>Carousels</h2>
+<div class="cars" id="cars"></div>
+<h2>Preview</h2>
+<div class="stage"><canvas id="pv"></canvas></div>
+<div class="strip" id="strip"></div><p id="meter"></p><p class="hint" id="imgline"></p><div class="btns"><button class="s p hide" id="fill">Add images</button></div>
+<h2>Edit this slide</h2>
+<div class="card">
+<label>Slide type<select id="type"></select></label><p class="hint" id="hint"></p>
+<label>Tag (small pill at top)<input id="chip"></label>
+<label>Headline<textarea id="title" style="min-height:64px"></textarea></label>
+<label>Body<textarea id="body"></textarea></label>
+<label>Big word or phrase (optional)<input id="big"></label>
+<label>Items (one per line)<textarea id="items" style="min-height:120px"></textarea></label>
+<div id="imgbox" class="hide">
+<label id="imgl" style="margin-top:14px">Image</label>
+<div class="btns" style="margin-top:6px"><button class="s p" id="pick">Add image</button><button class="s d hide" id="rmimg">Remove</button><button class="s" id="idea">Copy image idea</button></div>
+<label id="wantl" style="margin-top:10px"><input type="checkbox" id="want" checked>Use an image slot on this slide</label>
+<div id="imgctl" class="hide">
+<div class="two"><label>Fit<select id="fit"><option value="fill">Fill the space (crop)</option><option value="contain">Show whole image</option></select></label>
+<label id="pfl" class="hide">Phone<select id="pf"><option value="bleed">Runs off the bottom</option><option value="full">Whole phone</option></select></label></div>
+<label>Zoom<input type="range" id="z" min="1" max="3" step="0.05" value="1"></label>
+<label>Move left / right<input type="range" id="fx" min="0" max="100" value="50"></label>
+<label>Move up / down<input type="range" id="fy" min="0" max="100" value="50"></label>
+</div></div>
+<div class="btns"><button class="s" id="L">← Move</button><button class="s" id="R">Move →</button><button class="s" id="add">+ Duplicate</button><button class="s d" id="del">Delete</button></div>
+</div>
+<h2>Caption</h2>
+<textarea id="cap" style="min-height:170px"></textarea>
+<div class="btns"><button class="s" id="mk">Build from slides</button><button class="s" id="cp">Copy</button></div>
+<input type="file" id="file" accept="image/*" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+</main>
+<div class="bar"><button id="one">This slide</button><button id="car">This carousel</button><button class="pri" id="zip">All as ZIP</button></div>
+<script>
+const C={g:'#3EDCA1',b:'#0050C8',gold:'#E8B33C',cream:'#F6EFDF',ink:'#1C1E21',dg:'#04301F',bc:'#2F4B7C',mute:'#5C74A3',card:'#FBF7EB',line:'#E3D9C0'};
+const LANG={yoruba:'Yorùbá',igbo:'Igbo',pidgin:'Naijá Pidgin'};
+const W=1080,H=1350,P=84,HF="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif",BF=HF;
+const TYPES={hook:'Hook (cover)',text:'Text + optional big word',list:'List',compare:'Myth / Fact cards',phrase:'Phrase cards',quiz:'Quiz question',question:'Discussion prompt',chat:'Scene chat mock',cta:'ClearWords call to action',phone:'Phone screenshot'};
+const HINT={hook:'Big headline, short body. Add a big word to show it in a card.',text:'Headline and body. Wrap words in {braces} to highlight them, like {Respectful}. Big word is optional.',list:'One item per line. Use "Label: explanation" for two-line items.',compare:'Lines like "Myth: ..." and "Fact: ...". Any other label gets a blue pill.',phrase:'One per line: Phrase | how to say it | meaning. Three or fewer looks best.',quiz:'Options one per line. Start the right one with * (the star is never shown).',question:'Headline is the question. Body is the blue reply bubble.',chat:'Headline on top. Body is the phone header. Lines starting with > are the other speaker; plain lines are you.',cta:'Headline, body, and a small line (first item). The pill uses the link above. Add a screenshot to show a phone.',phone:'Headline and short body, then your app screenshot inside a phone. It crops to fit automatically.'};
+const S0=(type,chip,title,body,items,big)=>({type,chip,title,body:body||'',items:items||'',big:big||''});
+const CTA='Hear every word from a native speaker, then say it back.';
+const TINT={g:'#D3F6E7',gold:'#F8E8C0',b:'#DCE7FA'};
+const F=[
+{id:'explainer',name:'Explainer',purpose:'Teach a concept',acc:C.g,tint:TINT.g,tip:'One idea, built step by step. Show the idea, give examples, say why it matters.',s:[
+['hook','Yorùbá basics','One tone mark. Four different words.','Yoruba is a tonal language. Pitch carries meaning.',,'ọkọ'],
+['text','The idea','Three tones, three jobs','High (á), mid (a) and low (à). The same letters can mean different things depending on pitch.'],
+['list','Same letters, new meaning','Look at o-k-o','ọkọ: husband\nọkọ̀: vehicle\nọ̀kọ̀: spear\noko: farm'],
+['text','Why it matters','Tone marks are not decoration','Leave them out and a sentence can say something you never meant. Hearing them is half of speaking well.'],
+['cta','','Learn the sound, not just the spelling',CTA,'Yorùbá · Igbo · Pidgin']]},
+{id:'myth',name:'Myth vs Fact',purpose:'Correct misconceptions',acc:C.gold,tint:TINT.gold,tip:'Name the myth fairly, then correct it with one clear example. Never mock the belief.',s:[
+['hook','Myth vs Fact','Is Pidgin just broken English?','Swipe to see what the language itself shows us.'],
+['compare','','The first myth','Myth: Pidgin is English spoken badly.\nFact: Pidgin has its own grammar, vocabulary and rhythm. It is a language in its own right.'],
+['text','See the grammar','"I dey go" is not "I don go"','"Dey" marks something ongoing. "Don" marks something finished. English needs extra words to say the same.'],
+['compare','','The second myth','Myth: Pidgin only belongs to one region.\nFact: It is spoken across Nigeria by millions of people from many ethnic groups.'],
+['cta','','Learn the Pidgin people actually speak',CTA,'Everyday phrases, real situations']]},
+{id:'story',name:'Cultural Story',purpose:'Explain cultural context',acc:C.b,tint:TINT.b,tip:'Start with a scene people recognise. Explain the custom, then the words that go with it.',s:[
+['hook','Culture','In a Yoruba home, the greeting comes before the conversation.','It is not just manners. It is respect made visible.'],
+['text','The custom','Greeting shows you see someone','Children greet elders first. Traditionally boys prostrate (dọ̀bálẹ̀) and girls kneel (kúnlẹ̀). Skipping it can read as disrespect.'],
+['text','The words','The greeting itself','Good morning. The "Ẹ" is the respectful form, used for elders and for groups.','','Ẹ káàárọ̀'],
+['text','For the diaspora','You can still do this','If you grew up away from home, a greeting is the quickest way to be welcomed back into the room.'],
+['cta','','Learn the greeting before the visit',CTA,'Practise real family moments']]},
+{id:'lesson',name:'Language Lesson',purpose:'Teach practical expressions',acc:C.b,tint:TINT.b,tip:'Three phrases at most. Always give the sound, the meaning and when to use it.',s:[
+['hook','Yorùbá lesson','Three Yoruba greetings your grandparents will love','Practical, respectful, easy to say.','','Ẹ ṣé'],
+['phrase','Say it like this','Your three phrases','','Ẹ káàárọ̀ | eh KAH-ah-roh | Good morning\nẸ ṣé | eh SHAY | Thank you\nẸ kú àbọ̀ | eh koo ah-BOH | Welcome back'],
+['text','Tip','The "Ẹ" matters','Use Ẹ with elders and with groups {Respectful}. With a friend your age {Casual}, drop it: Káàárọ̀, O ṣé.'],
+['text','Try it','Your turn','Say each one out loud three times. Then use one today.'],
+['cta','','Say it to a real person, with confidence',CTA,'Scenes: greeting a parent, at the market, sharing a meal']]},
+{id:'deep',name:'Deep Dive',purpose:'Explore a subject',acc:C.g,tint:TINT.g,tip:'Go one level deeper than a normal post. Pattern first, then examples, then the meaning behind it.',s:[
+['hook','Deep dive','Yoruba has a greeting for almost everything you do.','A short guide to the Ẹ kú pattern.'],
+['text','The pattern','Ẹ kú + the moment or the task','Roughly "well done on...". It greets the activity, not only the hour. {Ẹ kú}','','Ẹ kú + ___'],
+['list','Common endings','Same pattern, different moment','Ẹ kú àárọ̀: good morning\nẸ kú ọ̀sán: good afternoon\nẸ kú ìrọ̀lẹ́: good evening\nẸ kú iṣẹ́: well done at work'],
+['text','Why it works','It acknowledges effort','Greeting someone for what they are doing tells them you noticed. That small noticing is a big part of the culture.'],
+['cta','','Learn the pattern once, use it everywhere',CTA,'Yorùbá · Igbo · Pidgin']]},
+{id:'convo',name:'Conversation Starter',purpose:'Encourage discussion',acc:C.gold,tint:TINT.gold,tip:'Ask one open question people can answer in a sentence. Keep the selling to a single soft slide.',s:[
+['hook','Let\'s talk','What word from home does English just not have?','Share yours below.'],
+['question','Join in','Which word makes you feel most at home?','Drop it in the comments, and tell us what it means.'],
+['text','Why we ask','Some words carry a whole feeling','Many families keep one or two words alive for years. Those words are often the way back in.'],
+['cta','','Keep your words alive',CTA,'Built for families and heritage learners']]},
+{id:'product',name:'Product-supported',purpose:'Teach, then introduce ClearWords',acc:C.g,tint:TINT.g,tip:'Spend most slides on the lesson. ClearWords appears late, as the way to practise what they just learned.',s:[
+['hook','Speaking practice','You know the greeting. Can you say it out loud?','Reading a word and saying it are different skills.'],
+['text','The gap','Knowing is not speaking','Many learners recognise a phrase, then freeze when a real person is waiting. Safe practice closes that gap.'],
+['list','What actually helps','Four habits that work','Hear a native speaker first\nSay it back out loud\nUse it in a real situation\nRepeat across days, not hours'],
+['chat','Inside ClearWords','Practise the moment, not just the word','Scene: Greeting a parent','> Ẹ káàárọ̀, ọmọ mi. Ṣé o sùn dáadáa?\nMo sùn dáadáa, ẹ ṣé.'],
+['cta','','Practise before the real conversation',CTA,'Scenes · Moments · Native audio']]},
+{id:'quiz',name:'Quiz',purpose:'Test knowledge, teach through answers',acc:C.b,tint:TINT.b,tip:'Question slide, then the answer slide that teaches. Keep it to two or three questions.',s:[
+['hook','Quick quiz','How well do you know your greetings?','Two questions. Answers explained.'],
+['quiz','Question 1','What does "Ẹ ṣé" mean?','','Good night\n*Thank you\nI\'m sorry\nWelcome'],
+['text','Answer 1','Thank you','Ẹ ṣé is the respectful form. Add "o" for warmth: Ẹ ṣé o.'],
+['quiz','Question 2','Who do you greet with "Ẹ"?','','*Elders and groups\nOnly children\nOnly strangers\nNobody'],
+['text','Answer 2','Elders and groups','"Ẹ" is the respectful or plural "you". Even one elder gets it.'],
+['cta','','Ready for the next round?',CTA,'Test yourself inside ClearWords']]}
+].map(f=>({...f,s:f.s.map(a=>S0(...a))}));
+const EX=`@format myth
+@lang pidgin
+Is Pidgin just broken English?
+Swipe to see what the language itself shows us.
+--
+Myth: Pidgin is English spoken badly.
+Fact: Pidgin has its own grammar, vocabulary and rhythm.
+--
+# See the grammar
+"I dey go" is not "I don go"
+"Dey" marks something ongoing {Continuous}. "Don" marks something finished {Completed}.
+-----
+@format lesson
+@lang igbo
+Three Igbo phrases for your next family call
+Easy, warm and worth saying out loud.
+[big] Daalụ
+--
+# Say it like this
+Your three phrases
+Ụtụtụ ọma | oo-TOO-too OH-mah | Good morning
+Daalụ | DAH-lu | Thank you
+Kedu? | KEH-doo | How are you?
+--
+Practise these with ClearWords
+Hear native speakers, then say it back.`;
+const norm=s=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim();
+const clone=o=>JSON.parse(JSON.stringify(o));
+const fmOf=c=>F.find(f=>f.id===c.fmt)||F[0];
+function mk(fmt,lang,slides){return{fmt,lang,slides:slides||clone(F.find(f=>f.id===fmt).s)}}
+let st={mode:'single',fmt:'explainer',lang:'yoruba',url:'clearwords-versions.vercel.app',cars:[],ci:0,cur:0,dirty:false,bt:'',auto:true,series:'Speak your heritage. Not just understand it.'};
+try{const j=JSON.parse(localStorage.getItem('cw_studio2')||'null');if(j&&j.cars&&j.cars.length)st={...st,...j}}catch(e){}
+if(!st.cars.length)st.cars=[mk('explainer','yoruba')];
+const $=id=>document.getElementById(id);
+const CAR=()=>st.cars[st.ci],SL=()=>CAR().slides;
+const persist=()=>{try{localStorage.setItem('cw_studio2',JSON.stringify(st))}catch(e){try{localStorage.setItem('cw_studio2',JSON.stringify(st,(k,v)=>k==='img'?undefined:v))}catch(e2){}}};
+
+/* ---------- batch parser ---------- */
+function slide(x,i,n,fmt){
+const L=x.split('\n').map(l=>l.trim());let type='';
+const m=L[0]&&L[0].match(/^\[(\w+)\]\s*(.*)$/);
+if(m&&TYPES[m[1].toLowerCase()]){type=m[1].toLowerCase();L[0]=m[2]}
+let chip='',big='',quiz=false;const items=[],txt=[];
+L.forEach(l=>{if(!l)return;let q;
+if(q=l.match(/^#\s*(.+)/))chip=q[1];
+else if((q=l.match(/^\[big\]\s*(.+)/i))||(q=l.match(/^big:\s*(.+)/i)))big=q[1];
+else if(/^[><]/.test(l))items.push(l.replace(/^<\s*/,''));
+else if(/^(myth|fact)\s*:/i.test(l)||/\s\|\s/.test(l))items.push(l);
+else if(q=l.match(/^[-•]\s+(.+)/))items.push(q[1]);
+else if(/^\*/.test(l)||/^[A-Da-d][).]\s/.test(l)){quiz=true;items.push((/^\*/.test(l)?'*':'')+l.replace(/^\*\s*/,'').replace(/^[A-Da-d][).]\s*/,''))}
+else txt.push(l)});
+const title=txt[0]||'',body=txt.slice(1).join('\n');
+if(!type){
+if(i===0)type='hook';
+else if(i===n-1&&/clearwords/i.test(title))type='cta';
+else if(items.some(t=>/^(myth|fact)\s*:/i.test(t)))type='compare';
+else if(items.some(t=>/^>/.test(t)))type='chat';
+else if(items.some(t=>/\s\|\s/.test(t)))type='phrase';
+else if(quiz)type='quiz';
+else if(items.length)type='list';
+else if(fmt==='convo'&&/\?$/.test(title)&&body)type='question';
+else type='text'}
+const t2=title||(type==='compare'?'Myth or fact?':type==='phrase'?'Say it like this':'');
+return S0(type,chip,t2,body,items.join('\n'),big)}
+function parse(txt){
+return txt.split(/^\s*-{5,}\s*$/m).map(b=>b.trim()).filter(Boolean).map(b=>{
+let fmt=st.fmt,lang=st.lang;const rest=[];
+b.split('\n').forEach(l=>{const m=l.match(/^@(format|lang)\s+(.+)$/i);
+if(!m){rest.push(l);return}
+const t=norm(m[2]);
+if(m[1].toLowerCase()==='format'){const f=F.find(f=>t&&(norm(f.name).includes(t)||t.includes(f.id)));if(f)fmt=f.id}
+else{const k=Object.keys(LANG).find(k=>t.includes(k));if(k)lang=k}});
+const parts=rest.join('\n').split(/^\s*-{2,4}\s*$/m).map(x=>x.trim()).filter(Boolean);
+const sl=parts.map((x,i)=>slide(x,i,parts.length,fmt));
+if(st.auto&&sl.length&&sl[sl.length-1].type!=='cta')sl.push(S0('cta','','Practise it with ClearWords',CTA,'Yorùbá · Igbo · Pidgin'));
+return{fmt,lang,slides:sl}}).filter(c=>c.slides.length)}
+
+/* ---------- canvas helpers ---------- */
+function lines(x,t,w){const o=[];String(t).split('\n').forEach(p=>{let l='';p.split(' ').forEach(wd=>{const n=l?l+' '+wd:wd;if(x.measureText(n).width>w&&l){o.push(l);l=wd}else l=n});o.push(l)});return o}
+function rich(x,t,px,py,w,sz,wt,col,fn,lh,it){
+const f0=`${it?'italic ':''}${wt} ${sz}px ${fn}`,f1=`700 ${sz*.78}px ${fn}`,pad=sz*.3;
+x.textBaseline='alphabetic';x.font=f0;const sp=x.measureText(' ').width,tk=[];
+t.split('\n').forEach((p,i)=>{if(i)tk.push({br:1});let pt=0;p.split(/(\{[^}]+\})/).forEach(g=>{if(!g)return;if(g[0]==='{'){tk.push({tag:g.slice(1,-1).trim()});pt=1}else{g.split(' ').filter(Boolean).forEach((v,j)=>tk.push({w:v,nb:pt&&!j&&g[0]!==' '}));pt=0}})});
+let cx=px,ln=0;
+tk.forEach(k=>{if(k.br){ln++;cx=px;return}
+x.font=k.tag?f1:f0;const tw=x.measureText(k.tag||k.w).width+(k.tag?pad*2:0);
+if(k.nb)cx-=sp;if(cx>px&&cx+tw>px+w){ln++;cx=px}
+const by=py+ln*sz*lh;
+if(k.tag){rr(x,cx,by-sz*.86,tw,sz*1.12,sz*.2,'#BFF0DC');x.fillStyle=C.dg;x.font=f1;x.fillText(k.tag,cx+pad,by-sz*.04)}
+else{x.fillStyle=col;x.font=f0;x.fillText(k.w,cx,by)}
+cx+=tw+sp});
+return py+ln*sz*lh+sz*.45}
+function para(x,t,px,py,w,sz,wt,col,fn,lh,it){if(/\{[^}]+\}/.test(t))return rich(x,t,px,py,w,sz,wt,col,fn,lh,it);x.font=`${it?'italic ':''}${wt} ${sz}px ${fn}`;x.fillStyle=col;x.textBaseline='alphabetic';const ls=lines(x,t,w);ls.forEach((l,i)=>x.fillText(l,px,py+i*sz*lh));return py+(ls.length-1)*sz*lh+sz*.45}
+function ttl(x,t,px,py,w,mx,mn,col,mh){let s=mx;for(;s>mn;s-=4){x.font=`700 ${s}px ${HF}`;if(lines(x,t,w).length*s*1.12<=mh)break}return para(x,t,px,py+s*.9,w,s,700,col,HF,1.12)}
+function rp(x,a,b,w,h,r){x.beginPath();x.roundRect?x.roundRect(a,b,w,h,r):x.rect(a,b,w,h)}
+function rr(x,a,b,w,h,r,f,st){rp(x,a,b,w,h,r);x.fillStyle=f;x.fill();if(st){x.strokeStyle=st;x.lineWidth=2;x.stroke()}}
+function chip(x,t,a,b,bg,fg){x.font=`700 30px ${BF}`;const w=x.measureText(t).width+44;rr(x,a,b,w,56,28,bg);x.fillStyle=fg;x.textBaseline='middle';x.fillText(t,a+22,b+30);x.textBaseline='alphabetic'}
+function dia(x,cx,cy,r,f){x.fillStyle=f;x.beginPath();x.moveTo(cx,cy-r);x.lineTo(cx+r,cy);x.lineTo(cx,cy+r);x.lineTo(cx-r,cy);x.closePath();x.fill()}
+function logo(x,a,b,t,dk){rr(x,a,b,t,t,t*.26,C.b,dk?'rgba(255,255,255,.4)':null);const w=t*.44;bub(x,a+(t-w)/2,b+(t-w*1.02)/2,w)}
+function bub(x,a,b,w){const h=w*.84;rr(x,a,b,w,h,w*.2,C.g);x.fillStyle=C.g;x.beginPath();x.moveTo(a+.225*w,b+h-2);x.lineTo(a+.225*w,b+h+.14*w);x.quadraticCurveTo(a+.225*w,b+h+.18*w,a+.26*w,b+h+.15*w);x.lineTo(a+.47*w,b+h-2);x.closePath();x.fill();[[.195,.65],[.385,.59],[.571,.39]].forEach(([t,l])=>rr(x,a+.18*w,b+t*w,l*w,.08*w,.04*w,C.b))}
+function strip(x,cols){const s=36;for(let i=0;i*s<W+s;i++)dia(x,i*s+s/2,H-s/2,s/2-3,cols[i%3])}
+function rings(x,cx,cy,col){x.strokeStyle=col;x.lineWidth=6;x.globalAlpha=.3;[110,210,310,410].forEach(r=>{x.beginPath();x.arc(cx,cy,r,0,7);x.stroke()});x.globalAlpha=1;dia(x,cx,cy,46,C.gold)}
+function big(x,t,a,b,w,h,f){rr(x,a,b,w,h,40,f.tint);rr(x,a,b,14,h,7,f.acc);let s=130;for(;s>40;s-=6){x.font=`700 ${s}px ${HF}`;if(x.measureText(t).width<=w-90)break}x.fillStyle=C.b;x.textAlign='center';x.textBaseline='middle';x.fillText(t,a+w/2+6,b+h/2+4);x.textAlign='left';x.textBaseline='alphabetic'}
+
+/* ---------- images ---------- */
+const IM={};
+function getImg(src){let i=IM[src];if(!i){i=IM[src]=new Image();i.onload=()=>paint();i.src=src}return i}
+const loadImg=src=>new Promise(r=>{const i=getImg(src);if(i.complete&&i.naturalWidth)r();else{i.addEventListener('load',()=>r());i.addEventListener('error',()=>r())}});
+const wants=s=>!s.img&&(s.type==='phone'||(['hook','text','question'].includes(s.type)&&!s.big&&s.want!==false));
+function cover(x,src,a,b,w,h,s){const im=getImg(src);if(!im.complete||!im.naturalWidth)return;
+const iw=im.naturalWidth,ih=im.naturalHeight,z=s.z||1,fx=s.fx==null?50:s.fx,fy=s.fy==null?50:s.fy;
+if(s.fit==='contain'){const k=Math.min(w/iw,h/ih);x.drawImage(im,a+(w-iw*k)/2,b+(h-ih*k)/2,iw*k,ih*k)}
+else{const k=Math.max(w/iw,h/ih)*z,dw=iw*k,dh=ih*k;x.drawImage(im,a-(dw-w)*fx/100,b-(dh-h)*fy/100,dw,dh)}}
+function pic(x,s,a,b,w,h){x.save();rp(x,a,b,w,h,40);x.clip();x.fillStyle=C.card;x.fillRect(a,b,w,h);cover(x,s.img,a,b,w,h,s);x.restore();rp(x,a,b,w,h,40);x.strokeStyle=C.line;x.lineWidth=2;x.stroke()}
+function slot(x,s,y,w,f,pv,bt,bh){const b=y+34,h=Math.min(760,1236-b);
+if(s.img&&h>=240)pic(x,s,P,b,w,h);
+else if(s.big&&bh&&y+bh+40<1230)big(x,s.big,P,Math.max(y+36,bt),w,bh,f);
+else if(pv&&wants(s)&&h>=240){x.setLineDash([16,12]);rr(x,P,b,w,h,40,'rgba(0,80,200,.05)',C.b);x.setLineDash([]);x.fillStyle=C.b;x.font=`700 40px ${BF}`;x.textAlign='center';x.textBaseline='middle';x.fillText('Add an image here',W/2,b+h/2);x.textAlign='left';x.textBaseline='alphabetic'}
+else rings(x,W-110,1110,f.acc)}
+function phone(x,s,a,b,pw,hh,pv){
+const m=pw*.04,sx=a+m,sy=b+m,sw=pw-2*m,sh=hh-2*m;
+rr(x,a-5,b+hh*.14,6,hh*.05,3,'#0B0E14');rr(x,a-5,b+hh*.21,6,hh*.08,3,'#0B0E14');rr(x,a+pw-1,b+hh*.18,6,hh*.1,3,'#0B0E14');
+x.save();x.shadowColor='rgba(0,0,0,.28)';x.shadowBlur=44;x.shadowOffsetY=18;rr(x,a,b,pw,hh,pw*.15,'#10141C');x.restore();
+x.save();rp(x,sx,sy,sw,sh,pw*.12);x.clip();
+if(s.img){x.fillStyle='#fff';x.fillRect(sx,sy,sw,sh);cover(x,s.img,sx,sy,sw,sh,s)}
+else{const g=x.createLinearGradient(sx,sy,sx+sw,sy+sh);g.addColorStop(0,C.b);g.addColorStop(1,'#003A96');x.fillStyle=g;x.fillRect(sx,sy,sw,sh);logo(x,sx+sw*.33,sy+sh*.28,sw*.34,true);if(pv){x.fillStyle=C.cream;x.font=`700 ${sw*.07}px ${BF}`;x.textAlign='center';x.fillText('Add your app screenshot',sx+sw/2,sy+sh*.28+sw*.5);x.textAlign='left'}}
+x.restore();
+rr(x,a+pw/2-pw*.12,sy+pw*.035,pw*.24,pw*.07,pw*.035,'#05070B');
+rp(x,a+1,b+1,pw-2,hh-2,pw*.15);x.strokeStyle='rgba(255,255,255,.2)';x.lineWidth=3;x.stroke()}
+
+/* ---------- slide renderer ---------- */
+function draw(cv,s,i,n,sc,car,pv){
+const x=cv.getContext('2d'),f=fmOf(car),acc=f.acc,dk=s.type==='cta',w=W-2*P;
+cv.width=W*sc;cv.height=H*sc;x.setTransform(sc,0,0,sc,0,0);
+if(dk){const g=x.createLinearGradient(0,0,W,H);g.addColorStop(0,C.b);g.addColorStop(1,'#003A96');x.fillStyle=g}else x.fillStyle=C.cream;
+x.fillRect(0,0,W,H);
+x.fillStyle=dk?'rgba(255,255,255,.07)':'rgba(0,80,200,.06)';x.beginPath();x.arc(W,0,300,0,7);x.fill();
+logo(x,P,68,76,dk);x.textBaseline='alphabetic';x.font=`800 46px ${HF}`;x.fillStyle=dk?C.cream:C.b;x.fillText('ClearWords',P+100,120);
+x.font=`700 24px ${BF}`;x.textAlign='right';x.fillStyle=dk?'rgba(246,239,223,.75)':C.mute;lines(x,st.series||(f.name+' · '+LANG[car.lang]),400).slice(0,3).forEach((l,j)=>x.fillText(l,W-P,92+j*30));x.textAlign='left';
+const it=s.items.split('\n').map(t=>t.trim()).filter(Boolean),tc=C.b,bc=C.bc;
+let y=220;if(s.chip&&!dk){chip(x,s.chip,P,176,f.tint,'#0A2A66');y=290}
+const T=s.type;
+if(T==='hook'){y=ttl(x,s.title,P,y,w,128,64,tc,430)+20;if(s.body)y=para(x,s.body,P,y+40,w,44,600,bc,BF,1.35);slot(x,s,y,w,f,pv,880,300)}
+else if(T==='text'){y=ttl(x,s.title,P,y,w,92,58,tc,330)+10;y=para(x,s.body,P,y+44,w,46,600,bc,BF,1.4);slot(x,s,y,w,f,pv,0,260)}
+else if(T==='list'){y=ttl(x,s.title,P,y,w,88,56,tc,300)+16;it.forEach(t=>{const k=t.indexOf(':'),a=k>0?t.slice(0,k):t,b=k>0?t.slice(k+1).trim():'';dia(x,P+16,y+36,13,C.gold);y=para(x,a,P+60,y+50,w-60,k>0?52:44,700,tc,k>0?HF:BF,1.2);if(b)y=para(x,b,P+60,y+36,w-60,40,600,bc,BF,1.3);y+=26})}
+else if(T==='compare'){y=ttl(x,s.title,P,y,w,88,56,tc,160)+20;it.forEach(t=>{const k=t.indexOf(':'),lab=k>0?t.slice(0,k):'Note',b=k>0?t.slice(k+1).trim():t,my=/myth/i.test(lab),ft=/fact/i.test(lab);x.font=`600 42px ${BF}`;const ls=lines(x,b,w-72),h=140+(ls.length-1)*57+46;rr(x,P,y,w,h,36,my?'#FBF0D2':ft?TINT.g:TINT.b);chip(x,lab,P+36,y+30,my?C.gold:ft?C.g:C.b,my||ft?C.dg:'#fff');para(x,b,P+36,y+136,w-72,42,600,'#1C2A44',BF,1.35);y+=h+28})}
+else if(T==='phrase'){y=ttl(x,s.title,P,y,w,88,56,tc,200)+10;const n2=it.length||1,h=Math.min(250,(1230-y-24*(n2-1))/n2),k=h/250;it.forEach(t=>{const[a='',b='',c='']=t.split('|').map(v=>v.trim());rr(x,P,y,w,h,32,C.card,C.line);rr(x,P,y,14,h,7,acc);x.textBaseline='alphabetic';x.font=`700 ${66*k}px ${HF}`;x.fillStyle=tc;x.fillText(a,P+44,y+88*k);x.font=`italic 600 ${32*k}px ${BF}`;x.fillStyle=C.mute;x.fillText(b,P+44,y+142*k);x.font=`700 ${40*k}px ${BF}`;x.fillStyle=C.ink;x.fillText(c,P+44,y+202*k);y+=h+24})}
+else if(T==='quiz'){y=ttl(x,s.title,P,y,w,84,52,tc,300)+30;const cl=[TINT.g,TINT.gold,TINT.b,'#EDEFF5'];it.slice(0,4).forEach((t,j)=>{t=t.replace(/^\*\s*/,'');rr(x,P,y,w,134,67,cl[j]);x.fillStyle=C.cream;x.beginPath();x.arc(P+67,y+67,40,0,7);x.fill();x.fillStyle=tc;x.font=`700 40px ${HF}`;x.textAlign='center';x.textBaseline='middle';x.fillText('ABCD'[j],P+67,y+70);x.textAlign='left';x.font=`600 40px ${BF}`;const n3=lines(x,t,w-190).length;para(x,t,P+140,y+81-(n3-1)*26,w-190,40,600,C.ink,BF,1.3);y+=134+26})}
+else if(T==='question'){x.font=`700 74px ${HF}`;const l1=lines(x,s.title,w-96),h=l1.length*74*1.15+100;rr(x,P,y,w,h,56,C.card,C.line);para(x,s.title,P+48,y+48+66,w-96,74,700,tc,HF,1.15);y+=h+36;if(s.body){x.font=`600 44px ${BF}`;const h2=lines(x,s.body,w-148).length*44*1.35+84;rr(x,P+60,y,w-60,h2,56,C.b);para(x,s.body,P+104,y+42+36,w-148,44,600,C.cream,BF,1.35);y+=h2}slot(x,s,y,w,f,pv,0,0)}
+else if(T==='chat'){y=ttl(x,s.title,P,y,w,84,56,tc,200)+24;const ph=1230-y;rr(x,P+50,y,w-100,ph,70,C.card,C.line);x.font=`700 30px ${BF}`;x.fillStyle=C.b;x.textAlign='center';x.fillText(s.body,W/2,y+66);x.textAlign='left';let yy=y+110;it.forEach(t=>{const l=t.startsWith('>');t=t.replace(/^>\s*/,'');x.font=`600 36px ${BF}`;const ls=lines(x,t,w-220),bw=Math.max(...ls.map(q=>x.measureText(q).width))+60,h=ls.length*48+40;if(yy+h>y+ph-20)return;const bx=l?P+80:P+50+w-100-30-bw;rr(x,bx,yy,bw,h,36,l?'#EADFC6':C.g);x.fillStyle=C.ink;ls.forEach((q,j)=>x.fillText(q,bx+30,yy+52+j*48));yy+=h+24})}
+else if(T==='phone'){y=ttl(x,s.title,P,y,w,92,56,tc,260)+8;if(s.body)y=para(x,s.body,P,y+40,w,42,600,bc,BF,1.35);const top=y+46;let pw=520,hh=pw*2.1;if(s.pf==='full'){hh=Math.min(1240-top,1150);pw=Math.min(560,hh/2.1);hh=pw*2.1}phone(x,s,(W-pw)/2,top,pw,hh,pv)}
+else if(T==='cta'){const q=!!s.img;y=ttl(x,s.title,P,q?230:300,w,q?78:110,q?52:64,C.cream,q?250:440)+10;y=para(x,s.body,P,y+(q?38:44),w,q?38:46,600,'rgba(246,239,223,.9)',BF,1.4);x.font=`700 ${q?42:50}px ${HF}`;const u=st.url||'clearwords.app',bw=x.measureText(u).width+90,bh=q?92:112;rr(x,P,y+(q?24:34),bw,bh,bh/2,C.g);x.fillStyle=C.dg;x.textBaseline='middle';x.fillText(u,P+45,y+(q?24:34)+bh/2+3);x.textBaseline='alphabetic';if(q){const pw=480;phone(x,s,(W-pw)/2,Math.max(y+24+bh+36,740),pw,pw*2.1,pv)}else{if(it[0])para(x,it[0],P,y+216,w,34,600,'rgba(246,239,223,.85)',BF,1.3);rings(x,W-100,1090,C.gold)}}
+const cl=dk&&s.img;x.textAlign=cl?'left':'right';x.font=`700 34px ${BF}`;x.fillStyle=dk?C.cream:C.b;x.fillText(`${i+1}/${n}${i<n-1?'  →':''}`,cl?P:W-P,1282);x.textAlign='left';
+strip(x,dk?[C.g,C.gold,C.cream]:[acc,C.gold,C.b]);
+if(pv&&sc<.5&&wants(s)){x.fillStyle=C.gold;x.beginPath();x.arc(W-110,250,62,0,7);x.fill();x.fillStyle=C.ink;x.font=`700 80px ${BF}`;x.textAlign='center';x.textBaseline='middle';x.fillText('+',W-110,254);x.textAlign='left';x.textBaseline='alphabetic'}
+}
+
+/* ---------- UI ---------- */
+function build(){
+$('fmts').innerHTML=F.map(f=>`<button data-f="${f.id}" class="${f.id===(st.mode==='batch'?st.fmt:CAR().fmt)?'on':''}"><b>${f.name}</b><span>${f.purpose}</span></button>`).join('');
+$('tip').textContent=(F.find(f=>f.id===(st.mode==='batch'?st.fmt:CAR().fmt))||F[0]).tip;
+$('fh').textContent=st.mode==='batch'?'1 · Default format (used when a carousel has no @format)':'1 · Pick a format';
+$('type').innerHTML=Object.entries(TYPES).map(([k,v])=>`<option value="${k}">${v}</option>`).join('');
+$('lang').value=st.mode==='batch'?st.lang:CAR().lang;$('url').value=st.url;$('series').value=st.series;$('bt').value=st.bt;$('auto').checked=st.auto;
+$('mS').className=st.mode==='single'?'on':'';$('mB').className=st.mode==='batch'?'on':'';
+$('batch').classList.toggle('hide',st.mode!=='batch');
+$('cars').innerHTML=st.cars.map((c,i)=>`<button data-c="${i}" class="${i===st.ci?'on':''}">${i+1} · ${fmOf(c).name} · ${LANG[c.lang]}</button>`).join('')+(st.mode==='single'?'<button data-c="new">+ New carousel</button>':'');
+}
+function sync(){const s=SL()[st.cur];$('type').value=s.type;['chip','title','body','big','items'].forEach(k=>$(k).value=s[k]);$('hint').textContent=HINT[s.type];syncImg(s)}
+const IMT=['hook','text','question','phone','cta'];
+function syncImg(s){const ok=IMT.includes(s.type),ph=s.type==='phone'||s.type==='cta';$('imgbox').classList.toggle('hide',!ok);if(!ok)return;
+$('imgl').textContent=ph?'Phone screenshot':'Image';$('wantl').classList.toggle('hide',ph);$('want').checked=s.want!==false;
+$('pick').textContent=s.img?'Replace':(ph?'Add screenshot':'Add image');$('imgctl').classList.toggle('hide',!s.img);$('rmimg').classList.toggle('hide',!s.img);
+$('fit').value=s.fit||'fill';$('z').value=s.z||1;$('fx').value=s.fx==null?50:s.fx;$('fy').value=s.fy==null?50:s.fy;$('pf').value=s.pf||'bleed';$('pfl').classList.toggle('hide',s.type!=='phone')}
+let raf;function paint(){cancelAnimationFrame(raf);raf=requestAnimationFrame(()=>{const car=CAR(),sl=car.slides,n=sl.length;st.cur=Math.min(st.cur,n-1);
+draw($('pv'),sl[st.cur],st.cur,n,1,car,true);
+const sp=$('strip');sp.innerHTML='';sl.forEach((s,i)=>{const c=document.createElement('canvas');draw(c,s,i,n,.1,car,true);c.className=i===st.cur?'on':'';c.onclick=()=>{st.cur=i;sync();paint()};sp.appendChild(c)});
+const sell=sl.filter(s=>['cta','chat','phone'].includes(s.type)).length,m=$('meter');
+const need=sl.map((s,k)=>wants(s)?k+1:0).filter(Boolean);$('imgline').textContent=need.length?`${need.length} of ${n} slides have room for an image (slide ${need.join(', ')}). Add them in order below, or one at a time in the editor.`:'Every image slot is filled or switched off.';$('fill').classList.toggle('hide',!need.length);$('fill').textContent=`Add images to ${need.length} empty slot${need.length>1?'s':''}`;
+let msg=`Teach ${n-sell} · Introduce ClearWords ${sell}`,bad=false;
+if(sl[0].type==='cta'){msg+=' · Do not open with the pitch';bad=true}
+if(sell/n>.34){msg+=' · Too salesy: teach more before you sell';bad=true}
+m.textContent=msg;m.className=bad?'warn':'ok';persist()})}
+function setMode(m){st.mode=m;build();persist()}
+$('mS').onclick=()=>setMode('single');$('mB').onclick=()=>setMode('batch');
+$('fmts').onclick=e=>{const b=e.target.closest('button');if(!b)return;const id=b.dataset.f;
+if(st.mode==='batch'){st.fmt=id;build();persist();return}
+if(st.dirty&&!confirm('Replace this carousel with the '+F.find(f=>f.id===id).name+' starter?'))return;
+st.fmt=id;st.cars[st.ci]=mk(id,CAR().lang);st.cur=0;st.dirty=false;build();sync();paint()};
+$('cars').onclick=e=>{const b=e.target.closest('button');if(!b)return;
+if(b.dataset.c==='new'){st.cars.push(mk(st.fmt,st.lang));st.ci=st.cars.length-1}else st.ci=+b.dataset.c;
+st.cur=0;build();sync();paint()};
+$('lang').onchange=e=>{st.lang=e.target.value;if(st.mode==='single')CAR().lang=st.lang;build();paint()};
+$('url').oninput=e=>{st.url=e.target.value.trim();paint()};
+$('bt').oninput=e=>{st.bt=e.target.value;persist()};
+$('auto').onchange=e=>{st.auto=e.target.checked;persist()};
+$('ex').onclick=()=>{$('bt').value=st.bt=EX;persist()};
+$('gen').onclick=()=>{const c=parse($('bt').value);if(!c.length){alert('Nothing to generate yet. Write at least one slide.');return}
+st.cars=c;st.ci=0;st.cur=0;st.dirty=false;build();sync();paint();$('cars').scrollIntoView({behavior:'smooth'})};
+['type','chip','title','body','big','items'].forEach(k=>$(k).addEventListener('input',e=>{SL()[st.cur][k]=e.target.value;st.dirty=true;if(k==='type'){$('hint').textContent=HINT[e.target.value];syncImg(SL()[st.cur])}paint()}));
+$('add').onclick=()=>{SL().splice(st.cur+1,0,{...SL()[st.cur]});st.cur++;st.dirty=true;sync();paint()};
+$('del').onclick=()=>{if(SL().length<2)return;SL().splice(st.cur,1);st.cur=Math.min(st.cur,SL().length-1);st.dirty=true;sync();paint()};
+const mv=d=>{const j=st.cur+d,a=SL();if(j<0||j>=a.length)return;[a[st.cur],a[j]]=[a[j],a[st.cur]];st.cur=j;st.dirty=true;paint()};
+$('L').onclick=()=>mv(-1);$('R').onclick=()=>mv(1);
+$('series').oninput=e=>{st.series=e.target.value;paint()};
+function readImg(file){return new Promise((res,rej)=>{const u=URL.createObjectURL(file),im=new Image();
+im.onload=()=>{const k=Math.min(1,1400/Math.max(im.naturalWidth,im.naturalHeight)),c=document.createElement('canvas');c.width=Math.round(im.naturalWidth*k);c.height=Math.round(im.naturalHeight*k);c.getContext('2d').drawImage(im,0,0,c.width,c.height);URL.revokeObjectURL(u);res(c.toDataURL('image/jpeg',.88))};
+im.onerror=()=>{URL.revokeObjectURL(u);rej(new Error('unreadable'))};im.src=u})}
+let fileMode='cur';
+const reset=s=>{s.z=1;s.fx=50;s.fy=50;s.fit='fill'};
+async function addFiles(fs,mode){fs=[...fs].filter(f=>!f.type||f.type.startsWith('image/'));
+if(!fs.length){alert('No image found. Choose a JPG, PNG or WebP file.');return}
+try{if(mode==='cur'){const s=SL()[st.cur];s.img=await readImg(fs[0]);reset(s)}
+else{const slots=SL().map((s,k)=>wants(s)?k:-1).filter(k=>k>=0);for(let k=0;k<Math.min(fs.length,slots.length);k++){const s=SL()[slots[k]];s.img=await readImg(fs[k]);reset(s)}if(slots.length)st.cur=slots[0]}
+st.dirty=true}catch(err){alert('Could not read that image. Try a JPG or PNG (iPhone HEIC photos will not load), or open the studio in Chrome or Safari.')}
+sync();paint()}
+$('pick').onclick=()=>{fileMode='cur';$('file').multiple=false;$('file').click()};
+$('fill').onclick=()=>{fileMode='fill';$('file').multiple=true;$('file').click()};
+$('file').onchange=async e=>{const fs=[...e.target.files];await addFiles(fs,fileMode);e.target.value=''};
+document.addEventListener('paste',e=>{const f=[...(e.clipboardData?e.clipboardData.files:[])].filter(f=>f.type.startsWith('image/'));if(f.length){e.preventDefault();addFiles(f,'cur')}});
+$('pv').addEventListener('dragover',e=>e.preventDefault());
+$('pv').addEventListener('drop',e=>{e.preventDefault();addFiles(e.dataTransfer.files,'cur')});
+['fit','z','fx','fy','pf'].forEach(k=>$(k).addEventListener('input',e=>{SL()[st.cur][k]=(k==='fit'||k==='pf')?e.target.value:+e.target.value;paint()}));
+$('want').onchange=e=>{SL()[st.cur].want=e.target.checked;paint()};
+$('rmimg').onclick=()=>{const s=SL()[st.cur];delete s.img;syncImg(s);paint()};
+$('idea').onclick=async()=>{const s=SL()[st.cur],t=s.title.replace(/[{}]/g,''),ph=s.type==='phone'||s.type==='cta';const q=ph?`Screenshot idea: the ClearWords screen that shows "${t}".`:`Flat, warm illustration in mint #3EDCA1 and blue #0050C8 with gold accents on a cream background, no text, showing: ${t}. Keep the top third calm so text can sit above it.`;try{await navigator.clipboard.writeText(q)}catch(e){prompt('Copy this:',q)}};
+const preload=cars=>Promise.all(cars.flatMap(c=>c.slides.filter(s=>s.img).map(s=>loadImg(s.img))));
+function capOf(car){const a=car.slides[0],l=LANG[car.lang],z=car.slides[car.slides.length-1];return`${a.title}\n\n${a.body||''}\n\nSwipe through ➡️\n\n${z.body||''}\n${st.url}\n\n#ClearWords #Learn${l.replace(/[^A-Za-z]/g,'')} #${fmOf(car).name.replace(/[^A-Za-z]/g,'')}`.replace(/\n{3,}/g,'\n\n')}
+$('mk').onclick=()=>{$('cap').value=capOf(CAR())};
+$('cp').onclick=async()=>{try{await navigator.clipboard.writeText($('cap').value)}catch(e){$('cap').select();document.execCommand('copy')}};
+
+/* ---------- export ---------- */
+const cvs=(car,i)=>{const c=document.createElement('canvas');draw(c,car.slides[i],i,car.slides.length,1,car);return c};
+const png=c=>new Promise(r=>c.toBlob(r,'image/png'));
+function down(blob,name){return new Promise(r=>{const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>{URL.revokeObjectURL(a.href);r()},400)})}
+$('one').onclick=async()=>{await preload([CAR()]);down(await png(cvs(CAR(),st.cur)),`clearwords-${CAR().fmt}-${st.cur+1}.png`)};
+$('car').onclick=async()=>{await preload([CAR()]);for(let i=0;i<SL().length;i++)await down(await png(cvs(CAR(),i)),`clearwords-${CAR().fmt}-${i+1}.png`)};
+const crcT=(()=>{const t=[];for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0}return t})();
+const crc=u=>{let c=-1;for(let i=0;i<u.length;i++)c=crcT[(c^u[i])&255]^(c>>>8);return(c^-1)>>>0};
+function zip(files){const enc=new TextEncoder(),parts=[],cd=[];let off=0,cl=0;
+files.forEach(f=>{const nm=enc.encode(f.name),d=f.data,c=crc(d);
+const h=new DataView(new ArrayBuffer(30));h.setUint32(0,0x04034b50,true);h.setUint16(4,20,true);h.setUint16(6,0x0800,true);h.setUint16(12,0x21,true);h.setUint32(14,c,true);h.setUint32(18,d.length,true);h.setUint32(22,d.length,true);h.setUint16(26,nm.length,true);
+parts.push(h.buffer,nm,d);
+const e=new DataView(new ArrayBuffer(46));e.setUint32(0,0x02014b50,true);e.setUint16(4,20,true);e.setUint16(6,20,true);e.setUint16(8,0x0800,true);e.setUint16(14,0x21,true);e.setUint32(16,c,true);e.setUint32(20,d.length,true);e.setUint32(24,d.length,true);e.setUint16(28,nm.length,true);e.setUint32(42,off,true);
+cd.push(e.buffer,nm);cl+=46+nm.length;off+=30+nm.length+d.length});
+const z=new DataView(new ArrayBuffer(22));z.setUint32(0,0x06054b50,true);z.setUint16(8,files.length,true);z.setUint16(10,files.length,true);z.setUint32(12,cl,true);z.setUint32(16,off,true);
+return new Blob([...parts,...cd,z.buffer],{type:'application/zip'})}
+$('zip').onclick=async()=>{const b=$('zip'),old=b.textContent,files=[],enc=new TextEncoder();b.textContent='Loading images…';await preload(st.cars);
+for(let k=0;k<st.cars.length;k++){const car=st.cars[k],dir=`${String(k+1).padStart(2,'0')}-${car.fmt}/`;
+for(let i=0;i<car.slides.length;i++){b.textContent=`Rendering ${k+1}.${i+1}…`;files.push({name:dir+`slide-${i+1}.png`,data:new Uint8Array(await (await png(cvs(car,i))).arrayBuffer())})}
+files.push({name:dir+'caption.txt',data:enc.encode(capOf(car))})}
+await down(zip(files),'clearwords-carousels.zip');b.textContent=old};
+build();sync();
+paint();
+</script></body></html>
