@@ -71,6 +71,7 @@ input[type=range]{padding:0;border:0;background:none;margin-top:6px}
 
 @format myth   optional, top of a carousel
 @lang igbo     optional, top of a carousel
+@topic My topic  name + upload folder (else the first headline)
 
 First line of a slide = headline
 Next lines = body text
@@ -92,6 +93,7 @@ Formats: explainer, myth, story, lesson, deep, convo, product, quiz</pre></detai
 
 <h2>Carousels</h2>
 <div class="cars" id="cars"></div>
+<label style="margin-top:10px">Topic (name of this carousel, also its upload folder)<input id="topic" placeholder="e.g. Pidgin is not broken English"></label><p class="hint" id="tp"></p>
 <h2>Preview</h2>
 <div class="stage"><canvas id="pv"></canvas></div>
 <div class="strip" id="strip"></div><p id="meter"></p><p class="hint" id="imgline"></p><div class="btns"><button class="s p hide" id="fill">Add images</button></div>
@@ -119,6 +121,10 @@ Formats: explainer, myth, story, lesson, deep, convo, product, quiz</pre></detai
 <h2>Caption</h2>
 <textarea id="cap" style="min-height:170px"></textarea>
 <div class="btns"><button class="s" id="mk">Build from slides</button><button class="s" id="cp">Copy</button></div>
+<h2>Upload to cloud (optional)</h2>
+<div class="card"><p class="hint" style="margin:0 0 10px">Sends the slide PNGs to the ClearWords Supabase bucket as <b>topic/slide_1.png</b>, <b>slide_2.png</b> and so on, and gives you public links. Uploading the same topic again replaces its files. Nothing is uploaded unless you tap a button here and confirm.</p>
+<div class="btns" style="margin-top:0"><button class="s p" id="upc">Upload this carousel</button><button class="s" id="upa">Upload all carousels</button></div>
+<p class="hint" id="upmsg"></p><div id="uplist"></div></div>
 <input type="file" id="file" accept="image/*" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
 </main>
 <div class="bar"><button id="one">This slide</button><button id="car">This carousel</button><button class="pri" id="zip">All as ZIP</button></div>
@@ -183,6 +189,7 @@ const F=[
 ].map(f=>({...f,s:f.s.map(a=>S0(...a))}));
 const EX=`@format myth
 @lang pidgin
+@topic Pidgin is not broken English
 Is Pidgin just broken English?
 Swipe to see what the language itself shows us.
 --
@@ -195,6 +202,7 @@ Fact: Pidgin has its own grammar, vocabulary and rhythm.
 -----
 @format lesson
 @lang igbo
+@topic Three Igbo phrases for family calls
 Three Igbo phrases for your next family call
 Easy, warm and worth saying out loud.
 [big] Daalụ
@@ -209,8 +217,10 @@ Practise these with ClearWords
 Hear native speakers, then say it back.`;
 const norm=s=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim();
 const clone=o=>JSON.parse(JSON.stringify(o));
+const slug=t=>norm(String(t)).replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,60);
+const effTopic=c=>slug(c.topic||(c.slides[0]?c.slides[0].title:'').replace(/[{}]/g,''));
 const fmOf=c=>F.find(f=>f.id===c.fmt)||F[0];
-function mk(fmt,lang,slides){return{fmt,lang,slides:slides||clone(F.find(f=>f.id===fmt).s)}}
+function mk(fmt,lang,slides){return{fmt,lang,topic:'',slides:slides||clone(F.find(f=>f.id===fmt).s)}}
 let st={mode:'single',fmt:'explainer',lang:'yoruba',url:'clearwords-versions.vercel.app',cars:[],ci:0,cur:0,dirty:false,bt:'',auto:true,series:'Speak your heritage. Not just understand it.'};
 try{const j=JSON.parse(localStorage.getItem('cw_studio2')||'null');if(j&&j.cars&&j.cars.length)st={...st,...j}}catch(e){}
 if(!st.cars.length)st.cars=[mk('explainer','yoruba')];
@@ -247,16 +257,17 @@ const t2=title||(type==='compare'?'Myth or fact?':type==='phrase'?'Say it like t
 return S0(type,chip,t2,body,items.join('\n'),big)}
 function parse(txt){
 return txt.split(/^\s*-{5,}\s*$/m).map(b=>b.trim()).filter(Boolean).map(b=>{
-let fmt=st.fmt,lang=st.lang;const rest=[];
-b.split('\n').forEach(l=>{const m=l.match(/^@(format|lang)\s+(.+)$/i);
+let fmt=st.fmt,lang=st.lang,topic='';const rest=[];
+b.split('\n').forEach(l=>{const m=l.match(/^@(format|lang|topic)\s+(.+)$/i);
 if(!m){rest.push(l);return}
+if(m[1].toLowerCase()==='topic'){topic=m[2].trim();return}
 const t=norm(m[2]);
 if(m[1].toLowerCase()==='format'){const f=F.find(f=>t&&(norm(f.name).includes(t)||t.includes(f.id)));if(f)fmt=f.id}
 else{const k=Object.keys(LANG).find(k=>t.includes(k));if(k)lang=k}});
 const parts=rest.join('\n').split(/^\s*-{2,4}\s*$/m).map(x=>x.trim()).filter(Boolean);
 const sl=parts.map((x,i)=>slide(x,i,parts.length,fmt));
 if(st.auto&&sl.length&&sl[sl.length-1].type!=='cta')sl.push(S0('cta','','Practise it with ClearWords',CTA,'Yorùbá · Igbo · Pidgin'));
-return{fmt,lang,slides:sl}}).filter(c=>c.slides.length)}
+return{fmt,lang,topic,slides:sl}}).filter(c=>c.slides.length)}
 
 /* ---------- canvas helpers ---------- */
 function lines(x,t,w){const o=[];String(t).split('\n').forEach(p=>{let l='';p.split(' ').forEach(wd=>{const n=l?l+' '+wd:wd;if(x.measureText(n).width>w&&l){o.push(l);l=wd}else l=n});o.push(l)});return o}
@@ -349,9 +360,11 @@ $('type').innerHTML=Object.entries(TYPES).map(([k,v])=>`<option value="${k}">${v
 $('lang').value=st.mode==='batch'?st.lang:CAR().lang;$('url').value=st.url;$('series').value=st.series;$('bt').value=st.bt;$('auto').checked=st.auto;
 $('mS').className=st.mode==='single'?'on':'';$('mB').className=st.mode==='batch'?'on':'';
 $('batch').classList.toggle('hide',st.mode!=='batch');
-$('cars').innerHTML=st.cars.map((c,i)=>`<button data-c="${i}" class="${i===st.ci?'on':''}">${i+1} · ${fmOf(c).name} · ${LANG[c.lang]}</button>`).join('')+(st.mode==='single'?'<button data-c="new">+ New carousel</button>':'');
+carsBar();
 }
-function sync(){const s=SL()[st.cur];$('type').value=s.type;['chip','title','body','big','items'].forEach(k=>$(k).value=s[k]);$('hint').textContent=HINT[s.type];syncImg(s)}
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function carsBar(){$('cars').innerHTML=st.cars.map((c,i)=>`<button data-c="${i}" class="${i===st.ci?'on':''}">${i+1} · ${esc(c.topic||fmOf(c).name)} · ${LANG[c.lang]}</button>`).join('')+(st.mode==='single'?'<button data-c="new">+ New carousel</button>':'')}
+function sync(){$('topic').value=CAR().topic||'';const s=SL()[st.cur];$('type').value=s.type;['chip','title','body','big','items'].forEach(k=>$(k).value=s[k]);$('hint').textContent=HINT[s.type];syncImg(s)}
 const IMT=['hook','text','question','phone','cta'];
 function syncImg(s){const ok=IMT.includes(s.type),ph=s.type==='phone'||s.type==='cta';$('imgbox').classList.toggle('hide',!ok);if(!ok)return;
 $('imgl').textContent=ph?'Phone screenshot':'Image';$('wantl').classList.toggle('hide',ph);$('want').checked=s.want!==false;
@@ -365,13 +378,13 @@ const need=sl.map((s,k)=>wants(s)?k+1:0).filter(Boolean);$('imgline').textConten
 let msg=`Teach ${n-sell} · Introduce ClearWords ${sell}`,bad=false;
 if(sl[0].type==='cta'){msg+=' · Do not open with the pitch';bad=true}
 if(sell/n>.34){msg+=' · Too salesy: teach more before you sell';bad=true}
-m.textContent=msg;m.className=bad?'warn':'ok';persist()})}
+m.textContent=msg;m.className=bad?'warn':'ok';const et=effTopic(car);$('tp').textContent=et?`Uploads to ${SB.bucket}/${et}/slide_1.png, slide_2.png …${car.topic?'':' (no topic typed, so the first headline is used)'}`:'Type a topic so the upload folder has a name.';persist()})}
 function setMode(m){st.mode=m;build();persist()}
 $('mS').onclick=()=>setMode('single');$('mB').onclick=()=>setMode('batch');
 $('fmts').onclick=e=>{const b=e.target.closest('button');if(!b)return;const id=b.dataset.f;
 if(st.mode==='batch'){st.fmt=id;build();persist();return}
 if(st.dirty&&!confirm('Replace this carousel with the '+F.find(f=>f.id===id).name+' starter?'))return;
-st.fmt=id;st.cars[st.ci]=mk(id,CAR().lang);st.cur=0;st.dirty=false;build();sync();paint()};
+const tp=CAR().topic;st.fmt=id;st.cars[st.ci]=mk(id,CAR().lang);st.cars[st.ci].topic=tp;st.cur=0;st.dirty=false;build();sync();paint()};
 $('cars').onclick=e=>{const b=e.target.closest('button');if(!b)return;
 if(b.dataset.c==='new'){st.cars.push(mk(st.fmt,st.lang));st.ci=st.cars.length-1}else st.ci=+b.dataset.c;
 st.cur=0;build();sync();paint()};
@@ -388,6 +401,7 @@ $('del').onclick=()=>{if(SL().length<2)return;SL().splice(st.cur,1);st.cur=Math.
 const mv=d=>{const j=st.cur+d,a=SL();if(j<0||j>=a.length)return;[a[st.cur],a[j]]=[a[j],a[st.cur]];st.cur=j;st.dirty=true;paint()};
 $('L').onclick=()=>mv(-1);$('R').onclick=()=>mv(1);
 $('series').oninput=e=>{st.series=e.target.value;paint()};
+$('topic').oninput=e=>{CAR().topic=e.target.value;carsBar();paint()};
 function readImg(file){return new Promise((res,rej)=>{const u=URL.createObjectURL(file),im=new Image();
 im.onload=()=>{const k=Math.min(1,1400/Math.max(im.naturalWidth,im.naturalHeight)),c=document.createElement('canvas');c.width=Math.round(im.naturalWidth*k);c.height=Math.round(im.naturalHeight*k);c.getContext('2d').drawImage(im,0,0,c.width,c.height);URL.revokeObjectURL(u);res(c.toDataURL('image/jpeg',.88))};
 im.onerror=()=>{URL.revokeObjectURL(u);rej(new Error('unreadable'))};im.src=u})}
@@ -435,6 +449,34 @@ for(let k=0;k<st.cars.length;k++){const car=st.cars[k],dir=`${String(k+1).padSta
 for(let i=0;i<car.slides.length;i++){b.textContent=`Rendering ${k+1}.${i+1}…`;files.push({name:dir+`slide-${i+1}.png`,data:new Uint8Array(await (await png(cvs(car,i))).arrayBuffer())})}
 files.push({name:dir+'caption.txt',data:enc.encode(capOf(car))})}
 await down(zip(files),'clearwords-carousels.zip');b.textContent=old};
+
+/* ---------- upload to Supabase (only when you tap a button) ---------- */
+const SB={url:'https://megxgmsivslzdxaqxxpl.supabase.co',key:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1lZ3hnbXNpdnNsemR4YXF4eHBsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ0NzA4MzIsImV4cCI6MjEwMDA0NjgzMn0.hJmwvrXhhGADlHxkciTzq2TgQo25QCdKv142at9_jyw',bucket:'carousels'};
+function showUps(){const l=$('uplist');l.innerHTML='';(st.up||[]).forEach(g=>{const d=document.createElement('div');d.style.marginTop='14px';
+const h=document.createElement('b');h.textContent=g.name;d.appendChild(h);
+const c=document.createElement('button');c.className='s';c.style.marginLeft='8px';c.textContent='Copy links';
+c.onclick=async()=>{try{await navigator.clipboard.writeText(g.urls.join('\n'))}catch(e){prompt('Copy these links:',g.urls.join('\n'))}};d.appendChild(c);
+const p=document.createElement('div');p.className='hint';g.urls.forEach((u,i)=>{const a=document.createElement('a');a.href=u;a.target='_blank';a.rel='noopener';a.textContent='Slide '+(i+1);a.style.marginRight='12px';p.appendChild(a)});
+d.appendChild(p);l.appendChild(d)})}
+async function upload(cars){
+const msg=$('upmsg'),n=cars.reduce((a,c)=>a+c.slides.length,0),btns=[$('upc'),$('upa')],slugs=cars.map(effTopic);
+if(slugs.some(t=>!t)){msg.textContent='Give every carousel a topic first (letters or numbers).';return}
+const dup=slugs.find((t,i)=>slugs.indexOf(t)!==i);if(dup){msg.textContent=`Two carousels share the topic "${dup}". Give each one its own topic.`;return}
+if(!confirm(`Upload ${n} slide image${n>1?'s':''} to ${SB.bucket}/${slugs.join(', ')}? Files with the same names are replaced. They get public links.`))return;
+btns.forEach(b=>b.disabled=true);
+try{await preload(cars);const out=[];let k=0;
+for(const [ci,car] of cars.entries()){const dir=slugs[ci],urls=[];
+for(let i=0;i<car.slides.length;i++){k++;msg.textContent=`Uploading ${k} of ${n}…`;
+const blob=await png(cvs(car,i)),path=`${dir}/slide_${i+1}.png`;
+const r=await fetch(`${SB.url}/storage/v1/object/${SB.bucket}/${path}`,{method:'POST',headers:{'Authorization':'Bearer '+SB.key,'Content-Type':'image/png','x-upsert':'true'},body:blob});
+if(!r.ok){let t='';try{t=(await r.json()).message||''}catch(e){}throw new Error(`${r.status} ${t}`.trim())}
+urls.push(`${SB.url}/storage/v1/object/public/${SB.bucket}/${path}`)}
+out.push({name:dir,urls})}
+st.up=[...out,...(st.up||[])].slice(0,10);persist();showUps();msg.textContent=`Done. ${n} image${n>1?'s':''} uploaded.`}
+catch(e){const m=String(e.message||e);msg.textContent=/^(400|401|403|404)/.test(m)?`Supabase refused the upload (${m}). Check that the bucket "${SB.bucket}" exists and allows uploads from the anon key.`:/Failed to fetch|NetworkError/i.test(m)?'Could not reach Supabase. Check your connection and try again.':'Upload failed: '+m}
+finally{btns.forEach(b=>b.disabled=false)}}
+$('upc').onclick=()=>upload([CAR()]);$('upa').onclick=()=>upload(st.cars);
+showUps();
 build();sync();
 paint();
 </script></body></html>
