@@ -106,9 +106,8 @@ Formats: explainer, myth, story, lesson, deep, convo, product, quiz</pre></detai
 <label>Big word or phrase (optional)<input id="big"></label>
 <label>Items (one per line)<textarea id="items" style="min-height:120px"></textarea></label>
 <div id="imgbox" class="hide">
-<label id="imgl" style="margin-top:14px">Image</label>
-<div class="btns" style="margin-top:6px"><button class="s p" id="pick">Add image</button><button class="s d hide" id="rmimg">Remove</button><button class="s" id="idea">Copy image idea</button></div>
-<label id="wantl" style="margin-top:10px"><input type="checkbox" id="want" checked>Use an image slot on this slide</label>
+<label id="imgl" style="margin-top:14px">Phone screenshot</label>
+<div class="btns" style="margin-top:6px"><button class="s p" id="pick">Add image</button><button class="s d hide" id="rmimg">Remove</button><button class="s" id="idea">Copy screenshot idea</button></div>
 <div id="imgctl" class="hide">
 <div class="two"><label>Fit<select id="fit"><option value="fill">Fill the space (crop)</option><option value="contain">Show whole image</option></select></label>
 <label id="pfl" class="hide">Phone<select id="pf"><option value="bleed">Runs off the bottom</option><option value="full">Whole phone</option></select></label></div>
@@ -300,17 +299,14 @@ function big(x,t,a,b,w,h,f){rr(x,a,b,w,h,40,f.tint);rr(x,a,b,14,h,7,f.acc);let s
 const IM={};
 function getImg(src){let i=IM[src];if(!i){i=IM[src]=new Image();i.onload=()=>paint();i.src=src}return i}
 const loadImg=src=>new Promise(r=>{const i=getImg(src);if(i.complete&&i.naturalWidth)r();else{i.addEventListener('load',()=>r());i.addEventListener('error',()=>r())}});
-const wants=s=>!s.img&&(s.type==='phone'||(['hook','text','question'].includes(s.type)&&!s.big&&s.want!==false));
+const wants=s=>!s.img&&s.type==='phone';
 function cover(x,src,a,b,w,h,s){const im=getImg(src);if(!im.complete||!im.naturalWidth)return;
 const iw=im.naturalWidth,ih=im.naturalHeight,z=s.z||1,fx=s.fx==null?50:s.fx,fy=s.fy==null?50:s.fy;
 if(s.fit==='contain'){const k=Math.min(w/iw,h/ih);x.drawImage(im,a+(w-iw*k)/2,b+(h-ih*k)/2,iw*k,ih*k)}
 else{const k=Math.max(w/iw,h/ih)*z,dw=iw*k,dh=ih*k;x.drawImage(im,a-(dw-w)*fx/100,b-(dh-h)*fy/100,dw,dh)}}
-function pic(x,s,a,b,w,h){x.save();rp(x,a,b,w,h,40);x.clip();x.fillStyle=C.card;x.fillRect(a,b,w,h);cover(x,s.img,a,b,w,h,s);x.restore();rp(x,a,b,w,h,40);x.strokeStyle=C.line;x.lineWidth=2;x.stroke()}
-function slot(x,s,y,w,f,pv,bt,bh){const b=y+34,h=Math.min(760,1236-b);
-if(s.img&&h>=240)pic(x,s,P,b,w,h);
-else if(s.big&&bh&&y+bh+40<1230)big(x,s.big,P,Math.max(y+36,bt),w,bh,f);
-else if(pv&&wants(s)&&h>=240){x.setLineDash([16,12]);rr(x,P,b,w,h,40,'rgba(0,80,200,.05)',C.b);x.setLineDash([]);x.fillStyle=C.b;x.font=`700 40px ${BF}`;x.textAlign='center';x.textBaseline='middle';x.fillText('Add an image here',W/2,b+h/2);x.textAlign='left';x.textBaseline='alphabetic'}
-else rings(x,W-110,1110,f.acc)}
+function slot(x,s,y,w,f,pv,bt,bh){
+if(s.big&&bh&&y+bh+40<1230)big(x,s.big,P,Math.max(y+36,bt),w,bh,f);
+else if(y<700)rings(x,W-110,1110,f.acc)}
 function phone(x,s,a,b,pw,hh,pv){
 const m=pw*.04,sx=a+m,sy=b+m,sw=pw-2*m,sh=hh-2*m;
 rr(x,a-5,b+hh*.14,6,hh*.05,3,'#0B0E14');rr(x,a-5,b+hh*.21,6,hh*.08,3,'#0B0E14');rr(x,a+pw-1,b+hh*.18,6,hh*.1,3,'#0B0E14');
@@ -319,7 +315,7 @@ x.save();rp(x,sx,sy,sw,sh,pw*.12);x.clip();
 if(s.img){x.fillStyle='#fff';x.fillRect(sx,sy,sw,sh);cover(x,s.img,sx,sy,sw,sh,s)}
 else{const g=x.createLinearGradient(sx,sy,sx+sw,sy+sh);g.addColorStop(0,C.b);g.addColorStop(1,'#003A96');x.fillStyle=g;x.fillRect(sx,sy,sw,sh);logo(x,sx+sw*.33,sy+sh*.28,sw*.34,true);if(pv){x.fillStyle=C.cream;x.font=`700 ${sw*.07}px ${BF}`;x.textAlign='center';x.fillText('Add your app screenshot',sx+sw/2,sy+sh*.28+sw*.5);x.textAlign='left'}}
 x.restore();
-const nw=pw*.42,nh=pw*.11,cx=a+pw/2,nr=pw*.05,fl=pw*.03;
+const nw=pw*.42,nh=pw*.082,cx=a+pw/2,nr=pw*.04,fl=pw*.026;
 x.beginPath();x.moveTo(cx-nw/2-fl,sy-2);x.lineTo(cx+nw/2+fl,sy-2);x.quadraticCurveTo(cx+nw/2,sy-2,cx+nw/2,sy+fl);x.lineTo(cx+nw/2,sy+nh-nr);x.quadraticCurveTo(cx+nw/2,sy+nh,cx+nw/2-nr,sy+nh);x.lineTo(cx-nw/2+nr,sy+nh);x.quadraticCurveTo(cx-nw/2,sy+nh,cx-nw/2,sy+nh-nr);x.lineTo(cx-nw/2,sy+fl);x.quadraticCurveTo(cx-nw/2,sy-2,cx-nw/2-fl,sy-2);x.closePath();x.fillStyle='#10141C';x.fill();
 rr(x,cx-nw*.17,sy+nh*.38,nw*.3,nh*.13,nh*.07,'#2B303B');x.fillStyle='#232832';x.beginPath();x.arc(cx+nw*.28,sy+nh*.45,nh*.1,0,7);x.fill();
 rp(x,a+1,b+1,pw-2,hh-2,pw*.15);x.strokeStyle='rgba(255,255,255,.2)';x.lineWidth=3;x.stroke()}
@@ -365,16 +361,16 @@ carsBar();
 const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 function carsBar(){$('cars').innerHTML=st.cars.map((c,i)=>`<button data-c="${i}" class="${i===st.ci?'on':''}">${i+1} · ${esc(c.topic||fmOf(c).name)} · ${LANG[c.lang]}</button>`).join('')+(st.mode==='single'?'<button data-c="new">+ New carousel</button>':'')}
 function sync(){$('topic').value=CAR().topic||'';const s=SL()[st.cur];$('type').value=s.type;['chip','title','body','big','items'].forEach(k=>$(k).value=s[k]);$('hint').textContent=HINT[s.type];syncImg(s)}
-const IMT=['hook','text','question','phone','cta'];
+const IMT=['phone','cta'];
 function syncImg(s){const ok=IMT.includes(s.type),ph=s.type==='phone'||s.type==='cta';$('imgbox').classList.toggle('hide',!ok);if(!ok)return;
-$('imgl').textContent=ph?'Phone screenshot':'Image';$('wantl').classList.toggle('hide',ph);$('want').checked=s.want!==false;
-$('pick').textContent=s.img?'Replace':(ph?'Add screenshot':'Add image');$('imgctl').classList.toggle('hide',!s.img);$('rmimg').classList.toggle('hide',!s.img);
+$('imgl').textContent=s.type==='cta'?'Phone screenshot (optional)':'Phone screenshot';
+$('pick').textContent=s.img?'Replace screenshot':'Add screenshot';$('imgctl').classList.toggle('hide',!s.img);$('rmimg').classList.toggle('hide',!s.img);
 $('fit').value=s.fit||'fill';$('z').value=s.z||1;$('fx').value=s.fx==null?50:s.fx;$('fy').value=s.fy==null?50:s.fy;$('pf').value=s.pf||'bleed';$('pfl').classList.toggle('hide',s.type!=='phone')}
 let raf;function paint(){cancelAnimationFrame(raf);raf=requestAnimationFrame(()=>{const car=CAR(),sl=car.slides,n=sl.length;st.cur=Math.min(st.cur,n-1);
 draw($('pv'),sl[st.cur],st.cur,n,1,car,true);
 const sp=$('strip');sp.innerHTML='';sl.forEach((s,i)=>{const c=document.createElement('canvas');draw(c,s,i,n,.1,car,true);c.className=i===st.cur?'on':'';c.onclick=()=>{st.cur=i;sync();paint()};sp.appendChild(c)});
 const sell=sl.filter(s=>['cta','chat','phone'].includes(s.type)).length,m=$('meter');
-const need=sl.map((s,k)=>wants(s)?k+1:0).filter(Boolean);$('imgline').textContent=need.length?`${need.length} of ${n} slides have room for an image (slide ${need.join(', ')}). Add them in order below, or one at a time in the editor.`:'Every image slot is filled or switched off.';$('fill').classList.toggle('hide',!need.length);$('fill').textContent=`Add images to ${need.length} empty slot${need.length>1?'s':''}`;
+const need=sl.map((s,k)=>wants(s)?k+1:0).filter(Boolean);$('imgline').textContent=need.length?`${need.length} phone slide${need.length>1?'s need':' needs'} a screenshot (slide ${need.join(', ')}).`:(sl.some(s=>s.type==='phone')?'Every phone slide has its screenshot.':'');$('fill').classList.toggle('hide',!need.length);$('fill').textContent=`Add screenshots to ${need.length} phone slide${need.length>1?'s':''}`;
 let msg=`Teach ${n-sell} · Introduce ClearWords ${sell}`,bad=false;
 if(sl[0].type==='cta'){msg+=' · Do not open with the pitch';bad=true}
 if(sell/n>.34){msg+=' · Too salesy: teach more before you sell';bad=true}
@@ -420,9 +416,8 @@ document.addEventListener('paste',e=>{const f=[...(e.clipboardData?e.clipboardDa
 $('pv').addEventListener('dragover',e=>e.preventDefault());
 $('pv').addEventListener('drop',e=>{e.preventDefault();addFiles(e.dataTransfer.files,'cur')});
 ['fit','z','fx','fy','pf'].forEach(k=>$(k).addEventListener('input',e=>{SL()[st.cur][k]=(k==='fit'||k==='pf')?e.target.value:+e.target.value;paint()}));
-$('want').onchange=e=>{SL()[st.cur].want=e.target.checked;paint()};
 $('rmimg').onclick=()=>{const s=SL()[st.cur];delete s.img;syncImg(s);paint()};
-$('idea').onclick=async()=>{const s=SL()[st.cur],t=s.title.replace(/[{}]/g,''),ph=s.type==='phone'||s.type==='cta';const q=ph?`Screenshot idea: the ClearWords screen that shows "${t}".`:`Flat, warm illustration in mint #3EDCA1 and blue #0050C8 with gold accents on a cream background, no text, showing: ${t}. Keep the top third calm so text can sit above it.`;try{await navigator.clipboard.writeText(q)}catch(e){prompt('Copy this:',q)}};
+$('idea').onclick=async()=>{const s=SL()[st.cur],t=s.title.replace(/[{}]/g,'');const q=`Screenshot idea: the ClearWords screen that shows "${t}".`;try{await navigator.clipboard.writeText(q)}catch(e){prompt('Copy this:',q)}};
 const preload=cars=>Promise.all(cars.flatMap(c=>c.slides.filter(s=>s.img).map(s=>loadImg(s.img))));
 function capOf(car){const a=car.slides[0],l=LANG[car.lang],z=car.slides[car.slides.length-1];return`${a.title}\n\n${a.body||''}\n\nSwipe through ➡️\n\n${z.body||''}\n${st.url}\n\n#ClearWords #Learn${l.replace(/[^A-Za-z]/g,'')} #${fmOf(car).name.replace(/[^A-Za-z]/g,'')}`.replace(/\n{3,}/g,'\n\n')}
 $('mk').onclick=()=>{$('cap').value=capOf(CAR())};
